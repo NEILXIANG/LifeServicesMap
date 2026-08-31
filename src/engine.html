@@ -1,0 +1,2306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kamloops Living Services Map</title>
+<meta name="description" id="metaDesc" content="Kamloops living-services map: schools, healthcare, housing, transit, groceries and newcomer essentials across every neighbourhood.">
+<meta property="og:type" content="website">
+<meta property="og:title" id="ogTitle" content="Kamloops Living Services Map">
+<meta property="og:description" id="ogDesc" content="Schools, healthcare, housing, transit, groceries and newcomer essentials across every Kamloops neighbourhood.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%97%BA%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js"></script>
+<style id="app-css">
+  :root{--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Apple SD Gothic Neo","Malgun Gothic","Noto Sans CJK SC",sans-serif;
+         --ink:#202124;--sub-ink:#5f6368;--paper:#f8f9fa;--card:#ffffff;--line:#dadce0;--accent:#1a73e8;--accent-text:#1967d2;--sage:#188038;}
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  /* every interactive control is a real <button> for keyboard access; these rules
+     strip the browser's default button chrome so the visual design is unchanged */
+  .lang-btn,.preset-chip,.reg-btn,.cat-btn,.cat-group-label,.bus-item,.af-clear,
+  .af-chip .x,.rt-name,.rt-remove,.panel-close,.search-clear{
+    font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;-webkit-appearance:none;appearance:none;}
+  .cat-group-label,.bus-item,.reg-btn,.cat-btn,.preset-chip{width:auto;}
+  .af-chip .x,.rt-remove,.search-clear,.panel-close,.af-clear,.rt-name,.grp-check,.grp-expand,.fav-star{background:none;border:none;}
+  /* type=search draws its own clear button; the page supplies one, so hide the native one */
+  input[type=search]::-webkit-search-cancel-button,
+  input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--font);}
+  header{padding:26px 20px 4px;position:relative;}
+  h1{font-family:var(--font);font-size:clamp(20px,3vw,27px);margin:0 0 5px;font-weight:500;letter-spacing:0;padding-right:265px;}
+  .sub{display:none;}
+  .lang-sw{position:absolute;top:24px;right:20px;display:flex;gap:2px;background:#f1f3f4;border-radius:9px;padding:2px;}
+  .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:var(--sub-ink);transition:all .15s cubic-bezier(.4,0,.2,1);}
+  .lang-btn.active{background:var(--card);color:var(--accent-text);box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
+  .header-links{position:absolute;top:60px;right:20px;display:flex;align-items:center;gap:14px;}
+  .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
+  .note-toggle{font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
+  .feedback-link:hover,.note-toggle:hover{text-decoration:underline;}
+
+  .sec-label{padding:2px 0 7px;font-family:var(--font);font-size:11.5px;font-weight:600;color:var(--sage);letter-spacing:.2px;}
+  /* unified filter toolbar — identical on every breakpoint */
+  .ftoolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;row-gap:6px;padding:12px 20px 0;}
+  .filter-btn{background:var(--accent);color:#fff;border:none;border-radius:20px;padding:9px 12px 9px 14px;font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap;transition:filter .15s cubic-bezier(.4,0,.2,1);box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
+  .filter-btn:hover{filter:brightness(.94);}
+  .filter-btn svg{flex:0 0 auto;display:block;}
+  .filter-btn .chev{font-size:9px;transition:transform .18s;opacity:.9;}
+  .filter-btn.open .chev{transform:rotate(180deg);}
+  .filter-btn .badge{background:#fff;color:var(--accent-text);border-radius:999px;font-size:10.5px;padding:1px 6px;font-weight:800;}
+  .status{font-size:12.5px;color:var(--ink);font-weight:590;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 2px;}
+  .fbicon{font-size:12px;line-height:1;}
+  .reset-btn{font-size:12px;color:var(--accent-text);font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:16px;cursor:pointer;padding:6px 12px;white-space:nowrap;display:flex;align-items:center;gap:4px;}
+  .reset-btn[hidden]{display:none;}
+  .reset-btn.idle{color:var(--sub-ink);border-color:var(--line);}
+  .reset-btn:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  .preset-chip.adjusted::after{content:'·';margin-left:5px;font-weight:800;opacity:.75;}
+  .qp-row{padding:11px 20px 0;position:relative;}
+  .qp-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:7px;}
+  .qp-head .sec-label{padding-bottom:0;}
+  .qp-row::after{content:'';position:absolute;right:0;top:29px;bottom:2px;width:28px;background:linear-gradient(to right,transparent,var(--paper));pointer-events:none;}
+  .fhint{padding:5px 20px 0;font-size:11px;color:var(--sub-ink);}
+  .active-filters{display:flex;flex-wrap:wrap;gap:6px;padding:9px 20px 0;}
+  .active-filters[hidden],.fhint[hidden]{display:none;}
+  .active-filters:empty{display:none;}
+  .fhint:empty{display:none;}
+  .af-chip{display:flex;align-items:center;gap:6px;padding:5px 8px 5px 12px;border-radius:16px;background:color-mix(in srgb,var(--accent) 9%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent-text);font-size:11.5px;font-weight:600;}
+  .af-chip .x{width:15px;height:15px;border-radius:50%;background:color-mix(in srgb,var(--accent) 16%,transparent);display:flex;align-items:center;justify-content:center;font-size:10px;cursor:pointer;line-height:1;}
+  .af-chip .x:hover{background:var(--accent);color:#fff;}
+  .af-clear{font-size:11.5px;color:var(--sub-ink);text-decoration:underline;cursor:pointer;padding:5px 2px;}
+  /* region row — horizontal scroll, same component on all breakpoints */
+  .reg-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 12px;}
+  .reg-btn{flex:0 0 auto;padding:7px 14px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);background:color-mix(in srgb,var(--accent) 7%,var(--card));font-size:12.5px;cursor:pointer;font-weight:590;color:var(--accent-text);user-select:none;white-space:nowrap;transition:all .15s;}
+  .reg-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  /* panel sections — one visual system shared by quick-picks / area / category */
+  .psec{padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid var(--line);}
+  .psec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .cat-utils-inline{display:flex;justify-content:flex-end;margin-bottom:8px;}
+  .cat-utils{font-size:11px;color:var(--sub-ink);display:flex;gap:6px;align-items:center;}
+  .cat-util-btn{cursor:pointer;font-weight:700;color:var(--accent-text);background:none;border:none;font-family:inherit;font-size:inherit;padding:0;}
+  /* quick picks */
+  .preset-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px;margin:0 -20px;padding-left:20px;padding-right:34px;}
+  .preset-row::-webkit-scrollbar{display:none;}
+  .preset-chip{flex:0 0 auto;white-space:nowrap;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;}
+  .preset-chip:hover{background:#f1f3f4;border-color:color-mix(in srgb,var(--sage) 35%,var(--line));}
+  .preset-chip.active{background:var(--sage);border-color:var(--sage);color:#fff;}
+  /* category accordion */
+  .cat-wrap{display:flex;flex-direction:column;gap:7px;}
+  .cat-group{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;}
+  .cat-group-label{display:flex;align-items:center;gap:8px;padding:10px 12px;margin:0;font-family:var(--font);font-size:12px;font-weight:600;color:var(--ink);letter-spacing:.1px;cursor:pointer;user-select:none;}
+  .grp-expand{flex:1;min-width:0;display:flex;align-items:center;gap:8px;background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left;}
+  .cat-group-label .grp-name{flex:1;min-width:0;}
+  .cat-group-label .grp-count{font-size:10.5px;font-weight:700;color:var(--accent-text);white-space:nowrap;}
+  .grp-check{width:16px;height:16px;padding:0;background:none;border-radius:5px;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1;flex:0 0 auto;color:#fff;cursor:pointer;font-weight:800;}
+  .grp-check.all{background:var(--sage);border-color:var(--sage);}
+  .grp-check.none{background:transparent;}
+  .grp-check.partial{background:color-mix(in srgb,var(--sage) 55%,var(--card));border-color:var(--sage);color:var(--ink);}
+  .cat-group-label .car{font-size:10px;color:var(--sub-ink);transition:transform .15s;flex:0 0 auto;}
+  .cat-group.open .cat-group-label .car{transform:rotate(90deg);}
+  .cat-grid{display:none;flex-wrap:wrap;gap:5px;padding:0 10px 10px;}
+  .cat-group.open .cat-grid{display:flex;}
+  .cat-btn{flex:0 0 auto;display:flex;flex-direction:row;align-items:center;gap:3px;padding:6px 10px;border-radius:8px;border:1px solid color-mix(in srgb,var(--bc) 28%,transparent);background:color-mix(in srgb,var(--bc) 10%,var(--card));cursor:pointer;user-select:none;transition:all .13s;font-size:11.5px;font-weight:600;color:var(--bc);white-space:nowrap;min-height:32px;}
+  .cat-btn .icon{font-size:13px;line-height:1;}
+  .cat-btn.active{background:var(--bc);border-color:var(--bc);color:#fff;box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
+  .cat-btn .cnt{font-size:10.5px;font-weight:500;color:var(--sub-ink);}
+  .cat-btn.active .cnt{color:#fff;}
+  #map{height:64vh;height:64dvh;min-height:400px;width:calc(100% - 40px);margin:14px 20px 0;border-radius:8px;border:1px solid var(--line);box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
+  /* Leaflet's control container is z-index:1000 and lives outside the map's pane
+     stack, so at 1000 it tied with the overlay and DOM order decided — the zoom
+     buttons and the attribution link stayed clickable through an open modal.
+     1200 clears every Leaflet layer (max 1000). */
+  /* filter panel shell — content identical, only container adapts by breakpoint */
+  .backdrop{position:fixed;inset:0;background:rgba(32,33,36,.4);display:none;z-index:1200;pointer-events:none;}
+  .backdrop.open{display:flex;}
+  .panel{background:var(--card);display:flex;flex-direction:column;box-shadow:0 1px 3px 0 rgba(60,64,67,.3),0 4px 8px 3px rgba(60,64,67,.15);pointer-events:auto;}
+  /* The grab area is 22px tall so a thumb can find it; only the 4px bar shows. */
+  .panel-grab{padding:9px 0 9px;flex:0 0 auto;cursor:grab;touch-action:none;display:flex;justify-content:center;}
+  .panel-grab:active{cursor:grabbing;}
+  .panel-handle{width:36px;height:4px;background:var(--line);border-radius:99px;flex:0 0 auto;}
+  .panel.dragging{transition:none;}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;padding:8px 18px 10px;border-bottom:1px solid var(--line);flex:0 0 auto;}
+  .panel-title{font-family:var(--font);font-weight:500;font-size:14.5px;}
+  .panel-close{font-size:18px;color:var(--sub-ink);cursor:pointer;line-height:1;padding:4px;background:none;border:none;font-family:inherit;}
+  .panel-body{overflow-y:auto;padding:14px 18px 6px;flex:1 1 auto;}
+  .apply-bar{padding:12px 18px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);flex:0 0 auto;}
+  .apply-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:12px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;}
+  @media(max-width:900px){
+    .backdrop{align-items:flex-end;}
+    .backdrop.open{pointer-events:auto;}
+    .panel{width:100%;max-height:80vh;max-height:80dvh;border-radius:16px 16px 0 0;
+      transition:transform .22s cubic-bezier(.2,.8,.3,1);}
+  }
+  @media(min-width:901px){
+    .backdrop{background:transparent;align-items:flex-start;justify-content:flex-start;}
+    .panel{position:absolute;top:132px;left:20px;width:460px;max-height:min(72vh,640px);border-radius:14px;border:1px solid var(--line);}
+    .panel-grab{display:none;}
+  }
+  .footer{padding:14px 20px 28px;font-size:11.5px;color:var(--sub-ink);line-height:1.75;max-width:860px;}
+  .footer a{color:var(--accent-text);}
+  .leaflet-popup-content-wrapper{border-radius:10px;background:var(--card);}
+  .leaflet-popup-content{font-size:12.5px;line-height:1.55;min-width:0;width:min(305px,calc(100vw - 72px));margin:11px 13px;color:var(--ink);}
+  .bus-indicator{display:none;align-items:center;gap:8px;margin:0 20px 10px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));font-size:12.5px;font-weight:600;color:var(--ink);}
+  .bus-indicator.show{display:flex;}
+  .bus-indicator .x{cursor:pointer;color:var(--sub-ink);font-weight:700;margin-left:auto;padding:0 4px;}
+  .bus-list{display:flex;flex-direction:column;gap:6px;}
+  .bus-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:all .15s;}
+  .bus-item:hover{background:#f1f3f4;}
+  .bus-item.active{background:color-mix(in srgb,var(--accent) 10%,var(--card));border-color:var(--accent);}
+  .bus-item .dot{width:14px;height:14px;border-radius:50%;flex:0 0 auto;}
+  .bus-item .rt-num{font-weight:700;font-size:13px;min-width:22px;}
+  .bus-item .rt-name{flex:1;min-width:0;font-size:12.5px;color:var(--sub-ink);}
+  .bus-item .rt-count{font-size:10.5px;color:var(--accent-text);font-weight:700;white-space:nowrap;}
+  .fav-empty{color:var(--sub-ink);font-size:12.5px;padding:20px 4px;text-align:center;line-height:1.7;}
+  .fav-tag{color:var(--sub-ink);font-size:11px;}
+  .fav-item .rt-remove{font-size:13px;color:var(--sub-ink);cursor:pointer;padding:2px 4px;flex:0 0 auto;}
+  .fav-item .rt-remove:hover{color:#c0392b;}
+  .search-bar{display:flex;align-items:center;gap:8px;margin:12px 20px 0;padding:9px 14px;background:var(--card);border:1px solid var(--line);border-radius:10px;max-width:420px;}
+  .search-bar input{border:none;outline:none;flex:1;font-size:13px;font-family:inherit;color:var(--ink);background:transparent;min-width:0;}
+  .search-ic{font-size:13px;opacity:.6;flex:0 0 auto;}
+  .search-clear{cursor:pointer;opacity:.5;font-size:12px;padding:2px 4px;flex:0 0 auto;}
+  .search-clear:hover{opacity:1;}
+  @media(max-width:600px){.search-bar{margin:10px 10px 0;max-width:none;}}
+  .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#f2a900;}
+  .fav-star:hover{transform:scale(1.15);}
+  #guideBackdrop,#noteBackdrop{align-items:center!important;justify-content:center!important;background:rgba(32,33,36,.5);pointer-events:none;}
+  #guideBackdrop.open,#noteBackdrop.open{pointer-events:auto;}
+  .guide-modal{background:var(--card);display:flex;flex-direction:column;box-shadow:0 1px 3px 0 rgba(60,64,67,.3),0 4px 8px 3px rgba(60,64,67,.15);border-radius:14px;width:600px;max-width:92vw;max-height:82vh;margin:auto;pointer-events:auto;}
+  .guide-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line);flex:0 0 auto;}
+  .guide-body{overflow-y:auto;padding:16px 22px 26px;flex:1 1 auto;font-size:13px;line-height:1.75;color:var(--ink);}
+  .guide-body h3{font-size:14.5px;margin:20px 0 8px;font-family:var(--font);}
+  .guide-body h3:first-child{margin-top:0;}
+  .guide-body p{margin:0 0 8px;}
+  .guide-body ul{margin:0 0 8px;padding-left:20px;}
+  .guide-body li{margin:4px 0;}
+  .guide-body a{color:var(--accent-text);}
+  .leaflet-tooltip.stop-label{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.12);border-radius:4px;padding:1px 5px;font-size:9.5px;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.15);white-space:nowrap;}
+  .leaflet-tooltip.stop-label::before{display:none;}
+  .pt{font-family:var(--font);font-size:14px;font-weight:500;margin:2px 0 5px;}
+  .tag{display:inline-block;font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:6px;margin:0 3px 5px 0;color:#fff;}
+  .tag2{background:#5f6368;}
+  .tag3{background:transparent;color:var(--sub-ink);border:1px solid var(--line);}
+  .pr{margin:4px 0;}
+  .pl{color:var(--sub-ink);display:inline-block;min-width:38px;padding-right:6px;}
+  .pq{color:var(--sub-ink);font-size:11px;}
+  .pv{font-size:11px;color:var(--sub-ink);margin-top:7px;}
+  .licence-line{color:var(--sub-ink);}
+  .pv-report{color:var(--accent-text);text-decoration:none;}
+  .pv-report:hover{text-decoration:underline;}
+  /* marker clustering — CSS inlined rather than pulled from a second CDN file */
+  .leaflet-cluster-anim .leaflet-marker-icon,.leaflet-cluster-anim .leaflet-marker-shadow{transition:transform .3s ease-out,opacity .3s ease-in;}
+  .leaflet-cluster-spider-leg{transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in;}
+  .kcluster{background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font);font-weight:600;border:2.5px solid #fff;
+    box-shadow:0 1px 3px rgba(60,64,67,.4),0 3px 8px rgba(60,64,67,.25);}
+  .kcluster.s{width:34px;height:34px;font-size:12.5px;}
+  .kcluster.m{width:42px;height:42px;font-size:13.5px;background:#1558b0;}
+  .kcluster.l{width:50px;height:50px;font-size:14.5px;background:#0d47a1;}
+  /* search-active state: the area/category filters are bypassed, so they read as bypassed */
+  .ftoolbar.searching .filter-btn#areaBtn,.ftoolbar.searching .filter-btn#catBtn{opacity:.45;}
+  .search-note{padding:6px 20px 0;font-size:11.5px;color:var(--accent-text);font-weight:600;}
+  .search-note:empty{display:none;}
+  .empty-state{margin:14px 20px 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;font-size:13px;color:var(--sub-ink);line-height:1.7;text-align:center;}
+  .empty-state[hidden]{display:none;}
+  /* Pinch-zoom covers this on a phone, and 44px of permanent chrome over the map
+     corner costs more there than the buttons are worth. */
+  @media(max-width:600px){.leaflet-control-zoom{display:none;}}
+  .pv-src{display:inline-block;padding:1px 6px;border-radius:5px;font-size:10.5px;
+    background:#eef2f7;color:#4b5b6b;cursor:help;}
+  .pv-src.src-official{background:#e6f4ea;color:#1e6b38;}
+  .pv-src.src-own{background:#fff3d6;color:#7a5c00;}
+  .fav-io{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+  .fav-io-note{margin:0 0 9px;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
+  .fav-io-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .fav-io-btn{font-size:12px;font-weight:600;color:var(--accent-text);background:var(--card);
+    border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:16px;
+    padding:7px 14px;cursor:pointer;}
+  .fav-io-btn:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  .fav-io-box{width:100%;margin-top:9px;padding:8px 10px;font-size:11.5px;line-height:1.5;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:8px;resize:vertical;}
+  .fav-io-msg{margin:8px 0 0;font-size:11.5px;color:var(--sage);min-height:1em;}
+  /* Leaflet adds this class when maxHeight kicks in; keep the scroll inside it. */
+  .leaflet-popup-scrolled{overscroll-behavior:contain;border-bottom:none;}
+  .privacy-note{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);}
+  .offline-note{position:absolute;left:56px;right:12px;top:12px;z-index:900;
+    padding:8px 32px 8px 12px;background:#fef7e0;border:1px solid #fde293;
+    border-radius:8px;font-size:12px;color:#7a5c00;line-height:1.55;
+    box-shadow:0 2px 10px rgba(0,0,0,.14);}
+  .offline-note[hidden]{display:none;}
+  .offline-x{position:absolute;top:3px;right:4px;padding:4px 6px;background:none;border:none;
+    color:#7a5c00;font-size:14px;line-height:1;cursor:pointer;border-radius:6px;}
+  .offline-x:hover{background:#fdecc0;border:none;}
+  /* left:56px keeps it clear of Leaflet's zoom control, which sits above it. */
+  @media(min-width:901px){.offline-note{left:auto;right:16px;max-width:340px;}}
+  .empty-state p{margin:0 0 10px;}
+  .empty-state p:last-child{margin-bottom:0;}
+  .empty-btn{font-family:inherit;font-size:12.5px;font-weight:600;color:#fff;background:var(--accent);
+    border:none;border-radius:18px;padding:8px 18px;cursor:pointer;}
+  .empty-btn:hover{filter:brightness(.94);}
+  .bus-coverage{padding:10px 4px 2px;font-size:11.5px;color:var(--sub-ink);line-height:1.65;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px;}
+  /* Comfortable targets where a finger is the pointer. Scoped to coarse pointers so
+     the desktop toolbar keeps its tuned geometry, and expressed as min-height plus
+     centring rather than extra padding, which would reflow the rows. */
+  @media(pointer:coarse){
+    .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
+    .cat-btn,.bus-item,.note-toggle,.cat-util-btn,.af-chip{min-height:44px;}
+    .lang-btn,.filter-btn,.reset-btn,.preset-chip,.reg-btn,.cat-btn{
+      display:inline-flex;align-items:center;}
+    /* The language buttons were tall enough but only ~39px wide. Five at 44px plus
+       gaps is 232px, which still fits a 320px phone. */
+    .lang-btn{min-width:44px;justify-content:center;}
+    .header-links a,.note-toggle{display:inline-flex;align-items:center;}
+    .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;
+      display:inline-flex;align-items:center;justify-content:center;}
+    .search-bar{padding-top:12px;padding-bottom:12px;}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+  .pn{color:var(--sub-ink);margin-top:5px;font-size:11.5px;}
+  .pr a[href^="tel:"]{color:var(--accent-text);text-decoration:none;font-weight:600;}
+  /* popup action row — Directions / Call / Website as three same-size buttons,
+     mirroring Google Maps' own place-card action bar rather than mixed link styles */
+  .pact{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap;}
+  .pact-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:6px 10px;border-radius:14px;text-decoration:none;white-space:nowrap;background:var(--card);color:var(--accent-text);border:1px solid var(--line);}
+  .pact-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .pact-ic{font-size:12px;line-height:1;}
+  @media(max-width:600px){
+    h1,.sub{padding-right:0;}
+    .lang-sw{position:static;display:inline-flex;margin:0;}
+    .header-links{position:static;display:inline-flex;margin:0 0 0 auto;gap:12px;}
+    /* language switcher and the three utility links share one compact band, and
+       the title drops below them instead of each taking a row of its own */
+    header{padding:10px 12px 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
+    h1{font-size:17px;flex:1 1 100%;order:3;margin:2px 0 0;}
+    .search-bar{margin:8px 12px 0;padding:8px 12px;}
+    .ftoolbar{padding:8px 12px 0;}
+    .qp-row{padding:8px 12px 0;}
+    .active-filters{padding:7px 12px 0;}
+    .fhint{padding:4px 12px 0;font-size:10.5px;}
+    .search-note{padding:5px 12px 0;}
+    .empty-state{margin:10px 12px 0;padding:14px 16px;}
+    /* whatever is left after the chrome, with a floor so it is never a sliver */
+    #map{height:auto;flex:1 1 auto;min-height:min(58vh,420px);min-height:min(58dvh,420px);width:calc(100% - 24px);margin:10px 12px 0;}
+    body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
+    /* flex items default to min-width:auto, which let the horizontally-scrolling
+       quick-picks row stretch the page instead of scrolling inside itself */
+    body>*{min-width:0;}
+    footer{flex:0 0 auto;}
+    /* the "Quick Picks" caption costs a whole row on a phone; fold it into the
+       scrolling row itself */
+    .qp-head{display:none;}
+    /* the bleed margins have to track .qp-row's padding or the row overflows */
+    .preset-row{gap:6px;margin:0 -12px;padding-left:12px;padding-right:26px;}
+    .preset-chip{padding:7px 11px;font-size:11.5px;}
+    .qp-row::after{right:0;top:2px;width:20px;}
+  }
+  @media(max-width:480px){
+    .ftoolbar{flex-wrap:wrap;row-gap:6px;}
+    .status{order:3;flex:1 1 100%;}
+    .reset-btn{order:2;margin-left:auto;}
+  }
+  @media(max-width:400px){.ftoolbar{gap:6px;}.filter-btn{padding:8px 9px 8px 11px;font-size:11.5px;gap:5px;}.reset-btn{padding:6px 9px;}}
+  /* Short screens: the chrome above the map adds up. On a 320x568 phone the header,
+     search bar, toolbar (three rows once French wraps), quick picks and the hint left
+     the map starting at 387px — below the middle of the viewport. Raising the touch
+     targets to 44px made that worse, so the vertical rhythm is tightened here to pay
+     for it. Nothing is removed except the first-run hint, which has served its purpose
+     by the time someone is on a screen this tight.
+     Targets stay at 44px: shrinking them back is not an acceptable trade. */
+  @media(max-height:680px) and (max-width:600px){
+    header{padding-top:6px;padding-bottom:0;gap:6px 10px;}
+    h1{font-size:15.5px;margin-top:0;}
+    .search-bar{margin-top:6px;}
+    .ftoolbar{padding-top:8px;row-gap:5px;}
+    .qp-row{padding-top:5px;}
+    .fhint{display:none;}
+    /* The count shared a row with nothing else and cost a whole line. Let it sit
+       beside Reset and truncate rather than wrap — the Area button already shows
+       which regions are on, so the tail of this sentence is the least useful pixel
+       on the screen. */
+    .status{order:2;flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;
+      text-overflow:ellipsis;}
+    .reset-btn{order:3;margin-left:0;}
+    #map{margin-top:6px;}
+    /* Touch targets step down from 44px to 36px here — still half again WCAG 2.5.8's
+       24px floor. On a 320x568 screen, honouring Apple's 44pt across four rows of
+       chrome pushed the map to 409px, leaving a quarter of the viewport for the thing
+       the page exists to show. That is the guideline working against its own purpose. */
+    @media(pointer:coarse){
+      .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
+      .cat-btn,.note-toggle,.cat-util-btn,.af-chip{min-height:36px;}
+      .lang-btn{min-width:36px;}
+      .panel-close,.offline-x,.fav-star{min-width:40px;min-height:40px;}
+      .search-clear{min-width:36px;min-height:36px;}
+      .search-bar{padding-top:3px;padding-bottom:3px;}
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="lang-sw">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="es">ES</button>
+    <button class="lang-btn" data-lang="zh">中文</button>
+    <button class="lang-btn" data-lang="ko">한국어</button>
+  </div>
+  <div class="header-links">
+    <a class="feedback-link" id="feedbackLink" href="#"></a>
+    <button class="note-toggle" id="guideToggle"></button>
+    <button class="note-toggle" id="noteToggle"></button>
+  </div>
+  <h1 id="h1"></h1>
+  <p class="sub" id="sub"></p>
+</header>
+<div class="backdrop" id="noteBackdrop">
+  <div class="guide-modal" id="noteModal">
+    <div class="guide-head">
+      <div class="panel-title" id="noteTitle"></div>
+      <button class="panel-close" id="noteClose">✕</button>
+    </div>
+    <div class="guide-body" id="noteBody"></div>
+  </div>
+</div>
+<div class="search-bar">
+  <span class="search-ic" aria-hidden="true">🔍</span>
+  <input type="search" id="searchInput" autocomplete="off">
+  <button class="search-clear" id="searchClear" hidden>✕</button>
+</div>
+<div class="search-note" id="searchNote"></div>
+<div class="ftoolbar">
+  <button class="filter-btn" id="areaBtn">
+    <span class="fbicon">📍</span><span id="areaBtnLabel"></span><span class="badge" id="areaBadge" hidden></span>
+    <span class="chev">▾</span>
+  </button>
+  <button class="filter-btn" id="catBtn">
+    <span class="fbicon">🏷️</span><span id="catBtnLabel"></span><span class="badge" id="catBadge" hidden></span>
+    <span class="chev">▾</span>
+  </button>
+  <button class="filter-btn" id="busBtn">
+    <span class="fbicon">🚌</span><span id="busBtnLabel"></span>
+    <span class="chev">▾</span>
+  </button>
+  <button class="filter-btn" id="favBtn">
+    <span class="fbicon">⭐</span><span id="favBtnLabel"></span><span class="badge" id="favBadge" hidden></span>
+    <span class="chev">▾</span>
+  </button>
+  <div class="status" id="statusText" title=""></div>
+  <button class="reset-btn" id="resetBtn" hidden>↺ <span id="resetLabel"></span></button>
+</div>
+<div class="empty-state" id="emptyState" hidden></div>
+<div class="bus-indicator" id="busIndicator" hidden></div>
+<div class="qp-row">
+  <div class="qp-head">
+    <div class="sec-label" id="quickLabel"></div>
+  </div>
+  <div class="preset-row">
+    <button class="preset-chip" id="daily"></button>
+    <button class="preset-chip" id="newcomer"></button>
+    <button class="preset-chip" id="kids"></button>
+    <button class="preset-chip" id="edu"></button>
+    <button class="preset-chip" id="health"></button>
+    <button class="preset-chip" id="sports"></button>
+    <button class="preset-chip" id="outdoor"></button>
+    <button class="preset-chip" id="shopping"></button>
+    <button class="preset-chip" id="auto"></button>
+  </div>
+</div>
+<div class="fhint" id="fhint"></div>
+<div class="active-filters" id="activeFilters"></div>
+<div id="map"><div class="offline-note" id="offlineNote" role="status" hidden><span id="offlineText"></span><button class="offline-x" id="offlineClose" type="button">✕</button></div></div>
+<div class="footer" id="footer"></div>
+
+<div class="backdrop" id="backdrop">
+  <div class="panel" id="panel">
+    <div class="panel-grab" id="panelGrab" aria-hidden="true"><div class="panel-handle"></div></div>
+    <div class="panel-head">
+      <div class="panel-title" id="panelTitle"></div>
+      <button class="panel-close" id="panelClose">✕</button>
+    </div>
+    <div class="panel-body">
+      <div id="panelArea">
+        <div class="reg-row" id="regRow"></div>
+      </div>
+      <div id="panelCat" hidden>
+        <div class="psec">
+          <div class="cat-utils-inline">
+            <div class="cat-utils"><button id="clearCat" class="cat-util-btn"></button></div>
+          </div>
+          <div class="cat-wrap" id="catGrid"></div>
+        </div>
+      </div>
+      <div id="panelBus" hidden>
+        <div class="bus-list" id="busList"></div><div class="bus-coverage" id="busCoverage"></div>
+      </div>
+      <div id="panelFav" hidden>
+        <div class="bus-list" id="favList"></div>
+        <div class="fav-io" id="favIO">
+          <p class="fav-io-note" id="favIONote"></p>
+          <div class="fav-io-row">
+            <button class="fav-io-btn" id="favExport"></button>
+            <button class="fav-io-btn" id="favImport"></button>
+          </div>
+          <textarea class="fav-io-box" id="favCode" rows="2" spellcheck="false"></textarea>
+          <p class="fav-io-msg" id="favIOMsg" role="status"></p>
+        </div>
+      </div>
+    </div>
+    <div class="apply-bar" id="applyBar"><button class="apply-btn" id="applyBtn"></button></div>
+  </div>
+</div>
+
+<div class="backdrop" id="guideBackdrop">
+  <div class="guide-modal" id="guideModal">
+    <div class="guide-head">
+      <div class="panel-title" id="guideTitle"></div>
+      <button class="panel-close" id="guideClose">✕</button>
+    </div>
+    <div class="guide-body" id="guideBody"></div>
+  </div>
+</div>
+
+<script id="app">
+const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"先选区域，再选分类 · 点击标记看详情","note":"⚠️ 本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。🏢公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。<br><br>📅最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 新居民必看","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br>紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）<br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Filter by area, then category · Click markers for details","note":"⚠️ This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site). 🏢 For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.<br><br>📅Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Newcomer Guide","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br>Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)<br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Filtrez par secteur, puis par catégorie · Cliquez sur un repère pour les détails","note":"⚠️ Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}). 🏢 Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.<br><br>📅Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Nouveaux arrivants","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br>Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)<br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Filtre por zona y luego por categoría · Toque un marcador para ver detalles","note":"⚠️ Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}). 🏢 Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.<br><br>📅Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Guía del recién llegado","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br>Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)<br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"지역 선택 후 분류 선택 · 마커를 클릭해 상세정보 확인","note":"⚠️ 이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요). 🏢 아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.<br><br>📅최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 신규 정착민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br>긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)<br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"}};
+UI.zh.showing=(v,t)=>`${v} / ${t} 处地点`;
+UI.en.showing=(v,t)=>`${v} / ${t} place${t===1?'':'s'}`;
+UI.fr.showing=(v,t)=>`${v} / ${t} lieu${t===1?'':'x'}`;
+UI.es.showing=(v,t)=>`${v} / ${t} lugar${t===1?'':'es'}`;
+UI.zh.areasN=n=>`${n}个地区`; UI.en.areasN=n=>`${n} area${n===1?'':'s'}`; UI.fr.areasN=n=>`${n} secteur${n===1?'':'s'}`; UI.es.areasN=n=>`${n} zona${n===1?'':'s'}`;
+UI.zh.routeLabel=k=>`${k}路`; UI.en.routeLabel=k=>`Route ${k}`; UI.fr.routeLabel=k=>`Ligne ${k}`; UI.es.routeLabel=k=>`Ruta ${k}`;
+UI.zh.stopsN=n=>`${n}站`; UI.en.stopsN=n=>`${n} stop${n===1?'':'s'}`; UI.fr.stopsN=n=>`${n} arrêt${n===1?'':'s'}`; UI.es.stopsN=n=>`${n} parada${n===1?'':'s'}`;
+UI.zh.stopSeqN=(i,n)=>`第${i}站 / 共${n}站`; UI.en.stopSeqN=(i,n)=>`${i} of ${n}`; UI.fr.stopSeqN=(i,n)=>`${i} sur ${n}`; UI.es.stopSeqN=(i,n)=>`${i} de ${n}`;
+UI.zh.applyBtn=n=>`查看 ${n} 处地点`; UI.en.applyBtn=n=>`View ${n} place${n===1?'':'s'}`; UI.fr.applyBtn=n=>`Voir ${n} lieu${n===1?'':'x'}`; UI.es.applyBtn=n=>`Ver ${n} lugar${n===1?'':'es'}`;
+UI.zh.areaBtnLabel='区域'; UI.en.areaBtnLabel='Area'; UI.fr.areaBtnLabel='Secteur'; UI.es.areaBtnLabel='Zona';
+UI.zh.catBtnLabel='分类'; UI.en.catBtnLabel='Category'; UI.fr.catBtnLabel='Catégorie'; UI.es.catBtnLabel='Categoría';
+UI.zh.resetBtn='重置'; UI.en.resetBtn='Reset'; UI.fr.resetBtn='Réinitialiser'; UI.es.resetBtn='Reiniciar';
+UI.zh.hint='👆 点击"区域"或"分类"即可筛选'; UI.en.hint='👆 Tap Area or Category to filter'; UI.fr.hint='👆 Touchez Secteur ou Catégorie pour filtrer'; UI.es.hint='👆 Toque Zona o Categoría para filtrar';
+UI.zh.catsSelected=n=>`已选 ${n} 个分类`; UI.en.catsSelected=n=>`${n} categor${n===1?'y':'ies'} selected`; UI.fr.catsSelected=n=>`${n} catégorie${n===1?'':'s'} sélectionnée${n===1?'':'s'}`; UI.es.catsSelected=n=>`${n} categoría${n===1?'':'s'} seleccionada${n===1?'':'s'}`;
+UI.zh.clearAll='全部清除'; UI.en.clearAll='Clear all'; UI.fr.clearAll='Tout effacer'; UI.es.clearAll='Borrar todo';
+UI.zh.quickLabel='💡 快捷选择'; UI.en.quickLabel='💡 Quick Picks'; UI.fr.quickLabel='💡 Choix rapides'; UI.es.quickLabel='💡 Accesos rápidos';
+UI.zh.guideToggleLabel='📖 新居民指南'; UI.en.guideToggleLabel='📖 Newcomer Guide'; UI.fr.guideToggleLabel='📖 Guide du nouvel arrivant'; UI.es.guideToggleLabel='📖 Guía del recién llegado';
+UI.zh.favBtnLabel='收藏'; UI.en.favBtnLabel='Favorites'; UI.fr.favBtnLabel='Favoris'; UI.es.favBtnLabel='Favoritos';
+UI.zh.noFavorites='暂无收藏地点，点击地图标记弹窗里的☆即可收藏'; UI.en.noFavorites='No favorites yet — tap the ☆ in any place popup to save it here'; UI.fr.noFavorites='Aucun favori pour l’instant — touchez le ☆ dans une fiche de lieu pour l’ajouter ici'; UI.es.noFavorites='Aún no hay favoritos — toque el ☆ en la ficha de cualquier lugar para guardarlo aquí';
+UI.zh.searchPlaceholder='搜索名称、地址、分类或备注…'; UI.en.searchPlaceholder='Search name, address, category or notes…'; UI.fr.searchPlaceholder='Rechercher : nom, adresse, catégorie ou notes…'; UI.es.searchPlaceholder='Buscar por nombre, dirección, categoría o notas…';
+UI.zh.searchResultsN=n=>n===0?'未找到匹配地点':`搜索到 ${n} 个结果`;
+UI.en.searchResultsN=n=>n===0?'No matching places found':`${n} search result${n===1?'':'s'}`;
+UI.fr.searchResultsN=n=>n===0?'Aucun lieu correspondant':`${n} résultat${n===1?'':'s'}`;
+UI.es.searchResultsN=n=>n===0?'No se encontraron lugares':`${n} resultado${n===1?'':'s'} de búsqueda`;
+UI.ko.showing=(v,t)=>`${v} / ${t}곳`;
+UI.ko.areasN=n=>`${n}개 지역`;
+UI.ko.routeLabel=k=>`${k}번 노선`;
+UI.ko.stopsN=n=>`${n}개 정류장`;
+UI.ko.stopSeqN=(i,n)=>`${i} / ${n}`;
+UI.ko.applyBtn=n=>`${n}곳 보기`;
+UI.ko.areaBtnLabel='지역'; UI.ko.catBtnLabel='분류'; UI.ko.resetBtn='초기화';
+UI.ko.hint='👆 "지역" 또는 "분류"를 눌러 필터링하세요';
+UI.ko.catsSelected=n=>`${n}개 분류 선택됨`;
+UI.ko.clearAll='전체 해제';
+UI.ko.quickLabel='💡 빠른 선택';
+UI.ko.guideToggleLabel='📖 신규 정착민 가이드';
+UI.ko.favBtnLabel='즐겨찾기';
+UI.ko.noFavorites='아직 즐겨찾기한 장소가 없습니다 — 장소 팝업의 ☆를 눌러 저장하세요';
+UI.ko.searchPlaceholder='이름·주소·분류·비고로 검색…';
+UI.ko.searchResultsN=n=>n===0?'일치하는 장소를 찾을 수 없습니다':`검색 결과 ${n}건`;
+UI.zh.d=['周一','周二','周三','周四','周五','周六','周日'];
+UI.zh.dAll='每日';
+UI.zh.dWk='周末';
+UI.zh.dsep='至';UI.zh.tsep='–';UI.zh.colon='：';
+UI.zh.h24='24小时营业';
+UI.zh.hCall='时间常变，去前务必致电确认';
+UI.zh.hCallDay='需致电确认当日营业时间';
+UI.zh.hCallSeason='需致电或查官网确认当季开放时间';
+UI.zh.hSite='详见官网各项目时间表';
+UI.zh.hPrayer5='每日五次礼拜，具体时间见官网 Prayer Times';
+UI.zh.hSchoolTerm='开学期间周一至五办公时间';
+UI.zh.hSummerOnly='仅夏季开放（约6月初–8月31日），去前致电确认';
+UI.zh.qOffice='办公室';
+UI.zh.qAdminOffice='行政办公室';
+UI.zh.qBoxOffice='票务办公室';
+UI.zh.qLivestream='含线上直播';
+UI.zh.qParishOffice='堂区办公室';
+UI.zh.qSeasonSite='以当年官网公告为准';
+UI.zh.seSummer='夏季';
+UI.zh.seWinter='冬季';
+UI.zh.fromT='起';
+UI.zh.approx='约';
+UI.zh.lSvc='礼拜时间';
+UI.zh.lEmail='邮箱';
+UI.zh.lVerified='信息核实于';
+UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以导出成一串文字自己保存或发给自己。';UI.zh.favExport='导出';UI.zh.favImport='导入';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前导出的那串文字，然后再点一次「导入」';
+UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
+UI.zh.privacyNote='🔒 隐私：本页不收集、不上传任何个人信息，也没有任何统计或广告代码。收藏夹只存在你自己的浏览器里。唯一的对外请求是地图底图（OpenStreetMap 的瓦片服务器），加载底图时对方会看到你的 IP 地址——这是所有网页地图的共同机制。断网时除底图外全部功能照常可用。';
+UI.zh.lSource='来源';
+UI.zh.srcOfficial='机构官网';
+UI.zh.srcPlaces='第三方地图数据';
+UI.zh.srcOwn='实地核实';
+UI.zh.srcOfficialTip='该条目登记了机构自己的官网，详情可点开官网核对。';
+UI.zh.srcPlacesTip='该条目未登记官网，信息来自第三方地图数据，建议致电确认。';
+UI.zh.srcOwnTip='该条目由整理者实地或致电核实。';
+UI.zh.searchActive='搜索中 · 已忽略区域与分类筛选';
+
+
+
+UI.zh.busCoverage='已收录 {TRANSIT} 在本市运营的全部 14 条常规线路。没有 8、11、12、15 号线——编号本身就是跳号的，不是这里漏了。另有 12 条仅在上学日运行的学生专线（70–81 号），本页未收录。线路、站点与运营时段已逐条核对 {TRANSIT} 官方 GTFS 数据（2026 年 8 月 29 日版），475 个站点全部一致；实时到站请查 {TRANSIT} 官网。';
+UI.zh.aSearch='搜索地点';
+UI.zh.aClearSearch='清空搜索';
+UI.zh.aClose='关闭';
+UI.en.d=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+UI.en.dAll='Daily';
+UI.en.dWk='Sat–Sun';
+UI.en.dsep='–';UI.en.tsep='–';UI.en.colon=': ';
+UI.en.h24='Open 24 hours';
+UI.en.hCall='Hours change often — call ahead to confirm';
+UI.en.hCallDay='Call to confirm the day\'s hours';
+UI.en.hCallSeason='Call or check the website for current seasonal hours';
+UI.en.hSite='See the website for programme schedules';
+UI.en.hPrayer5='Five daily prayers — see the website for Prayer Times';
+UI.en.hSchoolTerm='Office hours Mon–Fri during the school term';
+UI.en.hSummerOnly='Summer only (approx. early June – Aug 31) — call ahead';
+UI.en.qOffice='office';
+UI.en.qAdminOffice='admin office';
+UI.en.qBoxOffice='box office';
+UI.en.qLivestream='livestreamed';
+UI.en.qParishOffice='parish office';
+UI.en.qSeasonSite='confirm on the current-year website notice';
+UI.en.seSummer='Summer';
+UI.en.seWinter='Winter';
+UI.en.fromT='onwards';
+UI.en.approx='approx.';
+UI.en.lSvc='Services';
+UI.en.lEmail='Email';
+UI.en.lVerified='Verified';
+UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, export them as a short line of text and keep it, or send it to yourself.';UI.en.favExport='Export';UI.en.favImport='Import';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the text you exported, then press Import again';
+UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
+UI.en.privacyNote='🔒 Privacy: this page collects nothing, uploads nothing, and carries no analytics or advertising. Favourites stay in your own browser. The one outbound request is for the map imagery (OpenStreetMap’s tile servers), which lets them see your IP address — the same as any web map. Offline, everything but the imagery still works.';
+UI.en.lSource='Source';
+UI.en.srcOfficial='Official site';
+UI.en.srcPlaces='Third-party map data';
+UI.en.srcOwn='Checked in person';
+UI.en.srcOfficialTip='This entry has the operator’s own website on file — open it to check the details.';
+UI.en.srcPlacesTip='No official website on file; the details rest on third-party map data. Call ahead.';
+UI.en.srcOwnTip='Checked in person or by phone by the compiler.';
+UI.en.searchActive='Searching · area and category filters ignored';
+
+
+UI.en.busCoverage='All 14 regular routes {TRANSIT} runs here are included. There is no route 8, 11, 12 or 15 — the numbering skips them; nothing is missing. A further 12 school-day-only routes (70–81) are not shown. Routes, stops and service hours were checked line by line against {TRANSIT}’s official GTFS feed (29 August 2026 edition) and all 475 stops matched; for live arrivals, see {TRANSIT}.';
+UI.en.aSearch='Search places';
+UI.en.aClearSearch='Clear search';
+UI.en.aClose='Close';
+UI.fr.d=['lun','mar','mer','jeu','ven','sam','dim'];
+UI.fr.dAll='Tous les jours';
+UI.fr.dWk='sam–dim';
+UI.fr.dsep='–';UI.fr.tsep='–';UI.fr.colon=' : ';
+UI.fr.h24='Ouvert 24 h sur 24';
+UI.fr.hCall='Les heures changent souvent — appelez pour confirmer';
+UI.fr.hCallDay='Appelez pour confirmer les heures du jour';
+UI.fr.hCallSeason='Appelez ou consultez le site pour les heures saisonnières';
+UI.fr.hSite='Voir le site pour les horaires des programmes';
+UI.fr.hPrayer5='Cinq prières quotidiennes — voir les Prayer Times sur le site';
+UI.fr.hSchoolTerm='Heures de bureau lun–ven pendant l’année scolaire';
+UI.fr.hSummerOnly='Été seulement (env. début juin – 31 août) — appelez avant';
+UI.fr.qOffice='bureau';
+UI.fr.qAdminOffice='bureau administratif';
+UI.fr.qBoxOffice='billetterie';
+UI.fr.qLivestream='diffusé en direct';
+UI.fr.qParishOffice='bureau paroissial';
+UI.fr.qSeasonSite='à confirmer sur le site de l’année en cours';
+UI.fr.seSummer='Été';
+UI.fr.seWinter='Hiver';
+UI.fr.fromT='et plus tard';
+UI.fr.approx='env.';
+UI.fr.lSvc='Offices';
+UI.fr.lEmail='Courriel';
+UI.fr.lVerified='Vérifié';
+UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, exportez-les sous forme de texte et conservez-le.';UI.fr.favExport='Exporter';UI.fr.favImport='Importer';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le texte exporté, puis appuyez de nouveau sur Importer';
+UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
+UI.fr.privacyNote='🔒 Confidentialité : cette page ne collecte rien, n’envoie rien, et ne contient ni statistiques ni publicité. Vos favoris restent dans votre navigateur. La seule requête externe concerne le fond de carte (serveurs de tuiles d’OpenStreetMap), qui voient alors votre adresse IP — comme pour toute carte en ligne. Hors ligne, tout fonctionne sauf le fond de carte.';
+UI.fr.lSource='Source';
+UI.fr.srcOfficial='Site officiel';
+UI.fr.srcPlaces='Données cartographiques tierces';
+UI.fr.srcOwn='Vérifié sur place';
+UI.fr.srcOfficialTip='Le site officiel de l’établissement est enregistré ici — ouvrez-le pour vérifier.';
+UI.fr.srcPlacesTip='Aucun site officiel enregistré; les détails proviennent de données cartographiques tierces. Appelez avant.';
+UI.fr.srcOwnTip='Vérifié sur place ou par téléphone par l’auteur.';
+UI.fr.searchActive='Recherche en cours · filtres secteur et catégorie ignorés';
+
+
+
+UI.fr.busCoverage='Les 14 lignes régulières exploitées ici par {TRANSIT} sont toutes incluses. Il n’existe pas de ligne 8, 11, 12 ni 15 — la numérotation les saute, rien ne manque. S’y ajoutent 12 lignes scolaires (70–81), non reprises ici. Lignes, arrêts et heures de service ont été vérifiés un à un sur le flux GTFS officiel de {TRANSIT} (édition du 29 août 2026) : les 475 arrêts concordent. Arrivées en direct : voir {TRANSIT}.';
+UI.fr.aSearch='Rechercher un lieu';
+UI.fr.aClearSearch='Effacer la recherche';
+UI.fr.aClose='Fermer';
+UI.es.d=['lun','mar','mié','jue','vie','sáb','dom'];
+UI.es.dAll='Todos los días';
+UI.es.dWk='sáb–dom';
+UI.es.dsep='–';UI.es.tsep='–';UI.es.colon=': ';
+UI.es.h24='Abierto 24 horas';
+UI.es.hCall='El horario cambia con frecuencia — llame para confirmar';
+UI.es.hCallDay='Llame para confirmar el horario del día';
+UI.es.hCallSeason='Llame o consulte el sitio web para el horario de temporada';
+UI.es.hSite='Consulte el sitio web para los horarios de los programas';
+UI.es.hPrayer5='Cinco oraciones diarias — vea Prayer Times en el sitio web';
+UI.es.hSchoolTerm='Horario de oficina lun–vie durante el curso escolar';
+UI.es.hSummerOnly='Solo en verano (aprox. principios de junio – 31 de agosto) — llame antes';
+UI.es.qOffice='oficina';
+UI.es.qAdminOffice='oficina administrativa';
+UI.es.qBoxOffice='taquilla';
+UI.es.qLivestream='con transmisión en vivo';
+UI.es.qParishOffice='oficina parroquial';
+UI.es.qSeasonSite='confirmar en el aviso del sitio web del año en curso';
+UI.es.seSummer='Verano';
+UI.es.seWinter='Invierno';
+UI.es.fromT='en adelante';
+UI.es.approx='aprox.';
+UI.es.lSvc='Servicios';
+UI.es.lEmail='Correo';
+UI.es.lVerified='Verificado';
+UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, expórtelos como una línea de texto y guárdela.';UI.es.favExport='Exportar';UI.es.favImport='Importar';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el texto exportado y pulse Importar de nuevo';
+UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
+UI.es.privacyNote='🔒 Privacidad: esta página no recopila ni envía nada, y no incluye analíticas ni publicidad. Sus favoritos se quedan en su propio navegador. La única petición externa es la del mapa base (servidores de teselas de OpenStreetMap), que ven su dirección IP — igual que en cualquier mapa web. Sin conexión funciona todo excepto el mapa base.';
+UI.es.lSource='Fuente';
+UI.es.srcOfficial='Sitio oficial';
+UI.es.srcPlaces='Datos de mapas de terceros';
+UI.es.srcOwn='Verificado en persona';
+UI.es.srcOfficialTip='Esta entrada tiene registrado el sitio oficial del establecimiento — ábralo para comprobar los datos.';
+UI.es.srcPlacesTip='Sin sitio oficial registrado; los datos provienen de mapas de terceros. Llame antes de ir.';
+UI.es.srcOwnTip='Verificado en persona o por teléfono por el autor.';
+UI.es.searchActive='Buscando · se ignoran los filtros de zona y categoría';
+
+
+
+UI.es.busCoverage='Se incluyen las 14 rutas regulares que {TRANSIT} opera aquí. No existen las rutas 8, 11, 12 ni 15 — la numeración simplemente las salta, no falta nada. Hay además 12 rutas escolares (70–81) que no se muestran. Rutas, paradas y horarios se verificaron una a una con el feed GTFS oficial de {TRANSIT} (edición del 29 de agosto de 2026) y las 475 paradas coincidieron; para llegadas en vivo, consulte {TRANSIT}.';
+UI.es.aSearch='Buscar lugares';
+UI.es.aClearSearch='Borrar búsqueda';
+UI.es.aClose='Cerrar';
+UI.ko.d=['월','화','수','목','금','토','일'];
+UI.ko.dAll='매일';
+UI.ko.dWk='주말';
+UI.ko.dsep='–';UI.ko.tsep='–';UI.ko.colon='：';
+UI.ko.h24='24시간 영업';
+UI.ko.hCall='운영시간이 자주 바뀝니다 — 방문 전 전화로 확인하세요';
+UI.ko.hCallDay='당일 영업시간은 전화로 확인하세요';
+UI.ko.hCallSeason='시즌별 운영시간은 전화 또는 웹사이트로 확인하세요';
+UI.ko.hSite='프로그램별 시간표는 웹사이트를 참고하세요';
+UI.ko.hPrayer5='하루 다섯 번 기도 — 정확한 시간은 웹사이트의 Prayer Times 참고';
+UI.ko.hSchoolTerm='학기 중 월–금 사무실 운영시간';
+UI.ko.hSummerOnly='여름철만 운영(6월 초–8월 31일경) — 방문 전 전화 확인';
+UI.ko.qOffice='사무실';
+UI.ko.qAdminOffice='행정 사무실';
+UI.ko.qBoxOffice='매표소';
+UI.ko.qLivestream='온라인 생중계 포함';
+UI.ko.qParishOffice='교구 사무실';
+UI.ko.qSeasonSite='해당 연도 웹사이트 공지 기준';
+UI.ko.seSummer='여름';
+UI.ko.seWinter='겨울';
+UI.ko.fromT='부터';
+UI.ko.approx='약';
+UI.ko.lSvc='예배 시간';
+UI.ko.lEmail='이메일';
+UI.ko.lVerified='정보 확인일';
+UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 내보내 보관하세요.';UI.ko.favExport='내보내기';UI.ko.favImport='가져오기';UI.ko.favCopied='클립보드에 복사했습니다';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ko.favPastePrompt='내보낸 텍스트를 붙여넣은 뒤 가져오기를 다시 누르세요';
+UI.ko.favAdd='즐겨찾기에 추가';UI.ko.favRemove='즐겨찾기에서 제거';
+UI.ko.privacyNote='🔒 개인정보: 이 페이지는 어떤 정보도 수집하거나 전송하지 않으며 분석·광고 코드도 없습니다. 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 유일한 외부 요청은 지도 배경(OpenStreetMap 타일 서버)이며, 이때 상대 서버가 IP 주소를 확인할 수 있습니다 — 모든 웹 지도가 동일합니다. 오프라인에서는 배경 지도를 제외한 모든 기능이 작동합니다.';
+UI.ko.lSource='출처';
+UI.ko.srcOfficial='공식 웹사이트';
+UI.ko.srcPlaces='제3자 지도 데이터';
+UI.ko.srcOwn='직접 확인';
+UI.ko.srcOfficialTip='이 항목에는 해당 기관의 공식 웹사이트가 등록되어 있습니다 — 링크를 열어 확인하세요.';
+UI.ko.srcPlacesTip='등록된 공식 웹사이트가 없어 제3자 지도 데이터를 따릅니다. 방문 전 전화로 확인하세요.';
+UI.ko.srcOwnTip='작성자가 직접 방문하거나 전화로 확인했습니다.';
+UI.ko.searchActive='검색 중 · 지역·분류 필터는 무시됩니다';
+
+
+
+UI.ko.busCoverage='{TRANSIT}가 이 도시에서 운행하는 14개 정규 노선이 모두 포함되어 있습니다. 8·11·12·15번 노선은 존재하지 않습니다 — 번호가 건너뛸 뿐, 누락이 아닙니다. 이 밖에 등교일에만 운행하는 학생 전용 노선 12개(70–81번)는 포함하지 않았습니다. 노선·정류장·운행 시간은 {TRANSIT} 공식 GTFS 데이터(2026년 8월 29일판)와 한 건씩 대조했으며 475개 정류장이 모두 일치했습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 확인하세요.';
+UI.ko.aSearch='장소 검색';
+UI.ko.aClearSearch='검색어 지우기';
+UI.ko.aClose='닫기';
+UI.zh.clusterLabel=n=>`${n} 个地点，点击展开`; UI.zh.metaDesc='{CITY} 生活服务地图：涵盖各区的学校、医疗、住房、公交、超市与新居民必备信息。';
+UI.en.clusterLabel=n=>`${n} places, click to expand`; UI.en.metaDesc='{CITY} living-services map: schools, healthcare, housing, transit, groceries and newcomer essentials across every neighbourhood.';
+UI.fr.clusterLabel=n=>`${n} lieux, cliquez pour agrandir`; UI.fr.metaDesc='Carte des services de {CITY} : écoles, santé, logement, transport, épiceries et essentiels pour nouveaux arrivants, dans tous les quartiers.';
+UI.es.clusterLabel=n=>`${n} lugares, haga clic para ampliar`; UI.es.metaDesc='Mapa de servicios de {CITY}: escuelas, salud, vivienda, transporte, supermercados y lo esencial para recién llegados en cada vecindario.';
+UI.ko.clusterLabel=n=>`${n}곳, 클릭하면 펼쳐집니다`; UI.ko.metaDesc='{CITY} 생활 서비스 지도: 모든 지역의 학교, 의료, 주거, 대중교통, 마트와 신규 정착민 필수 정보.';
+UI.zh.emptyFilters='当前的区域与分类组合下没有地点。';
+UI.zh.emptyFiltersBtn='清除全部筛选';
+UI.zh.clearSearchBtn='清空搜索';
+UI.zh.searchTooShort='请至少输入 2 个字符';
+UI.zh.noResultHint='没有匹配的地点。换个关键词试试，或检查拼写——搜索会匹配名称、地址、分类和备注。';
+UI.en.emptyFilters='No places match this combination of area and category.';
+UI.en.emptyFiltersBtn='Clear all filters';
+UI.en.clearSearchBtn='Clear search';
+UI.en.searchTooShort='Type at least 2 characters';
+UI.en.noResultHint='No matching places. Try another term or check the spelling — search covers name, address, category and notes.';
+UI.fr.emptyFilters='Aucun lieu ne correspond à cette combinaison de secteur et de catégorie.';
+UI.fr.emptyFiltersBtn='Effacer tous les filtres';
+UI.fr.clearSearchBtn='Effacer la recherche';
+UI.fr.searchTooShort='Saisissez au moins 2 caractères';
+UI.fr.noResultHint='Aucun lieu correspondant. Essayez un autre terme ou vérifiez l’orthographe — la recherche couvre le nom, l’adresse, la catégorie et les notes.';
+UI.es.emptyFilters='Ningún lugar coincide con esta combinación de zona y categoría.';
+UI.es.emptyFiltersBtn='Borrar todos los filtros';
+UI.es.clearSearchBtn='Borrar búsqueda';
+UI.es.searchTooShort='Escriba al menos 2 caracteres';
+UI.es.noResultHint='No hay lugares coincidentes. Pruebe otro término o revise la ortografía — la búsqueda cubre nombre, dirección, categoría y notas.';
+UI.ko.emptyFilters='현재 지역과 분류 조합에 해당하는 장소가 없습니다.';
+UI.ko.emptyFiltersBtn='모든 필터 해제';
+UI.ko.clearSearchBtn='검색어 지우기';
+UI.ko.searchTooShort='2자 이상 입력하세요';
+UI.ko.noResultHint='일치하는 장소가 없습니다. 다른 검색어를 사용하거나 철자를 확인해 보세요 — 검색은 이름·주소·분류·비고를 대상으로 합니다.';
+UI.zh.months=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
+UI.zh.closedLabel='休息';
+UI.en.months=['January','February','March','April','May','June','July','August','September','October','November','December'];
+UI.en.closedLabel='Closed';
+UI.fr.months=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+UI.fr.closedLabel='Fermé';
+UI.es.months=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+UI.es.closedLabel='Cerrado';
+UI.ko.months=['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+UI.ko.closedLabel='휴무';
+UI.zh.pCity='市政总机';UI.zh.pNational='全国客服';UI.zh.hOnSite='开放时间见现场告示';UI.zh.hUnknown='营业时间未收录，建议致电确认';
+UI.en.pCity='city switchboard';UI.en.pNational='national line';UI.en.hOnSite='Hours posted on site';UI.en.hUnknown='Hours not listed — call to confirm';
+UI.fr.pCity='standard municipal';UI.fr.pNational='ligne nationale';UI.fr.hOnSite='Horaires affichés sur place';UI.fr.hUnknown='Horaires non listés — appelez pour confirmer';
+UI.es.pCity='centralita municipal';UI.es.pNational='línea nacional';UI.es.hOnSite='Horario indicado en el lugar';UI.es.hUnknown='Horario no listado — llame para confirmar';
+UI.ko.pCity='시청 대표번호';UI.ko.pNational='전국 고객센터';UI.ko.hOnSite='운영시간은 현장 안내판 참고';UI.ko.hUnknown='운영시간 미수록 — 전화로 확인하세요';
+UI.zh.t24h='24小时';
+UI.en.t24h='open 24 h';
+UI.fr.t24h='ouvert 24 h';
+UI.es.t24h='abierto 24 h';
+UI.ko.t24h='24시간';
+UI.zh.tSummerOutdoor='户外，仅夏季';
+UI.en.tSummerOutdoor='outdoor, summer only';
+UI.fr.tSummerOutdoor='extérieur, été seulement';
+UI.es.tSummerOutdoor='al aire libre, solo verano';
+UI.ko.tSummerOutdoor='야외, 여름철만';
+UI.zh.tInTCC='位于TCC内';
+UI.en.tInTCC='inside the TCC';
+UI.fr.tInTCC='dans le TCC';
+UI.es.tInTCC='dentro del TCC';
+UI.ko.tInTCC='TCC 내부';
+UI.zh.tToddler='幼儿游乐区';
+UI.en.tToddler='toddler play area';
+UI.fr.tToddler='aire pour tout-petits';
+UI.es.tToddler='zona para niños pequeños';
+UI.ko.tToddler='유아 놀이터';
+UI.zh.tRiverTrail='河边步道';
+UI.en.tRiverTrail='river trail';
+UI.fr.tRiverTrail='sentier riverain';
+UI.es.tRiverTrail='sendero junto al río';
+UI.ko.tRiverTrail='강변 산책로';
+UI.zh.tMainBranch='总馆';
+UI.en.tMainBranch='main branch';
+UI.fr.tMainBranch='succursale principale';
+UI.es.tMainBranch='sede principal';
+UI.ko.tMainBranch='중앙관';
+UI.zh.tSouthAsian='南亚';
+UI.en.tSouthAsian='South Asian';
+UI.fr.tSouthAsian='sud-asiatique';
+UI.es.tSouthAsian='del sur de Asia';
+UI.ko.tSouthAsian='남아시아';
+UI.zh.tChinese='中餐';
+UI.en.tChinese='Chinese';
+UI.fr.tChinese='chinois';
+UI.es.tChinese='china';
+UI.ko.tChinese='중식';
+UI.zh.tChineseCheap='中餐，最实惠';
+UI.en.tChineseCheap='Chinese, cheapest';
+UI.fr.tChineseCheap='chinois, le moins cher';
+UI.es.tChineseCheap='china, la más económica';
+UI.ko.tChineseCheap='중식, 가장 저렴';
+UI.zh.tKorean='韩餐';
+UI.en.tKorean='Korean';
+UI.fr.tKorean='coréen';
+UI.es.tKorean='coreana';
+UI.ko.tKorean='한식';
+UI.zh.tJapanese='日料';
+UI.en.tJapanese='Japanese';
+UI.fr.tJapanese='japonais';
+UI.es.tJapanese='japonesa';
+UI.ko.tJapanese='일식';
+UI.zh.tNepali='尼泊尔';
+UI.en.tNepali='Nepali';
+UI.fr.tNepali='népalais';
+UI.es.tNepali='nepalí';
+UI.ko.tNepali='네팔';
+UI.zh.tFilipino='菲律宾';
+UI.en.tFilipino='Filipino';
+UI.fr.tFilipino='philippin';
+UI.es.tFilipino='filipina';
+UI.ko.tFilipino='필리핀';
+UI.zh.tFoodHall='美食广场';
+UI.en.tFoodHall='food hall';
+UI.fr.tFoodHall='aire de restauration';
+UI.es.tFoodHall='patio de comidas';
+UI.ko.tFoodHall='푸드홀';
+UI.zh.tWestern='西餐';
+UI.en.tWestern='Western';
+UI.fr.tWestern='cuisine occidentale';
+UI.es.tWestern='comida occidental';
+UI.ko.tWestern='양식';
+UI.zh.tChainWestern='连锁西餐';
+UI.en.tChainWestern='Western chain';
+UI.fr.tChainWestern='chaîne occidentale';
+UI.es.tChainWestern='cadena occidental';
+UI.ko.tChainWestern='양식 체인';
+UI.zh.tBrunch='早午餐';
+UI.en.tBrunch='brunch';
+UI.fr.tBrunch='brunch';
+UI.es.tBrunch='brunch';
+UI.ko.tBrunch='브런치';
+UI.zh.tUsedFurniture='二手家具';
+UI.en.tUsedFurniture='used furniture';
+UI.fr.tUsedFurniture='meubles d’occasion';
+UI.es.tUsedFurniture='muebles usados';
+UI.ko.tUsedFurniture='중고 가구';
+UI.zh.tUsedSports='二手运动器材';
+UI.en.tUsedSports='used sports gear';
+UI.fr.tUsedSports='équipement de sport d’occasion';
+UI.es.tUsedSports='equipo deportivo usado';
+UI.ko.tUsedSports='중고 스포츠용품';
+UI.zh.tHub='公交枢纽';
+UI.en.tHub='transit hub';
+UI.fr.tHub='pôle de transport';
+UI.es.tHub='centro de transporte';
+UI.ko.tHub='환승 거점';
+UI.zh.tLocalShop='本地小店';
+UI.en.tLocalShop='local shop';
+UI.fr.tLocalShop='commerce local';
+UI.es.tLocalShop='tienda local';
+UI.ko.tLocalShop='동네 가게';
+UI.zh.tBubbleTea='含珍珠奶茶';
+UI.en.tBubbleTea='bubble tea';
+UI.fr.tBubbleTea='thé aux perles';
+UI.es.tBubbleTea='té de burbujas';
+UI.ko.tBubbleTea='버블티';
+UI.zh.tFederal='联邦政务';
+UI.en.tFederal='federal services';
+UI.fr.tFederal='services fédéraux';
+UI.es.tFederal='servicios federales';
+UI.ko.tFederal='연방 서비스';
+UI.zh.tLicensing='驾照';
+UI.en.tLicensing='driver licensing';
+UI.fr.tLicensing='permis de conduire';
+UI.es.tLicensing='licencias de conducir';
+UI.ko.tLicensing='운전면허';
+UI.zh.tProvincial='省政务';
+UI.en.tProvincial='provincial services';
+UI.fr.tProvincial='services provinciaux';
+UI.es.tProvincial='servicios provinciales';
+UI.ko.tProvincial='주 정부 서비스';
+UI.zh.tTaxi='出租车';
+UI.en.tTaxi='taxi';
+UI.fr.tTaxi='taxi';
+UI.es.tTaxi='taxi';
+UI.ko.tTaxi='택시';
+UI.zh.tDrivingSchool='驾校';
+UI.en.tDrivingSchool='driving school';
+UI.fr.tDrivingSchool='auto-école';
+UI.es.tDrivingSchool='autoescuela';
+UI.ko.tDrivingSchool='운전학원';
+UI.zh.tDaycare='日托';
+UI.en.tDaycare='daycare';
+UI.fr.tDaycare='garderie';
+UI.es.tDaycare='guardería';
+UI.ko.tDaycare='어린이집';
+UI.zh.tTrampoline='蹦床馆';
+UI.en.tTrampoline='trampoline park';
+UI.fr.tTrampoline='parc de trampolines';
+UI.es.tTrampoline='parque de trampolines';
+UI.ko.tTrampoline='트램펄린 파크';
+UI.zh.tIndoorPlay='室内儿童乐园';
+UI.en.tIndoorPlay='indoor play centre';
+UI.fr.tIndoorPlay='aire de jeux intérieure';
+UI.es.tIndoorPlay='centro de juegos bajo techo';
+UI.ko.tIndoorPlay='실내 놀이터';
+UI.zh.tCampusExchange='校园换乘站';
+UI.en.tCampusExchange='campus exchange';
+UI.fr.tCampusExchange='pôle du campus';
+UI.es.tCampusExchange='intercambiador del campus';
+UI.ko.tCampusExchange='캠퍼스 환승역';
+UI.zh.tArena='体育馆／演唱会场馆';
+UI.en.tArena='arena & concert venue';
+UI.fr.tArena='aréna et salle de concert';
+UI.es.tArena='arena y sala de conciertos';
+UI.ko.tArena='경기장·공연장';
+UI.zh.tSeniors='55岁以上专属';
+UI.en.tSeniors='55+ only';
+UI.fr.tSeniors='55 ans et plus';
+UI.es.tSeniors='solo mayores de 55';
+UI.ko.tSeniors='55세 이상 전용';
+UI.zh.tLargestPark='全市最大公园';
+UI.en.tLargestPark='largest park in the city';
+UI.fr.tLargestPark='le plus grand parc de la ville';
+UI.es.tLargestPark='el parque más grande de la ciudad';
+UI.ko.tLargestPark='시내 최대 공원';
+UI.zh.tRiverside='滨河步道';
+UI.en.tRiverside='riverside trail';
+UI.fr.tRiverside='sentier riverain';
+UI.es.tRiverside='sendero ribereño';
+UI.ko.tRiverside='강변 트레일';
+UI.zh.tOutdoorRink='户外滑冰场';
+UI.en.tOutdoorRink='outdoor rink';
+UI.fr.tOutdoorRink='patinoire extérieure';
+UI.es.tOutdoorRink='pista al aire libre';
+UI.ko.tOutdoorRink='야외 스케이트장';
+UI.zh.tUsedCar='二手车';
+UI.en.tUsedCar='used cars';
+UI.fr.tUsedCar='voitures d’occasion';
+UI.es.tUsedCar='autos usados';
+UI.ko.tUsedCar='중고차';
+UI.zh.tFormerTempo='原Tempo';
+UI.en.tFormerTempo='formerly Tempo';
+UI.fr.tFormerTempo='anciennement Tempo';
+UI.es.tFormerTempo='antes Tempo';
+UI.ko.tFormerTempo='구 Tempo';
+UI.zh.tWithAW='含A&W';
+UI.en.tWithAW='has an A&W';
+UI.fr.tWithAW='avec A&W';
+UI.es.tWithAW='con A&W';
+UI.ko.tWithAW='A&W 있음';
+UI.zh.tMainPost='市中心主邮局';
+UI.en.tMainPost='main downtown post office';
+UI.fr.tMainPost='bureau de poste principal';
+UI.es.tMainPost='oficina postal principal';
+UI.ko.tMainPost='시내 중앙우체국';
+UI.zh.tSikhTemple='锡克庙';
+UI.en.tSikhTemple='Sikh temple';
+UI.fr.tSikhTemple='temple sikh';
+UI.es.tSikhTemple='templo sij';
+UI.ko.tSikhTemple='시크교 사원';
+UI.zh.clearCatFilter='✕ 清除分类筛选';UI.zh.doneBtn='完成';UI.zh.presetAdjusted='已在此基础上手动调整';
+UI.en.clearCatFilter='✕ Clear category filter';UI.en.doneBtn='Done';UI.en.presetAdjusted='adjusted by hand';
+UI.fr.clearCatFilter='✕ Effacer le filtre de catégorie';UI.fr.doneBtn='Terminé';UI.fr.presetAdjusted='ajusté manuellement';
+UI.es.clearCatFilter='✕ Quitar filtro de categoría';UI.es.doneBtn='Listo';UI.es.presetAdjusted='ajustado manualmente';
+UI.ko.clearCatFilter='✕ 분류 필터 해제';UI.ko.doneBtn='완료';UI.ko.presetAdjusted='수동으로 조정됨';
+UI.zh.reportIssue='信息有误？';UI.zh.fbSubject='信息报错';UI.zh.fbSubjectGeneral='使用反馈';UI.zh.fbPlace='地点';UI.zh.fbId='编号';UI.zh.fbCategory='分类';UI.zh.fbLang='界面语言';UI.zh.fbVersion='数据版本';UI.zh.fbUrl='页面地址';UI.zh.fbPrompt='请说明哪一项有误，正确的信息应该是什么（如方便，请附上来源）：';
+UI.en.reportIssue='Report an issue';UI.en.fbSubject='Data correction';UI.en.fbSubjectGeneral='Feedback';UI.en.fbPlace='Place';UI.en.fbId='ID';UI.en.fbCategory='Category';UI.en.fbLang='Interface language';UI.en.fbVersion='Data version';UI.en.fbUrl='Page URL';UI.en.fbPrompt='Please say which detail is wrong and what it should be (a source link helps):';
+UI.fr.reportIssue='Signaler une erreur';UI.fr.fbSubject='Correction de données';UI.fr.fbSubjectGeneral='Retours';UI.fr.fbPlace='Lieu';UI.fr.fbId='ID';UI.fr.fbCategory='Catégorie';UI.fr.fbLang='Langue de l’interface';UI.fr.fbVersion='Version des données';UI.fr.fbUrl='URL de la page';UI.fr.fbPrompt='Indiquez quelle information est erronée et ce qu’elle devrait être (un lien source aide) :';
+UI.es.reportIssue='Reportar un error';UI.es.fbSubject='Corrección de datos';UI.es.fbSubjectGeneral='Comentarios';UI.es.fbPlace='Lugar';UI.es.fbId='ID';UI.es.fbCategory='Categoría';UI.es.fbLang='Idioma de la interfaz';UI.es.fbVersion='Versión de datos';UI.es.fbUrl='URL de la página';UI.es.fbPrompt='Indique qué dato es incorrecto y cuál debería ser (un enlace de origen ayuda):';
+UI.ko.reportIssue='정보 오류 신고';UI.ko.fbSubject='데이터 정정';UI.ko.fbSubjectGeneral='의견 보내기';UI.ko.fbPlace='장소';UI.ko.fbId='ID';UI.ko.fbCategory='분류';UI.ko.fbLang='인터페이스 언어';UI.ko.fbVersion='데이터 버전';UI.ko.fbUrl='페이지 주소';UI.ko.fbPrompt='어떤 정보가 잘못되었고 올바른 정보는 무엇인지 알려주세요(출처 링크가 있으면 좋습니다):';
+UI.zh.licenceNote='<h3>📄 版权与使用授权</h3><p>本页面由 <b>Neil Xiang</b> 整理编写，采用 <a href="{LIC_URL}" target="_blank" rel="noopener">知识共享 署名-非商业性使用 4.0（{LIC}）</a> 授权。你可以自由复制、分享、改编本页面的内容（包括为其他城市制作类似工具），条件是<b>注明出处</b>并且<b>不用于商业用途</b>；商业使用请先联系 <a href="mailto:{CONTACT}">{CONTACT}</a>。<br>注意：其中来自 Google Places 等第三方来源的事实性信息（名称、地址、电话、营业时间）另受其各自条款约束，本授权仅覆盖本页面的整理、分类、备注与指南内容。</p>';UI.zh.licenceShort='📄 内容采用 {LIC} 授权 · 署名 Neil Xiang · 非商业使用';
+UI.en.licenceNote='<h3>📄 Licence &amp; attribution</h3><p>Compiled and written by <b>Neil Xiang</b> and released under <a href="{LIC_URL}" target="_blank" rel="noopener">Creative Commons Attribution-NonCommercial 4.0 ({LIC})</a>. You are free to copy, share and adapt this material — including to build a similar tool for another city — provided you <b>credit the source</b> and do <b>not use it commercially</b>; for commercial use, contact <a href="mailto:{CONTACT}">{CONTACT}</a> first.<br>Note: factual details drawn from third parties such as Google Places (names, addresses, phone numbers, hours) remain subject to their own terms. This licence covers the curation, categorisation, notes and guide.</p>';UI.en.licenceShort='📄 Licensed {LIC} · Attribution: Neil Xiang · Non-commercial';
+UI.fr.licenceNote='<h3>📄 Licence et attribution</h3><p>Compilé et rédigé par <b>Neil Xiang</b>, sous licence <a href="{LIC_URL}" target="_blank" rel="noopener">Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 ({LIC})</a>. Vous pouvez copier, partager et adapter ce contenu — y compris pour créer un outil semblable pour une autre ville — à condition de <b>citer la source</b> et de ne pas en faire un <b>usage commercial</b>; pour un usage commercial, écrivez d’abord à <a href="mailto:{CONTACT}">{CONTACT}</a>.<br>À noter : les données factuelles provenant de tiers comme Google Places (noms, adresses, téléphones, heures) restent soumises à leurs propres conditions. Cette licence couvre la sélection, le classement, les notes et le guide.</p>';UI.fr.licenceShort='📄 Sous licence {LIC} · Attribution : Neil Xiang · Usage non commercial';
+UI.es.licenceNote='<h3>📄 Licencia y atribución</h3><p>Recopilado y redactado por <b>Neil Xiang</b>, bajo licencia <a href="{LIC_URL}" target="_blank" rel="noopener">Creative Commons Atribución-NoComercial 4.0 ({LIC})</a>. Puede copiar, compartir y adaptar este material — incluso para crear una herramienta similar para otra ciudad — siempre que <b>cite la fuente</b> y no lo use con <b>fines comerciales</b>; para uso comercial, escriba antes a <a href="mailto:{CONTACT}">{CONTACT}</a>.<br>Nota: los datos factuales procedentes de terceros como Google Places (nombres, direcciones, teléfonos, horarios) siguen sujetos a sus propios términos. Esta licencia cubre la curaduría, la clasificación, las notas y la guía.</p>';UI.es.licenceShort='📄 Licencia {LIC} · Atribución: Neil Xiang · No comercial';
+UI.ko.licenceNote='<h3>📄 저작권 및 이용 허가</h3><p>이 페이지는 <b>Neil Xiang</b>이 정리·작성했으며 <a href="{LIC_URL}" target="_blank" rel="noopener">크리에이티브 커먼즈 저작자표시-비영리 4.0({LIC})</a> 라이선스로 배포됩니다. <b>출처를 표시</b>하고 <b>비영리 목적</b>으로 사용하는 한, 다른 도시를 위한 유사한 도구 제작을 포함해 자유롭게 복제·공유·수정할 수 있습니다. 상업적 이용은 <a href="mailto:{CONTACT}">{CONTACT}</a>로 먼저 문의해 주세요.<br>참고: Google Places 등 제3자에서 가져온 사실 정보(이름·주소·전화·운영시간)는 각 출처의 약관을 따릅니다. 이 라이선스는 선별·분류·비고·가이드 내용에 적용됩니다.</p>';UI.ko.licenceShort='📄 {LIC} 라이선스 · 저작자표시 Neil Xiang · 비영리';
+UI.zh.changelogTitle='🗓️ 更新记录';UI.zh.changelogIntro='当前数据版本 <b>{VER}</b>。以下是每一版做过的改动，方便你判断哪些内容是新的。';
+UI.en.changelogTitle='🗓️ Change log';UI.en.changelogIntro='Current data version <b>{VER}</b>. What changed in each release, so you can tell what is new.';
+UI.fr.changelogTitle='🗓️ Journal des modifications';UI.fr.changelogIntro='Version des données : <b>{VER}</b>. Ce qui a changé à chaque mise à jour.';
+UI.es.changelogTitle='🗓️ Registro de cambios';UI.es.changelogIntro='Versión de datos actual: <b>{VER}</b>. Qué cambió en cada actualización.';
+UI.ko.changelogTitle='🗓️ 변경 기록';UI.ko.changelogIntro='현재 데이터 버전 <b>{VER}</b>. 각 업데이트에서 무엇이 바뀌었는지 정리했습니다.';
+UI.zh.offlineTiles='📴 地图底图加载不出来（可能没有网络）。地点信息、搜索、筛选和新居民指南都不需要联网，可以照常使用。';
+UI.en.offlineTiles='📴 Map imagery can’t load — you may be offline. Place details, search, filters and the newcomer guide all work without a connection.';
+UI.fr.offlineTiles='📴 Le fond de carte ne se charge pas — vous êtes peut-être hors ligne. Les fiches, la recherche, les filtres et le guide fonctionnent sans connexion.';
+UI.es.offlineTiles='📴 No se puede cargar el mapa base — puede que esté sin conexión. Los detalles, la búsqueda, los filtros y la guía funcionan sin internet.';
+UI.ko.offlineTiles='📴 지도 배경을 불러올 수 없습니다 — 오프라인일 수 있습니다. 장소 정보, 검색, 필터, 신규 정착민 가이드는 인터넷 없이도 이용할 수 있습니다.';
+UI.zh.guideCA1=`<h3>🛬 刚落地最先做的几件事</h3>
+<p>建议按这个顺序办：先办手机SIM卡方便联络，再申请SIN社保卡（找工作/报税必须），然后申请BC省健康卡（有等待期，越早申请越好），最后再开银行账户和办驾照。</p>
+<h3>🪪 SIN社会保险号（Social Insurance Number）</h3>
+<p>找工作、报税、申请多数政府福利都需要SIN号。可以在<a href="https://www.canada.ca/en/employment-social-development/services/sin.html" target="_blank" rel="noopener">Service Canada官网</a>在线申请，或前往本地Service Canada服务点现场办理（本工具「分类 → 政务移民」里可以找到地址）。免费办理，通常当场或几天内拿到。</p>
+<h3>🏦 开银行账户</h3>
+<p>本地主要银行（TD、CIBC、BMO、Scotiabank等）大多有"新居民欢迎账户"，通常首年减免月费、可用护照+移民/学签文件直接开户，无需本地信用记录。建议带好护照、移民文件（PR卡/学签/工签）、SIN卡（如已办好）前往网点。地图「分类 → 银行」里能找到附近网点。</p>
+<h3>📱 手机与网络</h3>
+<p>加拿大主要运营商有Rogers/Telus/Bell及其子品牌（Fido、Koodo、Virgin Plus等），子品牌套餐通常更便宜。建议先办预付费SIM卡应急，落地稳定后再考虑签约套餐（可能需要信用记录或押金）。</p>
+
+`;
+UI.zh.guideProv=`<h3>⚕️ BC省健康卡（MSP + BC Services Card）</h3>
+<p>BC省的公共医疗保险叫MSP（Medical Services Plan），新居民需要通过<a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC官网</a>申请BC Services Card。注意：新登陆通常有最长3个月的等待期，这期间建议购买临时旅游/访客医疗保险覆盖空窗期。看家庭医生、去医院急诊时都需要出示这张卡。</p>
+<h3>🚗 驾照</h3>
+<p>BC省驾照由ICBC负责。多数国家/地区的驾照可以直接换领或凭驾龄减免部分路考，具体政策请查<a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC官网"New to BC"页面</a>确认自己是否符合互认协议。本地考驾照可以在地图「分类 → 驾校」里找。</p>
+<h3>🎒 子女入学</h3>
+<p>{CITY}属于{SD}学区，公立学校按住址划片，可用<a href="{SD_URL}" target="_blank" rel="noopener">{SD}官方划片查询工具</a>输入住址确认对应学校，再联系学校或学区办理登记入学，通常需要出生证明/护照、疫苗接种记录、住址证明等文件。</p>
+<h3>🏠 租房要点</h3>
+<p>BC省租房押金（damage deposit）法律上限是半个月租金，房东不能额外收取"押一付三"之类的费用；退租通知、加租规则等受<a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies" target="_blank" rel="noopener">BC省租客维权处（RTB）</a>保护，遇到纠纷可以拨打RTB电话 <b>1-800-665-8779</b> 咨询，不要单凭房东口头说法。</p>
+<h3>⚖️ 法律问题与法律援助</h3>
+<p>遇到法律问题不代表一定要花钱请律师，BC省有多个免费/低门槛渠道：<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，本地电话 <b>250-314-1900</b>，省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY}本地有一家实体法律诊所 <b>Okanagan Thompson Legal Clinic</b>（220-301 Victoria St，电话236-425-9121），提供家庭法协助、社会救助/伤残津贴、失业保险、债务、租房纠纷等方面的免费/低成本帮助（地图「分类 → 法律援助」可查看）；<b>Access Pro Bono BC</b>（604-878-7400，accessprobono.ca）为低收入人群、55岁以上长者、残障人士、移民/难民提供免费法律咨询与转介；金额5000加元以下的小额索赔及公寓/共管物业纠纷可通过<b>BC民事解决法庭CRT</b>（1-844-322-2292）在线处理，无需律师；工资/工时等职场纠纷找<b>BC省劳工标准处</b>（1-833-236-3700）；遭遇歧视可联系<b>BC人权仲裁庭</b>（1-888-440-8844）。</p>
+
+`;
+UI.zh.guideCA2=`<h3>☎️ 常用号码/常见问题</h3>
+<p><b>911</b>——报警/火警/救护车紧急情况；<b>8-1-1</b>——非紧急健康咨询热线，可要求中文翻译服务；<b>250-828-3000</b>——本地RCMP警察非紧急报案。多数政府服务电话可要求"interpreter"/传译服务，不需要自己讲流利英语也能办事。</p>
+<p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">以上内容为综合公开信息整理的入门参考，具体政策以官方网站/致电确认为准，如有变动以官方信息为准。</p>
+`;
+UI.en.guideCA1=`<h3>🛬 First Things to Do After You Arrive</h3>
+<p>A practical order: get a phone SIM first so you can be reached, then apply for your SIN (needed for work and taxes), then apply for your BC health card (there is a waiting period, so start early), and finally open a bank account and sort out your driver's licence.</p>
+<h3>🪪 Social Insurance Number (SIN)</h3>
+<p>You need a SIN to work, file taxes, and access most government benefits. Apply online at <a href="https://www.canada.ca/en/employment-social-development/services/sin.html" target="_blank" rel="noopener">Service Canada's website</a>, or in person at a local Service Canada office (look under Category → Gov/Immigration on this map). It's free, and usually issued the same day or within a few days.</p>
+<h3>🏦 Opening a Bank Account</h3>
+<p>Major banks here (TD, CIBC, BMO, Scotiabank, etc.) usually offer "newcomer welcome" accounts with no monthly fee for the first year, openable with your passport plus immigration/study/work permit documents — no local credit history required. Bring your passport, immigration documents (PR card/study or work permit), and your SIN card (if you have it) to a branch. Find nearby branches under Category → Banks on this map.</p>
+<h3>📱 Phone & Internet</h3>
+<p>Major carriers are Rogers/Telus/Bell and their budget sub-brands (Fido, Koodo, Virgin Plus, etc.), which are usually cheaper. Consider a prepaid SIM first for immediate needs, then switch to a contract plan once settled (contracts may require credit history or a deposit).</p>
+
+`;
+UI.en.guideProv=`<h3>⚕️ BC Health Coverage (MSP + BC Services Card)</h3>
+<p>BC's public health plan is called MSP (Medical Services Plan). Apply for your BC Services Card through the <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC website</a>. Note there is typically up to a 3-month waiting period for new residents — consider temporary visitor/travel health insurance to cover that gap. You'll need this card for family doctor visits and hospital/emergency care.</p>
+<h3>🚗 Driver's Licence</h3>
+<p>BC driver's licences are administered by ICBC. Licences from many countries can be exchanged directly, or may qualify for reduced road-test requirements based on driving experience — check the <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC "New to BC" page</a> to see if your licence qualifies under a reciprocal agreement. To take lessons locally, see Category → Driving School.</p>
+<h3>🎒 Enrolling Children in School</h3>
+<p>{CITY} is in School District 73 ({SD}). Public schools are assigned by home address — use the <a href="{SD_URL}" target="_blank" rel="noopener">{SD} catchment finder</a> to find your local school, then contact the school or district to register. You'll typically need a birth certificate/passport, immunization records, and proof of address.</p>
+<h3>🏠 Renting Basics</h3>
+<p>In BC, a damage deposit is legally capped at half a month's rent — landlords cannot demand extra deposits beyond that. Notice periods, rent increase rules, and other tenant protections are set out by the <a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies" target="_blank" rel="noopener">BC Residential Tenancy Branch (RTB)</a>. If a dispute comes up, call the RTB at <b>1-800-665-8779</b> rather than relying only on what a landlord tells you.</p>
+<h3>⚖️ Legal Issues & Getting Legal Aid</h3>
+<p>Needing legal help doesn't always mean paying for a lawyer — BC has several free or low-cost options. <b>Legal Aid BC</b> covers family law, criminal defence, and immigration/refugee matters for income-qualified people — {CITY} line <b>250-314-1900</b>, provincial line <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} has a physical legal clinic, the <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offering free/low-cost help with family law, income assistance/disability benefits, EI, debt, and tenancy issues (see Category → Legal Aid on this map). <b>Access Pro Bono BC</b> (604-878-7400, accessprobono.ca) offers free legal advice and referrals for low-income people, seniors 55+, people with disabilities, and immigrants/refugees. Small claims disputes under $5,000 and strata/condo disputes can be handled online, without a lawyer, through the <b>BC Civil Resolution Tribunal</b> (1-844-322-2292). Unpaid wages or other workplace disputes go to the <b>BC Employment Standards Branch</b> (1-833-236-3700), and discrimination complaints go to the <b>BC Human Rights Tribunal</b> (1-888-440-8844).</p>
+
+`;
+UI.en.guideCA2=`<h3>☎️ Key Numbers & Common Questions</h3>
+<p><b>911</b> — police/fire/ambulance emergencies. <b>8-1-1</b> — non-emergency health advice line; you can ask for interpretation in your language. <b>250-828-3000</b> — local RCMP non-emergency line. Most government services can provide an interpreter on request, so fluent English isn't required to get things done.</p>
+<p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">This is a general starting-point summary based on public information — always confirm current policy on the official websites or by phone, as rules can change.</p>
+`;
+UI.fr.guideCA1=`<h3>🛬 Les premières choses à faire à l'arrivée</h3>
+<p>Un ordre pratique : obtenez d'abord une carte SIM pour être joignable, puis demandez votre NAS (nécessaire pour travailler et faire vos impôts), puis votre carte santé de la C.-B. (il y a un délai d'attente, donc commencez tôt), et enfin ouvrez un compte bancaire et réglez votre permis de conduire.</p>
+<h3>🪪 Numéro d'assurance sociale (NAS)</h3>
+<p>Le NAS est nécessaire pour travailler, produire vos impôts et accéder à la plupart des prestations gouvernementales. Faites la demande en ligne sur le site de <a href="https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale.html" target="_blank" rel="noopener">Service Canada</a>, ou en personne dans un bureau local (voir Catégorie → Gouv/Immigration sur cette carte). C'est gratuit, généralement délivré le jour même ou en quelques jours.</p>
+<h3>🏦 Ouvrir un compte bancaire</h3>
+<p>Les grandes banques (TD, CIBC, BMO, Scotiabank, etc.) offrent souvent des comptes « bienvenue nouveaux arrivants » sans frais mensuels la première année, ouvrables avec passeport et documents d'immigration (carte RP, permis d'études ou de travail) — aucun historique de crédit local requis. Apportez passeport, documents d'immigration et votre carte NAS (si obtenue) à une succursale. Voir les succursales sous Catégorie → Banques sur cette carte.</p>
+<h3>📱 Téléphone et internet</h3>
+<p>Les grands fournisseurs sont Rogers/Telus/Bell et leurs marques économiques (Fido, Koodo, Virgin Plus, etc.), souvent moins chères. Envisagez d'abord une carte SIM prépayée, puis un forfait avec contrat une fois installé (un contrat peut exiger un historique de crédit ou un dépôt).</p>
+
+`;
+UI.fr.guideProv=`<h3>⚕️ Couverture santé de la C.-B. (MSP + carte Services de la C.-B.)</h3>
+<p>Le régime public de santé de la C.-B. s'appelle MSP (Medical Services Plan). Faites votre demande de carte Services de la C.-B. sur le site de <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC</a>. Notez qu'il y a généralement un délai d'attente pouvant aller jusqu'à 3 mois pour les nouveaux résidents — pensez à une assurance santé voyage temporaire pour couvrir cette période. Cette carte est nécessaire pour voir un médecin de famille ou aller à l'urgence.</p>
+<h3>🚗 Permis de conduire</h3>
+<p>Les permis de conduire de la C.-B. sont gérés par ICBC. Les permis de nombreux pays peuvent être échangés directement, ou donner droit à un examen de route allégé selon l'expérience de conduite — consultez la page <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">« New to BC » d'ICBC</a> pour vérifier les ententes de réciprocité. Pour des cours de conduite locaux, voir Catégorie → Auto-école.</p>
+<h3>🎒 Inscription scolaire des enfants</h3>
+<p>{CITY} fait partie du district scolaire {SD}. Les écoles publiques sont assignées selon l'adresse — utilisez l'<a href="{SD_URL}" target="_blank" rel="noopener">outil de recherche d'école {SD}</a> pour trouver votre école, puis contactez l'école ou le district pour l'inscription. Il faut généralement un certificat de naissance/passeport, le carnet de vaccination et une preuve d'adresse.</p>
+<h3>🏠 L'essentiel sur la location</h3>
+<p>En C.-B., le dépôt de garantie est plafonné par la loi à un demi-mois de loyer — un propriétaire ne peut pas exiger davantage. Les préavis, les règles de hausse de loyer et les autres protections des locataires relèvent de la <a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies" target="_blank" rel="noopener">Residential Tenancy Branch (RTB) de la C.-B.</a> En cas de litige, appelez la RTB au <b>1-800-665-8779</b> plutôt que de vous fier uniquement à ce que dit le propriétaire.</p>
+<h3>⚖️ Questions juridiques et aide juridique</h3>
+<p>Avoir besoin d'aide juridique ne signifie pas toujours payer un avocat — la C.-B. offre plusieurs options gratuites ou à faible coût. <b>Legal Aid BC</b> couvre le droit de la famille, la défense criminelle et les questions d'immigration/réfugiés pour les personnes à revenu limité — ligne de {CITY} <b>250-314-1900</b>, ligne provinciale <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} a une clinique juridique physique, l'<b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offrant une aide gratuite ou à faible coût en droit de la famille, aide au revenu/prestations d'invalidité, assurance-emploi, dettes et questions de location (voir Catégorie → Aide juridique sur cette carte). <b>Access Pro Bono BC</b> (604-878-7400, accessprobono.ca) offre des conseils juridiques gratuits et des recommandations pour les personnes à faible revenu, les aînés de 55 ans et plus, les personnes handicapées et les immigrants/réfugiés. Les petites créances de moins de 5 000 $ et les litiges de copropriété peuvent être traités en ligne, sans avocat, via le <b>Tribunal de résolution civile de la C.-B. (CRT)</b> (1-844-322-2292). Les salaires impayés ou autres litiges en milieu de travail relèvent de la <b>Direction des normes d'emploi de la C.-B.</b> (1-833-236-3700), et les plaintes de discrimination relèvent du <b>Tribunal des droits de la personne de la C.-B.</b> (1-888-440-8844).</p>
+
+`;
+UI.fr.guideCA2=`<h3>☎️ Numéros utiles et questions fréquentes</h3>
+<p><b>911</b> — urgences police/incendie/ambulance. <b>8-1-1</b> — ligne de conseils santé non urgents; vous pouvez demander un interprète. <b>250-828-3000</b> — ligne non urgente de la GRC locale. La plupart des services gouvernementaux peuvent fournir un interprète sur demande — un anglais courant n'est pas nécessaire.</p>
+<p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">Ce résumé est basé sur des informations publiques générales à titre de point de départ — vérifiez toujours la politique actuelle sur les sites officiels ou par téléphone, car les règles peuvent changer.</p>
+`;
+UI.es.guideCA1=`<h3>🛬 Primeras cosas por hacer al llegar</h3>
+<p>Un orden práctico: primero consiga una SIM para poder ser contactado, luego solicite su SIN (necesario para trabajar y declarar impuestos), después su tarjeta de salud de BC (hay un período de espera, así que empiece pronto), y finalmente abra una cuenta bancaria y resuelva su licencia de conducir.</p>
+<h3>🪪 Número de Seguro Social (SIN)</h3>
+<p>Necesita un SIN para trabajar, declarar impuestos y acceder a la mayoría de los beneficios gubernamentales. Solicítelo en línea en el <a href="https://www.canada.ca/en/employment-social-development/services/sin.html" target="_blank" rel="noopener">sitio web de Service Canada</a>, o en persona en una oficina local de Service Canada (vea Categoría → Gobierno/Inmigración en este mapa). Es gratuito y generalmente se emite el mismo día o en pocos días.</p>
+<h3>🏦 Abrir una cuenta bancaria</h3>
+<p>Los principales bancos aquí (TD, CIBC, BMO, Scotiabank, etc.) suelen ofrecer cuentas de "bienvenida para recién llegados" sin cuota mensual el primer año, que se pueden abrir con su pasaporte y documentos de inmigración (tarjeta de residencia permanente, permiso de estudios o trabajo) — no se requiere historial crediticio local. Lleve su pasaporte, documentos de inmigración y su tarjeta SIN (si ya la tiene) a una sucursal. Encuentre sucursales cercanas en Categoría → Bancos en este mapa.</p>
+<h3>📱 Teléfono e internet</h3>
+<p>Los principales operadores son Rogers/Telus/Bell y sus submarcas económicas (Fido, Koodo, Virgin Plus, etc.), que suelen ser más baratas. Considere primero una SIM prepagada para necesidades inmediatas, y luego cambie a un plan con contrato una vez establecido (los contratos pueden requerir historial crediticio o un depósito).</p>
+
+`;
+UI.es.guideProv=`<h3>⚕️ Cobertura de salud de BC (MSP + tarjeta Services Card)</h3>
+<p>El plan público de salud de BC se llama MSP (Medical Services Plan). Solicite su tarjeta BC Services Card a través del <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">sitio web de Health Insurance BC</a>. Tenga en cuenta que suele haber un período de espera de hasta 3 meses para nuevos residentes — considere un seguro de salud temporal para cubrir ese período. Necesitará esta tarjeta para visitas al médico de familia y atención hospitalaria/de urgencias.</p>
+<h3>🚗 Licencia de conducir</h3>
+<p>Las licencias de conducir de BC son administradas por ICBC. Las licencias de muchos países pueden canjearse directamente, o calificar para requisitos reducidos de examen de manejo según la experiencia — consulte la página <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">"New to BC" de ICBC</a> para ver si su licencia califica bajo un acuerdo recíproco. Para tomar clases localmente, vea Categoría → Autoescuela.</p>
+<h3>🎒 Inscripción escolar de los niños</h3>
+<p>{CITY} pertenece al Distrito Escolar 73 ({SD}). Las escuelas públicas se asignan según la dirección — use el <a href="{SD_URL}" target="_blank" rel="noopener">buscador de zona escolar de {SD}</a> para encontrar su escuela local, luego contacte a la escuela o al distrito para inscribirse. Generalmente necesitará certificado de nacimiento/pasaporte, registro de vacunación y comprobante de domicilio.</p>
+<h3>🏠 Lo esencial sobre el alquiler</h3>
+<p>En BC, el depósito de garantía está legalmente limitado a medio mes de alquiler — los propietarios no pueden exigir depósitos adicionales. Los períodos de aviso, las reglas de aumento de renta y otras protecciones para inquilinos están establecidas por la <a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies" target="_blank" rel="noopener">Oficina de Arrendamientos Residenciales de BC (RTB)</a>. Si surge una disputa, llame a la RTB al <b>1-800-665-8779</b> en lugar de confiar solo en lo que le diga el propietario.</p>
+<h3>⚖️ Problemas legales y cómo obtener ayuda legal</h3>
+<p>Necesitar ayuda legal no siempre significa pagar un abogado — BC tiene varias opciones gratuitas o de bajo costo. <b>Legal Aid BC</b> cubre derecho de familia, defensa criminal e inmigración/refugiados para personas que califican por ingresos — línea de {CITY} <b>250-314-1900</b>, línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} tiene una clínica legal física, la <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), que ofrece ayuda gratuita o de bajo costo en derecho de familia, asistencia social/beneficios por discapacidad, seguro de desempleo, deudas y disputas de arrendamiento (vea Categoría → Ayuda legal en este mapa). <b>Access Pro Bono BC</b> (604-878-7400, accessprobono.ca) ofrece asesoría legal gratuita y referencias para personas de bajos ingresos, personas mayores de 55 años, personas con discapacidad e inmigrantes/refugiados. Las demandas de menor cuantía por debajo de $5,000 y las disputas de condominios pueden resolverse en línea, sin abogado, a través del <b>Tribunal de Resolución Civil de BC (CRT)</b> (1-844-322-2292). Los salarios impagos u otras disputas laborales van a la <b>Dirección de Normas Laborales de BC</b> (1-833-236-3700), y las quejas por discriminación van al <b>Tribunal de Derechos Humanos de BC</b> (1-888-440-8844).</p>
+
+`;
+UI.es.guideCA2=`<h3>☎️ Números útiles y preguntas frecuentes</h3>
+<p><b>911</b> — emergencias de policía/bomberos/ambulancia. <b>8-1-1</b> — línea de asesoría de salud no urgente; puede solicitar interpretación en su idioma. <b>250-828-3000</b> — línea no urgente de la RCMP local. La mayoría de los servicios gubernamentales pueden proporcionar un intérprete a solicitud, por lo que no se requiere inglés fluido para hacer trámites.</p>
+<p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">Este es un resumen general de referencia basado en información pública — siempre confirme la política vigente en los sitios web oficiales o por teléfono, ya que las reglas pueden cambiar.</p>
+`;
+UI.ko.guideCA1=`<h3>🛬 도착 후 가장 먼저 해야 할 일</h3>
+<p>추천 순서: 먼저 연락이 가능하도록 휴대폰 SIM 카드를 개통하고, 다음으로 SIN(사회보험번호)을 신청합니다(취업/세금 신고에 필수). 그 다음 BC주 건강보험카드를 신청하세요(대기 기간이 있으니 최대한 빨리 신청하는 것이 좋습니다). 마지막으로 은행 계좌를 개설하고 운전면허를 처리합니다.</p>
+<h3>🪪 사회보험번호(SIN)</h3>
+<p>취업, 세금 신고, 대부분의 정부 혜택 신청에 SIN이 필요합니다. <a href="https://www.canada.ca/en/employment-social-development/services/sin.html" target="_blank" rel="noopener">Service Canada 웹사이트</a>에서 온라인으로 신청하거나, 지역 Service Canada 사무소를 방문해 직접 신청할 수 있습니다(이 지도의 「분류 → 정부/이민」에서 위치를 찾을 수 있습니다). 무료이며 보통 당일 또는 며칠 내에 발급됩니다.</p>
+<h3>🏦 은행 계좌 개설</h3>
+<p>현지 주요 은행(TD, CIBC, BMO, Scotiabank 등)은 대부분 "신규 정착민 환영 계좌"를 제공하며, 첫 해 월 수수료가 면제되고 여권과 이민/학생비자/취업비자 서류만으로 개설 가능해 현지 신용기록이 필요 없습니다. 여권, 이민 서류(영주권 카드/학생비자/취업비자), SIN 카드(있는 경우)를 지참해 지점을 방문하세요. 지도의 「분류 → 은행」에서 근처 지점을 찾을 수 있습니다.</p>
+<h3>📱 휴대폰과 인터넷</h3>
+<p>캐나다의 주요 통신사는 Rogers/Telus/Bell과 이들의 저가 브랜드(Fido, Koodo, Virgin Plus 등)로, 저가 브랜드가 대체로 더 저렴합니다. 우선 선불 SIM 카드로 급한 용무를 처리한 뒤, 정착 후 안정되면 약정 요금제를 고려하세요(약정에는 신용기록이나 보증금이 필요할 수 있습니다).</p>
+
+`;
+UI.ko.guideProv=`<h3>⚕️ BC주 건강보험(MSP + BC Services Card)</h3>
+<p>BC주의 공공 의료보험은 MSP(Medical Services Plan)라고 합니다. <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC 웹사이트</a>를 통해 BC Services Card를 신청하세요. 신규 정착민은 보통 최대 3개월의 대기 기간이 있으니, 이 기간을 대비해 임시 여행자/방문자 의료보험 가입을 고려하는 것이 좋습니다. 가정의 진료나 응급실 방문 시 이 카드가 필요합니다.</p>
+<h3>🚗 운전면허</h3>
+<p>BC주 운전면허는 ICBC에서 관리합니다. 많은 국가/지역의 운전면허는 직접 교환하거나 운전 경력에 따라 도로주행시험이 일부 면제될 수 있습니다. <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC의 "New to BC" 페이지</a>에서 상호 인정 협약 대상인지 확인하세요. 현지에서 운전 교습을 받으려면 지도의 「분류 → 운전학원」에서 찾을 수 있습니다.</p>
+<h3>🎒 자녀 학교 등록</h3>
+<p>{CITY}는 {SD} 학군에 속하며, 공립학교는 주소지에 따라 배정됩니다. <a href="{SD_URL}" target="_blank" rel="noopener">{SD} 공식 학군 조회 도구</a>에 주소를 입력해 해당 학교를 확인한 후, 학교 또는 학군 사무소에 연락해 등록 절차를 진행하세요. 보통 출생증명서/여권, 예방접종 기록, 주소 증명 서류가 필요합니다.</p>
+<h3>🏠 임대 관련 기본 정보</h3>
+<p>BC주에서 보증금(damage deposit)은 법적으로 임대료의 절반을 초과할 수 없으며, 집주인은 이를 초과하는 추가 보증금을 요구할 수 없습니다. 퇴거 통지, 임대료 인상 규정 등은 <a href="https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies" target="_blank" rel="noopener">BC주 임차인 권익보호처(RTB)</a>의 보호를 받습니다. 분쟁이 발생하면 집주인의 말만 믿지 말고 RTB 전화 <b>1-800-665-8779</b>로 문의하세요.</p>
+<h3>⚖️ 법률 문제와 법률 지원 받기</h3>
+<p>법률 문제가 생겼다고 반드시 변호사를 선임해야 하는 것은 아닙니다. BC주에는 무료 또는 저비용으로 이용할 수 있는 여러 경로가 있습니다. <b>Legal Aid BC</b>(법률 지원 BC)는 소득 기준을 충족하는 사람들을 위해 가족법, 형사 변호, 이민/난민 관련 법률 지원을 제공합니다({CITY} 지역 전화 <b>250-314-1900</b>, 주 전체 상담전화 <b>1-866-577-2525</b>, legalaid.bc.ca). {CITY}에는 <b>Okanagan Thompson Legal Clinic</b>(220-301 Victoria St, 전화 236-425-9121)이라는 실제 법률 클리닉이 있어 가족법, 사회부조/장애수당, 실업보험, 채무, 임대 분쟁 등에 대해 무료 또는 저비용 지원을 제공합니다(지도의 「분류 → 법률 지원」에서 확인 가능). <b>Access Pro Bono BC</b>(604-878-7400, accessprobono.ca)는 저소득층, 55세 이상 노인, 장애인, 이민자/난민에게 무료 법률 상담과 연계 서비스를 제공합니다. 5,000달러 미만의 소액 청구 소송이나 콘도/공동주택 분쟁은 변호사 없이 <b>BC 민사분쟁해결심판원(CRT)</b>(1-844-322-2292)을 통해 온라인으로 처리할 수 있습니다. 임금 체불 등 직장 관련 분쟁은 <b>BC주 노동기준처</b>(1-833-236-3700)에, 차별 문제는 <b>BC 인권심판원</b>(1-888-440-8844)에 문의하세요.</p>
+
+`;
+UI.ko.guideCA2=`<h3>☎️ 주요 연락처 및 자주 묻는 질문</h3>
+<p><b>911</b>——경찰/화재/구급 긴급상황; <b>8-1-1</b>——비응급 건강 상담 전화, 통역 서비스 요청 가능; <b>250-828-3000</b>——지역 RCMP 경찰 비응급 신고. 대부분의 정부 서비스는 "interpreter"(통역) 서비스를 요청할 수 있어, 유창한 영어를 구사하지 못해도 업무를 처리할 수 있습니다.</p>
+<p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">위 내용은 공개된 정보를 종합해 정리한 입문 참고 자료이며, 구체적인 정책은 공식 웹사이트 또는 전화 확인을 기준으로 합니다. 정책은 변경될 수 있습니다.</p>
+`;
+/*__CITY_DATA__*/
+const CI={"school":{"zh":"中学","en":"High Schools","fr":"Écoles sec.","es":"Secundarias","ko":"고등학교"},"elem":{"zh":"小学","en":"Elementary","fr":"Écoles prim.","es":"Primarias","ko":"초등학교"},"hospital":{"zh":"医院诊所","en":"Medical","fr":"Médical","es":"Médico","ko":"병원/의료"},"dental":{"zh":"牙科","en":"Dental","fr":"Dentaire","es":"Dental","ko":"치과"},"vet":{"zh":"宠物医院","en":"Vet","fr":"Vétérinaire","es":"Veterinaria","ko":"동물병원"},"pharmacy":{"zh":"药房","en":"Pharmacy","fr":"Pharmacie","es":"Farmacia","ko":"약국"},"police":{"zh":"警局","en":"Police","fr":"Police","es":"Policía","ko":"경찰서"},"pool":{"zh":"游泳馆","en":"Pools","fr":"Piscines","es":"Piscinas","ko":"수영장"},"splash":{"zh":"戏水乐园","en":"Splash Park","fr":"Jeux d'eau","es":"Juegos de agua","ko":"물놀이장"},"gym":{"zh":"健身房","en":"Gyms","fr":"Salles de sport","es":"Gimnasios","ko":"헬스장"},"rink":{"zh":"冰场/体育馆","en":"Rinks/Arena","fr":"Patinoires/Aréna","es":"Pistas/Arena","ko":"스케이트장/경기장"},"park":{"zh":"公园操场","en":"Parks","fr":"Parcs","es":"Parques","ko":"공원"},"dogpark":{"zh":"狗公园","en":"Dog Parks","fr":"Parcs à chiens","es":"Parques para perros","ko":"반려견 공원"},"beach":{"zh":"沙滩/湖泊","en":"Beaches","fr":"Plages","es":"Playas","ko":"해변/호수"},"trail":{"zh":"自然步道","en":"Trails","fr":"Sentiers","es":"Senderos","ko":"자연 트레일"},"library":{"zh":"图书馆","en":"Libraries","fr":"Bibliothèques","es":"Bibliotecas","ko":"도서관"},"museum":{"zh":"博物馆","en":"Museums","fr":"Musées","es":"Museos","ko":"박물관"},"cinema":{"zh":"电影院","en":"Cinemas","fr":"Cinémas","es":"Cines","ko":"영화관"},"grocery":{"zh":"超市","en":"Groceries","fr":"Épiceries","es":"Supermercados","ko":"슈퍼마켓"},"asian":{"zh":"亚洲超市","en":"Asian Market","fr":"Épicerie asiat.","es":"Mercado asiático","ko":"아시안 마트"},"restaurant":{"zh":"餐馆","en":"Restaurants","fr":"Restaurants","es":"Restaurantes","ko":"음식점"},"secondhand":{"zh":"二手店","en":"Thrift Stores","fr":"Magasins d'occasion","es":"Tiendas de segunda mano","ko":"중고매장"},"hardware":{"zh":"五金店","en":"Hardware","fr":"Quincaillerie","es":"Ferretería","ko":"철물점"},"mall":{"zh":"商场","en":"Malls","fr":"Centres comm.","es":"Centros comerciales","ko":"쇼핑몰"},"transit":{"zh":"公交","en":"Transit","fr":"Transport en commun","es":"Transporte público","ko":"대중교통"},"bank":{"zh":"银行","en":"Banks","fr":"Banques","es":"Bancos","ko":"은행"},"post":{"zh":"邮局","en":"Post Office","fr":"Bureau de poste","es":"Correos","ko":"우체국"},"conv":{"zh":"便利店","en":"Convenience","fr":"Dépanneurs","es":"Tiendas de conveniencia","ko":"편의점"},"gov":{"zh":"政务移民","en":"Gov/Immigration","fr":"Gouv/Immigration","es":"Gobierno/Inmigración","ko":"정부/이민"},"laundry":{"zh":"洗衣店","en":"Laundry","fr":"Buanderie","es":"Lavandería","ko":"세탁소"},"barber":{"zh":"理发店","en":"Barbers","fr":"Coiffeurs","es":"Barberías","ko":"이발소/미용실"},"gas":{"zh":"加油站","en":"Gas Stations","fr":"Stations-service","es":"Gasolineras","ko":"주유소"},"apt":{"zh":"公寓租房","en":"Apartments","fr":"Appartements","es":"Apartamentos","ko":"아파트 임대"},"schoolbus":{"zh":"校车信息","en":"School Bus","fr":"Autobus scolaire","es":"Autobús escolar","ko":"스쿨버스"},"religious":{"zh":"宗教场所","en":"Religious Sites","fr":"Lieux de culte","es":"Lugares de culto","ko":"종교시설"},"commctr":{"zh":"社区中心","en":"Community Centre","fr":"Centre communautaire","es":"Centro comunitario","ko":"커뮤니티센터"},"taxi":{"zh":"出租车/网约车","en":"Taxi & Rideshare","fr":"Taxi et covoiturage","es":"Taxi y viajes compartidos","ko":"택시/차량공유"},"driving":{"zh":"驾校","en":"Driving School","fr":"Auto-école","es":"Autoescuela","ko":"운전학원"},"usedcar":{"zh":"二手车行","en":"Used Cars","fr":"Voitures d'occasion","es":"Autos usados","ko":"중고차"},"autorepair":{"zh":"汽车维修","en":"Auto Repair","fr":"Réparation auto","es":"Reparación de autos","ko":"자동차 정비"},"daycare":{"zh":"日托/幼儿园","en":"Daycare","fr":"Garderie","es":"Guardería","ko":"어린이집"},"tutor":{"zh":"课后补习","en":"Tutoring","fr":"Tutorat","es":"Tutoría","ko":"방과후 교습"},"playcenter":{"zh":"室内儿童乐园","en":"Indoor Play","fr":"Aire de jeux intérieure","es":"Juegos infantiles bajo techo","ko":"실내 놀이터"},"legal":{"zh":"法律援助","en":"Legal Aid","fr":"Aide juridique","es":"Ayuda legal","ko":"법률 지원"},"propmgmt":{"zh":"租房中介","en":"Rental agents","fr":"Agences loc.","es":"Inmobiliarias","ko":"임대 관리"}};
+const CO={"school":"#b3552f","elem":"#cd7f32","hospital":"#c0392b","dental":"#e17055","vet":"#a0522d","pharmacy":"#d35400","police":"#2c3e6b","pool":"#1a8fa3","splash":"#3aa9c9","gym":"#c73e6b","rink":"#4a6fa5","park":"#3a9b5c","dogpark":"#7cb342","beach":"#00acc1","trail":"#558b2f","library":"#8a5a9e","museum":"#7d5a3c","cinema":"#9b2f6b","grocery":"#b88a1c","asian":"#c0392b","restaurant":"#e07b39","secondhand":"#5a7a3a","hardware":"#5d4e37","mall":"#6b5b95","transit":"#2f6b4f","bank":"#34495e","post":"#d64545","conv":"#3d8b7d","gov":"#16697a","laundry":"#4c8577","barber":"#b5651d","gas":"#7f8c8d","apt":"#8e5a3f","schoolbus":"#c9a227","religious":"#6a4c93","commctr":"#8d6e3a","taxi":"#f9a825","driving":"#00838f","usedcar":"#6d4c41","autorepair":"#546e7a","daycare":"#d81b60","tutor":"#3949ab","playcenter":"#fb8c00","legal":"#455a64","propmgmt":"#6d7f8c"};
+// CD：与CO一一对应的"文字安全色"——每个分类色加深到与白色文字/白色背景对比度≥4.5:1（WCAG AA），
+// 用于所有承载文字的场景（标签徽章、选中态色块、分类按钮文字）；地图标记图钉仍用CO保留鲜艳原色。
+const CD={"school":"#b3552f","elem":"#a46628","hospital":"#c0392b","dental":"#b45a44","vet":"#a0522d","pharmacy":"#b24700","police":"#2c3e6b","pool":"#177e8f","splash":"#2b7d95","gym":"#c73e6b","rink":"#4a6fa5","park":"#31824d","dogpark":"#577d2e","beach":"#007f8f","trail":"#4e802b","library":"#8a5a9e","museum":"#7d5a3c","cinema":"#9b2f6b","grocery":"#936e16","asian":"#c0392b","restaurant":"#9e5628","secondhand":"#5a7a3a","hardware":"#5d4e37","mall":"#6b5b95","transit":"#2f6b4f","bank":"#34495e","post":"#cd4242","conv":"#388073","gov":"#16697a","laundry":"#477d70","barber":"#9d5719","gas":"#6b7676","apt":"#8e5a3f","schoolbus":"#8d711b","religious":"#55397a","commctr":"#6e5730","taxi":"#c17900","driving":"#005f6b","usedcar":"#4a332e","autorepair":"#37474f","daycare":"#ad1457","tutor":"#283593","playcenter":"#e65100","legal":"#37474f","propmgmt":"#6d7f8c"};
+const IC={"school":"🏫","elem":"✏️","hospital":"🏥","dental":"🦷","vet":"🐾","pharmacy":"💊","police":"🚓","pool":"🏊","splash":"💦","gym":"💪","rink":"⛸️","park":"🛝","dogpark":"🐕","beach":"🏖️","trail":"🥾","library":"📚","museum":"🖼️","cinema":"🎬","grocery":"🛒","asian":"🥢","restaurant":"🍜","secondhand":"♻️","hardware":"🔨","mall":"🏬","transit":"🚌","bank":"🏦","post":"📮","conv":"🏪","gov":"🏛️","laundry":"🧺","barber":"💇","gas":"⛽","apt":"🏢","schoolbus":"🚏","religious":"🙏","commctr":"🤝","taxi":"🚕","driving":"🚦","usedcar":"🚙","autorepair":"🔧","daycare":"🧸","tutor":"📘","playcenter":"🎈","legal":"⚖️","propmgmt":"🔑"};
+const GRP=[
+  {k:'edu',cats:['school','elem','schoolbus']},
+  {k:'health',cats:['hospital','dental','vet','pharmacy']},
+  {k:'housing',cats:['apt','propmgmt']},
+  {k:'shop',cats:['grocery','asian','restaurant','secondhand','hardware','mall','conv']},
+  {k:'services',cats:['transit','bank','post','gov','laundry','barber','gas','police','legal']},
+  {k:'sports',cats:['pool','splash','gym','rink']},
+  {k:'parks',cats:['park','dogpark','beach','trail']},
+  {k:'culture',cats:['library','museum','cinema']},
+  {k:'childcare',cats:['daycare','tutor','playcenter']},
+  {k:'faith',cats:['religious','commctr']},
+  {k:'auto',cats:['taxi','driving','usedcar','autorepair']}
+];
+const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","es":"🎓Educación","ko":"🎓교육"},"health":{"zh":"⚕️医疗","en":"⚕️Health","fr":"⚕️Santé","es":"⚕️Salud","ko":"⚕️의료"},"housing":{"zh":"🏢住房","en":"🏢Housing","fr":"🏢Logement","es":"🏢Vivienda","ko":"🏢주거"},"shop":{"zh":"🛍️购物餐饮","en":"🛍️Shopping & Dining","fr":"🛍️Achats et repas","es":"🛍️Compras y restaurantes","ko":"🛍️쇼핑·외식"},"services":{"zh":"🧾生活服务","en":"🧾Services","fr":"🧾Services","es":"🧾Servicios","ko":"🧾생활 서비스"},"sports":{"zh":"🏊运动健身","en":"🏊Sports & Fitness","fr":"🏊Sports et fitness","es":"🏊Deportes y fitness","ko":"🏊스포츠·피트니스"},"parks":{"zh":"🌳公园户外","en":"🌳Parks & Outdoors","fr":"🌳Parcs et plein air","es":"🌳Parques y aire libre","ko":"🌳공원·야외"},"culture":{"zh":"🎭文化娱乐","en":"🎭Culture","fr":"🎭Culture","es":"🎭Cultura","ko":"🎭문화"},"childcare":{"zh":"👶育儿早教","en":"👶Childcare & Tutoring","fr":"👶Garde d'enfants","es":"👶Cuidado infantil","ko":"👶육아·교육"},"faith":{"zh":"🙏信仰社区","en":"🙏Faith & Community","fr":"🙏Culte et communauté","es":"🙏Fe y comunidad","ko":"🙏신앙·커뮤니티"},"auto":{"zh":"🚗交通用车","en":"🚗Transportation & Auto","fr":"🚗Transport et auto","es":"🚗Transporte y autos","ko":"🚗교통·자동차"}};
+// ---------------------------------------------------------------------------
+// CITY — every fact that changes when this map is rebuilt for another city.
+// Anything city-specific belongs here, never inline in the code or the prose.
+// Text elsewhere uses {CITY} {PROV} {TRANSIT} {SD} {DATE} placeholders, expanded
+// by tpl() at render time, so a new city means editing this block and the data —
+// not hunting through five languages of copy.
+// ---------------------------------------------------------------------------
+const DATA_VERSION='2026.08.31c';
+// Change history, newest first. A version number nobody can look up is just a
+// string, so the reader can see what actually changed between two dates — and a
+// correction someone sent in has somewhere visible to land.
+// Each entry: {v:'YYYY.MM.DD', zh:[…], en:[…]}. fr/es/ko fall back to en, the
+// same rule the place notes use; translate them when there is a translator.
+const CHANGELOG=[
+  {v:'2026.08.31c',
+   zh:['地点备注补齐法语、西班牙语和韩语——221 条全部翻译，法/西/韩读者不再看到英文',
+       '搜索现在也能搜到当前语言的备注（备注一翻译，搜索自动跟上）',
+       '物业管理公司从「公寓租房」拆出，独立成「租房中介」分类：公寓从 18 条变回 14 条真实楼盘',
+       'North Shore Community Centre 从「政务移民」移到「社区中心」——它本来就是社区中心',
+       '备注很长的地点，弹窗不再高过地图；此前在 320px 屏幕上会自己关掉',
+       '新增外链失效检查脚本（需在能联网的机器上运行）'],
+   en:['Place notes now exist in French, Spanish and Korean — all 221 translated, so those readers no longer get the English text',
+       'Search reaches the notes in whatever language is showing, which came free with the translation',
+       'Property managers split out of Apartments into their own category: the apartment count is 14 real buildings again, not 18',
+       'North Shore Community Centre moved from Government to Community Centres, which is what it is',
+       'Popups with long notes no longer grow taller than the map; on a 320px screen they used to close themselves',
+       'Added a link-checker script for the 150 external websites (run it on a networked machine)']},
+  {v:'2026.08.31b',
+   zh:['18 个公园、步道、狗公园和沙滩不再声称「24 小时营业」，改为「开放时间见现场告示」——市政公园几乎都有条例规定的关闭时段',
+       'Kamloops Immigrant Services 原本重复成两条记录（分属两个分类，坐标相差 1.4 公里），已合并；旧收藏仍然有效',
+       '4 条记录的地址里混着中文括注，非中文读者看不懂，已移进双语备注',
+       '收藏可以导出成一串文字自己保存，换设备或清理浏览器后再导入——不上云，不建账号',
+       '弹窗在 320px 的老手机上不再超出屏幕',
+       '手机上的按钮加大到便于单手点按的尺寸',
+       'Canada Games Aquatic Centre 等场馆从「请致电」改为「详见官网」，官网本来就有时刻表',
+       '三条备注里的「新移民」改为「新居民」'],
+   en:['18 parks, trails, dog parks and beaches no longer claim to be open 24 hours; they now say hours are posted on site, since municipal parks almost always have a bylaw closing time',
+       'Kamloops Immigrant Services had been listed twice, in two categories, with coordinates 1.4 km apart; the records are merged and existing favourites still resolve',
+       'Four records carried Chinese parentheticals inside the address field, unreadable for four of the five audiences; moved into the bilingual note',
+       'Favourites can be exported as a short line of text and imported on another device or after clearing the browser — no account, nothing uploaded',
+       'Popups no longer run off the edge of a 320px phone',
+       'Controls on phones are large enough to hit one-handed',
+       'Venues like Canada Games Aquatic Centre now point at their published timetable instead of saying "phone to confirm"',
+       'Three notes still said 新移民 (new immigrant); the house wording is 新居民 (new resident)']},
+  {v:'2026.08.31',
+   zh:['公交数据全量核对官方 GTFS：14 条线路、475 个站点全部一致；查明本市根本没有 8/11/12/15 号线，说明文字已改写',
+       '弹窗打开时不再被地图的缩放按钮和版权链接穿透（此前可以点到，会把背后的地图放大或直接跳走）',
+       '修正地址栏参数校验：像 ?lang=constructor 这样的链接不再让页面变成空白',
+       '地图归属改为「© OpenStreetMap contributors」并加上版权页链接',
+       '数据说明里新增隐私说明：本页不收集任何信息，唯一的对外请求是地图底图',
+       '改用系统字体，去掉最后一个第三方请求，离线时字体也不再变形',
+       '修正六处过小或过浅的文字，全部达到 WCAG AA 对比度',
+       '收藏星标现在会告诉读屏软件「已收藏 / 未收藏」',
+       '手机上底部面板可以向下拖动关闭了（顶部那条横杠一直在暗示这件事）',
+       '手机上改用 dvh 计算高度，页面不再多出一截无用的滚动'],
+   en:['Bus data re-checked against the operator’s official GTFS feed: 14 routes and all 475 stops matched, and routes 8, 11, 12 and 15 turn out not to exist here at all — the copy now says so instead of implying a gap',
+       'Modal dialogs are no longer punched through by the map\u2019s zoom control and attribution link — both used to stay clickable, zooming the map behind or navigating away',
+       'Fixed URL parameter validation: a link like ?lang=constructor no longer blanks the page',
+       'Map attribution now reads “© OpenStreetMap contributors” and links to the licence',
+       'Added a privacy note: this page collects nothing, and the map imagery is its only outbound request',
+       'Switched to system fonts, removing the last third-party request and the last offline gap',
+       'Fixed six pieces of text that were too small or too faint to meet WCAG AA contrast',
+       'The favourite star now tells a screen reader whether it is on or off',
+       'The mobile sheet can be swiped down to dismiss — the handle at its top had been promising that all along',
+       'Mobile heights use dvh, so the page no longer carries a strip of dead scroll']},
+  {v:'2026.08.30',
+   zh:['全部 250 处地点的营业时间改为结构化数据，五种语言分别渲染，并明确标出休息日',
+       '移除所有硬编码的评分数字，改用 ⭐ 推荐标记',
+       '新增韩语；222 条备注补齐英文，法/西/韩回退到英文',
+       '分类筛选逻辑改为「未筛选 / 只看选中项」，不再是反向的排除逻辑',
+       '「重置」按钮改为常驻显示，并可一并清除公交线路与搜索',
+       '纠错入口带上地点名称、编号、分类与数据版本',
+       '地址栏记录当前语言、区域、分类与搜索词，链接可直接分享',
+       '指南拆为城市 / 省 / 国家三层；新增授权与署名说明（{LIC}）',
+       '地图库改为内置，无网络时除底图外全部功能可用',
+       '每条记录标注数据出处：登记了机构官网的显示「机构官网」，其余显示「第三方地图数据」',
+       '弹窗可读性修复：法语/西语标签不再和内容挤在一起；弹窗不再被缩放按钮遮住店名'],
+   en:['All 250 records now carry structured opening hours, rendered per language, with closed days stated rather than implied',
+       'Removed every hard-coded rating number in favour of a ⭐ recommended mark',
+       'Added Korean; filled in English for 222 notes, with fr/es/ko falling back to English',
+       'Category filtering is now "no filter / show only what is selected" instead of the inverted exclude logic',
+       'Reset is always visible and now also clears the bus route and the search box',
+       'Corrections now carry the place name, id, category and data version',
+       'The address bar records language, area, category and search term, so a link can be shared as-is',
+       'The guide is split into city / province / country tiers; added a licence and attribution notice ({LIC})',
+       'The map library is bundled, so everything but the base map works with no network',
+       'Every record now states where its details come from — the operator’s own site, or third-party map data',
+       'Popup fixes: French and Spanish labels no longer run into their values, and the zoom control no longer covers the place name']}
+];
+// city → country basics → province specifics → country reference
+const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
+// Stated once, rendered everywhere. Change this line to change the terms.
+const LICENCE={id:'CC BY-NC 4.0', url:'https://creativecommons.org/licenses/by-nc/4.0/'};
+// Single source of truth for the verification date. It used to be written out by
+// hand in five different note strings, which is how they drift apart.
+const VERIFIED='2026-08-30';
+// Bus routes are not hand-collected: they come from the operator's GTFS feed, and
+// every stop name and coordinate in BR was re-checked against this edition of it.
+// Routes 8, 11, 12 and 15 are absent from the feed — Kamloops does not run them.
+const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-08-29', stopsChecked:475};
+function verifiedDate(l){
+  const [y,m,d]=VERIFIED.split('-').map(Number);
+  const mn=UI[l].months[m-1];
+  if(l==='zh')return y+'年'+m+'月'+d+'日';
+  if(l==='ko')return y+'년 '+m+'월 '+d+'일';
+  if(l==='en')return mn+' '+d+', '+y;
+  if(l==='fr')return d+' '+mn+' '+y;
+  return d+' de '+mn+' de '+y;
+}
+// Renders CHANGELOG into the guide. Entries carry zh/en only; every other
+// language falls back to en, the same rule the place notes follow.
+function changelogHTML(l){
+  if(!CHANGELOG.length)return '';
+  const u=UI[l];
+  const esc=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return '<h3>'+u.changelogTitle+'</h3><p>'+tpl(u.changelogIntro,l)+'</p>'
+    +CHANGELOG.map(e=>{
+        const items=e[l]||e.en||[];
+        return '<p><b>'+esc(e.v)+'</b></p><ul>'
+          +items.map(t=>'<li>'+tpl(esc(t),l)+'</li>').join('')+'</ul>';
+      }).join('');
+}
+// Expands the {CITY}/{PROV}/{TRANSIT}/{SD}/{DATE} placeholders used throughout the
+// translated copy. One function so a new city can never half-replace a name.
+function tpl(str,l){
+  if(!str)return str;
+  return str
+    .replace(/\{CITY\}/g,CITY.name[l])
+    .replace(/\{PROV\}/g,CITY.prov[l])
+    .replace(/\{TRANSIT_URL\}/g,CITY.transit.url)
+    .replace(/\{TRANSIT\}/g,CITY.transit.name)
+    .replace(/\{SD_URL\}/g,CITY.schoolDistrict.url)
+    .replace(/\{SD\}/g,CITY.schoolDistrict.name)
+    .replace(/\{CONTACT\}/g,CITY.contact)
+    .replace(/\{LIC_URL\}/g,LICENCE.url)
+    .replace(/\{LIC\}/g,LICENCE.id)
+    .replace(/\{VER\}/g,DATA_VERSION)
+    .replace(/\{DATE\}/g,verifiedDate(l));
+}
+let L_='en';
+const map=L.map('map',{scrollWheelZoom:true}).setView(CITY.centre,CITY.zoom);
+// Place data, search and the guide all work with no network because everything is
+// in this file. Only the background imagery needs one — say so rather than leaving
+// a grey rectangle that looks like a broken app.
+const tiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'});
+let tileFails=0,offlineDismissed=false;
+const offlineEl=document.getElementById('offlineNote');
+const offlineTextEl=document.getElementById('offlineText');
+// It sits inside the map container, so without this a click on the dismiss button
+// would also reach the map underneath it.
+if(offlineEl&&L.DomEvent)L.DomEvent.disableClickPropagation(offlineEl);
+document.getElementById('offlineClose').addEventListener('click',()=>{
+  offlineDismissed=true;offlineEl.hidden=true;});
+tiles.on('tileerror',()=>{
+  if(++tileFails<6||offlineDismissed)return;
+  // Don't pop back over a popup that made it yield a moment ago.
+  if(offlineEl&&offlineEl.dataset.yielded)return;
+  if(offlineEl&&offlineEl.hidden){offlineEl.hidden=false;offlineTextEl.textContent=UI[L_].offlineTiles;}
+});
+map.on('popupopen',()=>{
+  if(offlineEl&&!offlineEl.hidden){offlineEl.hidden=true;offlineEl.dataset.yielded='1';}
+});
+map.on('popupclose',()=>{
+  if(offlineEl&&offlineEl.dataset.yielded){delete offlineEl.dataset.yielded;
+    if(!offlineDismissed)offlineEl.hidden=false;}
+});
+tiles.on('tileload',()=>{
+  // Tiles are back: hide it, and let it speak again if the network drops later.
+  if(offlineEl&&!offlineEl.hidden)offlineEl.hidden=true;
+  if(offlineEl)delete offlineEl.dataset.yielded;
+  offlineDismissed=false;tileFails=0;
+});
+tiles.addTo(map);
+
+// Leaflet's zoom control sits above popups and outside their pane, so on a wide
+// screen it clipped the place name — the one line in the popup that matters most.
+// Padding the auto-pan makes Leaflet shift the map until the popup clears it.
+// On a phone the control is hidden altogether (pinch to zoom), and there the same
+// padding would push the popup off the right edge instead — so it is conditional.
+function panPad(){return L.point(window.innerWidth>600?58:14,12);}
+// The longest note runs to 287 characters, and French and Spanish come out longer
+// still. Uncapped, that popup was 456px tall on a 568px phone — most of the screen,
+// with its top edge outside the map. Leaflet's own maxHeight adds an internal scroll
+// and keeps the name and the action buttons where they belong.
+// Basing this on the viewport was wrong: on a short screen the map is a fraction of
+// it, and a popup taller than the map can never satisfy autoPan — Leaflet kept
+// panning and the popup closed itself about 300ms after opening. Measure the map.
+function popMaxH(){
+  const el=document.getElementById('map');
+  const h=el?el.getBoundingClientRect().height:window.innerHeight*0.6;
+  // ~86px goes to the popup's own wrapper padding, tip and close button.
+  return Math.max(150,Math.min(440,Math.round(h-86)));
+}
+const POPUP_OPTS={autoPanPaddingTopLeft:panPad(),autoPanPaddingBottomRight:L.point(14,14),
+                  maxHeight:popMaxH()};
+// Leaflet copies options into each popup at bind time, so a later change has to be
+// pushed to the bound popups rather than just to POPUP_OPTS.
+function syncPanPad(){
+  const pad=panPad(),mh=popMaxH();
+  POPUP_OPTS.autoPanPaddingTopLeft=pad;POPUP_OPTS.maxHeight=mh;
+  M.forEach(m=>{const pu=m.getPopup();
+    if(pu){pu.options.autoPanPaddingTopLeft=pad;pu.options.maxHeight=mh;}});
+}
+// One query object, consulted wherever the tight layout changes behaviour, so the
+// CSS breakpoint and the JS can never drift apart.
+const TIGHT=window.matchMedia('(max-height:680px) and (max-width:600px)');
+const M=[];
+// aC empty === no category filter (everything shows). It used to hold all 44 keys,
+// which made "nothing selected" and "everything selected" the same value — that
+// ambiguity is why clicking a category used to mean "hide it".
+let aC=new Set(),aR=new Set(Object.keys(RI));
+let presetsAdjusted=false;
+// Groups a newcomer reaches for first are open on arrival; the rest stay collapsed
+// so the panel does not open as 44 undifferentiated chips.
+const DEFAULT_OPEN_GROUPS=['services','health','housing','shop'];
+let selPresets=new Set();
+let searchTerm='';
+let favorites=new Set(),favMigrated=false;
+try{
+  const raw=JSON.parse(localStorage.getItem('kamloopsFavorites')||'[]');
+  // Older versions stored place NAMES. Names change when data is corrected, which
+  // silently orphaned saved entries, so storage moved to a stable per-place id and
+  // anything still held under an old name is translated across once.
+  const mapped=raw.map(v=>FAV_MIGRATE[v]||v);
+  favorites=new Set(mapped);
+  if(mapped.some((v,i)=>v!==raw[i]))favMigrated=true;
+}catch(e){}
+if(favMigrated)saveFavorites();
+// Favourites are keyed by place name, so a renamed or removed place would otherwise
+// leave an invisible entry that still counted toward the badge. Prune on load so the
+// badge and the list can never disagree.
+(function pruneFavorites(){
+  const live=new Set(P.map(p=>p.id)),before=favorites.size;
+  favorites=new Set([...favorites].filter(id=>live.has(id)));
+  if(favorites.size!==before)saveFavorites();
+})();
+function saveFavorites(){try{localStorage.setItem('kamloopsFavorites',JSON.stringify([...favorites]));}catch(e){}}
+function toggleFav(el,ev){
+  // Rewriting the popup detaches this very button, so the click would otherwise
+  // finish bubbling to the map and Leaflet would close the popup under the user.
+  if(ev&&ev.stopPropagation)ev.stopPropagation();
+  const idx=+el.dataset.i,key=P[idx].id,u=UI[L_];
+  if(favorites.has(key)){favorites.delete(key);el.textContent='☆';el.classList.remove('active');}
+  else{favorites.add(key);el.textContent='★';el.classList.add('active');}
+  // The button survives this click, so its own state has to be updated in place —
+  // the rewritten popup HTML below only takes effect on the next open.
+  const now=favorites.has(key);
+  el.setAttribute('aria-pressed',now);
+  el.setAttribute('aria-label',now?u.favRemove:u.favAdd);
+  saveFavorites();
+  // The marker's bound popup HTML is what Leaflet re-renders on every open, so it
+  // has to be rewritten too — otherwise closing and reopening showed a stale ☆.
+  const m=M[idx];
+  if(m)m.setPopupContent(popup(m.data,idx));
+  if(!panelFavEl.hidden)renderFavList();
+  updateFavBadge();
+}
+function updateFavBadge(){
+  const b=document.getElementById('favBadge');
+  if(favorites.size>0){b.hidden=false;b.textContent=favorites.size;}else{b.hidden=true;}
+}
+
+// Google-style pin: a crisp vector teardrop drawn directly in its final orientation
+// (no CSS rotate transform on the shape — rotating a div was what made the old
+// diamond-icon markers look soft/blurry, especially once dozens overlap on screen).
+function mkIcon(k){
+  const c=CD[k];
+  const svg='<svg width="28" height="38" viewBox="0 0 28 38" xmlns="http://www.w3.org/2000/svg" style="display:block;filter:drop-shadow(0 2px 3px rgba(0,0,0,.35))">'
+    +'<path d="M14 0C6.268 0 0 6.268 0 14c0 10.5 14 24 14 24s14-13.5 14-24C28 6.268 21.732 0 14 0z" fill="'+c+'" stroke="#fff" stroke-width="1.5"/>'
+    +'<circle cx="14" cy="14" r="9.5" fill="#fff"/>'
+    +'<text x="14" y="19" font-size="13.5" text-anchor="middle">'+IC[k]+'</text>'
+    +'</svg>';
+  return L.divIcon({html:svg,className:'',iconSize:[28,38],iconAnchor:[14,36],popupAnchor:[0,-34]});
+}
+// Wraps just the phone-number-looking part of a string in a tel: link, leaving any
+// trailing note (an email, an office name in brackets, etc.) as plain text.
+function phoneHtml(str){
+  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4})/, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
+}
+// ---- structured opening hours -> localised text -------------------------
+// Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,
+// s:service times, k:keyed message, q:qualifier, se:season) rather than as a
+// pre-written Chinese string, so every language renders them from the same source.
+function fmtClock(min,l){
+  const wrapped=min%1440, h=Math.floor(wrapped/60), m=wrapped%60;
+  if(l==='en'){const ap=h<12?'AM':'PM',hh=(h%12)||12;return hh+(m?':'+String(m).padStart(2,'0'):'')+' '+ap;}
+  if(l==='fr')return h+' h'+(m?' '+String(m).padStart(2,'0'):'');
+  return h+':'+String(m).padStart(2,'0');
+}
+function fmtDays(d1,d2,l){
+  const u=UI[l];
+  if(d1===1&&d2===7)return u.dAll;
+  if(d1===6&&d2===7)return u.dWk;
+  if(d1===d2)return u.d[d1-1];
+  return u.d[d1-1]+u.dsep+u.d[d2-1];
+}
+function fmtHours(h,l){
+  if(!h)return '';
+  const u=UI[l];
+  if(typeof h==='string')return h;
+  const bits=[];
+  if(h.a)bits.push(u.h24);
+  if(h.k&&u[h.k])bits.push(u[h.k]);
+  (h.r||[]).forEach(([d1,d2,o,c,ap])=>{
+    const day=fmtDays(d1,d2,l);
+    if(o===null)bits.push(day);
+    else if(c===null)bits.push(day+' '+fmtClock(o,l)+' '+u.fromT);
+    else bits.push(day+' '+fmtClock(o,l)+u.tsep+(ap?u.approx+' ':'')+fmtClock(c,l));
+  });
+  if(h.s&&h.s.length)bits.push(u.lSvc+u.colon+h.s.map(([d,t])=>u.d[d-1]+' '+fmtClock(t,l)).join(' / '));
+  // Closed days are stated, not merely implied by their absence from the ranges.
+  if((h.r||[]).length&&!h.a&&!h.k){
+    const covered=new Set();
+    h.r.forEach(([d1,d2])=>{for(let d=d1;d<=d2;d++)covered.add(d);});
+    const shut=[1,2,3,4,5,6,7].filter(d=>!covered.has(d));
+    if(shut.length&&shut.length<7){
+      const weekendOnly=shut.length===2&&shut[0]===6&&shut[1]===7;
+      bits.push(u.closedLabel+u.colon+(weekendOnly?u.dWk:shut.map(d=>u.d[d-1]).join('、')));
+    }
+  }
+  let out=bits.join(' · ');
+  if(h.se)out=u[h.se==='summer'?'seSummer':'seWinter']+' '+out;
+  if(h.q&&u[h.q])out+=' ('+u[h.q]+')';
+  return out;
+}
+// Entry stamps are stored as YYYY-MM and shown in the reader's own conventions,
+// so they read consistently with the dated disclaimer rather than as raw data.
+function fmtStamp(v,l){
+  const [y,m]=v.split('-').map(Number);
+  const mn=UI[l].months[m-1];
+  if(l==='zh')return y+'年'+m+'月';
+  if(l==='ko')return y+'년 '+m+'월';
+  if(l==='en')return mn+' '+y;
+  if(l==='fr')return mn+' '+y;
+  return mn+' de '+y;
+}
+// A correction is only useful if it says WHICH record and WHICH version. The
+// header link opens an empty mail; this one arrives pre-identified.
+function reportHref(p){
+  const u=UI[L_];
+  const subj=u.fbSubject+': '+p.n;
+  const body=[u.fbPlace+': '+p.n,
+              u.fbId+': '+p.id,
+              u.fbCategory+': '+CI[p.c][L_],
+              u.fbLang+': '+L_,
+              u.fbVersion+': '+DATA_VERSION,
+              (location.protocol.indexOf('http')===0?u.fbUrl+': '+location.href:''),
+              '','---',u.fbPrompt,''].filter(Boolean).join('\n');
+  return 'mailto:'+CITY.contact+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+}
+// Where a record's factual fields come from. 'official' means the operator's own
+// site is on file and the reader can check it; 'places' means they cannot, and
+// should phone ahead; 'own' is a first-hand check by the compiler. Rendered as a
+// small chip so credibility is visible per record rather than only in a blanket
+// disclaimer at the bottom of the page.
+const SRC_KINDS={official:['srcOfficial','srcOfficialTip'],
+                 places:['srcPlaces','srcPlacesTip'],
+                 own:['srcOwn','srcOwnTip']};
+function srcHTML(p,u){
+  const kind=SRC_KINDS[p.src];
+  if(!kind)return '';
+  return '<span class="pv-src src-'+p.src+'" title="'+u[kind[1]].replace(/"/g,'&quot;')+'">'
+    +u.lSource+': '+u[kind[0]]+'</span> · ';
+}
+function popup(p,idx){
+  const u=UI[L_];
+  let b='<span class="tag" style="background:'+CD[p.c]+'">'+CI[p.c][L_]+'</span><span class="tag tag2">'+RI[p.g][L_]+'</span>';
+  // A qualifier that used to sit inside the Chinese name ("（韩餐）") is data now,
+  // so every language gets it instead of a parenthetical it cannot read.
+  if(p.tag&&u[p.tag])b+='<span class="tag tag3">'+u[p.tag]+'</span>';
+  const starChar=favorites.has(p.id)?'★':'☆',starActive=favorites.has(p.id)?' active':'';
+  // A screen reader could hear the star but not whether it was on. The label
+  // states the action, aria-pressed states the current value.
+  const faved=favorites.has(p.id);
+  b+='<div class="pt">'+p.n+'<button class="fav-star'+starActive+'" data-i="'+idx+'" onclick="toggleFav(this,event)" aria-pressed="'+faved+'" aria-label="'+(faved?u.favRemove:u.favAdd)+'">'+starChar+'</button></div><div class="pr">'+p.a+'</div>';
+  if(p.p)b+='<div class="pr"><span class="pl">'+u.lPhone+'</span>'+phoneHtml(p.p)
+    +(p.pq&&u[p.pq]?' <span class="pq">('+u[p.pq]+')</span>':'')+'</div>';
+  if(p.e)b+='<div class="pr"><span class="pl">'+u.lEmail+'</span><a href="mailto:'+p.e+'">'+p.e+'</a></div>';
+  // Saying nothing about hours reads as "no hours"; say which it is instead.
+  const hTxt=p.h?fmtHours(p.h,L_):(CITY.openAir.indexOf(p.c)>=0?u.hOnSite:u.hUnknown);
+  b+='<div class="pr"><span class="pl">'+u.lHours+'</span>'+hTxt+'</div>';
+  const nTxt=noteText(p);
+  if(nTxt)b+='<div class="pn">'+nTxt+'</div>';
+  b+='<div class="pv">'+srcHTML(p,u)+(p.v?u.lVerified+' '+fmtStamp(p.v,L_)+' · ':'')
+    +'<a class="pv-report" href="'+reportHref(p)+'">'+u.reportIssue+'</a></div>';
+  // Destination is the place name + address (not raw lat/lng) so the map app shows
+  // a real, readable place to navigate to instead of a confusing pair of numbers.
+  // A destination string with no civic number ("Cooney Bay") makes the maps app
+  // guess; fall back to the exact coordinates in that case.
+  const hasCivic=/\d/.test(p.a||'');
+  const dest=hasCivic?encodeURIComponent(p.n+', '+p.a+CITY.navSuffix)
+                     :(p.lat+','+p.lng);
+  const phoneDigits=p.p?(p.p.match(/\d{3}[-\s]?\d{3}[-\s]?\d{4}/)||[])[0]:null;
+  b+='<div class="pact">';
+  b+='<a class="pact-btn primary" href="https://www.google.com/maps/dir/?api=1&destination='+dest+'" target="_blank" rel="noopener"><span class="pact-ic">🧭</span>'+u.lNav+'</a>';
+  if(phoneDigits)b+='<a class="pact-btn" href="tel:'+phoneDigits.replace(/[^\d]/g,'')+'"><span class="pact-ic">📞</span>'+u.lCall+'</a>';
+  if(p.w)b+='<a class="pact-btn" href="'+p.w+'" target="_blank" rel="noopener"><span class="pact-ic">🌐</span>'+u.lWeb2+'</a>';
+  b+='</div>';
+  return b;
+}
+
+// 250 pins at the default zoom used to pile into an unreadable clump over downtown,
+// and exactly-co-located places (a pharmacy and a clinic in one building) hid each
+// other completely. Clustering fixes both: counts at low zoom, spiderfied pins at high.
+// If the cluster plugin fails to load, markers fall back to going straight on the map.
+let cluster=null;
+if(typeof L.markerClusterGroup==='function'){
+  cluster=L.markerClusterGroup({
+    showCoverageOnHover:false,
+    spiderfyDistanceMultiplier:1.6,
+    maxClusterRadius:z=>z>=16?24:z>=14?45:60,
+    iconCreateFunction:c=>{
+      const n=c.getChildCount(),size=n<10?'s':n<40?'m':'l';
+      return L.divIcon({html:'<div class="kcluster '+size+'" role="img" aria-label="'+UI[L_].clusterLabel(n)+'">'+n+'</div>',className:'',
+        iconSize:null,iconAnchor:[size==='s'?17:size==='m'?21:25,size==='s'?17:size==='m'?21:25]});
+    }
+  });
+  map.addLayer(cluster);
+}
+function markerHome(){return cluster||map;}
+// A marker inside a collapsed cluster cannot just be told to open its popup —
+// the cluster has to expand to it first.
+function focusMarker(m,zoom){
+  if(cluster&&cluster.hasLayer(m)){cluster.zoomToShowLayer(m,()=>m.openPopup());}
+  else{if(zoom)map.setView(m.getLatLng(),zoom);m.openPopup();}
+}
+function showMarker(m){const h=markerHome();if(!h.hasLayer(m))h.addLayer(m);}
+function hideMarker(m){const h=markerHome();if(h.hasLayer(m))h.removeLayer(m);}
+P.forEach((p,idx)=>{
+  // keyboard:false keeps 250 markers out of the tab order — a keyboard user used to
+  // have to tab through every one of them to reach the footer.
+  const m=L.marker([p.lat,p.lng],{icon:mkIcon(p.c),keyboard:false});
+  m.bindPopup(popup(p,idx),POPUP_OPTS);m.ck=p.c;m.gk=p.g;m.data=p;m.i=idx;M.push(m);
+  showMarker(m);
+});
+
+function renderRegs(){
+  const r=document.getElementById('regRow');r.innerHTML='';
+  const all=document.createElement('button');all.className='reg-btn'+(aR.size===Object.keys(RI).length?' active':'');
+  all.textContent=UI[L_].allReg;
+  all.onclick=()=>{aR=new Set(Object.keys(RI));renderRegs();renderCats();apply();};
+  r.appendChild(all);
+  const allSel=aR.size===Object.keys(RI).length;
+  Object.keys(RI).forEach(k=>{const n=P.filter(p=>p.g===k).length;
+    const b=document.createElement('button');b.className='reg-btn'+((aR.has(k)&&!allSel)?' active':'');
+    b.textContent=RI[k][L_]+' ('+n+')';
+    b.onclick=()=>{if(aR.size===Object.keys(RI).length){aR=new Set([k]);}
+      else if(aR.has(k)){aR.delete(k);
+        // Deselecting the last remaining region used to leave an unrecoverable
+        // empty map with an empty category panel, so falling to zero reverts to
+        // "all areas" — the same guard the filter chips already had.
+        if(aR.size===0)aR=new Set(Object.keys(RI));}
+      else{aR.add(k);}
+      renderRegs();renderCats();apply();};
+    r.appendChild(b);});
+}
+const expandedGroups=new Set(DEFAULT_OPEN_GROUPS);
+function renderCats(){
+  const root=document.getElementById('catGrid');root.innerHTML='';
+  GRP.forEach(grp=>{
+    const cats=grp.cats.filter(k=>P.filter(p=>p.c===k&&aR.has(p.g)).length>0);
+    if(!cats.length)return;
+    const card=document.createElement('div');card.className='cat-group'+(expandedGroups.has(grp.k)?' open':'');
+    const selCount=cats.filter(k=>aC.has(k)).length;
+    const state=selCount===cats.length?'all':selCount===0?'none':'partial';
+    const label=document.createElement('div');label.className='cat-group-label';
+    label.innerHTML='<button class="grp-check '+state+'" aria-label="'+GN[grp.k][L_]+'" aria-pressed="'+(state==='all')+'">'+(state==='all'?'✓':state==='partial'?'–':'')+'</button>'
+      +'<button class="grp-expand" aria-expanded="'+(expandedGroups.has(grp.k)?'true':'false')+'">'
+      +'<span class="grp-name">'+GN[grp.k][L_]+'</span>'
+      +(state!=='all'?'<span class="grp-count">'+selCount+'/'+cats.length+'</span>':'')
+      +'<span class="car">▸</span></button>';
+    label.querySelector('.grp-check').onclick=(e)=>{
+      e.stopPropagation();
+      const allIn=cats.length>0&&cats.every(k=>aC.has(k));
+      // ticking a group means "show me these"; ticking it again clears them
+      if(allIn){cats.forEach(k=>aC.delete(k));}else{cats.forEach(k=>aC.add(k));}
+      if(selPresets.size)presetsAdjusted=true;
+      renderCats();apply();
+    };
+    label.querySelector('.grp-expand').onclick=(e)=>{
+      const open=!expandedGroups.has(grp.k);
+      if(open)expandedGroups.add(grp.k);else expandedGroups.delete(grp.k);
+      e.currentTarget.setAttribute('aria-expanded',open?'true':'false');
+      card.classList.toggle('open',open);};
+    card.appendChild(label);
+    const g=document.createElement('div');g.className='cat-grid';
+    cats.forEach(k=>{const n=P.filter(p=>p.c===k&&aR.has(p.g)).length;
+      const b=document.createElement('button');b.className='cat-btn'+(aC.has(k)?' active':'');
+      b.style.setProperty('--bc',CD[k]);
+      b.innerHTML='<span class="icon">'+IC[k]+'</span><span>'+CI[k][L_]+'</span><span class="cnt">('+n+')</span>';
+      b.onclick=()=>{
+        if(aC.has(k))aC.delete(k);else aC.add(k);
+        // a manual tweak no longer wipes the preset highlight; it marks it adjusted
+        if(selPresets.size)presetsAdjusted=true;
+        renderCats();apply();};
+      g.appendChild(b);});
+    card.appendChild(g);
+    root.appendChild(card);
+  });
+}
+function regionLabel(){
+  const u=UI[L_];
+  if(aR.size===Object.keys(RI).length)return u.allReg;
+  if(aR.size===1)return RI[[...aR][0]][L_];
+  return u.areasN(aR.size);
+}
+// Search looks at everything a person might plausibly type: the name, the street
+// address, the category label *in the language they are reading*, and the notes.
+// Matching only name+address meant a Korean reader searching "은행" got nothing.
+function noteText(d){
+  const nt=d.note;
+  if(!nt)return '';
+  if(typeof nt==='string')return nt;
+  return nt[L_]||nt.en||nt.zh||'';
+}
+// Scores a place against the query instead of returning a flat yes/no, so results
+// can be ordered by how well they match rather than dumped in data order.
+// Field order below is the ranking: name-prefix beats name-contains beats category,
+// and notes — the longest, noisiest field — rank last.
+function matchScore(d,q){
+  const name=d.n.toLowerCase(), addr=(d.a||'').toLowerCase();
+  const cat=CI[d.c][L_].toLowerCase(), reg=RI[d.g][L_].toLowerCase();
+  const note=(noteText(d)||'').toLowerCase();
+  const tag=(d.tag&&UI[L_][d.tag]?UI[L_][d.tag]:'').toLowerCase();
+  if(name.startsWith(q))return 100;
+  if(name.includes(q))return 80;
+  if(cat.startsWith(q)||cat.includes(q))return 60;
+  if(tag&&tag.includes(q))return 50;
+  if(addr.includes(q))return 40;
+  if(reg.includes(q))return 30;
+  // Notes are long prose, so a hit inside one only counts for a query with enough
+  // information in it. Two CJK/Hangul characters are a whole word; two Latin
+  // letters are not — so the threshold differs by script rather than raw length.
+  if(note.includes(q)){
+    const cjk=/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q);
+    return q.length>=(cjk?2:4)?10:0;
+  }
+  return 0;
+}
+const MIN_QUERY=2;
+function apply(){let v=0;
+  const searching=!!searchTerm;
+  const bounds=[];
+  M.forEach(m=>{
+    const sc=searching?matchScore(m.data,searchTerm):0;
+    m.score=sc;
+    const s=searching?sc>0:((aC.size===0||aC.has(m.ck))&&aR.has(m.gk));
+    if(s){showMarker(m);v++;bounds.push([m.data.lat,m.data.lng]);}else{hideMarker(m);}});
+  const u=UI[L_];
+  const st=document.getElementById('statusText');
+  if(searching){
+    st.textContent=u.searchResultsN(v);
+    if(v>0&&v<=40){map.fitBounds(bounds,{padding:[50,50],maxZoom:16});}
+    if(v===1){const only=M.find(m=>m.score>0);if(only)focusMarker(only,16);}
+  }else{
+    // On a short, narrow screen this line has to share a row with Reset, and the
+    // count is the half worth keeping — which regions are on is already visible on
+    // the Area button. The full sentence stays in the title attribute.
+    st.textContent=u.showing(v,P.length)+(TIGHT.matches?'':' · '+regionLabel());
+  }
+  st.title=searching?st.textContent:(u.showing(v,P.length)+' · '+regionLabel());
+  document.getElementById('applyBtn').textContent=u.doneBtn;
+  lastVisible=v;
+  updatePanelTitle();
+  const totalR=Object.keys(RI).length,totalC=Object.keys(CI).length;
+  const areaBadge=document.getElementById('areaBadge');
+  if(aR.size<totalR){areaBadge.hidden=false;areaBadge.textContent=aR.size;}else{areaBadge.hidden=true;}
+  const catBadge=document.getElementById('catBadge');
+  if(aC.size>0){catBadge.hidden=false;catBadge.textContent=aC.size;}else{catBadge.hidden=true;}
+  const dims=(aR.size===totalR?0:1)+(aC.size>0?1:0);
+  document.getElementById('resetBtn').hidden=false;
+  // While a search is running the area/category filters are deliberately bypassed,
+  // so the filter UI is dimmed and labelled rather than left claiming to be active.
+  document.querySelector('.ftoolbar').classList.toggle('searching',searching);
+  document.getElementById('searchNote').textContent=
+    searching?u.searchActive:(searchRaw?u.searchTooShort:'');
+  // the chip row and the "tap Area or Category" hint both describe filtering, which
+  // is inert while searching — hide them rather than let them contradict the notice
+  document.getElementById('activeFilters').hidden=searching;
+  document.getElementById('fhint').hidden=searching;
+  renderActiveFilters();
+  updatePresetActive();
+  lastDims=dims;
+  updateResetState();
+  writeURLState();
+  renderEmptyState(v,searching);
+}
+// One honest explanation for each way the map can legitimately end up empty.
+let lastVisible=0,lastDims=0;
+// The count belongs in the title from the moment the panel opens, not only after the
+// first change — so openPanel calls this too rather than writing its own title.
+function updatePanelTitle(){
+  if(!panel.classList.contains('open'))return;
+  const u=UI[L_];
+  const base=panelMode==='area'?u.regLabel:panelMode==='cat'?u.catLabel:
+             panelMode==='bus'?u.busBtnLabel:u.favBtnLabel;
+  document.getElementById('panelTitle').textContent=
+    (panelMode==='area'||panelMode==='cat')?base+' · '+u.showing(lastVisible,P.length):base;
+}
+// Reset dims only when there is genuinely nothing to undo. Drawing a bus route does
+// not go through apply(), so renderRoute calls this as well.
+function updateResetState(){
+  document.getElementById('resetBtn').classList
+    .toggle('idle',lastDims===0&&!searchTerm&&!selectedRoute);
+}
+function renderEmptyState(v,searching){
+  const el=document.getElementById('emptyState'),u=UI[L_];
+  if(v>0){el.hidden=true;el.innerHTML='';return;}
+  el.hidden=false;
+  let msg,label,act;
+  if(searching){msg=u.noResultHint;label=u.clearSearchBtn;act=()=>{searchInputEl.value='';clearTimeout(searchTimer);runSearch();};}
+  else{msg=u.emptyFilters;label=u.emptyFiltersBtn;
+       act=()=>{aR=new Set(Object.keys(RI));aC.clear();selPresets.clear();presetsAdjusted=false;renderRegs();renderCats();apply();};}
+  el.innerHTML='<p>'+msg+'</p>';
+  const btn=document.createElement('button');btn.className='empty-btn';btn.textContent=label;
+  btn.onclick=act;el.appendChild(btn);
+}
+const PRESETS={
+  daily:['grocery','asian','hospital','pharmacy','bank','transit','gas','laundry','post','conv'],
+  newcomer:['gov','bank','post','secondhand','apt','propmgmt','hardware','transit','schoolbus','hospital','asian','driving','religious','commctr','legal'],
+  kids:['park','splash','pool','library','museum','cinema','rink','beach','elem','school','schoolbus','daycare','playcenter','tutor'],
+  sports:['gym','pool','rink','park','trail','beach','dogpark'],
+  edu:['school','elem','schoolbus','library','tutor'],
+  health:['hospital','dental','pharmacy','vet'],
+  outdoor:['park','trail','beach','dogpark','splash'],
+  shopping:['grocery','asian','mall','secondhand','hardware','conv','gas'],
+  auto:['taxi','driving','usedcar','autorepair','gas']
+};
+function setEq(setA,arr){if(setA.size!==arr.length)return false;return arr.every(x=>setA.has(x));}
+function updatePresetActive(){
+  Object.keys(PRESETS).forEach(key=>{
+    const el=document.getElementById(key);
+    if(!el)return;
+    el.classList.toggle('active',selPresets.has(key));
+    el.classList.toggle('adjusted',selPresets.has(key)&&presetsAdjusted);
+    el.title=(selPresets.has(key)&&presetsAdjusted)?UI[L_].presetAdjusted:'';
+  });
+}
+function renderActiveFilters(){
+  const root=document.getElementById('activeFilters');root.innerHTML='';
+  const u=UI[L_];
+  const totalR=Object.keys(RI).length,totalC=Object.keys(CI).length;
+  if(aR.size===totalR&&aC.size===0)return;
+  if(aR.size<totalR){
+    [...aR].forEach(k=>{
+      const chip=document.createElement('div');chip.className='af-chip';
+      chip.innerHTML='<span>📍 '+RI[k][L_]+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+      chip.querySelector('.x').onclick=()=>{aR.delete(k);if(aR.size===0)aR=new Set(Object.keys(RI));renderRegs();renderCats();apply();};
+      root.appendChild(chip);
+    });
+  }
+  if(aC.size>0){
+    const chip=document.createElement('div');chip.className='af-chip';
+    chip.innerHTML='<span>🏷️ '+u.catsSelected(aC.size)+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    chip.querySelector('.x').onclick=clearCatFilter;
+    root.appendChild(chip);
+  }
+  if(root.children.length>1){
+    const clear=document.createElement('button');clear.className='af-clear';clear.textContent=u.clearAll;
+    clear.onclick=()=>{aR=new Set(Object.keys(RI));aC.clear();selPresets.clear();presetsAdjusted=false;renderRegs();renderCats();apply();};
+    root.appendChild(clear);
+  }
+}
+
+function setLang(l){
+  // Defence in depth: readURLState already filters, but a future caller might not.
+  if(!owns(UI,l))l='en';
+  L_=l;const u=UI[l];
+  document.documentElement.lang=l==='zh'?'zh-CN':l;
+  const title=tpl(u.title,l);
+  document.getElementById('h1').textContent=title;
+  document.title=title;
+  document.getElementById('ogTitle').setAttribute('content',title);
+  document.getElementById('metaDesc').setAttribute('content',tpl(u.metaDesc,l));
+  document.getElementById('ogDesc').setAttribute('content',tpl(u.metaDesc,l));
+  document.getElementById('sub').textContent=u.sub;
+  document.getElementById('noteBody').innerHTML=tpl(u.note,l)
+    +'<p class="privacy-note">'+tpl(u.privacyNote,l)+'</p>';
+  document.getElementById('noteToggle').textContent=u.noteToggleLabel;
+  document.getElementById('noteTitle').textContent=u.noteToggleLabel;
+  document.getElementById('guideToggle').textContent=u.guideToggleLabel;
+  const si=document.getElementById('searchInput');
+  si.placeholder=u.searchPlaceholder;si.setAttribute('aria-label',u.aSearch);
+  document.getElementById('searchClear').setAttribute('aria-label',u.aClearSearch);
+  document.getElementById('noteClose').setAttribute('aria-label',u.aClose);
+  document.getElementById('guideClose').setAttribute('aria-label',u.aClose);
+  document.getElementById('panelClose').setAttribute('aria-label',u.aClose);
+  document.getElementById('busCoverage').textContent=u.busCoverage;
+  const onl=document.getElementById('offlineNote');
+  if(onl&&!onl.hidden)document.getElementById('offlineText').textContent=u.offlineTiles;
+  document.getElementById('offlineClose').setAttribute('aria-label',u.aClose);
+  document.getElementById('favBtnLabel').textContent=u.favBtnLabel;
+  document.getElementById('favIONote').textContent=u.favIONote;
+  document.getElementById('favExport').textContent=u.favExport;
+  document.getElementById('favImport').textContent=u.favImport;
+  document.getElementById('favCode').placeholder=u.favPastePrompt;
+  document.getElementById('guideTitle').textContent=u.guideToggleLabel;
+  // The guide is stored in tiers so another city reuses everything but guideCity,
+  // and another province swaps only guideProv. GUIDE_ORDER keeps the reading order
+  // sensible while the tiers stay separable.
+  document.getElementById('guideBody').innerHTML=
+    GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l)+changelogHTML(l);
+  document.getElementById('quickLabel').textContent=u.quickLabel;
+  document.getElementById('clearCat').textContent=u.clearCatFilter;
+  Object.keys(PRESETS).forEach(key=>{const el=document.getElementById(key);if(el)el.textContent=u[key];});
+  document.getElementById('footer').innerHTML=tpl(u.footer,l)
+    +'<br><span class="licence-line">'+tpl(u.licenceShort,l)+'</span>';
+  const fl=document.getElementById('feedbackLink');
+  fl.textContent=u.feedbackLink;
+  fl.href='mailto:'+CITY.contact+'?subject='+encodeURIComponent(u.fbSubjectGeneral)
+    +'&body='+encodeURIComponent(u.fbLang+': '+l+'\n'+u.fbVersion+': '+DATA_VERSION+'\n\n---\n');
+  document.getElementById('areaBtnLabel').textContent=u.areaBtnLabel;
+  document.getElementById('catBtnLabel').textContent=u.catBtnLabel;
+  document.getElementById('busBtnLabel').textContent=u.busBtnLabel;
+  document.getElementById('resetLabel').textContent=u.resetBtn;
+  updatePanelTitle();
+  if(!panelBusEl.hidden)renderBusList();
+  if(!panelFavEl.hidden)renderFavList();
+  if(selectedRoute)renderRoute(selectedRoute,false);
+  document.getElementById('fhint').textContent=hintDismissed?'':u.hint;
+  document.querySelectorAll('.lang-btn').forEach(b=>{
+    const on=b.dataset.lang===l;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-pressed',on?'true':'false');
+    if(on)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+  M.forEach(m=>m.setPopupContent(popup(m.data,m.i)));
+  // cluster bubbles carry a translated aria-label, so they have to be redrawn too
+  if(cluster&&cluster.refreshClusters)cluster.refreshClusters();
+  updateFavBadge();
+  renderRegs();renderCats();apply();
+}
+
+document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>setLang(b.dataset.lang);});
+const noteBackdropEl=document.getElementById('noteBackdrop');
+document.getElementById('noteToggle').onclick=()=>openModal(noteBackdropEl);
+document.getElementById('noteClose').onclick=()=>closeModal(noteBackdropEl);
+noteBackdropEl.onclick=(e)=>{if(e.target===noteBackdropEl)closeModal(noteBackdropEl);};
+noteBackdropEl.addEventListener('keydown',e=>trapTab(e,noteBackdropEl));
+// Escape always dismisses the topmost thing that is open
+document.addEventListener('keydown',(e)=>{
+  if(e.key!=='Escape')return;
+  if(guideBackdropEl.classList.contains('open')){closeModal(guideBackdropEl);return;}
+  if(noteBackdropEl.classList.contains('open')){closeModal(noteBackdropEl);return;}
+  if(panel.classList.contains('open')){closePanel();return;}
+  if(document.querySelector('.leaflet-popup')){map.closePopup();}
+});
+// One control, and its name matches what it does: remove the category filter.
+function clearCatFilter(){aC.clear();selPresets.clear();presetsAdjusted=false;renderCats();apply();}
+
+document.getElementById('clearCat').onclick=clearCatFilter;
+Object.keys(PRESETS).forEach(key=>{
+  const el=document.getElementById(key);
+  if(el)el.onclick=()=>{
+    if(selPresets.has(key)){selPresets.delete(key);}else{selPresets.add(key);}
+    presetsAdjusted=false;
+    if(selPresets.size===0){aC.clear();}
+    else{const s2=new Set();selPresets.forEach(k=>PRESETS[k].forEach(c=>s2.add(c)));aC=s2;}
+    renderCats();apply();
+  };
+});
+
+const backdrop=document.getElementById('backdrop'),panel=document.getElementById('panel'),
+  areaBtnEl=document.getElementById('areaBtn'),catBtnEl=document.getElementById('catBtn'),busBtnEl=document.getElementById('busBtn'),favBtnEl=document.getElementById('favBtn'),
+  panelAreaEl=document.getElementById('panelArea'),panelCatEl=document.getElementById('panelCat'),panelBusEl=document.getElementById('panelBus'),panelFavEl=document.getElementById('panelFav');
+let hintDismissed=false,panelMode='area';
+let selectedRoute=null;
+const busLayer=L.layerGroup().addTo(map);
+let busStopMarkers=[];
+
+function busIcon(color){
+  return L.divIcon({className:'',html:'<div style="width:10px;height:10px;border-radius:50%;background:'+color+';border:2px solid #fff;box-shadow:0 0 0 1px '+color+';"></div>',iconSize:[14,14],iconAnchor:[7,7]});
+}
+function isKeyStop(name){ return CITY.keyStop.test(name); }
+function updateStopLabelVisibility(){
+  if(!busStopMarkers.length)return;
+  let last=null;
+  busStopMarkers.forEach((item,idx)=>{
+    let pt;
+    try{pt=map.latLngToContainerPoint([item.lat,item.lng]);}catch(e){return;}
+    const force=idx===0||idx===busStopMarkers.length-1||isKeyStop(item.name);
+    let show=force;
+    if(!show)show=(last===null)||pt.distanceTo(last)>=58;
+    if(show)last=pt;
+    const tt=item.marker.getTooltip();
+    const el=tt&&tt.getElement();
+    if(el)el.style.display=show?'':'none';
+  });
+}
+map.on('zoomend',updateStopLabelVisibility);
+function renderBusList(){
+  const root=document.getElementById('busList');root.innerHTML='';
+  Object.keys(BR).sort((a,b)=>Number(a)-Number(b)).forEach(k=>{
+    const r=BR[k];
+    const item=document.createElement('button');item.className='bus-item'+(selectedRoute===k?' active':'');
+    item.innerHTML='<span class="dot" style="background:'+r.co+'"></span><span class="rt-num">'+k+'</span><span class="rt-name">'+r.n+'</span><span class="rt-count">'+UI[L_].stopsN(r.s.length)+'</span>';
+    item.onclick=()=>selectRoute(selectedRoute===k?null:k);
+    root.appendChild(item);
+  });
+}
+function fmtBusTime(t){
+  const u=UI[L_];
+  let [h,m]=t.split(':').map(Number);
+  let nextDay=false;
+  if(h>=24){h-=24;nextDay=true;}
+  const hh=String(h).padStart(2,'0');
+  const timeStr=hh+':'+String(m).padStart(2,'0');
+  return nextDay?(u.nextDayPrefix||'')+timeStr:timeStr;
+}
+function routeInfoHtml(key){
+  const r=BR[key],u=UI[L_];
+  return '<div class="pr"><span class="pl">'+u.lStops+'</span>'+u.stopsN(r.s.length)+'</div>'
+    +'<div class="pr"><span class="pl">'+u.lService+'</span>'+fmtBusTime(r.f)+' – '+fmtBusTime(r.l)+'</div>'
+    +'<div class="pr"><span class="pl">'+u.lFare+'</span>'+u.busFareText+'</div>'
+    +'<div class="pn">'+u.busCaveat+'</div>';
+}
+function renderRoute(key,fit){
+  if(key&&!owns(BR,key))key=null;
+  selectedRoute=key;
+  busLayer.clearLayers();
+  busStopMarkers=[];
+  const ind=document.getElementById('busIndicator');
+  if(key){
+    const r=BR[key],u=UI[L_];
+    const bounds=[];
+    const lineHtml='<div class="tag" style="background:'+r.co+'">'+u.routeLabel(key)+'</div><div class="pt">'+r.n+'</div>'+routeInfoHtml(key);
+    if(r.p&&r.p.length){
+      L.polyline(r.p,{color:r.co,weight:4,opacity:0.85,lineJoin:'round'}).bindPopup(lineHtml,POPUP_OPTS).addTo(busLayer);
+      r.p.forEach(pt=>bounds.push(pt));
+    }
+    r.s.forEach(([name,lat,lng],idx)=>{
+      const m=L.marker([lat,lng],{icon:busIcon(r.co)});
+      const seq='<div class="pr"><span class="pl">'+u.lStopSeq+'</span>'+u.stopSeqN(idx+1,r.s.length)+'</div>';
+      m.bindPopup('<div class="tag" style="background:'+r.co+'">'+u.routeLabel(key)+'</div><div class="pt">'+name+'</div><div class="pr">'+r.n+'</div>'+seq+routeInfoHtml(key),POPUP_OPTS);
+      m.bindTooltip(name,{permanent:true,direction:'right',offset:[8,0],className:'stop-label',opacity:0.95});
+      m.addTo(busLayer);
+      busStopMarkers.push({marker:m,lat,lng,name});
+      bounds.push([lat,lng]);
+    });
+    if(fit&&bounds.length){
+      map.fitBounds(bounds,{padding:[40,40]});
+      map.once('moveend',updateStopLabelVisibility);
+    }
+    updateStopLabelVisibility();
+    ind.innerHTML='<span>🚌 '+u.routeLabel(key)+' '+r.n+'（'+u.stopsN(r.s.length)+'）</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    ind.classList.add('show');
+    ind.querySelector('.x').onclick=()=>selectRoute(null);
+  }else{
+    ind.classList.remove('show');ind.innerHTML='';
+  }
+  renderBusList();
+  updateResetState();
+  writeURLState();
+}
+function selectRoute(key){
+  renderRoute(key,true);
+  closePanel();
+}
+function dismissHint(){if(hintDismissed)return;hintDismissed=true;document.getElementById('fhint').textContent='';}
+const FAV_CODE_PREFIX='KAM1:';
+function favCode(){return FAV_CODE_PREFIX+[...favorites].join('.');}
+function parseFavCode(txt){
+  const t=(txt||'').trim();
+  if(t.indexOf(FAV_CODE_PREFIX)!==0)return null;
+  const live=new Set(P.map(p=>p.id));
+  // Unknown ids are dropped rather than rejected: a code exported from an older
+  // edition should still restore whatever it can instead of failing whole.
+  const ids=t.slice(FAV_CODE_PREFIX.length).split('.')
+    .map(v=>FAV_MIGRATE[v]||v).filter(v=>live.has(v));
+  return ids;
+}
+function favMsg(t){const el=document.getElementById('favIOMsg');if(el)el.textContent=t||'';}
+function wireFavIO(){
+  const box=document.getElementById('favCode');
+  document.getElementById('favExport').onclick=()=>{
+    const u=UI[L_];
+    box.value=favCode();box.select();
+    // execCommand still works on file:// where the async clipboard API often does not.
+    let copied=false;
+    try{copied=document.execCommand('copy');}catch(e){}
+    if(copied){favMsg(u.favCopied);return;}
+    if(navigator.clipboard&&navigator.clipboard.writeText){
+      navigator.clipboard.writeText(box.value).then(()=>favMsg(u.favCopied),()=>favMsg(''));
+      return;
+    }
+    favMsg('');   // the code is in the box either way; the reader can copy it by hand
+  };
+  document.getElementById('favImport').onclick=()=>{
+    const u=UI[L_];
+    if(!box.value.trim()){box.focus();favMsg(u.favPastePrompt);return;}
+    const ids=parseFavCode(box.value);
+    if(ids===null){favMsg(u.favBadCode);return;}
+    ids.forEach(id=>favorites.add(id));
+    saveFavorites();
+    const added=new Set(ids);
+    updateFavBadge();
+    M.forEach(m=>{if(added.has(m.data.id))m.setPopupContent(popup(m.data,m.i));});
+    renderFavList();
+    favMsg(u.favImported.replace('{N}',ids.length));
+  };
+}
+function resetFavIO(){
+  const box=document.getElementById('favCode');
+  if(box){box.value='';box.placeholder=UI[L_].favPastePrompt;}
+  favMsg('');
+}
+function renderFavList(){
+  const root=document.getElementById('favList');root.innerHTML='';
+  const u=UI[L_];
+  document.getElementById('favExport').hidden=favorites.size===0;
+  if(favorites.size===0){
+    root.innerHTML='<div class="fav-empty">'+u.noFavorites+'</div>';
+    return;
+  }
+  M.forEach(m=>{
+    if(!favorites.has(m.data.id))return;
+    const p=m.data;
+    const item=document.createElement('div');item.className='bus-item fav-item';
+    const tagTxt=(p.tag&&u[p.tag])?' <span class="fav-tag">'+u[p.tag]+'</span>':'';
+    item.innerHTML='<span class="dot" style="background:'+CD[p.c]+'"></span><button class="rt-name">'+p.n+tagTxt+'</button><button class="rt-remove" aria-label="'+u.aClose+'">✕</button>';
+    item.querySelector('.rt-name').onclick=()=>{
+      map.setView([p.lat,p.lng],16);focusMarker(m,16);closePanel();
+    };
+    item.querySelector('.rt-remove').onclick=(e)=>{
+      e.stopPropagation();favorites.delete(p.id);saveFavorites();renderFavList();updateFavBadge();
+      m.setPopupContent(popup(m.data,m.i));
+    };
+    root.appendChild(item);
+  });
+}
+function positionPanel(){
+  if(window.innerWidth<=900){panel.style.left='';panel.style.top='';return;}
+  const btn=panelMode==='area'?areaBtnEl:panelMode==='cat'?catBtnEl:panelMode==='bus'?busBtnEl:favBtnEl;
+  const r=btn.getBoundingClientRect();const w=460;
+  let left=Math.min(r.left,window.innerWidth-w-20);left=Math.max(left,20);
+  panel.style.left=left+'px';panel.style.top=(r.bottom+8)+'px';
+}
+function openPanel(mode){
+  panelMode=mode;
+  panelAreaEl.hidden=(mode!=='area');
+  panelCatEl.hidden=(mode!=='cat');
+  panelBusEl.hidden=(mode!=='bus');
+  panelFavEl.hidden=(mode!=='fav');
+  document.getElementById('applyBar').style.display=(mode==='bus'||mode==='fav')?'none':'';
+  [['area',areaBtnEl],['cat',catBtnEl],['bus',busBtnEl],['fav',favBtnEl]].forEach(([k,el])=>
+    el.setAttribute('aria-expanded',mode===k?'true':'false'));
+  areaBtnEl.classList.toggle('open',mode==='area');
+  catBtnEl.classList.toggle('open',mode==='cat');
+  busBtnEl.classList.toggle('open',mode==='bus');
+  favBtnEl.classList.toggle('open',mode==='fav');
+  if(mode==='bus')renderBusList();
+  if(mode==='fav'){resetFavIO();renderFavList();}
+  backdrop.classList.add('open');panel.classList.add('open');
+  updatePanelTitle();
+  positionPanel();
+  dismissHint();
+}
+function closePanel(){
+  [areaBtnEl,catBtnEl,busBtnEl,favBtnEl].forEach(el=>el.setAttribute('aria-expanded','false'));
+  backdrop.classList.remove('open');panel.classList.remove('open');
+  areaBtnEl.classList.remove('open');catBtnEl.classList.remove('open');busBtnEl.classList.remove('open');favBtnEl.classList.remove('open');
+}
+areaBtnEl.onclick=()=>{(panel.classList.contains('open')&&panelMode==='area')?closePanel():openPanel('area');};
+catBtnEl.onclick=()=>{(panel.classList.contains('open')&&panelMode==='cat')?closePanel():openPanel('cat');};
+busBtnEl.onclick=()=>{(panel.classList.contains('open')&&panelMode==='bus')?closePanel():openPanel('bus');};
+favBtnEl.onclick=()=>{(panel.classList.contains('open')&&panelMode==='fav')?closePanel():openPanel('fav');};
+document.getElementById('panelClose').onclick=closePanel;
+document.getElementById('applyBtn').onclick=closePanel;
+backdrop.onclick=(e)=>{if(e.target===backdrop)closePanel();};
+// ---------------------------------------------------------------------------
+// Swipe the bottom sheet down to dismiss it. The handle has been drawn at the top
+// of this panel all along, which reads as a promise that it can be dragged; until
+// now it could not be, which is worse than having no handle. Pointer events cover
+// touch and mouse with one path.
+// Desktop (>=901px) uses an anchored dropdown, not a sheet, so the grab area is
+// hidden there and this never arms.
+(function panelDrag(){
+  const grab=document.getElementById('panelGrab');
+  if(!grab||!window.PointerEvent)return;
+  let startY=0,startT=0,dy=0,dragging=false;
+  const CLOSE_PX=90, FLICK_VELOCITY=0.5;   // px, and px per ms
+  function end(commit){
+    if(!dragging)return;
+    dragging=false;
+    panel.classList.remove('dragging');
+    panel.style.transform='';
+    if(commit)closePanel();
+  }
+  grab.addEventListener('pointerdown',e=>{
+    if(window.innerWidth>900)return;
+    dragging=true;startY=e.clientY;startT=e.timeStamp;dy=0;
+    panel.classList.add('dragging');
+    try{grab.setPointerCapture(e.pointerId);}catch(err){/* capture is a nicety */}
+  });
+  grab.addEventListener('pointermove',e=>{
+    if(!dragging)return;
+    dy=Math.max(0,e.clientY-startY);          // downward only
+    panel.style.transform='translateY('+dy+'px)';
+  });
+  grab.addEventListener('pointerup',e=>{
+    const dt=Math.max(1,e.timeStamp-startT);
+    end(dy>CLOSE_PX||(dy>24&&dy/dt>FLICK_VELOCITY));
+  });
+  // A cancelled pointer (an incoming call, the browser taking over the gesture)
+  // must restore the panel, never close it — the user did not ask for that.
+  grab.addEventListener('pointercancel',()=>end(false));
+})();
+window.addEventListener('resize',()=>{if(panel.classList.contains('open'))positionPanel();syncPanPad();});
+if(TIGHT.addEventListener)TIGHT.addEventListener('change',()=>apply());
+document.addEventListener('click',(e)=>{
+  if(!panel.classList.contains('open')||window.innerWidth<=900)return;
+  // A handler that re-renders its own container detaches the clicked element, so by
+  // the time this runs `panel.contains(target)` is false and the panel would close
+  // under the user. Anything no longer in the document was an inside click.
+  if(!e.target.isConnected)return;
+  if(panel.contains(e.target)||areaBtnEl.contains(e.target)||catBtnEl.contains(e.target)||busBtnEl.contains(e.target)||favBtnEl.contains(e.target))return;
+  closePanel();
+});
+// Everything a user can put the page into, undone in one place. It used to leave
+// the drawn bus route, the open popup and the map view untouched, and it was hidden
+// whenever no filter was set — which is exactly when someone wants to start over.
+function resetAll(){
+  aR=new Set(Object.keys(RI));
+  aC.clear(); selPresets.clear(); presetsAdjusted=false;
+  searchInputEl.value=''; clearTimeout(searchTimer); searchTerm=''; searchRaw='';
+  searchClearEl.hidden=true; preSearchView=null;
+  if(selectedRoute)renderRoute(null,false);
+  map.closePopup();
+  closePanel();
+  expandedGroups.clear(); DEFAULT_OPEN_GROUPS.forEach(g=>expandedGroups.add(g));
+  map.setView(CITY.centre,CITY.zoom);
+  renderRegs();renderCats();apply();
+}
+document.getElementById('resetBtn').onclick=resetAll;
+updateFavBadge();
+const searchInputEl=document.getElementById('searchInput'),searchClearEl=document.getElementById('searchClear');
+// Debounced: every keystroke used to re-fit the map, so the view lurched around
+// while you were still typing. preSearchView remembers where you were so that
+// clearing the search puts the map back instead of stranding you at the last hit.
+let searchTimer=null,preSearchView=null,searchRaw='';
+function runSearch(){
+  const wasSearching=!!searchTerm;
+  const raw=searchInputEl.value.trim().toLowerCase();
+  // one character matched almost everything (the note field is long prose), so a
+  // query only counts once it is specific enough to mean something
+  searchRaw=raw;
+  searchTerm=raw.length>=MIN_QUERY?raw:'';
+  searchClearEl.hidden=!raw;
+  if(searchTerm&&!wasSearching)preSearchView={c:map.getCenter(),z:map.getZoom()};
+  if(!searchTerm&&preSearchView){map.setView(preSearchView.c,preSearchView.z);preSearchView=null;}
+  apply();
+}
+searchInputEl.oninput=()=>{clearTimeout(searchTimer);searchTimer=setTimeout(runSearch,260);};
+searchInputEl.onkeydown=(e)=>{
+  if(e.key==='Enter'){clearTimeout(searchTimer);runSearch();}
+  if(e.key==='Escape'&&searchInputEl.value){searchInputEl.value='';clearTimeout(searchTimer);runSearch();}
+};
+searchClearEl.onclick=()=>{
+  searchInputEl.value='';clearTimeout(searchTimer);runSearch();searchInputEl.focus();
+};
+const guideBackdropEl=document.getElementById('guideBackdrop');
+// Modal plumbing shared by the guide and the data notes: remember what had focus,
+// move focus inside, keep Tab within the dialog, restore focus on close.
+let lastFocused=null;
+function openModal(back){
+  lastFocused=document.activeElement;
+  back.classList.add('open');
+  const first=back.querySelector('.panel-close');
+  if(first)first.focus();
+}
+function closeModal(back){
+  back.classList.remove('open');
+  if(lastFocused&&lastFocused.focus)lastFocused.focus();
+  lastFocused=null;
+}
+function trapTab(e,back){
+  if(e.key!=='Tab')return;
+  const f=[...back.querySelectorAll('button,a[href],input,[tabindex]:not([tabindex="-1"])')]
+          .filter(el=>el.offsetParent!==null);
+  if(!f.length)return;
+  const first=f[0],last=f[f.length-1];
+  if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
+  else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
+}
+document.getElementById('guideToggle').onclick=()=>openModal(guideBackdropEl);
+document.getElementById('guideClose').onclick=()=>closeModal(guideBackdropEl);
+guideBackdropEl.onclick=(e)=>{if(e.target===guideBackdropEl)closeModal(guideBackdropEl);};
+guideBackdropEl.addEventListener('keydown',e=>trapTab(e,guideBackdropEl));
+
+// Expand every placeholder once, for every language, before the first render.
+// Doing it per render site would mean any site I forget silently ships "{CITY}".
+// ---------------------------------------------------------------------------
+// URL state. A filtered view is the thing people want to send each other
+// ("here are the banks on the North Shore, in Korean"), and until now every
+// share opened the default view. ?city= is reserved now, while there are no
+// links in circulation to break, even though only one city exists.
+// Favourites deliberately stay out of the URL — they are personal, not shareable.
+// ---------------------------------------------------------------------------
+let urlWriteBlocked=true;
+// `obj[key]` is truthy for anything inherited from Object.prototype, so a plain
+// truth test let ?lang=constructor and ?route=toString through the validation and
+// blanked the page. Only own keys are real data.
+function owns(obj,k){return typeof k==='string'&&Object.prototype.hasOwnProperty.call(obj,k);}
+function readURLState(){
+  let q;
+  try{q=new URLSearchParams(location.search);}catch(e){return null;}
+  if(q.get('city')&&q.get('city')!==CITY.key)return null; // a link for another city
+  const out={};
+  const lang=q.get('lang');
+  if(owns(UI,lang))out.lang=lang;
+  const r=(q.get('r')||'').split(',').filter(k=>owns(RI,k));
+  if(r.length)out.regions=r;
+  const c=(q.get('c')||'').split(',').filter(k=>owns(CI,k));
+  if(c.length)out.cats=c;
+  const qq=(q.get('q')||'').trim();
+  if(qq)out.q=qq;
+  const rt=q.get('route');
+  if(owns(BR,rt))out.route=rt;
+  return out;
+}
+function writeURLState(){
+  if(urlWriteBlocked)return;
+  try{
+    const q=new URLSearchParams();
+    q.set('city',CITY.key);
+    if(L_!=='en')q.set('lang',L_);
+    if(aR.size&&aR.size<Object.keys(RI).length)q.set('r',[...aR].join(','));
+    if(aC.size)q.set('c',[...aC].join(','));
+    if(searchTerm)q.set('q',searchInputEl.value.trim());
+    if(selectedRoute)q.set('route',selectedRoute);
+    // replaceState, not pushState: filtering is not navigation and should not
+    // fill the back button with dozens of intermediate states
+    history.replaceState(null,'',location.pathname+'?'+q.toString()+location.hash);
+  }catch(e){/* file:// and sandboxed frames disallow this; the app works regardless */}
+}
+(function expandUI(){
+  Object.keys(UI).forEach(l=>{
+    Object.keys(UI[l]).forEach(k=>{
+      if(typeof UI[l][k]==='string')UI[l][k]=tpl(UI[l][k],l);
+    });
+  });
+})();
+wireFavIO();
+// #map has no measured height until layout runs; take the real one now.
+setTimeout(syncPanPad,0);
+(function applyURLState(){
+  const st=readURLState();
+  if(st){
+    if(st.regions){aR=new Set(st.regions);}
+    if(st.cats){aC=new Set(st.cats);}
+    if(st.q){searchInputEl.value=st.q;searchRaw=st.q.toLowerCase();
+      if(st.q.length>=MIN_QUERY)searchTerm=st.q.toLowerCase();
+      searchClearEl.hidden=false;}
+  }
+  setLang(st&&st.lang?st.lang:'en');
+  if(st&&st.route)renderRoute(st.route,true);
+  urlWriteBlocked=false;
+  writeURLState();
+})();
+</script>
+</body>
+</html>
