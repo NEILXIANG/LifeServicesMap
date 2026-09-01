@@ -12,7 +12,7 @@ Everything except the map background works with no network at all.
 | `src/data-kamloops.js` | Everything specific to Kamloops. |
 | `build.py` | Merges the two into `kamloops.html`. |
 | `validate.py` | Static invariants. Run after every edit. |
-| `regress.py` | 106 browser checks. Needs Playwright. |
+| `regress.py` | 114 browser checks. Needs Playwright. |
 | `export-open.py` | Writes out the freely-licensable subset of the data. |
 | `check-links.py` | Checks the 150 external websites still resolve (needs a network). |
 | `DATA-SCHEMA.md` | The data format, and how to add a city. |

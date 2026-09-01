@@ -150,14 +150,23 @@ async def main():
             await pg.click('#searchClear'); await pg.wait_for_timeout(300)
 
         await pg.click('[data-lang="en"]'); await pg.wait_for_timeout(300)
-        print("\n--- search vs filters ---")
+        print("\n--- search + filters combine (P0-2) ---")
+        # Search used to silently bypass Area/Category — a "bank" search while North
+        # Shore was selected quietly searched the whole city. It now narrows within
+        # whatever is already filtered, so a bank search under a North-Shore-only,
+        # bank-only filter should show exactly the North Shore banks, not every bank
+        # in the city and not every North Shore place.
         await pg.evaluate("(()=>{aCref().clear();['bank'].forEach(k=>aCref().add(k));aRref().clear();aRref().add('ns');renderRegs();renderCats();apply();})()")
         await pg.wait_for_timeout(400)
-        await pg.fill('#searchInput','park'); await pg.wait_for_timeout(650)
+        await pg.fill('#searchInput','bank'); await pg.wait_for_timeout(650)
+        expected=await pg.evaluate("Pref.filter(p=>p.c==='bank'&&p.g==='ns').length")
+        shown=await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)).length")
+        check("65 search narrows within active filters, not around them",
+              shown==expected, "%d shown vs %d expected (ns banks)"%(shown,expected))
         chips=await pg.evaluate("getComputedStyle(document.getElementById('activeFilters')).display")
-        hint=await pg.evaluate("getComputedStyle(document.getElementById('fhint')).display")
-        check("12 chips hidden while searching", chips=='none')
-        check("22 hint hidden while searching", hint=='none')
+        check("65 filter chips stay visible while searching (no longer bypassed)", chips!='none', chips)
+        note=await pg.inner_text('#searchNote')
+        check("65 search note explains results are narrowed by the filter", 'filter' in note.lower(), note)
         await pg.click('#resetBtn'); await pg.wait_for_timeout(600)
         check("13 Reset clears the search too", (await pg.input_value('#searchInput'))=='')
 
@@ -176,6 +185,24 @@ async def main():
         check("11 filter-empty does not mention search", 'search' not in t3.lower(), t3[:60])
         await pg.evaluate("resetAll()")
         await pg.wait_for_timeout(500)
+
+        print("\n--- empty state: search narrowed to zero by a filter (P0-2) ---")
+        # A third, distinct empty state: a search that finds nothing only because an
+        # active filter excludes it. The message should point at the filter, not just
+        # repeat the "no matching places" wording used for an unfiltered search.
+        await pg.evaluate("(()=>{aCref().clear();aCref().add('bank');aRref().clear();aRref().add('ns');renderRegs();renderCats();apply();})()")
+        await pg.wait_for_timeout(400)
+        await pg.fill('#searchInput','zzzq'); await pg.wait_for_timeout(650)
+        t4=await pg.inner_text('#emptyState')
+        check("65 filtered-zero-search empty state mentions the filter", 'filter' in t4.lower(), t4[:80])
+        check("65 filtered-zero-search empty state differs from plain search-empty", t4!=t1)
+        await pg.click('.empty-btn'); await pg.wait_for_timeout(450)
+        aCsize=await pg.evaluate("aCref().size")
+        regionBtns=await pg.evaluate("document.querySelectorAll('#regRow .reg-btn').length-1")
+        aRsize=await pg.evaluate("aRref().size")
+        check("65 its button clears the area/category filters", aCsize==0 and aRsize==regionBtns,
+              "aC=%d aR=%d/%d"%(aCsize,aRsize,regionBtns))
+        await pg.evaluate("resetAll()"); await pg.wait_for_timeout(500)
 
         print("\n--- favourites ---")
         await pg.evaluate("mapref.setView([50.6684,-120.3659],18)"); await pg.wait_for_timeout(700)
@@ -300,7 +327,15 @@ async def main():
               await pg.evaluate("CHANGELOG[0].v===DATA_VERSION"))
         off=await pg.evaluate("""()=>{const e=document.getElementById('offlineNote');
           const before=document.getElementById('map').getBoundingClientRect().top;
-          e.hidden=false;document.getElementById('offlineText').textContent=UI[L_].offlineTiles;
+          // Poking .hidden/.textContent directly (as this used to) bypasses the
+          // auto-compact timer added for round 36c and can leave a stale .compact
+          // class from an earlier, real tile failure earlier in this same page
+          // session (this sandbox has no tile access, so the app's own offline
+          // path fires for real during the suite) — asserting the zoom-clearance
+          // geometry against that leftover state isn't what this check is for.
+          // Going through the app's own show function is what every real caller
+          // does, and resets state exactly the way a fresh trigger would.
+          offlineShowExpanded();
           const after=document.getElementById('map').getBoundingClientRect().top;
           const s=getComputedStyle(e);
           const r=e.getBoundingClientRect(), z=document.querySelector('.leaflet-control-zoom').getBoundingClientRect();
@@ -311,6 +346,29 @@ async def main():
               off['moved']==0 and off['pos']=='absolute', off)
         check("36 offline notice clears the zoom control", off['clears'])
         check("36 offline notice can be dismissed", off['hidden'])
+
+        print("\n--- offline notice auto-compacts instead of blanketing the map (round 36c) ---")
+        oc=await pg.evaluate("""()=>{
+          offlineShowExpanded();
+          const before=document.getElementById('offlineNote').getBoundingClientRect();
+          document.getElementById('offlineNote').classList.add('compact');
+          const c=document.getElementById('offlineNote').getBoundingClientRect();
+          const z=document.querySelector('.leaflet-control-zoom').getBoundingClientRect();
+          const attr=document.querySelector('.leaflet-control-attribution');
+          const ar=attr?attr.getBoundingClientRect():null;
+          const shrank = (c.width*c.height) < (before.width*before.height)*0.5;
+          const clearsZoom = c.left>=z.right || c.top>=z.bottom;
+          const clearsAttr = !ar || c.top>=ar.bottom || c.right<=ar.left;
+          document.getElementById('offlineNote').click();
+          const reopened = !document.getElementById('offlineNote').classList.contains('compact')
+                            && !document.getElementById('offlineNote').hidden;
+          document.getElementById('offlineClose').click();
+          return {shrank, clearsZoom, clearsAttr, reopened,
+                  before:{w:before.width,h:before.height}, compact:{w:c.width,h:c.height}};}""")
+        check("36c compact badge is meaningfully smaller than the full notice", oc['shrank'], oc)
+        check("36c compact badge still clears the zoom control", oc['clearsZoom'])
+        check("36c compact badge doesn't sit on the attribution link", oc['clearsAttr'])
+        check("36c tapping the compact badge re-expands the full notice", oc['reopened'])
 
         print("\n--- provenance ---")
         pr=await pg.evaluate("""()=>{const c={};Pref.forEach(p=>{c[p.src||'missing']=(c[p.src||'missing']||0)+1;});

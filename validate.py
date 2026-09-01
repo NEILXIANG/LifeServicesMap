@@ -390,7 +390,10 @@ SKIP = {'leaflet','open','active','show','searching','all','none','partial','s',
         'c','w','n','x','primary','hi','mid','lo','ok','new','total','kcluster'}
 for cls in sorted(defined - SKIP):
     if cls.startswith('leaflet'): continue
-    if re.search(r'["\'\s.]' + re.escape(cls) + r'["\'\s.]', body): continue
+    # Boundary set includes a bare backslash too: a class referenced only inside
+    # the UI JSON literal (e.g. class=\"footer-emergency\") is escaped there, so
+    # the character actually adjacent to the name is \ , not a quote.
+    if re.search(r'["\'\\\s.]' + re.escape(cls) + r'["\'\\\s.]', body): continue
     if ("'" + cls + "'") in script or ('"' + cls + '"') in script: continue
     if re.search(r"className='" + re.escape(cls), script): continue
     # Names built by concatenation, e.g. 'src-'+p.src -> .src-official. Count the
@@ -423,7 +426,8 @@ defined |= set(re.findall(r'(?:function|catch|forEach\()\s*\(?\s*([a-z]\w*)', sc
 BUILTIN = {'if','for','while','switch','catch','return','typeof','function','new','JSON',
            'Number','String','Set','Map','Array','Object','Math','parseInt','parseFloat',
            'setTimeout','clearTimeout','encodeURIComponent','isNaN','L','require','console',
-           'Boolean','Date','RegExp','alert','fetch','performance','getComputedStyle'}
+           'Boolean','Date','RegExp','alert','fetch','performance','getComputedStyle',
+           'requestAnimationFrame'}
 for name in sorted(called - defined - BUILTIN):
     if name.isupper() or name[0].isupper(): continue
     fail('calls %s() but nothing in the script defines it' % name)

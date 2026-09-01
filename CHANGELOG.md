@@ -9,6 +9,176 @@ would notice. Newest first.
 
 ---
 
+## 2026.08.31e
+
+Nineteen problems from a second, information-architecture-and-trust focused audit
+(how Search/Area/Category/Quick Picks relate to each other, where labels collide or
+mislead, what's left unexplained about data provenance and favourites storage),
+fixed one by one, then checked for what the fixes themselves might have broken.
+
+### The regression this round caught in itself
+
+Adding a fourth header link (🔗 Share, below) and lengthening the first-run hint
+(also below) each cost a little vertical space — together enough to drop the map's
+share of the screen below the tested floor for four of the twenty phone
+width/height/language combinations `regress.py` checks, and to shrink four header
+links below the 44px touch-target floor once they were forced down to icon-only.
+Both were caught by running the full suite, not by inspection. Fixed by giving all
+four header links (Share, Feedback, Newcomer Guide, Data Notes) an icon-only mode
+below 600px width — with `min-width`/`min-height` holding the tap target at full
+size and the full name preserved for screen readers via `aria-label` — and by
+tightening the hint's line spacing. All twenty combinations pass again, and every
+touch target was re-measured. `regress.py` grew from 110 to 114 checks (the
+search/filter behaviour change below required rewriting one existing check into
+two, and a new empty-state case gained its own).
+
+### Search silently ignored whatever you'd already filtered
+
+Searching while an Area or Category filter was active used to search the *entire*
+city and quietly show results outside the selected area — the filter looked active
+(chips still showed) but had no effect the moment you typed. Search now narrows
+*within* the active filters, and if that combination finds nothing, the empty state
+says so explicitly with a one-tap way to clear the filters, instead of the vague
+generic "no results" message.
+
+### Things that looked like bugs because a label was reused or missing
+
+- A Quick Pick was labelled "Newcomer Guide" — identical to the unrelated 📖
+  Newcomer Guide button in the header. Renamed "Newcomer Essentials" in every
+  language so the two are no longer indistinguishable by name alone.
+- Categories with zero matches in the selected area(s) used to vanish from the
+  Category panel entirely, reading as "this tool doesn't track that" rather than
+  "none here right now" — they now stay listed, muted, with a (0) count and a
+  tooltip explaining why.
+- The interface language defaulted to English regardless of the browser's own
+  language setting; it now reads the browser's language first (an explicit
+  `?lang=` in the URL still wins).
+- Favourites "Export/Import" were renamed to "Copy Code/Import Code", and the
+  surrounding text now says explicitly that nothing is downloaded — it's a short
+  line of text meant to be copied and pasted back in later.
+
+### Things that were explained nowhere, so people had to guess
+
+- What Search, Quick Picks (which can be combined, and each one sets a Category
+  for you), and the Area/Category filters do to each other.
+- That the Category panel's colours and icons double as the map's legend.
+- That selecting a Bus Route only draws it alongside whatever places are already
+  showing — it doesn't filter or hide them.
+- That the popup's per-place "Verified" date is a different thing from the
+  page-wide "Last verified" date in Data Notes.
+- That a manually adjusted Quick Pick chip has been adjusted at all — a bare "·"
+  with a hover tooltip is now the words "(edited)".
+- That checking a Category narrows the map to just that category, and there's no
+  way to hide a single one without narrowing to the rest.
+- That the Reset button clears search and the bus route too, and returns the map
+  to its starting view — not just the filters.
+- That the page has a Share button at all, and what it copies (it always could
+  carry the current view in its URL; there was just no visible way to use that).
+
+### Smaller trust and legibility fixes
+
+- Data Notes was one dense paragraph; it's now three labelled sections (Source &
+  Coverage / Practical Notes / Last Verified & Disclaimer) with the legal wording
+  itself byte-for-byte unchanged — verified by diffing the extracted text before
+  and after.
+- The "Third-party map data" source tag now says "— call ahead" directly in the
+  visible label, not only in a tooltip.
+- The footer's 911/8-1-1/RCMP line used to sit visually identical to routine
+  citation links; it's now in its own tinted line (contrast checked at 6.57:1,
+  passing WCAG AA).
+- Map cluster bubbles gained a hover tooltip explaining the number and that
+  they're clickable.
+- The popup now leads with the place name; the category/region tags moved below it
+  instead of appearing first.
+- The bottom sheet's drag handle gives a brief one-time nudge the first time a
+  panel opens on a phone, hinting that it can be dragged down to dismiss.
+
+### Left out of this round, on purpose
+
+Three items from the source audit are not code fixes and were not attempted here:
+whether the third-party map data can be redistributed under its current terms is a
+licensing question for a lawyer, not a bug; where this tool sits relative to an
+official city resource is a branding and positioning call, not something a UX pass
+should decide unilaterally; and a concern about who reviews the privacy language
+over time is about process, not about anything currently wrong on the page — worth
+a checklist entry, not a patch.
+
+## 2026.08.31d
+
+Eleven problems from a first-time-user pass — someone walking through every feature
+with no prior context, not a claims-based review — fixed one by one, then checked
+for what the fixes themselves might have broken.
+
+### The one real regression this round caught in itself
+
+Auto-compacting the offline banner (below) added state — a CSS class plus a timer —
+that the existing regression check for it didn't know about: the check set the
+banner's visibility directly instead of calling the function every real code path
+uses, so it could see a stale "already compacted" state a real trigger never
+produces. Caught by running the suite, not by inspection. Fixed by pointing the
+check at the same function; a dedicated check was added for the compact badge
+itself. `regress.py` is at 110 checks.
+
+### Things that were genuinely invisible
+
+- **Quick Picks scrolls, but nothing said so.** The row already had a fade at its
+  edge; against the page's own off-white it was too faint to register as "more
+  content here," so six of nine categories (Health, Education, Sports & Fitness,
+  Outdoors, Shopping, Transport) were effectively undiscoverable without an
+  accidental swipe. The fade is stronger now, paired with a small arrow, and both
+  are driven by actual scroll position — visible only while there truly is more to
+  reach, gone once the row is fully scrolled or never needed at all.
+- **Favouriting a place gave one piece of feedback: a 16px star changing colour.**
+  Easy to miss, which invited a second tap that silently un-favourited the place
+  with no indication anything had gone wrong. A brief, explicit confirmation
+  ("Added to favourites" / "Removed from favourites") now appears for that one
+  action — deliberately not turned into a general-purpose notification system.
+- **The "map imagery can't load" banner sat over the busiest part of the map
+  indefinitely** once it had been read once. It now shrinks to a small corner
+  badge after six seconds (tap to bring the full message back), out of the way of
+  both the zoom control and the attribution link.
+
+### An old bug that turned out to be six bugs
+
+None of the six overlay panels (Newcomer Guide, Data Notes, and the shared
+Area / Category / Bus Routes / Favorites sheet) locked the page's own scroll while
+open — a wheel or swipe that landed on the dimmed backdrop, rather than the panel's
+own scrollable content, fell through to the page underneath, which could visibly
+drag the header along with it. All six now hold body scroll while open. This also
+resolved a problem that looked separate: the Bus Routes panel has carried an
+explanation for why routes 8, 11, 12 and 15 don't exist since 2026.08.31c
+(`busCoverage`, rendered right under the route list) — but the same scroll leak
+made the panel hard to scroll to the bottom on a touch device, so the explanation
+was effectively unreachable. No content change was needed there, only the fix
+above.
+
+### Smaller clarity fixes
+
+- Quick Picks chips now visibly grey out during a search, matching the existing
+  "area and category filters ignored" notice — previously they stayed fully
+  interactive-looking and would flip to their own "active" colour on a tap that had
+  no effect on the results underneath, a more convincing false signal than a merely
+  dimmed button.
+- Bus stop labels on a selected route no longer overlap: the label-thinning pass
+  used to check each candidate only against the stop immediately before it in
+  sequence, which missed collisions between stops that are close on the map but far
+  apart in the route's stop order (loops, exchanges). It now checks against every
+  label already shown.
+- The Category panel — the one overlay with real hidden structure (collapsible
+  groups, a group checkbox that means "select all of these," a partial-selection
+  state) — gained a one-line hint explaining the two gestures it needs. Area, Bus
+  Routes and Favorites stayed as they were; they don't have this problem.
+- Data Notes gained one additional paragraph break, separating the transit/fare
+  aside from the apartment-rent reminder, at an existing sentence boundary — no
+  wording changed.
+- The empty Favourites panel showed an Import box with no explanation of why a
+  visitor who has never exported anything would need it. The note next to it now
+  explains, only while the list is empty, that it's for a code from another device.
+- The filter hint line now mentions Quick Picks, which sits directly above it and
+  was previously the one filtering control it didn't describe.
+
+---
+
 ## 2026.08.31c
 
 A third outside review. Only ten headings were legible in the screenshot, so this
