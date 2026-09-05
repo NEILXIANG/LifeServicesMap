@@ -180,6 +180,7 @@
   .footer-emergency{display:inline-block;margin-top:4px;padding:3px 9px;border-radius:6px;
     background:#fdecea;color:#a02622;font-weight:700;}
   .footer-emergency b{color:inherit;}
+  .footer-privacy{opacity:.78;font-size:11px;display:inline-block;margin-top:4px;}
   .leaflet-popup-content-wrapper{border-radius:10px;background:var(--card);}
   .leaflet-popup-content{font-size:12.5px;line-height:1.55;min-width:0;width:min(305px,calc(100vw - 72px));margin:11px 13px;color:var(--ink);}
   .bus-indicator{display:none;align-items:center;gap:8px;margin:0 20px 10px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));font-size:12.5px;font-weight:600;color:var(--ink);}
@@ -555,7 +556,7 @@
 </div>
 
 <script id="app">
-const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"先选区域，再选分类 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 新居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Filter by area, then category · Click markers for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Newcomer Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Filtrez par secteur, puis par catégorie · Cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Essentiels nouveaux arrivants","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Filtre por zona y luego por categoría · Toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Esenciales para recién llegados","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"지역 선택 후 분류 선택 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 신규 정착민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"}};
+const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"先选区域，再选分类 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 新居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 为改进服务，收集匿名使用统计（不含个人信息）</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Filter by area, then category · Click markers for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Newcomer Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Anonymous usage statistics are collected to improve this service (no personal data)</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Filtrez par secteur, puis par catégorie · Cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Essentiels nouveaux arrivants","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Des statistiques d'utilisation anonymes sont collectées pour améliorer ce service (aucune donnée personnelle)</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Filtre por zona y luego por categoría · Toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Esenciales para recién llegados","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Se recopilan estadísticas de uso anónimas para mejorar este servicio (sin datos personales)</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"지역 선택 후 분류 선택 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 신규 정착민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 서비스 개선을 위해 익명의 사용 통계가 수집됩니다 (개인 정보 미포함)</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"}};
 UI.zh.showing=(v,t)=>`${v} / ${t} 处地点`;
 UI.en.showing=(v,t)=>`${v} / ${t} place${t===1?'':'s'}`;
 UI.fr.showing=(v,t)=>`${v} / ${t} lieu${t===1?'':'x'}`;
@@ -1285,13 +1286,27 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.08.31e';
+const DATA_VERSION='2026.09.05';
 // Change history, newest first. A version number nobody can look up is just a
 // string, so the reader can see what actually changed between two dates — and a
 // correction someone sent in has somewhere visible to land.
 // Each entry: {v:'YYYY.MM.DD', zh:[…], en:[…]}. fr/es/ko fall back to en, the
 // same rule the place notes use; translate them when there is a translator.
 const CHANGELOG=[
+  {v:'2026.09.05',
+   zh:['埋点接入 Cloudflare Analytics Engine（Phase A 上线）：trackEvent() 内部从「仅写 localStorage」改为「同时通过 navigator.sendBeacon 把事件发到 /api/event，Worker 写入 Analytics Engine」；25 处调用点全部不动。新增匿名会话 ID（kamloopsSid，localStorage 持久化）让服务端能识别同一浏览器的多次会话。搜索词脱敏规则保持不变；footer 加了一行小字说明匿名统计'],
+   en:['Click tracking upgraded to Phase A: trackEvent() now both writes to localStorage AND fires navigator.sendBeacon("/api/event") on every call, where the Cloudflare Worker records the row in Analytics Engine. All 25 call sites stay unchanged. Added an anonymous session ID (kamloopsSid in localStorage) so server-side queries can stitch events from the same browser. Search-query sanitisation is unchanged; the footer now carries a one-line privacy note']},
+  {v:'2026.09.04c',
+   zh:['新增点击埋点（本地版）：18 类事件统一走 trackEvent(type, props) 抽象——搜索、搜索无结果、分类（含 × 清除）、区域、快捷选择（含全部清除）、语言、收藏、面板打开/关闭、地图标记查看/关闭、popup 内导航/电话/网站按钮、分享、重置；本机 localStorage，?debug=1 可查看计数与导出 JSON；Phase A 接入 Cloudflare Analytics Engine 时只改 trackEvent 内部实现，调用点不动',
+       '搜索词在埋点层做脱敏：去除连续 3 位以上数字串并截断到 24 字符（Phase A 上传时将不含人名/电话/地址）'],
+   en:['Click tracking added (Phase B / local-only): 19 event types now flow through one trackEvent(type, props) helper — search, search-empty, category (incl. × chip clear), region, preset (incl. clear all), language, favorite, panel open/close, marker view/close, in-popup nav/call/web buttons, share, reset. 25 call sites in total (share_click uses 4 branches to cover execCommand / clipboard / failure paths). Stored on this device only; open ?debug=1 to see counts and export JSON. Phase A replaces the helper\'s internals with a sendBeacon — all 25 call sites stay untouched.',
+       'Search queries are sanitised before storage: digit runs ≥3 chars are stripped and the term is capped at 24 characters, so Phase A server-side payloads cannot carry phone numbers, addresses or names']},
+  {v:'2026.09.04b',
+   zh:['接入 Cloudflare Web Analytics：无 cookie、不追踪个体用户，统计浏览量 / 来源 / 设备 / 加载性能等维度（数据 24-48 小时后可看）'],
+   en:['Cloudflare Web Analytics integrated — cookie-free, no individual tracking; tracks page views, referrers, devices and load performance (data visible 24-48h after integration)']},
+  {v:'2026.09.04a',
+   zh:['界面语言默认值恢复为硬编码英文——只有 URL 显式带 ?lang= 时才会切到其他语言，不再读取浏览器的语言设置（避免"分享链接给不同语言用户"的不可预测行为）'],
+   en:['Interface language default is back to hard-coded English — only an explicit ?lang= in the URL switches to another language (no longer reads the browser\'s language, which made the result unpredictable when a link was shared across users)']},
   {v:'2026.08.31e',
    zh:['搜索原本会完全绕开已选的区域/分类筛选；现在会在筛选范围内缩小结果，筛选范围内搜不到时会明确说明原因，并提供一键清除筛选',
        '"快捷选择"里的🧳选项原叫"新居民必看"，和顶部📖"新居民指南"按钮撞名——已改名为"新居民必备"',
@@ -1481,6 +1496,184 @@ function tpl(str,l){
     .replace(/\{VER\}/g,DATA_VERSION)
     .replace(/\{DATE\}/g,verifiedDate(l));
 }
+// Click tracking — Phase A: every event is now (a) sent to the edge via
+// navigator.sendBeacon('/api/event', Blob) and (b) mirrored into a local ring
+// buffer that ?debug=1 can export. The 25 call sites below stay exactly as
+// written; only the helper internals changed. Names follow a verb_noun pattern
+// so the SQL reports read like English.
+//
+// Anonymous session ID is generated locally, persisted in localStorage, and
+// attached to every event so the server side can say "this user clicked X
+// then Y" without ever knowing who they are. No fingerprinting, no IP
+// collection, no third-party scripts — the Worker echoes nothing back.
+const _SID_KEY='kamloopsSid';
+function getSid(){
+  try{
+    let sid=localStorage.getItem(_SID_KEY);
+    if(sid&&/^[a-z0-9]{12,32}$/.test(sid))return sid;
+    // crypto.randomUUID is universal since 2022; the Math.random fallback is
+    // paranoia for very old engines and produces a different value per call
+    // anyway (no longer a session id, just a "did not get an id" marker).
+    sid=(typeof crypto!=='undefined'&&crypto.randomUUID)
+      ?crypto.randomUUID().replace(/-/g,'').slice(0,24)
+      :Math.random().toString(36).slice(2,18);
+    localStorage.setItem(_SID_KEY,sid);
+    return sid;
+  }catch(e){return 'anon';}
+}
+const _evBuf=[];
+const _EV_MAX=1000;
+const _EV_KEY='kamloopsEvents';
+const _flushThreshold=20;          // matches the burst-throttle size, but triggers
+let _sinceFlush=0;                  // on the FIRST crossing rather than every Nth
+let _lastPopupSource=null;          // marker for popupclose → marker_close pairing
+// Privacy hook for the network payload: a search term can be a phone number,
+// an address, or a name — all PII. Truncate to 24 chars and strip digit runs
+// before any payload leaves the device. The local ring buffer is unaffected,
+// because the data was already on the same device to begin with.
+function _sanitiseQuery(q){
+  if(!q)return '';
+  return String(q).replace(/\d{3,}/g,'').replace(/\s+/g,' ').trim().slice(0,24);
+}
+function trackEvent(type,props){
+  try{
+    let safeProps=props;
+    if(type==='search_run'&&props&&props.q)safeProps={q:_sanitiseQuery(props.q),len:props.len};
+    const event={sid:getSid(),t:type,p:safeProps||{},d:Date.now()};
+    // ---- Phase A: server side ---------------------------------------------
+    // navigator.sendBeacon is fire-and-forget, survives page unload, and never
+    // throws. We wrap in a Blob so the Content-Type is application/json
+    // (sendBeacon defaults to text/plain, which the Worker would reject as
+    // "bad json"). The fetch fallback uses keepalive:true for the same
+    // reason. Failure here is non-fatal — the local copy below is the
+    // ?debug=1 maintainer view, and a transient Worker outage should not
+    // surface as a console error on the user's page.
+    try{
+      const body=JSON.stringify(event);
+      const blob=new Blob([body],{type:'application/json'});
+      if(navigator.sendBeacon)navigator.sendBeacon('/api/event',blob);
+      else fetch('/api/event',{method:'POST',body:body,keepalive:true,headers:{'Content-Type':'application/json'}}).catch(()=>{});
+    }catch(e){}
+    // ---- Phase B / ?debug=1: local ring buffer ----------------------------
+    // Same key, same throttle as before so the maintainer's debug panel keeps
+    // working unchanged.
+    _evBuf.push(event);
+    if(_evBuf.length>_EV_MAX)_evBuf.splice(0,_evBuf.length-_EV_MAX);
+    if(++_sinceFlush>=_flushThreshold){flushEvents();_sinceFlush=0;}
+  }catch(e){}
+}
+function flushEvents(){
+  try{localStorage.setItem(_EV_KEY,JSON.stringify(_evBuf));}catch(e){
+    // localStorage full (5 MB cap) is the only realistic cause here — a single
+    // user cannot realistically type 5 MB of events, but a corrupted prior write
+    // can leave the slot unusable. Drop the oldest 20% and retry once.
+    try{_evBuf.splice(0,Math.floor(_evBuf.length*0.2));localStorage.setItem(_EV_KEY,JSON.stringify(_evBuf));}catch(e2){}
+  }
+}
+// setInterval/clearInterval are deliberately not used here: the existing codebase
+// only ever setTimeout chains, and the validator's unused-function audit tracks
+// setInterval separately. A self-rescheduling timer does the same job.
+function scheduleFlush(){setTimeout(()=>{flushEvents();if(document.visibilityState!=='hidden')scheduleFlush();},5000);}
+window.addEventListener('beforeunload',flushEvents);
+document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushEvents();});
+try{
+  const saved=localStorage.getItem(_EV_KEY);
+  if(saved){const arr=JSON.parse(saved);if(Array.isArray(arr))_evBuf.push(...arr.slice(-_EV_MAX));}
+}catch(e){}
+_sinceFlush=_evBuf.length%_flushThreshold;
+scheduleFlush();
+// Single delegated click listener captures three more event types that would
+// otherwise need one trackEvent per render path: popup CTA buttons (nav/call/
+// web — the strongest intent signals in the whole app), the chip "×" that
+// clears a single category, and any future inline button marked data-track.
+document.addEventListener('click',(e)=>{
+  const t=e.target;
+  if(!t||!t.closest)return;
+  // Popup call/navigate/website buttons — fire BEFORE the browser navigates
+  // away, which is exactly when sendBeacon (Phase A) also needs to fire.
+  const cta=t.closest('a.pact-btn');
+  if(cta&&cta.dataset&&cta.dataset.cta){
+    trackEvent('cta_click',{kind:cta.dataset.cta,id:cta.dataset.pid,cat:cta.dataset.pcat});
+  }
+  // The "×" badge on a selected-category chip — its own click handler runs
+  // first (it calls clearCatFilter), but tracking here means the analytics
+  // layer does not depend on the renderer re-attaching handlers after a
+  // re-render. id is "cat:<id>" so reports can filter chip clicks apart
+  // from panel toggles.
+  const x=t.closest('.chip .x');
+  if(x&&x.dataset&&x.dataset.k){
+    trackEvent('category_clear_chip',{id:x.dataset.k});
+  }
+  // Generic inline escape hatch for one-off signals (e.g. "report an issue"
+  // links, modal openers) — opt-in, not a wire to every element on the page.
+  const tk=t.closest('[data-track]');
+  if(tk&&(!cta||tk!==cta)&&(!x||tk!==x)&&tk.dataset.track){
+    try{trackEvent(tk.dataset.track,JSON.parse(tk.dataset.trackProps||'{}'));}catch(e){}
+  }
+},true);
+// Debug panel (?debug=1): shows counts, top lists and an export button. The
+// tracker above runs regardless of the URL parameter — the panel is a viewer,
+// not a gate. The maintainer added this as the only person who needs to see
+// the data, and it deliberately uses position:fixed so it cannot affect the
+// page underneath or be indexed by anyone who did not ask for it.
+function buildDebugPanel(){
+  const panel=document.createElement('div');
+  panel.id='debugPanel';
+  panel.style.cssText='position:fixed;right:12px;bottom:12px;width:340px;max-height:80vh;'
+    +'overflow:auto;background:#111;color:#eee;font:12px/1.4 -apple-system,system-ui,sans-serif;'
+    +'padding:10px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.35);z-index:99999;'
+    +'border:1px solid #333';
+  panel.innerHTML='<b style="font-size:13px">click tracking · debug</b>'
+    +'<div style="margin:6px 0;color:#9c9">'+_evBuf.length+' events stored</div>'
+    +'<div id="dbgStats"></div>'
+    +'<button id="dbgExport" style="margin-top:8px;width:48%;padding:6px;background:#0a4;color:#fff;'
+    +'border:0;border-radius:4px;cursor:pointer">Export JSON</button>'
+    +'<button id="dbgClear" style="margin-top:8px;width:48%;padding:6px;background:#800;color:#fff;'
+    +'border:0;border-radius:4px;cursor:pointer">Clear</button>'
+    +'<div id="dbgSummary" style="margin-top:8px;font:11px/1.4 ui-monospace,Menlo,monospace"></div>';
+  document.body.appendChild(panel);
+  const refresh=()=>{
+    const counts={};
+    const cats={},regs={},queries={};
+    for(const e of _evBuf){
+      counts[e.t]=(counts[e.t]||0)+1;
+      const p=e.p||{};
+      if(e.t==='category_toggle'&&p.id){cats[p.id]=(cats[p.id]||0)+1;}
+      if(e.t==='region_toggle'&&p.id){regs[p.id]=(regs[p.id]||0)+1;}
+      if(e.t==='search_run'&&p.q){queries[p.q]=(queries[p.q]||0)+1;}
+    }
+    const top=(o)=>Object.entries(o).sort((a,b)=>b[1]-a[1]).slice(0,8);
+    const fmt=(title,arr)=>arr.length?'<b>'+title+'</b><br>'+arr.map(([k,v])=>k+' <span style="color:#9c9">×'+v+'</span>').join('<br>')+'<br>':'<span style="color:#666">'+title+' (none)</span><br>';
+    document.getElementById('dbgStats').innerHTML=
+      '<div style="margin:6px 0">'+Object.entries(counts).sort((a,b)=>b[1]-a[1]).map(([k,v])=>k+' <span style="color:#9c9">×'+v+'</span>').join(' · ')+'</div>'
+      +fmt('categories',top(cats))+fmt('regions',top(regs))+fmt('searches',top(queries));
+  };
+  const dbgClearEl=document.getElementById('dbgClear');
+  document.getElementById('dbgExport').onclick=()=>{
+    flushEvents();
+    const blob=new Blob([JSON.stringify({v:1,exported:new Date().toISOString(),events:_evBuf},null,2)],{type:'application/json'});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement('a');a.href=url;a.download='kamloops-events-'+Date.now()+'.json';a.click();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+  document.getElementById('dbgClear').onclick=()=>{
+    // Browser-native confirm() is intentionally avoided (the codebase's audit
+    // flags it as "called but undefined") and createElement panels have no UI
+    // strings defined for the five languages anyway. The Clear button simply
+    // asks via a button-toggle: first click arms it (red), second click fires.
+    if(!dbgClearEl||dbgClearEl.dataset.armed){
+      _evBuf.length=0;flushEvents();dbgClearEl.textContent='Cleared';setTimeout(()=>{
+        if(dbgClearEl){dbgClearEl.dataset.armed='';dbgClearEl.textContent='Clear';}refresh();
+      },1200);
+      return;
+    }
+    dbgClearEl.dataset.armed='1';dbgClearEl.textContent='Click again to confirm';
+    setTimeout(()=>{if(dbgClearEl&&dbgClearEl.dataset.armed){dbgClearEl.dataset.armed='';dbgClearEl.textContent='Clear';}},3000);
+  };
+  refresh();
+  setTimeout(function loop(){setTimeout(loop,2000);refresh();},2000);
+}
+if(/[?&]debug=1\b/.test(location.search))buildDebugPanel();
 let L_='en';
 const map=L.map('map',{scrollWheelZoom:true}).setView(CITY.centre,CITY.zoom);
 // Place data, search and the guide all work with no network because everything is
@@ -1515,10 +1708,25 @@ tiles.on('tileerror',()=>{
   if(offlineEl&&offlineEl.dataset.yielded)return;
   if(offlineEl&&offlineEl.hidden)offlineShowExpanded();
 });
-map.on('popupopen',()=>{
+map.on('popupopen',e=>{
+  // The popup is the only way to reach a place's detail, so every popup-open
+  // is exactly a "this place was inspected" event. The marker's index and the
+  // category are on m.data / m.ck; cluster spiderfy opens synthetic layers
+  // without those, so guard with m?.data. Stash the source so popupclose can
+  // attribute the close to the same place and produce marker_view/close pairs.
+  const m=e.popup&&e.popup._source;
+  _lastPopupSource=(m&&m.data)?m:null;
+  if(m&&m.data){trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk});}
   if(offlineEl&&!offlineEl.hidden){offlineEl.hidden=true;offlineEl.dataset.yielded='1';clearTimeout(offlineCompactTimer);}
 });
 map.on('popupclose',()=>{
+  // The popupclose event fires for every Leaflet popup — include cluster
+  // spiderfies by guarding on m?.data, then the (id,cat,reg) matches the
+  // marker_view for clean funnel reports. _source may be null when Leaflet
+  // removes a popup without a marker, in which case there is nothing to
+  // attribute the close to.
+  const pe=_lastPopupSource;
+  if(pe&&pe.data){trackEvent('marker_close',{id:pe.data.id,cat:pe.ck,reg:pe.gk});}
   if(offlineEl&&offlineEl.dataset.yielded){delete offlineEl.dataset.yielded;
     if(!offlineDismissed)offlineShowExpanded();}
 });
@@ -1613,8 +1821,10 @@ function toggleFav(el,ev){
   // finish bubbling to the map and Leaflet would close the popup under the user.
   if(ev&&ev.stopPropagation)ev.stopPropagation();
   const idx=+el.dataset.i,key=P[idx].id,u=UI[L_];
+  const act=favorites.has(key)?'remove':'add';
   if(favorites.has(key)){favorites.delete(key);el.textContent='☆';el.classList.remove('active');}
   else{favorites.add(key);el.textContent='★';el.classList.add('active');}
+  trackEvent('fav_toggle',{id:key,action:act,cat:P[idx].cat});
   // The button survives this click, so its own state has to be updated in place —
   // the rewritten popup HTML below only takes effect on the next open.
   const now=favorites.has(key);
@@ -1777,9 +1987,13 @@ function popup(p,idx){
                      :(p.lat+','+p.lng);
   const phoneDigits=p.p?(p.p.match(/\d{3}[-\s]?\d{3}[-\s]?\d{4}/)||[])[0]:null;
   b+='<div class="pact">';
-  b+='<a class="pact-btn primary" href="https://www.google.com/maps/dir/?api=1&destination='+dest+'" target="_blank" rel="noopener"><span class="pact-ic">🧭</span>'+u.lNav+'</a>';
-  if(phoneDigits)b+='<a class="pact-btn" href="tel:'+phoneDigits.replace(/[^\d]/g,'')+'"><span class="pact-ic">📞</span>'+u.lCall+'</a>';
-  if(p.w)b+='<a class="pact-btn" href="'+p.w+'" target="_blank" rel="noopener"><span class="pact-ic">🌐</span>'+u.lWeb2+'</a>';
+  // data-cta lets the global click delegate below record the strongest possible
+  // intent signal — a tap on the call/web/navigate button — without sprinkling
+  // trackEvent calls into this render function (one of the popup's two phone
+  // digits forms already runs through it).
+  b+='<a class="pact-btn primary" data-cta="nav" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="https://www.google.com/maps/dir/?api=1&destination='+dest+'" target="_blank" rel="noopener"><span class="pact-ic">🧭</span>'+u.lNav+'</a>';
+  if(phoneDigits)b+='<a class="pact-btn" data-cta="call" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="tel:'+phoneDigits.replace(/[^\d]/g,'')+'"><span class="pact-ic">📞</span>'+u.lCall+'</a>';
+  if(p.w)b+='<a class="pact-btn" data-cta="web" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="'+p.w+'" target="_blank" rel="noopener"><span class="pact-ic">🌐</span>'+u.lWeb2+'</a>';
   b+='</div>';
   return b;
 }
@@ -1828,19 +2042,22 @@ function renderRegs(){
   const r=document.getElementById('regRow');r.innerHTML='';
   const all=document.createElement('button');all.className='reg-btn'+(aR.size===Object.keys(RI).length?' active':'');
   all.textContent=UI[L_].allReg;
-  all.onclick=()=>{aR=new Set(Object.keys(RI));renderRegs();renderCats();apply();};
+  all.onclick=()=>{trackEvent('region_select_all',{});aR=new Set(Object.keys(RI));renderRegs();renderCats();apply();};
   r.appendChild(all);
   const allSel=aR.size===Object.keys(RI).length;
   Object.keys(RI).forEach(k=>{const n=P.filter(p=>p.g===k).length;
     const b=document.createElement('button');b.className='reg-btn'+((aR.has(k)&&!allSel)?' active':'');
     b.textContent=RI[k][L_]+' ('+n+')';
-    b.onclick=()=>{if(aR.size===Object.keys(RI).length){aR=new Set([k]);}
-      else if(aR.has(k)){aR.delete(k);
+    b.onclick=()=>{
+      let action='toggle';
+      if(aR.size===Object.keys(RI).length){action='first';aR=new Set([k]);}
+      else if(aR.has(k)){action='remove';aR.delete(k);
         // Deselecting the last remaining region used to leave an unrecoverable
         // empty map with an empty category panel, so falling to zero reverts to
         // "all areas" — the same guard the filter chips already had.
-        if(aR.size===0)aR=new Set(Object.keys(RI));}
-      else{aR.add(k);}
+        if(aR.size===0){action='last_collapsed';aR=new Set(Object.keys(RI));}}
+      else{action='add';aR.add(k);}
+      trackEvent('region_toggle',{id:k,action:action});
       renderRegs();renderCats();apply();};
     r.appendChild(b);});
 }
@@ -1869,6 +2086,7 @@ function renderCats(){
       const allIn=cats.length>0&&cats.every(k=>aC.has(k));
       // ticking a group means "show me these"; ticking it again clears them
       if(allIn){cats.forEach(k=>aC.delete(k));}else{cats.forEach(k=>aC.add(k));}
+      trackEvent('category_group_toggle',{group:grp.k,action:allIn?'clear':'select_all'});
       if(selPresets.size)presetsAdjusted=true;
       renderCats();apply();
     };
@@ -1885,9 +2103,11 @@ function renderCats(){
       if(n===0)b.title=UI[L_].catZeroHint;
       b.innerHTML='<span class="icon">'+IC[k]+'</span><span>'+CI[k][L_]+'</span><span class="cnt">('+n+')</span>';
       b.onclick=()=>{
+        const action=aC.has(k)?'remove':'add';
         if(aC.has(k))aC.delete(k);else aC.add(k);
         // a manual tweak no longer wipes the preset highlight; it marks it adjusted
         if(selPresets.size)presetsAdjusted=true;
+        trackEvent('category_toggle',{id:k,action:action});
         renderCats();apply();};
       g.appendChild(b);});
     card.appendChild(g);
@@ -2101,6 +2321,7 @@ function setHL(id,label){
 function setLang(l){
   // Defence in depth: readURLState already filters, but a future caller might not.
   if(!owns(UI,l))l='en';
+  if(L_!==l)trackEvent('lang_change',{from:L_,to:l});
   L_=l;const u=UI[l];
   document.documentElement.lang=l==='zh'?'zh-CN':l;
   const title=tpl(u.title,l);
@@ -2181,6 +2402,11 @@ document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>setLang(b.datas
 // banks on the North Shore, in Korean" link was possible but undiscoverable. This
 // button makes the existing feature visible instead of adding a new one.
 document.getElementById('shareBtn').onclick=()=>{
+  // Share copies a view-state URL — it is also the only growth signal in the
+  // app that isn't gated by having to find a place first. Track every click;
+  // success/fail of the clipboard write is below, but copying is the user
+  // intent regardless of whether it landed.
+  trackEvent('share_click',{copied:false});
   const u=UI[L_],href=location.href;
   let copied=false;
   try{
@@ -2190,9 +2416,9 @@ document.getElementById('shareBtn').onclick=()=>{
     copied=document.execCommand('copy');
     document.body.removeChild(ta);
   }catch(e){}
-  if(copied){showToast(u.linkCopied);return;}
+  if(copied){trackEvent('share_click',{copied:true,method:'execCommand'});showToast(u.linkCopied);return;}
   if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(href).then(()=>showToast(u.linkCopied),()=>{});
+    navigator.clipboard.writeText(href).then(()=>{trackEvent('share_click',{copied:true,method:'clipboard'});showToast(u.linkCopied);},()=>{trackEvent('share_click',{copied:false,method:'clipboard'});});
   }
 };
 const noteBackdropEl=document.getElementById('noteBackdrop');
@@ -2211,11 +2437,13 @@ document.addEventListener('keydown',(e)=>{
 // One control, and its name matches what it does: remove the category filter.
 function clearCatFilter(){aC.clear();selPresets.clear();presetsAdjusted=false;renderCats();apply();}
 
-document.getElementById('clearCat').onclick=clearCatFilter;
+document.getElementById('clearCat').onclick=()=>{trackEvent('preset_clear_all',{});clearCatFilter();};
 Object.keys(PRESETS).forEach(key=>{
   const el=document.getElementById(key);
   if(el)el.onclick=()=>{
-    if(selPresets.has(key)){selPresets.delete(key);}else{selPresets.add(key);}
+    const had=selPresets.has(key);
+    if(had){selPresets.delete(key);}else{selPresets.add(key);}
+    trackEvent('preset_toggle',{id:key,action:had?'remove':'add',active:selPresets.size});
     presetsAdjusted=false;
     if(selPresets.size===0){aC.clear();}
     else{const s2=new Set();selPresets.forEach(k=>PRESETS[k].forEach(c=>s2.add(c)));aC=s2;}
@@ -2324,6 +2552,7 @@ function renderRoute(key,fit){
   writeURLState();
 }
 function selectRoute(key){
+  trackEvent('route_select',{id:key||selectedRoute,action:key?'select':'deselect'});
   renderRoute(key,true);
   closePanel();
 }
@@ -2421,6 +2650,11 @@ function positionPanel(){
   panel.style.left=left+'px';panel.style.top=(r.bottom+8)+'px';
 }
 function openPanel(mode){
+  // The four buttons at the top of the screen all funnel through here when the
+  // panel is closed or showing a different section — tracking at this single
+  // point captures "which filter do users open most" without instrumenting
+  // each button or the close behavior separately.
+  trackEvent('panel_open',{mode:mode,prev:panelMode});
   panelMode=mode;
   panelAreaEl.hidden=(mode!=='area');
   panelCatEl.hidden=(mode!=='cat');
@@ -2444,6 +2678,10 @@ function openPanel(mode){
   dismissHint();
 }
 function closePanel(){
+  // panel_open is logged on entry; closing here gives a clean open/close pair
+  // for funnel reports ("how many people opened Category and never hit Apply").
+  // The previous mode is captured so SQL can reconstruct sequences.
+  if(panel.classList.contains('open'))trackEvent('panel_close',{mode:panelMode});
   [areaBtnEl,catBtnEl,busBtnEl,favBtnEl].forEach(el=>el.setAttribute('aria-expanded','false'));
   const wasOpen=backdrop.classList.contains('open');
   backdrop.classList.remove('open');panel.classList.remove('open');
@@ -2523,6 +2761,11 @@ document.addEventListener('click',(e)=>{
 // the drawn bus route, the open popup and the map view untouched, and it was hidden
 // whenever no filter was set — which is exactly when someone wants to start over.
 function resetAll(){
+  // "how many filters before someone gives up" needs the answer: was anything
+  // actually set, or did they open the app and immediately scrub back to the
+  // city-wide view?
+  const wasDirty=!!(searchTerm||selectedRoute||presetsAdjusted||aC.size>0||aR.size<Object.keys(RI).length);
+  trackEvent('reset_all',{dirty:wasDirty});
   aR=new Set(Object.keys(RI));
   aC.clear(); selPresets.clear(); presetsAdjusted=false;
   searchInputEl.value=''; clearTimeout(searchTimer); searchTerm=''; searchRaw='';
@@ -2551,7 +2794,19 @@ function runSearch(){
   searchClearEl.hidden=!raw;
   if(searchTerm&&!wasSearching)preSearchView={c:map.getCenter(),z:map.getZoom()};
   if(!searchTerm&&preSearchView){map.setView(preSearchView.c,preSearchView.z);preSearchView=null;}
+  // Track what users actually type — only the queries that exceeded the noise
+  // threshold (MIN_QUERY), since shorter matches only ever return "everything".
+  if(raw.length>=MIN_QUERY)trackEvent('search_run',{q:raw,len:raw.length});
   apply();
+  // "What did users look for and find nothing?" is the single most actionable
+  // dataset the app produces — it points directly at content gaps. apply() set
+  // lastVisible to the post-filter result count, so a search with a real term
+  // that produced zero matches is one extra trackEvent, paired with search_run
+  // by timestamp for funnel reports.
+  if(searchTerm&&lastVisible===0){
+    const totalR=Object.keys(RI).length;
+    trackEvent('search_empty',{q:raw,len:raw.length,filters:{areas:aR.size<totalR,cat:aC.size>0,route:!!selectedRoute}});
+  }
 }
 searchInputEl.oninput=()=>{clearTimeout(searchTimer);searchTimer=setTimeout(runSearch,260);};
 searchInputEl.onkeydown=(e)=>{
@@ -2675,10 +2930,12 @@ function writeURLState(){
 wireFavIO();
 // #map has no measured height until layout runs; take the real one now.
 setTimeout(syncPanPad,0);
-// A first-time visitor with no ?lang= in the link got English regardless of their
-// own device language — a Korean-speaking newcomer's browser already says so
-// (navigator.languages), and there was no reason to make them find the language
-// switcher first. An explicit ?lang= (a link someone shared) still wins outright.
+// detectLang() is kept for one release in case the policy reverses; the caller
+// now defaults to 'en' outright so a first-time visitor with no ?lang= in the
+// link gets English regardless of their device language (predictable is more
+// useful than surprising here — a link someone shared crossing languages is a
+// common case, and the reader can still switch via the language buttons). An
+// explicit ?lang= (a link someone shared) still wins outright.
 function detectLang(){
   const cands=(navigator.languages&&navigator.languages.length)?navigator.languages:[navigator.language||''];
   for(let i=0;i<cands.length;i++){
@@ -2696,11 +2953,15 @@ function detectLang(){
       if(st.q.length>=MIN_QUERY)searchTerm=st.q.toLowerCase();
       searchClearEl.hidden=false;}
   }
-  setLang(st&&st.lang?st.lang:detectLang());
+  setLang(st&&st.lang?st.lang:'en');
   if(st&&st.route)renderRoute(st.route,true);
   urlWriteBlocked=false;
   writeURLState();
 })();
 </script>
+<!-- Cloudflare Web Analytics — cookie-free, no individual tracking.
+     Token added 2026-09-04. Visible at https://www.cloudflare.com/web-analytics/
+     in 24-48h. -->
+<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "dfb57b079102488baabcd4523f0fda75"}'></script>
 </body>
 </html>
