@@ -1,9 +1,20 @@
 # Change log
 
-<!-- 由 tools/gen-changelog.py 从 src/engine.html 生成，请勿手改。 -->
-<!-- 改动写进 src/engine.html 的 CHANGELOG 数组，再跑一次这个脚本。 -->
+<!-- 2026-09-07 起，页面本身不再展示更新记录，这个文件成为唯一的变更历史，手工维护。 -->
 
-当前版本：`2026.09.07c`
+当前版本：`2026.09.07d`
+
+## 2026.09.07d
+
+**中文**
+
+- 页面上的「更新记录」整体移除：指南底部的版本变更列表、指南按钮上的「有更新」红点、以及指南顶部的跳转链接都已删除，五种语言的相关文案、CHANGELOG 数据数组和渲染函数一并从代码里清掉，构建产物因此小了约 29 KB。变更历史继续保留在仓库的这个文件里，只是不再对访问者展示。
+- 配套清理：回归测试里针对更新记录的 2 项断言同步删除（功能已不存在，留着只会让套件崩在找不到的元素上）；`tools/gen-changelog.py` 及 `deploy.sh` 里的漂移检查一并撤除，因为它们的数据来源已经不在了。
+
+**English**
+
+- The change log is gone from the page: the version list at the bottom of the newcomer guide, the "something is new" dot on the guide button and the jump link at the top of the guide have all been removed, along with the five-language strings, the CHANGELOG data array and its render function. The built file is about 29 KB smaller. The history itself stays in this file — it is simply no longer shown to readers.
+- Follow-through: the two regression assertions covering the change log were deleted with it, since a test pointing at an element that no longer exists only crashes the suite; `tools/gen-changelog.py` and the drift check in `deploy.sh` were removed too, as the source they read no longer exists.
 
 ## 2026.09.07c
 

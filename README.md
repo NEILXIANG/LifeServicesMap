@@ -16,8 +16,8 @@ Everything except the map background works with no network at all.
 | `export-open.py` | Writes out the freely-licensable subset of the data. |
 | `check-links.py` | Checks the 150 external websites still resolve (needs a network). |
 | `DATA-SCHEMA.md` | The data format, and how to add a city. |
-| `CHANGELOG.md` | What changed, and when. **Generated** by `tools/gen-changelog.py` from the in-app change log — do not hand-edit. |
-| `tools/` | `monthly-quality-check.sh` (stale POIs + link check) and `gen-changelog.py`. |
+| `CHANGELOG.md` | What changed, and when. Maintained here — the page itself no longer shows a change log. |
+| `tools/` | `monthly-quality-check.sh` — stale POIs plus the link check. |
 | `archive/` | Point-in-time analyses, superseded handbooks and one-off checklists. Not current state — see its README. |
 
 ## Everyday use

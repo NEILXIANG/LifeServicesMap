@@ -312,19 +312,10 @@ async def main():
         check("29 modal takes focus", inside)
         check("15 Escape closes the modal", closed)
 
-        print("\n--- change log and offline notice ---")
-        cl=await pg.evaluate("""()=>{const out={};
-          ['zh','en','fr','es','ko'].forEach(l=>{setLang(l);
-            const g=document.getElementById('guideBody').innerText;
-            out[l]={title:g.indexOf(UI[l].changelogTitle)>-1,
-                    ver:g.indexOf(DATA_VERSION)>-1,
-                    items:(document.getElementById('guideBody').querySelectorAll('ul li').length)};});
-          setLang('en');return out;}""")
-        check("36 change log renders in every language",
-              all(v['title'] and v['ver'] and v['items']>0 for v in cl.values()),
-              {k:(v['title'],v['ver']) for k,v in cl.items()})
-        check("36 version in the log matches DATA_VERSION",
-              await pg.evaluate("CHANGELOG[0].v===DATA_VERSION"))
+        # 2026-09-07: 更新记录已按要求从页面移除（内容仍保留在仓库的 CHANGELOG.md），
+        # 因此原本的两项 "36 change log ..." 断言一并删除——功能没了测试还留着，
+        # 只会让套件崩在一个不存在的元素上。离线提示的断言保留在下面。
+        print("\n--- offline notice ---")
         off=await pg.evaluate("""()=>{const e=document.getElementById('offlineNote');
           const before=document.getElementById('map').getBoundingClientRect().top;
           // Poking .hidden/.textContent directly (as this used to) bypasses the
