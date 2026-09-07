@@ -152,3 +152,9 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 0 OK, 0 MOVED, 0 DEAD, 1 BLOCKED
 - 完整 log: data/check-links-2026-09-05.log
+
+### 2026-09-07 · 月度巡检
+
+- stale: 0 POI over 180d. nothing to do this cycle.
+- 深链: 0 OK, 0 MOVED, 0 DEAD, 1 BLOCKED
+- 完整 log: data/check-links-2026-09-07.log
