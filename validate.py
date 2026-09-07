@@ -246,6 +246,147 @@ for lang in LANGS:
         if not re.search(r"UI\.%s\.%s\s*=" % (lang, k), html):
             fail('%s is missing the %s label' % (lang, k))
 
+# ------------------------------------------------- 3c2. sameComplex is symmetric
+# Two markers on one coordinate read as duplicate data unless the popup explains
+# them, so the relation has to be complete: it points at ids that exist, never at
+# itself, and both ends agree. A one-way link renders on one marker and not its
+# twin, which is worse than none.
+_by_id = {p['id']: p for p in P if p.get('id')}
+for p in P:
+    sc = p.get('sameComplex')
+    if sc is None: continue
+    if not isinstance(sc, list):
+        fail('%r sameComplex is not a list (it holds a group, not one id)' % p['n']); continue
+    for other in sc:
+        if other == p.get('id'):
+            fail('%r lists itself in sameComplex' % p['n'])
+        elif other not in _by_id:
+            fail('%r sameComplex points at id %r, which no place has' % (p['n'], other))
+        elif p.get('id') not in (_by_id[other].get('sameComplex') or []):
+            fail('sameComplex is one-way: %r points at %r but not the reverse'
+                 % (p['n'], _by_id[other]['n']))
+
+# ------------------------------------------------- 3c3. impossible coordinates
+# Two different civic numbers on the same street cannot be metres apart. When it
+# happens, one row has borrowed the other's coordinate — the failure that put a
+# clinic inside a pharmacy's plaza. Same civic number is fine (that is what
+# sameComplex describes) and so is an unflagged pair where one is already marked
+# approximate, since the map then says so.
+def civic(a):
+    m = re.search(r'(\d{2,5})\s+([A-Za-z].*)$', (a or '').replace('#', ' '))
+    if not m: return None
+    street = re.sub(r'\b(unit|suite|ste)\b.*', '', m.group(2), flags=re.I)
+    return m.group(1), re.sub(r'[^a-z]', '', street.lower())[:14]
+for i in range(len(P)):
+    for j in range(i + 1, len(P)):
+        a, b = P[i], P[j]
+        ca, cb = civic(a['a']), civic(b['a'])
+        if not ca or not cb or ca[1] != cb[1] or ca[0] == cb[0]: continue
+        d = math.hypot((a['lat'] - b['lat']) * 111000,
+                       (a['lng'] - b['lng']) * 111000 * 0.635)
+        if d < 30 and 'low' not in (a.get('precision'), b.get('precision')):
+            fail('%r (%s) and %r (%s) are %dm apart but have different civic '
+                 'numbers on the same street — one coordinate is borrowed'
+                 % (a['n'], a['a'], b['n'], b['a'], d))
+
+# ------------------------------------------------- 3c4. coordinates vs street geometry
+# The pair check above only fires when a bad coordinate happens to land near
+# another record; a lone one is caught here. On a straight street, position is
+# very nearly linear in the civic number, so a line through the surveyed rows
+# predicts where every other row belongs. The fit has to be robust or it defeats
+# itself — the first version of this check used plain least squares, the bad rows
+# were inside the sample, they dragged the line toward themselves and inflated the
+# tolerance until a 231 m error passed. So: fit, drop residuals past 3x the
+# median, refit, and only use streets whose surviving rows agree tightly.
+def _dp(x): return len(str(x).split('.')[-1]) if '.' in str(x) else 0
+def _linfit(xs, vals):
+    mx = sum(xs) / len(xs); my = sum(vals) / len(vals)
+    den = sum((x - mx) ** 2 for x in xs)
+    if not den: return None
+    return (sum((x - mx) * (v - my) for x, v in zip(xs, vals)) / den, my, mx)
+def _ruler(rows):
+    keep = list(rows)
+    for _ in range(6):
+        if len(keep) < 8: return None
+        xs = [r[0] for r in keep]
+        if len(set(xs)) < 5: return None
+        fa = _linfit(xs, [r[1] for r in keep]); fo = _linfit(xs, [r[2] for r in keep])
+        if not fa or not fo: return None
+        def pred(n, fa=fa, fo=fo):
+            return (fa[1] + fa[0] * (n - fa[2]), fo[1] + fo[0] * (n - fo[2]))
+        res = []
+        for n, la, ln in keep:
+            pla, pln = pred(n)
+            res.append(math.hypot((la - pla) * 111000, (ln - pln) * 111000 * 0.635))
+        cut = max(3 * sorted(res)[len(res) // 2], 60)
+        nxt = [r for r, d in zip(keep, res) if d <= cut]
+        if len(nxt) == len(keep):
+            return pred, (sum(d * d for d in res) / len(res)) ** 0.5, len(keep)
+        keep = nxt
+    return None
+_street = {}
+for p in P:
+    c = civic(p['a'])
+    if c: _street.setdefault(c[1], []).append((int(c[0]), p))
+for _st, _items in sorted(_street.items()):
+    if len(_items) < 8: continue
+    _anch = [(n, p['lat'], p['lng']) for n, p in _items
+             if min(_dp(p['lat']), _dp(p['lng'])) >= 5 and p.get('precision') != 'low']
+    _r = _ruler(_anch)
+    if not _r: continue
+    _pred, _rms, _kept = _r
+    if _rms > 60: continue
+    for n, p in _items:
+        la, ln = _pred(n)
+        d = math.hypot((p['lat'] - la) * 111000, (p['lng'] - ln) * 111000 * 0.635)
+        if d > 200:
+            fail('%r (%s) sits %.0f m from where its street number puts it — %d rows '
+                 'on that street fit a straight line to %.0f m rms, so this '
+                 'coordinate is almost certainly borrowed from elsewhere'
+                 % (p['n'], p['a'], d, _kept, _rms))
+
+# ------------------------------------------------- 3d. the theme axis
+# Themes overlap categories on purpose, so nothing about a place's category can
+# be used to check its themes. What can be checked is that every key a record
+# claims exists, is translated everywhere, has an icon and a position in the
+# reading order, and that no theme is a dead chip.
+TI = extract('TI'); TIC = extract('TIC'); TORDER = extract('TORDER')
+if set(TORDER) != set(TI):
+    fail('TORDER and TI disagree: only in TORDER=%s, only in TI=%s'
+         % (sorted(set(TORDER) - set(TI)), sorted(set(TI) - set(TORDER))))
+if len(TORDER) != len(set(TORDER)):
+    fail('TORDER lists a theme twice')
+for k, v in TI.items():
+    miss = [l for l in LANGS if not v.get(l)]
+    if miss: fail('TI[%r] missing languages %s' % (k, miss))
+    if k not in TIC: fail('TIC has no icon for theme %r' % k)
+_theme_n = Counter()
+for i, p in enumerate(P):
+    t = p.get('t')
+    if t is None: continue
+    if not isinstance(t, list):
+        fail('%r has a non-list t (themes must stay an array)' % p['n']); continue
+    if len(set(t)) != len(t):
+        fail('%r lists the same theme twice: %r' % (p['n'], t))
+    if [k for k in TORDER if k in t] != t:
+        fail('%r themes are out of TORDER order: %r' % (p['n'], t))
+    for k in t:
+        if k not in TI: fail('%r has unknown theme %r' % (p['n'], k))
+        else: _theme_n[k] += 1
+_empty = [k for k in TORDER if not _theme_n[k]]
+if _empty:
+    fail('theme(s) with no places at all — a chip that can only ever show (0): %s'
+         % ', '.join(_empty))
+_thin_t = [k for k in TORDER if 0 < _theme_n[k] <= 5]
+if _thin_t:
+    warn('thin theme(s): %s — honest, but the chip will look broken next to the '
+         'others; either grow the data or reconsider the theme'
+         % ', '.join('%s %d' % (k, _theme_n[k]) for k in _thin_t))
+_untagged = sum(1 for p in P if not p.get('t'))
+if _untagged > len(P) * 0.4:
+    warn('%d of %d places carry no theme at all (%.0f%%) — the theme axis only '
+         'helps where it is populated' % (_untagged, len(P), 100.0 * _untagged / len(P)))
+
 tagset = set(re.findall(r"UI\.zh\.(t[A-Za-z0-9]+)\s*=", html))
 for p in P:
     if p.get('tag') and p['tag'] not in tagset:

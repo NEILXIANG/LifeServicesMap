@@ -21,7 +21,8 @@ mechanically, so a mistake here is usually caught before it reaches anyone.
 | `UI.<lang>.guideCity` | The "About this city" section of the newcomer guide |
 
 Categories (`CI`), their colours and icons (`CO`/`CD`/`IC`), the groups (`GRP`/`GN`),
-the quick-pick presets (`PRESETS`) and the rest of the guide live in the **engine**
+the themes (`TI`/`TIC`/`TORDER`), the quick-pick presets (`PRESETS`) and the rest of
+the guide live in the **engine**
 and are shared by every city. Change them only if the taxonomy itself should change
 everywhere.
 
@@ -79,6 +80,9 @@ One object per place. Only six fields are required.
 | `h` | object | Opening hours — see below. Omit when genuinely unknown, **and always omit for open-air places**: the engine then renders "hours posted on site", which is true without anyone having to know the bylaw. |
 | `note` | `{zh,en,fr,es,ko}` | Your own description. **`zh` and `en` are required.** `fr`/`es`/`ko` are optional but all-or-nothing: a note with French and no Korean is rejected, because one language silently showing another's text while its neighbours are translated is worse than a clean fallback. |
 | `tag` | key | Short qualifier shown as a chip, e.g. `tKorean`, `t24h`. Defined in the engine. |
+| `t` | array | **Themes** — the overlapping second axis. See below. Order must follow `TORDER`. |
+| `precision` | `'low'` | The coordinate is approximate (roughly ±100 m): interpolated, or published only to three decimals. The popup says so, so the pin never claims a confidence it doesn't have. The address is unaffected, and navigation uses the address. |
+| `sameComplex` | array of ids | Other records at the same address or in the same building. Must be **symmetric** — every id you list must list you back. The popup names them, so two markers on one coordinate read as "the postal counter is inside that pharmacy" rather than as duplicate data. |
 | `v` | `YYYY-MM` | When this record was last checked. |
 
 ### `src` — provenance (required in practice)
@@ -91,6 +95,7 @@ the note is always the compiler's own writing.
 | `official` | The operator's or governing body's own website is on file, so a reader can check the details at the source | a `w` field |
 | `places` | No authoritative source on file; the details rest on third-party map data | — |
 | `own` | Checked in person or by phone by the compiler | — |
+| `stub-pending-verify` | The details come from an official or first-party page but nobody has yet stood at the door or dialled the number | — |
 
 The Kamloops set was seeded by one mechanical rule — **has `w` → `official`, else
 `places`** — because there is no honest way to reconstruct, after the fact, which of
@@ -105,6 +110,41 @@ Two things depend on this field:
   of only in a blanket disclaimer
 - `export-open.py`, which writes out the `official` + `own` subset — the part you
   can hand to a library or another city without inheriting a third party's terms
+
+### `t` — themes, the overlapping axis
+
+A place has exactly **one** category — it decides the pin's colour and icon, so it
+cannot be a list — and **any number** of themes. That single-valued category is what
+made the map hard to browse for anything but an errand: a library is filed under
+`library`, yet it is also a free afternoon with a toddler, a warm room in February,
+somewhere to study and a cultural venue. Themes say that out loud without touching
+the category system or the map's colour language.
+
+The ten theme keys, their labels, icons and reading order (`TI`, `TIC`, `TORDER`)
+live in the **engine**, not here: they are city-agnostic, and another city reuses
+them unchanged while only its records' `t` arrays differ.
+
+```js
+{ n:'…', c:'library', …, t:['family','culture','free','multi','student','indoor'] }
+```
+
+Rules `validate.py` enforces: every key exists in `TI`; no duplicates within a
+record; the array is in `TORDER` order; every theme has at least one place (a chip
+that can only ever show `(0)` is a wasted tap); and it warns when a theme has five
+or fewer, or when more than 40% of records carry no theme at all.
+
+Assignment is scripted rather than hand-entered, in `tools/themes.py`: a table
+from category to themes, plus a small table of per-record additions. Every
+per-record addition carries a comment naming the evidence **in that record's own
+verified note** — a view, a waterfall, a landmark, a heritage site. `scenic` and
+`history` are never inferred from a category alone, because "it is a park" is not
+evidence that it has a view. Re-run the script after adding places; it is
+idempotent.
+
+Filtering is **AND**: ticking two themes means both. That is the only reading under
+which adding a chip can never grow the result set, which is the same promise the
+area and category filters make, and the useful queries are conjunctions — "free
+AND indoor" on a wet Tuesday.
 
 ### `h` — opening hours
 

@@ -685,6 +685,104 @@ async def main():
               await pge.evaluate("getComputedStyle(document.getElementById('panelGrab')).display")=='none')
         await pge.close()
 
+        print("\n--- themes: the overlapping axis (round 9) ---")
+        pgt=await b.new_page(viewport={'width':420,'height':820})
+        et=[]; pgt.on('pageerror', lambda e: et.append(str(e)))
+        await pgt.goto(URL); await pgt.wait_for_timeout(1300)
+        await pgt.click('#catBtn'); await pgt.wait_for_timeout(420)
+        nchips=await pgt.locator('.theme-btn').count()
+        check("52 every theme has a chip", nchips==await pgt.evaluate("TORDER.length"), nchips)
+        # A theme that can only ever show (0) is a chip that wastes a tap; one that
+        # matches everything is not a filter. Both are data faults, not UI faults,
+        # so the check is on the counts rather than on the markup.
+        spread=await pgt.evaluate("()=>TORDER.map(k=>P.filter(p=>p.t&&p.t.indexOf(k)>=0).length)")
+        check("52 no theme is empty and none swallows the whole map",
+              min(spread)>0 and max(spread)<await pgt.evaluate("P.length"), spread)
+        total=await pgt.evaluate("()=>lastVisible")
+        # Themes narrow. Two of them narrow further. That is the promise the panel
+        # hint makes in five languages, and it is the one thing that must not drift.
+        await pgt.evaluate("()=>{aT=new Set(['free']);renderThemes();renderCats();apply();}")
+        await pgt.wait_for_timeout(300); v1=await pgt.evaluate("()=>lastVisible")
+        await pgt.evaluate("()=>{aT=new Set(['free','indoor']);renderThemes();renderCats();apply();}")
+        await pgt.wait_for_timeout(300); v2=await pgt.evaluate("()=>lastVisible")
+        check("52 one theme narrows, two narrow further (AND, not OR)",
+              0<v2<=v1<total, [total,v1,v2])
+        check("52 the chip count matches what ticking it actually yields",
+              await pgt.evaluate("()=>themeCount('indoor')")==v2, v2)
+        check("52 the Category badge counts themes too, so a theme filter is never invisible",
+              await pgt.inner_text('#catBadge')=='2', await pgt.inner_text('#catBadge'))
+        check("52 themes ride in the shareable URL", 't=free' in pgt.url, pgt.url[-60:])
+        await pgt.click('#applyBtn'); await pgt.wait_for_timeout(280)
+        check("52 each theme gets its own removable chip",
+              await pgt.locator('#activeFilters .af-chip').count()>=2)
+        await pgt.click('#resetBtn'); await pgt.wait_for_timeout(420)
+        check("52 Reset clears themes as well as areas and categories",
+              await pgt.evaluate("()=>aT.size")==0 and await pgt.evaluate("()=>lastVisible")==total)
+        # Themes are read in the reading language everywhere they appear.
+        tl=await pgt.evaluate("""()=>{const o={};['zh','en','fr','es','ko'].forEach(l=>{
+            o[l]=TORDER.every(k=>TI[k][l]&&TI[k][l].length>1);});return o;}""")
+        check("52 every theme is labelled in all five languages", all(tl.values()), tl)
+        await pgt.evaluate("()=>setLang('zh')"); await pgt.wait_for_timeout(250)
+        await pgt.fill('#searchInput','亲子'); await pgt.wait_for_timeout(700)
+        check("52 searching a theme name in the reading language finds its places",
+              await pgt.evaluate("()=>lastVisible")>5, await pgt.evaluate("()=>lastVisible"))
+        await pgt.fill('#searchInput',''); await pgt.wait_for_timeout(400)
+        # Discovery: a reader who never opens the filter panel still meets the axis.
+        await pgt.evaluate("()=>{const i=P.findIndex(p=>p.t&&p.t.length>2);focusMarker(M[i],15);}")
+        await pgt.wait_for_timeout(900)
+        check("52 a place's themes are visible in its popup",
+              await pgt.locator('.leaflet-popup .pv-theme').count()>2)
+        check("52 no page errors from the theme axis", len(et)==0, et[:2])
+        await pgt.close()
+
+        print("\n--- honest coordinates and co-located places (round 9) ---")
+        pgh=await b.new_page(viewport={'width':420,'height':820})
+        eh=[]; pgh.on('pageerror', lambda e: eh.append(str(e)))
+        await pgh.goto(URL); await pgh.wait_for_timeout(1300)
+        # precision and sameComplex both sat in the data for weeks with no renderer,
+        # so a 100 m-off pin looked as confident as a surveyed one and two markers on
+        # one coordinate looked like duplicate data. Both must stay visible.
+        pr=await pgh.evaluate("""()=>{const i=P.findIndex(p=>p.precision==='low');
+            return i<0?null:{i:i,html:popup(P[i],i)};}""")
+        check("53 an approximate pin says so in its popup",
+              bool(pr) and 'pv-approx' in pr['html'], bool(pr))
+        sc=await pgh.evaluate("""()=>{const i=P.findIndex(p=>p.sameComplex&&p.sameComplex.length);
+            if(i<0)return null;const h=popup(P[i],i);
+            return {ok:h.indexOf(UI[L_].sameComplexLabel)>-1,
+                    named:P[i].sameComplex.every(id=>h.indexOf((P.find(x=>x.id===id)||{}).n)>-1)};}""")
+        check("53 two markers on one coordinate name each other instead of looking duplicated",
+              sc and sc['ok'] and sc['named'], sc)
+        for l in ('zh','en','fr','es','ko'):
+            await pgh.evaluate("l=>setLang(l)", l)
+            ok=await pgh.evaluate("""()=>{const i=P.findIndex(p=>p.precision==='low');
+                return popup(P[i],i).indexOf(UI[L_].lowPrecision)>-1;}""")
+            check("53 the approximate-pin caveat is translated (%s)"%l, ok)
+        check("53 no page errors", len(eh)==0, eh[:2])
+        await pgh.close()
+
+        print("\n--- the guide, now long enough to need an index (round 9) ---")
+        pgg=await b.new_page(viewport={'width':420,'height':820})
+        eg=[]; pgg.on('pageerror', lambda e: eg.append(str(e)))
+        await pgg.goto(URL); await pgg.wait_for_timeout(1300)
+        for l in ('zh','en','fr','es','ko'):
+            await pgg.evaluate("l=>setLang(l)", l)
+            await pgg.wait_for_timeout(220)
+            g=await pgg.evaluate("""()=>{const b=document.getElementById('guideBody');
+                return {chars:b.innerText.length,h3:b.querySelectorAll('h3').length,
+                        toc:b.querySelectorAll('.guide-toc-btn').length,
+                        ph:/\{(CITY|PROV|SD|SD_URL|TRANSIT|DATE|CONTACT|LIC)/.test(b.innerText)};}""")
+            # One index entry per section, in every language: the index is generated
+            # from the headings, so a tier that gains a section must gain an entry.
+            check("54 guide index matches its headings (%s)"%l, g['h3']==g['toc'] and g['toc']>=20, g)
+            check("54 no unexpanded {PLACEHOLDER} reaches the reader (%s)"%l, not g['ph'], g)
+            check("54 the guide is substantial in every language (%s)"%l, g['chars']>8000, g['chars'])
+        await pgg.click('#guideToggle'); await pgg.wait_for_timeout(400)
+        await pgg.click('.guide-toc-btn:nth-child(6)'); await pgg.wait_for_timeout(600)
+        check("54 an index entry scrolls to and marks its section",
+              await pgg.evaluate("()=>{const e=document.querySelector('.gs-flash');return !!(e&&e.textContent);}"))
+        check("54 no page errors from the guide", len(eg)==0, eg[:2])
+        await pgg.close()
+
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
         e4=[]; pg4.on('pageerror', lambda e: e4.append(str(e)))
