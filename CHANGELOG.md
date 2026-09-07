@@ -9,6 +9,87 @@ would notice. Newest first.
 
 ---
 
+## 2026.09.05c
+
+Self-audit round 1 (per `自我诊断分析报告.md`): all 5 P0 findings fixed,
+plus the 3 P1 items in the week's plan. Reads to a reader as more
+complete data and fewer surprises.
+
+### All five P0 fixes shipped together
+
+- **P0-A LOG-01** — worker.js `/^[a-z_]+$/` now also accepts digits
+  (`/^[a-z0-9_]+$/`), so dev probes with names like `verify_double2`
+  pass instead of being rejected as `bad type`. Zero impact on the 19
+  production event names.
+- **P0-B UI-03 / LAW-01** — every one of the 5 `privacyNote` strings
+  used to claim "collects nothing, uploads nothing", which became a
+  straight-up lie the day Phase A started sending anonymous telemetry
+  to Analytics Engine. Each language now states the truth: anonymous
+  event type + timestamp + browser-local random session ID, no IP, no
+  cookies, no cross-device tracking; the /api/event payload is
+  inspectable in DevTools.
+- **P0-C LOG-02** — `share_click` used to fire twice with conflicting
+  semantics (`{copied:false}` then `{copied:true}`); re-engineered to
+  fire as `intent` → `result` (with `method` = `execCommand` /
+  `clipboard` / `none`) so the "share copy rate" metric now means
+  something. This release formalises it as `stage:'intent'` /
+  `stage:'result'` and excludes dev/maintainer traffic via the `double2`
+  flag from the previous release.
+- **P0-D ERR-01** — global `window.error` and `unhandledrejection`
+  listeners now catch every uncaught error, ship it to Analytics Engine
+  as `js_error {kind:'error'|'promise', msg, src, line, col}`, and show
+  a localised toast (5-language `errorHint`). The toast is non-blocking
+  and cannot recurse: the report path itself is wrapped in try/catch.
+- **P0-E INT-01** — the four filter panels (Area / Category / Bus /
+  Favourites) now declare `role="dialog" aria-modal="true"`, lock Tab
+  inside the panel via the same `trapTab` already used by the Newcomer
+  Guide and Data Notes modals, restore focus to the trigger button on
+  close, and dismiss on backdrop click or Escape (the latter already
+  worked; the rest was missing). WCAG 2.1.1 / 2.4.3 satisfied.
+
+### Plus 3 P1 items from the week's plan
+
+- **DAT-03** — vet category grew from 1 to 6 (added a vet per region:
+  sk / ns / sa / ws / br, including the Westsyde gap that started this).
+- **DAT-04** — Westsyde region grew from 7 to 16 entries (8 new
+  community anchors: pool, park, community hall, postal outlet,
+  convenience+gas, coffee, BCL liquor, Stake Lake trailhead). Region
+  balance is now ws=16 / br=28 / ot=12 / vv=21 / sk=67 / ns=59 / sa=59.
+- **INT-04 / INT-06** — `hintDismissed` now persists to localStorage
+  under `kamloopsHintDismissed`; high-frequency users no longer see
+  the "First time here?" hint reappear on every reload.
+
+### New candidate data, marked as such
+
+The 13 new POI entries (5 vet + 8 Westsyde) are tagged
+`src:"stub-pending-verify"`. Every name, address, and phone number is
+AI-drafted from publicly-known Kamloops businesses and needs phone
+verification before promotion to `src:"official"`. The IDs are
+deliberately `vet00001`–`vet00005` and `ws00001`–`ws00008` (opaque hex
+prefix the engine treats as normal) so they don't collide with real
+entries later. A header comment in `src/data-kamloops.js` records the
+intent. All 262 entries (was 249) parse cleanly as JSON.
+
+### Also
+
+- **ONB-02** — default UI language is now read from
+  `navigator.languages` (zh users on zh devices used to bounce off
+  English before finding the language buttons). URL `?lang=` still wins
+  outright, so cross-language shares are still predictable.
+- **TIME-02** — `check-links.py` ran against all 150 POI websites;
+  full output archived at `data/check-links-2026-09-05.log` (BLOCKED
+  24 · DEAD 11 · MOVED 29 · OK 86). The 11 DEAD and 29 MOVED are now
+  tracked in `data/data-quality-log.md` for the next maintenance pass.
+
+### Regression checked
+
+All inline JS (608 KB across 4 `<script>` blocks) passes
+`node --check`. `build.py --city kamloops` produces an 688 KB
+`public/index.html` cleanly. Nothing in this round changes the
+existing 19-event tracking contract except for `js_error` (new) and
+`share_click` (clarified).
+
+---
 ## 2026.08.31e
 
 Nineteen problems from a second, information-architecture-and-trust focused audit
