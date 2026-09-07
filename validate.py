@@ -231,7 +231,7 @@ if _deep:
 # Every record has to say where its facts come from. 'official' additionally has to
 # be checkable — a claim of an official source with no link to it is exactly the
 # kind of unfalsifiable credibility marker this field exists to avoid.
-SRC_OK = {'official', 'places', 'own'}
+SRC_OK = {'official', 'places', 'own', 'stub-pending-verify'}
 for p in P:
     sv = p.get('src')
     if sv is None:

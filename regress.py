@@ -543,8 +543,11 @@ async def main():
         check("48 letting agents are their own category, not padding the apartment count",
               tx['apt']==14 and tx['propmgmt']==4 and tx['emoji']==0, tx)
         check("48 the new category is labelled in every language", tx['labels'])
+        # 2026-09-07: commctr 从 2 变 3 —— Westsyde Community Hall 原本用了 CI 里
+        # 不存在的分类 key 'community'（正是让整页文案空白的崩溃源），现按 DATA-SCHEMA
+        # 「礼堂属于 commctr」的既有定义归入社区中心。边界规则未变，只是数量对上了。
         check("49 the community centre is not filed under government",
-              tx['gov']==4 and tx['commctr']==2, [tx['gov'],tx['commctr']])
+              tx['gov']==4 and tx['commctr']==3, [tx['gov'],tx['commctr']])
         await pg.evaluate("(()=>{aCref().clear();aCref().add('propmgmt');renderCats();apply();})()")
         await pg.wait_for_timeout(600)
         check("48 the new category filters like any other",
