@@ -9,7 +9,10 @@
 <meta property="og:title" id="ogTitle" content="Kamloops Living Services Map">
 <meta property="og:description" id="ogDesc" content="Schools, healthcare, housing, transit, groceries and newcomer essentials across every Kamloops neighbourhood.">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
-<link rel="apple-touch-icon" href="icon.svg">
+<!-- Safari has never accepted an SVG apple-touch-icon, so the previous line
+     pointed iOS at a file it silently ignored and the home-screen tile came out
+     as a screenshot of the page. A real 180px PNG is what that platform wants. -->
+<link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#1a73e8">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
@@ -533,11 +536,11 @@
 <a href="#map" class="skip-link" id="skipLink"></a>
 <header role="banner">
   <div class="lang-sw" role="group" id="langSw" aria-label="">
-    <button class="lang-btn active" data-lang="en">EN</button>
-    <button class="lang-btn" data-lang="fr">FR</button>
-    <button class="lang-btn" data-lang="es">ES</button>
-    <button class="lang-btn" data-lang="zh">中文</button>
-    <button class="lang-btn" data-lang="ko">한국어</button>
+    <button class="lang-btn active" data-lang="en" lang="en" aria-label="English" title="English">EN</button>
+    <button class="lang-btn" data-lang="fr" lang="fr" aria-label="Français" title="Français">FR</button>
+    <button class="lang-btn" data-lang="es" lang="es" aria-label="Español" title="Español">ES</button>
+    <button class="lang-btn" data-lang="zh" lang="zh-CN" aria-label="中文" title="中文">中文</button>
+    <button class="lang-btn" data-lang="ko" lang="ko" aria-label="한국어" title="한국어">한국어</button>
   </div>
   <div class="header-links" role="group" id="headerLinksGroup" aria-label="">
     <button class="note-toggle" id="shareBtn"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
@@ -739,6 +742,8 @@ UI.ko.searchResultsN=n=>n===0?'일치하는 장소를 찾을 수 없습니다':`
 UI.zh.d=['周一','周二','周三','周四','周五','周六','周日'];
 UI.zh.dAll='每日';
 UI.zh.dWk='周末';
+UI.zh.parenL='（';UI.zh.parenR='）';UI.en.parenL=' (';UI.en.parenR=')';UI.fr.parenL=' (';UI.fr.parenR=')';UI.es.parenL=' (';UI.es.parenR=')';UI.ko.parenL=' (';UI.ko.parenR=')';
+UI.zh.listSep='、';UI.en.listSep=', ';UI.fr.listSep=', ';UI.es.listSep=', ';UI.ko.listSep=', ';
 UI.zh.dsep='至';UI.zh.tsep='–';UI.zh.colon='：';
 UI.zh.h24='24小时营业';
 UI.zh.hCall='时间常变，去前务必致电确认';
@@ -765,7 +770,7 @@ UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和上方"数�
 UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
 UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
 UI.zh.favAddedMsg='⭐ 已加入收藏';UI.zh.favRemovedMsg='已取消收藏';UI.zh.errorHint='⚠️ 页面遇到错误，请刷新重试。';UI.zh.aSkip='跳到地图';UI.zh.aNavLang='选择界面语言';UI.zh.aNavHeader='页面操作';UI.zh.aNavFilters='地图筛选工具栏';UI.zh.aLandmarksIntro='按用途快速筛选地点';UI.zh.aResultsAnnounce=(v,t)=>`已显示 ${v} / ${t} 处地点`;
-UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能，以及在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。';
+UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。';
 UI.zh.lSource='来源';
 UI.zh.srcOfficial='机构官网';
 UI.zh.srcPlaces='第三方地图数据（建议致电确认）';
@@ -812,7 +817,7 @@ UI.en.lVerifiedTip='When this specific listing was checked — a different thing
 UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
 UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
 UI.en.favAddedMsg='⭐ Added to favourites';UI.en.favRemovedMsg='Removed from favourites';UI.en.errorHint='⚠️ The page hit an error — please refresh to recover.';UI.en.aSkip='Skip to map';UI.en.aNavLang='Interface language';UI.en.aNavHeader='Page actions';UI.en.aNavFilters='Map filters toolbar';UI.en.aLandmarksIntro='Filter places by purpose';UI.en.aResultsAnnounce=(v,t)=>`Showing ${v} of ${t} places`;
-UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, and the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address). It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works.';
+UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works.';
 UI.en.lSource='Source';
 UI.en.srcOfficial='Official site';
 UI.en.srcPlaces='Third-party map data — call ahead';
@@ -858,7 +863,7 @@ UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée —
 UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
 UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
 UI.fr.favAddedMsg='⭐ Ajouté aux favoris';UI.fr.favRemovedMsg='Retiré des favoris';UI.fr.errorHint='⚠️ Une erreur est survenue — veuillez actualiser pour réinitialiser.';UI.fr.aSkip='Aller à la carte';UI.fr.aNavLang='Langue de l\'interface';UI.fr.aNavHeader='Actions de la page';UI.fr.aNavFilters='Barre des filtres de la carte';UI.fr.aLandmarksIntro='Filtrer les lieux par usage';UI.fr.aResultsAnnounce=(v,t)=>`Affichage de ${v} sur ${t} lieu${t>1?'x':''}`;
-UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, et le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué). Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte.';
+UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte.';
 UI.fr.lSource='Source';
 UI.fr.srcOfficial='Site officiel';
 UI.fr.srcPlaces='Données cartographiques tierces — appelez avant';
@@ -905,7 +910,7 @@ UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de 
 UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
 UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
 UI.es.favAddedMsg='⭐ Añadido a favoritos';UI.es.favRemovedMsg='Quitado de favoritos';UI.es.errorHint='⚠️ Se produjo un error — actualice la página para recuperar.';UI.es.aSkip='Saltar al mapa';UI.es.aNavLang='Idioma de la interfaz';UI.es.aNavHeader='Acciones de página';UI.es.aNavFilters='Barra de filtros del mapa';UI.es.aLandmarksIntro='Filtrar lugares por uso';UI.es.aResultsAnnounce=(v,t)=>`Mostrando ${v} de ${t} lugar${t===1?'':'es'}`;
-UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa y el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta). También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa.';
+UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / ordenador — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa.';
 UI.es.lSource='Fuente';
 UI.es.srcOfficial='Sitio oficial';
 UI.es.srcPlaces='Datos de mapas de terceros — llame antes';
@@ -926,7 +931,7 @@ UI.es.aClose='Cerrar';
 UI.ko.d=['월','화','수','목','금','토','일'];
 UI.ko.dAll='매일';
 UI.ko.dWk='주말';
-UI.ko.dsep='–';UI.ko.tsep='–';UI.ko.colon='：';
+UI.ko.dsep='–';UI.ko.tsep='–';UI.ko.colon=': ';
 UI.ko.h24='24시간 영업';
 UI.ko.hCall='운영시간이 자주 바뀝니다 — 방문 전 전화로 확인하세요';
 UI.ko.hCallDay='당일 영업시간은 전화로 확인하세요';
@@ -952,7 +957,7 @@ UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터
 UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ko.favExport='코드 복사';UI.ko.favImport='코드 가져오기';UI.ko.favCopied='클립보드에 복사했습니다';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';
 UI.ko.favAdd='즐겨찾기에 추가';UI.ko.favRemove='즐겨찾기에서 제거';
 UI.ko.favAddedMsg='⭐ 즐겨찾기에 추가됨';UI.ko.favRemovedMsg='즐겨찾기에서 제거됨';UI.ko.errorHint='⚠️ 페이지에 오류가 발생했습니다. 새로 고침해 주세요.';UI.ko.aSkip='지도로 건너뛰기';UI.ko.aNavLang='인터페이스 언어';UI.ko.aNavHeader='페이지 작업';UI.ko.aNavFilters='지도 필터 도구 모음';UI.ko.aLandmarksIntro='용도별로 장소 빠르게 걸러보기';UI.ko.aResultsAnnounce=(v,t)=>`총 ${t}곳 중 ${v}곳 표시`;
-UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 그리고 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다)입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다.';
+UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다.';
 UI.ko.lSource='출처';
 UI.ko.srcOfficial='공식 웹사이트';
 UI.ko.srcPlaces='제3자 지도 데이터 — 전화 확인 권장';
@@ -1700,7 +1705,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.07e';
+const DATA_VERSION='2026.09.07f';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 // Stated once, rendered everywhere. Change this line to change the terms.
@@ -1809,7 +1814,13 @@ const _EV_KEY='kamloopsEvents';
 const _IS_DEBUG=/[?&]debug=1\b/.test(location.search);
 const _flushThreshold=20;          // matches the burst-throttle size, but triggers
 let _sinceFlush=0;                  // on the FIRST crossing rather than every Nth
+// Upper bound on beacons per page load. A normal session sends 20-60; anything
+// past this is either someone hammering a control or a bug, and neither is worth
+// paying for or letting skew the aggregates.
+const _EV_BUDGET=250;
+let _evSent=0,_budgetNoted=false;
 let _lastPopupSource=null;          // marker for popupclose → marker_close pairing
+let _popupOpenedAt=0;               // start of the current popup, for dwell
 // Privacy hook for the network payload: a search term can be a phone number,
 // an address, or a name — all PII. Truncate to 24 chars and strip digit runs
 // before any payload leaves the device. The local ring buffer is unaffected,
@@ -1821,7 +1832,15 @@ function _sanitiseQuery(q){
 function trackEvent(type,props){
   try{
     let safeProps=props;
-    if(type==='search_run'&&props&&props.q)safeProps={q:_sanitiseQuery(props.q),len:props.len};
+    // Sanitise on the FIELD, not on the event name. The first version keyed off
+    // type==='search_run', which meant search_empty — the event whose entire
+    // purpose is to record what someone typed — uploaded the raw string, phone
+    // numbers and street numbers included, in direct contradiction of the
+    // privacy note. Any event carrying `q` is now cleaned, including ones that
+    // do not exist yet.
+    if(props&&typeof props.q==='string'){
+      safeProps=Object.assign({},props,{q:_sanitiseQuery(props.q)});
+    }
     // env:'dev' marks maintainer traffic — anyone who opened the ?debug=1
     // panel, plus the smoke-test events deploy.sh fires after each release.
     // Without it these pollute every aggregate: a fake place id like "p042"
@@ -1837,12 +1856,23 @@ function trackEvent(type,props){
     // reason. Failure here is non-fatal — the local copy below is the
     // ?debug=1 maintainer view, and a transient Worker outage should not
     // surface as a console error on the user's page.
-    try{
-      const body=JSON.stringify(event);
-      const blob=new Blob([body],{type:'application/json'});
-      if(navigator.sendBeacon)navigator.sendBeacon('/api/event',blob);
-      else fetch('/api/event',{method:'POST',body:body,keepalive:true,headers:{'Content-Type':'application/json'}}).catch(()=>{});
-    }catch(e){}
+    if(_evSent<_EV_BUDGET){
+      _evSent++;
+      try{
+        const body=JSON.stringify(event);
+        const blob=new Blob([body],{type:'application/json'});
+        if(navigator.sendBeacon)navigator.sendBeacon('/api/event',blob);
+        else fetch('/api/event',{method:'POST',body:body,keepalive:true,headers:{'Content-Type':'application/json'}}).catch(()=>{});
+      }catch(e){}
+    }else if(!_budgetNoted){
+      // Say so once, in the data itself, so a truncated session is visible as
+      // truncated rather than as a session that simply stopped doing things.
+      _budgetNoted=true;
+      try{
+        const b=JSON.stringify({sid:getSid(),t:'budget_reached',p:{cap:_EV_BUDGET},d:Date.now()});
+        if(navigator.sendBeacon)navigator.sendBeacon('/api/event',new Blob([b],{type:'application/json'}));
+      }catch(e){}
+    }
     // ---- Phase B / ?debug=1: local ring buffer ----------------------------
     // Same key, same throttle as before so the maintainer's debug panel keeps
     // working unchanged.
@@ -2005,7 +2035,7 @@ map.on('popupopen',e=>{
   // attribute the close to the same place and produce marker_view/close pairs.
   const m=e.popup&&e.popup._source;
   _lastPopupSource=(m&&m.data)?m:null;
-  if(m&&m.data){trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk});}
+  if(m&&m.data){_popupOpenedAt=Date.now();trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk});}
   if(offlineEl&&!offlineEl.hidden){offlineEl.hidden=true;offlineEl.dataset.yielded='1';clearTimeout(offlineCompactTimer);}
 });
 map.on('popupclose',()=>{
@@ -2015,7 +2045,16 @@ map.on('popupclose',()=>{
   // removes a popup without a marker, in which case there is nothing to
   // attribute the close to.
   const pe=_lastPopupSource;
-  if(pe&&pe.data){trackEvent('marker_close',{id:pe.data.id,cat:pe.ck,reg:pe.gk});}
+  // Dwell separates "opened it" from "read it". Without it, telling a glance
+  // apart from a real look needs a self-join between marker_view and
+  // marker_close on (sid, id) — expensive, and impossible to do at all when a
+  // session opens the same place twice.
+  if(pe&&pe.data){
+    const ms=_popupOpenedAt?Math.min(Date.now()-_popupOpenedAt,600000):null;
+    trackEvent('marker_close',Object.assign({id:pe.data.id,cat:pe.ck,reg:pe.gk},
+      ms===null?{}:{ms:ms}));
+    _popupOpenedAt=0;
+  }
   if(offlineEl&&offlineEl.dataset.yielded){delete offlineEl.dataset.yielded;
     if(!offlineDismissed)offlineShowExpanded();}
 });
@@ -2141,7 +2180,7 @@ function toggleFav(el,ev){
   const act=favorites.has(key)?'remove':'add';
   if(favorites.has(key)){favorites.delete(key);el.textContent='☆';el.classList.remove('active');}
   else{favorites.add(key);el.textContent='★';el.classList.add('active');}
-  trackEvent('fav_toggle',{id:key,action:act,cat:P[idx].cat});
+  trackEvent('fav_toggle',{id:key,action:act,cat:P[idx].c,reg:P[idx].g});
   // The button survives this click, so its own state has to be updated in place —
   // the rewritten popup HTML below only takes effect on the next open.
   const now=favorites.has(key);
@@ -2219,7 +2258,7 @@ function fmtHours(h,l){
     const shut=[1,2,3,4,5,6,7].filter(d=>!covered.has(d));
     if(shut.length&&shut.length<7){
       const weekendOnly=shut.length===2&&shut[0]===6&&shut[1]===7;
-      bits.push(u.closedLabel+u.colon+(weekendOnly?u.dWk:shut.map(d=>u.d[d-1]).join('、')));
+      bits.push(u.closedLabel+u.colon+(weekendOnly?u.dWk:shut.map(d=>u.d[d-1]).join(u.listSep)));
     }
   }
   let out=bits.join(' · ');
@@ -2742,7 +2781,7 @@ function setLang(l){
   if(!owns(UI,l))l='en';
   if(L_!==l)trackEvent('lang_change',{from:L_,to:l});
   L_=l;const u=UI[l];
-  document.documentElement.lang=l==='zh'?'zh-CN':l;
+  document.documentElement.lang=({zh:'zh-CN',en:'en-CA',fr:'fr-CA'})[l]||l;
   const title=tpl(u.title,l);
   document.getElementById('h1').textContent=title;
   document.title=title;
@@ -2934,7 +2973,7 @@ document.getElementById('shareNative').onclick=()=>{
             trackEvent('share_click',{stage:'result',target:'native',shared:false,aborted:!!aborted});});
 };
 const noteBackdropEl=document.getElementById('noteBackdrop');
-document.getElementById('noteToggle').onclick=()=>openModal(noteBackdropEl);
+document.getElementById('noteToggle').onclick=()=>{trackEvent('note_open',{});openModal(noteBackdropEl);};
 document.getElementById('noteClose').onclick=()=>closeModal(noteBackdropEl);
 noteBackdropEl.onclick=(e)=>{if(e.target===noteBackdropEl)closeModal(noteBackdropEl);};
 noteBackdropEl.addEventListener('keydown',e=>trapTab(e,noteBackdropEl));
@@ -3133,7 +3172,7 @@ function renderRoute(key,fit){
       map.once('moveend',()=>setTimeout(updateStopLabelVisibility,340));
     }
     updateStopLabelVisibility();
-    ind.innerHTML='<span>🚌 '+u.routeLabel(key)+' '+r.n+'（'+u.stopsN(r.s.length)+'）</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    ind.innerHTML='<span>🚌 '+u.routeLabel(key)+' '+r.n+u.parenL+u.stopsN(r.s.length)+u.parenR+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
     ind.classList.add('show');
     ind.querySelector('.x').onclick=()=>selectRoute(null);
   }else{
@@ -3381,7 +3420,11 @@ function resetAll(){
   // actually set, or did they open the app and immediately scrub back to the
   // city-wide view?
   const wasDirty=!!(searchTerm||selectedRoute||presetsAdjusted||aC.size>0||aT.size>0||aR.size<Object.keys(RI).length);
-  trackEvent('reset_all',{dirty:wasDirty});
+  // "dirty: true" says something was on but not what, so it cannot tell a reader
+  // clearing one stray area filter apart from one abandoning a search that went
+  // nowhere. The dimensions are cheap and make the event diagnostic.
+  trackEvent('reset_all',{dirty:wasDirty,search:!!searchTerm,route:!!selectedRoute,
+    cats:aC.size,themes:aT.size,areas:aR.size<Object.keys(RI).length});
   aR=new Set(Object.keys(RI));
   aC.clear(); aT.clear(); selPresets.clear(); presetsAdjusted=false;
   searchInputEl.value=''; clearTimeout(searchTimer); searchTerm=''; searchRaw='';
@@ -3410,23 +3453,39 @@ function runSearch(){
   searchClearEl.hidden=!raw;
   if(searchTerm&&!wasSearching)preSearchView={c:map.getCenter(),z:map.getZoom()};
   if(!searchTerm&&preSearchView){map.setView(preSearchView.c,preSearchView.z);preSearchView=null;}
-  // Track what users actually type — only the queries that exceeded the noise
-  // threshold (MIN_QUERY), since shorter matches only ever return "everything".
-  if(raw.length>=MIN_QUERY)trackEvent('search_run',{q:raw,len:raw.length});
   apply();
-  // "What did users look for and find nothing?" is the single most actionable
-  // dataset the app produces — it points directly at content gaps. apply() set
-  // lastVisible to the post-filter result count, so a search with a real term
-  // that produced zero matches is one extra trackEvent, paired with search_run
-  // by timestamp for funnel reports.
-  if(searchTerm&&lastVisible===0){
-    const totalR=Object.keys(RI).length;
-    trackEvent('search_empty',{q:raw,len:raw.length,filters:{areas:aR.size<totalR,cat:aC.size>0,route:!!selectedRoute}});
+  scheduleSearchLog();
+}
+// Logging waits for typing to stop, and never logs the same settled query twice
+// in a row, so one intent produces one row. lastVisible is read here rather than
+// captured earlier because apply() has by then written the count this query
+// actually produced — which is the number that makes the row worth having.
+let searchLogTimer=null,_lastLoggedQuery=null;
+const SEARCH_SETTLE_MS=1100;
+function logSearch(){
+  clearTimeout(searchLogTimer);
+  const raw=searchRaw;
+  if(!raw||raw.length<MIN_QUERY){_lastLoggedQuery=null;return;}
+  if(raw===_lastLoggedQuery)return;
+  _lastLoggedQuery=raw;
+  const totalR=Object.keys(RI).length;
+  const filtered=aR.size<totalR||aC.size>0||aT.size>0;
+  trackEvent('search_run',{q:raw,len:raw.length,n:lastVisible,filtered:filtered});
+  // "What did people look for and find nothing?" points straight at content
+  // gaps, so it keeps its own event type: Analytics Engine indexes the type
+  // column, and a dedicated type is a cheap scan instead of a filter over every
+  // search ever run.
+  if(lastVisible===0){
+    trackEvent('search_empty',{q:raw,len:raw.length,
+      filters:{areas:aR.size<totalR,cat:aC.size>0,theme:aT.size>0,route:!!selectedRoute}});
   }
 }
+function scheduleSearchLog(){clearTimeout(searchLogTimer);searchLogTimer=setTimeout(logSearch,SEARCH_SETTLE_MS);}
 searchInputEl.oninput=()=>{clearTimeout(searchTimer);searchTimer=setTimeout(runSearch,260);};
 searchInputEl.onkeydown=(e)=>{
-  if(e.key==='Enter'){clearTimeout(searchTimer);runSearch();}
+  // Enter is an explicit submit, so it settles the query immediately rather
+  // than waiting out the timer.
+  if(e.key==='Enter'){clearTimeout(searchTimer);runSearch();logSearch();}
   if(e.key==='Escape'&&searchInputEl.value){searchInputEl.value='';clearTimeout(searchTimer);runSearch();}
 };
 searchClearEl.onclick=()=>{
@@ -3471,6 +3530,10 @@ function openModal(back){
   if(first)first.focus();
 }
 function closeModal(back){
+  // Hooked here, not on the ✕ button: Escape and a tap on the dimmed backdrop
+  // are how most people actually leave a modal, and each of those used to exit
+  // without recording anything.
+  if(back===guideBackdropEl)trackGuideClose();
   back.classList.remove('open');
   unlockBodyScroll();
   if(lastFocused&&lastFocused.focus)lastFocused.focus();
@@ -3485,7 +3548,20 @@ function trapTab(e,back){
   if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}
   else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
 }
-document.getElementById('guideToggle').onclick=()=>openModal(guideBackdropEl);
+let _guideOpenedAt=0;
+document.getElementById('guideToggle').onclick=()=>{
+  _guideOpenedAt=Date.now();
+  trackEvent('guide_open',{});
+  openModal(guideBackdropEl);
+};
+// Every path out of the guide runs through closeModal, so the close event is
+// hooked there rather than on the ✕ button alone — Escape and a backdrop tap
+// are the two commonest ways people actually leave it.
+function trackGuideClose(){
+  if(!_guideOpenedAt)return;
+  trackEvent('guide_close',{ms:Math.min(Date.now()-_guideOpenedAt,3600000)});
+  _guideOpenedAt=0;
+}
 document.getElementById('guideClose').onclick=()=>closeModal(guideBackdropEl);
 guideBackdropEl.onclick=(e)=>{if(e.target===guideBackdropEl)closeModal(guideBackdropEl);};
 guideBackdropEl.addEventListener('keydown',e=>trapTab(e,guideBackdropEl));
@@ -3607,7 +3683,21 @@ function detectLang(){
   trackEvent('session_start',{
     ver:DATA_VERSION,
     lang:L_,
-    ref:document.referrer?(new URL(document.referrer)).host:'direct'
+    ref:document.referrer?(new URL(document.referrer)).host:'direct',
+    // which of the three layouts this reader is actually looking at
+    dev:(innerWidth<600?'phone':innerWidth<1024?'tablet':'desktop'),
+    // installed to the home screen, or opened from the browser? The manifest
+    // has advertised ?source=pwa since the PWA shipped and nothing ever read it,
+    // so "is anyone installing this" has never been answerable.
+    pwa:(function(){try{
+      return /[?&]source=pwa\b/.test(location.search)
+        ||(window.matchMedia&&window.matchMedia('(display-mode: standalone)').matches)
+        ||navigator.standalone===true;}catch(e){return false;}})(),
+    // arrived on a shared link that already carried filters — a different
+    // journey from landing on the default map, and one the share feature exists
+    // to create, so its share of traffic is worth knowing
+    deep:!!(st&&(st.regions||st.cats||st.themes||st.q||st.route)),
+    lead:!!(st&&st.lang)
   });
 })();
 </script>

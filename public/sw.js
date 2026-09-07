@@ -9,10 +9,17 @@
 // Bumping: bump CACHE below to flush old caches; pair with a DATA_VERSION
 // bump in src/engine.html so the network-fetch hits return the new HTML.
 
-const CACHE = 'kamloops-lifemap-v1.0.0';
+// v1.1.0 (2026-09-07): the icon and the manifest both changed. Static assets are
+// served cache-first, so without this bump every reader who had already visited
+// would have kept the old icon and the old manifest for good — the change would
+// have shipped and reached nobody. Bump this line whenever a file in
+// STATIC_ASSETS changes, not only when the strategy changes.
+const CACHE = 'kamloops-lifemap-v1.1.0';
 const STATIC_ASSETS = [
   '/manifest.json',
   '/icon.svg',
+  '/icon-180.png',
+  '/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {

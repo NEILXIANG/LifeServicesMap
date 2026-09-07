@@ -439,6 +439,43 @@ SHADOW = {'add','delete','has','size','clear','forEach','map','filter','push','j
 for k in sorted(used - known - SHADOW):
     fail('code reads u.%s but no language defines it' % k)
 
+# ------------------------------------------------- 5b. one language's punctuation
+# The list separator between closed days was written inline as the ideographic
+# comma because the Chinese copy was drafted first, so English readers were shown
+# "Closed: Tue、Thu、Sun" for months and nobody read that branch's English output.
+# Punctuation is per-language copy and belongs in UI, never in the code that
+# assembles a sentence. This strips every UI assignment — the legitimate home for
+# such characters — and fails on what is left.
+_cjk_punct = '、，：；！？（）【】「」『』〜･'
+_code = re.sub(r'UI\.\w+\.\w+\s*=\s*`(?:[^`\\]|\\.)*`\s*;', '', script, flags=re.S)
+_code = re.sub(r"UI\.\w+\.\w+\s*=\s*'(?:[^'\\]|\\.)*'\s*;", '', _code)
+_code = re.sub(r'UI\.\w+\.\w+\s*=\s*"(?:[^"\\]|\\.)*"\s*;', '', _code)
+_code = re.sub(r'UI\.\w+\.\w+\s*=\s*[^;\n]*;', '', _code)          # arrow-function labels
+_code = re.sub(r'const UI=\{.*?\n', '', _code, flags=re.S, count=1)
+for _m in re.finditer(r"'([^'\n]{0,6})'", _code):
+    _hit = [c for c in _m.group(1) if c in _cjk_punct]
+    if _hit:
+        fail("CJK punctuation %r is hard-coded in the code that builds a sentence "
+             "(%r) — it renders in all five languages; move it into UI as a "
+             "per-language key" % (''.join(_hit), _m.group(0)))
+
+# ------------------------------------------------- 5c. the language switcher
+# Two of the five buttons happened to be self-describing because their scripts
+# are distinctive; the other three announced as bare letters in the wrong voice.
+# Whatever the visible label, every button must carry the language it switches to
+# and a name in that language — the same rule for all five, not for the ones that
+# needed it least.
+_lang_btns = re.findall(r'<button class="lang-btn[^>]*>', html)
+if len(_lang_btns) != len(LANGS):
+    fail('expected %d language buttons, found %d' % (len(LANGS), len(_lang_btns)))
+for _b in _lang_btns:
+    _dl = re.search(r'data-lang="(\w+)"', _b)
+    _key = _dl.group(1) if _dl else '?'
+    for _attr in ('lang', 'aria-label', 'title'):
+        if not re.search(r'\b%s="[^"]+"' % _attr, _b):
+            fail('the %s language button has no %s attribute — a screen reader '
+                 'reads it in the wrong language' % (_key, _attr))
+
 # ---------------------------------------------------------------- 6. DOM contract
 ids_used = set(re.findall(r"getElementById\('([\w-]+)'\)", html))
 ids_def = set(re.findall(r'id="([\w-]+)"', html))

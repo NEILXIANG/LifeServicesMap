@@ -783,6 +783,84 @@ async def main():
         check("54 no page errors from the guide", len(eg)==0, eg[:2])
         await pgg.close()
 
+        print("\n--- telemetry says what it claims to (round 10) ---")
+        pgm=await b.new_page(viewport={'width':420,'height':820})
+        em=[]; pgm.on('pageerror', lambda e: em.append(str(e)))
+        await pgm.goto(URL); await pgm.wait_for_timeout(1400)
+        buf=lambda: pgm.evaluate("()=>_evBuf.map(e=>({t:e.t,p:e.p}))")
+        evs=await buf()
+        ss=[e['p'] for e in evs if e['t']=='session_start']
+        check("55 session_start segments by layout, install and deep link",
+              ss and all(k in ss[0] for k in ('dev','pwa','deep','ver','lang','ref')), ss[0] if ss else None)
+        # The guide is the largest thing in the project and had no open event at
+        # all, so "does anyone read it" was unanswerable.
+        await pgm.click('#guideToggle'); await pgm.wait_for_timeout(1300)
+        await pgm.keyboard.press('Escape'); await pgm.wait_for_timeout(400)
+        evs=await buf()
+        gc=[e['p'] for e in evs if e['t']=='guide_close']
+        check("55 the guide records being opened and how long it was read",
+              len([e for e in evs if e['t']=='guide_open'])==1 and gc and gc[0].get('ms',0)>700, gc)
+        # Logging per debounced keystroke made the top-searches ranking a ranking
+        # of prefixes of real queries.
+        before=len([e for e in await buf() if e['t']=='search_run'])
+        for ch in 'library':
+            await pgm.type('#searchInput',ch); await pgm.wait_for_timeout(300)
+        await pgm.wait_for_timeout(1500)
+        sr=[e for e in await buf() if e['t']=='search_run']
+        check("55 one settled query logs one row, not one per keystroke",
+              len(sr)-before==1, [e['p'] for e in sr[before:]])
+        check("55 a logged search carries the result count it produced",
+              sr and 'n' in sr[-1]['p'], sr[-1]['p'] if sr else None)
+        # The sanitiser was keyed on the event name, so the one event whose whole
+        # purpose is recording typed text shipped it raw.
+        await pgm.fill('#searchInput',''); await pgm.wait_for_timeout(250)
+        await pgm.fill('#searchInput','604 555 1212 qqzz'); await pgm.wait_for_timeout(1700)
+        se=[e for e in await buf() if e['t']=='search_empty']
+        check("55 every event carrying a typed query strips digit runs first",
+              se and not re.search(r'\d{3,}', se[-1]['p'].get('q','')), se[-1]['p'] if se else None)
+        check("55 no page errors from telemetry", len(em)==0, em[:2])
+        await pgm.close()
+
+        print("\n--- five languages, five sets of conventions (round 10) ---")
+        pgl=await b.new_page(viewport={'width':430,'height':900})
+        el=[]; pgl.on('pageerror', lambda e: el.append(str(e)))
+        await pgl.goto(URL); await pgl.wait_for_timeout(1400)
+        # Every language button must carry the language it switches to and a name
+        # in that language. Two of the five were self-describing only because
+        # their scripts happen to be distinctive; that is not a standard.
+        lb=await pgl.evaluate("""()=>[...document.querySelectorAll('.lang-btn')].map(b=>
+            ({k:b.dataset.lang,lang:b.getAttribute('lang'),al:b.getAttribute('aria-label'),ti:b.getAttribute('title')}))""")
+        check("56 every language button declares its own language and name",
+              len(lb)==5 and all(x['lang'] and x['al'] and x['ti'] for x in lb), lb)
+        # A closed-day list and a bracketed count used CJK punctuation inline, so
+        # English readers were shown "Closed: Tue、Thu、Sun" and "Route 1（31 stops）".
+        HOURS={"r":[[1,1,540,1020,0],[3,3,540,1020,0],[5,6,540,1020,0]]}
+        for lang,bad in (('en','、'),('fr','、'),('es','、'),('ko','、')):
+            await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(200)
+            txt=await pgl.evaluate("([h,l])=>fmtHours(h,l)", [HOURS,lang])
+            check("56 %s uses its own list separator, not the ideographic comma"%lang,
+                  bad not in txt, txt[-40:])
+        await pgl.evaluate("l=>setLang(l)", 'zh'); await pgl.wait_for_timeout(200)
+        zh=await pgl.evaluate("([h,l])=>fmtHours(h,l)", [HOURS,'zh'])
+        check("56 zh keeps the ideographic comma, which is correct there", '、' in zh, zh[-30:])
+        ko=await pgl.evaluate("()=>UI.ko.colon")
+        check("56 ko sets a Korean colon, not the Chinese full-width one", ko.strip()==':', repr(ko))
+        for lang in ('en','fr','es','ko'):
+            await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(150)
+            await pgl.evaluate("()=>renderRoute(Object.keys(BR)[0],false)"); await pgl.wait_for_timeout(300)
+            ind=await pgl.inner_text('#busIndicator')
+            check("56 %s brackets the stop count in its own punctuation"%lang,
+                  '（' not in ind and '）' not in ind, ind.replace('\n',' ')[:60])
+            await pgl.evaluate("()=>renderRoute(null,false)"); await pgl.wait_for_timeout(120)
+        tags={}
+        for lang in ('en','fr','es','zh','ko'):
+            await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(150)
+            tags[lang]=await pgl.evaluate("()=>document.documentElement.lang")
+        check("56 the document declares the locale actually written",
+              tags['en']=='en-CA' and tags['fr']=='fr-CA' and tags['zh']=='zh-CN', tags)
+        check("56 no page errors across the language sweep", len(el)==0, el[:2])
+        await pgl.close()
+
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
         e4=[]; pg4.on('pageerror', lambda e: e4.append(str(e)))
