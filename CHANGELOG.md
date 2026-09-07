@@ -3,7 +3,21 @@
 <!-- 由 tools/gen-changelog.py 从 src/engine.html 生成，请勿手改。 -->
 <!-- 改动写进 src/engine.html 的 CHANGELOG 数组，再跑一次这个脚本。 -->
 
-当前版本：`2026.09.07b`
+当前版本：`2026.09.07c`
+
+## 2026.09.07c
+
+**中文**
+
+- 新增分享面板：过去点「分享」只是把链接复制到剪贴板，现在会打开一个面板，可以直接发到 WhatsApp、Facebook、X、Telegram、LINE、邮件、短信，复制链接仍然排在第一个。手机上会多出「用系统分享」——调用手机自带的分享面板，里面列出的是你自己装了的 App，微信、KakaoTalk、TikTok 都能直接选到。分享出去的链接依然带着当前的语言、区域、分类和搜索词。
+- 关于微信和 TikTok：它们没有提供「分享网页链接」的接口——微信在电脑上要扫码、在自家浏览器里要用需服务端签名的 JS-SDK，TikTok 的 Share Kit 是通过注册应用推送视频/图片而不是网址。所以面板里不做它们的按钮（做了也点不动），而是在说明里写清楚：手机用系统分享可直达微信，电脑上复制链接后粘贴。韩国的 KakaoTalk 同理。
+- 分享埋点按平台细分：新增 share_open（打开面板，并记录该设备是否支持系统分享），share_click 沿用原有的 intent/result 两段式，但加上了 target 字段（copy / whatsapp / facebook / x / telegram / line / email / sms / native）。系统分享还会区分「分享成功」和「用户取消」——取消是正常结果而非失败，混在一起会让成功率失真。
+
+**English**
+
+- A share sheet. The Share button used to copy the link and stop there; it now opens a panel that sends straight to WhatsApp, Facebook, X, Telegram, LINE, email or Messages, with Copy link still first. On a phone there is also "Share via your device", which opens the OS share sheet — that lists the apps the reader actually has installed, so WeChat, KakaoTalk and TikTok are all reachable there. The shared link still carries the current language, area, category and search.
+- On WeChat and TikTok: neither offers a share-a-link endpoint. WeChat expects a QR scan on desktop or a server-signed JS-SDK inside its own browser, and TikTok Share Kit pushes video or photos through a registered app rather than a URL. Rather than add buttons that could not work, the sheet says plainly what to do: use the device share sheet on a phone to reach WeChat directly, or copy the link and paste it on a computer. KakaoTalk is the same.
+- Share telemetry is now per destination: share_open records opening the sheet and whether the device supports the native sheet; share_click keeps the existing intent/result staging and adds a target field (copy / whatsapp / facebook / x / telegram / line / email / sms / native). The native path also separates a completed share from a dismissed one — dismissing is a normal outcome, and folding it into failures would distort the success rate.
 
 ## 2026.09.07b
 

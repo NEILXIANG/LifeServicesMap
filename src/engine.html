@@ -281,6 +281,25 @@
   .pv-src.src-official{background:#e6f4ea;color:#1e6b38;}
   .pv-src.src-own{background:#fff3d6;color:#7a5c00;}
   .pv-src.src-stub{background:#fde8e6;color:#8c2f22;}
+  /* Share sheet (2026-09-07). The button used to copy the link and nothing else;
+     it now opens this, because "share" means a different app to a Kamloops
+     newcomer from Delhi, Osaka, Seoul or Lyon. navigator.share is offered first
+     wherever it exists — the OS sheet lists the apps the reader actually has
+     installed, which is the only way to reach WeChat, KakaoTalk or TikTok, none
+     of which expose a share-a-link URL. */
+  .share-lead{margin:0 0 14px;font-size:13px;color:var(--sub-ink);line-height:1.65;}
+  .share-native{display:block;width:100%;margin:0 0 14px;padding:13px 16px;border:none;
+    border-radius:10px;background:var(--accent);color:#fff;font-family:inherit;
+    font-size:14px;font-weight:600;cursor:pointer;min-height:44px;}
+  .share-native:hover{background:var(--accent-text);}
+  .share-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
+  .share-item{display:flex;align-items:center;gap:9px;padding:11px 13px;min-height:44px;
+    border:1px solid var(--line);border-radius:10px;background:var(--card);
+    font-family:inherit;font-size:13px;font-weight:600;color:var(--ink);
+    text-align:left;text-decoration:none;cursor:pointer;}
+  .share-item:hover{border-color:var(--accent);color:var(--accent-text);}
+  .share-item .si{font-size:17px;line-height:1;flex:0 0 auto;}
+  .share-note{margin:15px 0 0;font-size:11.5px;color:var(--sub-ink);line-height:1.7;}
   .fav-io{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
   .fav-io-note{margin:0 0 9px;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
   .fav-io-row{display:flex;gap:8px;flex-wrap:wrap;}
@@ -509,6 +528,20 @@
   <h1 id="h1"></h1>
   <p class="sub" id="sub"></p>
 </header>
+<div class="backdrop" id="shareBackdrop">
+  <div class="guide-modal" id="shareModal">
+    <div class="guide-head">
+      <div class="panel-title" id="shareTitle"></div>
+      <button class="panel-close" id="shareClose">✕</button>
+    </div>
+    <div class="guide-body">
+      <p class="share-lead" id="shareLead"></p>
+      <button class="share-native" id="shareNative" hidden></button>
+      <div class="share-grid" id="shareGrid"></div>
+      <p class="share-note" id="shareNote"></p>
+    </div>
+  </div>
+</div>
 <div class="backdrop" id="noteBackdrop">
   <div class="guide-modal" id="noteModal">
     <div class="guide-head">
@@ -644,10 +677,10 @@ UI.zh.clearAll='全部清除'; UI.en.clearAll='Clear all'; UI.fr.clearAll='Tout 
 UI.zh.quickLabel='💡 快捷选择'; UI.en.quickLabel='💡 Quick Picks'; UI.fr.quickLabel='💡 Choix rapides'; UI.es.quickLabel='💡 Accesos rápidos';
 UI.zh.guideToggleLabel='📖 新居民指南'; UI.en.guideToggleLabel='📖 Newcomer Guide'; UI.fr.guideToggleLabel='📖 Guide du nouvel arrivant'; UI.es.guideToggleLabel='📖 Guía del recién llegado';
 UI.zh.shareBtnLabel='🔗 分享'; UI.en.shareBtnLabel='🔗 Share'; UI.fr.shareBtnLabel='🔗 Partager'; UI.es.shareBtnLabel='🔗 Compartir';
-UI.zh.shareBtnTip='复制这个页面当前的链接——语言、区域、分类和搜索词都会带上，别人打开就是你现在看到的这个视图。';
-UI.en.shareBtnTip='Copies a link to exactly this view — your language, area, category and search all carry over for whoever opens it.';
-UI.fr.shareBtnTip='Copie un lien vers exactement cette vue — votre langue, secteur, catégorie et recherche sont conservés pour la personne qui l\'ouvrira.';
-UI.es.shareBtnTip='Copia un enlace a esta vista exacta — su idioma, zona, categoría y búsqueda se conservan para quien lo abra.';
+UI.zh.shareBtnTip='打开分享面板：可以复制链接，或直接发到 WhatsApp、Facebook、X、Telegram、LINE、邮件、短信；手机上还能调用系统分享发到微信等。链接会带上当前的语言、区域、分类和搜索词。';
+UI.en.shareBtnTip='Opens the share sheet: copy the link, or send it straight to WhatsApp, Facebook, X, Telegram, LINE, email or Messages; on a phone your device\'s own share sheet can reach WeChat and the rest. The link carries your current language, area, category and search.';
+UI.fr.shareBtnTip='Ouvre le panneau de partage : copiez le lien ou envoyez-le vers WhatsApp, Facebook, X, Telegram, LINE, e-mail ou Messages; sur téléphone, le partage système atteint WeChat et les autres. Le lien conserve langue, secteur, catégorie et recherche.';
+UI.es.shareBtnTip='Abre el panel de compartir: copie el enlace o envíelo a WhatsApp, Facebook, X, Telegram, LINE, correo o Mensajes; en el móvil, el compartir del sistema llega a WeChat y demás. El enlace conserva idioma, zona, categoría y búsqueda.';
 UI.zh.linkCopied='🔗 链接已复制';
 UI.en.linkCopied='🔗 Link copied';
 UI.fr.linkCopied='🔗 Lien copié';
@@ -672,7 +705,7 @@ UI.ko.catsSelected=n=>`${n}개 분류 선택됨`;
 UI.ko.clearAll='전체 해제';
 UI.ko.quickLabel='💡 빠른 선택';
 UI.ko.guideToggleLabel='📖 신규 정착민 가이드';
-UI.ko.shareBtnLabel='🔗 공유'; UI.ko.shareBtnTip='지금 이 화면 그대로의 링크를 복사합니다 — 언어, 지역, 분류, 검색어가 그대로 전달되어 상대방도 같은 화면을 보게 됩니다.'; UI.ko.linkCopied='🔗 링크가 복사되었습니다';
+UI.ko.shareBtnLabel='🔗 공유'; UI.ko.shareBtnTip='공유 패널을 엽니다: 링크를 복사하거나 WhatsApp·Facebook·X·Telegram·LINE·이메일·메시지로 바로 보낼 수 있고, 휴대폰에서는 기기 공유로 위챗 등에도 보낼 수 있습니다. 링크에는 현재 언어·지역·분류·검색어가 담깁니다.'; UI.ko.linkCopied='🔗 링크가 복사되었습니다';
 UI.ko.favBtnLabel='즐겨찾기';
 UI.ko.noFavorites='아직 즐겨찾기한 장소가 없습니다 — 장소 팝업의 ☆를 눌러 저장하세요';
 UI.ko.searchPlaceholder='이름·주소·분류·비고로 검색…';
@@ -1380,13 +1413,20 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.07b';
+const DATA_VERSION='2026.09.07c';
 // Change history, newest first. A version number nobody can look up is just a
 // string, so the reader can see what actually changed between two dates — and a
 // correction someone sent in has somewhere visible to land.
 // Each entry: {v:'YYYY.MM.DD', zh:[…], en:[…]}. fr/es/ko fall back to en, the
 // same rule the place notes use; translate them when there is a translator.
 const CHANGELOG=[
+  {v:'2026.09.07c',
+   zh:['新增分享面板：过去点「分享」只是把链接复制到剪贴板，现在会打开一个面板，可以直接发到 WhatsApp、Facebook、X、Telegram、LINE、邮件、短信，复制链接仍然排在第一个。手机上会多出「用系统分享」——调用手机自带的分享面板，里面列出的是你自己装了的 App，微信、KakaoTalk、TikTok 都能直接选到。分享出去的链接依然带着当前的语言、区域、分类和搜索词。',
+       '关于微信和 TikTok：它们没有提供「分享网页链接」的接口——微信在电脑上要扫码、在自家浏览器里要用需服务端签名的 JS-SDK，TikTok 的 Share Kit 是通过注册应用推送视频/图片而不是网址。所以面板里不做它们的按钮（做了也点不动），而是在说明里写清楚：手机用系统分享可直达微信，电脑上复制链接后粘贴。韩国的 KakaoTalk 同理。',
+       '分享埋点按平台细分：新增 share_open（打开面板，并记录该设备是否支持系统分享），share_click 沿用原有的 intent/result 两段式，但加上了 target 字段（copy / whatsapp / facebook / x / telegram / line / email / sms / native）。系统分享还会区分「分享成功」和「用户取消」——取消是正常结果而非失败，混在一起会让成功率失真。'],
+   en:['A share sheet. The Share button used to copy the link and stop there; it now opens a panel that sends straight to WhatsApp, Facebook, X, Telegram, LINE, email or Messages, with Copy link still first. On a phone there is also "Share via your device", which opens the OS share sheet — that lists the apps the reader actually has installed, so WeChat, KakaoTalk and TikTok are all reachable there. The shared link still carries the current language, area, category and search.',
+       'On WeChat and TikTok: neither offers a share-a-link endpoint. WeChat expects a QR scan on desktop or a server-signed JS-SDK inside its own browser, and TikTok Share Kit pushes video or photos through a registered app rather than a URL. Rather than add buttons that could not work, the sheet says plainly what to do: use the device share sheet on a phone to reach WeChat directly, or copy the link and paste it on a computer. KakaoTalk is the same.',
+       'Share telemetry is now per destination: share_open records opening the sheet and whether the device supports the native sheet; share_click keeps the existing intent/result staging and adds a target field (copy / whatsapp / facebook / x / telegram / line / email / sms / native). The native path also separates a completed share from a dismissed one — dismissing is a normal outcome, and folding it into failures would distort the success rate.']},
   {v:'2026.09.07b',
    zh:['公交站名标签重新按文字实际宽度做碰撞检测：此前退回成了「固定 58 像素距离」，长站名（如 Lansdowne Exch Bay I）需要的间距是短站名的三倍，一个固定值不可能同时正确，14 条线路实测有多处标签互相压字。同时修掉两个更隐蔽的问题——被隐藏的标签宽度读数为 0，会被误判成「放得下」而反复弹回来；以及同一条环线两次经过同一换乘站时，两个同名标签直接叠在一起。现在 14 条线路标签互压为 0，显示的站名反而更多',
        '恢复「记住你选过的语言」：手动切换后会记在浏览器里，下次不带 ?lang= 参数打开仍是你选的语言。链接里明确带的 ?lang= 依然优先。此前这个功能在改版中丢失，每次重开都会退回浏览器语言',
@@ -2099,6 +2139,11 @@ function reportHref(p){
 // should phone ahead; 'own' is a first-hand check by the compiler. Rendered as a
 // small chip so credibility is visible per record rather than only in a blanket
 // disclaimer at the bottom of the page.
+UI.zh.shareTitle='🔗 分享这个视图';UI.zh.shareLead='分享出去的链接会带上你现在的语言、区域、分类和搜索词——对方打开看到的就是这一屏。';UI.zh.shareNative='📲 用系统分享…（微信、LINE、KakaoTalk、短信等）';UI.zh.shareCopy='复制链接';UI.zh.shareNote='说明：微信和 TikTok 没有提供“分享网页链接”的接口，所以这里没有它们的按钮。在手机上用上面的“系统分享”可以直接发到微信；在电脑上请复制链接后粘贴到微信。韩国的 KakaoTalk 同理。';UI.zh.shareEmail='邮件';UI.zh.shareSms='短信';
+UI.en.shareTitle='🔗 Share this view';UI.en.shareLead='The link carries your current language, area, category and search — whoever opens it lands on this same screen.';UI.en.shareNative='📲 Share via your device… (WeChat, LINE, KakaoTalk, Messages…)';UI.en.shareCopy='Copy link';UI.en.shareNote='Note: WeChat and TikTok offer no share-a-link endpoint, so there are no buttons for them. On a phone, "Share via your device" reaches WeChat directly; on a computer, copy the link and paste it into WeChat. The same applies to KakaoTalk.';UI.en.shareEmail='Email';UI.en.shareSms='Messages';
+UI.fr.shareTitle='🔗 Partager cette vue';UI.fr.shareLead='Le lien conserve votre langue, secteur, catégorie et recherche — la personne qui l’ouvre voit le même écran.';UI.fr.shareNative='📲 Partager via l’appareil… (WeChat, LINE, KakaoTalk, Messages…)';UI.fr.shareCopy='Copier le lien';UI.fr.shareNote='À noter : WeChat et TikTok n’offrent aucun point d’entrée pour partager un lien, d’où l’absence de boutons. Sur téléphone, « Partager via l’appareil » atteint WeChat directement; sur ordinateur, copiez le lien et collez-le dans WeChat. Idem pour KakaoTalk.';UI.fr.shareEmail='E-mail';UI.fr.shareSms='Messages';
+UI.es.shareTitle='🔗 Compartir esta vista';UI.es.shareLead='El enlace conserva su idioma, zona, categoría y búsqueda — quien lo abra verá esta misma pantalla.';UI.es.shareNative='📲 Compartir desde el dispositivo… (WeChat, LINE, KakaoTalk, Mensajes…)';UI.es.shareCopy='Copiar enlace';UI.es.shareNote='Nota: WeChat y TikTok no ofrecen un punto de entrada para compartir enlaces, por eso no hay botones para ellos. En el móvil, «Compartir desde el dispositivo» llega a WeChat directamente; en el ordenador, copie el enlace y péguelo en WeChat. Lo mismo vale para KakaoTalk.';UI.es.shareEmail='Correo';UI.es.shareSms='Mensajes';
+UI.ko.shareTitle='🔗 이 화면 공유';UI.ko.shareLead='링크에는 현재 언어·지역·분류·검색어가 담겨 있어, 받는 사람도 같은 화면을 보게 됩니다.';UI.ko.shareNative='📲 기기로 공유… (위챗, LINE, 카카오톡, 메시지 등)';UI.ko.shareCopy='링크 복사';UI.ko.shareNote='참고: 위챗과 TikTok은 링크 공유용 진입점을 제공하지 않아 별도 버튼이 없습니다. 휴대폰에서는 위의 “기기로 공유”로 위챗에 바로 보낼 수 있고, PC에서는 링크를 복사해 위챗에 붙여넣으세요. 카카오톡도 마찬가지입니다.';UI.ko.shareEmail='이메일';UI.ko.shareSms='메시지';
 // A fourth, lowest tier (2026-09-07). Entries added to fill a coverage gap but
 // not yet phone-verified were carrying src="stub-pending-verify", which no tier
 // recognised — srcHTML() then rendered no chip at all, so the least-checked rows
@@ -2592,15 +2637,39 @@ document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{setStoredLang(
 // the address bar sends someone else straight to this same view — a "here are the
 // banks on the North Shore, in Korean" link was possible but undiscoverable. This
 // button makes the existing feature visible instead of adding a new one.
-document.getElementById('shareBtn').onclick=()=>{
-  // Share copies a view-state URL — it is also the only growth signal in the
-  // app that isn't gated by having to find a place first.
-  // stage:'intent' fires on every click regardless of outcome; stage:'result'
-  // fires once with the real outcome. Do NOT collapse these into one event:
-  // the old code sent a bare {copied:false} for the intent, which read back as
-  // a 50% failure rate in Analytics Engine even though every copy succeeded.
-  trackEvent('share_click',{stage:'intent'});
+// ---------------------------------------------------------------------------
+// Sharing. The button used to copy the link outright; it now opens a sheet,
+// because "share" means WhatsApp to a reader from Delhi, LINE in Osaka,
+// KakaoTalk in Seoul and WeChat in Chinese-speaking households — and the copy
+// is still the first thing in the sheet, so the old one-click habit costs one
+// extra tap rather than breaking.
+//
+// Only platforms with a real, documented share-a-link endpoint get a button.
+// WeChat, TikTok and KakaoTalk have none: WeChat expects a QR scan on desktop
+// or a server-signed JS-SDK inside its own browser, TikTok's Share Kit takes
+// video/photo through a registered app rather than a URL, and KakaoTalk needs
+// its SDK and an app key. navigator.share covers all three on a phone, because
+// the OS sheet lists whatever the reader has installed, so that is offered
+// first and the sheet says plainly what to do on a desktop.
+// ---------------------------------------------------------------------------
+const SHARE_TARGETS=[
+  {k:'whatsapp', ic:'💬', name:'WhatsApp', url:(u,t)=>'https://wa.me/?text='+encodeURIComponent(t+' '+u)},
+  {k:'facebook', ic:'📘', name:'Facebook', url:(u)=>'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(u)},
+  {k:'x',        ic:'✖️', name:'X',        url:(u,t)=>'https://twitter.com/intent/tweet?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t)},
+  {k:'telegram', ic:'✈️', name:'Telegram', url:(u,t)=>'https://t.me/share/url?url='+encodeURIComponent(u)+'&text='+encodeURIComponent(t)},
+  {k:'line',     ic:'🟢', name:'LINE',     url:(u)=>'https://social-plugins.line.me/lineit/share?url='+encodeURIComponent(u)},
+  {k:'email',    ic:'✉️', name:null, label:'shareEmail', url:(u,t)=>'mailto:?subject='+encodeURIComponent(t)+'&body='+encodeURIComponent(u)},
+  {k:'sms',      ic:'📱', name:null, label:'shareSms',   url:(u,t)=>'sms:?&body='+encodeURIComponent(t+' '+u)}
+];
+const shareBackdropEl=document.getElementById('shareBackdrop');
+function shareText(){
+  // The page title already carries the city name through {CITY}; reuse it so the
+  // shared message reads as something rather than a bare URL.
+  return (document.getElementById('h1').textContent||document.title||'').trim();
+}
+function copyShareLink(){
   const u=UI[L_],href=location.href;
+  trackEvent('share_click',{stage:'intent',target:'copy'});
   let copied=false;
   try{
     const ta=document.createElement('textarea');
@@ -2609,16 +2678,62 @@ document.getElementById('shareBtn').onclick=()=>{
     copied=document.execCommand('copy');
     document.body.removeChild(ta);
   }catch(e){}
-  if(copied){trackEvent('share_click',{stage:'result',copied:true,method:'execCommand'});showToast(u.linkCopied);return;}
+  if(copied){trackEvent('share_click',{stage:'result',target:'copy',copied:true,method:'execCommand'});showToast(u.linkCopied);return;}
   if(navigator.clipboard&&navigator.clipboard.writeText){
     navigator.clipboard.writeText(href).then(
-      ()=>{trackEvent('share_click',{stage:'result',copied:true,method:'clipboard'});showToast(u.linkCopied);},
-      ()=>{trackEvent('share_click',{stage:'result',copied:false,method:'clipboard'});});
+      ()=>{trackEvent('share_click',{stage:'result',target:'copy',copied:true,method:'clipboard'});showToast(u.linkCopied);},
+      ()=>{trackEvent('share_click',{stage:'result',target:'copy',copied:false,method:'clipboard'});});
   }else{
-    // execCommand failed AND the async API is unavailable — the click produced
-    // nothing. Record it so the failure rate isn't silently invisible.
-    trackEvent('share_click',{stage:'result',copied:false,method:'none'});
+    // Both paths unavailable — the click produced nothing, so record it rather
+    // than let the failure rate look like zero.
+    trackEvent('share_click',{stage:'result',target:'copy',copied:false,method:'none'});
   }
+}
+function renderShareSheet(){
+  const u=UI[L_],grid=document.getElementById('shareGrid');
+  document.getElementById('shareTitle').textContent=u.shareTitle;
+  document.getElementById('shareLead').textContent=u.shareLead;
+  document.getElementById('shareNote').textContent=u.shareNote;
+  const nat=document.getElementById('shareNative');
+  nat.textContent=u.shareNative;
+  nat.hidden=!(navigator.share);
+  grid.innerHTML='';
+  // Copy comes first: it is the one that always works, including offline and
+  // inside in-app browsers that block window.open.
+  const copyBtn=document.createElement('button');
+  copyBtn.className='share-item';copyBtn.type='button';
+  copyBtn.innerHTML='<span class="si" aria-hidden="true">🔗</span><span></span>';
+  copyBtn.lastChild.textContent=u.shareCopy;
+  copyBtn.onclick=copyShareLink;
+  grid.appendChild(copyBtn);
+  SHARE_TARGETS.forEach(t=>{
+    const a=document.createElement('a');
+    a.className='share-item';a.target='_blank';a.rel='noopener';
+    a.href=t.url(location.href,shareText());
+    a.innerHTML='<span class="si" aria-hidden="true">'+t.ic+'</span><span></span>';
+    a.lastChild.textContent=t.name||u[t.label];
+    a.onclick=()=>{trackEvent('share_click',{stage:'intent',target:t.k});
+                   trackEvent('share_click',{stage:'result',target:t.k,opened:true});};
+    grid.appendChild(a);
+  });
+}
+document.getElementById('shareBtn').onclick=()=>{
+  trackEvent('share_open',{native:!!navigator.share});
+  renderShareSheet();
+  openModal(shareBackdropEl);
+};
+document.getElementById('shareClose').onclick=()=>closeModal(shareBackdropEl);
+shareBackdropEl.onclick=(e)=>{if(e.target===shareBackdropEl)closeModal(shareBackdropEl);};
+shareBackdropEl.addEventListener('keydown',e=>trapTab(e,shareBackdropEl));
+document.getElementById('shareNative').onclick=()=>{
+  if(!navigator.share)return;
+  trackEvent('share_click',{stage:'intent',target:'native'});
+  navigator.share({title:shareText(),url:location.href}).then(
+    // A dismissed sheet rejects with AbortError, which is a normal outcome and
+    // not a failure — telling them apart is the whole point of logging it.
+    ()=>{trackEvent('share_click',{stage:'result',target:'native',shared:true});closeModal(shareBackdropEl);},
+    (err)=>{const aborted=err&&err.name==='AbortError';
+            trackEvent('share_click',{stage:'result',target:'native',shared:false,aborted:!!aborted});});
 };
 const noteBackdropEl=document.getElementById('noteBackdrop');
 document.getElementById('noteToggle').onclick=()=>openModal(noteBackdropEl);
@@ -2628,6 +2743,7 @@ noteBackdropEl.addEventListener('keydown',e=>trapTab(e,noteBackdropEl));
 // Escape always dismisses the topmost thing that is open
 document.addEventListener('keydown',(e)=>{
   if(e.key!=='Escape')return;
+  if(shareBackdropEl.classList.contains('open')){closeModal(shareBackdropEl);return;}
   if(guideBackdropEl.classList.contains('open')){closeModal(guideBackdropEl);return;}
   if(noteBackdropEl.classList.contains('open')){closeModal(noteBackdropEl);return;}
   if(panel.classList.contains('open')){closePanel();return;}
