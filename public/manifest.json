@@ -1,0 +1,20 @@
+{
+  "name": "Kamloops Living Services Map",
+  "short_name": "Kamloops Map",
+  "description": "Schools, healthcare, housing, transit, groceries and newcomer essentials across every Kamloops neighbourhood.",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f8f9fa",
+  "theme_color": "#1a73e8",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

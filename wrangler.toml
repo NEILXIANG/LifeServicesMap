@@ -1,0 +1,33 @@
+# wrangler.toml — Kamloops Life Map worker project
+#
+# Phase A migration: the static index.html is now bundled as a Workers Static
+# Asset, and the same Worker handles POST /api/event to write into Analytics
+# Engine. The previous "drag a zip into the dashboard" deployment is retired
+# because Workers with bindings (Analytics Engine, ASSETS) cannot be uploaded
+# that way.
+#
+# Project name MUST stay "kamloops-lifemap" — it owns the *.workers.dev
+# hostname we have been pointing users to since 2026.09.04.
+
+name = "kamloops-lifemap"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# Workers Static Assets — index.html and anything else under public/ is served
+# by the Worker unless the request hits /api/event first. The ASSETS binding
+# is the way the Worker code below reaches the static content.
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+# Analytics Engine dataset — one row per trackEvent() invocation. The dataset
+# is created lazily on first writeDataPoint call, no Dashboard click needed.
+# Free tier: 100,000 writes/day, 90-day retention, no extra billing in this
+# project for the foreseeable future.
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "kamloops_events"
+
+# Compatibility flags — none needed for this project today, but the section is
+# here so adding them later doesn't mean another round of "where does this go".
+# compatibility_flags = []
