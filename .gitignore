@@ -25,3 +25,8 @@ data/exports/
 *.log
 # 本地构建产物（与 public/index.html 逐字节相同，build.py 可重生成）
 /kamloops.html
+
+# export-open.py 的输出（随时可重新生成，不入库）
+/all-records.json
+/open-subset.json
+/open-subset.csv

@@ -146,6 +146,11 @@ if ! python3 "${PROJECT_ROOT}/validate.py" "$INDEX_FILE"; then
   fail "validate.py 未通过，已中止部署（要临时跳过：VALIDATE_SKIP=1 ./deploy.sh，仅限你清楚后果时）"
 fi
 ok "校验通过"
+# CHANGELOG.md 由 src/engine.html 生成；两份并存时曾漂移两个版本，这里只提醒不阻断。
+if [[ -f "${PROJECT_ROOT}/tools/gen-changelog.py" ]]; then
+  python3 "${PROJECT_ROOT}/tools/gen-changelog.py" --check >/dev/null 2>&1 \
+    || warn "CHANGELOG.md 落后于 DATA_VERSION —— 跑 python3 tools/gen-changelog.py 重新生成"
+fi
 fi
 
 # ---- 步骤 2：核对产物 + 部署配置 -----------------------------------------
