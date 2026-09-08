@@ -2,7 +2,43 @@
 
 <!-- 2026-09-07 起，页面本身不再展示更新记录，这个文件成为唯一的变更历史，手工维护。 -->
 
-当前版本：`2026.09.07f`
+当前版本：`2026.09.07g`
+
+## 2026.09.07g
+
+**中文**
+
+- **按《首次使用体验分析》实现了全部 P0(3)/P1(3)/P2(3) 共 9 项，P3 按计划暂缓。**
+  - **新增"附近"定位入口。** 地图右下角一个圆形按钮，点击后**先解释、后请求**——先弹出一句话说明用途，用户确认了才真正调用浏览器定位；拒绝、超时、设备不支持都有对应文字说明，不会静默失败。定位成功后地图重新定位到当前位置，但返回的经纬度**不会出现在任何埋点事件里**——`geo_locate` 只记录"成功/失败/原因"，专门写了自动化测试逐字检查事件对象里没有 lat/lng/latitude/longitude/coords 任一字段。隐私说明五语言同步补了一句披露。
+  - **首屏地图空间加大。** 首次提示语从一整句长解释缩短成一句问句式短提示；"重置"按钮在无筛选状态下从"变灰变淡"（一个 CSS 类）改成 DOM `hidden`——真正从页面消失，而不是继续占着位置。
+  - **修了首次提示语在矮屏上直接消失的 bug。** 原逻辑拿"屏幕高度小于 680px"当"用户不需要提示"的代理指标，逻辑上并不成立；现在改成只看用户是否真的关闭过提示（沿用已有的 `hintDismissed` 标记），矮屏换一句更短的文案而不是隐藏成空白。
+  - **头部📖新居民指南按钮加了可见文字标签**（五语言），另外三个纯图标按钮（🔗💬ℹ️）维持不变——它们不需要被主动发现，用到时找得到即可。
+  - **7 个区域按钮名字后面都加了括号里的地理提示**（河的哪一岸、靠近哪所大学、方位），照顾完全不认识 Sahali、Brocklehurst 这类本地地名的新移民。
+  - **地图默认视图新增 6 个地标常驻文字标签**，复用了公交站名早就有的防重叠算法，不再只有聚合数字撑场面。
+  - **未筛选时的地点数量从"263/263"这种分数改成"263 处地点"**，一旦真的筛选了才恢复成比例形式——分数只在能传达"筛掉了多少"时才有意义。
+  - **副标题不再预设"先选区域再选分类"的操作顺序**，同时从纯 `display:none` 改成视觉隐藏但留在无障碍树里，用 `aria-describedby` 关联主标题，从纯占位变成真正有用的说明。
+  - **快捷选择行新增三个高价值主题按钮**：免费/低成本、亲子友好、室内/冬季。
+- **过程中自查顺手修了几处**：新的定位按钮在手机宽度下只有 36px 高，补进了项目统一的 44px 触控热区规则；`validate.py` 的运行时符号检查此前只认函数的第一个参数，新写的 `computeLabelVisibility(items, forceFn)` 把 `forceFn` 当回调触发了误报，现在会识别具名函数的全部参数；两行代码注释里 `UI.hintShort` 这样的写法被死代码检测误判成 CSS 类选择器，改了措辞后消失；`data-kamloops.js` 新增 `LANDMARKS`（6 个地标 id），`validate.py` 相应新增一条校验，要求每个 id 都能解析到真实、不重复的地点。
+- **3 条断言旧行为的回归测试按主动改变的新行为更新**（重置按钮的"变灰"→"真正消失"、地点数量的"永远是分数"→"未筛选时是总数"），不是被当成需要撤销的失败。
+- **回归从 168 项增加到 197 项**，新增 22 条：定位功能的完整同意流程（含拒绝后能否重新弹出说明、二次点击是否跳过说明、事件里确认不含坐标）、地标标签渲染与平移后的稳定性、三个新主题按钮的实际筛选效果、矮屏提示语文案、副标题的无障碍属性、区域按钮的地理提示文本、筛选前后状态栏措辞、指南按钮的短标签。
+- `DATA-SCHEMA.md` 新增 `LANDMARKS` 字段说明。
+
+**English**
+
+- **All 9 items from the first-use analysis — P0(3)/P1(3)/P2(3) — are implemented; P3 stays deferred as planned.**
+  - **A "near me" entry point.** A round button at the bottom-right of the map explains itself **before** asking: a one-line explanation appears first, and the browser's location prompt only fires once the reader confirms. A denial, a timeout and an unsupported device each get their own message rather than failing silently. A successful fix recentres the map, but the resulting coordinates **never reach any telemetry event** — `geo_locate` records only success/failure/reason, and a test asserts, field by field, that the event object carries none of lat/lng/latitude/longitude/coords. The privacy note gained a matching disclosure in all five languages.
+  - **More first-screen room for the map.** The first-run hint shrank from a full explanatory sentence to a short, question-shaped prompt; the Reset button, when there is nothing to reset, switched from a dimmed CSS state to the DOM `hidden` attribute — genuinely gone from the page rather than still occupying space.
+  - **Fixed the hint vanishing entirely on short screens.** The old rule used screen height under 680px as a proxy for "this reader doesn't need the hint," which doesn't hold up; it now keys off whether the reader has actually dismissed the hint before (the existing `hintDismissed` flag), and short screens get a shorter variant of the text instead of nothing.
+  - **The header's 📖 guide button gained a visible text label** in all five languages; the other three icon-only links (🔗💬ℹ️) stay as they were — they don't need to be discovered, only found when looked for.
+  - **All 7 region buttons now carry a parenthetical geographic cue** (which riverbank, which university it's near, which direction), for a newcomer who has never heard of Sahali or Brocklehurst.
+  - **Six persistent landmark labels now show on the map's opening view**, reusing the anti-overlap algorithm already built for bus-stop labels, so the first look shows named places rather than only cluster counts.
+  - **The unfiltered place count reads as a plain total** ("263 places") instead of the "263/263" fraction; the ratio comes back once a filter actually narrows the results, which is the only time it says something useful.
+  - **The subtitle no longer presumes "pick an area, then a category,"** and moved from plain `display:none` to visually hidden but present in the accessibility tree, tied to the heading via `aria-describedby` — from inert placeholder to an actual assistive description.
+  - **Three high-value theme quick-picks were added**: Free/Low-cost, Kids & Family, Indoor/Winter.
+- **Caught and fixed along the way**: the new locate button was only 36px tall at phone width, folded into the project's existing 44px touch-target rule; the runtime-symbol checker in `validate.py` only tracked a function's first parameter, so the new `computeLabelVisibility(items, forceFn)` calling `forceFn` as a callback was flagged as undefined — it now recognises every parameter of every named function; two code comments spelling out `UI.hintShort` were misread by the dead-CSS scanner as a class selector, fixed by rewording rather than suppressing; `data-kamloops.js` gained `LANDMARKS` (6 landmark ids), with a matching `validate.py` check that every id resolves to a real, distinct place.
+- **Three assertions of the old behaviour were updated to match the new, intentional behaviour** (Reset going from dimmed to genuinely hidden; the place count going from always-a-fraction to a total when unfiltered) rather than treated as regressions to revert.
+- **Regression grew from 168 checks to 197**, adding 22: the full geolocation consent flow (denial then re-prompt, a second tap skipping the explainer, confirming no coordinates in the event), landmark-label rendering and stability across a pan, the three new theme quick-picks actually filtering, the short-screen hint text, the subtitle's accessibility attributes, the region buttons' geographic cues, the status text's wording before and after filtering, and the guide button's short label.
+- `DATA-SCHEMA.md` documents the new `LANDMARKS` field.
 
 ## 2026.09.07f
 

@@ -227,7 +227,11 @@ async def main():
               await pg.evaluate("aCref().size")==0 and await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)).length")==N)
         await pg.click('#catBtn'); await pg.wait_for_timeout(450)
         check("11 common groups open on arrival", await pg.evaluate("document.querySelectorAll('#catGrid .cat-group.open').length")>=3)
-        check("10 panel title carries the live count on open", '/' in await pg.inner_text('#panelTitle'))
+        # P2-G: unfiltered, the title now reads "263 places total" rather than the
+        # uninformative "263 / 263" — str(N) survives in both the filtered (v/t) and
+        # unfiltered (showingAll) phrasing, so this checks the count is there without
+        # pinning down which of the two forms it is.
+        check("10 panel title carries the live count on open", str(N) in await pg.inner_text('#panelTitle'))
         check("10 bottom button says Done, not a count", str(N) not in await pg.inner_text('#applyBtn'))
         picked=await pg.evaluate("""()=>{const c=[...document.querySelectorAll('#catGrid .cat-btn')].find(x=>x.textContent.includes('Dental'));if(c){c.click();return true;}return false;}""")
         await pg.wait_for_timeout(500)
@@ -254,12 +258,16 @@ async def main():
 
         print("\n--- reset and reporting (round 4) ---")
         await pg.evaluate("resetAll()"); await pg.wait_for_timeout(500)
-        check("03 reset always present", not await pg.evaluate("document.getElementById('resetBtn').hidden"))
-        check("03 reset dimmed when there is nothing to undo", await pg.evaluate("document.getElementById('resetBtn').classList.contains('idle')"))
+        # P0-B: Reset used to stay on screen at all times, only dimmed (.idle) with
+        # nothing to undo — a control that's always visible implies there's always
+        # something to press. It is now genuinely absent (DOM `hidden`, so assistive
+        # tech skips it too) exactly when every axis is at its default, and reappears
+        # the moment any of area/category/theme/search/route actually changes.
+        check("03 reset genuinely hidden when there is nothing to undo", await pg.evaluate("document.getElementById('resetBtn').hidden"))
         await pg.click('#busBtn'); await pg.wait_for_timeout(400)
         await pg.evaluate("document.querySelector('#busList .bus-item').click()"); await pg.wait_for_timeout(800)
         await pg.fill('#searchInput','bank'); await pg.wait_for_timeout(650)
-        check("03 reset lit once state exists", not await pg.evaluate("document.getElementById('resetBtn').classList.contains('idle')"))
+        check("03 reset appears once state exists", not await pg.evaluate("document.getElementById('resetBtn').hidden"))
         await pg.click('#resetBtn'); await pg.wait_for_timeout(900)
         st=await pg.evaluate("""()=>({r:aRref().size,c:aCref().size,route:selRoute(),
             s:document.getElementById('searchInput').value,z:mapref.getZoom(),
@@ -860,6 +868,133 @@ async def main():
               tags['en']=='en-CA' and tags['fr']=='fr-CA' and tags['zh']=='zh-CN', tags)
         check("56 no page errors across the language sweep", len(el)==0, el[:2])
         await pgl.close()
+
+        print("\n--- first-use fixes: near me, landmarks, quick-pick themes (round 11) ---")
+        pge=await b.new_page(viewport={'width':390,'height':760}, has_touch=True, is_mobile=True)
+        ee=[]; pge.on('pageerror', lambda e: ee.append(str(e)))
+        # A stub geolocation API: records every call and hands back manual control of
+        # the success/error callback, so the flow can be driven deterministically —
+        # without needing real OS location permission in a headless browser, and
+        # without ever letting the test itself answer the permission question the
+        # app is supposed to ask a human.
+        await pge.add_init_script("""
+          window.__geoCalls=0;
+          Object.defineProperty(navigator,'geolocation',{configurable:true,value:{
+            getCurrentPosition:(ok,err,opts)=>{window.__geoCalls++;window.__geoOk=ok;window.__geoErr=err;}
+          }});
+        """)
+        await pge.goto(URL); await pge.wait_for_timeout(1200)
+
+        check("57 geolocate control renders on the map, not in the header",
+              await pge.evaluate("()=>!!document.querySelector('.geo-btn')"))
+        check("57 geolocation is never touched before any click",
+              await pge.evaluate("()=>window.__geoCalls")==0)
+        await pge.click('.geo-btn'); await pge.wait_for_timeout(200)
+        check("57 first tap explains before requesting, not after",
+              not await pge.evaluate("()=>document.getElementById('geoNote').hidden")
+              and await pge.evaluate("()=>window.__geoCalls")==0)
+        await pge.click('#geoNoteCancel'); await pge.wait_for_timeout(150)
+        check("57 declining the explainer never touches geolocation or persists consent",
+              await pge.evaluate("()=>window.__geoCalls")==0
+              and await pge.evaluate("()=>localStorage.getItem('kamloopsGeoExplained')") is None)
+        await pge.click('.geo-btn'); await pge.wait_for_timeout(200)
+        check("57 the explainer reappears until it is actually accepted",
+              not await pge.evaluate("()=>document.getElementById('geoNote').hidden"))
+        await pge.click('#geoNoteOk'); await pge.wait_for_timeout(200)
+        check("57 accepting closes the explainer, calls geolocation once, and remembers",
+              await pge.evaluate("()=>document.getElementById('geoNote').hidden")
+              and await pge.evaluate("()=>window.__geoCalls")==1
+              and await pge.evaluate("()=>localStorage.getItem('kamloopsGeoExplained')")=='1')
+        await pge.evaluate("()=>window.__geoOk({coords:{latitude:50.6745,longitude:-120.3273,accuracy:15}})")
+        await pge.wait_for_timeout(300)
+        centre=await pge.evaluate("()=>{const c=mapref.getCenter();return {lat:+c.lat.toFixed(3),lng:+c.lng.toFixed(3)};}")
+        check("57 a successful fix recentres the map on the reported position",
+              abs(centre['lat']-50.6745)<0.01 and abs(centre['lng']-(-120.3273))<0.01, centre)
+        geoevs=[e['p'] for e in await pge.evaluate("()=>_evBuf.map(e=>({t:e.t,p:e.p}))") if e['t']=='geo_locate']
+        check("57 the fix is logged as success, with no coordinate anywhere in the event",
+              bool(geoevs) and geoevs[-1].get('result')=='success'
+              and not any(k in geoevs[-1] for k in ('lat','lng','latitude','longitude','coords')),
+              geoevs[-1] if geoevs else None)
+        await pge.click('.geo-btn'); await pge.wait_for_timeout(200)
+        check("57 a second tap skips the explainer — consent was already given",
+              await pge.evaluate("()=>window.__geoCalls")==2
+              and await pge.evaluate("()=>document.getElementById('geoNote').hidden"))
+        await pge.evaluate("()=>window.__geoErr({code:1})")
+        await pge.wait_for_timeout(200)
+        msg=await pge.inner_text('#geoNoteText')
+        check("57 a denied permission explains itself rather than failing silently",
+              len(msg)>0 and not await pge.evaluate("()=>document.getElementById('geoNote').hidden"), msg)
+        check("57 the privacy note discloses the Near Me capability",
+              'Near Me' in await pge.inner_text('.privacy-note'))
+        check("57 no page errors from the geolocation flow", len(ee)==0, ee[:3])
+
+        lm=await pge.evaluate("()=>typeof LANDMARKS!=='undefined'?LANDMARKS.length:0")
+        check("58 LANDMARKS resolves to a handful of real, distinct places", lm>=4, lm)
+        await pge.evaluate("()=>mapref.setView(CITYref.centre,CITYref.zoom)")
+        await pge.wait_for_timeout(500)
+        vislabels=await pge.evaluate("""()=>[...document.querySelectorAll('.leaflet-tooltip.landmark-label')]
+            .filter(e=>getComputedStyle(e).display!=='none').length""")
+        check("58 at least one landmark label is visible on the opening view", vislabels>=1, vislabels)
+        await pge.evaluate("()=>mapref.panBy([200,0])"); await pge.wait_for_timeout(500)
+        check("58 landmark labels keep working after a pan, no page errors", len(ee)==0, ee[:3])
+
+        for k,sel in (('free','#qpFree'),('family','#qpFamily'),('indoor','#qpIndoor')):
+            check("59 quick-pick %s carries a real theme icon and label"%k,
+                  await pge.evaluate("s=>{const e=document.querySelector(s);return !!e&&e.textContent.trim().length>1;}", sel))
+        await pge.evaluate("()=>{aT.clear();aC.clear();aR=new Set(Object.keys(RI));renderThemes();renderCats();renderRegs();apply();}")
+        await pge.wait_for_timeout(200)
+        await pge.click('#qpFree'); await pge.wait_for_timeout(300)
+        check("59 a quick-pick theme actually filters, combined with category/area",
+              await pge.evaluate("()=>aT.has('free')") and await pge.evaluate("()=>lastVisible")<N)
+        await pge.click('#qpFree'); await pge.wait_for_timeout(200)
+
+        hint_ok=await pge.evaluate("""()=>UI.en.hint.length<60
+            && !UI.en.hint.includes('Quick Picks to combine')
+            && UI.en.hintShort && UI.en.hintShort!==UI.en.hint""")
+        check("60 the default hint is short and question-shaped, with a shorter sibling",
+              hint_ok, await pge.evaluate("()=>[UI.en.hint,UI.en.hintShort]"))
+
+        subtext=await pge.evaluate("()=>document.getElementById('sub').textContent")
+        subdisplay=await pge.evaluate("()=>getComputedStyle(document.getElementById('sub')).display")
+        check("61 the subtitle is visually hidden but stays in the accessibility tree",
+              subdisplay!='none' and len(subtext)>0, {'display':subdisplay,'len':len(subtext)})
+        check("61 h1 points to it via aria-describedby",
+              await pge.evaluate("()=>document.getElementById('h1').getAttribute('aria-describedby')")=='sub')
+        check("61 the subtitle no longer tells a reader to pick an area first",
+              'then category' not in subtext, subtext)
+
+        await pge.click('#areaBtn'); await pge.wait_for_timeout(300)
+        regtxt=await pge.evaluate("()=>[...document.querySelectorAll('#regRow .reg-btn')].map(b=>b.textContent)")
+        check("62 every region button carries a parenthetical geographic cue",
+              len(regtxt)>1 and all(('(' in t) for t in regtxt[1:]), regtxt)
+        await pge.keyboard.press('Escape'); await pge.wait_for_timeout(200)
+
+        await pge.evaluate("()=>resetAll()"); await pge.wait_for_timeout(300)
+        st_unfiltered=await pge.inner_text('#statusText')
+        check("63 unfiltered status reads as a plain total, not an empty fraction",
+              '/' not in st_unfiltered and str(N) in st_unfiltered, st_unfiltered)
+        await pge.evaluate("()=>{aC=new Set(['bank']);renderCats();apply();}")
+        await pge.wait_for_timeout(300)
+        st_filtered=await pge.inner_text('#statusText')
+        check("63 a filtered status keeps the v/t form", '/' in st_filtered, st_filtered)
+        await pge.evaluate("()=>resetAll()"); await pge.wait_for_timeout(200)
+
+        short_label=await pge.evaluate("()=>document.getElementById('guideToggle').dataset.short")
+        check("64 the guide button carries a short visible label", bool(short_label), short_label)
+        other_hidden=await pge.evaluate("""()=>['shareBtn','feedbackLink','noteToggle']
+            .every(id=>getComputedStyle(document.getElementById(id).querySelector('.hl-tx')).display==='none')""")
+        check("64 the other three header links stay icon-only at this width", other_hidden)
+        await pge.close()
+
+        pgt2=await b.new_page(viewport={'width':375,'height':600}, has_touch=True, is_mobile=True)
+        et2=[]; pgt2.on('pageerror', lambda e: et2.append(str(e)))
+        await pgt2.goto(URL); await pgt2.wait_for_timeout(1000)
+        fhint_txt=await pgt2.evaluate("()=>document.getElementById('fhint').textContent")
+        short_expected=await pgt2.evaluate("()=>UI[L_].hintShort")
+        check("60 a short screen shows the shortened hint instead of nothing",
+              len(fhint_txt)>0 and fhint_txt==short_expected, {'shown':fhint_txt,'expected':short_expected})
+        check("60 no page errors on a short screen", len(et2)==0, et2[:3])
+        await pgt2.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})

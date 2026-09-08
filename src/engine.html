@@ -44,7 +44,15 @@
   html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--font);}
   header{padding:26px 20px 4px;position:relative;}
   h1{font-family:var(--font);font-size:clamp(20px,3vw,27px);margin:0 0 5px;font-weight:500;letter-spacing:0;padding-right:265px;}
-  .sub{display:none;}
+  /* P2-H: the visible first-run hint now carries the "how to use this" guidance
+     (see .fhint below), so this line would only repeat it at the cost of the
+     vertical space P0-B works to win back. It stays out of sighted layout but,
+     unlike display:none, is not pulled from the accessibility tree either — the
+     h1's aria-describedby (below, in the body) still reaches it, so a screen
+     reader gets a one-line description of what the map covers that a sighted
+     reader gets some other way (the title, the hint, the categories on screen). */
+  .sub{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .lang-sw{position:absolute;top:24px;right:20px;display:flex;gap:2px;background:#f1f3f4;border-radius:9px;padding:2px;}
   .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:var(--sub-ink);transition:all .15s cubic-bezier(.4,0,.2,1);}
   .lang-btn.active{background:var(--card);color:var(--accent-text);box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
@@ -66,7 +74,6 @@
   .fbicon{font-size:12px;line-height:1;}
   .reset-btn{font-size:12px;color:var(--accent-text);font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:16px;cursor:pointer;padding:6px 12px;white-space:nowrap;display:flex;align-items:center;gap:4px;}
   .reset-btn[hidden]{display:none;}
-  .reset-btn.idle{color:var(--sub-ink);border-color:var(--line);}
   .reset-btn:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
   /* A bare "·" explained only by a hover title was invisible on touch, which is
      most of this app's traffic — the word itself is now the visible cue, sourced
@@ -265,6 +272,13 @@
   .guide-body h3:target,.guide-body h3.gs-flash{background:#e8f0fe;border-radius:6px;padding:2px 6px;margin-left:-6px;}
   .leaflet-tooltip.stop-label{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.12);border-radius:4px;padding:1px 5px;font-size:9.5px;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.15);white-space:nowrap;}
   .leaflet-tooltip.stop-label::before{display:none;}
+  /* P1-F — a handful of persistent place-name labels, so someone with no mental
+     map of this city yet gets a few real names to anchor on instead of only
+     anonymous cluster-count bubbles. Bolder and accent-tinted so a reader can
+     tell "this is a landmark" from "this is a bus stop" at a glance; pointer-
+     events stay off so the label itself never intercepts a map drag or click. */
+  .leaflet-tooltip.landmark-label{background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:5px;padding:2px 7px;font-size:10.5px;font-weight:700;color:var(--accent-text);box-shadow:0 1px 3px rgba(0,0,0,.18);white-space:nowrap;pointer-events:none;}
+  .leaflet-tooltip.landmark-label::before{display:none;}
   .pt{font-family:var(--font);font-size:14px;font-weight:500;margin:2px 0 3px;}
   .ptags{margin:0 0 6px;}
   .tag{display:inline-block;font-size:9.5px;font-weight:600;padding:2px 8px;border-radius:6px;margin:0 3px 5px 0;color:#fff;}
@@ -362,6 +376,37 @@
   .offline-note.compact #offlineText,.offline-note.compact .offline-x{
     position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  /* P0-A — the "Near me" control. Bottom-right stacks it above Leaflet's own
+     attribution strip the way most map UIs place a locate button, and that
+     corner is otherwise empty (the zoom control is top-left, the offline note
+     lives along the top edge). It never claims header space, so it costs P0-B
+     nothing. */
+  .geo-ctrl{margin:0 10px 10px 0!important;}
+  .geo-btn{display:flex;align-items:center;gap:6px;background:var(--card);border:none;
+    border-radius:20px;padding:8px 12px;font-family:inherit;font-size:12px;font-weight:600;
+    color:var(--accent-text);cursor:pointer;line-height:1;
+    box-shadow:0 1px 2px 0 rgba(60,64,67,.3),0 1px 3px 1px rgba(60,64,67,.15);}
+  .geo-btn:hover{filter:brightness(.96);}
+  .geo-btn svg{flex:0 0 auto;display:block;}
+  .geo-btn.loading svg{animation:geo-spin 1s linear infinite;}
+  @keyframes geo-spin{to{transform:rotate(360deg);}}
+  @media(max-width:600px){.geo-btn-tx{display:none;}.geo-btn{padding:9px;border-radius:50%;}}
+  /* The explanation banner (first tap only) and the plain-language error messages
+     (denied/unavailable/timeout/unsupported) share this box, distinguished only by
+     .err — an amber tone matching .offline-note's own "something didn't work"
+     colour, so the page has one visual vocabulary for that state, not two. */
+  .geo-note{position:absolute;left:12px;right:12px;bottom:56px;z-index:901;
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;font-size:12px;line-height:1.5;color:var(--ink);
+    box-shadow:0 2px 10px rgba(0,0,0,.16);}
+  @media(min-width:901px){.geo-note{left:auto;right:16px;max-width:300px;bottom:60px;}}
+  .geo-note[hidden]{display:none;}
+  .geo-note p{margin:0 0 10px;}
+  .geo-note.err{border-color:#fde293;background:#fef7e0;color:#7a5c00;}
+  .geo-note-act{display:flex;gap:8px;justify-content:flex-end;}
+  .geo-note-btn{font-family:inherit;font-size:12px;font-weight:600;padding:7px 12px;border-radius:16px;
+    border:1px solid var(--line);background:var(--paper);color:var(--sub-ink);cursor:pointer;}
+  .geo-note-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
   /* Tapping the star to favourite a place changed only a 16px glyph's colour —
      easy to miss, which invited a second tap that silently undid the first. This
      is the one, short, unmissable confirmation for that action (and only that
@@ -387,7 +432,7 @@
      centring rather than extra padding, which would reflow the rows. */
   @media(pointer:coarse){
     .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
-    .cat-btn,.bus-item,.note-toggle,.cat-util-btn,.af-chip{min-height:44px;}
+    .cat-btn,.bus-item,.note-toggle,.cat-util-btn,.af-chip,.geo-btn,.geo-note-btn{min-height:44px;}
     .lang-btn,.filter-btn,.reset-btn,.preset-chip,.reg-btn,.cat-btn{
       display:inline-flex;align-items:center;}
     /* The language buttons were tall enough but only ~39px wide. Five at 44px plus
@@ -396,8 +441,9 @@
     /* Below 600px these drop to icon-only (see the max-width:600px block), which
        would otherwise shrink the tap target to just the emoji's own width — well
        under the 44px floor. min-width plus centring keeps the target full-size
-       whether it holds an icon alone or an icon and a label. */
-    .header-links a,.note-toggle{display:inline-flex;align-items:center;justify-content:center;min-width:44px;}
+       whether it holds an icon alone or an icon and a label. Same story for
+       .geo-btn, which drops its text at the same breakpoint. */
+    .header-links a,.note-toggle,.geo-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;}
     .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;
       display:inline-flex;align-items:center;justify-content:center;}
     .search-bar{padding-top:12px;padding-bottom:12px;}
@@ -460,6 +506,10 @@
        icon; each icon is still distinct (🔗📖💬ℹ️) and the full name survives for
        screen readers via aria-label. */
     .header-links .hl-tx{display:none;}
+    /* P1-D: 📖 is the one icon here worth a visible name even at this width — see
+       the guideToggleShort UI key's own comment. A ::after avoids touching the hl-tx
+       machinery the other three links still rely on to stay icon-only. */
+    #guideToggle::after{content:attr(data-short);font-size:10px;font-weight:700;margin-left:3px;color:var(--accent-text);}
     /* language switcher and the three utility links share one compact band, and
        the title drops below them instead of each taking a row of its own */
     header{padding:10px 12px 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
@@ -497,8 +547,15 @@
      search bar, toolbar (three rows once French wraps), quick picks and the hint left
      the map starting at 387px — below the middle of the viewport. Raising the touch
      targets to 44px made that worse, so the vertical rhythm is tightened here to pay
-     for it. Nothing is removed except the first-run hint, which has served its purpose
-     by the time someone is on a screen this tight.
+     for it.
+     P0-C: this used to also drop the first-run hint outright, on the theory that
+     anyone on a screen this small had already gotten the point — but screen height
+     tracks a device's age and price, not the reader's familiarity with the page, so
+     that rule silently penalised exactly the people least likely to already know
+     how this works. The hint now only ever disappears because hintDismissed says
+     so (see refreshHint()); on a screen this tight it shows the hintShort key instead of
+     the longer default, which is what actually earns back the space this block is
+     tightening everything else for.
      Targets stay at 44px: shrinking them back is not an acceptable trade. */
   @media(max-height:680px) and (max-width:600px){
     header{padding-top:6px;padding-bottom:0;gap:6px 10px;}
@@ -506,7 +563,6 @@
     .search-bar{margin-top:6px;}
     .ftoolbar{padding-top:8px;row-gap:5px;}
     .qp-row{padding-top:5px;}
-    .fhint{display:none;}
     /* The count shared a row with nothing else and cost a whole line. Let it sit
        beside Reset and truncate rather than wrap — the Area button already shows
        which regions are on, so the tail of this sentence is the least useful pixel
@@ -548,7 +604,7 @@
     <button class="note-toggle" id="guideToggle"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
     <button class="note-toggle" id="noteToggle"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
   </div>
-  <h1 id="h1"></h1>
+  <h1 id="h1" aria-describedby="sub"></h1>
   <p class="sub" id="sub"></p>
 </header>
 <div class="backdrop" id="shareBackdrop">
@@ -613,6 +669,16 @@
   <div class="preset-row" id="presetRow">
     <button class="preset-chip" id="daily"></button>
     <button class="preset-chip" id="newcomer"></button>
+    <!-- P2-I: three of the ten themes surfaced directly here, since the theme
+         axis (this session's new second filter) otherwise has zero presence on
+         the first screen. These toggle a theme (aT), not a category set — a
+         different, independent gesture from the category presets around them,
+         so they carry none of the presetsAdjusted bookkeeping that only makes
+         sense for a category set drifting from its own preset. Their text and
+         icon come from TIC/themeLabel() at runtime (updateThemeQuickpicks). -->
+    <button class="preset-chip" id="qpFree" type="button"></button>
+    <button class="preset-chip" id="qpFamily" type="button"></button>
+    <button class="preset-chip" id="qpIndoor" type="button"></button>
     <button class="preset-chip" id="kids"></button>
     <button class="preset-chip" id="edu"></button>
     <button class="preset-chip" id="health"></button>
@@ -685,11 +751,19 @@
 </div>
 
 <script id="app">
-const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"先选区域，再选分类 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 新居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 为改进服务，收集匿名使用统计（不含个人信息）</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Filter by area, then category · Click markers for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Newcomer Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Anonymous usage statistics are collected to improve this service (no personal data)</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Filtrez par secteur, puis par catégorie · Cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Essentiels nouveaux arrivants","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Des statistiques d'utilisation anonymes sont collectées pour améliorer ce service (aucune donnée personnelle)</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Filtre por zona y luego por categoría · Toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Esenciales para recién llegados","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Se recopilan estadísticas de uso anónimas para mejorar este servicio (sin datos personales)</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"지역 선택 후 분류 선택 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 신규 정착민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 서비스 개선을 위해 익명의 사용 통계가 수집됩니다 (개인 정보 미포함)</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"}};
+const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"覆盖全市生活、教育、医疗、交通、文化等各类地点 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 新居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 为改进服务，收集匿名使用统计（不含个人信息）</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Places across daily life, education, health, transit and culture, citywide · click a marker for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Newcomer Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Anonymous usage statistics are collected to improve this service (no personal data)</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Des lieux du quotidien, de l'éducation, de la santé, du transport et de la culture, dans toute la ville · cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Essentiels nouveaux arrivants","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Des statistiques d'utilisation anonymes sont collectées pour améliorer ce service (aucune donnée personnelle)</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Lugares de la vida diaria, educación, salud, transporte y cultura en toda la ciudad · toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Esenciales para recién llegados","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Se recopilan estadísticas de uso anónimas para mejorar este servicio (sin datos personales)</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"생활, 교육, 의료, 교통, 문화 등 도시 전역의 장소 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 신규 정착민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 서비스 개선을 위해 익명의 사용 통계가 수집됩니다 (개인 정보 미포함)</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"}};
 UI.zh.showing=(v,t)=>`${v} / ${t} 处地点`;
 UI.en.showing=(v,t)=>`${v} / ${t} place${t===1?'':'s'}`;
 UI.fr.showing=(v,t)=>`${v} / ${t} lieu${t===1?'':'x'}`;
 UI.es.showing=(v,t)=>`${v} / ${t} lugar${t===1?'':'es'}`;
+// P2-G: "263 / 263" has no reference frame until a reader already knows the
+// total — it reads as a fraction with nothing to compare it to. Once nothing is
+// filtered there is nothing to divide, so apply() now reaches for this instead
+// and saves the v/t form for when the two numbers actually differ.
+UI.zh.showingAll=t=>`共 ${t} 处地点`;
+UI.en.showingAll=t=>`${t} place${t===1?'':'s'} total`;
+UI.fr.showingAll=t=>`${t} lieu${t===1?'':'x'} au total`;
+UI.es.showingAll=t=>`${t} lugar${t===1?'':'es'} en total`;
 UI.zh.areasN=n=>`${n}个地区`; UI.en.areasN=n=>`${n} area${n===1?'':'s'}`; UI.fr.areasN=n=>`${n} secteur${n===1?'':'s'}`; UI.es.areasN=n=>`${n} zona${n===1?'':'s'}`;
 UI.zh.routeLabel=k=>`${k}路`; UI.en.routeLabel=k=>`Route ${k}`; UI.fr.routeLabel=k=>`Ligne ${k}`; UI.es.routeLabel=k=>`Ruta ${k}`;
 UI.zh.stopsN=n=>`${n}站`; UI.en.stopsN=n=>`${n} stop${n===1?'':'s'}`; UI.fr.stopsN=n=>`${n} arrêt${n===1?'':'s'}`; UI.es.stopsN=n=>`${n} parada${n===1?'':'s'}`;
@@ -699,11 +773,66 @@ UI.zh.areaBtnLabel='区域'; UI.en.areaBtnLabel='Area'; UI.fr.areaBtnLabel='Sect
 UI.zh.catBtnLabel='分类'; UI.en.catBtnLabel='Category'; UI.fr.catBtnLabel='Catégorie'; UI.es.catBtnLabel='Categoría';
 UI.zh.resetBtn='重置'; UI.en.resetBtn='Reset'; UI.fr.resetBtn='Réinitialiser'; UI.es.resetBtn='Reiniciar';
 UI.zh.resetBtnTip='重置区域、分类、搜索和公交线路筛选，并让地图回到初始视野（不仅仅是筛选条件）。'; UI.en.resetBtnTip='Resets area, category, search and bus route filters — and returns the map to its starting view, not just the filters.'; UI.fr.resetBtnTip='Réinitialise les filtres de secteur, catégorie, recherche et ligne de bus — et ramène la carte à sa vue de départ, pas seulement les filtres.'; UI.es.resetBtnTip='Reinicia los filtros de zona, categoría, búsqueda y ruta de autobús — y devuelve el mapa a su vista inicial, no solo los filtros.';
-UI.zh.hint='🔍 直接搜索，或往下浏览：快捷选择可以同时点选多个来组合（每个都会自动帮你选好分类），也可以自己选"区域"/"分类"（可左右滑动看更多快捷选择）'; UI.en.hint='🔍 Search by name, or browse below: tap any number of Quick Picks to combine them (each sets Category for you), or choose Area/Category yourself — swipe for more Quick Picks'; UI.fr.hint='🔍 Recherchez par nom, ou parcourez : touchez autant de choix rapides que vous voulez pour les combiner (chacun règle la catégorie pour vous), ou choisissez Secteur/Catégorie vous-même — glissez pour en voir plus'; UI.es.hint='🔍 Busque por nombre, o explore: toque tantos accesos rápidos como quiera para combinarlos (cada uno ajusta la categoría por usted), o elija Zona/Categoría usted mismo — deslice para ver más';
+UI.zh.hint='🔍 找什么？直接搜索，或点下方快捷选择'; UI.en.hint='🔍 Search by name, or tap a Quick Pick below'; UI.fr.hint='🔍 Recherchez par nom, ou touchez un choix rapide ci-dessous'; UI.es.hint='🔍 Busque por nombre, o toque un acceso rápido abajo';
+// P0-C: on a short screen the hint used to disappear outright (see the CSS
+// comment by the old @media(max-height:680px) rule this replaces) on the theory
+// that anyone on a small phone had already gotten the point — screen height is a
+// device-cost proxy, not an experience-level proxy, so that logic penalised
+// exactly the readers least likely to already know this page. TIGHT.matches now
+// swaps in this shorter line instead of hiding it (see refreshHint()).
+UI.zh.hintShort='🔍 搜索，或点下方分类'; UI.en.hintShort='🔍 Search, or tap a category below'; UI.fr.hintShort='🔍 Recherchez, ou touchez une catégorie'; UI.es.hintShort='🔍 Busque, o toque una categoría';
 UI.zh.catsSelected=n=>`已选 ${n} 个分类`; UI.en.catsSelected=n=>`${n} categor${n===1?'y':'ies'} selected`; UI.fr.catsSelected=n=>`${n} catégorie${n===1?'':'s'} sélectionnée${n===1?'':'s'}`; UI.es.catsSelected=n=>`${n} categoría${n===1?'':'s'} seleccionada${n===1?'':'s'}`;
 UI.zh.clearAll='全部清除'; UI.en.clearAll='Clear all'; UI.fr.clearAll='Tout effacer'; UI.es.clearAll='Borrar todo';
 UI.zh.quickLabel='💡 快捷选择'; UI.en.quickLabel='💡 Quick Picks'; UI.fr.quickLabel='💡 Choix rapides'; UI.es.quickLabel='💡 Accesos rápidos';
+// P0-A — "Near me": a zero-knowledge entry point for someone who has no mental
+// map of this city yet and cannot pick a sensible Area. The button never asks
+// for location on its own; the first tap only explains what happens (geoExplain*)
+// and a second, explicit tap is what actually calls the browser's own permission
+// prompt (runGeolocate). Every language below keeps the same shape: what the
+// button does, why the explainer exists, and what to do instead if it fails.
+UI.zh.geoBtnLabel='附近'; UI.en.geoBtnLabel='Near Me'; UI.fr.geoBtnLabel='Près de moi'; UI.es.geoBtnLabel='Cerca de mí'; UI.ko.geoBtnLabel='내 주변';
+UI.zh.geoBtnTip='显示我附近的地点 · 仅在你点击后才会请求位置权限，坐标只用于让地图居中，不会上传或记录';
+UI.en.geoBtnTip="Show what's near you — this only asks for your location after you tap it; your coordinates only move the map and are never sent to us or logged.";
+UI.fr.geoBtnTip="Affiche ce qui est près de vous — ne demande votre position qu'après avoir touché ce bouton; vos coordonnées ne font que centrer la carte et ne sont jamais envoyées ni enregistrées.";
+UI.es.geoBtnTip='Muestra lo que hay cerca de usted — solo solicita su ubicación después de tocar este botón; sus coordenadas solo centran el mapa y nunca se envían ni se registran.';
+UI.ko.geoBtnTip='내 주변을 지도에 표시합니다 — 이 버튼을 누른 뒤에만 위치 권한을 요청하며, 좌표는 지도를 이동하는 데만 쓰이고 서버로 전송되거나 기록되지 않습니다.';
+UI.zh.geoExplainText='点击"继续"后，浏览器会请求你的位置权限。你的坐标只会用来让地图移动到你所在的位置，不会发送到服务器，也不会被记录。';
+UI.en.geoExplainText='Tapping Continue will ask your browser for your location. Your coordinates are used only to centre the map — they are never sent to our server or logged.';
+UI.fr.geoExplainText="En touchant Continuer, votre navigateur demandera votre position. Vos coordonnées ne servent qu'à centrer la carte — elles ne sont jamais envoyées à notre serveur ni enregistrées.";
+UI.es.geoExplainText='Al tocar Continuar, su navegador solicitará su ubicación. Sus coordenadas solo se usan para centrar el mapa — nunca se envían a nuestro servidor ni se registran.';
+UI.ko.geoExplainText='"계속"을 누르면 브라우저가 위치 권한을 요청합니다. 좌표는 지도를 내 위치로 이동하는 데만 사용되며, 서버로 전송되거나 기록되지 않습니다.';
+UI.zh.geoExplainOk='继续'; UI.en.geoExplainOk='Continue'; UI.fr.geoExplainOk='Continuer'; UI.es.geoExplainOk='Continuar'; UI.ko.geoExplainOk='계속';
+UI.zh.geoExplainCancel='暂不'; UI.en.geoExplainCancel='Not now'; UI.fr.geoExplainCancel='Pas maintenant'; UI.es.geoExplainCancel='Ahora no'; UI.ko.geoExplainCancel='나중에';
+UI.zh.geoDenied='位置权限被拒绝 —— 你仍然可以用下方的"按区域筛选"浏览地图。';
+UI.en.geoDenied='Location permission was denied — you can still browse with Filter by Area below.';
+UI.fr.geoDenied="L'autorisation de localisation a été refusée — vous pouvez toujours parcourir la carte avec Filtrer par secteur ci-dessous.";
+UI.es.geoDenied='Se denegó el permiso de ubicación — aún puede explorar con Filtrar por zona más abajo.';
+UI.ko.geoDenied='위치 권한이 거부되었습니다 — 아래의 "지역별 필터"로 계속 둘러볼 수 있습니다.';
+UI.zh.geoUnavailable='暂时无法获取位置 —— 你仍然可以用下方的"按区域筛选"浏览地图。';
+UI.en.geoUnavailable="Your location isn't available right now — you can still browse with Filter by Area below.";
+UI.fr.geoUnavailable="Votre position n'est pas disponible pour l'instant — vous pouvez toujours parcourir la carte avec Filtrer par secteur ci-dessous.";
+UI.es.geoUnavailable='Su ubicación no está disponible en este momento — aún puede explorar con Filtrar por zona más abajo.';
+UI.ko.geoUnavailable='현재 위치를 가져올 수 없습니다 — 아래의 "지역별 필터"로 계속 둘러볼 수 있습니다.';
+UI.zh.geoTimeout='定位超时 —— 你仍然可以用下方的"按区域筛选"浏览地图。';
+UI.en.geoTimeout='Locating timed out — you can still browse with Filter by Area below.';
+UI.fr.geoTimeout="La localisation a expiré — vous pouvez toujours parcourir la carte avec Filtrer par secteur ci-dessous.";
+UI.es.geoTimeout='La localización agotó el tiempo de espera — aún puede explorar con Filtrar por zona más abajo.';
+UI.ko.geoTimeout='위치 확인 시간이 초과되었습니다 — 아래의 "지역별 필터"로 계속 둘러볼 수 있습니다.';
+UI.zh.geoUnsupported='这个浏览器不支持定位 —— 你仍然可以用下方的"按区域筛选"浏览地图。';
+UI.en.geoUnsupported="This browser doesn't support location — you can still browse with Filter by Area below.";
+UI.fr.geoUnsupported="Ce navigateur ne prend pas en charge la localisation — vous pouvez toujours parcourir la carte avec Filtrer par secteur ci-dessous.";
+UI.es.geoUnsupported='Este navegador no admite la localización — aún puede explorar con Filtrar por zona más abajo.';
+UI.ko.geoUnsupported='이 브라우저는 위치 확인을 지원하지 않습니다 — 아래의 "지역별 필터"로 계속 둘러볼 수 있습니다.';
+UI.zh.geoDismiss='知道了'; UI.en.geoDismiss='Got it'; UI.fr.geoDismiss='Compris'; UI.es.geoDismiss='Entendido'; UI.ko.geoDismiss='확인';
+UI.zh.geoFoundAnnounce='地图已移动到你附近的位置'; UI.en.geoFoundAnnounce='Map centred on your location'; UI.fr.geoFoundAnnounce='Carte centrée sur votre position'; UI.es.geoFoundAnnounce='Mapa centrado en su ubicación'; UI.ko.geoFoundAnnounce='지도가 내 위치로 이동했습니다';
 UI.zh.guideToggleLabel='📖 新居民指南'; UI.en.guideToggleLabel='📖 Newcomer Guide'; UI.fr.guideToggleLabel='📖 Guide du nouvel arrivant'; UI.es.guideToggleLabel='📖 Guía del recién llegado';
+// P1-D: on a narrow phone every header link drops to icon-only (see the
+// .header-links .hl-tx rule) so four labels fit on one row without pushing the
+// map down — but 📖 is the single highest-value thing in this app, and an emoji
+// alone does not say that. This short word rides along as a ::after on
+// #guideToggle only, inside that same breakpoint, so the other three keep the
+// row-width saving while the one worth a second look gets a visible name.
+UI.zh.guideToggleShort='指南'; UI.en.guideToggleShort='Guide'; UI.fr.guideToggleShort='Guide'; UI.es.guideToggleShort='Guía';
 UI.zh.guideTocLabel='本页目录'; UI.en.guideTocLabel='In this guide'; UI.fr.guideTocLabel='Dans ce guide'; UI.es.guideTocLabel='En esta guía'; UI.ko.guideTocLabel='이 가이드의 목차';
 UI.zh.shareBtnLabel='🔗 分享'; UI.en.shareBtnLabel='🔗 Share'; UI.fr.shareBtnLabel='🔗 Partager'; UI.es.shareBtnLabel='🔗 Compartir';
 UI.zh.shareBtnTip='打开分享面板：可以复制链接，或直接发到 WhatsApp、Facebook、X、Telegram、LINE、邮件、短信；手机上还能调用系统分享发到微信等。链接会带上当前的语言、区域、分类和搜索词。';
@@ -722,6 +851,7 @@ UI.en.searchResultsN=n=>n===0?'No matching places found':`${n} search result${n=
 UI.fr.searchResultsN=n=>n===0?'Aucun lieu correspondant':`${n} résultat${n===1?'':'s'}`;
 UI.es.searchResultsN=n=>n===0?'No se encontraron lugares':`${n} resultado${n===1?'':'s'} de búsqueda`;
 UI.ko.showing=(v,t)=>`${v} / ${t}곳`;
+UI.ko.showingAll=t=>`전체 ${t}곳`;
 UI.ko.areasN=n=>`${n}개 지역`;
 UI.ko.routeLabel=k=>`${k}번 노선`;
 UI.ko.stopsN=n=>`${n}개 정류장`;
@@ -729,11 +859,12 @@ UI.ko.stopSeqN=(i,n)=>`${i} / ${n}`;
 UI.ko.applyBtn=n=>`${n}곳 보기`;
 UI.ko.areaBtnLabel='지역'; UI.ko.catBtnLabel='분류'; UI.ko.resetBtn='초기화';
 UI.ko.resetBtnTip='지역, 분류, 검색, 버스 노선 필터를 모두 초기화하고 지도를 처음 화면으로 되돌립니다 — 필터만 초기화하는 것이 아닙니다.';
-UI.ko.hint='🔍 이름으로 검색하거나 아래에서 둘러보세요: 빠른 선택은 여러 개를 동시에 탭해 조합할 수 있습니다(각각 분류를 자동 설정합니다). 직접 지역/분류를 선택할 수도 있습니다 — 더 많은 빠른 선택은 좌우로 밀어보세요';
+UI.ko.hint='🔍 이름으로 검색하거나 아래 빠른 선택을 눌러보세요'; UI.ko.hintShort='🔍 검색하거나 아래 분류를 눌러보세요';
 UI.ko.catsSelected=n=>`${n}개 분류 선택됨`;
 UI.ko.clearAll='전체 해제';
 UI.ko.quickLabel='💡 빠른 선택';
 UI.ko.guideToggleLabel='📖 신규 정착민 가이드';
+UI.ko.guideToggleShort='가이드';
 UI.ko.shareBtnLabel='🔗 공유'; UI.ko.shareBtnTip='공유 패널을 엽니다: 링크를 복사하거나 WhatsApp·Facebook·X·Telegram·LINE·이메일·메시지로 바로 보낼 수 있고, 휴대폰에서는 기기 공유로 위챗 등에도 보낼 수 있습니다. 링크에는 현재 언어·지역·분류·검색어가 담깁니다.'; UI.ko.linkCopied='🔗 링크가 복사되었습니다';
 UI.ko.favBtnLabel='즐겨찾기';
 UI.ko.noFavorites='아직 즐겨찾기한 장소가 없습니다 — 장소 팝업의 ☆를 눌러 저장하세요';
@@ -770,7 +901,7 @@ UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和上方"数�
 UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
 UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
 UI.zh.favAddedMsg='⭐ 已加入收藏';UI.zh.favRemovedMsg='已取消收藏';UI.zh.errorHint='⚠️ 页面遇到错误，请刷新重试。';UI.zh.aSkip='跳到地图';UI.zh.aNavLang='选择界面语言';UI.zh.aNavHeader='页面操作';UI.zh.aNavFilters='地图筛选工具栏';UI.zh.aLandmarksIntro='按用途快速筛选地点';UI.zh.aResultsAnnounce=(v,t)=>`已显示 ${v} / ${t} 处地点`;
-UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。';
+UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。如果你点击"附近"按钮来定位自己，浏览器会请求位置权限；坐标只会在你自己的设备上使用来让地图居中，绝不会发送到我们的服务器，也不会被记录。';
 UI.zh.lSource='来源';
 UI.zh.srcOfficial='机构官网';
 UI.zh.srcPlaces='第三方地图数据（建议致电确认）';
@@ -817,7 +948,7 @@ UI.en.lVerifiedTip='When this specific listing was checked — a different thing
 UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
 UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
 UI.en.favAddedMsg='⭐ Added to favourites';UI.en.favRemovedMsg='Removed from favourites';UI.en.errorHint='⚠️ The page hit an error — please refresh to recover.';UI.en.aSkip='Skip to map';UI.en.aNavLang='Interface language';UI.en.aNavHeader='Page actions';UI.en.aNavFilters='Map filters toolbar';UI.en.aLandmarksIntro='Filter places by purpose';UI.en.aResultsAnnounce=(v,t)=>`Showing ${v} of ${t} places`;
-UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works.';
+UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works. If you tap the Near Me button, your browser will ask for location permission; your coordinates are used only on your own device to centre the map — they are never sent to our server or logged.';
 UI.en.lSource='Source';
 UI.en.srcOfficial='Official site';
 UI.en.srcPlaces='Third-party map data — call ahead';
@@ -863,7 +994,7 @@ UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée —
 UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
 UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
 UI.fr.favAddedMsg='⭐ Ajouté aux favoris';UI.fr.favRemovedMsg='Retiré des favoris';UI.fr.errorHint='⚠️ Une erreur est survenue — veuillez actualiser pour réinitialiser.';UI.fr.aSkip='Aller à la carte';UI.fr.aNavLang='Langue de l\'interface';UI.fr.aNavHeader='Actions de la page';UI.fr.aNavFilters='Barre des filtres de la carte';UI.fr.aLandmarksIntro='Filtrer les lieux par usage';UI.fr.aResultsAnnounce=(v,t)=>`Affichage de ${v} sur ${t} lieu${t>1?'x':''}`;
-UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte.';
+UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte. Si vous touchez le bouton Près de moi, votre navigateur demandera l\'autorisation de localisation; vos coordonnées ne servent qu\'à centrer la carte sur votre propre appareil — elles ne sont jamais envoyées à notre serveur ni enregistrées.';
 UI.fr.lSource='Source';
 UI.fr.srcOfficial='Site officiel';
 UI.fr.srcPlaces='Données cartographiques tierces — appelez avant';
@@ -910,7 +1041,7 @@ UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de 
 UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
 UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
 UI.es.favAddedMsg='⭐ Añadido a favoritos';UI.es.favRemovedMsg='Quitado de favoritos';UI.es.errorHint='⚠️ Se produjo un error — actualice la página para recuperar.';UI.es.aSkip='Saltar al mapa';UI.es.aNavLang='Idioma de la interfaz';UI.es.aNavHeader='Acciones de página';UI.es.aNavFilters='Barra de filtros del mapa';UI.es.aLandmarksIntro='Filtrar lugares por uso';UI.es.aResultsAnnounce=(v,t)=>`Mostrando ${v} de ${t} lugar${t===1?'':'es'}`;
-UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / ordenador — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa.';
+UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / ordenador — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa. Si toca el botón Cerca de mí, su navegador solicitará permiso de ubicación; sus coordenadas se usan solo en su propio dispositivo para centrar el mapa — nunca se envían a nuestro servidor ni se registran.';
 UI.es.lSource='Fuente';
 UI.es.srcOfficial='Sitio oficial';
 UI.es.srcPlaces='Datos de mapas de terceros — llame antes';
@@ -957,7 +1088,7 @@ UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터
 UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ko.favExport='코드 복사';UI.ko.favImport='코드 가져오기';UI.ko.favCopied='클립보드에 복사했습니다';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';
 UI.ko.favAdd='즐겨찾기에 추가';UI.ko.favRemove='즐겨찾기에서 제거';
 UI.ko.favAddedMsg='⭐ 즐겨찾기에 추가됨';UI.ko.favRemovedMsg='즐겨찾기에서 제거됨';UI.ko.errorHint='⚠️ 페이지에 오류가 발생했습니다. 새로 고침해 주세요.';UI.ko.aSkip='지도로 건너뛰기';UI.ko.aNavLang='인터페이스 언어';UI.ko.aNavHeader='페이지 작업';UI.ko.aNavFilters='지도 필터 도구 모음';UI.ko.aLandmarksIntro='용도별로 장소 빠르게 걸러보기';UI.ko.aResultsAnnounce=(v,t)=>`총 ${t}곳 중 ${v}곳 표시`;
-UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다.';
+UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다. "내 주변" 버튼을 누르면 브라우저가 위치 권한을 요청합니다. 좌표는 사용자의 기기에서만 지도를 이동하는 데 사용되며, 서버로 전송되거나 기록되지 않습니다.';
 UI.ko.lSource='출처';
 UI.ko.srcOfficial='공식 웹사이트';
 UI.ko.srcPlaces='제3자 지도 데이터 — 전화 확인 권장';
@@ -1705,7 +1836,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.07f';
+const DATA_VERSION='2026.09.07g';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 // Stated once, rendered everywhere. Change this line to change the terms.
@@ -2067,6 +2198,115 @@ tiles.on('tileload',()=>{
 });
 tiles.addTo(map);
 
+// P0-A — "Near me". A Leaflet control, not a header button: the header is under
+// active pressure from P0-B to give the map more first-screen height, and this
+// needs none of that space — it lives on the map itself, bottom-right, stacking
+// above Leaflet's own attribution the way most map UIs place a locate button.
+// navigator.geolocation is only ever touched from inside a click handler — never
+// on load, never from a timer — and the position this receives lives in this
+// closure alone: it centres the map and draws one temporary dot, and is never
+// passed to trackEvent, never written to the URL, never logged anywhere.
+let geoExplained=false;
+try{geoExplained=localStorage.getItem('kamloopsGeoExplained')==='1';}catch(e){}
+let geoMarker=null,geoAccCircle=null;
+const GeoControl=L.Control.extend({
+  options:{position:'bottomright'},
+  onAdd:function(){
+    const div=L.DomUtil.create('div','geo-ctrl');
+    const btn=L.DomUtil.create('button','geo-btn',div);
+    btn.type='button';
+    btn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">'
+      +'<circle cx="12" cy="12" r="3" fill="currentColor"/>'
+      +'<path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'
+      +'</svg><span class="geo-btn-tx"></span>';
+    // Leaflet controls sit inside the map's own click/drag surface, so without
+    // this a tap here would also reach the map underneath (panning it, or, worse,
+    // landing on whatever marker happens to be behind bottom-right at the time).
+    L.DomEvent.disableClickPropagation(div);
+    L.DomEvent.on(btn,'click',onGeoClick);
+    this._btn=btn;
+    return div;
+  }
+});
+const geoControl=new GeoControl();
+geoControl.addTo(map);
+const geoNoteEl=(function(){
+  const d=document.createElement('div');
+  d.id='geoNote';
+  d.className='geo-note';
+  d.hidden=true;
+  d.innerHTML='<p id="geoNoteText"></p><div class="geo-note-act">'
+    +'<button type="button" id="geoNoteOk" class="geo-note-btn"></button>'
+    +'<button type="button" id="geoNoteCancel" class="geo-note-btn"></button></div>';
+  document.getElementById('map').appendChild(d);
+  if(L.DomEvent)L.DomEvent.disableClickPropagation(d);
+  return d;
+})();
+function onGeoClick(){
+  if(!('geolocation' in navigator)){
+    geoMessage(UI[L_].geoUnsupported);
+    trackEvent('geo_locate',{result:'unsupported'});
+    return;
+  }
+  // The explanation is shown once, ever (per browser) — not once per session —
+  // because its whole job is to say what happens *before* the browser's own
+  // permission prompt appears the first time. Once that has happened, a second
+  // "here's what this does" only stands between a returning reader and the map.
+  if(!geoExplained){showGeoExplain();return;}
+  runGeolocate();
+}
+function showGeoExplain(){
+  const u=UI[L_];
+  document.getElementById('geoNoteText').textContent=u.geoExplainText;
+  const ok=document.getElementById('geoNoteOk'),cancel=document.getElementById('geoNoteCancel');
+  ok.textContent=u.geoExplainOk;ok.classList.add('primary');ok.hidden=false;
+  cancel.textContent=u.geoExplainCancel;
+  ok.onclick=()=>{
+    geoExplained=true;
+    try{localStorage.setItem('kamloopsGeoExplained','1');}catch(e){}
+    geoNoteEl.hidden=true;
+    runGeolocate();
+  };
+  cancel.onclick=()=>{geoNoteEl.hidden=true;trackEvent('geo_locate',{result:'explain_declined'});};
+  geoNoteEl.classList.remove('err');
+  geoNoteEl.hidden=false;
+}
+function geoMessage(msg){
+  const ok=document.getElementById('geoNoteOk'),cancel=document.getElementById('geoNoteCancel');
+  document.getElementById('geoNoteText').textContent=msg;
+  ok.hidden=true;
+  cancel.textContent=UI[L_].geoDismiss;
+  cancel.onclick=()=>{geoNoteEl.hidden=true;};
+  geoNoteEl.classList.add('err');
+  geoNoteEl.hidden=false;
+}
+function runGeolocate(){
+  const btn=geoControl._btn;
+  btn.classList.add('loading');
+  navigator.geolocation.getCurrentPosition(
+    pos=>{
+      btn.classList.remove('loading');
+      const lat=pos.coords.latitude,lng=pos.coords.longitude;
+      if(geoMarker)map.removeLayer(geoMarker);
+      if(geoAccCircle)map.removeLayer(geoAccCircle);
+      geoMarker=L.circleMarker([lat,lng],{radius:7,color:'#fff',weight:2,fillColor:'#1a73e8',fillOpacity:1}).addTo(map);
+      const acc=Math.min(pos.coords.accuracy||0,2000);
+      if(acc>30)geoAccCircle=L.circle([lat,lng],{radius:acc,color:'#1a73e8',weight:1,fillColor:'#1a73e8',fillOpacity:.08}).addTo(map);
+      map.setView([lat,lng],15);
+      const ann=document.getElementById('a11yAnnounce');
+      if(ann)ann.textContent=UI[L_].geoFoundAnnounce;
+      trackEvent('geo_locate',{result:'success'});
+    },
+    err=>{
+      btn.classList.remove('loading');
+      const key=err.code===1?'geoDenied':err.code===2?'geoUnavailable':'geoTimeout';
+      geoMessage(UI[L_][key]);
+      trackEvent('geo_locate',{result:key==='geoDenied'?'denied':key==='geoUnavailable'?'unavailable':'timeout'});
+    },
+    {enableHighAccuracy:false,timeout:8000,maximumAge:60000}
+  );
+}
+
 // Leaflet's zoom control sits above popups and outside their pane, so on a wide
 // screen it clipped the place name — the one line in the popup that matters most.
 // Padding the auto-pan makes Leaflet shift the map until the popup clears it.
@@ -2421,6 +2661,33 @@ P.forEach((p,idx)=>{
   showMarker(m);
 });
 
+// P1-F — a handful of persistent place-name labels, so a reader with no mental
+// map of this city yet gets a few real names to anchor on rather than only
+// anonymous cluster-count bubbles. These are their own tiny, non-interactive
+// markers — not the real POI marker above — because at the city-wide starting
+// zoom the real markers are usually absorbed into a cluster bubble (see
+// maxClusterRadius above) and a tooltip bound to a marker inside a cluster never
+// renders. LANDMARKS is an optional array of place ids a city's data file may
+// define (data-<city>.js); a city that defines none just gets no labels.
+const landmarkMarkers=[];
+if(typeof LANDMARKS!=='undefined'&&Array.isArray(LANDMARKS)){
+  LANDMARKS.forEach(id=>{
+    const src=P.find(p=>p.id===id);
+    if(!src)return;
+    const dot=L.circleMarker([src.lat,src.lng],{radius:0,opacity:0,fillOpacity:0,interactive:false,keyboard:false}).addTo(map);
+    dot.bindTooltip(src.n,{permanent:true,direction:'top',offset:[0,-4],className:'landmark-label',opacity:0.95,interactive:false});
+    landmarkMarkers.push({marker:dot,lat:src.lat,lng:src.lng,name:src.n});
+  });
+}
+if(landmarkMarkers.length){
+  map.on('zoomend',()=>setTimeout(updateLandmarkLabelVisibility,340));
+  // Unlike the bus-stop labels (only ever shown after fitBounds to a selected
+  // route, effectively stationary), these persist through ordinary panning, so
+  // they need to re-check overlap on moveend too, not only on zoom.
+  map.on('moveend',()=>setTimeout(updateLandmarkLabelVisibility,340));
+  setTimeout(updateLandmarkLabelVisibility,340);
+}
+
 function renderRegs(){
   const r=document.getElementById('regRow');r.innerHTML='';
   const all=document.createElement('button');all.className='reg-btn'+(aR.size===Object.keys(RI).length?' active':'');
@@ -2430,7 +2697,12 @@ function renderRegs(){
   const allSel=aR.size===Object.keys(RI).length;
   Object.keys(RI).forEach(k=>{const n=P.filter(p=>p.g===k).length;
     const b=document.createElement('button');b.className='reg-btn'+((aR.has(k)&&!allSel)?' active':'');
-    b.textContent=RI[k][L_]+' ('+n+')';
+    // P1-E: RI labels now carry a short geographic cue for someone with no
+    // mental map of the city yet (see data-<city>.js), which is itself a
+    // parenthetical — a second, differently-styled pair right after it would
+    // read as noise, so the place count switches to the middot the rest of the
+    // toolbar already uses for "label · detail" instead of its own parens.
+    b.textContent=RI[k][L_]+' · '+n;
     b.onclick=()=>{
       let action='toggle';
       if(aR.size===Object.keys(RI).length){action='first';aR=new Set([k]);}
@@ -2489,6 +2761,7 @@ function renderThemes(){
     };
     row.appendChild(b);
   });
+  updateThemeQuickpicks();
 }
 const expandedGroups=new Set(DEFAULT_OPEN_GROUPS);
 function renderCats(){
@@ -2619,9 +2892,14 @@ function apply(){let v=0;
     // On a short, narrow screen this line has to share a row with Reset, and the
     // count is the half worth keeping — which regions are on is already visible on
     // the Area button. The full sentence stays in the title attribute.
-    st.textContent=u.showing(v,P.length)+(TIGHT.matches?'':' · '+regionLabel());
+    // P2-G: "263 / 263" reads as a fraction with nothing to compare it to until a
+    // reader already knows the total is 263 — which is exactly the thing this line
+    // exists to tell them. Nothing filtered means nothing to divide, so it says the
+    // total plainly instead; the v/t form is saved for once the two numbers differ.
+    const countText=v===P.length?u.showingAll(P.length):u.showing(v,P.length);
+    st.textContent=countText+(TIGHT.matches?'':' · '+regionLabel());
   }
-  st.title=searching?st.textContent:(u.showing(v,P.length)+' · '+regionLabel());
+  st.title=searching?st.textContent:((v===P.length?u.showingAll(P.length):u.showing(v,P.length))+' · '+regionLabel());
   document.getElementById('applyBtn').textContent=u.doneBtn;
   lastVisible=v;
   updatePanelTitle();
@@ -2634,7 +2912,10 @@ function apply(){let v=0;
   const catBadgeN=aC.size+aT.size;
   if(catBadgeN>0){catBadge.hidden=false;catBadge.textContent=catBadgeN;}else{catBadge.hidden=true;}
   const dims=(aR.size===totalR?0:1)+(aC.size>0?1:0)+(aT.size>0?1:0);
-  document.getElementById('resetBtn').hidden=false;
+  // P0-B: this used to unconditionally show Reset and only dim it (.idle) when
+  // there was nothing to undo — a control that is always on screen implies there
+  // is always something to press. updateResetState(), below, now decides real
+  // visibility from the same state this dims from, so it is skipped here.
   // Area/Category and Quick Picks stay fully live while searching now, so nothing
   // dims them any more, and the active-filter chips stay visible too — they are
   // still true. The one thing worth saying is that a filter is narrowing the
@@ -2664,14 +2945,17 @@ function updatePanelTitle(){
   const u=UI[L_];
   const base=panelMode==='area'?u.regLabel:panelMode==='cat'?u.catLabel:
              panelMode==='bus'?u.busBtnLabel:u.favBtnLabel;
+  const countText=lastVisible===P.length?u.showingAll(P.length):u.showing(lastVisible,P.length);
   document.getElementById('panelTitle').textContent=
-    (panelMode==='area'||panelMode==='cat')?base+' · '+u.showing(lastVisible,P.length):base;
+    (panelMode==='area'||panelMode==='cat')?base+' · '+countText:base;
 }
-// Reset dims only when there is genuinely nothing to undo. Drawing a bus route does
-// not go through apply(), so renderRoute calls this as well.
+// P0-B: Reset is now genuinely absent — in the DOM's `hidden` sense, so assistive
+// tech skips it too — the moment every axis is back at its default, rather than
+// staying on screen in a dimmed .idle state implying there is still something to
+// press. Drawing a bus route does not go through apply(), so renderRoute calls
+// this too.
 function updateResetState(){
-  document.getElementById('resetBtn').classList
-    .toggle('idle',lastDims===0&&!searchTerm&&!selectedRoute);
+  document.getElementById('resetBtn').hidden=(lastDims===0&&!searchTerm&&!selectedRoute);
 }
 function renderEmptyState(v,searching,filtered){
   const el=document.getElementById('emptyState'),u=UI[L_];
@@ -2730,6 +3014,32 @@ function updateQpFade(){
 if(presetRowEl){
   presetRowEl.addEventListener('scroll',updateQpFade,{passive:true});
   window.addEventListener('resize',updateQpFade);
+}
+// P2-I — see the HTML comment above #qpFree/#qpFamily/#qpIndoor. Each button
+// just toggles one theme, exactly like a chip in the Category panel's theme
+// section would; renderThemes() already runs after every path that can change
+// aT, so calling updateThemeQuickpicks() from inside it keeps these in sync
+// without a second set of call sites to remember.
+const THEME_QUICKPICKS=['free','family','indoor'];
+function tqpId(k){return 'qp'+k.charAt(0).toUpperCase()+k.slice(1);}
+THEME_QUICKPICKS.forEach(k=>{
+  const el=document.getElementById(tqpId(k));
+  if(!el)return;
+  el.onclick=()=>{
+    const had=aT.has(k);
+    if(had)aT.delete(k);else aT.add(k);
+    trackEvent('theme_toggle',{id:k,action:had?'remove':'add',active:aT.size,src:'quickpick'});
+    renderThemes();renderCats();apply();
+  };
+});
+function updateThemeQuickpicks(){
+  THEME_QUICKPICKS.forEach(k=>{
+    const el=document.getElementById(tqpId(k));
+    if(!el)return;
+    el.innerHTML='<span aria-hidden="true">'+TIC[k]+'</span> '+themeLabel(k);
+    el.classList.toggle('active',aT.has(k));
+    el.setAttribute('aria-pressed',aT.has(k)?'true':'false');
+  });
 }
 function renderActiveFilters(){
   const root=document.getElementById('activeFilters');root.innerHTML='';
@@ -2794,6 +3104,7 @@ function setLang(l){
   setHL('noteToggle',u.noteToggleLabel);
   document.getElementById('noteTitle').textContent=u.noteToggleLabel;
   setHL('guideToggle',u.guideToggleLabel);
+  document.getElementById('guideToggle').dataset.short=u.guideToggleShort;
   setHL('shareBtn',u.shareBtnLabel);
   document.getElementById('shareBtn').title=u.shareBtnTip;
   const si=document.getElementById('searchInput');
@@ -2855,7 +3166,15 @@ function setLang(l){
   if(!panelBusEl.hidden)renderBusList();
   if(!panelFavEl.hidden)renderFavList();
   if(selectedRoute)renderRoute(selectedRoute,false);
-  document.getElementById('fhint').textContent=hintDismissed?'':u.hint;
+  refreshHint();
+  if(geoControl&&geoControl._btn){
+    geoControl._btn.setAttribute('aria-label',u.geoBtnTip);
+    geoControl._btn.title=u.geoBtnTip;
+    const tx=geoControl._btn.querySelector('.geo-btn-tx');
+    if(tx)tx.textContent=u.geoBtnLabel;
+  }
+  updateThemeQuickpicks();
+  updateQpFade();
   document.querySelectorAll('.lang-btn').forEach(b=>{
     const on=b.dataset.lang===l;
     b.classList.toggle('active',on);
@@ -3049,32 +3368,32 @@ function clusterRects(){
   });
   return out;
 }
-function updateStopLabelVisibility(){
-  if(!busStopMarkers.length)return;
+// Shared by bus-stop labels and the P1-F landmark labels: given a list of
+// {marker,lat,lng,name} items each already carrying a permanent tooltip, decide
+// which currently have room and hide the rest. `forceFn(item,idx,items)` marks
+// items that must always try to claim space first (bus routes use it for the
+// first/last stop and any named terminus; landmarks pass none — with only a
+// handful of them, none needs to jump the queue over the others).
+function computeLabelVisibility(items,forceFn){
+  if(!items.length)return;
   // Measure first, decide second. A label hidden by the previous pass reports
   // offsetWidth 0, so measuring in place made every hidden label look tiny,
   // "fit" anywhere, and reappear on top of its neighbour — the labels oscillated
   // instead of settling. Everything is made visible for the measuring pass and
   // only then hidden.
   const entries=[];
-  busStopMarkers.forEach((item,idx)=>{
+  items.forEach((item,idx)=>{
     const tt=item.marker.getTooltip();
     const el=tt&&tt.getElement();
     if(el)el.style.display='';
     let pt=null;
     try{pt=map.latLngToContainerPoint([item.lat,item.lng]);}catch(e){}
-    entries.push({idx,el,pt,txt:item.name,
-                  force:idx===0||idx===busStopMarkers.length-1||isKeyStop(item.name)});
+    entries.push({idx,el,pt,txt:item.name,force:forceFn?forceFn(item,idx,items):false});
   });
   entries.forEach(e=>{
     if(!e.el||!e.pt){e.rect=null;return;}
-    // Leaflet centres the tooltip above the point; use the width the text really
-    // takes, since "Lansdowne Exch Bay I" needs about three times the clearance
-    // of "8th St" and one fixed radius cannot be right for both.
-    const w=e.el.offsetWidth||60, h=e.el.offsetHeight||14;
-    e.rect={l:e.pt.x-w/2-2, r:e.pt.x+w/2+2, t:e.pt.y-h-8, b:e.pt.y+2};
+    e.rect=labelRect(e.el,e.pt);
   });
-  const clear=(a,b)=>a.r<b.l||b.r<a.l||a.b<b.t||b.b<a.t;
   // Against another label, any touch at all is disqualifying — two names on top of
   // each other are unreadable in both directions. Against a cluster bubble the bar
   // is lower: the bubbles are big and numerous, and vetoing every label that merely
@@ -3086,36 +3405,35 @@ function updateStopLabelVisibility(){
     const area=(a.r-a.l)*(a.b-a.t);
     return area>0?(w*h)/area:0;
   };
-  // Stop names also have to clear the place-cluster bubbles: a name drawn over a
-  // "59" makes both unreadable, and that layer was never taken into account.
-  const box=map.getContainer().getBoundingClientRect();
-  const taken=[];
-  document.querySelectorAll('.kcluster').forEach(el=>{
-    const r=el.getBoundingClientRect();
-    if(r.width)taken.push({l:r.left-box.left-2,r:r.right-box.left+2,t:r.top-box.top-2,b:r.bottom-box.top+2});
-  });
-  const clusters=taken.slice();   // clusters only; labels get appended below
+  const clusters=clusterRects();
   const show=new Set();
-  // Terminals and exchanges are the anchors a reader orients by, so they are
-  // always drawn and always claim their space first — processing in route order
-  // used to let an ordinary stop take a slot a terminus then drew over.
+  // Forced items are the anchors a reader orients by, so they always claim their
+  // space first — processing in list order used to let an ordinary item take a
+  // slot a forced one then drew over.
   const placed=[];
-  // A loop route can pass the same exchange bay twice, so two forced labels carry
-  // the identical name and land on top of each other. The second one adds nothing
-  // a reader can use, so it is dropped rather than smudged over the first.
+  // A loop bus route can pass the same exchange bay twice, so two forced labels
+  // carry the identical name and land on top of each other. The second one adds
+  // nothing a reader can use, so it is dropped rather than smudged over the first.
   entries.forEach(e=>{
     if(!e.force||!e.rect)return;
-    const dup=placed.some(t=>!clear(e.rect,t)&&t.txt===e.txt);
+    const dup=placed.some(t=>!rectsClear(e.rect,t)&&t.txt===e.txt);
     if(dup)return;
     e.rect.txt=e.txt; show.add(e.idx); placed.push(e.rect);
   });
   entries.forEach(e=>{
     if(e.force||!e.rect)return;
-    if(!placed.every(t=>clear(e.rect,t)))return;                 // never touch another label
-    if(clusters.some(c=>overlapFrac(e.rect,c)>0.30))return;      // and don't sit on a bubble
+    if(!placed.every(t=>rectsClear(e.rect,t)))return;             // never touch another label
+    if(clusters.some(c=>overlapFrac(e.rect,c)>0.30))return;       // and don't sit on a bubble
     placed.push(e.rect);show.add(e.idx);
   });
   entries.forEach(e=>{ if(e.el)e.el.style.display=show.has(e.idx)?'':'none'; });
+}
+function updateStopLabelVisibility(){
+  computeLabelVisibility(busStopMarkers,
+    (item,idx,items)=>idx===0||idx===items.length-1||isKeyStop(item.name));
+}
+function updateLandmarkLabelVisibility(){
+  computeLabelVisibility(landmarkMarkers,null);
 }
 map.on('zoomend',()=>setTimeout(updateStopLabelVisibility,340));
 function renderBusList(){
@@ -3192,6 +3510,13 @@ function dismissHint(){
   hintDismissed=true;
   document.getElementById('fhint').textContent='';
   try{localStorage.setItem('kamloopsHintDismissed','1');}catch(e){}
+}
+// P0-C: the only thing that ever clears the hint is hintDismissed — TIGHT only
+// picks which of the two translations shows, never whether one does. Called from
+// setLang() (language just changed) and from TIGHT's own change listener (screen
+// crossed the breakpoint while the hint was still showing).
+function refreshHint(){
+  document.getElementById('fhint').textContent=hintDismissed?'':(TIGHT.matches?UI[L_].hintShort:UI[L_].hint);
 }
 const FAV_CODE_PREFIX='KAM1:';
 function favCode(){return FAV_CODE_PREFIX+[...favorites].join('.');}
@@ -3402,7 +3727,7 @@ function showDragHintOnce(){
   grab.addEventListener('pointercancel',()=>end(false));
 })();
 window.addEventListener('resize',()=>{if(panel.classList.contains('open'))positionPanel();syncPanPad();});
-if(TIGHT.addEventListener)TIGHT.addEventListener('change',()=>apply());
+if(TIGHT.addEventListener)TIGHT.addEventListener('change',()=>{refreshHint();apply();});
 document.addEventListener('click',(e)=>{
   if(!panel.classList.contains('open')||window.innerWidth<=900)return;
   // A handler that re-renders its own container detaches the clicked element, so by

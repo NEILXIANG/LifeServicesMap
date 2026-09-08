@@ -19,6 +19,7 @@ mechanically, so a mistake here is usually caught before it reaches anyone.
 | `BR` | Bus routes: stops, geometry, service window |
 | `FAV_MIGRATE` | One-time map from old place names to ids. New cities: `{}` |
 | `UI.<lang>.guideCity` | The "About this city" section of the newcomer guide |
+| `LANDMARKS` | *Optional.* Place ids shown as permanent map labels on the opening view. See below. |
 
 Categories (`CI`), their colours and icons (`CO`/`CD`/`IC`), the groups (`GRP`/`GN`),
 the themes (`TI`/`TIC`/`TORDER`), the quick-pick presets (`PRESETS`) and the rest of
@@ -185,6 +186,33 @@ Derived from the local transit agency's GTFS feed. If a route is omitted, say so
 
 ---
 
+## `LANDMARKS` — persistent map labels (optional)
+
+Someone who has never seen the city has no anchor point when the opening view shows
+only cluster-count bubbles — the map reads as an abstract grid of numbers rather
+than a place. `LANDMARKS` fixes that by naming a handful of well-known places right
+on the map, always on, before anyone has clicked anything.
+
+```js
+const LANDMARKS=["f4c1c1d7","251dd9d0","a41504d6","2b34314d","72b24279","752036cd"];
+```
+
+An array of existing `P` ids — nothing else to configure. Each one renders as a
+small permanent text label (no separate pin; the place's own marker is unaffected)
+using the same anti-overlap placement algorithm as bus-stop labels, so a landmark
+label never collides with a stop label, another landmark label, or a visible
+cluster bubble. Labels hide themselves at zoom levels or pan positions where they'd
+crowd the view, exactly like stop labels already do.
+
+Guidance for choosing ids: 4-8 places, genuinely famous locally (a university, a
+major mall, a landmark park, the downtown core) — not evenly distributed for its
+own sake, and not a marketing exercise. `validate.py` only checks that every id
+resolves to a real, distinct place; the judgement of *which* places belong is
+yours. Omit the constant entirely for a city that isn't ready for this yet — the
+engine checks `typeof LANDMARKS!=='undefined'` and simply skips the feature.
+
+---
+
 ## Rules the validator enforces
 
 - Required fields present; category and region keys resolve; coordinates inside `CITY.bounds`
@@ -200,6 +228,7 @@ Derived from the local transit agency's GTFS feed. If a route is omitted, say so
 - No hard-coded ratings, no `$` figures in notes, no email inside `p`
 - No literal city/agency name in translated copy
 - The engine contains no city data, and still has its `/*__CITY_DATA__*/` marker
+- Every id in `LANDMARKS` (if defined) resolves to a real place, with no duplicates
 
 ## Rules it can't check — your judgement
 

@@ -266,6 +266,26 @@ for p in P:
             fail('sameComplex is one-way: %r points at %r but not the reverse'
                  % (p['n'], _by_id[other]['n']))
 
+# ------------------------------------------------------- 3c2b. LANDMARKS resolve
+# P1-F: an optional per-city array of place ids the engine labels persistently on
+# the map. Optional, so a city that defines none is fine — but one that defines
+# the array at all is naming ids by hand, and a stale or mistyped id would just
+# silently draw one fewer label with nothing in the console to say why.
+_landmarks_m = re.search(r'const LANDMARKS\s*=\s*(\[.*?\]);', script, re.S)
+if _landmarks_m:
+    try:
+        _landmark_ids = json.loads(_landmarks_m.group(1))
+    except Exception as e:
+        fail('LANDMARKS does not parse as JSON: %s' % e); _landmark_ids = []
+    if not isinstance(_landmark_ids, list):
+        fail('LANDMARKS is not a list')
+    else:
+        for _lid in _landmark_ids:
+            if _lid not in _by_id:
+                fail('LANDMARKS lists id %r, which no place has' % _lid)
+        dupes = [x for x in set(_landmark_ids) if _landmark_ids.count(x) > 1]
+        if dupes: fail('LANDMARKS repeats id(s) %s' % dupes)
+
 # ------------------------------------------------- 3c3. impossible coordinates
 # Two different civic numbers on the same street cannot be metres apart. When it
 # happens, one row has borrowed the other's coordinate — the failure that put a
@@ -601,6 +621,17 @@ defined = set(re.findall(r'function\s+([A-Za-z_][\w]*)', script))
 defined |= set(re.findall(r'(?:const|let|var)\s+([A-Za-z_][\w]*)\s*=', script))
 defined |= set(re.findall(r'([A-Za-z_][\w]*)\s*=\s*(?:function|\()', script))
 defined |= set(re.findall(r'(?:function|catch|forEach\()\s*\(?\s*([a-z]\w*)', script))
+# A named function's OWN parameters are legitimate callable symbols inside its
+# body (a callback passed in and invoked, e.g. `function f(x,onDone){onDone()}`)
+# but the patterns above only ever pick up a single identifier right after
+# function/catch/forEach( — for a named function that is the function's own name,
+# not any of its parameters. Every parameter of every named function declaration
+# is added here too, so a higher-order function that calls its own callback
+# parameter does not read as "calls onDone() but nothing defines it".
+for _params in re.findall(r'function\s+[A-Za-z_]\w*\s*\(([^)]*)\)', script):
+    for _p in _params.split(','):
+        _p = _p.strip().split('=')[0].strip()
+        if re.match(r'^[A-Za-z_]\w*$', _p): defined.add(_p)
 BUILTIN = {'if','for','while','switch','catch','return','typeof','function','new','JSON',
            'Number','String','Set','Map','Array','Object','Math','parseInt','parseFloat',
            'setTimeout','clearTimeout','encodeURIComponent','isNaN','L','require','console',
