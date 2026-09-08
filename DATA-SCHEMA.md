@@ -14,11 +14,11 @@ mechanically, so a mistake here is usually caught before it reaches anyone.
 | Object | What it is |
 |---|---|
 | `CITY` | Config: name, map centre, contact, transit agency, school district |
-| `RI` | Neighbourhood/region names, 5 languages |
+| `RI` | Neighbourhood/region names, 6 languages |
 | `P` | The places — the bulk of the work |
 | `BR` | Bus routes: stops, geometry, service window |
 | `FAV_MIGRATE` | One-time map from old place names to ids. New cities: `{}` |
-| `UI.<lang>.guideCity` | The "About this city" section of the newcomer guide |
+| `UI.<lang>.guideCity` | The "About this city" section of the resident guide |
 | `LANDMARKS` | *Optional.* Place ids shown as permanent map labels on the opening view. See below. |
 
 Categories (`CI`), their colours and icons (`CO`/`CD`/`IC`), the groups (`GRP`/`GN`),
@@ -34,7 +34,7 @@ everywhere.
 ```js
 const CITY={
   key:'kamloops',                    // must match the ?city= URL parameter
-  name:{zh:'…',en:'…',fr:'…',es:'…',ko:'…'},
+  name:{zh:'…',en:'…',fr:'…',es:'…',ko:'…',ja:'…'},
   prov:{zh:'BC省',en:'BC',…},        // province/state, as it reads in each language
   country:'CA',
   centre:[50.684,-120.35], zoom:12,  // opening view
@@ -79,7 +79,7 @@ One object per place. Only six fields are required.
 | `e` | string | Email, if the place publishes one. |
 | `w` | string | Website, `https://…`. |
 | `h` | object | Opening hours — see below. Omit when genuinely unknown, **and always omit for open-air places**: the engine then renders "hours posted on site", which is true without anyone having to know the bylaw. |
-| `note` | `{zh,en,fr,es,ko}` | Your own description. **`zh` and `en` are required.** `fr`/`es`/`ko` are optional but all-or-nothing: a note with French and no Korean is rejected, because one language silently showing another's text while its neighbours are translated is worse than a clean fallback. |
+| `note` | `{zh,en,fr,es,ko,ja}` | Your own description. **`zh` and `en` are required.** `fr`/`es`/`ko`/`ja` are optional but all-or-nothing: a note with French and no Korean is rejected, because one language silently showing another's text while its neighbours are translated is worse than a clean fallback. |
 | `tag` | key | Short qualifier shown as a chip, e.g. `tKorean`, `t24h`. Defined in the engine. |
 | `t` | array | **Themes** — the overlapping second axis. See below. Order must follow `TORDER`. |
 | `precision` | `'low'` | The coordinate is approximate (roughly ±100 m): interpolated, or published only to three decimals. The popup says so, so the pin never claims a confidence it doesn't have. The address is unaffected, and navigation uses the address. |
@@ -149,7 +149,7 @@ AND indoor" on a wet Tuesday.
 
 ### `h` — opening hours
 
-Structured, not prose, so all five languages render from one source and closed
+Structured, not prose, so all six languages render from one source and closed
 days can be stated rather than implied.
 
 ```js
@@ -168,7 +168,7 @@ past midnight is written as `>1440`. Days not covered by any range are rendered 
 explicitly closed.
 
 Keys for `k` and `q` (`hCall`, `hCallDay`, `hSite`, `qOffice`, …) are defined in the
-engine so they translate; add new ones there, in all five languages.
+engine so they translate; add new ones there, in all six languages.
 
 ---
 
@@ -219,8 +219,8 @@ engine checks `typeof LANDMARKS!=='undefined'` and simply skips the feature.
 - Place names unique; ids unique and present
 - `note` is `{zh,en}`, both non-empty, and the English contains no Chinese
 - Hours objects are renderable; day ranges and times are sane
-- Every `tag`/`pq`/`k`/`q` key is defined in all five languages
-- All five languages have identical key sets, in the UI object and in the post-assignments
+- Every `tag`/`pq`/`k`/`q` key is defined in all six languages
+- All six languages have identical key sets, in the UI object and in the post-assignments
 - Every record has a valid `src`, and `official` is backed by a `w`
 - `note` translations are all-or-nothing, and none is a copy of the English
 - No two names differ only by a ⭐ prefix; no address contains Chinese
@@ -260,7 +260,7 @@ inflates the count a person uses to judge how much choice they have.
 ## Adding a city
 
 1. `cp src/data-kamloops.js src/data-<city>.js`
-2. Replace `CITY`, `RI`, `P`, `BR`; set `FAV_MIGRATE={}`; rewrite the five
+2. Replace `CITY`, `RI`, `P`, `BR`; set `FAV_MIGRATE={}`; rewrite the six
    `UI.<lang>.guideCity` blocks
 3. If it is in another province, also update the `guideProv` tier **in the engine**
    — or move it into the data file if you are supporting several provinces

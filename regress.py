@@ -129,11 +129,11 @@ async def main():
 
         print("\n--- hours rendering across languages ---")
         h=await pg.evaluate("""()=>{const bad=[];
-          ['zh','en','fr','es','ko'].forEach(l=>Pref.forEach(p=>{if(!p.h)return;
+          ['zh','en','fr','es','ko','ja'].forEach(l=>Pref.forEach(p=>{if(!p.h)return;
             const s=fmtHoursRef(p.h,l);
             if(!s||/undefined|NaN|\\[object/.test(s))bad.push(l+':'+p.n);}));
           return bad;}""")
-        check("01 hours render in all 5 languages", len(h)==0, h[:3])
+        check("01 hours render in all 6 languages", len(h)==0, h[:3])
         cl=await pg.evaluate("""()=>{L_='en';const p=Pref.find(x=>/South Kamloops Secondary/.test(x.n));
           return fmtHoursRef(p.h,'en');}""")
         check("01 closed days stated", 'Closed' in cl, cl)
@@ -284,7 +284,7 @@ async def main():
         print("\n--- CITY config (round 4) ---")
         import re as _re
         leaks=set()
-        for _lg in ['en','fr','es','zh','ko']:
+        for _lg in ['en','fr','es','zh','ko','ja']:
             await pg.click('[data-lang="%s"]' % _lg); await pg.wait_for_timeout(320)
             await pg.click('#guideToggle'); await pg.wait_for_timeout(260)
             _g=await pg.inner_text('#guideBody'); await pg.keyboard.press('Escape'); await pg.wait_for_timeout(160)
@@ -376,7 +376,7 @@ async def main():
         check("37 every record declares a source", ('missing' not in pr['c']), pr['c'])
         check("37 no official claim without a link to check it", pr['bad']==0)
         chip=await pg.evaluate("""()=>{const out={};
-          ['zh','en','fr','es','ko'].forEach(l=>{setLang(l);
+          ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
             const i=Pref.findIndex(x=>x.src==='official');
             const h=popup(Pref[i],i);
             const j=Pref.findIndex(x=>x.src==='places');
@@ -438,10 +438,10 @@ async def main():
               'contributors' in at and 'openstreetmap.org/copyright' in at)
         check("41 no external font request",
               await pg.evaluate("()=>!document.querySelector('link[href*=\"fonts.\"]')"))
-        priv=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko'].forEach(l=>{setLang(l);
+        priv=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
           o[l]=document.getElementById('noteBody').innerText.indexOf(UI[l].privacyNote.replace(/<[^>]+>/g,'').slice(2,18))>-1;});
           setLang('en');return o;}""")
-        check("41 privacy disclosure renders in all five languages", all(priv.values()), priv)
+        check("41 privacy disclosure renders in all six languages", all(priv.values()), priv)
 
         print("\n--- contrast and the favourite star's state (round 6) ---")
         op=await pg.evaluate("""()=>{const out={};
@@ -471,10 +471,10 @@ async def main():
         check("44 no Chinese in any address field", len(dh['zhAddr'])==0, dh['zhAddr'][:3])
         check("44 house wording 新居民 used throughout", len(dh['oldTerm'])==0, dh['oldTerm'][:3])
         check("44 the duplicated agency appears exactly once", dh['immigrant']==1, dh['immigrant'])
-        oa=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko'].forEach(l=>{setLang(l);
+        oa=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
           const p=Pref.find(x=>x.n==='Riverside Park');
           o[l]=popup(p,Pref.indexOf(p)).indexOf(UI[l].hOnSite)>-1;});setLang('en');return o;}""")
-        check("44 open-air places say 'hours posted on site' in all five languages", all(oa.values()), oa)
+        check("44 open-air places say 'hours posted on site' in all six languages", all(oa.values()), oa)
 
         print("\n--- favourites survive a wiped browser (round 7) ---")
         await pg.evaluate("()=>{localStorage.clear();favRef().clear();updateFavBadge();}")
@@ -504,7 +504,7 @@ async def main():
         # measures a page nobody actually holds.
         tprobs=[]
         for w,h in [(320,568),(360,640),(390,760),(430,760)]:
-            for lang in ['en','fr','es','zh','ko']:
+            for lang in ['en','fr','es','zh','ko','ja']:
                 pgc=await b.new_page(viewport={'width':w,'height':h}, has_touch=True, is_mobile=True)
                 pgc.on('pageerror', lambda e: allerrs.append(str(e)))
                 await pgc.goto(URL); await pgc.wait_for_timeout(900)
@@ -538,7 +538,7 @@ async def main():
         tx=await pg.evaluate("""()=>{const c={};Pref.forEach(p=>{c[p.c]=(c[p.c]||0)+1;});
           return {apt:c.apt,propmgmt:c.propmgmt,gov:c.gov,commctr:c.commctr,
                   emoji:Pref.filter(p=>/^🏢/.test(p.n)).length,
-                  labels:['zh','en','fr','es','ko'].every(l=>!!CIref.propmgmt[l])};}""")
+                  labels:['zh','en','fr','es','ko','ja'].every(l=>!!CIref.propmgmt[l])};}""")
         check("48 letting agents are their own category, not padding the apartment count",
               tx['apt']==14 and tx['propmgmt']==4 and tx['emoji']==0, tx)
         check("48 the new category is labelled in every language", tx['labels'])
@@ -555,9 +555,9 @@ async def main():
 
         nt=await pg.evaluate("""()=>{const w=Pref.filter(p=>p.note);
           return {n:w.length,
-            five:w.filter(p=>['zh','en','fr','es','ko'].every(l=>p.note[l])).length,
+            five:w.filter(p=>['zh','en','fr','es','ko','ja'].every(l=>p.note[l])).length,
             copiedFromEn:w.filter(p=>p.note.fr===p.note.en||p.note.es===p.note.en||p.note.ko===p.note.en).length};}""")
-        check("50 every place note exists in all five languages", nt['n']==nt['five'], nt)
+        check("50 every place note exists in all six languages", nt['n']==nt['five'], nt)
         check("50 no translation is just the English text again", nt['copiedFromEn']==0, nt)
         korean=await pg.evaluate("""()=>{setLang('ko');
           const p=Pref.find(x=>x.n==='Riverside Park');
@@ -573,7 +573,7 @@ async def main():
         # opening, which is why maxHeight is measured from the map, not the viewport.
         pprobs=[]
         for w,h in [(320,568),(360,640),(390,760),(1280,900)]:
-            for lang in ['en','fr','es','zh','ko']:
+            for lang in ['en','fr','es','zh','ko','ja']:
                 pgp=await b.new_page(viewport={'width':w,'height':h},
                                      has_touch=(w<600), is_mobile=(w<600))
                 pgp.on('pageerror', lambda e: allerrs.append(str(e)))
@@ -608,7 +608,7 @@ async def main():
 
         print("\n--- layout / overflow across languages and widths ---")
         probs=[]
-        for lang in ['en','fr','es','zh','ko']:
+        for lang in ['en','fr','es','zh','ko','ja']:
             for w,h in [(1440,900),(1280,900),(1200,800),(1024,800),(900,800),(768,800),(600,800),(430,760),(390,664),(360,640),(340,640),(320,568)]:
                 pg2=await b.new_page(viewport={'width':w,'height':h})
                 pg2.on('pageerror', lambda e: allerrs.append(str(e)))
@@ -644,7 +644,7 @@ async def main():
         check("18/26 no overflow, map keeps a usable share", len(probs)==0, probs[:4])
 
         print("\n--- full walkthrough in each language ---")
-        for lang in ['en','fr','es','zh','ko']:
+        for lang in ['en','fr','es','zh','ko','ja']:
             pg3=await b.new_page(viewport={'width':1280,'height':900})
             errs=[]; pg3.on('pageerror', lambda e: errs.append(str(e)))
             await pg3.goto(URL); await pg3.wait_for_timeout(1500)
@@ -727,9 +727,9 @@ async def main():
         check("52 Reset clears themes as well as areas and categories",
               await pgt.evaluate("()=>aT.size")==0 and await pgt.evaluate("()=>lastVisible")==total)
         # Themes are read in the reading language everywhere they appear.
-        tl=await pgt.evaluate("""()=>{const o={};['zh','en','fr','es','ko'].forEach(l=>{
+        tl=await pgt.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{
             o[l]=TORDER.every(k=>TI[k][l]&&TI[k][l].length>1);});return o;}""")
-        check("52 every theme is labelled in all five languages", all(tl.values()), tl)
+        check("52 every theme is labelled in all six languages", all(tl.values()), tl)
         await pgt.evaluate("()=>setLang('zh')"); await pgt.wait_for_timeout(250)
         await pgt.fill('#searchInput','亲子'); await pgt.wait_for_timeout(700)
         check("52 searching a theme name in the reading language finds its places",
@@ -760,7 +760,7 @@ async def main():
                     named:P[i].sameComplex.every(id=>h.indexOf((P.find(x=>x.id===id)||{}).n)>-1)};}""")
         check("53 two markers on one coordinate name each other instead of looking duplicated",
               sc and sc['ok'] and sc['named'], sc)
-        for l in ('zh','en','fr','es','ko'):
+        for l in ('zh','en','fr','es','ko','ja'):
             await pgh.evaluate("l=>setLang(l)", l)
             ok=await pgh.evaluate("""()=>{const i=P.findIndex(p=>p.precision==='low');
                 return popup(P[i],i).indexOf(UI[L_].lowPrecision)>-1;}""")
@@ -772,7 +772,7 @@ async def main():
         pgg=await b.new_page(viewport={'width':420,'height':820})
         eg=[]; pgg.on('pageerror', lambda e: eg.append(str(e)))
         await pgg.goto(URL); await pgg.wait_for_timeout(1300)
-        for l in ('zh','en','fr','es','ko'):
+        for l in ('zh','en','fr','es','ko','ja'):
             await pgg.evaluate("l=>setLang(l)", l)
             await pgg.wait_for_timeout(220)
             g=await pgg.evaluate("""()=>{const b=document.getElementById('guideBody');
@@ -839,7 +839,7 @@ async def main():
         lb=await pgl.evaluate("""()=>[...document.querySelectorAll('.lang-btn')].map(b=>
             ({k:b.dataset.lang,lang:b.getAttribute('lang'),al:b.getAttribute('aria-label'),ti:b.getAttribute('title')}))""")
         check("56 every language button declares its own language and name",
-              len(lb)==5 and all(x['lang'] and x['al'] and x['ti'] for x in lb), lb)
+              len(lb)==6 and all(x['lang'] and x['al'] and x['ti'] for x in lb), lb)
         # A closed-day list and a bracketed count used CJK punctuation inline, so
         # English readers were shown "Closed: Tue、Thu、Sun" and "Route 1（31 stops）".
         HOURS={"r":[[1,1,540,1020,0],[3,3,540,1020,0],[5,6,540,1020,0]]}
@@ -851,8 +851,13 @@ async def main():
         await pgl.evaluate("l=>setLang(l)", 'zh'); await pgl.wait_for_timeout(200)
         zh=await pgl.evaluate("([h,l])=>fmtHours(h,l)", [HOURS,'zh'])
         check("56 zh keeps the ideographic comma, which is correct there", '、' in zh, zh[-30:])
+        await pgl.evaluate("l=>setLang(l)", 'ja'); await pgl.wait_for_timeout(200)
+        ja=await pgl.evaluate("([h,l])=>fmtHours(h,l)", [HOURS,'ja'])
+        check("56 ja also uses the ideographic comma, a deliberate match with zh", '、' in ja, ja[-30:])
         ko=await pgl.evaluate("()=>UI.ko.colon")
         check("56 ko sets a Korean colon, not the Chinese full-width one", ko.strip()==':', repr(ko))
+        ja_colon=await pgl.evaluate("()=>UI.ja.colon")
+        check("56 ja sets a half-width colon, not the Chinese full-width one", ja_colon.strip()==':', repr(ja_colon))
         for lang in ('en','fr','es','ko'):
             await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(150)
             await pgl.evaluate("()=>renderRoute(Object.keys(BR)[0],false)"); await pgl.wait_for_timeout(300)
@@ -861,7 +866,7 @@ async def main():
                   '（' not in ind and '）' not in ind, ind.replace('\n',' ')[:60])
             await pgl.evaluate("()=>renderRoute(null,false)"); await pgl.wait_for_timeout(120)
         tags={}
-        for lang in ('en','fr','es','zh','ko'):
+        for lang in ('en','fr','es','zh','ko','ja'):
             await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(150)
             tags[lang]=await pgl.evaluate("()=>document.documentElement.lang")
         check("56 the document declares the locale actually written",

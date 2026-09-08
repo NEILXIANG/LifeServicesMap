@@ -59,7 +59,7 @@ def extract(varname, src=None):
         j += 1
     return json.loads(s[i:j])
 
-LANGS = ['zh', 'en', 'fr', 'es', 'ko']
+LANGS = ['zh', 'en', 'fr', 'es', 'ko', 'ja']
 
 # ---------------------------------------------------------------- 1. syntax
 # Only the app's own script — never a vendored library that build.py inlined.
@@ -152,12 +152,12 @@ for p in P:
         fail('%r note is still a bare string, not {zh,en}' % p['n']); continue
     for k in ('zh', 'en'):
         if not nt.get(k): fail('%r note is missing the %s text' % (p['n'], k))
-    # fr/es/ko are optional per record (the engine falls back to English), but a
+    # fr/es/ko/ja are optional per record (the engine falls back to English), but a
     # half-translated note is worse than none: it means one language silently shows
     # another's text while its neighbours are translated.
-    extra = [k for k in ('fr', 'es', 'ko') if nt.get(k)]
-    if extra and len(extra) != 3:
-        fail('%r note has %s but not the rest — translate all three or none'
+    extra = [k for k in ('fr', 'es', 'ko', 'ja') if nt.get(k)]
+    if extra and len(extra) != 4:
+        fail('%r note has %s but not the rest — translate all four or none'
              % (p['n'], '/'.join(extra)))
     for k in extra:
         if nt[k].strip() == (nt.get('en') or '').strip():
@@ -186,10 +186,18 @@ for p in P:
              '"hours posted on site"' % (p['n'], p['c']))
 
 # ------------------------------------------------- 3b4. house wording
+# 2026.09.07h: the site's own branding moved from "新居民" (newcomer) to the
+# plainer "居民" (resident) — 新移民 stays forbidden (always has been the wrong
+# register for a note), and 新居民 joins it now that it is the deprecated form.
+# A note describing a program whose real eligibility is immigration-specific
+# (e.g. SWIS's "新移民家庭") is not a house-wording violation — 新移民 there
+# names an actual status, not the site's own generic term for its readers.
 for p in P:
     for t in (p.get('note') or {}).values():
         if '新移民' in t:
-            fail('%r note uses 新移民; the house wording is 新居民' % p['n'])
+            fail('%r note uses 新移民; the house wording is 居民' % p['n'])
+        if '新居民' in t:
+            fail('%r note uses 新居民 (the old house wording); it is now 居民' % p['n'])
 
 # ------------------------------------------------- 3b5. coordinate precision
 # Three decimal places is roughly 110 m — the marker lands mid-block. Not a failure
