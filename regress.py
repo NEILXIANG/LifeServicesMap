@@ -402,7 +402,12 @@ async def main():
         await pg.evaluate("mapref.closePopup()")
 
         print("\n--- modal vs Leaflet chrome (round 6) ---")
-        await pg.click('#noteToggle'); await pg.wait_for_timeout(500)
+        # #noteToggle carries `hidden` (2026-09-08, feature paused at the user's
+        # request) so it can no longer be clicked — the modal and #noteBody's
+        # content are still fully wired up underneath, so this opens it the same
+        # way the hidden button used to, keeping the coverage this round exists for.
+        await pg.evaluate("()=>{trackEvent('note_open',{});openModal(document.getElementById('noteBackdrop'));}")
+        await pg.wait_for_timeout(500)
         z0=await pg.evaluate("mapref.getZoom()")
         hit=await pg.evaluate("""()=>{const out={};
           [['zoom','.leaflet-control-zoom'],['attr','.leaflet-control-attribution']].forEach(([k,sel])=>{
@@ -652,7 +657,10 @@ async def main():
             for bid in ['#areaBtn','#areaBtn','#catBtn','#catBtn','#busBtn','#busBtn','#favBtn','#favBtn']:
                 await pg3.click(bid); await pg3.wait_for_timeout(150)
             await pg3.click('#guideToggle'); await pg3.wait_for_timeout(250); await pg3.keyboard.press('Escape')
-            await pg3.click('#noteToggle'); await pg3.wait_for_timeout(250); await pg3.keyboard.press('Escape')
+            # #noteToggle is hidden (2026-09-08); open the same modal programmatically
+            # so this walkthrough still exercises it per language.
+            await pg3.evaluate("()=>{trackEvent('note_open',{});openModal(document.getElementById('noteBackdrop'));}")
+            await pg3.wait_for_timeout(250); await pg3.keyboard.press('Escape')
             await pg3.click('#kids'); await pg3.wait_for_timeout(350)
             await pg3.click('#resetBtn'); await pg3.wait_for_timeout(300)
             await pg3.fill('#searchInput','park'); await pg3.wait_for_timeout(600)
@@ -892,6 +900,14 @@ async def main():
 
         check("57 geolocate control renders on the map, not in the header",
               await pge.evaluate("()=>!!document.querySelector('.geo-btn')"))
+        # 2026-09-08: this is the single most-used control on the map, so it gets a
+        # bigger tap target than the shared 44px accessibility floor -- 48px --
+        # under pointer:coarse (this page is has_touch/is_mobile).
+        geo_btn_box=await pge.evaluate("""()=>{
+            const r=document.querySelector('.geo-btn').getBoundingClientRect();
+            return {w:r.width,h:r.height};}""")
+        check("57 the geo button meets its enlarged 48px touch target under pointer:coarse",
+              geo_btn_box['w']>=48 and geo_btn_box['h']>=48, geo_btn_box)
         check("57 geolocation is never touched before any click",
               await pge.evaluate("()=>window.__geoCalls")==0)
         await pge.click('.geo-btn'); await pge.wait_for_timeout(200)
@@ -920,6 +936,30 @@ async def main():
               bool(geoevs) and geoevs[-1].get('result')=='success'
               and not any(k in geoevs[-1] for k in ('lat','lng','latitude','longitude','coords')),
               geoevs[-1] if geoevs else None)
+
+        # 2026-09-08: the plain circleMarker "you are here" dot was replaced with a
+        # pulsing divIcon marker plus a permanent, translated tooltip, so a first-
+        # time user recognizes their own location instead of seeing an ambiguous
+        # blue dot. Cover the new marker shape, the tooltip text/content, and that
+        # switching languages updates the tooltip in place.
+        here_shape=await pge.evaluate("""()=>{
+            const el=document.querySelector('.geo-here-icon');
+            return {hasIcon:!!el, hasDot:!!el&&!!el.querySelector('.geo-here-dot'),
+                    hasPulse:!!el&&!!el.querySelector('.geo-here-pulse'),
+                    hasMarker:typeof geoMarker!=='undefined'&&!!geoMarker};}""")
+        check("57 a successful fix drops a pulsing here-marker, not a plain dot",
+              here_shape['hasIcon'] and here_shape['hasDot'] and here_shape['hasPulse']
+              and here_shape['hasMarker'], here_shape)
+        here_tip_en=await pge.evaluate("""()=>{
+            const t=geoMarker&&geoMarker.getTooltip&&geoMarker.getTooltip();
+            return {perm:!!t&&t.options.permanent, txt:t&&t.getContent(), expected:UI.en.geoHereLabel};}""")
+        check("57 the here-marker carries a permanent tooltip with the translated label",
+              here_tip_en['perm'] and here_tip_en['txt']==here_tip_en['expected'], here_tip_en)
+        await pge.evaluate("l=>setLang(l)", 'zh'); await pge.wait_for_timeout(150)
+        here_tip_zh=await pge.evaluate("()=>geoMarker.getTooltip().getContent()")
+        check("57 switching languages updates the here-marker's tooltip in place",
+              here_tip_zh==await pge.evaluate("()=>UI.zh.geoHereLabel"), here_tip_zh)
+        await pge.evaluate("l=>setLang(l)", 'en'); await pge.wait_for_timeout(150)
         await pge.click('.geo-btn'); await pge.wait_for_timeout(200)
         check("57 a second tap skips the explainer — consent was already given",
               await pge.evaluate("()=>window.__geoCalls")==2
@@ -986,9 +1026,17 @@ async def main():
 
         short_label=await pge.evaluate("()=>document.getElementById('guideToggle').dataset.short")
         check("64 the guide button carries a short visible label", bool(short_label), short_label)
-        other_hidden=await pge.evaluate("""()=>['shareBtn','feedbackLink','noteToggle']
+        other_hidden=await pge.evaluate("""()=>['shareBtn','feedbackLink']
             .every(id=>getComputedStyle(document.getElementById(id).querySelector('.hl-tx')).display==='none')""")
-        check("64 the other three header links stay icon-only at this width", other_hidden)
+        check("64 the other two header links stay icon-only at this width", other_hidden)
+        # #noteToggle is hidden outright (2026-09-08), not merely icon-only, so it
+        # gets its own stronger assertion: the button itself must not render at all,
+        # guarding against the CSS-cascade trap where an author-origin display rule
+        # (e.g. the pointer:coarse header-links block) would otherwise defeat the
+        # native [hidden] behavior.
+        note_toggle_hidden=await pge.evaluate(
+            "()=>getComputedStyle(document.getElementById('noteToggle')).display==='none'")
+        check("64b #noteToggle stays fully hidden (not just icon-only) at this width", note_toggle_hidden)
         await pge.close()
 
         pgt2=await b.new_page(viewport={'width':375,'height':600}, has_touch=True, is_mobile=True)
@@ -999,6 +1047,14 @@ async def main():
         check("60 a short screen shows the shortened hint instead of nothing",
               len(fhint_txt)>0 and fhint_txt==short_expected, {'shown':fhint_txt,'expected':short_expected})
         check("60 no page errors on a short screen", len(et2)==0, et2[:3])
+        # This page is has_touch/is_mobile, i.e. pointer:coarse -- exactly the
+        # condition under which @media(pointer:coarse){.header-links a,...} would
+        # (if the defensive #noteToggle[hidden] override were ever removed) win
+        # the cascade over the native [hidden] rule and make the button reappear.
+        note_toggle_hidden_coarse=await pgt2.evaluate(
+            "()=>getComputedStyle(document.getElementById('noteToggle')).display==='none'")
+        check("60 #noteToggle stays hidden under pointer:coarse, not just fine pointer",
+              note_toggle_hidden_coarse)
         await pgt2.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")

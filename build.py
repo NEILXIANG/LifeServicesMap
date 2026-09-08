@@ -17,7 +17,7 @@ SRC = os.path.join(HERE, 'src')
 MARKER = '/*__CITY_DATA__*/'
 
 
-def build(city, out_path=None, inline_libs=True):
+def build(city, out_path=None, inline_libs=True, sync_public=True):
     engine_path = os.path.join(SRC, 'engine.html')
     data_path = os.path.join(SRC, 'data-%s.js' % city)
     for p in (engine_path, data_path):
@@ -38,7 +38,29 @@ def build(city, out_path=None, inline_libs=True):
 
     out_path = out_path or os.path.join(HERE, '%s.html' % city)
     open(out_path, 'w', encoding='utf-8').write(html)
-    return out_path, len(html.encode())
+
+    # deploy.sh's own [1/5] step rebuilds public/index.html — that is the file
+    # actually served by the Cloudflare Worker — but that only happens when
+    # someone runs deploy.sh. Anyone (including this build script's other
+    # callers, e.g. a plain `--city kamloops` run used only to feed
+    # validate.py/regress.py during local iteration) who rebuilds root
+    # kamloops.html without also running deploy.sh leaves public/index.html
+    # silently behind (this is exactly what happened 2026.09.07→08: root was
+    # rebuilt many times, public/index.html sat untouched since 04:56).
+    # So for kamloops specifically, every build keeps both copies in sync by
+    # default — the deploy artifact can no longer drift just because deploy.sh
+    # wasn't the thing that was run. Pass sync_public=False (or --no-sync-public
+    # from the CLI) for the rare case of a one-off test build (e.g. --cdn) that
+    # should not touch the real deploy artifact.
+    public_dir = os.path.join(HERE, 'public')
+    public_index = os.path.join(public_dir, 'index.html')
+    synced_public = False
+    if (sync_public and city == 'kamloops' and os.path.isdir(public_dir)
+            and os.path.abspath(out_path) != os.path.abspath(public_index)):
+        open(public_index, 'w', encoding='utf-8').write(html)
+        synced_public = True
+
+    return out_path, len(html.encode()), synced_public
 
 
 def inline_dependencies(html):
@@ -84,6 +106,12 @@ if __name__ == '__main__':
                     help='output path (default <city>.html; pass your own name if you keep the file under a different one)')
     ap.add_argument('--cdn', action='store_true',
                     help='keep the CDN <script> tags instead of inlining (smaller file, needs a network)')
+    ap.add_argument('--no-sync-public', action='store_true',
+                    help="don't also refresh public/index.html for a kamloops build "
+                         "(default: kept in sync automatically — see comment in build())")
     a = ap.parse_args()
-    path, size = build(a.city, a.out, inline_libs=not a.cdn)
+    path, size, synced_public = build(a.city, a.out, inline_libs=not a.cdn,
+                                       sync_public=not a.no_sync_public)
     print('built %s  (%d KB)' % (path, size // 1024))
+    if synced_public:
+        print('also synced public/index.html (the Cloudflare deploy artifact) to match')

@@ -60,6 +60,12 @@
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
   .note-toggle{position:relative;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
   .feedback-link:hover,.note-toggle:hover{text-decoration:underline;}
+  /* #noteToggle carries a static `hidden` attribute (2026-09-08). Without this,
+     the coarse-pointer media query below sets .note-toggle{display:inline-flex},
+     an author rule that wins over the UA's [hidden]{display:none} regardless of
+     specificity — so the button would silently reappear, full-size, on every
+     touch device. Same trap validate.py's "[hidden] traps" check looks for. */
+  #noteToggle[hidden]{display:none;}
 
   .sec-label{padding:2px 0 7px;font-family:var(--font);font-size:11.5px;font-weight:600;color:var(--sage);letter-spacing:.2px;}
   /* unified filter toolbar — identical on every breakpoint */
@@ -390,7 +396,26 @@
   .geo-btn svg{flex:0 0 auto;display:block;}
   .geo-btn.loading svg{animation:geo-spin 1s linear infinite;}
   @keyframes geo-spin{to{transform:rotate(360deg);}}
-  @media(max-width:600px){.geo-btn-tx{display:none;}.geo-btn{padding:9px;border-radius:50%;}}
+  @media(max-width:600px){.geo-btn-tx{display:none;}.geo-btn{padding:10px;border-radius:50%;}}
+  /* The "you are here" marker: a solid dot plus an expanding, fading ring, so a
+     first-time tap on Near Me reads unambiguously as "this pin is me" rather
+     than one more place marker among 260-odd others. The permanent tooltip
+     says the same thing in words for anyone still unsure. Leaflet's default
+     div-icon box (white fill, grey border) is reset off since this icon draws
+     its own shape. */
+  .geo-here-icon{background:transparent!important;border:none!important;}
+  .geo-here{position:relative;width:22px;height:22px;}
+  .geo-here-dot{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;
+    border-radius:50%;background:var(--accent);border:2.5px solid #fff;
+    box-shadow:0 1px 3px rgba(0,0,0,.45);}
+  .geo-here-pulse{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;
+    border-radius:50%;background:var(--accent);opacity:.55;
+    animation:geo-pulse 1.8s cubic-bezier(0,0,.3,1) infinite;}
+  @keyframes geo-pulse{0%{transform:scale(1);opacity:.55;}100%{transform:scale(3);opacity:0;}}
+  @media(prefers-reduced-motion:reduce){.geo-here-pulse{animation:none;opacity:.22;}}
+  .geo-here-tip.leaflet-tooltip{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;
+    padding:3px 8px;border:none;box-shadow:0 1px 3px rgba(0,0,0,.35);}
+  .geo-here-tip.leaflet-tooltip-top::before{border-top-color:var(--ink);}
   /* The explanation banner (first tap only) and the plain-language error messages
      (denied/unavailable/timeout/unsupported) share this box, distinguished only by
      .err — an amber tone matching .offline-note's own "something didn't work"
@@ -447,6 +472,12 @@
     .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;
       display:inline-flex;align-items:center;justify-content:center;}
     .search-bar{padding-top:12px;padding-bottom:12px;}
+    /* 2026-09-08: Near Me is the one map-corner control most people use with a
+       thumb, at arm's length, glancing rather than aiming — the shared 44px
+       floor above is a legal minimum, not a comfortable one. Bumped past every
+       other control here specifically for that reason, not as a general size
+       increase for icon buttons. */
+    .geo-btn{min-width:48px;min-height:48px;}
   }
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{
@@ -603,7 +634,11 @@
     <button class="note-toggle" id="shareBtn"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
     <a class="feedback-link" id="feedbackLink" href="#"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></a>
     <button class="note-toggle" id="guideToggle"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
-    <button class="note-toggle" id="noteToggle"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
+    <!-- 2026-09-08: hidden at the user's request pending a rethink of this feature —
+         not removed. The button, its modal, and #noteBody's per-language content
+         all still render normally; `hidden` only takes the entry point out of the
+         page (and out of tab order) so it can come back with one attribute. -->
+    <button class="note-toggle" id="noteToggle" hidden><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
   </div>
   <h1 id="h1" aria-describedby="sub"></h1>
   <p class="sub" id="sub"></p>
@@ -826,6 +861,10 @@ UI.es.geoUnsupported='Este navegador no admite la localización — aún puede e
 UI.ko.geoUnsupported='이 브라우저는 위치 확인을 지원하지 않습니다 — 아래의 "지역별 필터"로 계속 둘러볼 수 있습니다.';UI.ja.geoUnsupported='このブラウザは位置情報に対応していません — 下の「エリアで絞り込む」を使って引き続き地図を見ることができます。';
 UI.zh.geoDismiss='知道了'; UI.en.geoDismiss='Got it'; UI.fr.geoDismiss='Compris'; UI.es.geoDismiss='Entendido'; UI.ko.geoDismiss='확인';UI.ja.geoDismiss='了解';
 UI.zh.geoFoundAnnounce='地图已移动到你附近的位置'; UI.en.geoFoundAnnounce='Map centred on your location'; UI.fr.geoFoundAnnounce='Carte centrée sur votre position'; UI.es.geoFoundAnnounce='Mapa centrado en su ubicación'; UI.ko.geoFoundAnnounce='지도가 내 위치로 이동했습니다';UI.ja.geoFoundAnnounce='地図を現在地に移動しました';
+// 2026-09-08: labels the pulsing "you are here" marker itself, so the marker
+// reads as self-explanatory rather than relying only on the (screen-reader-only)
+// geoFoundAnnounce text above.
+UI.zh.geoHereLabel='📍 你的位置'; UI.en.geoHereLabel='📍 Your location'; UI.fr.geoHereLabel='📍 Votre position'; UI.es.geoHereLabel='📍 Su ubicación'; UI.ko.geoHereLabel='📍 내 위치';UI.ja.geoHereLabel='📍 現在地';
 UI.zh.guideToggleLabel='📖 居民指南'; UI.en.guideToggleLabel='📖 Resident Guide'; UI.fr.guideToggleLabel='📖 Guide du résident'; UI.es.guideToggleLabel='📖 Guía del residente';
 // P1-D: on a narrow phone every header link drops to icon-only (see the
 // .header-links .hl-tx rule) so four labels fit on one row without pushing the
@@ -1906,7 +1945,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.08';
+const DATA_VERSION='2026.09.08a';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 // Stated once, rendered everywhere. Change this line to change the terms.
@@ -2286,7 +2325,7 @@ const GeoControl=L.Control.extend({
     const div=L.DomUtil.create('div','geo-ctrl');
     const btn=L.DomUtil.create('button','geo-btn',div);
     btn.type='button';
-    btn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true">'
+    btn.innerHTML='<svg width="21" height="21" viewBox="0 0 24 24" aria-hidden="true">'
       +'<circle cx="12" cy="12" r="3" fill="currentColor"/>'
       +'<path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>'
       +'</svg><span class="geo-btn-tx"></span>';
@@ -2360,7 +2399,16 @@ function runGeolocate(){
       const lat=pos.coords.latitude,lng=pos.coords.longitude;
       if(geoMarker)map.removeLayer(geoMarker);
       if(geoAccCircle)map.removeLayer(geoAccCircle);
-      geoMarker=L.circleMarker([lat,lng],{radius:7,color:'#fff',weight:2,fillColor:'#1a73e8',fillOpacity:1}).addTo(map);
+      // A plain dot looked like just another place marker, so a first-time tap
+      // on Near Me didn't obviously read as "this one is me". A pulsing ring
+      // plus a permanent, translated "Your location" tooltip make that
+      // unambiguous without the reader having to guess what a lone dot means.
+      const hereIcon=L.divIcon({className:'geo-here-icon',
+        html:'<div class="geo-here"><div class="geo-here-pulse"></div><div class="geo-here-dot"></div></div>',
+        iconSize:[22,22],iconAnchor:[11,11]});
+      geoMarker=L.marker([lat,lng],{icon:hereIcon,keyboard:false,zIndexOffset:1000}).addTo(map);
+      geoMarker.bindTooltip(UI[L_].geoHereLabel,
+        {permanent:true,direction:'top',offset:[0,-10],className:'geo-here-tip'});
       const acc=Math.min(pos.coords.accuracy||0,2000);
       if(acc>30)geoAccCircle=L.circle([lat,lng],{radius:acc,color:'#1a73e8',weight:1,fillColor:'#1a73e8',fillOpacity:.08}).addTo(map);
       map.setView([lat,lng],15);
@@ -3245,6 +3293,7 @@ function setLang(l){
     const tx=geoControl._btn.querySelector('.geo-btn-tx');
     if(tx)tx.textContent=u.geoBtnLabel;
   }
+  if(geoMarker&&geoMarker.getTooltip())geoMarker.setTooltipContent(u.geoHereLabel);
   updateThemeQuickpicks();
   updateQpFade();
   document.querySelectorAll('.lang-btn').forEach(b=>{
