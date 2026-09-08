@@ -1,7 +1,7 @@
 {
   "name": "Kamloops Living Services Map",
   "short_name": "Kamloops Map",
-  "description": "Schools, healthcare, housing, transit, groceries and newcomer essentials across every Kamloops neighbourhood.",
+  "description": "Schools, healthcare, housing, transit, groceries and resident essentials across every Kamloops neighbourhood.",
   "start_url": "/?source=pwa",
   "scope": "/",
   "display": "standalone",

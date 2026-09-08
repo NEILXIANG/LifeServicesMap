@@ -1057,6 +1057,128 @@ async def main():
               note_toggle_hidden_coarse)
         await pgt2.close()
 
+        print("\n--- 2026-09-08 audit fixes (round 65) ---")
+        pga=await b.new_page(viewport={'width':1280,'height':900})
+        ea=[]; pga.on('pageerror', lambda e: ea.append(str(e)))
+        # Most desktop browsers have no navigator.share; that is the condition
+        # under which the share sheet's biggest button used to render and do
+        # nothing, because .share-native{display:block} beat the UA's [hidden].
+        await pga.add_init_script("try{Object.defineProperty(navigator,'share',{get:()=>undefined,configurable:true});}catch(e){}")
+        await pga.goto(URL); await pga.wait_for_timeout(1200)
+        await pga.click('#shareBtn'); await pga.wait_for_timeout(300)
+        sn=await pga.evaluate("""()=>{const e=document.getElementById('shareNative');
+            return {hidden:e.hidden,display:getComputedStyle(e).display,vis:e.offsetParent!==null};}""")
+        check("65 the native share button really disappears without navigator.share",
+              sn['display']=='none' and not sn['vis'], sn)
+        await pga.keyboard.press('Escape'); await pga.wait_for_timeout(200)
+
+        # Hiding the header's Data Notes button took the privacy disclosure and
+        # the disclaimer offline with it — nothing else opened that modal.
+        fb=await pga.evaluate("""()=>{const b=document.getElementById('footerNoteBtn');
+            return {exists:!!b,visible:!!b&&b.offsetParent!==null};}""")
+        check("65 the footer carries the only remaining opener for the privacy note",
+              fb['exists'] and fb['visible'], fb)
+        await pga.click('#footerNoteBtn'); await pga.wait_for_timeout(350)
+        pn=await pga.evaluate("""()=>{const pv=document.querySelector('#noteBody .privacy-note');
+            return {open:document.getElementById('noteBackdrop').classList.contains('open'),
+                    privacy:pv?pv.textContent.length:0,
+                    body:document.getElementById('noteBody').textContent.length};}""")
+        check("65 it opens the full privacy text and the disclaimer",
+              pn['open'] and pn['privacy']>400 and pn['body']>800, pn)
+        await pga.keyboard.press('Escape'); await pga.wait_for_timeout(250)
+
+        # Every active-filter chip's x must report which filter it cleared. The
+        # delegate used to read '.chip .x', which matches nothing on this page.
+        chips=await pga.evaluate("""()=>{
+            aC=new Set(['bank']);aR=new Set(['ns']);aT=new Set(['free']);
+            renderRegs();renderCats();renderThemes();apply();
+            const n0=_evBuf.length;
+            for(let i=0;i<4;i++){const x=document.querySelector('#activeFilters .af-chip .x');
+                                 if(!x)break;x.click();}
+            return _evBuf.slice(n0).filter(e=>e.t==='filter_clear_chip').map(e=>e.p.kind);}""")
+        check("65 clearing a region / theme / category chip is each recorded",
+              set(chips)=={'region','theme','cat'}, chips)
+        await pga.evaluate("()=>resetAll()"); await pga.wait_for_timeout(250)
+
+        # The dead end and the way out of it are the app's clearest "stuck" signal.
+        es=await pga.evaluate("""()=>{
+            const n0=_evBuf.length;
+            aC=new Set(['bank']);aR=new Set(['ws']);aT=new Set(['history','student']);
+            apply();apply();apply();
+            const shown=_evBuf.slice(n0).filter(x=>x.t==='empty_state_shown');
+            const n1=_evBuf.length;
+            const btn=document.querySelector('#emptyState .empty-btn'); if(btn)btn.click();
+            return {shown:shown.length,
+                    recovered:_evBuf.slice(n1).filter(x=>x.t==='empty_state_recover').length};}""")
+        check("65 an empty result reports once on entry, plus its recovery click",
+              es['shown']==1 and es['recovered']==1, es)
+
+        # The crash: markercluster reads layer.__parent when its zoom animation
+        # ends, so removing the marker mid-flight threw and the global error trap
+        # showed the reader a "please refresh" toast.
+        await pga.evaluate("()=>resetAll()"); await pga.wait_for_timeout(300)
+        await pga.evaluate("""()=>{
+            map.setView(CITY.centre,11);
+            const t=P.find(p=>p.c!=='bank');
+            favorites.add(t.id);renderFavList();
+            document.querySelector('#favList .rt-name').click();
+            aC=new Set(['bank']);renderCats();apply();}""")
+        await pga.wait_for_timeout(1900)
+        toast=await pga.evaluate("()=>document.getElementById('toast').classList.contains('show')")
+        check("65 filtering a favourite away mid cluster-zoom no longer crashes",
+              len(ea)==0 and not toast, {'errors':ea[:2],'toast':toast})
+
+        # A saved place the current filters hide still has to answer the tap.
+        hid=await pga.evaluate("""()=>{
+            resetAll();
+            const t=P.find(p=>p.c!=='bank');
+            favorites.add(t.id);
+            aC=new Set(['bank']);renderCats();apply();
+            focusMarker(M.find(x=>x.data.id===t.id),16);
+            return {popup:!!document.querySelector('.leaflet-popup'),
+                    ev:_evBuf.filter(x=>x.t==='marker_view'&&x.p.src==='hidden_by_filter').length};}""")
+        check("65 a favourite hidden by a filter still opens its own card",
+              hid['popup'] and hid['ev']>=1, hid)
+        check("65 no page errors across the audit-fix pass", len(ea)==0, ea[:3])
+        await pga.close()
+
+        # The two Quick Picks that read as the same chip in all six languages.
+        pgc=await b.new_page(viewport={'width':1280,'height':900})
+        await pgc.goto(URL); await pgc.wait_for_timeout(1100)
+        coll=await pgc.evaluate("""()=>{const out={};
+            ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
+              const norm=s=>s.replace(/[^\\p{L}]/gu,'').toLowerCase().split('').sort().join('');
+              out[l]=norm(document.getElementById('kids').textContent)
+                    ===norm(document.getElementById('qpFamily').textContent);});
+            setLang('en');return out;}""")
+        check("65 the kids preset and the family theme are not the same words reordered",
+              not any(coll.values()), coll)
+        await pgc.close()
+
+        # Touch: the search ✕ and the route indicator, both [hidden] traps.
+        pgm=await b.new_page(viewport={'width':390,'height':760}, has_touch=True, is_mobile=True)
+        em=[]; pgm.on('pageerror', lambda e: em.append(str(e)))
+        await pgm.goto(URL); await pgm.wait_for_timeout(1200)
+        sc=await pgm.evaluate("""()=>{const e=document.getElementById('searchClear');
+            return {display:getComputedStyle(e).display,vis:e.offsetParent!==null};}""")
+        check("65 the search clear button is absent on touch until there is text",
+              sc['display']=='none' and not sc['vis'], sc)
+        await pgm.fill('#searchInput','bank'); await pgm.wait_for_timeout(450)
+        check("65 …and returns as soon as there is something to clear",
+              await pgm.evaluate("()=>document.getElementById('searchClear').offsetParent!==null"))
+        bi=await pgm.evaluate("""()=>{selectRoute(Object.keys(BR)[0]);
+            const e=document.getElementById('busIndicator');
+            return {hidden:e.hidden,display:getComputedStyle(e).display};}""")
+        check("65 the route indicator is shown to sighted and assistive readers alike",
+              (not bi['hidden']) and bi['display']=='flex', bi)
+        # Nothing marked hidden may render, at any pointer type.
+        traps=await pgm.evaluate("""()=>[...document.querySelectorAll('[hidden]')]
+            .map(e=>({id:e.id||e.className,d:getComputedStyle(e).display}))
+            .filter(x=>x.d!=='none')""")
+        check("65 no element carrying [hidden] computes a display on touch", len(traps)==0, traps)
+        check("65 no page errors on the touch pass", len(em)==0, em[:3])
+        await pgm.close()
+
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
         e4=[]; pg4.on('pageerror', lambda e: e4.append(str(e)))

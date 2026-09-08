@@ -229,10 +229,25 @@
     background:#fdecea;color:#a02622;font-weight:700;}
   .footer-emergency b{color:inherit;}
   .footer-privacy{opacity:.78;font-size:11px;display:inline-block;margin-top:4px;}
+  /* 2026-09-08 audit: hiding the header's Data Notes button (2026-09-08, at the
+     owner's request) also removed the only way to open #noteBackdrop — and that
+     modal is where the full privacy disclosure and the "not official, no
+     guarantee, at your own risk" disclaimer live. The footer kept a one-line
+     summary of the privacy text with nothing to open. This is that missing
+     opener: it sits with the privacy line where such text is normally looked
+     for, and reads as "privacy details", not as the paused feature. */
+  .footer-note-btn{font:inherit;font-size:11px;font-weight:700;color:var(--accent-text);
+    background:none;border:none;padding:0 0 0 4px;margin:0;cursor:pointer;text-decoration:underline;}
+  .footer-note-btn:hover{text-decoration:none;}
   .leaflet-popup-content-wrapper{border-radius:10px;background:var(--card);}
   .leaflet-popup-content{font-size:12.5px;line-height:1.55;min-width:0;width:min(305px,calc(100vw - 72px));margin:11px 13px;color:var(--ink);}
   .bus-indicator{display:none;align-items:center;gap:8px;margin:0 20px 10px;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 25%,var(--line));font-size:12.5px;font-weight:600;color:var(--ink);}
   .bus-indicator.show{display:flex;}
+  /* renderRoute() now keeps the `hidden` attribute in step with .show, but that
+     is a promise two call sites have to keep. This makes it structural: whatever
+     the class says, an element marked hidden stays hidden — and stays out of the
+     accessibility tree, which is the half that was actually broken. */
+  .bus-indicator[hidden]{display:none;}
   .bus-indicator .x{cursor:pointer;color:var(--sub-ink);font-weight:700;margin-left:auto;padding:0 4px;}
   .bus-list{display:flex;flex-direction:column;gap:6px;}
   .bus-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:all .15s;}
@@ -251,6 +266,12 @@
   .search-ic{font-size:13px;opacity:.6;flex:0 0 auto;}
   .search-clear{cursor:pointer;opacity:.5;font-size:12px;padding:2px 4px;flex:0 0 auto;}
   .search-clear:hover{opacity:1;}
+  /* 2026-09-08 audit: JS toggles this button with .hidden, but the coarse-pointer
+     block below sets .search-clear{display:inline-flex} — an author rule, which
+     beats the UA's [hidden]{display:none} no matter the specificity. So on every
+     touch device the ✕ sat in the search bar permanently, at a full 44px, with an
+     empty box and nothing to clear. Same trap as #noteToggle's. */
+  .search-clear[hidden]{display:none;}
   @media(max-width:600px){.search-bar{margin:10px 10px 0;max-width:none;}}
   .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#f2a900;}
   .fav-star:hover{transform:scale(1.15);}
@@ -335,6 +356,12 @@
     border-radius:10px;background:var(--accent);color:#fff;font-family:inherit;
     font-size:14px;font-weight:600;cursor:pointer;min-height:44px;}
   .share-native:hover{background:var(--accent-text);}
+  /* 2026-09-08 audit: renderShareSheet() hides this with .hidden wherever
+     navigator.share does not exist — which is most desktop browsers. The
+     display:block above is an author rule and beat [hidden], so the biggest,
+     bluest button in the sheet rendered anyway and did nothing at all when
+     clicked (its handler returns early without navigator.share). */
+  .share-native[hidden]{display:none;}
   .share-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
   .share-item{display:flex;align-items:center;gap:9px;padding:11px 13px;min-height:44px;
     border:1px solid var(--line);border-radius:10px;background:var(--card);
@@ -469,6 +496,10 @@
        whether it holds an icon alone or an icon and a label. Same story for
        .geo-btn, which drops its text at the same breakpoint. */
     .header-links a,.note-toggle,.geo-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;}
+    /* The footer's privacy opener is a real target too — regress round 46/47
+       caught it at well under the floor the moment it was added. */
+    .footer-note-btn{display:inline-flex;align-items:center;justify-content:center;
+      min-height:44px;min-width:44px;padding-left:6px;}
     .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;
       display:inline-flex;align-items:center;justify-content:center;}
     .search-bar{padding-top:12px;padding-bottom:12px;}
@@ -611,6 +642,7 @@
       .cat-btn,.note-toggle,.cat-util-btn,.af-chip{min-height:36px;}
       .lang-btn{min-width:36px;}
       .panel-close,.offline-x,.fav-star{min-width:40px;min-height:40px;}
+      .footer-note-btn{min-height:36px;min-width:36px;}
       .search-clear{min-width:36px;min-height:36px;}
       .search-bar{padding-top:3px;padding-bottom:3px;}
     }
@@ -787,7 +819,7 @@
 </div>
 
 <script id="app">
-const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"覆盖全市生活、教育、医疗、交通、文化等各类地点 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子活动","newcomer":"🧳 居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 为改进服务，收集匿名使用统计（不含个人信息）</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Places across daily life, education, health, transit and culture, citywide · click a marker for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Family & Kids","newcomer":"🧳 Resident Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Anonymous usage statistics are collected to improve this service (no personal data)</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Des lieux du quotidien, de l'éducation, de la santé, du transport et de la culture, dans toute la ville · cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Famille et enfants","newcomer":"🧳 Essentiels résidents","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Des statistiques d'utilisation anonymes sont collectées pour améliorer ce service (aucune donnée personnelle)</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Lugares de la vida diaria, educación, salud, transporte y cultura en toda la ciudad · toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Familia y niños","newcomer":"🧳 Esenciales para residentes","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Se recopilan estadísticas de uso anónimas para mejorar este servicio (sin datos personales)</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"생활, 교육, 의료, 교통, 문화 등 도시 전역의 장소 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 가족·아이","newcomer":"🧳 주민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 서비스 개선을 위해 익명의 사용 통계가 수집됩니다 (개인 정보 미포함)</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"},"ja":{"title": "{CITY} 生活サービスマップ", "sub": "生活、教育、医療、交通、文化など、市内全域のスポットを網羅 · マーカーをクリックして詳細を確認", "note": "<h3>⚠️ データの出典と収録範囲</h3><p>本ページのデータは個人が作成したもので、Google Placesおよび各機関の公式サイトから収集し、市内全域をカバーしています。各カテゴリーには主要なスポットを厳選して掲載しています（レストラン・ガソリンスタンドなどは市内に数百件あり、全てを網羅したリストではありません。🚌公共交通機関は主要な乗換拠点のみを表示し、備考欄に記載する経由路線番号は参考情報です。停留所が非常に多いため全ては掲載できません。運賃は目安として大人片道$2.25・1日券$4.50・月間パス$55です（Umoカードまたはタップ決済対応）。正確な路線・運賃・リアルタイムの到着情報は{TRANSIT}の公式サイトでご確認ください）。</p><h3>🏢 実用的な注意事項</h3><p>賃貸料金は電話または公式サイトでご確認ください。営業時間は変更される場合があるため、訪問前に電話でご確認することをお勧めします。</p><h3>📅 最終確認日と免責事項</h3><p>最終確認日: {DATE}。本ページは個人が作成した生活情報の参考資料であり、公式発表ではありません。ページに記載されている事業者・機関とは一切関係がなく、その公式情報を代表するものでもありません。本ページは情報の正確性、完全性、最新性を保証するものではなく、本ページの情報を利用したことによるいかなる損失（無駄足、余分な費用の発生、バスの乗り遅れなどを含みますがこれらに限りません）についても、利用者ご自身の責任となります。詳細は必ず該当する事業者・機関の公式チャネルまたは電話にてご確認ください。</p>", "noteToggleLabel": "ℹ️ データについて", "regLabel": "📍 エリアで絞り込み", "catLabel": "🏷️ カテゴリーで絞り込み", "allReg": "すべてのエリア", "allCat": "✓ すべてのカテゴリー", "noCat": "✕ すべて解除", "nextDayPrefix": "翌日", "lStopSeq": "停留所番号", "lStops": "停留所数", "lService": "運行時間", "lFare": "運賃", "busFareText": "大人片道$2.25 · 1日券$4.50 · 月間パス$55（Umoカードまたはタップ決済対応）", "busCaveat": "上記は当該路線の全便の運行時間帯です（週末延長便を含む）— 正確な時刻・運賃は{TRANSIT}の公式時刻表でご確認ください", "busBtnLabel": "バス路線", "auto": "🚗 交通", "daily": "🏠 生活必需品", "kids": "👨‍👩‍👧 ファミリー・子供", "newcomer": "🧳 住民必需品", "sports": "💪 スポーツ・フィットネス", "lPhone": "電話", "lHours": "時間", "lWeb": "公式サイトへ →", "footer": "データ出典: Google Placesおよび公式サイトで確認 · 学区の割り当ては<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}公式ツール</a>でご確認ください · バス路線・停留所・リアルタイム到着情報は<a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}公式サイト</a>でご確認ください · 賃貸トラブル・敷金・退去通知などは<a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC州賃貸住宅局(RTB)</a>（<b>1-800-665-8779</b>）へ<br><span class=\"footer-emergency\">🚨 緊急電話: <b>911</b>（緊急時）· <b>8-1-1</b>（非緊急の健康相談、日本語通訳依頼可）· <b>250-828-3000</b>（RCMP非緊急）</span><br>💬 ご意見・ご提案: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 サービス改善のため、匿名の利用統計を収集しています（個人情報は含みません）</span>", "edu": "🎓 教育", "health": "⚕️ 医療", "outdoor": "🌳 アウトドア", "shopping": "🛍️ ショッピング", "lNav": "経路案内", "feedbackLink": "💬 フィードバック", "lCall": "電話", "lWeb2": "公式サイト"}};
+const UI={"zh":{"title":"{CITY} 生活服务全景地图","sub":"覆盖全市生活、教育、医疗、交通、文化等各类地点 · 点击标记看详情","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与免责声明</h3><p>最后核实日期：{DATE}。本页面为个人整理的生活信息参考资料，非官方发布，与页面中列出的任何商家/机构均无关联、不代表其官方信息；本页面不保证信息的准确性、完整性和时效性，因使用本页面信息造成的任何损失（包括但不限于扑空、多付费用、错过班车等）由使用者自行承担，具体信息请务必以商家/机构官方渠道或致电确认为准。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子场所","newcomer":"🧳 居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"数据来源：Google Places及官方网站核实 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省租客维权处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 紧急电话：<b>911</b>（紧急）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 为改进服务，收集匿名使用统计（不含个人信息）</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Living Services Map","sub":"Places across daily life, education, health, transit and culture, citywide · click a marker for details","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last Verified &amp; Disclaimer</h3><p>Last verified: {DATE}. This page is an independently compiled personal reference, not an official publication; it is not affiliated with, and does not represent, any business or organization listed. No guarantee is made as to the accuracy, completeness, or timeliness of the information here — any loss resulting from reliance on it (including but not limited to wasted trips, extra costs, or missed buses) is at the user's own risk. Please confirm details directly with the relevant business/organization or its official channels.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Kids’ Places","newcomer":"🧳 Resident Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"Data source: Google Places and official websites · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Anonymous usage statistics are collected to improve this service (no personal data)</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Carte des services de {CITY}","sub":"Des lieux du quotidien, de l'éducation, de la santé, du transport et de la culture, dans toute la ville · cliquez sur un repère pour les détails","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et avis de non-responsabilité</h3><p>Dernière vérification : {DATE}. Cette page est une compilation personnelle indépendante à titre de référence; elle n'est pas une publication officielle et n'est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente officiellement. Aucune garantie n'est donnée quant à l'exactitude, l'exhaustivité ou l'actualité des informations; toute perte résultant de leur utilisation (déplacement inutile, frais supplémentaires, bus manqué, etc.) est à la charge de l'utilisateur. Veuillez confirmer les détails directement auprès de l'entreprise/organisation concernée ou via ses canaux officiels.</p>","noteToggleLabel":"ℹ️ Infos données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Lieux pour enfants","newcomer":"🧳 Essentiels résidents","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Source : Google Places et sites officiels · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Des statistiques d'utilisation anonymes sont collectées pour améliorer ce service (aucune donnée personnelle)</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Retours","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Mapa de Servicios de {CITY}","sub":"Lugares de la vida diaria, educación, salud, transporte y cultura en toda la ciudad · toque un marcador para ver detalles","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y descargo de responsabilidad</h3><p>Última verificación: {DATE}. Esta página es una referencia personal recopilada de forma independiente, no una publicación oficial; no está afiliada ni representa a ningún negocio u organización mencionada. No se garantiza la exactitud, integridad o vigencia de la información aquí presentada — cualquier pérdida resultante de confiar en ella (incluyendo, entre otros, viajes en vano, costos adicionales o autobuses perdidos) corre por cuenta del usuario. Confirme los detalles directamente con el negocio/organización correspondiente o sus canales oficiales.</p>","noteToggleLabel":"ℹ️ Notas de datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Lugares para niños","newcomer":"🧳 Esenciales para residentes","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Fuente de datos: Google Places y sitios web oficiales · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Se recopilan estadísticas de uso anónimas para mejorar este servicio (sin datos personales)</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 서비스 지도","sub":"생활, 교육, 의료, 교통, 문화 등 도시 전역의 장소 · 마커를 클릭해 상세정보 확인","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 면책 조항</h3><p>최종 확인일: {DATE}. 이 페이지는 개인이 정리한 생활 정보 참고 자료로, 공식 발행물이 아니며 페이지에 나열된 어떠한 업체/기관과도 관련이 없고 그들의 공식 정보를 대변하지 않습니다. 본 페이지는 정보의 정확성, 완전성, 최신성을 보장하지 않으며, 본 페이지의 정보를 이용함으로써 발생하는 모든 손실(헛걸음, 추가 비용 발생, 버스를 놓치는 경우 등을 포함하되 이에 국한되지 않음)은 이용자 본인이 부담합니다. 구체적인 정보는 반드시 해당 업체/기관의 공식 채널 또는 전화 확인을 기준으로 하시기 바랍니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 번호","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 아이 시설","newcomer":"🧳 주민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"데이터 출처: Google Places 및 공식 웹사이트를 통해 확인 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 임차인 권익보호처(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 서비스 개선을 위해 익명의 사용 통계가 수집됩니다 (개인 정보 미포함)</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"},"ja":{"title": "{CITY} 生活サービスマップ", "sub": "生活、教育、医療、交通、文化など、市内全域のスポットを網羅 · マーカーをクリックして詳細を確認", "note": "<h3>⚠️ データの出典と収録範囲</h3><p>本ページのデータは個人が作成したもので、Google Placesおよび各機関の公式サイトから収集し、市内全域をカバーしています。各カテゴリーには主要なスポットを厳選して掲載しています（レストラン・ガソリンスタンドなどは市内に数百件あり、全てを網羅したリストではありません。🚌公共交通機関は主要な乗換拠点のみを表示し、備考欄に記載する経由路線番号は参考情報です。停留所が非常に多いため全ては掲載できません。運賃は目安として大人片道$2.25・1日券$4.50・月間パス$55です（Umoカードまたはタップ決済対応）。正確な路線・運賃・リアルタイムの到着情報は{TRANSIT}の公式サイトでご確認ください）。</p><h3>🏢 実用的な注意事項</h3><p>賃貸料金は電話または公式サイトでご確認ください。営業時間は変更される場合があるため、訪問前に電話でご確認することをお勧めします。</p><h3>📅 最終確認日と免責事項</h3><p>最終確認日: {DATE}。本ページは個人が作成した生活情報の参考資料であり、公式発表ではありません。ページに記載されている事業者・機関とは一切関係がなく、その公式情報を代表するものでもありません。本ページは情報の正確性、完全性、最新性を保証するものではなく、本ページの情報を利用したことによるいかなる損失（無駄足、余分な費用の発生、バスの乗り遅れなどを含みますがこれらに限りません）についても、利用者ご自身の責任となります。詳細は必ず該当する事業者・機関の公式チャネルまたは電話にてご確認ください。</p>", "noteToggleLabel": "ℹ️ データについて", "regLabel": "📍 エリアで絞り込み", "catLabel": "🏷️ カテゴリーで絞り込み", "allReg": "すべてのエリア", "allCat": "✓ すべてのカテゴリー", "noCat": "✕ すべて解除", "nextDayPrefix": "翌日", "lStopSeq": "停留所番号", "lStops": "停留所数", "lService": "運行時間", "lFare": "運賃", "busFareText": "大人片道$2.25 · 1日券$4.50 · 月間パス$55（Umoカードまたはタップ決済対応）", "busCaveat": "上記は当該路線の全便の運行時間帯です（週末延長便を含む）— 正確な時刻・運賃は{TRANSIT}の公式時刻表でご確認ください", "busBtnLabel": "バス路線", "auto": "🚗 交通", "daily": "🏠 生活必需品", "kids": "👨‍👩‍👧 子供向け施設", "newcomer": "🧳 住民必需品", "sports": "💪 スポーツ・フィットネス", "lPhone": "電話", "lHours": "時間", "lWeb": "公式サイトへ →", "footer": "データ出典: Google Placesおよび公式サイトで確認 · 学区の割り当ては<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}公式ツール</a>でご確認ください · バス路線・停留所・リアルタイム到着情報は<a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}公式サイト</a>でご確認ください · 賃貸トラブル・敷金・退去通知などは<a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC州賃貸住宅局(RTB)</a>（<b>1-800-665-8779</b>）へ<br><span class=\"footer-emergency\">🚨 緊急電話: <b>911</b>（緊急時）· <b>8-1-1</b>（非緊急の健康相談、日本語通訳依頼可）· <b>250-828-3000</b>（RCMP非緊急）</span><br>💬 ご意見・ご提案: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 サービス改善のため、匿名の利用統計を収集しています（個人情報は含みません）</span>", "edu": "🎓 教育", "health": "⚕️ 医療", "outdoor": "🌳 アウトドア", "shopping": "🛍️ ショッピング", "lNav": "経路案内", "feedbackLink": "💬 フィードバック", "lCall": "電話", "lWeb2": "公式サイト"}};
 UI.zh.showing=(v,t)=>`${v} / ${t} 处地点`;
 UI.en.showing=(v,t)=>`${v} / ${t} place${t===1?'':'s'}`;
 UI.fr.showing=(v,t)=>`${v} / ${t} lieu${t===1?'':'x'}`;
@@ -865,14 +897,18 @@ UI.zh.geoFoundAnnounce='地图已移动到你附近的位置'; UI.en.geoFoundAnn
 // reads as self-explanatory rather than relying only on the (screen-reader-only)
 // geoFoundAnnounce text above.
 UI.zh.geoHereLabel='📍 你的位置'; UI.en.geoHereLabel='📍 Your location'; UI.fr.geoHereLabel='📍 Votre position'; UI.es.geoHereLabel='📍 Su ubicación'; UI.ko.geoHereLabel='📍 내 위치';UI.ja.geoHereLabel='📍 現在地';
-UI.zh.guideToggleLabel='📖 居民指南'; UI.en.guideToggleLabel='📖 Resident Guide'; UI.fr.guideToggleLabel='📖 Guide du résident'; UI.es.guideToggleLabel='📖 Guía del residente';
+// 2026-09-08 audit: the label on the footer's opener for the privacy disclosure
+// and the disclaimer. Deliberately worded as "details of the line you just read"
+// rather than as the paused Data Notes feature's own name.
+UI.zh.privacyMore='详情'; UI.en.privacyMore='Details'; UI.fr.privacyMore='Détails'; UI.es.privacyMore='Detalles'; UI.ko.privacyMore='자세히';UI.ja.privacyMore='詳細';
+UI.zh.guideToggleLabel='📖 生活指南'; UI.en.guideToggleLabel='📖 Life Guide'; UI.fr.guideToggleLabel='📖 Guide pratique'; UI.es.guideToggleLabel='📖 Guía práctica';
 // P1-D: on a narrow phone every header link drops to icon-only (see the
 // .header-links .hl-tx rule) so four labels fit on one row without pushing the
 // map down — but 📖 is the single highest-value thing in this app, and an emoji
 // alone does not say that. This short word rides along as a ::after on
 // #guideToggle only, inside that same breakpoint, so the other three keep the
 // row-width saving while the one worth a second look gets a visible name.
-UI.zh.guideToggleShort='指南'; UI.en.guideToggleShort='Guide'; UI.fr.guideToggleShort='Guide'; UI.es.guideToggleShort='Guía';
+UI.zh.guideToggleShort='生活'; UI.en.guideToggleShort='Guide'; UI.fr.guideToggleShort='Guide'; UI.es.guideToggleShort='Guía';
 UI.zh.guideTocLabel='本页目录'; UI.en.guideTocLabel='In this guide'; UI.fr.guideTocLabel='Dans ce guide'; UI.es.guideTocLabel='En esta guía'; UI.ko.guideTocLabel='이 가이드의 목차';UI.ja.guideTocLabel='このガイドの目次';
 UI.zh.shareBtnLabel='🔗 分享'; UI.en.shareBtnLabel='🔗 Share'; UI.fr.shareBtnLabel='🔗 Partager'; UI.es.shareBtnLabel='🔗 Compartir';
 UI.zh.shareBtnTip='打开分享面板：可以复制链接，或直接发到 WhatsApp、Facebook、X、Telegram、LINE、邮件、短信；手机上还能调用系统分享发到微信等。链接会带上当前的语言、区域、分类和搜索词。';
@@ -903,7 +939,7 @@ UI.ko.hint='🔍 이름으로 검색하거나 아래 빠른 선택을 눌러보�
 UI.ko.catsSelected=n=>`${n}개 분류 선택됨`;UI.ja.catsSelected=n=>`${n}件のカテゴリーを選択中`;
 UI.ko.clearAll='전체 해제';UI.ja.clearAll='すべて解除';
 UI.ko.quickLabel='💡 빠른 선택';UI.ja.quickLabel='💡 クイック選択';
-UI.ko.guideToggleLabel='📖 주민 가이드';UI.ja.guideToggleLabel='📖 住民ガイド';
+UI.ko.guideToggleLabel='📖 생활 가이드';UI.ja.guideToggleLabel='📖 生活ガイド';
 UI.ko.guideToggleShort='가이드';UI.ja.guideToggleShort='ガイド';
 UI.ko.shareBtnLabel='🔗 공유';UI.ja.shareBtnLabel='🔗 共有'; UI.ko.shareBtnTip='공유 패널을 엽니다: 링크를 복사하거나 WhatsApp·Facebook·X·Telegram·LINE·이메일·메시지로 바로 보낼 수 있고, 휴대폰에서는 기기 공유로 위챗 등에도 보낼 수 있습니다. 링크에는 현재 언어·지역·분류·검색어가 담깁니다.';UI.ja.shareBtnTip='共有パネルを開きます。リンクをコピーするか、WhatsApp、Facebook、X、Telegram、LINE、メール、メッセージに直接送信できます。スマートフォンでは端末の共有機能からWeChatなどにも送れます。リンクには現在の言語、エリア、カテゴリー、検索語が含まれます。'; UI.ko.linkCopied='🔗 링크가 복사되었습니다';UI.ja.linkCopied='🔗 リンクをコピーしました';
 UI.ko.favBtnLabel='즐겨찾기';UI.ja.favBtnLabel='お気に入り';
@@ -937,7 +973,7 @@ UI.zh.approx='约';
 UI.zh.lSvc='礼拜时间';
 UI.zh.lEmail='邮箱';
 UI.zh.lVerified='信息核实于';
-UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和上方"数据说明"里的整体核实日期是两回事——那个日期指的是整份数据最近一次全面核对的时间。';
+UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和整份数据的"最后核实日期"是两回事——那个日期指的是整份数据最近一次全面核对的时间。';
 UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
 UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
 UI.zh.favAddedMsg='⭐ 已加入收藏';UI.zh.favRemovedMsg='已取消收藏';UI.zh.errorHint='⚠️ 页面遇到错误，请刷新重试。';UI.zh.aSkip='跳到地图';UI.zh.aNavLang='选择界面语言';UI.zh.aNavHeader='页面操作';UI.zh.aNavFilters='地图筛选工具栏';UI.zh.aLandmarksIntro='按用途快速筛选地点';UI.zh.aResultsAnnounce=(v,t)=>`已显示 ${v} / ${t} 处地点`;
@@ -984,7 +1020,7 @@ UI.en.approx='approx.';
 UI.en.lSvc='Services';
 UI.en.lEmail='Email';
 UI.en.lVerified='Verified';
-UI.en.lVerifiedTip='When this specific listing was checked — a different thing from the page-wide "Last verified" date in Data Notes, which is when the whole dataset was last reviewed.';
+UI.en.lVerifiedTip='When this specific listing was checked — a different thing from the page-wide "Last verified" date, which is when the whole dataset was last reviewed.';
 UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
 UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
 UI.en.favAddedMsg='⭐ Added to favourites';UI.en.favRemovedMsg='Removed from favourites';UI.en.errorHint='⚠️ The page hit an error — please refresh to recover.';UI.en.aSkip='Skip to map';UI.en.aNavLang='Interface language';UI.en.aNavHeader='Page actions';UI.en.aNavFilters='Map filters toolbar';UI.en.aLandmarksIntro='Filter places by purpose';UI.en.aResultsAnnounce=(v,t)=>`Showing ${v} of ${t} places`;
@@ -1030,7 +1066,7 @@ UI.fr.approx='env.';
 UI.fr.lSvc='Offices';
 UI.fr.lEmail='Courriel';
 UI.fr.lVerified='Vérifié';
-UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée — différente de la date « Dernière vérification » des Infos données, qui concerne l’ensemble des données.';
+UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée — différente de la date « Dernière vérification » de l’ensemble du jeu de données, qui indique son dernier examen complet.';
 UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
 UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
 UI.fr.favAddedMsg='⭐ Ajouté aux favoris';UI.fr.favRemovedMsg='Retiré des favoris';UI.fr.errorHint='⚠️ Une erreur est survenue — veuillez actualiser pour réinitialiser.';UI.fr.aSkip='Aller à la carte';UI.fr.aNavLang='Langue de l\'interface';UI.fr.aNavHeader='Actions de la page';UI.fr.aNavFilters='Barre des filtres de la carte';UI.fr.aLandmarksIntro='Filtrer les lieux par usage';UI.fr.aResultsAnnounce=(v,t)=>`Affichage de ${v} sur ${t} lieu${t>1?'x':''}`;
@@ -1077,7 +1113,7 @@ UI.es.approx='aprox.';
 UI.es.lSvc='Servicios';
 UI.es.lEmail='Correo';
 UI.es.lVerified='Verificado';
-UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de la fecha "Última verificación" de las Notas de datos, que se refiere a todo el conjunto de datos.';
+UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de la fecha "Última verificación" de todo el conjunto de datos, que indica su última revisión completa.';
 UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
 UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
 UI.es.favAddedMsg='⭐ Añadido a favoritos';UI.es.favRemovedMsg='Quitado de favoritos';UI.es.errorHint='⚠️ Se produjo un error — actualice la página para recuperar.';UI.es.aSkip='Saltar al mapa';UI.es.aNavLang='Idioma de la interfaz';UI.es.aNavHeader='Acciones de página';UI.es.aNavFilters='Barra de filtros del mapa';UI.es.aLandmarksIntro='Filtrar lugares por uso';UI.es.aResultsAnnounce=(v,t)=>`Mostrando ${v} de ${t} lugar${t===1?'':'es'}`;
@@ -1124,7 +1160,7 @@ UI.ko.approx='약';UI.ja.approx='約';
 UI.ko.lSvc='예배 시간';UI.ja.lSvc='礼拝時間';
 UI.ko.lEmail='이메일';UI.ja.lEmail='メール';
 UI.ko.lVerified='정보 확인일';UI.ja.lVerified='確認日';
-UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터 안내에 있는 전체 "최종 확인일"과는 다른 개념으로, 그 날짜는 전체 데이터를 마지막으로 점검한 시점을 뜻합니다.';UI.ja.lVerifiedTip='これはこの項目自体が確認された日付です。「データについて」にある全体の「最終確認日」とは別のもので、そちらはデータセット全体を最後に見直した日付を指します。';
+UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터 전체의 "최종 확인일"과는 다른 개념으로, 그 날짜는 전체 데이터를 마지막으로 점검한 시점을 뜻합니다.';UI.ja.lVerifiedTip='これはこの項目自体が確認された日付です。データ全体の「最終確認日」とは別のもので、そちらはデータセット全体を最後に見直した日付を指します。';
 UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ja.favIONote='お気に入りはこのブラウザにのみ保存されます。機種変更やブラウザデータの削除の前に、短いテキストとしてコピーして保管するか、自分宛てに送っておいてください — ファイルをダウンロードするのではなく、後で貼り付けて使えるテキストです。';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ja.favIONoteEmpty=' 他の端末でコピーしたコードをお持ちですか？下に貼り付けて「コードを読み込む」を押すと、そのお気に入りを取り込めます。';UI.ko.favExport='코드 복사';UI.ja.favExport='コードをコピー';UI.ko.favImport='코드 가져오기';UI.ja.favImport='コードを読み込む';UI.ko.favCopied='클립보드에 복사했습니다';UI.ja.favCopied='クリップボードにコピーしました';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ja.favImported='お気に入りを{N}件読み込みました';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ja.favBadCode='このテキストを認識できませんでした — 全体をコピーできているか確認してください';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';UI.ja.favPastePrompt='コピーしたコードを貼り付けてから、もう一度「コードを読み込む」を押してください';
 UI.ko.favAdd='즐겨찾기에 추가';UI.ja.favAdd='お気に入りに追加';UI.ko.favRemove='즐겨찾기에서 제거';UI.ja.favRemove='お気に入りから削除';
 UI.ko.favAddedMsg='⭐ 즐겨찾기에 추가됨';UI.ja.favAddedMsg='⭐ お気に入りに追加しました';UI.ko.favRemovedMsg='즐겨찾기에서 제거됨';UI.ja.favRemovedMsg='お気に入りから削除しました';UI.ko.errorHint='⚠️ 페이지에 오류가 발생했습니다. 새로 고침해 주세요.';UI.ja.errorHint='⚠️ ページでエラーが発生しました。再読み込みしてください。';UI.ko.aSkip='지도로 건너뛰기';UI.ja.aSkip='地図へスキップ';UI.ko.aNavLang='인터페이스 언어';UI.ja.aNavLang='インターフェース言語';UI.ko.aNavHeader='페이지 작업';UI.ja.aNavHeader='ページ操作';UI.ko.aNavFilters='지도 필터 도구 모음';UI.ja.aNavFilters='地図フィルターツールバー';UI.ko.aLandmarksIntro='용도별로 장소 빠르게 걸러보기';UI.ja.aLandmarksIntro='用途で場所を絞り込む';UI.ko.aResultsAnnounce=(v,t)=>`총 ${t}곳 중 ${v}곳 표시`;UI.ja.aResultsAnnounce=(v,t)=>`全${t}件中${v}件を表示`;
@@ -1456,11 +1492,11 @@ UI.en.licenceNote='<h3>📄 Licence &amp; attribution</h3><p>Compiled and writte
 UI.fr.licenceNote='<h3>📄 Licence et attribution</h3><p>Compilé et rédigé par <b>Neil Xiang</b>, sous licence <a href="{LIC_URL}" target="_blank" rel="noopener">Creative Commons Attribution - Pas d’Utilisation Commerciale 4.0 ({LIC})</a>. Vous pouvez copier, partager et adapter ce contenu — y compris pour créer un outil semblable pour une autre ville — à condition de <b>citer la source</b> et de ne pas en faire un <b>usage commercial</b>; pour un usage commercial, écrivez d’abord à <a href="mailto:{CONTACT}">{CONTACT}</a>.<br>À noter : les données factuelles provenant de tiers comme Google Places (noms, adresses, téléphones, heures) restent soumises à leurs propres conditions. Cette licence couvre la sélection, le classement, les notes et le guide.</p>';UI.fr.licenceShort='📄 Sous licence {LIC} · Attribution : Neil Xiang · Usage non commercial';
 UI.es.licenceNote='<h3>📄 Licencia y atribución</h3><p>Recopilado y redactado por <b>Neil Xiang</b>, bajo licencia <a href="{LIC_URL}" target="_blank" rel="noopener">Creative Commons Atribución-NoComercial 4.0 ({LIC})</a>. Puede copiar, compartir y adaptar este material — incluso para crear una herramienta similar para otra ciudad — siempre que <b>cite la fuente</b> y no lo use con <b>fines comerciales</b>; para uso comercial, escriba antes a <a href="mailto:{CONTACT}">{CONTACT}</a>.<br>Nota: los datos factuales procedentes de terceros como Google Places (nombres, direcciones, teléfonos, horarios) siguen sujetos a sus propios términos. Esta licencia cubre la curaduría, la clasificación, las notas y la guía.</p>';UI.es.licenceShort='📄 Licencia {LIC} · Atribución: Neil Xiang · No comercial';
 UI.ko.licenceNote='<h3>📄 저작권 및 이용 허가</h3><p>이 페이지는 <b>Neil Xiang</b>이 정리·작성했으며 <a href="{LIC_URL}" target="_blank" rel="noopener">크리에이티브 커먼즈 저작자표시-비영리 4.0({LIC})</a> 라이선스로 배포됩니다. <b>출처를 표시</b>하고 <b>비영리 목적</b>으로 사용하는 한, 다른 도시를 위한 유사한 도구 제작을 포함해 자유롭게 복제·공유·수정할 수 있습니다. 상업적 이용은 <a href="mailto:{CONTACT}">{CONTACT}</a>로 먼저 문의해 주세요.<br>참고: Google Places 등 제3자에서 가져온 사실 정보(이름·주소·전화·운영시간)는 각 출처의 약관을 따릅니다. 이 라이선스는 선별·분류·비고·가이드 내용에 적용됩니다.</p>';UI.ja.licenceNote='<h3>📄 ライセンスと帰属表示</h3><p><b>Neil Xiang</b>が編集・執筆し、<a href="{LIC_URL}" target="_blank" rel="noopener">クリエイティブ・コモンズ 表示-非営利 4.0（{LIC}）</a>のもとで公開しています。他都市向けに同様のツールを作ることも含め、<b>出典を明記</b>し<b>商用利用しない</b>限り、自由に複製・共有・改変できます。商用利用については、事前に<a href="mailto:{CONTACT}">{CONTACT}</a>までご連絡ください。<br>注: Google Places など第三者から得た事実情報（名称、住所、電話番号、営業時間）は、それぞれの利用規約に従います。このライセンスは、選定・分類・備考・ガイドの内容に適用されます。</p>';UI.ko.licenceShort='📄 {LIC} 라이선스 · 저작자표시 Neil Xiang · 비영리';UI.ja.licenceShort='📄 {LIC} ライセンス・帰属表示: Neil Xiang・非営利';
-UI.zh.offlineTiles='📴 地图底图加载不出来（可能没有网络）。地点信息、搜索、筛选和居民指南都不需要联网，可以照常使用。';
-UI.en.offlineTiles='📴 Map imagery can’t load — you may be offline. Place details, search, filters and the resident guide all work without a connection.';
+UI.zh.offlineTiles='📴 地图底图加载不出来（可能没有网络）。地点信息、搜索、筛选和生活指南都不需要联网，可以照常使用。';
+UI.en.offlineTiles='📴 Map imagery can’t load — you may be offline. Place details, search, filters and the life guide all work without a connection.';
 UI.fr.offlineTiles='📴 Le fond de carte ne se charge pas — vous êtes peut-être hors ligne. Les fiches, la recherche, les filtres et le guide fonctionnent sans connexion.';
 UI.es.offlineTiles='📴 No se puede cargar el mapa base — puede que esté sin conexión. Los detalles, la búsqueda, los filtros y la guía funcionan sin internet.';
-UI.ko.offlineTiles='📴 지도 배경을 불러올 수 없습니다 — 오프라인일 수 있습니다. 장소 정보, 검색, 필터, 주민 가이드는 인터넷 없이도 이용할 수 있습니다.';UI.ja.offlineTiles='📴 地図画像を読み込めません — オフラインの可能性があります。場所の詳細、検索、フィルター、住民ガイドはインターネット接続がなくてもご利用いただけます。';
+UI.ko.offlineTiles='📴 지도 배경을 불러올 수 없습니다 — 오프라인일 수 있습니다. 장소 정보, 검색, 필터, 생활 가이드는 인터넷 없이도 이용할 수 있습니다.';UI.ja.offlineTiles='📴 地図画像を読み込めません — オフラインの可能性があります。場所の詳細、検索、フィルター、生活ガイドはインターネット接続がなくてもご利用いただけます。';
 UI.zh.guideCA1=`<h3>🛬 落地头两周：按这个顺序办</h3>
 <p>1️⃣ 手机SIM卡（先让别人能联系上你）→ 2️⃣ SIN社保号（找工作、报税、领福利的前提）→ 3️⃣ 申请省健康卡（有等待期，落地当天就能申请）→ 4️⃣ 开银行账户 → 5️⃣ 租房并确定固定地址 → 6️⃣ 孩子入学 → 7️⃣ 驾照。这几件事互相有依赖：没有SIN不能正式上班，没有固定地址很多手续办不了，健康卡等待期越早开始越早结束。落地前先把护照、签证/移民纸、出生证明、结婚证、学历与成绩单、疫苗接种记录全部扫描一份存在手机和云端——接下来半年你会被反复要求出示这些文件，而原件寄回原籍国补办往往要几个月。</p>
 <h3>🪪 SIN社会保险号（Social Insurance Number）</h3>
@@ -1945,7 +1981,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.08a';
+const DATA_VERSION='2026.09.08b';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 // Stated once, rendered everywhere. Change this line to change the terms.
@@ -2155,14 +2191,16 @@ document.addEventListener('click',(e)=>{
   if(cta&&cta.dataset&&cta.dataset.cta){
     trackEvent('cta_click',{kind:cta.dataset.cta,id:cta.dataset.pid,cat:cta.dataset.pcat});
   }
-  // The "×" badge on a selected-category chip — its own click handler runs
-  // first (it calls clearCatFilter), but tracking here means the analytics
-  // layer does not depend on the renderer re-attaching handlers after a
-  // re-render. id is "cat:<id>" so reports can filter chip clicks apart
-  // from panel toggles.
-  const x=t.closest('.chip .x');
+  // The "×" badge on an active-filter chip — its own click handler runs first
+  // (it clears that one filter), but tracking here means the analytics layer
+  // does not depend on the renderer re-attaching handlers after a re-render.
+  // 2026-09-08 audit: this read `.chip .x` and required a data-k that was never
+  // set, so it matched nothing and the event had never once fired since it was
+  // written — renderActiveFilters() builds `.af-chip`. Both halves fixed: the
+  // real class here, and data-kind/data-k stamped on the chips below.
+  const x=t.closest('.af-chip .x');
   if(x&&x.dataset&&x.dataset.k){
-    trackEvent('category_clear_chip',{id:x.dataset.k});
+    trackEvent('filter_clear_chip',{kind:x.dataset.kind||'cat',id:x.dataset.k});
   }
   // Generic inline escape hatch for one-off signals (e.g. "report an issue"
   // links, modal openers) — opt-in, not a wire to every element on the page.
@@ -2261,6 +2299,9 @@ offlineEl.addEventListener('click',(e)=>{
   }
 });
 document.getElementById('offlineClose').addEventListener('click',()=>{
+  // How often readers actually hit the offline state — and dismiss the notice
+  // rather than leave — was not being recorded anywhere.
+  trackEvent('offline_note',{action:'dismiss',fails:tileFails});
   offlineDismissed=true;offlineEl.hidden=true;clearTimeout(offlineCompactTimer);});
 tiles.on('tileerror',()=>{
   if(++tileFails<6||offlineDismissed)return;
@@ -2767,12 +2808,54 @@ if(typeof L.markerClusterGroup==='function'){
 function markerHome(){return cluster||map;}
 // A marker inside a collapsed cluster cannot just be told to open its popup —
 // the cluster has to expand to it first.
+// The marker a cluster zoom is currently flying toward, if any. See hideMarker().
+let _focusPending=null;
 function focusMarker(m,zoom){
-  if(cluster&&cluster.hasLayer(m)){cluster.zoomToShowLayer(m,()=>m.openPopup());}
-  else{if(zoom)map.setView(m.getLatLng(),zoom);m.openPopup();}
+  // 2026-09-08 audit: tapping a saved place and then changing a filter before
+  // the zoom landed threw twice ("Cannot use 'in' operator to search for
+  // '_leaflet_id' in undefined") and, through the global error trap, showed the
+  // reader "the page hit an error — please refresh" for something they had not
+  // broken. The stack puts the throw inside markercluster's own moveend handler,
+  // not in this callback: zoomToShowLayer keeps a reference to the layer and
+  // reads layer.__parent when the animation ends, and removing the marker from
+  // the cluster in the meantime leaves that undefined. So guarding the callback
+  // is too late — the marker has to survive the flight. It is held here and
+  // released on arrival, and only then hidden if the filters still exclude it.
+  if(cluster&&cluster.hasLayer(m)){
+    _focusPending=m;
+    const settle=()=>{
+      if(_focusPending!==m)return;
+      _focusPending=null;
+      if(!markerPasses(m))hideMarker(m);
+    };
+    cluster.zoomToShowLayer(m,()=>{
+      try{if(cluster.hasLayer(m)||map.hasLayer(m))m.openPopup();}catch(e){}
+      settle();
+    });
+    // zoomToShowLayer only calls back once its animation ends; if the map never
+    // moves, or the plugin bails early, that can be never. Never leave a marker
+    // pinned to the map by a hold nothing releases.
+    setTimeout(settle,1600);
+    return;
+  }
+  if(zoom)map.setView(m.getLatLng(),zoom);
+  if(markerHome().hasLayer(m)){m.openPopup();return;}
+  // The marker is filtered off the map. Tapping a saved place used to close the
+  // panel, pan the map and then show nothing at all — a dead end with no
+  // explanation. Open the place's own card at its location instead: the reader
+  // asked for this one place, and answering does not require quietly breaking
+  // the promise the filter chips make about what is on the map.
+  map.openPopup(popup(m.data,m.i),m.getLatLng(),POPUP_OPTS);
+  trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk,src:'hidden_by_filter'});
 }
 function showMarker(m){const h=markerHome();if(!h.hasLayer(m))h.addLayer(m);}
-function hideMarker(m){const h=markerHome();if(h.hasLayer(m))h.removeLayer(m);}
+function hideMarker(m){
+  // Removing the marker a cluster zoom is animating toward is what made
+  // markercluster throw on arrival (see focusMarker). Hold it until the
+  // animation lands; focusMarker's settle() hides it a moment later if the
+  // filters still exclude it, so the filter stays honest either way.
+  if(_focusPending===m)return;
+  const h=markerHome();if(h.hasLayer(m))h.removeLayer(m);}
 P.forEach((p,idx)=>{
   // keyboard:false keeps 250 markers out of the tab order — a keyboard user used to
   // have to tab through every one of them to reach the footer.
@@ -2981,6 +3064,15 @@ function matchScore(d,q){
   return 0;
 }
 const MIN_QUERY=2;
+// Single source of truth for "does this marker belong on the map right now".
+// apply() passes the score it has already computed; the focus cleanup in
+// focusMarker() calls it for one marker with no score in hand.
+function markerPasses(m,sc){
+  const inFilter=(aC.size===0||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data);
+  if(!inFilter)return false;
+  if(!searchTerm)return true;
+  return (sc===undefined?matchScore(m.data,searchTerm):sc)>0;
+}
 function apply(){let v=0;
   // WCAG 2.4.4 / 4.1.3: capture the previous visible count so we can decide
   // whether to re-announce to the polite live region. Re-announcing on every
@@ -2999,8 +3091,7 @@ function apply(){let v=0;
   M.forEach(m=>{
     const sc=searching?matchScore(m.data,searchTerm):0;
     m.score=sc;
-    const inFilter=(aC.size===0||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data);
-    const s=searching?(sc>0&&inFilter):inFilter;
+    const s=markerPasses(m,sc);
     if(s){showMarker(m);v++;bounds.push([m.data.lat,m.data.lng]);}else{hideMarker(m);}});
   const u=UI[L_];
   const st=document.getElementById('statusText');
@@ -3077,9 +3168,12 @@ function updatePanelTitle(){
 function updateResetState(){
   document.getElementById('resetBtn').hidden=(lastDims===0&&!searchTerm&&!selectedRoute);
 }
+// Which empty-state reason was last reported, so the event fires on the way in
+// rather than once per keystroke. null means "the map currently has results".
+let _lastEmptyKind=null;
 function renderEmptyState(v,searching,filtered){
   const el=document.getElementById('emptyState'),u=UI[L_];
-  if(v>0){el.hidden=true;el.innerHTML='';return;}
+  if(v>0){el.hidden=true;el.innerHTML='';_lastEmptyKind=null;return;}
   el.hidden=false;
   let msg,label,act;
   const clearFiltersAct=()=>{aR=new Set(Object.keys(RI));aC.clear();aT.clear();selPresets.clear();presetsAdjusted=false;renderRegs();renderCats();renderThemes();apply();};
@@ -3095,7 +3189,21 @@ function renderEmptyState(v,searching,filtered){
   }
   el.innerHTML='<p>'+msg+'</p>';
   const btn=document.createElement('button');btn.className='empty-btn';btn.textContent=label;
-  btn.onclick=act;el.appendChild(btn);
+  // 2026-09-08 audit: this button is the app's clearest "I hit a dead end and
+  // tried to get out of it" signal, and it recorded nothing — so the one moment
+  // worth knowing about was invisible in the data. The `kind` distinguishes the
+  // three honest ways to arrive here, which is what makes the row actionable.
+  const kind=searching&&filtered?'search_and_filters':searching?'search':'filters';
+  el.dataset.kind=kind;
+  // apply() runs this on every keystroke and every filter tap, so fire only on
+  // the transition into an empty result (or when the reason for it changes) —
+  // otherwise one fruitless search would bill a dozen identical rows.
+  if(_lastEmptyKind!==kind){
+    _lastEmptyKind=kind;
+    trackEvent('empty_state_shown',{kind:kind,cats:aC.size,themes:aT.size,
+      areas:aR.size<Object.keys(RI).length,route:!!selectedRoute});
+  }
+  btn.onclick=()=>{trackEvent('empty_state_recover',{kind:kind});act();};el.appendChild(btn);
 }
 const PRESETS={
   daily:['grocery','asian','hospital','pharmacy','bank','transit','gas','laundry','post','conv'],
@@ -3169,7 +3277,9 @@ function renderActiveFilters(){
   if(aR.size<totalR){
     [...aR].forEach(k=>{
       const chip=document.createElement('div');chip.className='af-chip';
-      chip.innerHTML='<span>📍 '+RI[k][L_]+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+      // data-kind/data-k feed the delegated tracker above; without them the chip
+      // "×" was the one filter control in the app that recorded nothing.
+      chip.innerHTML='<span>📍 '+RI[k][L_]+'</span><button class="x" data-kind="region" data-k="'+k+'" aria-label="'+u.aClose+'">✕</button>';
       chip.querySelector('.x').onclick=()=>{aR.delete(k);if(aR.size===0)aR=new Set(Object.keys(RI));renderRegs();renderCats();renderThemes();apply();};
       root.appendChild(chip);
     });
@@ -3179,13 +3289,13 @@ function renderActiveFilters(){
   // correction ("free AND indoor" was too narrow — drop indoor).
   [...aT].forEach(k=>{
     const chip=document.createElement('div');chip.className='af-chip';
-    chip.innerHTML='<span>'+TIC[k]+' '+themeLabel(k)+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    chip.innerHTML='<span>'+TIC[k]+' '+themeLabel(k)+'</span><button class="x" data-kind="theme" data-k="'+k+'" aria-label="'+u.aClose+'">✕</button>';
     chip.querySelector('.x').onclick=()=>{aT.delete(k);trackEvent('theme_toggle',{id:k,action:'remove_chip',active:aT.size});renderThemes();renderCats();apply();};
     root.appendChild(chip);
   });
   if(aC.size>0){
     const chip=document.createElement('div');chip.className='af-chip';
-    chip.innerHTML='<span>🏷️ '+u.catsSelected(aC.size)+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    chip.innerHTML='<span>🏷️ '+u.catsSelected(aC.size)+'</span><button class="x" data-kind="cat" data-k="all" aria-label="'+u.aClose+'">✕</button>';
     chip.querySelector('.x').onclick=clearCatFilter;
     root.appendChild(chip);
   }
@@ -3273,6 +3383,19 @@ function setLang(l){
   // qpRow already uses aria-labelledby="quickLabel" so AT reads u.quickLabel.
   document.getElementById('footer').innerHTML=tpl(u.footer,l)
     +'<br><span class="licence-line">'+tpl(u.licenceShort,l)+'</span>';
+  // See .footer-note-btn in the stylesheet: with the header's Data Notes button
+  // hidden, this is the only remaining way for a reader to reach the privacy
+  // disclosure and the disclaimer. Attached after every footer render because
+  // setLang() rewrites that innerHTML wholesale.
+  const fpv=document.getElementById('footer').querySelector('.footer-privacy');
+  if(fpv){
+    const nb=document.createElement('button');
+    nb.type='button';nb.className='footer-note-btn';nb.id='footerNoteBtn';
+    nb.textContent=u.privacyMore;
+    nb.onclick=()=>{trackEvent('note_open',{src:'footer'});
+                    openModal(document.getElementById('noteBackdrop'));};
+    fpv.insertAdjacentElement('afterend',nb);
+  }
   setHL('feedbackLink',u.feedbackLink);
   const fl=document.getElementById('feedbackLink');
   fl.href='mailto:'+CITY.contact+'?subject='+encodeURIComponent(u.fbSubjectGeneral)
@@ -3612,10 +3735,17 @@ function renderRoute(key,fit){
     }
     updateStopLabelVisibility();
     ind.innerHTML='<span>🚌 '+u.routeLabel(key)+' '+r.n+u.parenL+u.stopsN(r.s.length)+u.parenR+'</span><button class="x" aria-label="'+u.aClose+'">✕</button>';
+    // 2026-09-08 audit: the markup ships with a static `hidden` attribute that
+    // nothing ever cleared. .bus-indicator.show{display:flex} is an author rule,
+    // so it beat [hidden] and the bar appeared on screen — but `hidden` also
+    // takes an element out of the accessibility tree, so this role="status"
+    // aria-live region announced the selected route to nobody. Keep the
+    // attribute in step with the class so both audiences agree.
+    ind.hidden=false;
     ind.classList.add('show');
     ind.querySelector('.x').onclick=()=>selectRoute(null);
   }else{
-    ind.classList.remove('show');ind.innerHTML='';
+    ind.classList.remove('show');ind.innerHTML='';ind.hidden=true;
   }
   renderBusList();
   updateResetState();
@@ -3656,6 +3786,10 @@ function wireFavIO(){
   const box=document.getElementById('favCode');
   document.getElementById('favExport').onclick=()=>{
     const u=UI[L_];
+    // Export/import is the migration path between devices; whether anyone ever
+    // completes it was not measurable, so a broken code format could have gone
+    // unnoticed indefinitely. The count travels, never the ids.
+    trackEvent('fav_export',{n:favorites.size});
     box.value=favCode();box.select();
     // execCommand still works on file:// where the async clipboard API often does not.
     let copied=false;
@@ -3671,7 +3805,8 @@ function wireFavIO(){
     const u=UI[L_];
     if(!box.value.trim()){box.focus();favMsg(u.favPastePrompt);return;}
     const ids=parseFavCode(box.value);
-    if(ids===null){favMsg(u.favBadCode);return;}
+    if(ids===null){trackEvent('fav_import',{ok:false,reason:'bad_code'});favMsg(u.favBadCode);return;}
+    trackEvent('fav_import',{ok:true,n:ids.length});
     ids.forEach(id=>favorites.add(id));
     saveFavorites();
     const added=new Set(ids);
@@ -3715,10 +3850,19 @@ function renderFavList(){
     const tagTxt=(p.tag&&u[p.tag])?' <span class="fav-tag">'+u[p.tag]+'</span>':'';
     item.innerHTML='<span class="dot" style="background:'+catColour(p.c)+'"></span><button class="rt-name">'+p.n+tagTxt+'</button><button class="rt-remove" aria-label="'+u.aClose+'">✕</button>';
     item.querySelector('.rt-name').onclick=()=>{
+      // Re-opening a saved place is the clearest evidence that favourites are
+      // being used as intended, and it was the one favourites action with no
+      // event of its own (only the star toggle had one).
+      trackEvent('fav_open',{id:p.id,cat:p.c,reg:p.g,total:favorites.size});
       map.setView([p.lat,p.lng],16);focusMarker(m,16);closePanel();
     };
     item.querySelector('.rt-remove').onclick=(e)=>{
-      e.stopPropagation();favorites.delete(p.id);saveFavorites();renderFavList();updateFavBadge();
+      e.stopPropagation();
+      // Same action as un-starring in the popup, so it carries the same event
+      // name and shape — otherwise removals done from this list looked, in the
+      // data, like favourites that were never removed at all.
+      trackEvent('fav_toggle',{id:p.id,action:'remove',cat:p.c,reg:p.g,src:'list'});
+      favorites.delete(p.id);saveFavorites();renderFavList();updateFavBadge();
       m.setPopupContent(popup(m.data,m.i));
     };
     root.appendChild(item);
@@ -3935,6 +4079,9 @@ searchInputEl.onkeydown=(e)=>{
   if(e.key==='Escape'&&searchInputEl.value){searchInputEl.value='';clearTimeout(searchTimer);runSearch();}
 };
 searchClearEl.onclick=()=>{
+  // 2026-09-08 audit: abandoning a search is as informative as running one —
+  // it says the query went nowhere — and this path recorded nothing at all.
+  trackEvent('search_clear',{had:searchRaw.length,n:lastVisible});
   searchInputEl.value='';clearTimeout(searchTimer);runSearch();searchInputEl.focus();
 };
 const guideBackdropEl=document.getElementById('guideBackdrop');
@@ -4071,6 +4218,26 @@ function writeURLState(){
   });
 })();
 wireFavIO();
+// 2026-09-08 audit: public/sw.js has been written, documented, deployed and
+// version-bumped since the PWA shipped — and nothing ever registered it, so the
+// offline shell it describes did not exist. That matters here more than for most
+// sites: manifest.json advertises an installable standalone app, session_start
+// reports a `pwa` flag as though one were running, and the offline notice tells
+// the reader in five languages that "place details, search, filters and the
+// resident guide all work without a connection" — which, on a cold offline load
+// with no service worker, was simply not true.
+// Registered defensively: only over http(s) (a file:// copy has no origin to
+// scope to), only after load so it never competes with first paint, and inside
+// try/catch because a rejected registration must never surface to the reader.
+if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){
+  window.addEventListener('load',()=>{
+    try{
+      navigator.serviceWorker.register('sw.js').catch(e=>{
+        trackEvent('sw_register',{ok:false,msg:String(e&&e.message||e).slice(0,80)});
+      }).then(reg=>{if(reg)trackEvent('sw_register',{ok:true});});
+    }catch(e){}
+  });
+}
 // #map has no measured height until layout runs; take the real one now.
 setTimeout(syncPanPad,0);
 // P1-A ONB-02 (2026-09-05): a first-time visitor with no stored choice falls

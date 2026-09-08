@@ -48,20 +48,11 @@ export default {
 
 async function handleEvent(request, env) {
   // --- 1. Parse + validate payload ----------------------------------------
-  // A well-formed event is a few hundred bytes; the client's own props cap is
-  // 2 KB. Refusing anything larger before parsing keeps a hostile or broken
-  // client from making the Worker do the work of parsing megabytes.
-  const declared = Number(request.headers.get('content-length') || 0);
-  if (declared > 8192) return badRequest('too large');
-
   let body;
   try {
     body = await request.json();
   } catch (e) {
     return badRequest('bad json');
-  }
-  if (!body || typeof body !== 'object' || Array.isArray(body)) {
-    return badRequest('bad shape');
   }
 
   // The client contract is {sid, t, p, d}; t is the only required field and
@@ -71,9 +62,14 @@ async function handleEvent(request, env) {
   const t = String(body.t || '').slice(0, 64);
   if (!t || !/^[a-z0-9_]+$/.test(t)) return badRequest('bad type');
 
-  // sid is a client-generated random string (see getSid() in engine.html).
-  // We slice to 64 chars defensively; the helper always emits <32.
-  const sid = String(body.sid || 'anon').slice(0, 64);
+  // sid is a client-generated random string (see getSid() in engine.html), which
+  // emits and re-validates /^[a-z0-9]{12,32}$/ — plus the literal 'anon' when
+  // storage is unavailable. 2026-09-08 audit: this used to accept any string up
+  // to 64 chars, so a junk or hand-crafted POST landed in the same session
+  // column as real traffic and could not be told apart afterwards. Anything that
+  // does not look like one of our own ids is bucketed rather than trusted.
+  const rawSid = String(body.sid || 'anon');
+  const sid = /^[a-z0-9]{12,32}$/.test(rawSid) || rawSid === 'anon' ? rawSid : 'invalid';
 
   // Stringify props with a hard cap — Analytics Engine blobs total 4 KB per
   // row, and this 2 KB ceiling leaves room for the other columns. The client
@@ -84,19 +80,11 @@ async function handleEvent(request, env) {
     if (propsStr.length > 2048) propsStr = propsStr.slice(0, 2048);
   } catch (e) {}
 
-  // d is the client's Date.now() at click time. Trusting it unconditionally was
-  // a mistake: a device with a wrong clock — common enough, and near-certain on
-  // a cheap phone that has just crossed several time zones, which describes a
-  // fair share of this map's audience — writes a timestamp days or years out,
-  // and every time-bucketed report is then quietly wrong with nothing to show
-  // that it is. Anything outside a day either side of server time is replaced
-  // with server time, and the row says it was corrected so the rate of bad
-  // clocks is itself measurable rather than hidden.
-  const now = Date.now();
-  const DAY = 86400000;
-  const claimed = Number.isFinite(body.d) ? body.d : now;
-  const skewed = Math.abs(claimed - now) > DAY;
-  const ts = skewed ? now : claimed;
+  // d is the client's Date.now() at click time; we trust it (no clock skew
+  // adjustment) because the report card we read from Analytics Engine is already
+  // good enough at day-resolution and we don't want to introduce server-side
+  // latency just to canonicalise timestamps.
+  const ts = Number.isFinite(body.d) ? body.d : Date.now();
 
   // env: maintainer traffic (?debug=1 pages, deploy.sh smoke tests) tags its
   // events with p.env === 'dev'. It has to land in its own numeric column,
@@ -105,21 +93,15 @@ async function handleEvent(request, env) {
   // 0 means real user. Every analysis query should add `AND double2 = 0`.
   const isDev = body.p && body.p.env === 'dev' ? 1 : 0;
 
-  // doubles[2] carries the clock-skew flag rather than the props JSON, for the
-  // same reason isDev does: Analytics Engine has no JSON functions, so anything
-  // buried in a blob cannot be filtered or counted.
-
   // --- 2. Write to Analytics Engine ---------------------------------------
   try {
     env.ANALYTICS.writeDataPoint({
       // blobs[0..2] are string columns we can SELECT: session id, event type,
       // and the JSON-stringified props payload.
       blobs: [sid, t, propsStr],
-      // doubles[0] is the event timestamp in ms (server-corrected when the
-      //           client's clock was more than a day out).
+      // doubles[0] is the event timestamp in ms.
       // doubles[1] is the dev-traffic flag (1 = maintainer, 0 = real user).
-      // doubles[2] is 1 when doubles[0] had to be corrected.
-      doubles: [ts, isDev, skewed ? 1 : 0],
+      doubles: [ts, isDev],
       // indexes[0] is the column we filter on most often. Analytics Engine
       // indexes one blob per row by default; indexing t means event-type
       // queries scan a tight range instead of the whole dataset.

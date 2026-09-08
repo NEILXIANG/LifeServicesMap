@@ -650,11 +650,66 @@ for name in sorted(called - defined - BUILTIN):
     fail('calls %s() but nothing in the script defines it' % name)
 
 # --------------------------------------------------- 14. hidden-attribute traps
-for m in re.finditer(r'\.([\w-]+)\s*\{[^}]*display:\s*(flex|grid|block|inline-flex)', flat):
-    cls = m.group(1)
-    if re.search(r"getElementById\('[^']*'\)\.hidden\s*=", script) and cls in ('active-filters','fhint','empty-state','search-note'):
-        if not re.search(re.escape('.'+cls)+r'\[hidden\]', flat):
-            fail('.%s sets display but has no [hidden] override — .hidden=true will not hide it' % cls)
+# The trap: `hidden` is a user-agent stylesheet rule ([hidden]{display:none}), and
+# ANY author rule that sets a display on the same element beats it regardless of
+# specificity. An element that JS hides with .hidden=true, or that ships with a
+# static hidden attribute, then stays on screen — usually only under the media
+# query that supplied the display, which is why these survive desktop testing.
+#
+# This used to check a hardcoded list of four classes, and so missed every real
+# instance of the bug: #shareNative (visible on any browser without
+# navigator.share), #searchClear (visible on every touch device) and #busIndicator
+# (visible, but left in `hidden` and therefore mute to screen readers). It now
+# derives both sides — which elements are hideable, and which selectors give them
+# a display — from the file itself.
+# Variables that alias an element, so `fooEl.hidden=` counts as hiding #foo. Built
+# from the actual declarations rather than guessed from the name — `panelAreaEl`
+# aliases #panelArea, not #panel, and a prefix match would flag the wrong element.
+alias = {}
+for m in re.finditer(r"\b([A-Za-z_]\w*)\s*=\s*document\.getElementById\('([^']+)'\)", script):
+    alias[m.group(1)] = m.group(2)
+hidden_ids = set()
+for m in re.finditer(r"document\.getElementById\('([^']+)'\)\.hidden\s*=", script):
+    hidden_ids.add(m.group(1))
+for m in re.finditer(r"\b([A-Za-z_]\w*)\.hidden\s*=", script):
+    if m.group(1) in alias:
+        hidden_ids.add(alias[m.group(1)])
+
+hideable = {}          # id -> set of classes, for every element that can carry `hidden`
+for m in re.finditer(r'<([a-z]+)\b([^>]*)>', body, re.I):
+    attrs = m.group(2)
+    eid = re.search(r'\bid="([^"]+)"', attrs)
+    if not eid:
+        continue
+    cls = re.search(r'\bclass="([^"]*)"', attrs)
+    classes = set((cls.group(1) if cls else '').split())
+    static_hidden = re.search(r'\shidden(?=[\s>/=])', attrs) is not None
+    if static_hidden or eid.group(1) in hidden_ids:
+        hideable[eid.group(1)] = classes
+
+# Every author rule that gives some selector a display other than none, mapped
+# back to the bare .class / #id tokens it applies to.
+display_selectors = {}
+for m in re.finditer(r'([^{}]+)\{([^{}]*)\}', flat):
+    sel, decls = m.group(1), m.group(2)
+    d = re.search(r'(?:^|;)\s*display:\s*([a-z-]+)', decls)
+    if not d or d.group(1) == 'none':
+        continue
+    if '[hidden]' in sel:
+        continue
+    for tok in re.findall(r'[.#][\w-]+', sel):
+        display_selectors.setdefault(tok, set()).add(d.group(1))
+
+for eid, classes in sorted(hideable.items()):
+    tokens = ['#' + eid] + ['.' + c for c in sorted(classes)]
+    offenders = [t for t in tokens if t in display_selectors]
+    if not offenders:
+        continue
+    # An override on the id, or on any class the element carries, defuses it.
+    guarded = any(re.search(re.escape(t) + r'\[hidden\]', flat) for t in tokens)
+    if not guarded:
+        fail('#%s can be hidden but %s sets a display — [hidden] will not hide it; '
+             'add %s[hidden]{display:none}' % (eid, '/'.join(offenders), tokens[0]))
 
 
 # ------------------------------------------------- 15. city coupling stays in CITY

@@ -14,7 +14,13 @@
 // would have kept the old icon and the old manifest for good — the change would
 // have shipped and reached nobody. Bump this line whenever a file in
 // STATIC_ASSETS changes, not only when the strategy changes.
-const CACHE = 'kamloops-lifemap-v1.1.0';
+// v1.2.0 (2026-09-08): manifest.json's description changed (the newcomer ->
+// resident rename had missed this file), and this is also the first release in
+// which the page actually registers this worker — nothing ever called
+// serviceWorker.register() before, so every version above shipped to nobody.
+// STATIC_ASSETS are served cache-first, so this bump is what lets the corrected
+// manifest reach readers who already have a cache.
+const CACHE = 'kamloops-lifemap-v1.2.0';
 const STATIC_ASSETS = [
   '/manifest.json',
   '/icon.svg',
@@ -49,8 +55,15 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(req)
         .then((resp) => {
-          const clone = resp.clone();
-          caches.open(CACHE).then((c) => c.put(req, clone));
+          // 2026-09-08: only cache a response that actually succeeded. Caching
+          // unconditionally meant a single 404/500 caught mid-deploy became the
+          // stored copy — and, being the offline fallback too, it would then be
+          // served to that reader in place of the app until the CACHE name
+          // changed. An error page is not an offline shell.
+          if (resp && resp.ok) {
+            const clone = resp.clone();
+            caches.open(CACHE).then((c) => c.put(req, clone));
+          }
           return resp;
         })
         .catch(() => caches.match(req).then((c) => c || caches.match('/')))
@@ -63,10 +76,16 @@ self.addEventListener('fetch', (event) => {
   if (url.origin === self.location.origin) {
     event.respondWith(
       caches.match(req).then((cached) => cached || fetch(req).then((resp) => {
-        const clone = resp.clone();
-        caches.open(CACHE).then((c) => c.put(req, clone));
+        // Same rule as above, and for the same reason: these are served
+        // cache-first, so a poisoned entry here would outlive the incident.
+        if (resp && resp.ok) {
+          const clone = resp.clone();
+          caches.open(CACHE).then((c) => c.put(req, clone));
+        }
         return resp;
-      }))
+      // A missing asset offline must not reject respondWith() — hand the
+      // request back to the browser instead of failing it outright.
+      }).catch(() => cached || Response.error()))
     );
   }
 });
