@@ -1179,6 +1179,59 @@ async def main():
         check("65 no page errors on the touch pass", len(em)==0, em[:3])
         await pgm.close()
 
+        print("\n--- Life Guide task layer (round 66) ---")
+        pgt3=await b.new_page(viewport={'width':1280,'height':900})
+        et3=[]; pgt3.on('pageerror', lambda e: et3.append(str(e)))
+        await pgt3.goto(URL); await pgt3.wait_for_timeout(1200)
+        await pgt3.click('#guideToggle'); await pgt3.wait_for_timeout(350)
+        gl=await pgt3.evaluate("""()=>({cards:document.querySelectorAll('.task-card').length,
+            prose:document.getElementById('guideBody').textContent.length,
+            toc:!!document.querySelector('.guide-toc')})""")
+        ntasks=await pgt3.evaluate("()=>TASKS.length")
+        check("66 the guide opens on problems, with the long-form guide still under it",
+              gl['cards']==ntasks and gl['cards']>=6 and gl['prose']>10000 and gl['toc'],
+              dict(gl, tasks=ntasks))
+        td=await pgt3.evaluate("""()=>{document.querySelector('.task-card[data-task=msp]').click();
+            const h=document.getElementById('guideTasks');
+            return {steps:h.querySelectorAll('.task-steps li').length,
+                    place:(h.querySelector('.task-place b')||{}).textContent,
+                    map:!!h.querySelector('.task-map'),
+                    src:!!h.querySelector('.task-src a'),
+                    back:!!document.getElementById('taskBack')};}""")
+        check("66 a task gives steps, the office, a map hand-off and its official source",
+              td['steps']>=3 and td['map'] and td['src'] and td['back'] and td['place'], td)
+        # The photo BC Services Card is issued by ICBC, not Service BC — the kind of
+        # detail that sends someone to the wrong counter, so it is pinned here.
+        icbc=await pgt3.evaluate("""()=>TASKS.find(t=>t.id==='msp').steps
+            .some(s=>/ICBC/.test(s.en))""")
+        check("66 the MSP card step still names ICBC as the place that issues it", icbc)
+        mapped=await pgt3.evaluate("""()=>{const n0=_evBuf.length;
+            document.querySelector('.task-map').click();
+            return {closed:!document.getElementById('guideBackdrop').classList.contains('open'),
+                    ev:_evBuf.slice(n0).some(e=>e.t==='task_to_map')};}""")
+        await pgt3.wait_for_timeout(1000)
+        check("66 'where do I go' closes the guide and opens that office on the map",
+              mapped['closed'] and mapped['ev']
+              and await pgt3.evaluate("()=>!!document.querySelector('.leaflet-popup')"), mapped)
+        # every task, every language, no silent English fallback
+        tl=await pgt3.evaluate("""()=>{const out={};
+            ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);renderTaskList();
+              out[l]=[...document.querySelectorAll('.task-q')].map(e=>e.textContent).join('|');});
+            setLang('en');return out;}""")
+        check("66 every task reads in all six languages, none falling back to English",
+              len(set(tl.values()))==6 and all(v for v in tl.values()),
+              {k:v[:22] for k,v in tl.items()})
+        every=await pgt3.evaluate("""()=>{const bad=[];
+            TASKS.forEach(t=>['q','t','why'].forEach(k=>{
+              ['zh','en','fr','es','ko','ja'].forEach(l=>{
+                if(!t[k]||!t[k][l])bad.push(t.id+'.'+k+'.'+l);});}));
+            TASKS.forEach(t=>t.steps.forEach((s,i)=>['zh','en','fr','es','ko','ja'].forEach(l=>{
+                if(!s[l])bad.push(t.id+'.step'+i+'.'+l);})));
+            return bad;}""")
+        check("66 no task is missing a translation in any language", len(every)==0, every[:6])
+        check("66 no page errors from the task layer", len(et3)==0, et3[:3])
+        await pgt3.close()
+
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
         e4=[]; pg4.on('pageerror', lambda e: e4.append(str(e)))

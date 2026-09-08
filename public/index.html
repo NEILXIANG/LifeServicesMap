@@ -1224,6 +1224,48 @@ svg.leaflet-image-layer.leaflet-interactive path {
     }
     :focus-visible{outline:3px solid Highlight;}
   }
+  /* ---- Life Guide task layer (2026-09-08) --------------------------------
+     The guide opens on problems rather than headings, so these are the two
+     states of that: a grid of problem cards, and one task opened in place.
+     Deliberately plain — this is read while someone is stressed and short of
+     time, so hierarchy and tap size matter more than decoration. */
+  .task-lead{margin:0 0 12px;font-size:13px;line-height:1.6;color:var(--ink);font-weight:600;}
+  .task-bucket{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--sage);margin:14px 0 7px;}
+  .task-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(max-width:600px){.task-grid{grid-template-columns:1fr;}}
+  .task-card{display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;
+    padding:11px 13px;border:1px solid var(--line);border-radius:11px;background:var(--card);
+    cursor:pointer;font-family:inherit;transition:border-color .13s,background .13s;}
+  .task-card:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--card));}
+  .task-ic{font-size:17px;line-height:1;}
+  .task-q{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.4;}
+  .task-t{font-size:11.5px;font-weight:600;color:var(--accent-text);line-height:1.35;}
+  .task-more{margin:16px 0 0;font-size:11.5px;color:var(--sub-ink);}
+  .task-back{background:none;border:none;font-family:inherit;font-size:12px;font-weight:600;
+    color:var(--accent-text);cursor:pointer;padding:4px 0;margin:0 0 8px;}
+  .task-back:hover{text-decoration:underline;}
+  .task-head{display:flex;gap:11px;align-items:flex-start;margin:0 0 14px;}
+  .task-ic-lg{font-size:26px;line-height:1;flex:0 0 auto;}
+  .task-head h4{margin:0 0 3px;font-size:15px;font-weight:600;font-family:var(--font);}
+  .task-head p{margin:0;font-size:12.5px;line-height:1.55;color:var(--sub-ink);}
+  .task-row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;
+    border-top:1px solid var(--line);}
+  @media(max-width:600px){.task-row{grid-template-columns:1fr;gap:3px;}}
+  .task-lb{font-size:11px;font-weight:700;color:var(--sage);letter-spacing:.03em;padding-top:1px;}
+  .task-bd{font-size:12.5px;line-height:1.6;color:var(--ink);}
+  .task-steps{margin:0;padding-left:19px;}
+  .task-steps li{margin:0 0 6px;}
+  .task-steps li:last-child{margin-bottom:0;}
+  .task-place{font-size:12.5px;line-height:1.6;}
+  .task-hrs{color:var(--sub-ink);font-size:11.5px;}
+  .task-map{margin-top:7px;background:var(--accent);color:#fff;border:none;border-radius:16px;
+    padding:7px 14px;font-family:inherit;font-size:11.5px;font-weight:600;cursor:pointer;}
+  .task-map:hover{filter:brightness(.94);}
+  .task-src{margin:12px 0 0;font-size:11px;}
+  .task-src a{color:var(--accent-text);}
+  .task-checked{color:var(--sub-ink);margin-top:4px;}
+  @media(pointer:coarse){.task-card,.task-map,.task-back{min-height:44px;}}
   .pn{color:var(--sub-ink);margin-top:5px;font-size:11.5px;}
   .pr a[href^="tel:"]{color:var(--accent-text);text-decoration:none;font-weight:600;}
   /* popup action row — Directions / Call / Website as three same-size buttons,
@@ -1490,7 +1532,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
       <div class="panel-title" id="guideTitle"></div>
       <button class="panel-close" id="guideClose">✕</button>
     </div>
-    <div class="guide-body" id="guideBody"></div>
+    <div class="guide-body"><div id="guideTasks"></div><div id="guideBody"></div></div>
   </div>
 </div>
 
@@ -1576,6 +1618,22 @@ UI.zh.geoHereLabel='📍 你的位置'; UI.en.geoHereLabel='📍 Your location';
 // 2026-09-08 audit: the label on the footer's opener for the privacy disclosure
 // and the disclaimer. Deliberately worded as "details of the line you just read"
 // rather than as the paused Data Notes feature's own name.
+
+// Labels for the task layer above.
+UI.zh.taskLead='遇到事情不知道从哪下手？先从"我要办什么"开始：';UI.en.taskLead='Not sure where to start? Start from what you need to do:';UI.fr.taskLead='Vous ne savez pas par où commencer ? Partez de ce que vous devez faire :';UI.es.taskLead='¿No sabe por dónde empezar? Empiece por lo que necesita hacer:';UI.ko.taskLead='어디서부터 해야 할지 모르겠다면, 해야 할 일부터 시작하세요:';UI.ja.taskLead='どこから始めればいいか分からないときは、「やるべきこと」から始めましょう:';
+UI.zh.taskFirst='刚到，先办这些';UI.en.taskFirst='Just arrived — do these first';UI.fr.taskFirst='Vient d’arriver — à faire en premier';UI.es.taskFirst='Recién llegado — haga esto primero';UI.ko.taskFirst='막 도착했다면 — 먼저 할 일';UI.ja.taskFirst='着いたばかり — まずこれ';
+UI.zh.taskProblem='遇到问题了';UI.en.taskProblem='Something has gone wrong';UI.fr.taskProblem='Un problème est survenu';UI.es.taskProblem='Algo salió mal';UI.ko.taskProblem='문제가 생겼어요';UI.ja.taskProblem='困ったことが起きた';
+UI.zh.taskSteps='怎么办';UI.en.taskSteps='What to do';UI.fr.taskSteps='Que faire';UI.es.taskSteps='Qué hacer';UI.ko.taskSteps='무엇을 해야 하나';UI.ja.taskSteps='何をするか';
+UI.zh.taskWhere='去哪里办';UI.en.taskWhere='Where to go';UI.fr.taskWhere='Où aller';UI.es.taskWhere='Adónde ir';UI.ko.taskWhere='어디로 가나';UI.ja.taskWhere='どこへ行くか';
+UI.zh.taskCost='费用';UI.en.taskCost='Cost';UI.fr.taskCost='Coût';UI.es.taskCost='Costo';UI.ko.taskCost='비용';UI.ja.taskCost='費用';
+UI.zh.taskWait='等待期';UI.en.taskWait='How long you wait';UI.fr.taskWait='Délai d’attente';UI.es.taskWait='Cuánto espera';UI.ko.taskWait='대기 기간';UI.ja.taskWait='待機期間';
+UI.zh.taskNote='要注意';UI.en.taskNote='Worth knowing';UI.fr.taskNote='Bon à savoir';UI.es.taskNote='Conviene saber';UI.ko.taskNote='알아둘 점';UI.ja.taskNote='知っておくこと';
+UI.zh.taskHelp='卡住了找谁';UI.en.taskHelp='If you get stuck';UI.fr.taskHelp='Si vous êtes bloqué';UI.es.taskHelp='Si se atasca';UI.ko.taskHelp='막혔을 때 연락처';UI.ja.taskHelp='行き詰まったら';
+UI.zh.taskOpenMap='在地图上打开 →';UI.en.taskOpenMap='Open it on the map →';UI.fr.taskOpenMap='Ouvrir sur la carte →';UI.es.taskOpenMap='Abrir en el mapa →';UI.ko.taskOpenMap='지도에서 열기 →';UI.ja.taskOpenMap='地図で開く →';
+UI.zh.taskSource='官方说明';UI.en.taskSource='Official page';UI.fr.taskSource='Page officielle';UI.es.taskSource='Página oficial';UI.ko.taskSource='공식 안내';UI.ja.taskSource='公式ページ';
+UI.zh.taskBack='← 返回全部事项';UI.en.taskBack='← All tasks';UI.fr.taskBack='← Toutes les démarches';UI.es.taskBack='← Todos los trámites';UI.ko.taskBack='← 전체 목록';UI.ja.taskBack='← 一覧に戻る';
+UI.zh.taskReadMore='想读长文版指南？往下翻。';UI.en.taskReadMore='Want the long-form guide? Keep scrolling.';UI.fr.taskReadMore='Vous voulez le guide détaillé ? Continuez à défiler.';UI.es.taskReadMore='¿Quiere la guía completa? Siga bajando.';UI.ko.taskReadMore='자세한 안내문을 원하시면 아래로 스크롤하세요.';UI.ja.taskReadMore='詳しい解説はこの下にあります。';
+UI.zh.taskVerified='本卡内容已于 2026-09-08 对照官方页面核对';UI.en.taskVerified='Checked against the official pages on 2026-09-08';UI.fr.taskVerified='Vérifié auprès des pages officielles le 2026-09-08';UI.es.taskVerified='Verificado con las páginas oficiales el 2026-09-08';UI.ko.taskVerified='2026-09-08 공식 페이지 기준으로 확인함';UI.ja.taskVerified='2026-09-08 に公式ページと照合済み';
 UI.zh.privacyMore='详情'; UI.en.privacyMore='Details'; UI.fr.privacyMore='Détails'; UI.es.privacyMore='Detalles'; UI.ko.privacyMore='자세히';UI.ja.privacyMore='詳細';
 UI.zh.guideToggleLabel='📖 生活指南'; UI.en.guideToggleLabel='📖 Life Guide'; UI.fr.guideToggleLabel='📖 Guide pratique'; UI.es.guideToggleLabel='📖 Guía práctica';
 // P1-D: on a narrow phone every header link drops to icon-only (see the
@@ -2827,9 +2885,24 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.08b';
+const DATA_VERSION='2026.09.08c';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
+
+// ---------------------------------------------------------------------------
+// TASKS — the Life Guide's "how do I actually do this" layer (2026-09-08).
+// The guide already told a reader what exists; it did not tell them what to do
+// on Monday morning. Each task below is one problem stated in the reader's own
+// words, then the steps, the documents, the office, the cost and the wait.
+// Every factual claim was checked against the issuing authority's own page (the
+// `src` on each task) on 2026-09-08; where a detail genuinely varies by person
+// the card says so and sends the reader to that authority rather than guessing.
+// `place` is an id in this city's own verified records, so "where do I go" opens
+// the real office on the map with its address, phone and hours.
+// ---------------------------------------------------------------------------
+const TASKS=[{"id":"sin","icon":"🪪","when":"first","q":{"en":"I need to be able to work and be paid","fr":"Je dois pouvoir travailler et être payé","es":"Necesito poder trabajar y cobrar","zh":"我要能合法工作、拿到工资","ko":"합법적으로 일하고 급여를 받아야 해요","ja":"働いて給料を受け取れるようにしたい"},"t":{"en":"Get a Social Insurance Number (SIN)","fr":"Obtenir un numéro d’assurance sociale (NAS)","es":"Obtener un Número de Seguro Social (NAS)","zh":"申请工卡号（SIN）","ko":"사회보험번호(SIN) 발급","ja":"社会保険番号（SIN）を取得する"},"why":{"en":"An employer cannot put you on payroll without one. Apply as soon as you arrive.","fr":"Un employeur ne peut pas vous payer sans ce numéro. Faites la demande dès votre arrivée.","es":"Un empleador no puede pagarle sin este número. Solicítelo apenas llegue.","zh":"没有它雇主无法给你发工资。落地后尽早办。","ko":"이 번호가 없으면 고용주가 급여를 지급할 수 없습니다. 도착하면 바로 신청하세요.","ja":"この番号がないと雇用主は給与を支払えません。到着したらすぐ申請しましょう。"},"steps":[{"en":"Apply online (fastest), by mail, or in person at Service Canada by appointment.","fr":"Demande en ligne (le plus rapide), par la poste, ou en personne à Service Canada sur rendez-vous.","es":"Solicite en línea (lo más rápido), por correo o en persona en Service Canada con cita.","zh":"三种办法：网上申请（最快）、邮寄，或预约后到 Service Canada 现场办。","ko":"온라인(가장 빠름), 우편, 또는 예약 후 Service Canada 방문 중 선택하세요.","ja":"オンライン（最速）、郵送、または予約してService Canadaの窓口で申請します。"},{"en":"Bring your immigration document from IRCC — the permit, PR card or confirmation that shows your status.","fr":"Apportez votre document d’immigration d’IRCC — permis, carte RP ou confirmation de statut.","es":"Lleve su documento de inmigración de IRCC — permiso, tarjeta RP o confirmación de estatus.","zh":"带上 IRCC 出具的移民身份文件——工签/学签、枫叶卡或身份确认信。","ko":"IRCC가 발급한 이민 신분 서류(허가증, 영주권 카드, 신분 확인서)를 준비하세요.","ja":"IRCCが発行した在留資格の書類（許可証、PRカード、確認書）を持参します。"},{"en":"Applying in person: you normally get your number during the visit.","fr":"En personne : vous repartez normalement avec votre numéro le jour même.","es":"En persona: normalmente recibe su número durante la visita.","zh":"现场办理：通常当场就能拿到号码。","ko":"방문 신청 시: 보통 그 자리에서 번호를 받습니다.","ja":"窓口の場合: 通常その場で番号が発行されます。"}],"cost":{"en":"Free","fr":"Gratuit","es":"Gratuito","zh":"免费","ko":"무료","ja":"無料"},"note":{"en":"Plastic SIN cards are no longer issued — you get a number, on a letter. Never carry it in your wallet.","fr":"Les cartes NAS en plastique n’existent plus — vous recevez un numéro sur une lettre. Ne la gardez pas dans votre portefeuille.","es":"Ya no se emiten tarjetas NAS de plástico — recibe un número en una carta. No la lleve en la cartera.","zh":"现在不再发塑料卡，只给一封带号码的信。不要随身带在钱包里。","ko":"플라스틱 SIN 카드는 더 이상 발급되지 않으며, 번호가 적힌 안내문을 받습니다. 지갑에 넣고 다니지 마세요.","ja":"プラスチックのSINカードは廃止され、番号が記載された書面が届きます。財布に入れて持ち歩かないでください。"},"place":"50c8f348","src":"https://www.canada.ca/en/employment-social-development/services/sin/apply.html","srcName":"Service Canada"},{"id":"msp","icon":"⚕️","when":"first","q":{"en":"I need health coverage — and I might get sick before it starts","fr":"J’ai besoin d’une couverture santé — et je pourrais tomber malade avant qu’elle commence","es":"Necesito cobertura médica — y podría enfermarme antes de que empiece","zh":"我要办医保——但生效前万一生病怎么办","ko":"의료보험이 필요해요 — 개시 전에 아플 수도 있고요","ja":"医療保険が必要 — 開始前に病気になったら困る"},"t":{"en":"Apply for MSP and get a BC Services Card","fr":"Demander le MSP et obtenir la carte BC Services","es":"Solicitar MSP y obtener la BC Services Card","zh":"申请 MSP 医保并领 BC Services Card","ko":"MSP 신청 및 BC Services Card 발급","ja":"MSPに加入しBC Services Cardを受け取る"},"why":{"en":"BC’s public health insurance. There is a wait, so the day you apply matters.","fr":"L’assurance maladie publique de la C.-B. Il y a un délai : la date de votre demande compte.","es":"El seguro público de salud de BC. Hay una espera, así que el día en que solicita importa.","zh":"BC 省的公费医疗。有等待期，所以越早申请越好。","ko":"BC주의 공공 의료보험입니다. 대기 기간이 있으므로 신청 날짜가 중요합니다.","ja":"BC州の公的医療保険です。待機期間があるため、申請日が重要です。"},"steps":[{"en":"Apply the week you arrive — online takes about 15 minutes.","fr":"Faites la demande dès la semaine de votre arrivée — environ 15 minutes en ligne.","es":"Solicite la semana en que llegue — en línea toma unos 15 minutos.","zh":"落地当周就申请——网上大约 15 分钟。","ko":"도착한 주에 바로 신청하세요 — 온라인은 약 15분이면 됩니다.","ja":"到着した週に申請しましょう — オンラインなら約15分です。"},{"en":"Upload a document showing your name, date of birth and status (passport, PR card, or a permit valid 6+ months).","fr":"Téléversez un document indiquant nom, date de naissance et statut (passeport, carte RP, ou permis valide 6 mois et plus).","es":"Suba un documento con su nombre, fecha de nacimiento y estatus (pasaporte, tarjeta RP o permiso válido 6+ meses).","zh":"上传能显示姓名、出生日期和身份的证件（护照、枫叶卡，或有效期 6 个月以上的签证）。","ko":"이름·생년월일·신분이 나오는 서류(여권, 영주권 카드, 6개월 이상 유효한 허가증)를 업로드하세요.","ja":"氏名・生年月日・在留資格が分かる書類（パスポート、PRカード、6か月以上有効な許可証）をアップロードします。"},{"en":"Cover the wait with private insurance — during it you pay the full cost of any care.","fr":"Couvrez le délai avec une assurance privée — pendant cette période, vous payez la totalité des soins.","es":"Cubra la espera con seguro privado — durante ella usted paga el costo total de la atención.","zh":"等待期请自行买私人保险——这段时间看病要全额自付。","ko":"대기 기간은 사보험으로 대비하세요 — 이 기간에는 진료비를 전액 부담합니다.","ja":"待機期間は民間保険でカバーを — この間の医療費は全額自己負担です。"},{"en":"Once approved you get a Personal Health Number. Adults collect the photo card at an ICBC driver licensing office — not Service BC.","fr":"Une fois approuvé, vous recevez un numéro personnel de santé. Les adultes retirent la carte avec photo dans un bureau ICBC — pas à Service BC.","es":"Al aprobarse recibe un Número Personal de Salud. Los adultos recogen la tarjeta con foto en una oficina de ICBC — no en Service BC.","zh":"批准后会拿到个人健康号（PHN）。成人的带照片卡要去 ICBC 驾照办公室领——不是 Service BC。","ko":"승인되면 개인 건강번호(PHN)를 받습니다. 성인은 사진이 있는 카드를 ICBC 운전면허 사무소에서 수령합니다 — Service BC가 아닙니다.","ja":"承認されると個人健康番号（PHN）が発行されます。成人の顔写真付きカードはICBCの運転免許事務所で受け取ります（Service BCではありません）。"}],"cost":{"en":"No fee for the card. MSP has no monthly premiums.","fr":"Aucun frais pour la carte. Le MSP n’a pas de primes mensuelles.","es":"La tarjeta no tiene costo. El MSP no cobra primas mensuales.","zh":"卡本身免费，MSP 也不再收月费。","ko":"카드 발급은 무료이며, MSP 월 보험료도 없습니다.","ja":"カードは無料で、MSPの月額保険料もありません。"},"wait":{"en":"The rest of the month you arrive, plus two more months.","fr":"Le reste du mois de votre arrivée, plus deux mois complets.","es":"El resto del mes en que llega, más dos meses completos.","zh":"到达当月的剩余时间，再加两个整月。","ko":"도착한 달의 남은 기간에 두 달을 더한 기간입니다.","ja":"到着した月の残り＋さらに2か月です。"},"help":{"en":"Health Insurance BC · 1-800-663-7100 · Mon–Fri 8:00–16:30","fr":"Health Insurance BC · 1-800-663-7100 · lun–ven 8 h–16 h 30","es":"Health Insurance BC · 1-800-663-7100 · lun–vie 8:00–16:30","zh":"Health Insurance BC · 1-800-663-7100 · 周一至周五 8:00–16:30","ko":"Health Insurance BC · 1-800-663-7100 · 월–금 8:00–16:30","ja":"Health Insurance BC · 1-800-663-7100 · 月–金 8:00–16:30"},"place":"85cdbdb6","src":"https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp","srcName":"HealthLink BC / MSP"},{"id":"licence","icon":"🚗","when":"first","q":{"en":"I want to drive here — and I heard there is a deadline","fr":"Je veux conduire ici — et il paraît qu’il y a un délai","es":"Quiero conducir aquí — y escuché que hay un plazo","zh":"我想在这里开车——听说有时间限制","ko":"여기서 운전하고 싶어요 — 기한이 있다고 들었어요","ja":"ここで運転したい — 期限があると聞きました"},"t":{"en":"Switch to a BC driver’s licence","fr":"Passer au permis de conduire de la C.-B.","es":"Cambiar a una licencia de conducir de BC","zh":"换成 BC 省驾照","ko":"BC 운전면허로 교환","ja":"BC州の運転免許に切り替える"},"why":{"en":"You have 90 days from arriving before you need a BC licence.","fr":"Vous avez 90 jours après votre arrivée avant d’avoir besoin d’un permis de la C.-B.","es":"Tiene 90 días desde su llegada antes de necesitar una licencia de BC.","zh":"落地后 90 天内必须换成 BC 驾照。","ko":"도착일로부터 90일 안에 BC 면허가 필요합니다.","ja":"到着から90日以内にBC州の免許が必要になります。"},"steps":[{"en":"Go to an ICBC driver licensing office — no appointment needed for most visits.","fr":"Rendez-vous dans un bureau ICBC — la plupart des visites ne nécessitent pas de rendez-vous.","es":"Vaya a una oficina de ICBC — la mayoría de las visitas no requieren cita.","zh":"直接去 ICBC 驾照办公室——多数业务不用预约。","ko":"ICBC 운전면허 사무소로 가세요 — 대부분 예약 없이 가능합니다.","ja":"ICBCの運転免許事務所へ — 多くの手続きは予約不要です。"},{"en":"Bring your Canadian immigration document as primary ID, plus a second piece of ID, and every licence you hold — you must surrender them.","fr":"Apportez votre document d’immigration canadien comme pièce principale, une deuxième pièce d’identité, et tous vos permis — vous devez les remettre.","es":"Lleve su documento de inmigración canadiense como identificación principal, una segunda identificación y todas sus licencias — debe entregarlas.","zh":"主证件带加拿大移民身份文件，再加一份第二证件，以及你持有的所有驾照——都要上交。","ko":"주 신분증으로 캐나다 이민 서류, 추가 신분증 1종, 그리고 보유한 모든 운전면허증을 가져가 반납해야 합니다.","ja":"主たる身分証としてカナダの在留資格書類、補助身分証1点、保有するすべての免許証（返納が必要）を持参します。"},{"en":"Some countries exchange straight across; others require a knowledge and road test. The knowledge test is offered in 12 languages.","fr":"Certains pays permettent un échange direct; d’autres exigent un examen théorique et pratique. L’examen théorique existe en 12 langues.","es":"Algunos países permiten el canje directo; otros exigen examen teórico y práctico. El teórico está en 12 idiomas.","zh":"部分国家可直接互换；其他国家需要考笔试和路考。笔试提供 12 种语言。","ko":"일부 국가는 그대로 교환되고, 그 외에는 필기·도로주행 시험이 필요합니다. 필기시험은 12개 언어로 제공됩니다.","ja":"国によっては無試験で交換でき、それ以外は筆記試験と路上試験が必要です。筆記試験は12言語で受けられます。"},{"en":"If your licence is not in English, have it translated first — an untranslated one puts the application on hold.","fr":"Si votre permis n’est pas en anglais, faites-le traduire d’abord — sinon la demande est suspendue.","es":"Si su licencia no está en inglés, tradúzcala antes — sin traducción la solicitud queda en espera.","zh":"驾照不是英文的，先做翻译——没翻译申请会被搁置。","ko":"면허증이 영어가 아니면 먼저 번역하세요 — 번역이 없으면 신청이 보류됩니다.","ja":"免許証が英語でない場合は先に翻訳を — 未翻訳だと申請は保留になります。"}],"note":{"en":"Fewer than two years of non-learner driving experience puts you in the Graduated Licensing Program.","fr":"Moins de deux ans d’expérience de conduite (hors apprenti) vous place dans le programme d’accès graduel.","es":"Menos de dos años de experiencia (sin ser aprendiz) lo coloca en el Programa de Licencias Graduadas.","zh":"非实习驾龄不满两年的，会被并入 Graduated Licensing 阶梯式发照。","ko":"초보 단계를 제외한 운전 경력이 2년 미만이면 단계별 면허 제도(GLP)에 편입됩니다.","ja":"仮免を除く運転経験が2年未満の場合、段階的免許制度（GLP）の対象になります。"},"place":"867acd77","src":"https://icbc.com/driver-licensing/moving-bc/moving-from-another-country","srcName":"ICBC"},{"id":"deposit","icon":"🏠","when":"problem","q":{"en":"My landlord is keeping my deposit, or charging fees I doubt","fr":"Mon propriétaire garde mon dépôt, ou facture des frais douteux","es":"Mi arrendador retiene mi depósito o cobra tarifas dudosas","zh":"房东扣我押金，或收了我觉得不该收的费用","ko":"집주인이 보증금을 돌려주지 않거나 이상한 비용을 청구해요","ja":"大家が敷金を返してくれない、不審な費用を請求された"},"t":{"en":"Get your deposit back","fr":"Récupérer votre dépôt","es":"Recuperar su depósito","zh":"把押金要回来","ko":"보증금 돌려받기","ja":"敷金を取り戻す"},"why":{"en":"BC law caps deposits and sets a deadline for returning them.","fr":"La loi de la C.-B. plafonne les dépôts et fixe un délai de remboursement.","es":"La ley de BC limita los depósitos y fija un plazo para devolverlos.","zh":"BC 省法律对押金金额和退还期限都有硬性规定。","ko":"BC주 법은 보증금 상한과 반환 기한을 정하고 있습니다.","ja":"BC州法は敷金の上限と返還期限を定めています。"},"steps":[{"en":"Give your landlord your forwarding address in writing — the clock starts from that.","fr":"Donnez votre adresse de réexpédition par écrit — le délai part de là.","es":"Dé su dirección de reenvío por escrito — el plazo empieza ahí.","zh":"先用书面把你的新通讯地址给房东——期限从这一刻开始算。","ko":"새 주소를 서면으로 집주인에게 전달하세요 — 기한은 그때부터 시작됩니다.","ja":"転居先の住所を書面で大家に伝えます — 期限はそこから始まります。"},{"en":"They then have 15 days to return it or file a claim against it.","fr":"Il a ensuite 15 jours pour le rendre ou déposer une réclamation.","es":"Luego tiene 15 días para devolverlo o presentar un reclamo.","zh":"房东有 15 天时间退还，或就押金提出申请。","ko":"집주인은 15일 안에 반환하거나 보증금에 대한 신청을 해야 합니다.","ja":"大家は15日以内に返還するか、敷金に対する申立てを行う必要があります。"},{"en":"If they do neither, apply to the Residential Tenancy Branch — they can be ordered to pay you double.","fr":"S’il ne fait ni l’un ni l’autre, adressez-vous au Residential Tenancy Branch — il peut être condamné à payer le double.","es":"Si no hace ninguna de las dos, acuda al Residential Tenancy Branch — pueden ordenarle pagar el doble.","zh":"两样都没做，就向 RTB 申请——法定可以判房东双倍赔付。","ko":"둘 다 하지 않으면 주택임대청(RTB)에 신청하세요 — 두 배 지급 명령이 가능합니다.","ja":"どちらも行わない場合は住宅賃貸局（RTB）に申立てを — 2倍の支払いを命じられることがあります。"}],"note":{"en":"Caps: security deposit at most half a month’s rent; pet damage deposit at most another half. Landlords may not charge application fees, monthly pet fees, or a fee to return your deposit.","fr":"Plafonds : dépôt de garantie au plus un demi-mois de loyer; dépôt pour animal au plus un autre demi-mois. Interdits : frais de dossier, frais mensuels pour animal, frais pour rendre le dépôt.","es":"Topes: depósito de garantía como máximo medio mes de renta; depósito por mascota otro medio. Prohibido: cuotas de solicitud, cuotas mensuales por mascota o cobrar por devolver el depósito.","zh":"上限：押金最多半个月租金，宠物押金最多再半个月。房东不得收申请费、宠物月费，也不得为退押金收费。","ko":"상한: 보증금은 월세의 최대 절반, 반려동물 보증금은 추가로 최대 절반. 신청 수수료, 월 반려동물 요금, 보증금 반환 수수료는 청구할 수 없습니다.","ja":"上限: 敷金は家賃の半月分まで、ペット敷金はさらに半月分まで。申込手数料、月々のペット料金、敷金返還の手数料は請求できません。"},"help":{"en":"Residential Tenancy Branch · 1-800-665-8779","fr":"Residential Tenancy Branch · 1-800-665-8779","es":"Residential Tenancy Branch · 1-800-665-8779","zh":"BC 省租客维权处 RTB · 1-800-665-8779","ko":"BC주 주택임대청(RTB) · 1-800-665-8779","ja":"BC州住宅賃貸局(RTB) · 1-800-665-8779"},"src":"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy/deposits-fees","srcName":"BC Residential Tenancy Branch"},{"id":"sick","icon":"🩺","when":"problem","q":{"en":"I am sick and I do not have a family doctor","fr":"Je suis malade et je n’ai pas de médecin de famille","es":"Estoy enfermo y no tengo médico de familia","zh":"我生病了，但没有家庭医生","ko":"아픈데 주치의가 없어요","ja":"体調が悪いのにかかりつけ医がいない"},"t":{"en":"Get care without a family doctor","fr":"Se faire soigner sans médecin de famille","es":"Recibir atención sin médico de familia","zh":"没有家庭医生时怎么看病","ko":"주치의 없이 진료받기","ja":"かかりつけ医なしで受診する"},"why":{"en":"Most people arrive without one. There are three doors, and picking the right one saves hours.","fr":"La plupart des gens arrivent sans médecin. Il y a trois portes; choisir la bonne fait gagner des heures.","es":"La mayoría llega sin uno. Hay tres puertas, y elegir la correcta ahorra horas.","zh":"大多数人刚来时都没有家庭医生。有三条路，选对能省好几个小时。","ko":"대부분 처음에는 주치의가 없습니다. 세 가지 경로가 있고, 잘 고르면 몇 시간을 아낍니다.","ja":"多くの人は最初かかりつけ医がいません。窓口は3つあり、選び方で数時間変わります。"},"steps":[{"en":"Not urgent, or unsure: call 8-1-1 — free, 24 hours, a nurse, with interpreters in many languages.","fr":"Non urgent ou incertain : composez le 8-1-1 — gratuit, 24 h, une infirmière, avec interprètes.","es":"No urgente o con dudas: llame al 8-1-1 — gratis, 24 horas, una enfermera, con intérpretes.","zh":"不紧急或拿不准：打 8-1-1——免费、24 小时、护士接听，可要求中文翻译。","ko":"급하지 않거나 판단이 어려우면 8-1-1로 전화하세요 — 무료, 24시간, 간호사 상담, 통역 가능.","ja":"緊急でない・判断に迷うときは8-1-1へ — 無料・24時間・看護師対応、通訳もあります。"},{"en":"Needs seeing today: a walk-in clinic. Go early — they fill their day’s list and then close.","fr":"À voir aujourd’hui : une clinique sans rendez-vous. Allez tôt — la liste du jour se remplit puis ferme.","es":"Necesita verse hoy: una clínica sin cita. Vaya temprano — llenan el cupo del día y cierran.","zh":"当天必须看：去 walk-in 诊所。要早去——当天号满就关门了。","ko":"오늘 진료가 필요하면 워크인 클리닉으로. 일찍 가세요 — 하루 접수가 차면 마감합니다.","ja":"当日中に診てもらう必要があるならウォークインクリニックへ。早めに — その日の受付が埋まると締め切られます。"},{"en":"Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the hospital emergency department.","fr":"Douleur thoracique, difficulté à respirer, saignement important, ou doute sérieux : 911 ou l’urgence de l’hôpital.","es":"Dolor de pecho, dificultad para respirar, sangrado abundante o algo grave: 911 o urgencias del hospital.","zh":"胸痛、呼吸困难、大量出血，或你觉得情况严重：打 911，或直接去医院急诊。","ko":"흉통, 호흡 곤란, 다량 출혈, 위중하다고 느껴지면 911 또는 병원 응급실로.","ja":"胸痛、呼吸困難、大量出血、重症と感じたら911または病院の救急外来へ。"}],"note":{"en":"Care during the MSP wait is not free — you pay the full cost, so private insurance for that gap matters.","fr":"Les soins pendant le délai du MSP ne sont pas gratuits — vous payez tout; d’où l’importance d’une assurance privée.","es":"La atención durante la espera del MSP no es gratuita — usted paga todo; por eso importa el seguro privado.","zh":"MSP 等待期内看病不免费——要全额自付，所以那段时间的私人保险很重要。","ko":"MSP 대기 기간의 진료는 무료가 아니며 전액 본인 부담이므로, 그 기간의 사보험이 중요합니다.","ja":"MSPの待機期間中の受診は無料ではなく全額自己負担です。その間の民間保険が重要です。"},"place":"1e3e329a","src":"https://www.healthlinkbc.ca/","srcName":"HealthLink BC (8-1-1)"},{"id":"settle","icon":"🧭","when":"first","q":{"en":"I do not know what I do not know — who can walk me through it?","fr":"Je ne sais pas ce que j’ignore — qui peut m’accompagner ?","es":"No sé lo que no sé — ¿quién puede guiarme?","zh":"我根本不知道自己漏了什么——有人能带我走一遍吗？","ko":"무엇을 모르는지조차 몰라요 — 누가 안내해 줄 수 있나요?","ja":"何が分からないのかも分からない — 誰か一緒に見てくれませんか"},"t":{"en":"Sit down with a settlement worker","fr":"Rencontrer un intervenant en établissement","es":"Reunirse con un trabajador de asentamiento","zh":"找定居服务专员当面过一遍","ko":"정착 지원 담당자와 상담하기","ja":"定住支援ワーカーに相談する"},"why":{"en":"Free, one-to-one, in many languages — this is the shortcut for everything else on this list.","fr":"Gratuit, en tête-à-tête, en plusieurs langues — le raccourci pour tout le reste de cette liste.","es":"Gratis, uno a uno, en varios idiomas — el atajo para todo lo demás de esta lista.","zh":"免费、一对一、多语言——这份清单上其他所有事，走这条路最快。","ko":"무료 일대일 상담, 여러 언어 지원 — 이 목록의 나머지 모든 일에 대한 지름길입니다.","ja":"無料の個別相談、多言語対応 — このリストの他のすべてへの近道です。"},"steps":[{"en":"Call or walk in and say you have just arrived and want help getting set up.","fr":"Téléphonez ou passez, et dites que vous venez d’arriver et cherchez de l’aide pour vous installer.","es":"Llame o pase y diga que acaba de llegar y quiere ayuda para instalarse.","zh":"打电话或直接去，说你刚到，想找人帮你把该办的都办了。","ko":"전화하거나 직접 방문해 막 도착했고 정착 도움을 받고 싶다고 말하세요.","ja":"電話または直接訪問し、「着いたばかりで、生活の立ち上げを手伝ってほしい」と伝えます。"},{"en":"Ask for an interpreter in your language if you want one — it costs you nothing.","fr":"Demandez un interprète dans votre langue si vous le souhaitez — c’est gratuit.","es":"Pida un intérprete en su idioma si lo desea — no tiene costo.","zh":"需要的话直接要求母语翻译——不收费。","ko":"원하면 모국어 통역을 요청하세요 — 비용은 없습니다.","ja":"希望すれば母語の通訳を依頼できます — 費用はかかりません。"},{"en":"Bring whatever immigration papers you have; they will tell you what is missing.","fr":"Apportez les documents d’immigration que vous avez; on vous dira ce qui manque.","es":"Lleve los papeles de inmigración que tenga; le dirán qué falta.","zh":"把手上有的移民材料都带上，他们会告诉你还缺什么。","ko":"가지고 있는 이민 서류를 모두 가져가면, 무엇이 빠졌는지 알려줍니다.","ja":"手元にある在留関係の書類を持参すれば、何が足りないか教えてくれます。"}],"cost":{"en":"Free","fr":"Gratuit","es":"Gratuito","zh":"免费","ko":"무료","ja":"無料"},"place":"2c686174","src":"","srcName":""}];
+const TASK_BUCKETS=['first','problem'];
+
 // Stated once, rendered everywhere. Change this line to change the terms.
 const LICENCE={id:'CC BY-NC 4.0', url:'https://creativecommons.org/licenses/by-nc/4.0/'};
 // Single source of truth for the verification date. It used to be written out by
@@ -2872,6 +2945,84 @@ function tpl(str,l){
 // and in its own language. Buttons rather than anchors: an <a href="#gs-3"> inside
 // a modal makes the browser write to location.hash, which on a back-press closes
 // something the reader did not ask to close.
+
+// ---------------------------------------------------------------------------
+// The task layer's UI. The guide used to open on twenty-six headings of prose,
+// which answers "what exists here" but not "I have this problem, what do I do".
+// It now opens on the problems themselves, in the reader's own words; choosing
+// one replaces the list with that task's steps, documents, office, cost and
+// wait, and a back link returns to the list. The long-form prose is untouched
+// and still sits below — this is a way in, not a replacement.
+// ---------------------------------------------------------------------------
+let _taskOpen=null;
+function taskText(v){return v&&(v[L_]||v.en)||'';}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function renderTaskList(){
+  const host=document.getElementById('guideTasks');
+  if(!host)return;
+  const u=UI[L_];
+  _taskOpen=null;
+  let h='<p class="task-lead">'+esc(u.taskLead)+'</p>';
+  TASK_BUCKETS.forEach(b=>{
+    const items=TASKS.filter(t=>t.when===b);
+    if(!items.length)return;
+    h+='<div class="task-bucket">'+esc(b==='first'?u.taskFirst:u.taskProblem)+'</div><div class="task-grid">';
+    items.forEach(t=>{
+      h+='<button type="button" class="task-card" data-task="'+esc(t.id)+'">'
+        +'<span class="task-ic" aria-hidden="true">'+t.icon+'</span>'
+        +'<span class="task-q">'+esc(taskText(t.q))+'</span>'
+        +'<span class="task-t">'+esc(taskText(t.t))+' →</span></button>';
+    });
+    h+='</div>';
+  });
+  h+='<p class="task-more">'+esc(u.taskReadMore)+'</p>';
+  host.innerHTML=h;
+  host.querySelectorAll('.task-card').forEach(b=>{
+    b.onclick=()=>{trackEvent('task_open',{id:b.dataset.task});openTask(b.dataset.task);};
+  });
+}
+function openTask(id){
+  const t=TASKS.find(x=>x.id===id);
+  const host=document.getElementById('guideTasks');
+  if(!t||!host)return;
+  _taskOpen=id;
+  const u=UI[L_];
+  const row=(label,body,cls)=>body?'<div class="task-row'+(cls?' '+cls:'')+'"><div class="task-lb">'
+      +esc(label)+'</div><div class="task-bd">'+body+'</div></div>':'';
+  let h='<button type="button" class="task-back" id="taskBack">'+esc(u.taskBack)+'</button>'
+       +'<div class="task-head"><span class="task-ic-lg" aria-hidden="true">'+t.icon+'</span>'
+       +'<div><h4>'+esc(taskText(t.t))+'</h4><p>'+esc(taskText(t.why))+'</p></div></div>';
+  h+=row(u.taskSteps,'<ol class="task-steps">'
+      +t.steps.map(x=>'<li>'+esc(taskText(x))+'</li>').join('')+'</ol>');
+  // "Where do I go" is the question the rest of this app can already answer, so
+  // it hands off to the map rather than repeating an address that could drift.
+  const pl=t.place?P.find(p=>p.id===t.place):null;
+  if(pl){
+    let w='<div class="task-place"><b>'+esc(pl.n)+'</b><br>'+esc(pl.a||'');
+    if(pl.p)w+='<br><a href="tel:'+esc(String(pl.p).replace(/[^\d]/g,''))+'">'+esc(pl.p)+'</a>';
+    const hrs=pl.h?fmtHours(pl.h,L_):'';
+    if(hrs)w+='<br><span class="task-hrs">'+esc(hrs)+'</span>';
+    w+='<br><button type="button" class="task-map" data-pid="'+esc(pl.id)+'">'+esc(u.taskOpenMap)+'</button></div>';
+    h+=row(u.taskWhere,w);
+  }
+  h+=row(u.taskCost,t.cost?esc(taskText(t.cost)):'');
+  h+=row(u.taskWait,t.wait?esc(taskText(t.wait)):'');
+  h+=row(u.taskNote,t.note?esc(taskText(t.note)):'');
+  h+=row(u.taskHelp,t.help?esc(taskText(t.help)):'');
+  if(t.src)h+='<p class="task-src"><a href="'+esc(t.src)+'" target="_blank" rel="noopener">'
+      +esc(u.taskSource)+': '+esc(t.srcName)+' ↗</a></p>';
+  h+='<p class="task-src task-checked">'+esc(u.taskVerified)+'</p>';
+  host.innerHTML=h;
+  host.scrollIntoView({block:'start'});
+  document.getElementById('taskBack').onclick=()=>{trackEvent('task_back',{id:id});renderTaskList();};
+  const mb=host.querySelector('.task-map');
+  if(mb)mb.onclick=()=>{
+    const m=M.find(x=>x.data.id===mb.dataset.pid);
+    trackEvent('task_to_map',{id:id,place:mb.dataset.pid});
+    closeModal(guideBackdropEl);
+    if(m){map.setView(m.getLatLng(),16);focusMarker(m,16);}
+  };
+}
 function buildGuideToc(){
   const body=document.getElementById('guideBody');
   if(!body)return;
@@ -4205,6 +4356,9 @@ function setLang(l){
   document.getElementById('guideBody').innerHTML=
     GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l);
   buildGuideToc();
+  // Keep the task layer in the reader's language too — and keep them on the
+  // task they were reading rather than bouncing them back to the list.
+  if(_taskOpen)openTask(_taskOpen); else renderTaskList();
   document.getElementById('quickLabel').textContent=u.quickLabel;
   document.getElementById('clearCat').textContent=u.clearCatFilter;
   document.getElementById('themeLabel').textContent=u.themeLabel;
