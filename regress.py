@@ -550,8 +550,11 @@ async def main():
         # 2026-09-07: commctr 从 2 变 3 —— Westsyde Community Hall 原本用了 CI 里
         # 不存在的分类 key 'community'（正是让整页文案空白的崩溃源），现按 DATA-SCHEMA
         # 「礼堂属于 commctr」的既有定义归入社区中心。边界规则未变，只是数量对上了。
+        # 2026-09-08: commctr 3 → 4 (Volunteer Kamloops). The invariant this check
+        # exists for is the boundary — a community organisation is not a government
+        # office — so gov stays pinned and commctr is only ever allowed to grow.
         check("49 the community centre is not filed under government",
-              tx['gov']==4 and tx['commctr']==3, [tx['gov'],tx['commctr']])
+              tx['gov']==4 and tx['commctr']>=4, [tx['gov'],tx['commctr']])
         await pg.evaluate("(()=>{aCref().clear();aCref().add('propmgmt');renderCats();apply();})()")
         await pg.wait_for_timeout(600)
         check("48 the new category filters like any other",
@@ -1231,6 +1234,177 @@ async def main():
         check("66 no task is missing a translation in any language", len(every)==0, every[:6])
         check("66 no page errors from the task layer", len(et3)==0, et3[:3])
         await pgt3.close()
+
+        print("\n--- multidisciplinary pass (round 67) ---")
+        pgm2=await b.new_page(viewport={'width':1280,'height':950})
+        em2=[]; pgm2.on('pageerror', lambda e: em2.append(str(e)))
+        await pgm2.goto(URL); await pgm2.wait_for_timeout(1200)
+
+        # Self-efficacy: ticking a task has to persist, and must stay on the device.
+        await pgm2.click('#guideToggle'); await pgm2.wait_for_timeout(300)
+        tick=await pgm2.evaluate("""()=>{
+            document.querySelector('.task-card[data-task=sin]').click();
+            document.getElementById('taskTick').click();
+            document.getElementById('taskBack').click();
+            return {pc:(document.querySelector('.task-pc')||{}).textContent||null,
+                    badge:!!document.querySelector('.task-card[data-task=sin] .task-done-b'),
+                    stored:localStorage.getItem('kamloopsTasksDone'),
+                    inUrl:/sin/.test(location.search)};}""")
+        check("67 marking a task done shows progress, persists, and never leaves the device",
+              tick['pc'] and tick['badge'] and tick['stored'] and not tick['inUrl'], tick)
+
+        # Salience: a deadline is the one fact that expires, so it rides on the list.
+        dls=await pgm2.evaluate("""()=>[...document.querySelectorAll('.task-card .task-dl')]
+            .map(e=>e.textContent)""")
+        check("67 time-limited tasks show their deadline on the list", len(dls)>=4, dls)
+
+        # The only signal that can tell us a card is wrong.
+        fb=await pgm2.evaluate("""()=>{
+            document.querySelector('.task-card[data-task=licence]').click();
+            const n0=_evBuf.length;
+            document.querySelector('.task-fb-b[data-r=stuck]').click();
+            return {ev:_evBuf.slice(n0).some(e=>e.t==='task_outcome'&&e.p.result==='stuck'),
+                    thanks:!!document.querySelector('.task-thanks')};}""")
+        check("67 'I got stuck' is recorded and acknowledged", fb['ev'] and fb['thanks'], fb)
+
+        # Cross-cultural: a line to read aloud, and who sees your information.
+        rows=await pgm2.evaluate("""()=>{
+            document.getElementById('taskBack').click();
+            document.querySelector('.task-card[data-task=settle]').click();
+            const h=document.getElementById('guideTasks');
+            return {say:(h.querySelector('.task-say')||{}).textContent||'',
+                    confid:[...h.querySelectorAll('.task-lb')].some(e=>e.textContent===UI[L_].taskConfid),
+                    transfix:!!h.querySelector('.task-src a[href^="mailto:"]')};}""")
+        check("67 a card offers words to say, a confidentiality line, and a translation report",
+              len(rows['say'])>20 and rows['confid'] and rows['transfix'], rows)
+
+        # Cross-linguistic: search has to work in the language being read.
+        alias=await pgm2.evaluate("""()=>{const o={};
+            const probe=(l,q,want)=>{setLang(l);searchInputEl.value=q;searchRaw=q;
+              searchTerm=q.toLowerCase();apply();
+              const hits=M.filter(m=>m.score>0).sort((a,b)=>b.score-a.score).map(m=>m.data.n);
+              o[l+':'+q]=hits.length>0&&hits[0].indexOf(want)>=0;};
+            probe('zh','医院','Royal Inland');probe('zh','驾照','ICBC');
+            probe('ko','병원','Royal Inland');probe('ja','運転免許','ICBC');
+            resetAll();setLang('en');return o;}""")
+        check("67 searching in Chinese/Korean/Japanese finds the right place",
+              all(alias.values()), alias)
+
+        # Sociology: the territory's own institutions are in the data, not just its museum.
+        ind=await pgm2.evaluate("""()=>{
+            const labels={};['zh','en','fr','es','ko','ja'].forEach(l=>{labels[l]=CI.indigenous&&CI.indigenous[l];});
+            setLang('en');aC=new Set(['indigenous']);renderCats();apply();
+            const shown=M.filter(m=>markerHome().hasLayer(m)).length;
+            resetAll();
+            return {complete:Object.values(labels).every(Boolean),
+                    distinct:new Set(Object.values(labels)).size,shown:shown};}""")
+        check("67 Indigenous services is a labelled category with real entries",
+              ind['complete'] and ind['distinct']==6 and ind['shown']>=2, ind)
+
+        # History: the section exists, is indexed, and carries the support line.
+        hist=await pgm2.evaluate("""()=>{const o={};
+            ['en','fr','es','zh','ko','ja'].forEach(l=>{setLang(l);
+              const body=document.getElementById('guideBody').textContent;
+              o[l]=[...document.querySelectorAll('.guide-toc-btn')].some(b=>b.textContent.indexOf('🧡')===0)
+                   && body.indexOf('1-800-588-8717')>=0 && body.indexOf('1890')>=0;});
+            setLang('en');return o;}""")
+        check("67 the land-and-history section is indexed in all six languages, with support",
+              all(hist.values()), hist)
+        check("67 no page errors across the multidisciplinary pass", len(em2)==0, em2[:3])
+        await pgm2.close()
+
+        print("\n--- multidisciplinary pass, second round (round 68) ---")
+        pgm3=await b.new_page(viewport={'width':1280,'height':950})
+        em3=[]; pgm3.on('pageerror', lambda e: em3.append(str(e)))
+        await pgm3.goto(URL); await pgm3.wait_for_timeout(1300)
+
+        # Two of the seven lenses had no card at all: isolation (nobody to call)
+        # and material hardship (no money this month). Both are in the buckets a
+        # reader in that situation would open, in all six languages.
+        nc=await pgm3.evaluate("""()=>{const o={};
+            ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);renderTaskList();
+              o[l]=[...document.querySelectorAll('.task-card')]
+                   .filter(e=>['connect','hardship'].indexOf(e.dataset.task)>=0)
+                   .map(e=>e.textContent.trim());});
+            setLang('en');renderTaskList();
+            const seen={};Object.values(o).forEach(v=>v.forEach((t,i)=>{
+              (seen[i]=seen[i]||new Set()).add(t);}));
+            return {each:Object.values(o).every(v=>v.length===2&&v.every(Boolean)),
+                    distinct:Object.values(seen).map(s=>s.size),
+                    buckets:TASKS.filter(t=>['connect','hardship'].indexOf(t.id)>=0)
+                                 .map(t=>t.id+':'+t.when)};}""")
+        check("68 the isolation and hardship cards exist in six languages, in the right buckets",
+              nc['each'] and all(d==6 for d in nc['distinct'])
+              and nc['buckets']==['connect:ongoing','hardship:problem'], nc)
+
+        # Hardship is the card where the barrier is fear, not information: the
+        # "nobody reports you" line has to be there in every language or the card
+        # is asking people to take a risk it never addressed.
+        cfd=await pgm3.evaluate("""()=>{const o={};
+            ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);renderTaskList();
+              document.querySelector('.task-card[data-task=hardship]').click();
+              const row=[...document.querySelectorAll('#guideTasks .task-row')]
+                .find(r=>r.querySelector('.task-lb').textContent===UI[l].taskConfid);
+              o[l]=row?row.querySelector('.task-bd').textContent.trim():null;});
+            setLang('en');renderTaskList();return o;}""")
+        check("68 the hardship card says, in every language, that asking is safe",
+              all(cfd.values()) and len(set(cfd.values()))==6,
+              {k:(v or '')[:24] for k,v in cfd.items()})
+
+        # The regression this round actually caught: "where do I go" was silent
+        # for any office that shares an address with another place (109 Victoria
+        # St has two), because a marker that can never leave its cluster ignores
+        # openPopup(). Both new cards, and a favourite, must open something.
+        for tid, want in (('connect','Volunteer'), ('hardship','Food Bank')):
+            await pgm3.evaluate("()=>{resetAll();if(!document.getElementById('guideBackdrop').classList.contains('open'))document.getElementById('guideToggle').click();}")
+            await pgm3.wait_for_timeout(350)
+            await pgm3.evaluate("""(tid)=>{renderTaskList();
+                document.querySelector('.task-card[data-task='+tid+']').click();
+                document.querySelector('.task-map').click();}""", tid)
+            await pgm3.wait_for_timeout(1400)
+            pop=await pgm3.evaluate("()=>{const t=document.querySelector('.leaflet-popup .pt');return t?t.textContent:null;}")
+            check("68 '%s' → where do I go opens that office on the map"%tid,
+                  bool(pop) and want in pop, pop)
+
+        cofav=await pgm3.evaluate("""()=>{resetAll();
+            // the co-located pair: two places, one set of coordinates
+            const id='507845f0';
+            favorites.add(id);renderFavList();
+            const n=[...document.querySelectorAll('#favList .rt-name')]
+              .find(x=>x.textContent.indexOf('Volunteer')>=0);
+            if(!n)return {no:'not in list'};
+            n.click();return {clicked:true};}""")
+        await pgm3.wait_for_timeout(1500)
+        favpop=await pgm3.evaluate("()=>{const t=document.querySelector('.leaflet-popup .pt');return t?t.textContent:null;}")
+        check("68 opening a saved place that shares an address still opens its popup",
+              cofav.get('clicked') and favpop and 'Volunteer' in favpop, {'r':cofav,'popup':favpop})
+
+        # Crisis support is filed where someone in crisis looks, not under the
+        # heading that describes who happens to run it.
+        grp=await pgm3.evaluate("""()=>{resetAll();setLang('en');
+            const g=GRP.find(g=>g.cats.indexOf('support')>=0);
+            const labels={};['zh','en','fr','es','ko','ja'].forEach(l=>{labels[l]=CI.support&&CI.support[l];});
+            aC=new Set(['support']);renderCats();apply();
+            const on=M.filter(m=>markerHome().hasLayer(m)).length;
+            resetAll();
+            return {group:g?g.k:null,shown:on,icon:IC.support,colour:CD.support,
+                    complete:Object.values(labels).every(Boolean),
+                    distinct:new Set(Object.values(labels)).size};}""")
+        check("68 crisis support is a labelled category filed under Services, not Faith",
+              grp['group']=='services' and grp['complete'] and grp['distinct']==6
+              and grp['shown']>=1 and grp['icon'] and grp['colour'], grp)
+
+        # A place nobody can find is a place that is not in the app.
+        fnd=await pgm3.evaluate("""()=>{const o={};
+            const probe=(lang,q,want)=>{setLang(lang);
+              searchInputEl.value=q;searchRaw=q;searchTerm=q.toLowerCase();apply();
+              o[lang+':'+q]=M.filter(m=>m.score>0).some(m=>m.data.n.indexOf(want)>=0);};
+            probe('zh','志愿','Volunteer');probe('ko','자원봉사','Volunteer');
+            probe('zh','无家可归','Mustard');probe('fr','bénévolat','Volunteer');
+            resetAll();setLang('en');return o;}""")
+        check("68 the new places are findable in the reader's own words", all(fnd.values()), fnd)
+        check("68 no page errors across the second multidisciplinary pass", len(em3)==0, em3[:3])
+        await pgm3.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
