@@ -28,7 +28,9 @@ MAP_COLOUR = mapart.build(MAP_W, MAP_H, tone='colour', labels=True, roads=True, 
 # The four questions this tool exists to answer — the flyer's actual promise.
 PROMISE = [
     ('🧭', 'Something to sort out?', 'Start from the problem, not a category'),
-    ('📍', 'Where do I go?',         'The right office, on the map, with hours'),
+    # 🗺️ not 📍: the masthead mark is now a pin, and the same symbol twice on
+    # one page reads as a system that has not decided what it means.
+    ('🗺️', 'Where do I go?',         'The right office, on the map, with hours'),
     ('📄', 'What do I bring?',       'Documents, fees and how to book'),
     ('✅', 'How do I finish it?',    'Step by step, to done'),
 ]
@@ -71,13 +73,22 @@ SECULAR_LEAD = ('A guide to knowing this city and living well in it — made and
                 '<b>free, no sign-up, no ads, nothing collected about you.</b>')
 SECULAR_BLESSING = ('Made so that you can settle in sooner, find your people, and enjoy '
                     'the good life this city has to offer.')
-# A compass instead of a cross: it is the same shape of promise the four
-# questions below it make — you are trying to find your way, and this points.
-SECULAR_MARK = ('<svg class="mark" width="40" height="40" viewBox="0 0 32 32" aria-hidden="true">'
-                '<circle cx="16" cy="16" r="13" fill="none" stroke="#188038" stroke-width="3"/>'
-                '<path d="M16 6.2 L20.6 18.8 L16 16.4 L11.4 18.8 Z" fill="#188038"/>'
-                '<path d="M16 25.4 v-3.2" stroke="#188038" stroke-width="3" stroke-linecap="round"/>'
-                '</svg>')
+# 2026-09-10 — the mark, third and final attempt, and now it is the project's
+# actual logo rather than something drawn for this page alone. A compass went
+# here first and the first reader could not tell what it was; a glyph that has
+# to be explained spends the eye's first fixation on a puzzle instead of the
+# headline. Then a map pin, which reads instantly but says nothing particular.
+# What ships is the pin with the confluence of the two rivers cut out of it —
+# one path, one fill, no gradient — so at this size a reader sees two rivers
+# meeting and at 16 pixels in a browser tab they see a pin, and neither reading
+# is wrong. Tk'emlups, in Secwepemctsin, is the meeting of the waters.
+#
+# It is loaded from logo.svg rather than copied, so the paper on a noticeboard
+# and the tile on a home screen cannot drift into being two different marks.
+_logo = open('logo.svg', encoding='utf-8').read()
+SECULAR_MARK = ('<span class="mark">' + _logo[_logo.index('<svg'):].replace(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"',
+    '<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 192 192"') + '</span>')
 
 BLESSING = ('May this small tool help you settle in sooner, make connections, '
             'and enjoy the good life this city has to offer.')
@@ -191,7 +202,7 @@ _subs = [
     ('<svg class="cross" width="30" height="40" viewBox="0 0 24 32" aria-hidden="true">\n'
      '   <path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#188038" stroke-width="4.2" stroke-linecap="round"/></svg>',
      SECULAR_MARK),
-    ('.cross{display:block;margin:0 auto 3mm}', '.mark{display:block;margin:0 auto 3mm}'),
+    ('.cross{display:block;margin:0 auto 3mm}', '.mark{display:block;margin:0 auto 2.4mm;line-height:0}'),
     ('<h1>Jesus Loves You</h1>', '<h1>%s</h1>' % SECULAR_H1),
     ('A guide to knowing Kamloops and living well in it — made and given away as a gift,\n'
      '   <b>free, no sign-up, no ads, nothing collected about you.</b>',

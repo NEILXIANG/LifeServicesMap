@@ -20,7 +20,11 @@
 // serviceWorker.register() before, so every version above shipped to nobody.
 // STATIC_ASSETS are served cache-first, so this bump is what lets the corrected
 // manifest reach readers who already have a cache.
-const CACHE = 'kamloops-lifemap-v1.2.0';
+// v1.3.0 (2026-09-10): manifest.json renamed the app (Living Services Map ->
+// Life Guide) and icon.svg is a new mark. Both are STATIC_ASSETS, served
+// cache-first, so without this bump every existing reader would keep the old
+// name on their home screen and the old icon for good.
+const CACHE = 'kamloops-lifemap-v1.3.0';
 const STATIC_ASSETS = [
   '/manifest.json',
   '/icon.svg',

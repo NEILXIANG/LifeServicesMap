@@ -557,8 +557,13 @@ async def main():
         # 2026-09-08: commctr 3 → 4 (Volunteer Kamloops). The invariant this check
         # exists for is the boundary — a community organisation is not a government
         # office — so gov stays pinned and commctr is only ever allowed to grow.
+        # 2026-09-10: gov 4 -> 5 (the BC Employment and Assistance office is a
+        # government office and belongs there). The boundary is what is pinned:
+        # nothing that is a community organisation may sit in gov.
         check("49 the community centre is not filed under government",
-              tx['gov']==4 and tx['commctr']>=4, [tx['gov'],tx['commctr']])
+              tx['gov']==5 and tx['commctr']>=4
+              and not any(p['c']=='gov' and ('Community' in p['n'] or 'Society' in p['n'] or 'Association' in p['n']) for p in await pg.evaluate("()=>Pref.map(p=>({c:p.c,n:p.n}))")),
+              [tx['gov'],tx['commctr']])
         await pg.evaluate("(()=>{aCref().clear();aCref().add('propmgmt');renderCats();apply();})()")
         await pg.wait_for_timeout(600)
         check("48 the new category filters like any other",
@@ -1489,6 +1494,76 @@ async def main():
 
         check("68 no page errors across the second multidisciplinary pass", len(em3)==0, em3[:3])
         await pgm3.close()
+
+        print("\n--- guide first, map second; open now (round 70) ---")
+        pg70=await b.new_page(viewport={'width':1280,'height':900})
+        e70=[]; pg70.on('pageerror', lambda e: e70.append(str(e)))
+        await pg70.goto(URL); await pg70.wait_for_timeout(1400)
+        # The first build of "open now" declared its const below the marker pass
+        # and the page died on load. Load-time errors are the whole check here.
+        check("70 the page loads with no error at all", len(e70)==0, e70[:2])
+        # Positioning: the title names the guide, the subtitle says what it does,
+        # and the guide's own button asks the reader's question, in six languages.
+        pos=await pg70.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
+            o[l]={h1:document.getElementById('h1').textContent,
+                  subVisible:document.getElementById('sub').getBoundingClientRect().height>10,
+                  btn:document.getElementById('guideToggle').textContent.trim(),
+                  qp:document.getElementById('qpGuide').textContent.trim(),
+                  primary:getComputedStyle(document.getElementById('guideToggle')).backgroundColor!==getComputedStyle(document.getElementById('shareBtn')).backgroundColor};});
+            setLang('en');return o;}""")
+        check("70 the title is the guide, not the map, in six languages",
+              all(('地图' not in v['h1'] and 'Map' not in v['h1'] and 'Carte' not in v['h1'] and 'Mapa' not in v['h1'] and '지도' not in v['h1'] and 'マップ' not in v['h1']) for v in pos.values()),
+              {k:v['h1'] for k,v in pos.items()})
+        check("70 the subtitle is visible and the guide button is the one filled control",
+              all(v['subVisible'] and v['primary'] for v in pos.values()), {k:(v['subVisible'],v['primary']) for k,v in pos.items()})
+        check("70 the guide button and Quick Pick ask a question, not name a document",
+              all(('?' in v['btn'] or '？' in v['btn']) and v['qp']==v['btn'] for v in pos.values()), {k:v['btn'] for k,v in pos.items()})
+        # openState: synthetic clocks, so the answer does not depend on when this runs
+        logic=await pg70.evaluate("""()=>{
+            const H={r:[[1,5,540,990,0]]}, O={r:[[5,6,1200,120,0]]}, F={r:[[1,7,480,null,0]]}, U={r:[[1,7,null,null,0]]};
+            const s=(h,d,m)=>openState(h,{d:d,m:m});
+            return [s(H,3,720).open===true && s(H,3,720).until===990, s(H,3,1020).open===false, s(H,7,720).open===false,
+                    s(O,6,60).open===true, s(O,7,60).open===true, s(O,1,60).open===false,
+                    s(F,2,600).open===true, s(U,2,600)===null, openState(null)===null,
+                    openState({a:true}).open===true, openState({k:'hPrayer5'})===null];}""")
+        check("70 open-now logic: weekday windows, overnight ranges, open-from, and unknown stays unknown",
+              all(logic), logic)
+        # the filter through the real controls, and its chip, and reset
+        flt=await pg70.evaluate("""()=>{resetAll();const all=M.filter(m=>markerHome().hasLayer(m)).length;
+            document.getElementById('qpOpen').click();
+            const on=M.filter(m=>markerHome().hasLayer(m)).length;
+            const shownOpen=M.filter(m=>markerHome().hasLayer(m)).every(m=>(openState(m.data.h)||{}).open===true);
+            const chip=!!document.querySelector('.af-chip .x[data-kind=open]');
+            const active=document.getElementById('qpOpen').classList.contains('active');
+            document.querySelector('.af-chip .x[data-kind=open]').click();
+            const back=M.filter(m=>markerHome().hasLayer(m)).length;
+            document.getElementById('qpOpen').click();resetAll();
+            const afterReset=M.filter(m=>markerHome().hasLayer(m)).length&&!openNow;
+            return {all,on,shownOpen,chip,active,back,afterReset};}""")
+        check("70 'open now' filters to places known to be open, shows a chip, clears, and reset clears it",
+              flt['on']<flt['all'] and flt['shownOpen'] and flt['chip'] and flt['active'] and flt['back']==flt['all'] and flt['afterReset'], flt)
+        # the popup: an open/closed pill next to hours, never for unknown hours
+        pill=await pg70.evaluate("""()=>{const withH=P.find(p=>p.h&&p.h.r&&p.h.r[0][2]!==null);const noH=P.find(p=>!p.h);
+            const a=popup(withH,0), b=popup(noH,0);
+            return {withHours:/pv-open (on|off)/.test(a), withoutHours:!/pv-open/.test(b)};}""")
+        check("70 the popup states open/closed when it can and stays silent when it cannot", pill['withHours'] and pill['withoutHours'], pill)
+        # the reverse entry: from an office's popup into the card that names it
+        await pg70.evaluate("()=>{resetAll();const m=M.find(x=>x.data.n==='Service BC Centre');focusMarker(m,16);}")
+        await pg70.wait_for_timeout(1500)
+        rev=await pg70.evaluate("""()=>{const c=document.querySelector('.leaflet-popup-content');
+            const go=c&&c.querySelector('.pv-task-go');if(!go)return {no:'no entry'};
+            const n0=_evBuf.length;go.click();
+            return {opened:document.getElementById('guideBackdrop').classList.contains('open'),
+                    card:(document.querySelector('#guideTasks h4')||{}).textContent||null,
+                    ev:_evBuf.slice(n0).map(e=>e.t+':'+(e.p&&e.p.src)+':'+(e.p&&e.p.task))};}""")
+        check("70 a place's popup opens the card that names it, and says which door was used",
+              rev.get('opened') and rev.get('card') and 'guide_open:popup:msp' in rev.get('ev',[]), rev)
+        await pg70.keyboard.press('Escape'); await pg70.wait_for_timeout(250)
+        # the popup and quick pick are on every place a card names
+        cov=await pg70.evaluate("""()=>TASKS.filter(t=>t.place).map(t=>{const p=P.find(x=>x.id===t.place);return p?/pv-task-go/.test(popup(p,0)):false;})""")
+        check("70 every card with an office is reachable back from that office's popup", all(cov) and len(cov)>=8, cov)
+        check("70 no page errors across round 70", len(e70)==0, e70[:3])
+        await pg70.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})

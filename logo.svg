@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The bare logo. One shape, one colour, no gradient, no stroke.
+
+  2026-09-10. The mark is a map pin with the confluence of the two rivers cut
+  out of it. The pin is what anyone reads instantly — a place, a map. The void
+  is what the city is named for: Tk'emlúps, in Secwepemctsin, is the meeting of
+  the waters, and the North Thompson coming down from the north and the South
+  Thompson coming in from the east join here and leave west as one wider river.
+
+  Three drafts got here. The first was the confluence drawn full-bleed with no
+  frame: true, and unreadable — the first person shown it saw a wishbone. The
+  second put the rivers inside a pin as separate blue strokes on a white disc,
+  which reads at 128px and turns to mud at 16. This one is a single path with a
+  single fill, so there are no layers to collapse: at large sizes the reader
+  sees two rivers meeting, at 16 pixels they see a pin, and neither reading is
+  wrong.
+
+  Use this file wherever the mark stands on its own — the printed flyer, a
+  favicon, a wordmark lockup. For the home-screen tile use icon.svg instead,
+  which is this same path on a tinted ground with the margin a launcher needs.
+
+  Drawn from scratch as plain geometry; a river junction is a fact of the
+  landscape and these curves are original.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img"
+     aria-label="A map pin holding two rivers meeting">
+  <path fill="#1a73e8" fill-rule="evenodd" d="
+    M96 24c-28.2 0-51 22.8-51 51 0 37.5 51 93 51 93s51-55.5 51-93c0-28.2-22.8-51-51-51z
+    M96 62.6 L73.8 46.5 a7.8 7.8 0 0 0-9.2 12.6 L87.6 75.6 v34.2 a8.4 8.4 0 0 0 16.8 0 V75.6
+    l23-16.5 a7.8 7.8 0 0 0-9.2-12.6 Z"/>
+</svg>
