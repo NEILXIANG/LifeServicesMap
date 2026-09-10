@@ -773,6 +773,65 @@ if _os.path.exists('src/engine.html'):
         if re.search(r"UI\.\w+\.guideCity=`", eng):
             fail('guideCity (city-tier guide) leaked back into the engine')
 
+# ------------------------------------------------- 17. data has a shelf life
+# (2026-09-10) Hours and phone numbers are the first fields to go stale, and a
+# row that says "checked" but was checked a year ago is worse for trust than a
+# row that says nothing. The stamp `v` (YYYY-MM) is compared to the build date:
+# past six months is a warning, past twelve is a failure — "stale" becomes
+# something the build says out loud rather than something someone remembers.
+import datetime as _dt
+_today = _dt.date.today()
+def _months_old(v):
+    m = re.match(r'^(\d{4})-(\d{2})', str(v or ''))
+    if not m: return None
+    y, mo = int(m.group(1)), int(m.group(2))
+    return (_today.year - y) * 12 + (_today.month - mo)
+_stale6 = [p['n'] for p in P if (_months_old(p.get('v')) or 0) > 6 and (_months_old(p.get('v')) or 0) <= 12]
+_stale12 = [p['n'] for p in P if (_months_old(p.get('v')) or 0) > 12]
+_nostamp = [p['n'] for p in P if _months_old(p.get('v')) is None]
+if _stale6:
+    warn('%d row(s) last checked more than 6 months ago — due for a recheck: %s'
+         % (len(_stale6), ', '.join(_stale6[:8]) + ('…' if len(_stale6) > 8 else '')))
+if _stale12:
+    fail('%d row(s) last checked more than 12 months ago: %s' % (len(_stale12), ', '.join(_stale12[:8])))
+if _nostamp:
+    fail('%d row(s) carry no verification stamp: %s' % (len(_nostamp), ', '.join(_nostamp[:6])))
+
+# ------------------------------------------------- 18. quarantine stays out
+# A row in QUARANTINE was looked for and not found. It must never also be in P:
+# the whole point of the list is that the app does not show it.
+_qm = re.search(r'const QUARANTINE=(\[.*?\]);', script, re.S)
+if _qm:
+    try:
+        _q = json.loads(_qm.group(1))
+        _qn = {x.get('n') for x in _q}
+        _leak = [p['n'] for p in P if p['n'] in _qn]
+        if _leak: fail('quarantined row(s) are back in P: %s' % _leak)
+        for x in _q:
+            if not x.get('quarantined'): fail('QUARANTINE row %r has no reason recorded' % x.get('n'))
+    except ValueError as e:
+        fail('QUARANTINE does not parse: %s' % e)
+
+# ------------------------------------------------- 19. a card sends you to the right kind of place
+# The card's "where do I go" is a place id; nothing stopped it pointing at a
+# restaurant. Each card names the categories an office for it may have.
+_TASK_CATS = {
+  'settle': {'gov'}, 'sin': {'gov'}, 'msp': {'gov'}, 'licence': {'gov'}, 'bank': {'bank'},
+  'connect': {'commctr','library','indigenous'}, 'sick': {'hospital'}, 'hardship': {'foodbank','support'},
+  'legal': {'legal'}, 'eldercare': {'commctr','hospital','support'},
+}
+_tm = re.search(r'const TASKS=(\[.*?\]);\n', html, re.S)
+if _tm:
+    try:
+        for t in json.loads(_tm.group(1)):
+            if t.get('place') and t['id'] in _TASK_CATS:
+                pl = _by_id.get(t['place'])
+                if pl and pl['c'] not in _TASK_CATS[t['id']]:
+                    fail('task %r points at %r, a %s — expected one of %s'
+                         % (t['id'], pl['n'], pl['c'], sorted(_TASK_CATS[t['id']])))
+    except ValueError as e:
+        fail('TASKS does not parse: %s' % e)
+
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'
       % (len(P), len(CI), len(RI), len(BR), len(html.encode()) // 1024))

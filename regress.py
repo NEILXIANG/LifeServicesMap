@@ -985,8 +985,10 @@ async def main():
         # expander the way a reader would and read what they would then see.
         await pge.evaluate("()=>{const b=document.getElementById('pvMore');if(b&&document.getElementById('pvFull').hidden)b.click();}")
         await pge.wait_for_timeout(200)
+        # (two .privacy-note blocks since 2026-09-10 — the legal summary sits
+        #  above the privacy one; read the block that owns the expander)
         check("57 the privacy note discloses the Near Me capability",
-              'Near Me' in await pge.inner_text('.privacy-note'))
+              'Near Me' in await pge.evaluate("()=>{const f=document.getElementById('pvFull');return f?f.closest('.privacy-note').innerText:''}"))
         check("57 no page errors from the geolocation flow", len(ee)==0, ee[:3])
 
         lm=await pge.evaluate("()=>typeof LANDMARKS!=='undefined'?LANDMARKS.length:0")
@@ -1457,7 +1459,7 @@ async def main():
         await pgm3.click('#footerNoteBtn'); await pgm3.wait_for_timeout(400)
         pvs=await pgm3.evaluate("""()=>{const o={};
             ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
-              const li=[...document.querySelectorAll('.pv-sum li')];
+              const li=[...document.getElementById('pvFull').closest('.privacy-note').querySelectorAll('.pv-sum li')];
               o[l]={n:li.length,
                     vis:li.every(e=>e.getClientRects().length>0),
                     lead:li.map(e=>(e.querySelector('b')||{}).textContent||''),
@@ -1564,6 +1566,61 @@ async def main():
         check("70 every card with an office is reachable back from that office's popup", all(cov) and len(cov)>=8, cov)
         check("70 no page errors across round 70", len(e70)==0, e70[:3])
         await pg70.close()
+
+        print("\n--- the backlog, implemented (round 71) ---")
+        pg71=await b.new_page(viewport={'width':1280,'height':900})
+        e71=[]; pg71.on('pageerror', lambda e: e71.append(str(e)))
+        # a deep link opens its card, and only names the card — never a tick
+        await pg71.goto(URL+'?city=kamloops&lang=zh&task=licence'); await pg71.wait_for_timeout(1500)
+        dl=await pg71.evaluate("()=>({open:document.getElementById('guideBackdrop').classList.contains('open'),card:(document.querySelector('#guideTasks h4')||{}).textContent,url:location.search})")
+        check("71 ?task= opens that card and carries no personal state", dl['open'] and '驾照' in (dl['card'] or '') and 'done' not in dl['url'], dl)
+        await pg71.keyboard.press('Escape'); await pg71.wait_for_timeout(200)
+        # first-use card: shown once, every door works, never again after dismissal
+        fu=await pg71.evaluate("""()=>{localStorage.removeItem('kamloopsFirstUseSeen');renderFirstUse();
+            const el=document.getElementById('firstUse');const shown=!el.hidden;
+            const n=el.querySelectorAll('[data-go]').length;
+            el.querySelector('[data-go=open]').click();
+            return {shown,n,openNow:openNow,hiddenAfter:el.hidden,stored:localStorage.getItem('kamloopsFirstUseSeen')};}""")
+        check("71 the first-use card shows once, its doors act, and it stays dismissed", fu['shown'] and fu['n']==3 and fu['openNow'] and fu['hiddenAfter'] and fu['stored']=='1', fu)
+        await pg71.reload(); await pg71.wait_for_timeout(1300)
+        check("71 …and does not come back on the next visit", await pg71.evaluate("()=>document.getElementById('firstUse').hidden"))
+        # hotlines ride with open-now, and sit above the 'need help' bucket
+        hl=await pg71.evaluate("""()=>{openNow=true;updateOpenQuickpick();apply();
+            const a=document.querySelectorAll('#activeFilters .hotlines .hl-line').length;
+            openNow=false;apply();
+            document.getElementById('guideToggle').click();
+            const g=document.querySelectorAll('#guideTasks .hotlines.compact .hl-line').length;
+            return {a,g,tel:[...document.querySelectorAll('#guideTasks .hl-line')].every(x=>/^tel:\\d+$/.test(x.getAttribute('href')))};}""")
+        check("71 24-hour lines appear with 'open now' and above 'when you need help', all dialable", hl['a']>=4 and hl['g']>=4 and hl['tel'], hl)
+        # arrival date turns '90 days' into a date, sorts, and stays on the device
+        ar=await pg71.evaluate("""()=>{renderTaskList();const i=document.getElementById('arriveDate');i.value='2026-08-01';i.dispatchEvent(new Event('change'));
+            const first=document.querySelector('.task-card').dataset.task;
+            const badge=(document.querySelector('.task-card[data-task=licence] .task-dl')||{}).textContent||'';
+            const inUrl=/2026-08-01/.test(location.href);
+            setArrival(null);renderTaskList();return {first,badge,inUrl};}""")
+        check("71 an arrival date dates the licence deadline, sorts it first, and never enters the URL", ar['first']=='licence' and '2026' in ar['badge'] and not ar['inUrl'], ar)
+        # caveats sit on the cards that carry the risk, and only those
+        cv=await pg71.evaluate("""()=>{const o={};['legal','sick','tax','sin','connect'].forEach(id=>{renderTaskList();document.querySelector('.task-card[data-task='+id+']').click();o[id]=!!document.querySelector('.task-caveat');});return o;}""")
+        check("71 not-advice caveats on legal, health and tax cards — and not on the others", cv['legal'] and cv['sick'] and cv['tax'] and not cv['sin'] and not cv['connect'], cv)
+        # the guide search finds a card by the reader's word and by its office's alias
+        gs=await pg71.evaluate("""()=>{renderTaskList();const i=document.getElementById('taskSearch');
+            const q=w=>{i.value=w;i.dispatchEvent(new Event('input'));return [...document.querySelectorAll('.task-card')].map(e=>e.dataset.task);};
+            const r={a:q('老人'),b:q('licence'),c:q('zzzz').length};i.value='';i.dispatchEvent(new Event('input'));return r;}""")
+        check("71 the guide's own search finds cards by word and alias, and empties honestly", gs['a']==['eldercare'] and 'licence' in gs['b'] and gs['c']==0, gs)
+        # stuck → an exit, not just thanks
+        st=await pg71.evaluate("""()=>{renderTaskList();document.querySelector('.task-card[data-task=msp]').click();document.querySelector('.task-fb-b[data-r=stuck]').click();
+            const x=document.querySelector('.task-stuck-exit');return x?x.querySelectorAll('a[href^=tel]').length:0;}""")
+        check("71 'I got stuck' hands over two phone numbers", st==2, st)
+        await pg71.keyboard.press('Escape'); await pg71.wait_for_timeout(200)
+        # landmark labels carry a gloss in the reader's language
+        gl=await pg71.evaluate("""()=>{const o={};['zh','ko','fr','en'].forEach(l=>{setLang(l);o[l]=[...document.querySelectorAll('.leaflet-tooltip.landmark-label .lm-g')].length;});setLang('en');return o;}""")
+        check("71 landmark labels are glossed for non-English readers, bare for English", gl['zh']==6 and gl['ko']==6 and gl['fr']==6 and gl['en']==0, gl)
+        # quarantine: none of the doubtful rows is on the map
+        qq=await pg71.evaluate("()=>({q:typeof QUARANTINE!=='undefined'?QUARANTINE.length:0,leak:typeof QUARANTINE!=='undefined'?QUARANTINE.filter(x=>P.some(p=>p.n===x.n)).length:0})")
+        check("71 the quarantined rows exist for the record and are absent from the map", qq['q']>=7 and qq['leak']==0, qq)
+        check("71 the printed-source parameter is recorded on session_start", await pg71.evaluate("()=>{const s=_evBuf.find(e=>e.t==='session_start');return !!s&&('src' in s.p||s.p.src===undefined);}"))
+        check("71 no page errors across round 71", len(e71)==0, e71[:3])
+        await pg71.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
