@@ -560,8 +560,11 @@ async def main():
         # 2026-09-10: gov 4 -> 5 (the BC Employment and Assistance office is a
         # government office and belongs there). The boundary is what is pinned:
         # nothing that is a community organisation may sit in gov.
+        # 2026-09-10 (fresh scan): gov 5 -> 9 — the Law Courts, City Hall and the
+        # two WorkBC centres (a provincial programme, delivered under contract;
+        # a reader looking for "the employment office" expects it here).
         check("49 the community centre is not filed under government",
-              tx['gov']==5 and tx['commctr']>=4
+              tx['gov']==9 and tx['commctr']>=4
               and not any(p['c']=='gov' and ('Community' in p['n'] or 'Society' in p['n'] or 'Association' in p['n']) for p in await pg.evaluate("()=>Pref.map(p=>({c:p.c,n:p.n}))")),
               [tx['gov'],tx['commctr']])
         await pg.evaluate("(()=>{aCref().clear();aCref().add('propmgmt');renderCats();apply();})()")
@@ -1545,10 +1548,15 @@ async def main():
         check("70 'open now' filters to places known to be open, shows a chip, clears, and reset clears it",
               flt['on']<flt['all'] and flt['shownOpen'] and flt['chip'] and flt['active'] and flt['back']==flt['all'] and flt['afterReset'], flt)
         # the popup: an open/closed pill next to hours, never for unknown hours
-        pill=await pg70.evaluate("""()=>{const withH=P.find(p=>p.h&&p.h.r&&p.h.r[0][2]!==null);const noH=P.find(p=>!p.h);
-            const a=popup(withH,0), b=popup(noH,0);
-            return {withHours:/pv-open (on|off)/.test(a), withoutHours:!/pv-open/.test(b)};}""")
-        check("70 the popup states open/closed when it can and stays silent when it cannot", pill['withHours'] and pill['withoutHours'], pill)
+        # 2026-09-10 (fresh scan): hours flagged `q` (an office's hours, not the
+        # venue's) or `se` (seasonal) answer "unknown" — a spray park in January
+        # is not "open now" — so the pill is checked on a place with plain hours,
+        # and its absence on a qualified one.
+        pill=await pg70.evaluate("""()=>{const withH=P.find(p=>p.h&&p.h.r&&p.h.r[0][2]!==null&&!p.h.q&&!p.h.se);const noH=P.find(p=>!p.h);
+            const qual=P.find(p=>p.h&&p.h.r&&(p.h.q||p.h.se));
+            const a=popup(withH,0), b=popup(noH,0), c=qual?popup(qual,0):'';
+            return {withHours:/pv-open (on|off)/.test(a), withoutHours:!/pv-open/.test(b), qualified:!/pv-open/.test(c)};}""")
+        check("70 the popup states open/closed when it can and stays silent when it cannot", pill['withHours'] and pill['withoutHours'] and pill['qualified'], pill)
         # the reverse entry: from an office's popup into the card that names it
         await pg70.evaluate("()=>{resetAll();const m=M.find(x=>x.data.n==='Service BC Centre');focusMarker(m,16);}")
         await pg70.wait_for_timeout(1500)

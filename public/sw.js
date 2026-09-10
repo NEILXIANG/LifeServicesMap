@@ -24,7 +24,14 @@
 // Life Guide) and icon.svg is a new mark. Both are STATIC_ASSETS, served
 // cache-first, so without this bump every existing reader would keep the old
 // name on their home screen and the old icon for good.
-const CACHE = 'kamloops-lifemap-v1.3.0';
+// v1.4.0 (2026-09-10): icon-180.png / icon-512.png were listed here (and in
+// manifest.json) but never copied into public/, so addAll() rejected and no
+// version of this worker ever installed. The icons now ship; the pre-cache
+// tolerates a missing file; the HTML is stored once under '/' regardless of
+// query string (share links and ?src= tags were each caching a 1.3 MB copy);
+// the offline fallback finds it from any URL; static assets revalidate in the
+// background so a manifest change no longer waits for a manual bump here.
+const CACHE = 'kamloops-lifemap-v1.4.0';
 const STATIC_ASSETS = [
   '/manifest.json',
   '/icon.svg',
@@ -34,7 +41,9 @@ const STATIC_ASSETS = [
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((c) => c.addAll(STATIC_ASSETS))
+    caches.open(CACHE).then((c) =>
+      Promise.allSettled(STATIC_ASSETS.map((a) => c.add(a)))
+    )
   );
   self.skipWaiting();
 });
@@ -43,14 +52,15 @@ self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  if (url.origin !== self.location.origin) return;   // tiles, fonts: browser handles them
 
   // Network-first for HTML navigations (always try fresh, fall back to cache)
   const isHTML = req.mode === 'navigate' ||
@@ -59,37 +69,29 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(
       fetch(req)
         .then((resp) => {
-          // 2026-09-08: only cache a response that actually succeeded. Caching
-          // unconditionally meant a single 404/500 caught mid-deploy became the
-          // stored copy — and, being the offline fallback too, it would then be
-          // served to that reader in place of the app until the CACHE name
-          // changed. An error page is not an offline shell.
+          // only a response that actually succeeded becomes the offline shell
           if (resp && resp.ok) {
             const clone = resp.clone();
-            caches.open(CACHE).then((c) => c.put(req, clone));
+            event.waitUntil(caches.open(CACHE).then((c) => c.put('/', clone)));
           }
           return resp;
         })
-        .catch(() => caches.match(req).then((c) => c || caches.match('/')))
+        .catch(() => caches.match('/').then((c) => c || caches.match(req, { ignoreSearch: true })))
     );
     return;
   }
 
-  // Cache-first for everything else (manifest, icon, same-origin static)
-  const url = new URL(req.url);
-  if (url.origin === self.location.origin) {
-    event.respondWith(
-      caches.match(req).then((cached) => cached || fetch(req).then((resp) => {
-        // Same rule as above, and for the same reason: these are served
-        // cache-first, so a poisoned entry here would outlive the incident.
+  // Stale-while-revalidate for same-origin static assets (manifest, icons)
+  event.respondWith(
+    caches.match(req).then((cached) => {
+      const refresh = fetch(req).then((resp) => {
         if (resp && resp.ok) {
           const clone = resp.clone();
-          caches.open(CACHE).then((c) => c.put(req, clone));
+          event.waitUntil(caches.open(CACHE).then((c) => c.put(req, clone)));
         }
         return resp;
-      // A missing asset offline must not reject respondWith() — hand the
-      // request back to the browser instead of failing it outright.
-      }).catch(() => cached || Response.error()))
-    );
-  }
+      }).catch(() => cached || Response.error());
+      return cached || refresh;
+    })
+  );
 });

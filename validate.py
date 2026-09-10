@@ -460,6 +460,9 @@ for p in P:
         if o is not None and not (0 <= o < 1440): fail('%r bad open minute %r' % (p['n'], rng))
         if o is not None and c is not None and c <= o:
             fail('%r close is not after open: %r' % (p['n'], rng))
+        # fmtHours() would render 1560 as "2 AM" but openState() cannot evaluate it
+        if c is not None and c > 1440:
+            fail('%r close minute past midnight (%r) — encode overnight hours as a note, not a range' % (p['n'], rng))
 
 # ---------------------------------------------------------------- 5. i18n parity
 base = set(UI['zh'].keys())

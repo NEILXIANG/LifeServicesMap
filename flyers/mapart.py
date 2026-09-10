@@ -98,7 +98,7 @@ LABELS = [
   ('poi',   'Kenna Cartwright Park',50.6635, -120.3775,   0,   0),
 ]
 
-def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None):
+def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None, pins=None):
     xy = make(W, H, bounds)
     out = []
     if tone == 'colour':
@@ -145,6 +145,16 @@ def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None):
             else:
                 out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" class="lb-dot"/>' % (x, y, 4.2 * sw))
                 out.append('<text x="%.1f" y="%.1f" class="lb-poi">%s</text>' % (x + 7 * sw, y + 4 * sw, text))
+    # Numbered pins: the places the flyer's cards actually send a reader to,
+    # so the band is a first-week route map rather than decoration.
+    if pins:
+        sw = W / 1240.0
+        for num, la, lo, dx, dy in pins:
+            x, y = xy(la, lo)
+            x += dx * sw; y += dy * sw
+            r = 14 * sw
+            out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#1a73e8" stroke="#fff" stroke-width="%.1f"/>' % (x, y, r, 2.2 * sw))
+            out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-weight="700" font-size="%.1f" fill="#fff">%s</text>' % (x, y + 5.6 * sw, 16 * sw, num))
     return '\n'.join(out)
 
 if __name__ == '__main__':

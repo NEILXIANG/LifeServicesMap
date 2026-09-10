@@ -60,7 +60,13 @@ KIS = place('Kamloops Immigrant Services')
 
 MAP_W, MAP_H = 1240, 300
 BAND_BOUNDS = (50.6520, 50.7160, -120.6200, -120.2050)
-MAP_COLOUR = mapart.build(MAP_W, MAP_H, tone='colour', labels=True, roads=True, bounds=BAND_BOUNDS)
+# The band used to be scenery (parks, TRU). Now it carries the three offices
+# the cards below point at, numbered to match: ① Service BC ② Service Canada
+# ③ Immigrant Services. ① and ② are a block apart downtown, so ② sits offset.
+PINS = [(1, SERVICE_BC['lat'], SERVICE_BC['lng'], -14, 0),
+        (2, SERVICE_CA['lat'], SERVICE_CA['lng'], 14, 0),
+        (3, KIS['lat'], KIS['lng'], 0, 0)]
+MAP_COLOUR = mapart.build(MAP_W, MAP_H, tone='colour', labels=True, roads=True, bounds=BAND_BOUNDS, pins=PINS)
 
 # The four questions this tool exists to answer — numbered, because the sequence
 # is real (you cannot bring documents before you know where to go).
@@ -108,7 +114,7 @@ CARDS = [('en','English','Your first week, answered'),
 def cards_html():
     out = []
     for lang, tag, head in CARDS:
-        rows = ''.join('<li><b>%s</b><span>%s</span></li>' % (q, a) for q, a in qa(lang))
+        rows = ''.join('<li><b>%s</b><span><i class="n">%d</i>%s</span></li>' % (q, i + 1, a) for i, (q, a) in enumerate(qa(lang)))
         out.append('<article class="card" lang="%s"><div class="card-tag">%s</div><h3>%s</h3><ul>%s</ul></article>' % (lang, tag, head, rows))
     return '\n'.join(out)
 
@@ -128,7 +134,7 @@ def logo(size):
 LEAD_BOLD = '<b>free, no sign-up, no ads, nothing collected about you.</b>'
 FOR_WHOM = 'For people who have just arrived — and for anyone who has lived here for years and wants to help someone who just did.'
 NO_PHONE = 'No smartphone? Any library will open it for you at the desk. Or dial 2-1-1 and ask, in your language.'
-FOOT = ('A personal reference, not an official publication · every entry carries a verification date and a source · '
+FOOT = ('Please print and post freely — black and white is fine, Letter paper · A personal reference, not an official publication · every entry carries a verification date and a source · '
         'hours and fees change, phone before you go · CC BY-NC 4.0 · Neil Xiang · neilxiang@hotmail.com · edition ' + EDITION)
 
 # ---- editions ------------------------------------------------------------------
@@ -136,6 +142,7 @@ FAITH = dict(
     file='jesus-loves-you-flyer', src='flyer-f',
     mark='<svg class="mark" width="34" height="44" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#188038" stroke-width="4.2" stroke-linecap="round"/></svg>',
     h1='Jesus Loves You',
+    sub='Kamloops Life Guide — six languages, free',
     # the sentence that joins the signature to the product: not preaching, an
     # explanation of why this is free
     lead='This guide is a gift, because we believe every person deserves to be treated well. '
@@ -145,11 +152,11 @@ FAITH = dict(
 SECULAR = dict(
     file='kamloops-life-guide-flyer', src='flyer-s',
     mark='<span class="mark">' + logo(36) + '</span>',
-    h1='Welcome to Kamloops',
-    sub='— and to the people who will help you settle in',
+    h1='Kamloops Life Guide',
+    sub='Welcome to Kamloops — and to the people who will help you settle in',
     lead='A guide to knowing this city and living well in it — made and given away as a gift, ' + LEAD_BOLD,
     closing='Made so that you can settle in sooner, find your people, and enjoy the good life this city has to offer.',
-    title='Welcome to Kamloops — Life Guide')
+    title='Kamloops Life Guide — flyer')
 
 PAPER = {'letter': ('Letter', '215.9mm', '279.4mm', '26mm'), 'a4': ('A4', '210mm', '297mm', '36mm')}
 
@@ -163,10 +170,10 @@ body{{font-family:"Roboto","Helvetica Neue",Arial,"Noto Sans CJK SC","Noto Sans 
 .mast{{text-align:center}}
 .mark{{display:block;margin:0 auto 2.2mm;line-height:0}}
 h1{{margin:0;font-size:27pt;line-height:1.02;font-weight:700;letter-spacing:-.018em;color:#1a73e8}}
-.h1sub{{margin:1.2mm 0 0;font-size:11.5pt;color:#3c4043;font-weight:500}}
-.lead{{margin:2.2mm auto 0;font-size:10pt;line-height:1.38;color:#3c4043;max-width:160mm;text-wrap:balance}}
+.h1sub{{margin:.8mm 0 0;font-size:11pt;color:#3c4043;font-weight:500}}
+.lead{{margin:1.6mm auto 0;font-size:10pt;line-height:1.34;color:#3c4043;max-width:160mm;text-wrap:balance}}
 .lead b{{color:#202124;font-weight:600}}
-.who{{margin:1.4mm auto 0;font-size:8.8pt;line-height:1.35;color:#5f6368;max-width:160mm;text-wrap:balance}}
+.who{{margin:1.1mm auto 0;font-size:8.8pt;line-height:1.35;color:#5f6368;max-width:160mm;text-wrap:balance}}
 .rule{{height:3px;margin:3mm auto 0;width:88mm;border-radius:2px;
  background:linear-gradient(90deg,#1a73e8 0 25%,#188038 25% 50%,#f9ab00 50% 75%,#d93025 75% 100%)}}
 .promise{{margin-top:3.2mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}}
@@ -189,9 +196,10 @@ h1{{margin:0;font-size:27pt;line-height:1.02;font-weight:700;letter-spacing:-.01
 .card ul{{margin:0;padding:0;list-style:none}}
 .card li{{font-size:8.3pt;line-height:1.28;margin-bottom:.5mm;display:grid;grid-template-columns:auto 1fr;gap:0 2mm}}
 .card li b{{color:#202124;white-space:nowrap}} .card li span{{color:#5f6368}}
+.card li i.n{{display:inline-block;width:3.4mm;height:3.4mm;line-height:3.4mm;border-radius:50%;background:#1a73e8;color:#fff;font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-right:1.2mm;vertical-align:-.3mm}}
 .card[lang=zh] h3,.card[lang=ko] h3,.card[lang=ja] h3{{font-size:9.4pt}}
 .cta{{margin-top:auto;padding-top:2.8mm;display:grid;grid-template-columns:26mm 1fr;gap:5mm;align-items:center;border-top:1px solid #dadce0}}
-.qr{{width:26mm;height:26mm;padding:1.6mm;background:#fff;border:1px solid #dadce0;border-radius:8px}}
+.qr{{width:32mm;height:32mm;padding:1.8mm;background:#fff;border:1px solid #dadce0;border-radius:8px}}
 .qr svg{{width:100%;height:100%;display:block}}
 .cta h4{{margin:0 0 1mm;font-size:12pt;font-weight:700}}
 .url{{display:inline-block;font-size:9.4pt;font-weight:700;color:#1a73e8;margin-bottom:1.2mm;word-break:break-all}}
