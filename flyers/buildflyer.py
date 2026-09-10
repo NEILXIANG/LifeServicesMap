@@ -9,6 +9,15 @@ qr = open('/tmp/qr.svg').read()
 QR_INNER = qr[qr.index('>') + 1:qr.rindex('</svg>')]
 QR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 41 41" shape-rendering="crispEdges">' + QR_INNER + '</svg>'
 
+# 2026-09-10: the six cards said "263 places" in six languages while the data
+# held 267. A printed number cannot be corrected after it is on a noticeboard,
+# and six hand-typed copies of the same fact will drift again the next time a
+# place is added — so it is counted from the data at build time and written in
+# once. The cards below carry {N}.
+import re as _re, json as _json
+_d = open('src/data-kamloops.js', encoding='utf-8').read()
+N_PLACES = len(_json.loads(_re.search(r'const P=(\[.*?\]);', _d, _re.S).group(1)))
+
 MAP_W, MAP_H = 1240, 300
 # The band is ~4:1, so the geographic frame is cut to the same shape — otherwise
 # cover-scaling crops away the lake and the confluence, which are the two things
@@ -26,24 +35,50 @@ PROMISE = [
 
 CARDS = [
  ('en','English','Get to know this city, and live well in it',
-  ['263 checked places: schools, clinics, groceries, housing, transit',
+  ['{N} checked places: schools, clinics, groceries, housing, transit',
    'Life Guide: health card, SIN, driver’s licence, school — step by step']),
  ('fr','Français','Découvrez cette ville, et vivez-y bien',
-  ['263 lieux vérifiés : écoles, cliniques, épiceries, logement, transport',
+  ['{N} lieux vérifiés : écoles, cliniques, épiceries, logement, transport',
    'Guide pratique : carte santé, NAS, permis, école — pas à pas']),
  ('es','Español','Conozca esta ciudad y viva bien en ella',
-  ['263 lugares verificados: escuelas, clínicas, mercados, vivienda, transporte',
+  ['{N} lugares verificados: escuelas, clínicas, mercados, vivienda, transporte',
    'Guía práctica: tarjeta de salud, NAS, licencia, escuela — paso a paso']),
  ('zh','中文','读懂这座城市，在这里好好生活',
-  ['263 个逐条核实的地点：学校、诊所、超市、租房、公交',
+  ['{N} 个逐条核实的地点：学校、诊所、超市、租房、公交',
    '生活指南：医保卡、工卡、驾照、入学——一步一步办完']),
  ('ko','한국어','이 도시를 알고, 이곳에서 잘 살기',
-  ['확인을 거친 263곳: 학교·병원·마트·주거·대중교통',
+  ['확인을 거친 {N}곳: 학교·병원·마트·주거·대중교통',
    '생활 가이드: 의료카드, SIN, 운전면허, 학교 등록 — 단계별 안내']),
  ('ja','日本語','この街を知り、ここで心地よく暮らす',
-  ['確認済みの263か所: 学校、クリニック、スーパー、住まい、交通',
+  ['確認済みの{N}か所: 学校、クリニック、スーパー、住まい、交通',
    '生活ガイド: 医療カード、SIN、運転免許、就学 — 順を追って']),
 ]
+# 2026-09-10 — the secular edition. The point of it is placement, not tone: a
+# library noticeboard, a city hall, a school, a clinic waiting room and a
+# settlement agency mostly cannot post something with a faith line on it, and
+# those are exactly the walls a newcomer stands in front of. So this variant
+# changes the masthead and nothing else — same promise, same map, same six
+# language cards, same QR. It is not a watered-down version; it is the same
+# flyer with the one line removed that decides where it is allowed to hang.
+#
+# What replaces the line matters. "Jesus Loves You" was not doing an
+# informational job on this page, it was doing an emotional one: you are not a
+# case, someone is glad you are here. Dropping it and putting a product name in
+# its place would lose that and leave the flyer colder than it needs to be, so
+# the secular headline does the same emotional job in civic words.
+SECULAR_H1 = 'Welcome to Kamloops'
+SECULAR_LEAD = ('A guide to knowing this city and living well in it — made and given away as a gift, '
+                '<b>free, no sign-up, no ads, nothing collected about you.</b>')
+SECULAR_BLESSING = ('Made so that you can settle in sooner, find your people, and enjoy '
+                    'the good life this city has to offer.')
+# A compass instead of a cross: it is the same shape of promise the four
+# questions below it make — you are trying to find your way, and this points.
+SECULAR_MARK = ('<svg class="mark" width="40" height="40" viewBox="0 0 32 32" aria-hidden="true">'
+                '<circle cx="16" cy="16" r="13" fill="none" stroke="#188038" stroke-width="3"/>'
+                '<path d="M16 6.2 L20.6 18.8 L16 16.4 L11.4 18.8 Z" fill="#188038"/>'
+                '<path d="M16 25.4 v-3.2" stroke="#188038" stroke-width="3" stroke-linecap="round"/>'
+                '</svg>')
+
 BLESSING = ('May this small tool help you settle in sooner, make connections, '
             'and enjoy the good life this city has to offer.')
 FOOT = ('Independently compiled community reference · not an official publication and not affiliated with any '
@@ -55,7 +90,7 @@ FOOT = ('Independently compiled community reference · not an official publicati
 def cards_html(cls_tag='card-tag'):
     out = []
     for lang, tag, head, feats in CARDS:
-        lis = ''.join('<li>%s</li>' % f for f in feats)
+        lis = ''.join('<li>%s</li>' % f.replace('{N}', str(N_PLACES)) for f in feats)
         out.append(f'<article class="card" lang="{lang}"><div class="{cls_tag}">{tag}</div>'
                    f'<h3>{head}</h3><ul>{lis}</ul></article>')
     return '\n'.join(out)
@@ -143,3 +178,39 @@ h1{{margin:0;font-size:31pt;line-height:1.02;font-weight:700;letter-spacing:-.01
 </div></body></html>'''
 open('jesus-loves-you-flyer.html', 'w', encoding='utf-8').write(GOOGLE)
 print('google flyer rebuilt: %d KB' % (len(GOOGLE) // 1024))
+
+# --- the secular edition ----------------------------------------------------
+# Derived from GOOGLE by substitution rather than written out again, so the two
+# cannot drift: every future edit to the promise, the map, the cards, the QR or
+# the footer lands in both, and only the four lines below differ on purpose.
+SECULAR = GOOGLE
+_subs = [
+    ('<title>Jesus Loves You — Kamloops Life Guide</title>',
+     '<title>Welcome to Kamloops — Life Guide</title>'),
+    # the mark: same slot, same green, a compass instead of a cross
+    ('<svg class="cross" width="30" height="40" viewBox="0 0 24 32" aria-hidden="true">\n'
+     '   <path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#188038" stroke-width="4.2" stroke-linecap="round"/></svg>',
+     SECULAR_MARK),
+    ('.cross{display:block;margin:0 auto 3mm}', '.mark{display:block;margin:0 auto 3mm}'),
+    ('<h1>Jesus Loves You</h1>', '<h1>%s</h1>' % SECULAR_H1),
+    ('A guide to knowing Kamloops and living well in it — made and given away as a gift,\n'
+     '   <b>free, no sign-up, no ads, nothing collected about you.</b>',
+     SECULAR_LEAD),
+    (BLESSING, SECULAR_BLESSING),
+    # the class name too — the guard below is deliberately strict, and a
+    # stylesheet selector is still a word someone can read in the source
+    ('.bless{margin:0;', '.closing{margin:0;'),
+    ('<p class="bless">', '<p class="closing">'),
+]
+for old, new in _subs:
+    if SECULAR.count(old) != 1:
+        raise SystemExit('secular edition: %d matches for %r — the Google flyer changed shape, '
+                         'fix the substitution rather than shipping a half-converted page'
+                         % (SECULAR.count(old), old[:60]))
+    SECULAR = SECULAR.replace(old, new, 1)
+# The whole point of this edition is that nothing religious survives into it.
+for word in ('Jesus', 'cross', 'bless', 'God', 'church'):
+    if word.lower() in SECULAR.lower():
+        raise SystemExit('secular edition still contains %r — check the substitutions' % word)
+open('kamloops-life-guide-flyer.html', 'w', encoding='utf-8').write(SECULAR)
+print('secular flyer built: %d KB' % (len(SECULAR) // 1024))
