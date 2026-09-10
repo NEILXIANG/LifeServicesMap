@@ -293,6 +293,30 @@ if _landmarks_m:
                 fail('LANDMARKS lists id %r, which no place has' % _lid)
         dupes = [x for x in set(_landmark_ids) if _landmark_ids.count(x) > 1]
         if dupes: fail('LANDMARKS repeats id(s) %s' % dupes)
+        # One per area is the whole design: the labels exist to spread real names
+        # across the map so a reader can tell the areas apart. Two in one area
+        # gives that area two names and leaves another with none, and because the
+        # labels hide each other on overlap, two neighbours downtown can end up
+        # showing as one. Nothing about a hand-written id list makes that visible,
+        # so it is checked here rather than noticed later on a screenshot.
+        _lm_by_reg = {}
+        for _lid in _landmark_ids:
+            _lp = _by_id.get(_lid)
+            if not _lp: continue
+            _lm_by_reg.setdefault(_lp.get('g'), []).append(_lp.get('n'))
+        for _reg, _names in sorted(_lm_by_reg.items()):
+            if len(_names) > 1:
+                fail('LANDMARKS puts %d labels in area %r (%s) — one per area'
+                     % (len(_names), _reg, ', '.join(_names)))
+        # A label is a bare place name. Editorial ⭐ markers belong to the list and
+        # the popup; the engine strips them off the label, and this says so out
+        # loud so the two never drift apart silently.
+        for _lid in _landmark_ids:
+            _lp = _by_id.get(_lid)
+            if _lp and _lp.get('n', '').lstrip()[:1] in '⭐★☆':
+                warn('LANDMARKS id %r is a starred place (%s) — the engine strips '
+                     'the star from the map label; check that reads right'
+                     % (_lid, _lp['n']))
 
 # ------------------------------------------------- 3c3. impossible coordinates
 # Two different civic numbers on the same street cannot be metres apart. When it

@@ -56,10 +56,27 @@ const FAV_MIGRATE={"Kamloops Immigrant Services":"2c686174","d6608c0d":"2c686174
 // what that name means, on top of the parenthetical hint on the button itself.
 // Optional for a reason: a new city can ship with an empty array and add these
 // once it has a feel for which of its own places are actually landmarks.
-const LANDMARKS=["f4c1c1d7","251dd9d0","a41504d6","2b34314d","72b24279","752036cd"];
-// Riverside Park (South Kamloops/Downtown) · McArthur Island Park (North Shore) ·
-// Thompson Rivers University (Sahali/Aberdeen) · Brocklehurst Park (Brocklehurst) ·
-// Valleyview Centennial Park (Valleyview) · Westsyde Centennial Park (Westsyde)
+//
+// 2026-09-09 — which six. The first pass picked whatever sat on the biggest patch
+// of clean green, and five of the six came out parks. A park is a comfortable
+// place to *put* a label and a weak thing to *navigate by*: nobody arriving here
+// orients themselves off Brocklehurst Park. The rule now is one per area, and
+// within an area the place that is both findable by someone who does not know
+// the city and likely to be somewhere they actually have to go. Where the area
+// has a real institution that wins; where the area is residential and its park
+// genuinely is the local centre, the park stays — swapping those for a corner
+// store would be churn, not an improvement.
+const LANDMARKS=["1e3e329a","8fef0c70","a41504d6","2b34314d","72b24279","752036cd"];
+// Royal Inland Hospital (South Kamloops/Downtown — the one address in this city
+//   that everybody, resident or not, ends up knowing; replaces Riverside Park) ·
+// North Kamloops Library (North Shore — on Tranquille Rd, the strip the whole
+//   North Shore is organised around, free to walk into, and its own name teaches
+//   the area's name; replaces McArthur Island Park) ·
+// Thompson Rivers University (Sahali/Aberdeen — already a real landmark, kept) ·
+// Brocklehurst Park (Brocklehurst — with the pool on the same block, this is the
+//   neighbourhood's centre; kept) ·
+// Valleyview Centennial Park (Valleyview — same, kept) ·
+// Westsyde Centennial Park (Westsyde — same, kept)
 
 // the city tier of the resident guide — the only guide section a new city rewrites
 UI.zh.guideCity=`

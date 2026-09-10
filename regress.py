@@ -443,8 +443,12 @@ async def main():
               'contributors' in at and 'openstreetmap.org/copyright' in at)
         check("41 no external font request",
               await pg.evaluate("()=>!document.querySelector('link[href*=\"fonts.\"]')"))
+        # 2026-09-09: the full statement now sits behind an expander, so it is in
+        # the DOM but not in innerText until opened — textContent is the right
+        # question for "is the disclosure there", and the summary is the right
+        # question for "is it readable".
         priv=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
-          o[l]=document.getElementById('noteBody').innerText.indexOf(UI[l].privacyNote.replace(/<[^>]+>/g,'').slice(2,18))>-1;});
+          o[l]=document.getElementById('noteBody').textContent.indexOf(UI[l].privacyNote.replace(/<[^>]+>/g,'').slice(2,18))>-1;});
           setLang('en');return o;}""")
         check("41 privacy disclosure renders in all six languages", all(priv.values()), priv)
 
@@ -972,6 +976,10 @@ async def main():
         msg=await pge.inner_text('#geoNoteText')
         check("57 a denied permission explains itself rather than failing silently",
               len(msg)>0 and not await pge.evaluate("()=>document.getElementById('geoNote').hidden"), msg)
+        # The disclosure has to be *reachable*, not merely present: open the
+        # expander the way a reader would and read what they would then see.
+        await pge.evaluate("()=>{const b=document.getElementById('pvMore');if(b&&document.getElementById('pvFull').hidden)b.click();}")
+        await pge.wait_for_timeout(200)
         check("57 the privacy note discloses the Near Me capability",
               'Near Me' in await pge.inner_text('.privacy-note'))
         check("57 no page errors from the geolocation flow", len(ee)==0, ee[:3])
@@ -985,6 +993,39 @@ async def main():
         check("58 at least one landmark label is visible on the opening view", vislabels>=1, vislabels)
         await pge.evaluate("()=>mapref.panBy([200,0])"); await pge.wait_for_timeout(500)
         check("58 landmark labels keep working after a pan, no page errors", len(ee)==0, ee[:3])
+
+        # 2026-09-09: the six were re-picked. Five of the original six were parks
+        # — comfortable to put a label on, weak to navigate by. What the labels
+        # have to satisfy is structural, not a fixed list of names: one per area
+        # (so they spread instead of clumping), and a bare place name (no ⭐,
+        # which belongs to the list and the popup, not to the map).
+        lmk=await pge.evaluate("""()=>{
+            const rows=LANDMARKS.map(id=>Pref.find(p=>p.id===id)).filter(Boolean);
+            return {n:rows.length,
+                    regions:rows.map(p=>p.g),
+                    parks:rows.filter(p=>p.c==='park').length,
+                    names:rows.map(p=>p.n)};}""")
+        check("58 one landmark per area, none doubled up",
+              lmk['n']==len(set(lmk['regions'])), lmk['regions'])
+        check("58 the areas a newcomer has to tell apart each get a name",
+              set(lmk['regions'])>={'sk','ns','sa'}, lmk['regions'])
+        lmcats=await pge.evaluate("()=>LANDMARKS.map(id=>(Pref.find(p=>p.id===id)||{}).c)")
+        check("58 the central areas are anchored by something you navigate by, not a park",
+              all(c!='park' for c,g in zip(lmcats,lmk['regions']) if g in ('sk','ns','sa')),
+              list(zip(lmk['names'],lmcats)))
+        rendered=await pge.evaluate("""()=>[...document.querySelectorAll('.leaflet-tooltip.landmark-label')]
+            .map(e=>e.textContent)""")
+        check("58 no editorial ⭐ leaks into a map label",
+              all(not t.strip().startswith('⭐') for t in rendered), rendered)
+        # The point of re-picking them is lost if the new ones never draw. They are
+        # the most central, so they compete with the densest cluster bubbles; a
+        # label blocked above its point now tries below it and then either side.
+        await pge.evaluate("()=>mapref.setView(CITYref.centre,CITYref.zoom)")
+        await pge.wait_for_timeout(700)
+        drawn=await pge.evaluate("""()=>[...document.querySelectorAll('.leaflet-tooltip.landmark-label')]
+            .filter(e=>getComputedStyle(e).display!=='none').map(e=>e.textContent)""")
+        check("58 every landmark finds a slot on the opening view",
+              len(drawn)==lmk['n'], drawn)
 
         for k,sel in (('free','#qpFree'),('family','#qpFamily'),('indoor','#qpIndoor')):
             check("59 quick-pick %s carries a real theme icon and label"%k,
@@ -1403,6 +1444,49 @@ async def main():
             probe('zh','无家可归','Mustard');probe('fr','bénévolat','Volunteer');
             resetAll();setLang('en');return o;}""")
         check("68 the new places are findable in the reader's own words", all(fnd.values()), fnd)
+
+        # --- the privacy statement, summarised (round 69) ---------------------
+        # An accurate 400-word paragraph nobody reads discloses nothing. Three
+        # lines carry the answers; the full text stays one tap away, unchanged.
+        await pgm3.evaluate("()=>{setLang('en');}")
+        await pgm3.click('#footerNoteBtn'); await pgm3.wait_for_timeout(400)
+        pvs=await pgm3.evaluate("""()=>{const o={};
+            ['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
+              const li=[...document.querySelectorAll('.pv-sum li')];
+              o[l]={n:li.length,
+                    vis:li.every(e=>e.getClientRects().length>0),
+                    lead:li.map(e=>(e.querySelector('b')||{}).textContent||''),
+                    foot:document.querySelector('.footer-privacy').textContent.trim(),
+                    hidden:document.getElementById('pvFull').hidden};});
+            setLang('en');return o;}""")
+        check("69 three visible summary lines in every language, full text collapsed",
+              all(v['n']==3 and v['vis'] and v['hidden'] and all(v['lead']) for v in pvs.values()),
+              {k:(v['n'],v['vis'],v['hidden']) for k,v in pvs.items()})
+        check("69 each summary line leads with a distinct claim, per language",
+              all(len(set(v['lead']))==3 for v in pvs.values()),
+              {k:v['lead'][0][:26] for k,v in pvs.items()})
+        # The footer line used to be a denial ("...no personal data"). A denial in
+        # brackets is what makes a disclosure read as a cover story; the line now
+        # states what is recorded and sends the reader to look at it.
+        check("69 the footer line states what is recorded rather than denying",
+              all('no personal data' not in v['foot'] and '不含个人信息' not in v['foot']
+                  and '個人情報は含みません' not in v['foot'] for v in pvs.values()),
+              {k:v['foot'][:34] for k,v in pvs.items()})
+        pvx=await pgm3.evaluate("""()=>{const b=document.getElementById('pvMore');
+            const before=b.textContent, n0=_evBuf.length;
+            b.click();
+            const opened={txt:document.getElementById('pvFull').innerText.length,
+                          aria:b.getAttribute('aria-expanded'),label:b.textContent};
+            b.click();
+            return {before:before,opened:opened,
+                    reclosed:document.getElementById('pvFull').hidden,
+                    label2:b.textContent,ev:_evBuf.slice(n0).map(e=>e.t)};}""")
+        check("69 the expander opens the full statement, closes again, and is recorded",
+              pvx['opened']['txt']>800 and pvx['opened']['aria']=='true'
+              and pvx['opened']['label']!=pvx['before'] and pvx['reclosed']
+              and pvx['label2']==pvx['before'] and pvx['ev']==['privacy_expand','privacy_expand'], pvx)
+        await pgm3.keyboard.press('Escape'); await pgm3.wait_for_timeout(250)
+
         check("68 no page errors across the second multidisciplinary pass", len(em3)==0, em3[:3])
         await pgm3.close()
 
