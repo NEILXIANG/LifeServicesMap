@@ -671,7 +671,7 @@ BUILTIN = {'if','for','while','switch','catch','return','typeof','function','new
            'Number','String','Set','Map','Array','Object','Math','parseInt','parseFloat',
            'setTimeout','clearTimeout','encodeURIComponent','isNaN','L','require','console',
            'Boolean','Date','RegExp','alert','fetch','performance','getComputedStyle',
-           'requestAnimationFrame'}
+           'requestAnimationFrame','setInterval','clearInterval','decodeURIComponent'}
 for name in sorted(called - defined - BUILTIN):
     if name.isupper() or name[0].isupper(): continue
     fail('calls %s() but nothing in the script defines it' % name)
@@ -769,12 +769,40 @@ if _os.path.exists('src/engine.html'):
     eng = open('src/engine.html', encoding='utf-8').read()
     if '/*__CITY_DATA__*/' not in eng:
         fail('src/engine.html has lost its data marker — build.py cannot fill it')
-    for v in ('const P=', 'const BR=', 'const CITY=', 'const RI='):
+    for v in ('const P=', 'const BR=', 'const CITY=', 'const RI=', 'const TASKS='):
         if v in eng:
             fail('city data %r leaked back into the engine' % v)
+    # 2026-09-11: the engine must not carry this city's phone numbers or offices
+    # outside the UI strings that are already placeholder-checked above. Local
+    # numbers in code are the surest sign a city fact has crept into the engine.
+    _eng_script = eng[eng.find('<script id="app">'):]
+    _eng_code = re.sub(r"UI\.[a-z]{2}\.[A-Za-z0-9_]+=(?:'(?:[^'\\]|\\.)*'|`[^`]*`);", '', _eng_script)
+    _eng_code = _eng_code[:_eng_code.find('const UI=')] + _eng_code[_eng_code.find('\n', _eng_code.find('const UI=')):] if 'const UI=' in _eng_code else _eng_code
+    _local_numbers = set(re.findall(r'\b(?:250|778|236)-\d{3}-\d{4}\b', _eng_code))
+    if _local_numbers:
+        warn('local phone number(s) in engine code (should live in data or UI strings): %s' % sorted(_local_numbers)[:5])
     if 'guideCity' in eng.replace('GUIDE_ORDER', ''):
         if re.search(r"UI\.\w+\.guideCity=`", eng):
             fail('guideCity (city-tier guide) leaked back into the engine')
+
+# ------------------------------------------------- 16b. the three clocks agree
+# (2026-09-11) VERIFIED (the page-wide "last checked" date), DATA_VERSION and
+# the per-record stamps are kept by hand. The page tells readers the whole set
+# was checked on VERIFIED; if a release ships weeks after that date without
+# anyone touching it, that sentence is stale on the day it is deployed.
+_vm = re.search(r"const VERIFIED='(\d{4})-(\d{2})-(\d{2})'", html)
+_dm = re.search(r"const DATA_VERSION='(\d{4})\.(\d{2})\.(\d{2})[a-z]?'", html)
+if not _vm or not _dm:
+    fail('VERIFIED or DATA_VERSION missing or malformed')
+else:
+    import datetime as _dt2
+    _vd = _dt2.date(int(_vm.group(1)), int(_vm.group(2)), int(_vm.group(3)))
+    _dd = _dt2.date(int(_dm.group(1)), int(_dm.group(2)), int(_dm.group(3)))
+    if (_dd - _vd).days > 45:
+        fail('VERIFIED (%s) is %d days behind DATA_VERSION (%s) — recheck the data or update the date honestly'
+             % (_vd, (_dd - _vd).days, _dd))
+    if _vd > _dd:
+        fail('VERIFIED (%s) is later than DATA_VERSION (%s)' % (_vd, _dd))
 
 # ------------------------------------------------- 17. data has a shelf life
 # (2026-09-10) Hours and phone numbers are the first fields to go stale, and a
@@ -824,9 +852,22 @@ _TASK_CATS = {
   'legal': {'legal'}, 'eldercare': {'commctr','hospital','support'},
 }
 _tm = re.search(r'const TASKS=(\[.*?\]);\n', html, re.S)
+if not _tm:
+    fail('TASKS (task cards) missing from the built file — the data file must define them')
 if _tm:
     try:
-        for t in json.loads(_tm.group(1)):
+        _tasks = json.loads(_tm.group(1))
+        # every card complete in every language, every place id real
+        for t in _tasks:
+            for k in ('q', 't'):
+                if not all(isinstance(t.get(k, {}).get(l), str) and t[k][l].strip() for l in LANGS):
+                    fail('task %r field %r is not complete in all six languages' % (t.get('id'), k))
+            for st in t.get('steps', []):
+                if not all(isinstance(st.get(l), str) and st[l].strip() for l in LANGS):
+                    fail('task %r has a step missing a language' % t.get('id'))
+            if t.get('place') and t['place'] not in _by_id:
+                fail('task %r points at unknown place id %r' % (t.get('id'), t['place']))
+        for t in _tasks:
             if t.get('place') and t['id'] in _TASK_CATS:
                 pl = _by_id.get(t['place'])
                 if pl and pl['c'] not in _TASK_CATS[t['id']]:

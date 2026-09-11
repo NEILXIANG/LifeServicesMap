@@ -25,7 +25,7 @@
 // keeps 'unsafe-inline' for script/style because the app is one file with
 // inline handlers; what it does lock down is where the page may load from and
 // talk to, that it cannot be framed, and that plugins/base tags are refused.
-const RATE_LIMIT = 120;            // events per IP per minute
+const RATE_LIMIT = 300;            // events per IP per minute (a library's NAT is one IP)
 const SECURITY_HEADERS = {
   'Content-Security-Policy':
     "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; " +
@@ -156,11 +156,24 @@ async function handleEvent(request, env, url) {
   const isDev = body.p && body.p.env === 'dev' ? 1 : 0;
 
   // --- 2. Write to Analytics Engine ---------------------------------------
+  // 2026-09-11: the questions a maintainer actually asks — which language,
+  // which flyer, which card, which category, which deployment — used to be
+  // buried inside the props JSON, and Analytics Engine cannot GROUP BY into
+  // JSON. They now get their own blob columns. Column map:
+  //   blob1 sid · blob2 type · blob3 props JSON · blob4 lang · blob5 city
+  //   blob6 host · blob7 src · blob8 id (or task) · blob9 cat · blob10 kind/target/to
+  //   blob11 client version
+  const p = (body.p && typeof body.p === 'object') ? body.p : {};
+  const col = (v) => (v === undefined || v === null) ? '' : String(v).slice(0, 64);
+  const lang = /^[a-z]{2}$/.test(String(body.l || '')) ? body.l : '';
+  const city = col(body.c).replace(/[^a-z0-9_-]/gi, '');
+  const ver = col(body.v);
+  const host = url ? url.host : '';
   try {
     env.ANALYTICS.writeDataPoint({
       // blobs[0..2] are string columns we can SELECT: session id, event type,
       // and the JSON-stringified props payload.
-      blobs: [sid, t, propsStr],
+      blobs: [sid, t, propsStr, lang, city, host, col(p.src), col(p.id || p.task), col(p.cat), col(p.kind || p.target || p.to || p.mode), ver],
       // doubles[0] is the event timestamp in ms.
       // doubles[1] is the dev-traffic flag (1 = maintainer, 0 = real user).
       doubles: [ts, isDev],
