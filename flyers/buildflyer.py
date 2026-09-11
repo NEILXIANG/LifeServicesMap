@@ -140,8 +140,9 @@ FOOT = ('Please print and post freely — black and white is fine, Letter paper 
 # ---- editions ------------------------------------------------------------------
 FAITH = dict(
     file='jesus-loves-you-flyer', src='flyer-f',
-    mark='<svg class="mark" width="34" height="44" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#188038" stroke-width="4.2" stroke-linecap="round"/></svg>',
-    h1='Jesus Loves You',
+    mark='<svg class="mark" width="10" height="13" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#1a73e8" stroke-width="4.6" stroke-linecap="round"/></svg>',
+    eyebrow='Kamloops · Community welcome',
+    h1='Jesus <em>Loves</em> You',
     sub='Kamloops Life Guide — six languages, free',
     # the sentence that joins the signature to the product: not preaching, an
     # explanation of why this is free
@@ -151,8 +152,9 @@ FAITH = dict(
     title='Jesus Loves You — Kamloops Life Guide')
 SECULAR = dict(
     file='kamloops-life-guide-flyer', src='flyer-s',
-    mark='<span class="mark">' + logo(36) + '</span>',
-    h1='Kamloops Life Guide',
+    mark='<span class="mark">' + logo(13) + '</span>',
+    eyebrow='Kamloops · For everyone who lives here',
+    h1='Kamloops <em>Life</em> Guide',
     sub='Welcome to Kamloops — and to the people who will help you settle in',
     lead='A guide to knowing this city and living well in it — made and given away as a gift, ' + LEAD_BOLD,
     closing='Made so that you can settle in sooner, find your people, and enjoy the good life this city has to offer.',
@@ -167,15 +169,29 @@ def page_css(paper):
 body{{font-family:"Roboto","Helvetica Neue",Arial,"Noto Sans CJK SC","Noto Sans CJK KR","Noto Sans CJK JP",sans-serif;
  color:#202124;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .page{{width:{w};height:{h};overflow:hidden;background:#fff;padding:8mm 11mm 6mm;display:flex;flex-direction:column}}
-.mast{{text-align:center}}
-.mark{{display:block;margin:0 auto 2.2mm;line-height:0}}
-h1{{margin:0;font-size:27pt;line-height:1.02;font-weight:700;letter-spacing:-.018em;color:#1a73e8}}
-.h1sub{{margin:.8mm 0 0;font-size:11pt;color:#3c4043;font-weight:500}}
-.lead{{margin:1.6mm auto 0;font-size:10pt;line-height:1.34;color:#3c4043;max-width:160mm;text-wrap:balance}}
+/* 2026-09-10: borrowed from the earlier "Apple-style" sheet — the QR sits
+   top-right beside the title (the first thing a passer-by can scan), the four
+   pills say "why trust it" in one row, the palette is blue + black + grey only
+   so a black-and-white photocopy loses nothing, and the address is repeated in
+   a solid bar at the foot for anyone who has to copy it by hand. */
+.mast{{display:grid;grid-template-columns:1fr 40mm;gap:6mm;align-items:start}}
+.eyebrow{{display:inline-flex;align-items:center;gap:2mm;background:#e8f0fe;color:#1a73e8;border-radius:999px;
+ padding:1.2mm 3.4mm 1.2mm 2mm;font-size:7.6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2.4mm}}
+.eyebrow .mark{{display:inline-block;line-height:0}}
+h1{{margin:0;font-size:31pt;line-height:1.0;font-weight:700;letter-spacing:-.022em;color:#202124}}
+h1 em{{font-style:normal;color:#1a73e8}}
+.h1sub{{margin:1.4mm 0 0;font-size:11pt;color:#3c4043;font-weight:500}}
+.lead{{margin:2mm 0 0;font-size:10pt;line-height:1.34;color:#3c4043;max-width:150mm;text-wrap:balance}}
 .lead b{{color:#202124;font-weight:600}}
-.who{{margin:1.1mm auto 0;font-size:8.8pt;line-height:1.35;color:#5f6368;max-width:160mm;text-wrap:balance}}
-.rule{{height:3px;margin:3mm auto 0;width:88mm;border-radius:2px;
- background:linear-gradient(90deg,#1a73e8 0 25%,#188038 25% 50%,#f9ab00 50% 75%,#d93025 75% 100%)}}
+.who{{margin:1.2mm 0 0;font-size:8.8pt;line-height:1.35;color:#5f6368;max-width:150mm;text-wrap:balance}}
+.qrbox{{border:1px solid #dadce0;border-radius:10px;padding:2.6mm 2.6mm 2.2mm;text-align:center;background:#fff;
+ box-shadow:0 1px 3px rgba(60,64,67,.14)}}
+.qr{{width:34mm;height:34mm;margin:0 auto}}
+.qr svg{{width:100%;height:100%;display:block}}
+.qrbox h4{{margin:1.6mm 0 .6mm;font-size:8.6pt;font-weight:700;letter-spacing:.12em;color:#1a73e8;text-transform:uppercase}}
+.qrbox .url{{display:block;font-size:6.9pt;line-height:1.3;color:#5f6368;word-break:break-all}}
+.badges{{display:flex;justify-content:center;flex-wrap:wrap;gap:2.2mm;margin-top:3mm}}
+.badge{{font-size:8pt;font-weight:600;color:#3c4043;background:#f1f3f4;border:1px solid #e3e5e8;border-radius:999px;padding:1.3mm 4mm}}
 .promise{{margin-top:3.2mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}}
 .pr{{background:#f8f9fa;border:1px solid #e8eaed;border-radius:9px;padding:2.2mm 2.6mm 2.4mm;text-align:center}}
 .pr-n{{display:inline-block;width:6mm;height:6mm;line-height:6mm;border-radius:50%;background:#1a73e8;color:#fff;font-size:10pt;font-weight:700;margin-bottom:1.4mm}}
@@ -188,7 +204,7 @@ h1{{margin:0;font-size:27pt;line-height:1.02;font-weight:700;letter-spacing:-.01
  border-radius:6px;padding:1mm 2.4mm;font-size:7.6pt;font-weight:700;color:#3c4043;letter-spacing:.04em}}
 .lb-city{{font:700 15px "Roboto",Arial,sans-serif;fill:#5f6368;letter-spacing:.13em;text-anchor:middle}}
 .lb-water{{font:italic 500 14px "Roboto",Arial,sans-serif;fill:#5b93bf;text-anchor:middle}}
-.lb-poi{{font:600 13px "Roboto",Arial,sans-serif;fill:#3c4043}} .lb-dot{{fill:#188038}}
+.lb-poi{{font:600 13px "Roboto",Arial,sans-serif;fill:#3c4043}} .lb-dot{{fill:#5f6368}}
 .cards{{margin-top:3.2mm;display:grid;grid-template-columns:repeat(2,1fr);gap:2.4mm 4mm}}
 .card{{border:1px solid #dadce0;border-radius:9px;padding:2.2mm 3.2mm 2.4mm;background:#fff}}
 .card-tag{{font-size:7.4pt;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#1a73e8;margin-bottom:.8mm}}
@@ -198,16 +214,12 @@ h1{{margin:0;font-size:27pt;line-height:1.02;font-weight:700;letter-spacing:-.01
 .card li b{{color:#202124;white-space:nowrap}} .card li span{{color:#5f6368}}
 .card li i.n{{display:inline-block;width:3.4mm;height:3.4mm;line-height:3.4mm;border-radius:50%;background:#1a73e8;color:#fff;font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-right:1.2mm;vertical-align:-.3mm}}
 .card[lang=zh] h3,.card[lang=ko] h3,.card[lang=ja] h3{{font-size:9.4pt}}
-.cta{{margin-top:auto;padding-top:2.8mm;display:grid;grid-template-columns:26mm 1fr;gap:5mm;align-items:center;border-top:1px solid #dadce0}}
-.qr{{width:32mm;height:32mm;padding:1.8mm;background:#fff;border:1px solid #dadce0;border-radius:8px}}
-.qr svg{{width:100%;height:100%;display:block}}
-.cta h4{{margin:0 0 1mm;font-size:12pt;font-weight:700}}
-.url{{display:inline-block;font-size:9.4pt;font-weight:700;color:#1a73e8;margin-bottom:1.2mm;word-break:break-all}}
-.closing{{margin:0;font-size:8.4pt;line-height:1.4;color:#3c4043}}
-.nophone{{margin:1.4mm 0 0;font-size:8.4pt;line-height:1.4;color:#5f6368}}
-.badges{{display:flex;flex-wrap:wrap;gap:1.6mm;margin-top:1.8mm}}
-.badge{{font-size:7.4pt;font-weight:600;color:#3c4043;background:#f1f3f4;border:1px solid #e3e5e8;border-radius:999px;padding:.9mm 2.4mm}}
-.foot{{margin-top:2mm;font-size:6.8pt;line-height:1.45;color:#80868b}}
+.tail{{margin-top:auto;padding-top:2.6mm;border-top:1px solid #dadce0}}
+.closing{{margin:0;font-size:8.6pt;line-height:1.4;color:#3c4043;text-align:center;text-wrap:balance}}
+.nophone{{margin:1mm 0 0;font-size:8.4pt;line-height:1.4;color:#5f6368;text-align:center}}
+.urlbar{{margin:2.6mm auto 0;width:150mm;background:#1a73e8;color:#fff;border-radius:999px;padding:3mm 6mm;
+ text-align:center;font-size:12.5pt;font-weight:700;letter-spacing:.01em}}
+.foot{{margin-top:2mm;font-size:6.8pt;line-height:1.45;color:#80868b;text-align:center}}
 '''
 
 def flyer_html(ed, paper):
@@ -216,25 +228,27 @@ def flyer_html(ed, paper):
 <html lang="en"><head><meta charset="UTF-8"><title>{ed['title']}</title>
 <style>{page_css(paper)}</style></head><body><div class="page">
  <div class="mast">
-  {ed['mark']}
-  <h1>{ed['h1']}</h1>{sub}
-  <p class="lead">{ed['lead']}</p>
-  <p class="who">{FOR_WHOM}</p>
-  <div class="rule"></div>
+  <div>
+   <div class="eyebrow">{ed['mark']}<span>{ed['eyebrow']}</span></div>
+   <h1>{ed['h1']}</h1>{sub}
+   <p class="lead">{ed['lead']}</p>
+   <p class="who">{FOR_WHOM}</p>
+  </div>
+  <div class="qrbox">
+   <div class="qr">{qr_svg(ed['src'] + '-' + EDITION.replace('-', '')[2:])}</div>
+   <h4>Scan to open</h4>
+   <span class="url">{URL_HOST}</span>
+  </div>
  </div>
+ <div class="badges"><span class="badge">Free · No ads</span><span class="badge">No sign-up</span>
+  <span class="badge">6 languages</span><span class="badge">{N_PLACES} verified places</span><span class="badge">Works offline</span></div>
  <div class="promise">{promise_html()}</div>
  <div class="mapwrap"><span class="maptag">KAMLOOPS, BC</span>{MAP_SVG}</div>
  <div class="cards">{cards_html()}</div>
- <div class="cta">
-  <div class="qr">{qr_svg(ed['src'] + '-' + EDITION.replace('-', '')[2:])}</div>
-  <div>
-   <h4>Scan to open it</h4>
-   <span class="url">{URL_HOST}</span>
-   <p class="closing">{ed['closing']}</p>
-   <p class="nophone">{NO_PHONE}</p>
-   <div class="badges"><span class="badge">Free</span><span class="badge">No sign-up</span><span class="badge">No ads</span>
-    <span class="badge">Works offline</span><span class="badge">EN · FR · ES · 中文 · 한국어 · 日本語</span><span class="badge">{N_PLACES} verified places</span></div>
-  </div>
+ <div class="tail">
+  <p class="closing">{ed['closing']}</p>
+  <p class="nophone">{NO_PHONE}</p>
+  <div class="urlbar">{URL_HOST}</div>
  </div>
  <p class="foot">{FOOT}</p>
 </div></body></html>'''

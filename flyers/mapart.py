@@ -83,7 +83,7 @@ GREEN = [   # the two parks a resident would name first
 # (kind, text, lat, lng, dx, dy) — dx/dy in px at the reference width, so a name
 # can clear its own marker and its neighbours without moving off its location.
 LABELS = [
-  ('city',  'DOWNTOWN',             50.6742, -120.3230,   0,  26),
+  ('city',  'DOWNTOWN',             50.6742, -120.3230,  96,  -6),
   ('city',  'NORTH SHORE',          50.7010, -120.3540,   0, -10),
   ('city',  'SAHALI',               50.6600, -120.3480,   0,  16),
   ('city',  'ABERDEEN',             50.6505, -120.3760,   0,  14),
