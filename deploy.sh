@@ -91,10 +91,17 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
   EP_CODE=$(curl -s -o /dev/null -w '%{http_code}' "${DEPLOY_URL}/api/event")
   if [[ "$EP_CODE" == "404" ]]; then ok "/api/event GET → 404（Worker 已接管，GET 落到 ASSETS）"; else warn "/api/event GET → ${EP_CODE}"; fi
   # 3. /api/event POST → 200
-  POST_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
+  POST_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -H "Origin: ${DEPLOY_URL}" \
     --data "{\"t\":\"ping\",\"p\":{\"source\":\"verify-only\",\"env\":\"dev\"},\"d\":$(now_ms),\"sid\":\"verify-script\"}" \
     "${DEPLOY_URL}/api/event")
   if [[ "$POST_CODE" == "200" ]]; then ok "/api/event POST → 200（事件已写入 Analytics Engine）"; else warn "/api/event POST → ${POST_CODE}"; fi
+  # 3b. 2026-09-11: a POST from another origin must be refused (403)
+  XO_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -H 'Origin: https://example.org' \
+    --data '{"t":"ping","p":{},"sid":"verify-script"}' "${DEPLOY_URL}/api/event")
+  if [[ "$XO_CODE" == "403" ]]; then ok "/api/event 跨站 POST → 403（Origin 校验生效）"; else warn "/api/event 跨站 POST → ${XO_CODE}（应为 403）"; fi
+  # 3c. security headers on the page
+  CSP=$(curl -s -D - -o /dev/null "${DEPLOY_URL}/" | grep -ci 'content-security-policy')
+  if [[ "$CSP" -ge 1 ]]; then ok "首页带 Content-Security-Policy"; else warn "首页缺少 Content-Security-Policy"; fi
   # 4. 敏感路径应全 404
   PATHS=(
     "data/business-hypothesis.md" ".git/HEAD" ".git/config"
@@ -230,14 +237,14 @@ fi
 GET_CODE=$(curl -s -o /dev/null -w '%{http_code}' "${DEPLOY_URL}/api/event")
 [[ "$GET_CODE" == "404" ]] && ok "/api/event GET → 404（Worker 已接管，GET 落到 ASSETS）" || warn "/api/event GET → ${GET_CODE}"
 
-POST_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
+POST_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -H "Origin: ${DEPLOY_URL}" \
   --data "{\"t\":\"deploy_smoke\",\"p\":{\"source\":\"deploy.sh\",\"env\":\"dev\"},\"d\":$(now_ms),\"sid\":\"deploy-smoke\"}" \
   "${DEPLOY_URL}/api/event")
 [[ "$POST_CODE" == "200" ]] && ok "/api/event POST → 200（事件已被 Analytics Engine 接受）" || warn "/api/event POST → ${POST_CODE}"
 
 # A malformed payload must be rejected with 400 — this is the guard that keeps
 # junk out of the Analytics Engine dataset.
-BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
+BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -H "Origin: ${DEPLOY_URL}" \
   --data '{"t":"NOT VALID!!"}' "${DEPLOY_URL}/api/event")
 [[ "$BAD_CODE" == "400" ]] && ok "/api/event 非法 payload → 400（正确拒绝）" || warn "/api/event 非法 payload → ${BAD_CODE}"
 

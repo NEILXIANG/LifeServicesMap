@@ -15,38 +15,100 @@
 // Free tier: Workers 100K req/day, Analytics Engine 100K writes/day — this
 // project's expected usage (~5K events/day at 100 DAU) is 20× under both caps.
 
+// 2026-09-11: the event endpoint used to answer any origin (CORS *) with no
+// rate limit — anyone could pour rows into the analytics or burn the daily
+// quota from a script. It now accepts browser posts from this site only
+// (Origin / Sec-Fetch-Site / Referer must match the request host) and caps
+// each client IP at RATE_LIMIT events per minute via the edge cache — a soft,
+// per-datacentre limit that needs no extra binding and fails open.
+// Every asset response also carries a baseline of security headers. The CSP
+// keeps 'unsafe-inline' for script/style because the app is one file with
+// inline handlers; what it does lock down is where the page may load from and
+// talk to, that it cannot be framed, and that plugins/base tags are refused.
+const RATE_LIMIT = 120;            // events per IP per minute
+const SECURITY_HEADERS = {
+  'Content-Security-Policy':
+    "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; " +
+    "style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://*.tile.openstreetmap.org https://tile.openstreetmap.org; " +
+    "font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; " +
+    "worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:",
+  'X-Content-Type-Options': 'nosniff',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'X-Frame-Options': 'DENY',
+  'Permissions-Policy': 'geolocation=(self), camera=(), microphone=(), payment=()',
+  'Cross-Origin-Opener-Policy': 'same-origin',
+};
+
+function sameSite(request, url) {
+  const origin = request.headers.get('Origin');
+  if (origin) {
+    try { return new URL(origin).host === url.host; } catch (e) { return false; }
+  }
+  const sfs = request.headers.get('Sec-Fetch-Site');
+  if (sfs) return sfs === 'same-origin';
+  const ref = request.headers.get('Referer');
+  if (ref) {
+    try { return new URL(ref).host === url.host; } catch (e) { return false; }
+  }
+  return false;   // a bare POST with none of the three is not a browser on this site
+}
+
+async function overLimit(request) {
+  try {
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    const minute = Math.floor(Date.now() / 60000);
+    const key = new Request('https://ratelimit.internal/' + encodeURIComponent(ip) + '/' + minute);
+    const cache = caches.default;
+    const hit = await cache.match(key);
+    const n = hit ? parseInt(await hit.text(), 10) || 0 : 0;
+    if (n >= RATE_LIMIT) return true;
+    await cache.put(key, new Response(String(n + 1), { headers: { 'Cache-Control': 'max-age=120' } }));
+    return false;
+  } catch (e) {
+    return false;   // the cache is a convenience; never block real traffic on its failure
+  }
+}
+
+function withSecurityHeaders(resp) {
+  const h = new Headers(resp.headers);
+  for (const [k, v] of Object.entries(SECURITY_HEADERS)) h.set(k, v);
+  return new Response(resp.body, { status: resp.status, statusText: resp.statusText, headers: h });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
-    // CORS preflight — sendBeacon never triggers this because Content-Type
-    // stays as text/plain (or we use a Blob with no custom header), but if a
-    // future tool switches to fetch-with-headers, this keeps the request alive.
+    // CORS preflight — same-site only; there is no legitimate cross-site caller.
     if (request.method === 'OPTIONS' && url.pathname === '/api/event') {
+      if (!sameSite(request, url)) return new Response(null, { status: 403 });
       return new Response(null, {
         status: 204,
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': url.origin,
           'Access-Control-Allow-Methods': 'POST, OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type',
           'Access-Control-Max-Age': '86400',
+          'Vary': 'Origin',
         },
       });
     }
 
     if (url.pathname === '/api/event' && request.method === 'POST') {
-      return handleEvent(request, env);
+      if (!sameSite(request, url)) return new Response('forbidden', { status: 403 });
+      if (await overLimit(request)) return new Response('too many events', { status: 429, headers: { 'Retry-After': '60' } });
+      return handleEvent(request, env, url);
     }
 
     // Everything else (the index.html and anything else build.py produces) is
     // served by the static asset binding. If a path is not found in assets,
     // env.ASSETS.fetch falls back to a 404 — no separate SPA rewrite rule
     // needed because the app is a single file.
-    return env.ASSETS.fetch(request);
+    return withSecurityHeaders(await env.ASSETS.fetch(request));
   },
 };
 
-async function handleEvent(request, env) {
+async function handleEvent(request, env, url) {
   // --- 1. Parse + validate payload ----------------------------------------
   let body;
   try {
@@ -118,15 +180,13 @@ async function handleEvent(request, env) {
   return new Response('ok', {
     status: 200,
     headers: {
-      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Origin': url ? url.origin : 'null',
       'Cache-Control': 'no-store',
+      'Vary': 'Origin',
     },
   });
 }
 
 function badRequest(reason) {
-  return new Response(reason, {
-    status: 400,
-    headers: { 'Access-Control-Allow-Origin': '*' },
-  });
+  return new Response(reason, { status: 400, headers: { 'Cache-Control': 'no-store' } });
 }
