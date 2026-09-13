@@ -106,7 +106,7 @@ async def main():
         exe='/opt/pw-browsers/chromium'
         # never let a test run fetch real map tiles: a headless browser hammering a
         # tile provider with no referer is exactly what got the site blocked
-        _args=['--host-resolver-rules=MAP *.cartocdn.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND']
+        _args=['--host-resolver-rules=MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.maptiler.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND']
         b=await (p.chromium.launch(executable_path=exe,args=_args) if os.path.exists(exe)
                  else p.chromium.launch(args=_args))
         allerrs=[]

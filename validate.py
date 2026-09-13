@@ -817,7 +817,7 @@ else:
         fail('taskVerified uses {TD} but nothing substitutes it')
 # (2026-09-13) the map imagery host must be one whose terms allow a public app, and
 # the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
-_tile = re.search(r"L\.tileLayer\('https://\{s\}\.([a-z0-9.\-]+)/", html)
+_tile = re.search(r"tiles:\{url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", html)
 if not _tile:
     fail('tile layer URL not found')
 else:

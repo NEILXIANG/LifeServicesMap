@@ -29,6 +29,19 @@ const CITY={
   // the day the 14 task cards were last read against their official sources
   // (shown at the foot of every card; validate.py keeps it honest)
   tasksChecked:'2026-09-08',
+  // Map imagery (2026-09-13). Primary: MapTiler Streets (account-backed, key
+  // restricted to this site's origin in MapTiler's dashboard, free tier
+  // 100k tiles/month). Fallback: Esri's World Street Map raster tiles, no key,
+  // free with attribution — the engine switches to it by itself if the primary
+  // refuses (quota, revoked key, outage). OSM's volunteer servers refuse
+  // distributed apps and CARTO's free basemaps now require a key; both learned
+  // the hard way. Changing a provider = this object + the Worker's img-src.
+  tiles:{url:'https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=igWSJpj1pJRjvxUV2t1H',
+         attribution:'&copy; <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">MapTiler</a>',
+         tileSize:512, zoomOffset:-1, maxZoom:18, crossOrigin:true,   // same maxZoom as the fallback: a layer swap must never force a zoom change (it re-clusters and closes an open card)
+         fallback:{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+                   attribution:'Tiles &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a> &mdash; Esri, HERE, Garmin, USGS, NRCan',
+                   maxZoom:18}},
   // Bus-stop labels are forced on for interchanges; the pattern is language- and
   // city-specific, so it lives here rather than hard-coded in the renderer.
   keyStop:/exch|station|terminal/i,
