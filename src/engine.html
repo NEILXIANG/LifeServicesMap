@@ -107,6 +107,9 @@
      most of this app's traffic — the word itself is now the visible cue, sourced
      from a data attribute JS sets per language, at full opacity so it stays AA. */
   .preset-chip.adjusted::after{content:attr(data-adj-label);margin-left:5px;font-weight:700;}
+  /* the touch block below gives chips display:inline-flex, which would beat the
+     UA's [hidden]; the seasonal chip must stay gone when it is hidden */
+  .preset-chip[hidden]{display:none;}
   .qp-row{padding:11px 20px 0;position:relative;}
   .qp-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:7px;}
   .qp-head .sec-label{padding-bottom:0;}
@@ -191,6 +194,15 @@
   /* quick picks */
   .preset-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px;margin:0 -20px;padding-left:20px;padding-right:34px;}
   .preset-row::-webkit-scrollbar{display:none;}
+  /* 2026-09-11: a flick lands on a whole chip, never half of one (proximity, so a
+     long flick still runs free). The fade + chevron say "more to the right". */
+  .preset-row{scroll-snap-type:x proximity;scroll-padding-left:20px;}
+  .preset-row>.preset-chip{scroll-snap-align:start;}
+  /* the door to the rest: quieter than a filter chip, its › is part of the label */
+  .preset-chip.qp-more{background:transparent;border-style:dashed;color:var(--accent-text);}
+  .preset-chip.qp-more:hover{background:var(--card);border-style:solid;}
+  /* the seven category sets, now a wrapped block at the top of the Category sheet */
+  .preset-grid{display:flex;flex-wrap:wrap;gap:6px;}
   .preset-chip{flex:0 0 auto;white-space:nowrap;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;}
   .preset-chip:hover{background:#f1f3f4;border-color:color-mix(in srgb,var(--sage) 35%,var(--line));}
   .preset-chip.active{background:color-mix(in srgb,var(--accent) 14%,var(--card));border-color:color-mix(in srgb,var(--accent) 55%,var(--line));color:var(--accent-text);}
@@ -846,7 +858,7 @@
        scrolling row itself */
     .qp-head{display:none;}
     /* the bleed margins have to track .qp-row's padding or the row overflows */
-    .preset-row{gap:6px;margin:0 -12px;padding-left:12px;padding-right:26px;}
+    .preset-row{gap:6px;margin:0 -12px;padding-left:12px;padding-right:26px;scroll-padding-left:12px;}
     .preset-chip{padding:7px 11px;font-size:11.5px;}
     .qp-row::after{right:0;top:2px;bottom:2px;width:30px;}
     .qp-row::before{right:5px;top:2px;bottom:2px;font-size:15px;}
@@ -1053,13 +1065,12 @@
     <button class="preset-chip" id="qpFamily" type="button"></button>
     <button class="preset-chip" id="qpIndoor" type="button"></button>
     <button class="preset-chip" id="qpOpen" type="button" aria-pressed="false"></button>
-    <button class="preset-chip" id="kids"></button>
-    <button class="preset-chip" id="edu"></button>
-    <button class="preset-chip" id="health"></button>
-    <button class="preset-chip" id="sports"></button>
-    <button class="preset-chip" id="outdoor"></button>
-    <button class="preset-chip" id="shopping"></button>
-    <button class="preset-chip" id="auto"></button>
+    <!-- 2026-09-11: the row used to hold fourteen chips; a 390px phone shows three,
+         and nothing past the sixth was ever reached. The seven category sets
+         (kids/edu/health/…) now live at the top of the Category sheet, which this
+         last chip opens. What stays here are scenarios, and applyQuickPickOrder()
+         puts the likeliest first for this hour, season and reader. -->
+    <button class="preset-chip qp-more" id="qpMore" type="button"></button>
   </div>
 </div>
 <div class="fhint" id="fhint"></div>
@@ -1084,6 +1095,22 @@
         <div class="reg-row" id="regRow"></div>
       </div>
       <div id="panelCat" hidden>
+        <!-- 2026-09-11: the seven category sets that used to crowd the Quick
+             Picks row. One tap selects a whole set of categories; they read as
+             the same chips they were on the front page, so nothing is re-learnt. -->
+        <div class="psec" id="presetSec">
+          <div class="sec-label" id="presetSecLabel"></div>
+          <p class="cat-panel-hint" id="presetSecHint"></p>
+          <div class="preset-grid" id="presetGrid">
+            <button class="preset-chip" id="kids" type="button"></button>
+            <button class="preset-chip" id="edu" type="button"></button>
+            <button class="preset-chip" id="health" type="button"></button>
+            <button class="preset-chip" id="sports" type="button"></button>
+            <button class="preset-chip" id="outdoor" type="button"></button>
+            <button class="preset-chip" id="shopping" type="button"></button>
+            <button class="preset-chip" id="auto" type="button"></button>
+          </div>
+        </div>
         <div class="psec">
           <div class="theme-sec" id="themeSec">
             <div class="sec-label" id="themeLabel"></div>
@@ -1309,6 +1336,14 @@ UI.zh.taskVerified='本卡内容已于 2026-09-08 对照官方页面核对';UI.e
 // data)" is a sentence that protests. Saying plainly what is recorded, and inviting
 // the reader to go look at it, is the only version that earns the trust the old one
 // asked for.
+UI.zh.qpMore='更多 ›';UI.en.qpMore='More ›';UI.fr.qpMore='Plus ›';UI.es.qpMore='Más ›';UI.ko.qpMore='더 보기 ›';UI.ja.qpMore='もっと見る ›';
+UI.zh.presetSecLabel='🎯 一键选一组';UI.en.presetSecLabel='🎯 One-tap sets';UI.fr.presetSecLabel='🎯 Ensembles en un geste';UI.es.presetSecLabel='🎯 Conjuntos de un toque';UI.ko.presetSecLabel='🎯 한 번에 한 묶음';UI.ja.presetSecLabel='🎯 ワンタップで一式';
+UI.zh.presetSecHint='点一下选中一组常用分类，再点一下取消；选中后还可以在下面细调。';
+UI.en.presetSecHint='One tap selects a set of everyday categories; tap again to clear. Fine-tune below after picking one.';
+UI.fr.presetSecHint='Un geste sélectionne un ensemble de catégories courantes ; un second l\'annule. Affinez ensuite ci-dessous.';
+UI.es.presetSecHint='Un toque selecciona un conjunto de categorías habituales; otro toque lo quita. Después puedes afinar abajo.';
+UI.ko.presetSecHint='한 번 누르면 자주 쓰는 분류 묶음이 선택되고, 다시 누르면 해제됩니다. 선택 후 아래에서 세부 조정할 수 있습니다.';
+UI.ja.presetSecHint='一度タップするとよく使う分類の一式が選ばれ、もう一度タップすると解除されます。選んだあと下で細かく調整できます。';
 UI.zh.openNowLabel='现在营业';UI.en.openNowLabel='Open now';UI.fr.openNowLabel='Ouvert maintenant';UI.es.openNowLabel='Abierto ahora';UI.ko.openNowLabel='지금 영업 중';UI.ja.openNowLabel='営業中';
 UI.zh.openNowYes='● 现在营业';UI.en.openNowYes='● Open now';UI.fr.openNowYes='● Ouvert';UI.es.openNowYes='● Abierto';UI.ko.openNowYes='● 영업 중';UI.ja.openNowYes='● 営業中';
 UI.zh.openNowNo='○ 现在已关';UI.en.openNowNo='○ Closed now';UI.fr.openNowNo='○ Fermé';UI.es.openNowNo='○ Cerrado';UI.ko.openNowNo='○ 영업 종료';UI.ja.openNowNo='○ 営業時間外';
@@ -2478,7 +2513,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.11e';
+const DATA_VERSION='2026.09.11f';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -2865,10 +2900,20 @@ function buildGuideToc(){
 // collection — the Worker echoes nothing back. (The two third parties, the
 // tile server and the Cloudflare visit counter, are named in the privacy note.)
 const _SID_KEY='kamloopsSid';
+// 2026-09-11: the id is rotated after 90 days, so a browser can never be
+// followed for longer than that even in principle. The "returning" share dips
+// on the day an id turns over; that is the price and it is worth paying.
+const _SID_AT_KEY='kamloopsSidAt',SID_MAX_AGE_MS=90*24*3600*1000;
 function getSid(){
   try{
     let sid=localStorage.getItem(_SID_KEY);
-    if(sid&&/^[a-z0-9]{12,32}$/.test(sid))return sid;
+    const at=parseInt(localStorage.getItem(_SID_AT_KEY)||'0',10)||0;
+    if(sid&&/^[a-z0-9]{12,32}$/.test(sid)&&at&&Date.now()-at<SID_MAX_AGE_MS)return sid;
+    if(sid&&/^[a-z0-9]{12,32}$/.test(sid)&&!at){
+      // an id from before rotation existed: start its clock now rather than
+      // throwing it away, so today's returning visitors stay countable
+      localStorage.setItem(_SID_AT_KEY,String(Date.now()));return sid;}
+    localStorage.setItem(_SID_AT_KEY,String(Date.now()));
     // crypto.randomUUID is universal since 2022; the Math.random fallback is
     // paranoia for very old engines and produces a different value per call
     // anyway (no longer a session id, just a "did not get an id" marker).
@@ -4255,7 +4300,58 @@ function updateThemeQuickpicks(){
     el.classList.toggle('active',aT.has(k));
     el.setAttribute('aria-pressed',aT.has(k)?'true':'false');
   });
+  // "Indoor / Winter" is off the row outside winter unless it is switched on
+  if(_qpClock)applyQuickPickOrder();
 }
+// 2026-09-11 — Quick Picks in context. A phone shows three chips; make them the
+// three this reader is likeliest to want *now*. Pure function of a context
+// object so the rules can be tested without faking the clock:
+//   evening (17:00+) or Sunday  → "Open now" right after the guide
+//   Saturday / Sunday           → "Kids & Family" moves up
+//   November–March              → "Indoor / Winter" appears (hidden otherwise;
+//                                  it stays in the Category sheet all year)
+//   arrived from a flyer/card   → "Resident Essentials" (the newcomer set) first
+//   third visit or later        → the newcomer set drops behind the themes
+// The guide is always first, "More" always last, and rules never hide a chip
+// the reader has already switched on.
+const _VISITS_KEY='kamloopsVisits';
+function visitCount(){try{return parseInt(localStorage.getItem(_VISITS_KEY)||'0',10)||0;}catch(e){return 0;}}
+function bumpVisitCount(){try{localStorage.setItem(_VISITS_KEY,String(Math.min(visitCount()+1,999)));}catch(e){}}
+// read before writeURLState() ever rewrites the address bar (urlWriteBlocked
+// is still true here), so the flyer tag survives the rewrite
+const LANDED_SRC=(function(){try{const v=new URLSearchParams(location.search).get('src')||'';return /^[a-z0-9-]{1,24}$/.test(v)?v:'';}catch(e){return '';}})();
+// The clock part of the context is frozen per sitting (refreshed when the tab
+// comes back into view), so the row never reorders under a thumb at 17:00.
+let _qpClock=null;
+function quickPickContext(fresh){
+  if(fresh||!_qpClock){const now=cityNow();_qpClock={h:Math.floor(now.m/60),d:now.d,mo:cityMonth()};}
+  return {h:_qpClock.h,d:_qpClock.d,mo:_qpClock.mo,src:LANDED_SRC,visits:visitCount(),on:{indoor:aT.has('indoor')}};
+}
+function quickPickOrder(ctx){
+  const r={daily:10,newcomer:20,qpFree:30,qpFamily:40,qpIndoor:Infinity,qpOpen:50};
+  const winter=ctx.mo>=11||ctx.mo<=3,weekend=ctx.d>=6,evening=ctx.h>=17||ctx.d===7;
+  if(winter||(ctx.on&&ctx.on.indoor))r.qpIndoor=25;
+  if(/^(flyer|card)/.test(ctx.src||''))r.newcomer=5;
+  else if(ctx.visits>=3)r.newcomer=45;
+  if(weekend)r.qpFamily=15;
+  if(evening)r.qpOpen=1;
+  const ids=Object.keys(r).filter(k=>r[k]!==Infinity).sort((a,b)=>r[a]-r[b]);
+  return ['qpGuide'].concat(ids,['qpMore']);
+}
+function applyQuickPickOrder(fresh){
+  const row=document.getElementById('presetRow');if(!row)return;
+  const order=quickPickOrder(quickPickContext(fresh));
+  const all=['qpGuide','daily','newcomer','qpFree','qpFamily','qpIndoor','qpOpen','qpMore'];
+  all.forEach(id=>{const el=document.getElementById(id);if(el)el.hidden=order.indexOf(id)<0;});
+  const cur=Array.prototype.filter.call(row.children,c=>!c.hidden).map(c=>c.id);
+  const same=cur.length===order.length&&cur.every((id,i)=>id===order[i]);
+  if(!same)order.forEach(id=>{const el=document.getElementById(id);if(el)row.appendChild(el);});
+  requestAnimationFrame(updateQpFade);
+}
+(function(){
+  const el=document.getElementById('qpMore');
+  if(el)el.onclick=()=>{trackEvent('qp_more',{});openPanel('cat');};
+})();
 function renderActiveFilters(){
   const root=document.getElementById('activeFilters');root.innerHTML='';
   const u=UI[L_];
@@ -4418,6 +4514,10 @@ function setLang(l){
   document.getElementById('catPanelHint').textContent=u.catPanelHint;
   document.getElementById('busPanelHint').textContent=u.busPanelHint;
   Object.keys(PRESETS).forEach(key=>{const el=document.getElementById(key);if(el)el.textContent=u[key];});
+  const qm=document.getElementById('qpMore');
+  if(qm){qm.textContent=u.qpMore;qm.title=u.catLabel;}
+  document.getElementById('presetSecLabel').textContent=u.presetSecLabel;
+  document.getElementById('presetSecHint').textContent=u.presetSecHint;
   // Chip width changes per language (French/Spanish labels run longer than English),
   // which changes whether the row overflows at all.
   requestAnimationFrame(updateQpFade);
@@ -5237,6 +5337,9 @@ document.addEventListener('click',(e)=>{
   // under the user. Anything no longer in the document was an inside click.
   if(!e.target.isConnected)return;
   if(panel.contains(e.target)||areaBtnEl.contains(e.target)||catBtnEl.contains(e.target)||busBtnEl.contains(e.target)||favBtnEl.contains(e.target))return;
+  // the Quick Picks "More" chip opens this very panel; its click must not
+  // also count as a click outside it
+  if(e.target.closest&&e.target.closest('#qpMore'))return;
   closePanel();
 });
 // Everything a user can put the page into, undone in one place. It used to leave
@@ -5434,7 +5537,7 @@ document.addEventListener('visibilitychange',()=>{
     return;
   }
   if(document.visibilityState!=='visible')return;
-  try{if(openNow)apply();updateGuideProgress();
+  try{if(openNow)apply();updateGuideProgress();applyQuickPickOrder(true);
     if(guideBackdropEl.classList.contains('open')&&!_taskOpen)renderTaskList();}catch(e){}
 });
 setInterval(()=>{try{if(openNow&&document.visibilityState==='visible')apply();}catch(e){}},60000);
@@ -5803,6 +5906,7 @@ function detectLang(){
   // URL ?lang= 永远胜出；其次是上次手动选过的语言（记在 localStorage 里）；
   // 再次才按 navigator.languages 猜；都没有则退回英文。
   setLang(st&&st.lang?st.lang:(getStoredLang()||detectLang()));
+  bumpVisitCount();applyQuickPickOrder(true);
   if(st&&st.route)renderRoute(st.route,true);
   if(st&&st.task)setTimeout(()=>openGuide('link',st.task),80);
   urlWriteBlocked=false;
@@ -5832,7 +5936,10 @@ function detectLang(){
     // journey from landing on the default map, and one the share feature exists
     // to create, so its share of traffic is worth knowing
     deep:!!(st&&(st.regions||st.cats||st.themes||st.q||st.route)),
-    lead:!!(st&&st.lang)
+    lead:!!(st&&st.lang),
+    // 1 on a first visit; the Quick Picks row starts treating the reader as a
+    // resident from 3. Capped, never identifying.
+    visits:visitCount()
   });
 })();
 </script>

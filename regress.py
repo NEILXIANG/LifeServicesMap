@@ -246,9 +246,9 @@ async def main():
         await pg.click('#clearCat'); await pg.wait_for_timeout(450)
         check("07 the single utility clears the filter",
               await pg.evaluate("aCref().size")==0 and await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)).length")==N)
-        await pg.click('#catBtn'); await pg.wait_for_timeout(200)
+        # 2026-09-11: the category sets live at the top of the Category sheet
+        # now (the panel is still open from the clicks above)
         await pg.click('#health'); await pg.wait_for_timeout(400)
-        await pg.click('#catBtn'); await pg.wait_for_timeout(400)
         await pg.evaluate("""()=>{const c=[...document.querySelectorAll('#catGrid .cat-btn')].find(x=>x.textContent.includes('Dental'));c.click();}""")
         await pg.wait_for_timeout(450)
         check("08 preset keeps its highlight after a manual tweak",
@@ -676,7 +676,9 @@ async def main():
             # so this walkthrough still exercises it per language.
             await pg3.evaluate("()=>{trackEvent('note_open',{});openModal(document.getElementById('noteBackdrop'));}")
             await pg3.wait_for_timeout(250); await pg3.keyboard.press('Escape')
+            await pg3.click('#qpMore'); await pg3.wait_for_timeout(300)
             await pg3.click('#kids'); await pg3.wait_for_timeout(350)
+            await pg3.keyboard.press('Escape'); await pg3.wait_for_timeout(200)
             await pg3.click('#resetBtn'); await pg3.wait_for_timeout(300)
             await pg3.fill('#searchInput','park'); await pg3.wait_for_timeout(600)
             await pg3.click('#searchClear'); await pg3.wait_for_timeout(350)
@@ -1629,6 +1631,60 @@ async def main():
         check("71 the printed-source parameter is recorded on session_start", await pg71.evaluate("()=>{const s=_evBuf.find(e=>e.t==='session_start');return !!s&&('src' in s.p||s.p.src===undefined);}"))
         check("71 no page errors across round 71", len(e71)==0, e71[:3])
         await pg71.close()
+
+        print("\n--- quick picks in context; sid rotation (round 72) ---")
+        pg72=await b.new_page(viewport={'width':390,'height':844}, has_touch=True, is_mobile=True)
+        e72=[]; pg72.on('pageerror', lambda e: e72.append(str(e)))
+        await pg72.goto(URL+'?src=flyer-f-2609'); await pg72.wait_for_timeout(1500)
+        row=await pg72.evaluate("""()=>{const v=[...document.querySelectorAll('#presetRow .preset-chip')].filter(e=>!e.hidden);
+            return {ids:v.map(e=>e.id),n:v.length,first:v[0]&&v[0].id,last:v[v.length-1]&&v[v.length-1].id,
+                    more:document.getElementById('qpMore').textContent.trim(),
+                    setsInRow:['kids','edu','health','sports','outdoor','shopping','auto'].filter(id=>document.getElementById(id).closest('#presetRow')).length,
+                    setsInSheet:['kids','edu','health','sports','outdoor','shopping','auto'].filter(id=>document.getElementById(id).closest('#panelCat')).length};}""")
+        check("72 the row is guide-first, More-last, and at most eight chips", row['first']=='qpGuide' and row['last']=='qpMore' and 6<=row['n']<=8, row)
+        check("72 the seven category sets moved from the row into the Category sheet", row['setsInRow']==0 and row['setsInSheet']==7, row)
+        check("72 a flyer arrival puts the newcomer set right after the guide", row['ids'][1]=='newcomer' or (row['ids'][1]=='qpOpen' and row['ids'][2]=='newcomer'), row['ids'])
+        rules=await pg72.evaluate("""()=>({
+            noon:quickPickOrder({h:12,d:2,mo:6,src:'',visits:1}),
+            evening:quickPickOrder({h:19,d:2,mo:6,src:'',visits:1}),
+            sunday:quickPickOrder({h:10,d:7,mo:6,src:'',visits:1}),
+            winter:quickPickOrder({h:12,d:2,mo:1,src:'',visits:1}),
+            returning:quickPickOrder({h:12,d:2,mo:6,src:'',visits:3}),
+            indoorOn:quickPickOrder({h:12,d:2,mo:7,src:'',visits:1,on:{indoor:true}})})""")
+        check("72 ordering rules: evening/Sunday lift Open now, winter shows Indoor, returning demotes the newcomer set",
+              rules['noon'][1]=='daily' and 'qpIndoor' not in rules['noon']
+              and rules['evening'][1]=='qpOpen' and rules['sunday'][1]=='qpOpen' and rules['sunday'].index('qpFamily')<rules['sunday'].index('newcomer')
+              and rules['winter'].index('qpIndoor')==3 and rules['indoorOn'].index('qpIndoor')==3
+              and rules['returning'].index('newcomer')>rules['returning'].index('qpFamily')
+              and all(r[0]=='qpGuide' and r[-1]=='qpMore' for r in rules.values()), rules)
+        await pg72.click('#qpMore'); await pg72.wait_for_timeout(500)
+        more=await pg72.evaluate("""()=>({open:document.getElementById('panel').classList.contains('open'),mode:panelMode,
+            first:document.querySelector('#panelCat .psec').id,label:document.getElementById('presetSecLabel').textContent.trim().length>2,
+            kidsVisible:document.getElementById('kids').getBoundingClientRect().height>0,
+            ev:_evBuf.some(e=>e.t==='qp_more')})""")
+        check("72 More opens the Category sheet with the sets section first", more['open'] and more['mode']=='cat' and more['first']=='presetSec' and more['label'] and more['kidsVisible'] and more['ev'], more)
+        await pg72.click('#kids'); await pg72.wait_for_timeout(450)
+        kk=await pg72.evaluate("()=>({active:document.getElementById('kids').classList.contains('active'),n:aC.size,vis:lastVisible,stillOpen:document.getElementById('panel').classList.contains('open')})")
+        check("72 a set chip in the sheet still selects its categories and keeps the sheet open", kk['active'] and kk['n']>=10 and 0<kk['vis']<N and kk['stillOpen'], kk)
+        await pg72.click('#kids'); await pg72.wait_for_timeout(300)
+        await pg72.keyboard.press('Escape'); await pg72.wait_for_timeout(300)
+        # desktop: the More click must not count as a click outside the panel
+        pg72d=await b.new_page(viewport={'width':1280,'height':900})
+        await pg72d.goto(URL); await pg72d.wait_for_timeout(1200)
+        await pg72d.click('#qpMore'); await pg72d.wait_for_timeout(400)
+        check("72 desktop: More opens the Category panel and it stays open", await pg72d.evaluate("()=>document.getElementById('panel').classList.contains('open')&&panelMode==='cat'"))
+        await pg72d.close()
+        sid=await pg72.evaluate("""()=>{const a=getSid();const at1=localStorage.getItem('kamloopsSidAt');
+            localStorage.setItem('kamloopsSidAt',String(Date.now()-100*24*3600*1000));const b=getSid();
+            const at2=parseInt(localStorage.getItem('kamloopsSidAt'),10);
+            return {stamped:!!at1,rotated:a!==b,fresh:Date.now()-at2<5000,shape:/^[a-z0-9]{12,32}$/.test(b)};}""")
+        check("72 the session id carries a birth date and is rotated after 90 days", sid['stamped'] and sid['rotated'] and sid['fresh'] and sid['shape'], sid)
+        v1=await pg72.evaluate("()=>parseInt(localStorage.getItem('kamloopsVisits'),10)")
+        await pg72.reload(); await pg72.wait_for_timeout(1200)
+        v2=await pg72.evaluate("()=>({n:parseInt(localStorage.getItem('kamloopsVisits'),10),ss:(_evBuf.slice().reverse().find(e=>e.t==='session_start')||{p:{}}).p.visits})")
+        check("72 visits are counted per load and reported on session_start", v1>=1 and v2['n']==v1+1 and v2['ss']==v1+1, (v1,v2))
+        check("72 no page errors across round 72", len(e72)==0, e72[:3])
+        await pg72.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
