@@ -815,6 +815,20 @@ else:
                  % (_td, (_dd - _td).days, _dd))
     if '{TD}' in html and "replace('{TD}'" not in html:
         fail('taskVerified uses {TD} but nothing substitutes it')
+# (2026-09-13) the map imagery host must be one whose terms allow a public app, and
+# the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
+_tile = re.search(r"L\.tileLayer\('https://\{s\}\.([a-z0-9.\-]+)/", html)
+if not _tile:
+    fail('tile layer URL not found')
+else:
+    _host = _tile.group(1)
+    if 'tile.openstreetmap.org' in _host:
+        fail("map tiles come from OpenStreetMap's volunteer servers — their policy forbids a distributed app and they blocked this site on 2026-09-13")
+    _wpath = os.path.join(HERE, "worker.js")
+    if os.path.exists(_wpath):
+        _w = open(_wpath, encoding='utf-8').read()
+        if _host.split('.',1)[-1] not in _w:
+            fail('worker.js CSP img-src does not allow the tile host %s' % _host)
 
 # ------------------------------------------------- 17. data has a shelf life
 # (2026-09-10) Hours and phone numbers are the first fields to go stale, and a

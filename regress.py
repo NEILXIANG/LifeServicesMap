@@ -104,8 +104,11 @@ async def main():
         # This container ships a Chromium at a fixed path; elsewhere let Playwright
         # find the one `playwright install chromium` put down.
         exe='/opt/pw-browsers/chromium'
-        b=await (p.chromium.launch(executable_path=exe) if os.path.exists(exe)
-                 else p.chromium.launch())
+        # never let a test run fetch real map tiles: a headless browser hammering a
+        # tile provider with no referer is exactly what got the site blocked
+        _args=['--host-resolver-rules=MAP *.cartocdn.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND']
+        b=await (p.chromium.launch(executable_path=exe,args=_args) if os.path.exists(exe)
+                 else p.chromium.launch(args=_args))
         allerrs=[]
         pg=await b.new_page(viewport={'width':1280,'height':900})
         pg.on('pageerror', lambda e: allerrs.append(str(e)))
@@ -1923,6 +1926,79 @@ async def main():
         await pg74d.close()
         check("74 no page errors across round 74", len(e74)==0, e74[:3])
         await pg74.close()
+
+        print("\n--- visual + interaction audit fixes (round 75) ---")
+        pg75=await b.new_page(viewport={'width':390,'height':844}, has_touch=True, is_mobile=True)
+        e75=[]; pg75.on('pageerror', lambda e: e75.append(str(e)))
+        await pg75.goto(URL+'?lang=zh'); await pg75.wait_for_timeout(1400)
+        hd=await pg75.evaluate("()=>{const r=s=>document.querySelector(s).getBoundingClientRect();return {btnB:Math.round(r('#langMenuBtn').bottom),h1T:Math.round(r('h1').top),linksT:Math.round(r('.header-links').top),btnT:Math.round(r('#langMenuBtn').top)};}")
+        check("75 phone header: the language button sits beside the links and above the title, nothing overlaps", hd['btnB']<=hd['h1T'] and abs(hd['btnT']-hd['linksT'])<=2, hd)
+        before=await pg75.evaluate("()=>Math.round(document.querySelector('.ftoolbar').getBoundingClientRect().top)")
+        await pg75.focus('#searchInput'); await pg75.wait_for_timeout(250)
+        ov=await pg75.evaluate("()=>{const b=document.getElementById('searchSuggest');const sb=document.querySelector('.search-bar').getBoundingClientRect();const r=b.getBoundingClientRect();return {pos:getComputedStyle(b).position,top:Math.round(r.top-sb.bottom),tb:Math.round(document.querySelector('.ftoolbar').getBoundingClientRect().top),z:parseInt(getComputedStyle(b).zIndex,10)};}")
+        check("75 the suggestions float under the search bar without pushing the page down", ov['pos']=='absolute' and 0<=ov['top']<=12 and ov['tb']==before and ov['z']>1000, (before,ov))
+        await pg75.keyboard.press('Tab'); await pg75.wait_for_timeout(250)
+        tb=await pg75.evaluate("()=>({inSugg:!!document.activeElement.closest('#searchSuggest'),hidden:document.getElementById('searchSuggest').hidden})")
+        check("75 Tab reaches the suggestions and they stay open", tb['inSugg'] and not tb['hidden'], tb)
+        await pg75.keyboard.press('Escape'); await pg75.wait_for_timeout(200)
+        # a search bar that does not jump when ✕ appears
+        h0=await pg75.evaluate("()=>document.querySelector('.search-bar').getBoundingClientRect().height")
+        await pg75.fill('#searchInput','bank'); await pg75.wait_for_timeout(400)
+        h1=await pg75.evaluate("()=>document.querySelector('.search-bar').getBoundingClientRect().height")
+        check("75 the search bar keeps its height when the clear button appears", abs(h1-h0)<=1, (h0,h1))
+        await pg75.click('#searchClear'); await pg75.wait_for_timeout(300)
+        # deep link → list → another card → ✕ stays on the page; the open card rides in the URL
+        await pg75.goto(URL+'?lang=fr'); await pg75.wait_for_timeout(600)
+        await pg75.goto(URL+'?task=msp'); await pg75.wait_for_timeout(1400)
+        await pg75.evaluate("()=>document.getElementById('taskBack').click()"); await pg75.wait_for_timeout(250)
+        await pg75.evaluate("()=>document.querySelector('.task-card[data-task=sin]').click()"); await pg75.wait_for_timeout(250)
+        u1=await pg75.evaluate("()=>location.search")
+        await pg75.evaluate("()=>closeModal(guideBackdropEl)"); await pg75.wait_for_timeout(500)
+        st=await pg75.evaluate("()=>({here:location.pathname.indexOf('kamloops')>=0||location.pathname.indexOf('test_copy')>=0,open:guideBackdropEl.classList.contains('open'),url:location.search})")
+        check("75 from a linked card: list → another card → ✕ closes the guide and stays on the page; the URL follows the open card", 'task=sin' in u1 and st['here'] and not st['open'] and 'task=' not in st['url'], (u1,st))
+        # a door-opened card after a normal close still has its own Back level
+        await pg75.goto(URL); await pg75.wait_for_timeout(1200)
+        await pg75.evaluate("()=>{openGuide('header');openTask('msp','list');closeModal(guideBackdropEl);}"); await pg75.wait_for_timeout(300)
+        await pg75.evaluate("()=>openGuide('progress','sin')"); await pg75.wait_for_timeout(300)
+        d1=await pg75.evaluate("()=>history.state&&history.state.kSheet")
+        await pg75.go_back(); await pg75.wait_for_timeout(400)
+        d2=await pg75.evaluate("()=>({open:guideBackdropEl.classList.contains('open'),task:_taskOpen})")
+        check("75 a card opened through a door after an earlier close: Back returns to the list", d1=='guideTask' and d2['open'] and d2['task'] is None, (d1,d2))
+        await pg75.evaluate("()=>closeModal(guideBackdropEl)"); await pg75.wait_for_timeout(300)
+        # a route chosen on a place card keeps the card open
+        await pg75.evaluate("()=>{resetAll();focusMarker(M[2],17);}"); await pg75.wait_for_timeout(800)
+        await pg75.evaluate("()=>{const rb=document.querySelector('.leaflet-popup .pv-route');if(rb)rb.click();}"); await pg75.wait_for_timeout(600)
+        rp=await pg75.evaluate("()=>({route:selectedRoute,popup:!!document.querySelector('.leaflet-popup')})")
+        check("75 choosing a route from a place card draws it and keeps the card open", rp['route'] and rp['popup'], rp)
+        # the near filter alone shows Reset
+        await pg75.evaluate("()=>{resetAll();userPos=[50.6745,-120.3273];updateNearQuickpick();applyQuickPickOrder();document.getElementById('qpNear').click();}"); await pg75.wait_for_timeout(300)
+        check("75 the 15-min-walk filter alone shows Reset", await pg75.evaluate("()=>!document.getElementById('resetBtn').hidden&&nearOnly"))
+        await pg75.evaluate("()=>{resetAll();userPos=null;}")
+        # accessible names carry words, not pictograms
+        an=await pg75.evaluate("()=>[document.getElementById('shareBtn').getAttribute('aria-label'),document.getElementById('guideToggle').getAttribute('aria-label'),document.getElementById('qpMore').title]")
+        check("75 icon-only controls are named with words, not emoji", all(a and not any(ord(ch)>0x2500 and ord(ch)!=0x2026 for ch in a[:2]) for a in an), an)
+        check("75 no page errors across round 75 (phone)", len(e75)==0, e75[:3])
+        await pg75.close()
+        # 320px flyer card, tablet header, desktop suggestion click
+        pg75s=await b.new_page(viewport={'width':320,'height':568}, has_touch=True, is_mobile=True)
+        await pg75s.goto(URL+'?lang=fr&src=flyer-f-2609'); await pg75s.wait_for_timeout(1300)
+        fb=await pg75s.evaluate("()=>{const c=document.getElementById('firstUse').getBoundingClientRect();return [...document.querySelectorAll('#firstUse [data-go]')].map(b=>{const r=b.getBoundingClientRect();return Math.round(c.right-r.right);});}")
+        check("75 320px flyer card: every button stays inside the card", len(fb)==3 and all(x>=0 for x in fb), fb)
+        await pg75s.close()
+        pg75t=await b.new_page(viewport={'width':820,'height':1180}, has_touch=True, is_mobile=True)
+        await pg75t.goto(URL+'?lang=es'); await pg75t.wait_for_timeout(1300)
+        th=await pg75t.evaluate("()=>{const r=s=>document.querySelector(s).getBoundingClientRect();const ls=r('.lang-sw'),hl=r('.header-links'),sub=r('.sub');const pr=parseFloat(getComputedStyle(document.querySelector('.sub')).paddingRight)||0;return {gap:Math.round(hl.top-ls.bottom),subClear:Math.round(hl.left-(sub.right-pr))};}")
+        check("75 tablet header: language strip, links and tagline do not overlap", th['gap']>=0 and th['subClear']>=0, th)
+        await pg75t.close()
+        pg75d=await b.new_page(viewport={'width':1280,'height':900})
+        await pg75d.goto(URL); await pg75d.wait_for_timeout(1200)
+        await pg75d.focus('#searchInput'); await pg75d.wait_for_timeout(250)
+        await pg75d.click('#searchSuggest button:nth-of-type(4)'); await pg75d.wait_for_timeout(600)
+        dk=await pg75d.evaluate("()=>({panel:document.getElementById('panel').classList.contains('open'),mode:panelMode,q:_busQ})")
+        check("75 desktop: the 'which bus goes to TRU' suggestion opens the bus panel and it stays open", dk['panel'] and dk['mode']=='bus' and dk['q']=='TRU', dk)
+        rt=await pg75d.evaluate("()=>{const r=document.querySelector('.pv-route')||(function(){const d=document.createElement('div');d.innerHTML=popup(M.find(x=>/Royal Inland/.test(x.data.n)).data,0);document.body.appendChild(d);return d.querySelector('.pv-route');})();const cs=getComputedStyle(r);return {color:cs.color,bw:cs.borderTopWidth};}")
+        check("75 route numbers on a card are ink on white with a coloured ring", rt['color']=='rgb(28, 28, 30)' and rt['bw']=='2px', rt)
+        await pg75d.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})

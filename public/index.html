@@ -79,8 +79,9 @@
   /* the line-icon set (item 15): sized to the text it sits beside */
   .ic{width:1.15em;height:1.15em;vertical-align:-.22em;flex:0 0 auto;display:inline-block;}
   .hl-ic .ic{width:15px;height:15px;vertical-align:-3px;}
+  .hl-ic+.hl-tx{margin-left:4px;}
   .fbicon .ic{width:15px;height:15px;vertical-align:-3px;}
-  .sec-label .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2px;color:var(--accent-text);}
+  .sec-label .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2px;color:currentColor;}
   .preset-chip .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2.5px;}
   .theme-btn .ic,.pv-themes .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
   .pact-btn .ic{width:13px;height:13px;}
@@ -100,6 +101,12 @@
   .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:#48484a;white-space:nowrap;transition:all .15s cubic-bezier(.4,0,.2,1);}
   .lang-btn.active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04);}
   .header-links{position:absolute;top:60px;right:20px;display:flex;align-items:center;gap:14px;}
+  /* 2026-09-13 visual audit: between phone and wide desktop the title and tagline
+     ran under the right-hand controls; on a touch tablet the 44px controls
+     collided with each other */
+  @media(min-width:601px) and (max-width:1100px){h1{padding-right:370px;}.sub{padding-right:370px;}}
+  @media(min-width:601px) and (pointer:coarse){.lang-sw{top:18px;}.header-links{top:76px;}}
+  @media(max-width:360px){.lang-menu-btn{padding:6px 8px;}.lang-menu-btn .lm-ic{display:none;}}
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
   .note-toggle{position:relative;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
   .feedback-link:hover,.note-toggle:hover{text-decoration:underline;}
@@ -228,7 +235,7 @@
   .cat-utils{font-size:11px;color:var(--sub-ink);display:flex;gap:6px;align-items:center;}
   .cat-util-btn{cursor:pointer;font-weight:700;color:var(--accent-text);background:none;border:none;font-family:inherit;font-size:inherit;padding:0;}
   /* quick picks */
-  .preset-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px;margin:0 -20px;padding-left:20px;padding-right:34px;}
+  .preset-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-top:4px;padding-bottom:4px;margin:-4px -20px -2px;padding-left:20px;padding-right:34px;}
   .preset-row::-webkit-scrollbar{display:none;}
   /* 2026-09-11: a flick lands on a whole chip, never half of one (proximity, so a
      long flick still runs free). The fade + chevron say "more to the right". */
@@ -289,8 +296,8 @@
   .pv-themes{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px;}
   .pv-near{display:flex;flex-direction:column;gap:3px;margin:7px 0 2px;font-size:12px;line-height:1.5;color:var(--ink);}
   .pv-near .pv-dist{color:var(--accent-text);font-weight:600;}
-  .pv-route{display:inline-block;min-width:24px;padding:1px 6px;border-radius:999px;border:1.5px solid var(--rc);color:var(--rc);background:var(--card);font:inherit;font-size:11.5px;font-weight:700;line-height:1.3;cursor:pointer;vertical-align:baseline;}
-  .pv-route:hover{background:var(--rc);color:#fff;}
+  .pv-route{display:inline-block;min-width:26px;padding:1px 7px;border-radius:999px;border:2px solid var(--rc);color:var(--ink);background:var(--card);font:inherit;font-size:11.5px;font-weight:700;line-height:1.3;cursor:pointer;vertical-align:baseline;}
+  .pv-route:hover{background:var(--paper);}
   @media(pointer:coarse){.pv-route{min-height:32px;min-width:32px;padding:4px 8px;}}
   /* 2026-09-10 — the guide reaches the map ("where do I go" → pin) but the
      map never reached the guide. A reader who opens Service Canada's popup
@@ -406,20 +413,23 @@
      touch device the ✕ sat in the search bar permanently, at a full 44px, with an
      empty box and nothing to clear. Same trap as #noteToggle's. */
   .search-clear[hidden]{display:none;}
-  @media(max-width:600px){.search-bar{margin:10px 10px 0;max-width:none;}}
-  .search-suggest{margin:6px 20px 0;max-width:420px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);padding:4px;display:flex;flex-direction:column;position:relative;z-index:900;}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){.search-bar{margin:10px 10px 0;max-width:none;}}
+  .search-suggest{position:absolute;left:20px;width:min(420px,calc(100% - 40px));background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);padding:4px;display:flex;flex-direction:column;z-index:1100;}
   .search-suggest[hidden]{display:none;}
   .search-suggest .ss-h{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--sub-ink);padding:6px 10px 2px;font-weight:600;}
   .search-suggest button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:9px 10px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer;min-height:40px;}
   .search-suggest button:hover,.search-suggest button:focus-visible{background:var(--paper);outline:none;}
   .search-suggest .ss-ic{flex:0 0 auto;width:22px;text-align:center;}
   .search-suggest .ss-k{margin-left:auto;font-size:10.5px;color:var(--sub-ink);white-space:nowrap;}
-  @media(max-width:600px){.search-suggest{margin:6px 10px 0;max-width:none;}}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){.search-suggest{left:12px;width:calc(100% - 24px);}}
   /* the first-use card is one line now that the search box carries the doors */
   .firstuse.slim{padding:8px 44px 8px 12px;}
   .firstuse.slim .fu-safe{display:block;margin:0;font-size:12px;line-height:1.4;}
   .firstuse.flyer .fu-h{margin-bottom:6px;}
-  .firstuse.flyer .fu-rows{display:flex;flex-wrap:wrap;gap:6px;}
+  .firstuse.flyer .fu-rows{display:flex;flex-direction:column;gap:6px;}
+  .firstuse.flyer .fu-row{width:100%;}
+  .firstuse.flyer .fu-row button{flex:1 1 auto;width:100%;max-width:100%;white-space:normal;text-align:left;line-height:1.3;padding:7px 11px;}
+  .fu-row button .ic{margin-right:5px;}
   .firstuse.flyer .fu-row span{display:none;}
   .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#8a5a00;}  /* 2026-09-13: was #f2a900 (2.0:1); the empty ☆ is text and needs 4.5:1 */
   .fav-star.active{color:#a66300;}
@@ -603,7 +613,7 @@
     color:#7a5c00;font-size:14px;line-height:1;cursor:pointer;border-radius:6px;}
   .offline-x:hover{background:#fdecc0;border:none;}
   /* left:56px keeps it clear of Leaflet's zoom control, which sits above it. */
-  @media(min-width:901px){.offline-note{left:auto;right:16px;bottom:34px;max-width:340px;}}
+  @media(min-width:901px){.offline-note{left:auto;right:16px;bottom:64px;max-width:340px;}}
   /* The full note reads fine once, but it sat over the map's busiest spot
      indefinitely — on a short phone it blanketed the markers a reader most wants to
      tap. After a few seconds it shrinks to a small badge in the emptiest corner
@@ -615,7 +625,11 @@
     width:38px;height:38px;padding:0;border-radius:50%;
     display:flex;align-items:center;justify-content:center;cursor:pointer;max-width:none;}
   .offline-note.compact:hover{background:#fdecc0;}
-  .offline-note.compact::before{content:'📴';font-size:16px;line-height:1;}
+  .offline-note.compact::before{content:'';width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 3l18 18'/%3E%3Cpath d='M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3'/%3E%3Cpath d='M12 18h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 3l18 18'/%3E%3Cpath d='M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3'/%3E%3Cpath d='M12 18h.01'/%3E%3C/svg%3E") center/contain no-repeat;}
+  .offline-note .ic{width:15px;height:15px;vertical-align:-3px;margin-right:3px;}
+  .panel-title .ic{width:15px;height:15px;}
+  .bus-indicator .ic,.af-route .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .reset-btn .ic{width:13px;height:13px;vertical-align:-2px;}
   .offline-note.compact #offlineText,.offline-note.compact .offline-x{
     position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;}
@@ -701,7 +715,7 @@
   .bus-search{margin:0 0 8px;}
   .rt-stop{display:block;font-size:11px;font-weight:500;color:var(--sub-ink);}
   .bus-coverage{padding:10px 4px 2px;font-size:11.5px;color:var(--sub-ink);line-height:1.65;}
-  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
   /* Comfortable targets where a finger is the pointer. Scoped to coarse pointers so
      the desktop toolbar keeps its tuned geometry, and expressed as min-height plus
      centring rather than extra padding, which would reflow the rows. */
@@ -723,7 +737,7 @@
        caught it at well under the floor the moment it was added. */
     .footer-note-btn{display:inline-flex;align-items:center;justify-content:center;
       min-height:44px;min-width:44px;padding-left:6px;}
-    .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;
+    .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;box-sizing:border-box;
       display:inline-flex;align-items:center;justify-content:center;}
     /* a fixed box: the ✕ used to grow the bar from 39 to 62px on the first keystroke */
     .search-bar{padding-top:2px;padding-bottom:2px;min-height:48px;box-sizing:border-box;}
@@ -803,14 +817,17 @@
   @media(max-width:600px){.task-row{grid-template-columns:1fr;gap:3px;}}
   .task-lb{font-size:11px;font-weight:700;color:var(--sage);letter-spacing:.03em;padding-top:1px;}
   .task-bd{font-size:12.5px;line-height:1.6;color:var(--ink);}
-  .task-steps{margin:0;padding-left:19px;}
+  .task-steps{margin:0;padding-left:0;list-style:none;counter-reset:step;}
   .task-steps li{margin:0 0 6px;}
+  .task-step{counter-increment:step;display:flex;align-items:flex-start;gap:6px;}
+  .task-step::before{content:counter(step) '.';flex:0 0 auto;min-width:1.3em;text-align:right;padding-top:1px;}
+  .task-step label{flex:1 1 auto;min-width:0;}
   .task-steps li:last-child{margin-bottom:0;}
   .task-step label{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
   .task-step input{flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);}
   .task-step.on span{color:var(--sub-ink);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--sub-ink) 50%,transparent);}
-  .task-due{font-size:10.5px;font-weight:600;color:var(--sub-ink);background:var(--paper);border-radius:999px;padding:2px 7px;}
-  .task-stepc{font-size:10.5px;font-weight:600;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 10%,var(--card));border-radius:999px;padding:2px 7px;}
+  .task-due{font-size:10px;font-weight:600;line-height:15px;color:var(--sub-ink);background:var(--paper);border-radius:999px;padding:0 7px;}
+  .task-stepc{font-size:10px;font-weight:600;line-height:15px;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 10%,var(--card));border-radius:999px;padding:0 7px;}
   @media print{ .task-step.on span{text-decoration:none;color:inherit;} }
   .task-place{font-size:12.5px;line-height:1.6;}
   .task-hrs{color:var(--sub-ink);font-size:11.5px;}
@@ -891,14 +908,18 @@
   .pact-btn{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:600;padding:6px 10px;border-radius:14px;text-decoration:none;white-space:nowrap;background:var(--card);color:var(--accent-text);border:1px solid var(--line);}
   .pact-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
   .pact-ic{font-size:12px;line-height:1;}
-  @media(max-width:600px){
+  .leaflet-container .pact-btn{color:var(--accent-text);}
+  .leaflet-container .pact-btn.primary{color:#fff;}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){
     h1,.sub{padding-right:0;}
     .sub{font-size:12px;flex:1 1 100%;order:4;margin:0;}
-    .lang-sw{position:relative;display:inline-flex;margin:0;background:none;padding:0;}
+    /* relative (for the menu below it), but the desktop rule's top/right offsets must not apply here */
+    .lang-sw{position:relative;top:auto;right:auto;display:inline-flex;margin:0;background:none;padding:0;}
     .lang-menu-btn{display:inline-flex;}
     .lang-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:1100;flex-direction:column;gap:2px;min-width:150px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);}
     .lang-sw.open .lang-menu{display:flex;}
-    .lang-menu .lang-btn{text-align:left;padding:9px 12px;border-radius:8px;font-size:13.5px;}
+    .lang-menu .lang-btn{text-align:left;justify-content:flex-start;padding:9px 12px;border-radius:8px;font-size:13.5px;}
+    .lang-sw.open .lang-menu-btn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--card));}
     .lang-menu .lang-btn.active{background:color-mix(in srgb,var(--accent) 12%,var(--card));color:var(--accent-text);box-shadow:none;}
     /* wrap, not clip — a 4th link (Share) here should never be able to run off
        the edge of a narrow phone the way a fixed nowrap row could. */
@@ -917,7 +938,7 @@
        the title drops below them instead of each taking a row of its own */
     header{padding:10px 12px 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
     h1{font-size:17px;flex:1 1 100%;order:3;margin:2px 0 0;}
-    .search-bar{margin:8px 12px 0;padding:8px 12px;}
+    .search-bar{margin:8px 12px 0;padding:1px 12px;min-height:48px;}   /* 1+44+1 inside a 1px border = 48 */
     .ftoolbar{padding:6px 12px 0;}
     .qp-row{padding:6px 12px 0;}
     .active-filters{padding:7px 12px 0;}
@@ -951,7 +972,7 @@
      chevrons go — the pills already read as buttons — and the padding tightens. */
   /* 320px phones: the tagline costs the map its floor share; one line there. */
   @media(max-width:340px){.sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}}
-  @media(max-width:430px){.ftoolbar{gap:5px;}.filter-btn{padding:8px 9px;font-size:11.5px;gap:4px;}.filter-btn .chev{display:none;}.reset-btn{padding:6px 8px;}}
+  @media(max-width:430px){.ftoolbar{gap:4px;}.filter-btn{padding:8px 7px;font-size:11.5px;gap:3px;}.filter-btn .chev{display:none;}.reset-btn{padding:6px 8px;}}
   /* Short screens: the chrome above the map adds up. On a 320x568 phone the header,
      search bar, toolbar (three rows once French wraps), quick picks and the hint left
      the map starting at 387px — below the middle of the viewport. Raising the touch
@@ -972,7 +993,12 @@
   @media(max-height:500px) and (orientation:landscape) and (max-width:900px){
     .sub{display:none;}
     header{padding-top:4px;padding-bottom:0;gap:4px 10px;}
-    h1{font-size:15px;margin-top:0;}
+    /* the title shares the controls' row: language · title · links */
+    h1{font-size:15px;margin:0;flex:1 1 auto;order:0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .lang-sw{order:-1;}.header-links{order:1;}
+    .fhint{display:none;}
+    .qp-row{padding-top:3px;}
+    .preset-chip{padding:6px 10px;}
     .search-bar{margin-top:4px;}
     .ftoolbar{padding-top:5px;row-gap:4px;}
     .qp-row{padding-top:4px;}
@@ -1062,7 +1088,7 @@
     <!-- 2026-09-13 (item 13): on a phone the six buttons fold into one menu
          button that names the current language; the list opens below it with
          the current language first and the phone's own language next. -->
-    <button class="lang-menu-btn" id="langMenuBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="lm-ic" aria-hidden="true">🌐</span><span id="langMenuCur">EN</span><span class="lm-ch" aria-hidden="true">▾</span></button>
+    <button class="lang-menu-btn" id="langMenuBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="lm-ic" aria-hidden="true" data-ic="globe">🌐</span><span id="langMenuCur">EN</span><span class="lm-ch" aria-hidden="true">▾</span></button>
     <div class="lang-menu" id="langMenu">
     <button class="lang-btn active" data-lang="en" lang="en" aria-label="English" title="English">EN</button>
     <button class="lang-btn" data-lang="fr" lang="fr" aria-label="Français" title="Français">FR</button>
@@ -1142,7 +1168,7 @@
     <span class="chev">▾</span>
   </button>
   <div class="status" id="statusText" title=""></div>
-  <button class="reset-btn" id="resetBtn" hidden>↺ <span id="resetLabel"></span></button>
+  <button class="reset-btn" id="resetBtn" hidden><span data-ic="reset">↺</span> <span id="resetLabel"></span></button>
 </div>
 <div class="empty-state" id="emptyState" role="status" aria-live="polite" hidden></div>
 <div class="qp-row" id="qpRow" aria-labelledby="quickLabel">
@@ -1578,7 +1604,7 @@ UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和整份数据
 UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favImportedOne='已导入 1 处收藏';UI.zh.favImportedNone='这串代码里的收藏这里都已经有了';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
 UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
 UI.zh.favAddedMsg='⭐ 已加入收藏';UI.zh.favRemovedMsg='已取消收藏';UI.zh.errorHint='⚠️ 页面遇到错误，请刷新重试。';UI.zh.aSkip='跳到地图';UI.zh.aNavLang='选择界面语言';UI.zh.aNavHeader='页面操作';UI.zh.aNavFilters='地图筛选工具栏';UI.zh.aLandmarksIntro='按用途快速筛选地点';UI.zh.aResultsAnnounce=(v,t)=>`已显示 ${v} / ${t} 处地点`;
-UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。如果你点击“附近”按钮来定位自己，浏览器会请求位置权限；坐标只会在你自己的设备上使用来让地图居中，绝不会发送到我们的服务器，也不会被记录。';
+UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（CARTO 的地图瓦片服务器 basemaps.cartocdn.com，数据来自 OpenStreetMap），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。如果你点击“附近”按钮来定位自己，浏览器会请求位置权限；坐标只会在你自己的设备上使用来让地图居中，绝不会发送到我们的服务器，也不会被记录。';
 UI.zh.lSource='来源';
 UI.zh.srcOfficial='机构官网';
 UI.zh.srcPlaces='第三方地图数据（建议致电确认）';
@@ -1625,7 +1651,7 @@ UI.en.lVerifiedTip='When this specific listing was checked — a different thing
 UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favImportedOne='Imported 1 favourite';UI.en.favImportedNone='Every favourite in that code was already saved here';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
 UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
 UI.en.favAddedMsg='⭐ Added to favourites';UI.en.favRemovedMsg='Removed from favourites';UI.en.errorHint='⚠️ The page hit an error — please refresh to recover.';UI.en.aSkip='Skip to map';UI.en.aNavLang='Interface language';UI.en.aNavHeader='Page actions';UI.en.aNavFilters='Map filters toolbar';UI.en.aLandmarksIntro='Filter places by purpose';UI.en.aResultsAnnounce=(v,t)=>`Showing ${v} of ${t} places`;
-UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works. If you tap the Near Me button, your browser will ask for location permission; your coordinates are used only on your own device to centre the map — they are never sent to our server or logged.';
+UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: CARTO\'s tile servers (basemaps.cartocdn.com, OpenStreetMap data) for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works. If you tap the Near Me button, your browser will ask for location permission; your coordinates are used only on your own device to centre the map — they are never sent to our server or logged.';
 UI.en.lSource='Source';
 UI.en.srcOfficial='Official site';
 UI.en.srcPlaces='Third-party map data — call ahead';
@@ -1671,7 +1697,7 @@ UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée —
 UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favImportedOne='1 favori importé';UI.fr.favImportedNone='Tous les favoris de ce code étaient déjà enregistrés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
 UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
 UI.fr.favAddedMsg='⭐ Ajouté aux favoris';UI.fr.favRemovedMsg='Retiré des favoris';UI.fr.errorHint='⚠️ Une erreur est survenue — veuillez actualiser pour réinitialiser.';UI.fr.aSkip='Aller à la carte';UI.fr.aNavLang='Langue de l\'interface';UI.fr.aNavHeader='Actions de la page';UI.fr.aNavFilters='Barre des filtres de la carte';UI.fr.aLandmarksIntro='Filtrer les lieux par usage';UI.fr.aResultsAnnounce=(v,t)=>`Affichage de ${v} sur ${t} lieu${t>1?'x':''}`;
-UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte. Si vous touchez le bouton Près de moi, votre navigateur demandera l\'autorisation de localisation; vos coordonnées ne servent qu\'à centrer la carte sur votre propre appareil — elles ne sont jamais envoyées à notre serveur ni enregistrées.';
+UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles de CARTO (basemaps.cartocdn.com, données OpenStreetMap) pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte. Si vous touchez le bouton Près de moi, votre navigateur demandera l\'autorisation de localisation; vos coordonnées ne servent qu\'à centrer la carte sur votre propre appareil — elles ne sont jamais envoyées à notre serveur ni enregistrées.';
 UI.fr.lSource='Source';
 UI.fr.srcOfficial='Site officiel';
 UI.fr.srcPlaces='Données cartographiques tierces — appelez avant';
@@ -1718,7 +1744,7 @@ UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de 
 UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favImportedOne='1 favorito importado';UI.es.favImportedNone='Todos los favoritos de ese código ya estaban guardados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
 UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
 UI.es.favAddedMsg='⭐ Añadido a favoritos';UI.es.favRemovedMsg='Quitado de favoritos';UI.es.errorHint='⚠️ Se produjo un error — actualice la página para recuperar.';UI.es.aSkip='Saltar al mapa';UI.es.aNavLang='Idioma de la interfaz';UI.es.aNavHeader='Acciones de página';UI.es.aNavFilters='Barra de filtros del mapa';UI.es.aLandmarksIntro='Filtrar lugares por uso';UI.es.aResultsAnnounce=(v,t)=>`Mostrando ${v} de ${t} lugar${t===1?'':'es'}`;
-UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / computadora — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa. Si toca el botón Cerca de mí, su navegador solicitará permiso de ubicación; sus coordenadas se usan solo en su propio dispositivo para centrar el mapa — nunca se envían a nuestro servidor ni se registran.';
+UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / computadora — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de CARTO (basemaps.cartocdn.com, datos de OpenStreetMap) para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa. Si toca el botón Cerca de mí, su navegador solicitará permiso de ubicación; sus coordenadas se usan solo en su propio dispositivo para centrar el mapa — nunca se envían a nuestro servidor ni se registran.';
 UI.es.lSource='Fuente';
 UI.es.srcOfficial='Sitio oficial';
 UI.es.srcPlaces='Datos de mapas de terceros — llame antes';
@@ -1765,7 +1791,7 @@ UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터
 UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ja.favIONote='お気に入りはこのブラウザにのみ保存されます。機種変更やブラウザデータの削除の前に、短いテキストとしてコピーして保管するか、自分宛てに送っておいてください — ファイルをダウンロードするのではなく、後で貼り付けて使えるテキストです。';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ja.favIONoteEmpty=' 他の端末でコピーしたコードをお持ちですか？下に貼り付けて「コードを読み込む」を押すと、そのお気に入りを取り込めます。';UI.ko.favExport='코드 복사';UI.ja.favExport='コードをコピー';UI.ko.favImport='코드 가져오기';UI.ja.favImport='コードを読み込む';UI.ko.favCopied='클립보드에 복사했습니다';UI.ja.favCopied='クリップボードにコピーしました';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ko.favImportedOne='즐겨찾기 1개를 가져왔습니다';UI.ko.favImportedNone='이 코드의 즐겨찾기는 이미 모두 저장되어 있습니다';UI.ja.favImported='お気に入りを{N}件読み込みました';UI.ja.favImportedOne='お気に入りを1件読み込みました';UI.ja.favImportedNone='この文字列のお気に入りはすべて登録済みです';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ja.favBadCode='このテキストを認識できませんでした — 全体をコピーできているか確認してください';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';UI.ja.favPastePrompt='コピーしたコードを貼り付けてから、もう一度「コードを読み込む」を押してください';
 UI.ko.favAdd='즐겨찾기에 추가';UI.ja.favAdd='お気に入りに追加';UI.ko.favRemove='즐겨찾기에서 제거';UI.ja.favRemove='お気に入りから削除';
 UI.ko.favAddedMsg='⭐ 즐겨찾기에 추가됨';UI.ja.favAddedMsg='⭐ お気に入りに追加しました';UI.ko.favRemovedMsg='즐겨찾기에서 제거됨';UI.ja.favRemovedMsg='お気に入りから削除しました';UI.ko.errorHint='⚠️ 페이지에 오류가 발생했습니다. 새로 고침해 주세요.';UI.ja.errorHint='⚠️ ページでエラーが発生しました。再読み込みしてください。';UI.ko.aSkip='지도로 건너뛰기';UI.ja.aSkip='地図へスキップ';UI.ko.aNavLang='인터페이스 언어';UI.ja.aNavLang='インターフェース言語';UI.ko.aNavHeader='페이지 작업';UI.ja.aNavHeader='ページ操作';UI.ko.aNavFilters='지도 필터 도구 모음';UI.ja.aNavFilters='地図フィルターツールバー';UI.ko.aLandmarksIntro='용도별로 장소 빠르게 걸러보기';UI.ja.aLandmarksIntro='用途で場所を絞り込む';UI.ko.aResultsAnnounce=(v,t)=>`총 ${t}곳 중 ${v}곳 표시`;UI.ja.aResultsAnnounce=(v,t)=>`全${t}件中${v}件を表示`;
-UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다. "내 주변" 버튼을 누르면 브라우저가 위치 권한을 요청합니다. 좌표는 사용자의 기기에서만 지도를 이동하는 데 사용되며, 서버로 전송되거나 기록되지 않습니다.';UI.ja.privacyNote='🔒 プライバシー: このページは氏名、メールアドレス、電話番号、正確な位置情報などの識別情報を収集せず、お気に入りはご自身のブラウザにのみ保存されます。どの機能が実際に役立っているかを把握するため、匿名の利用データは送信しています — 開いた場所、使った機能、検索ボックスに入力したテキスト（連続する数字は除去・切り詰めた上で、住所そのものではなく検索されている内容が分かるようにしています）、このページへのリンク元サイトのドメイン（ドメインのみで、完全なアドレスは含みません）、画面が3種類のうちどれに当たるか（スマートフォン／タブレット／パソコンの3値のみで、レイアウトの問題を画面サイズと関連付けるためのものです）、そしてこのページをブラウザで開いたのかホーム画面に追加して開いたのかです。また、ブラウザ内でローカルに生成されるランダムな識別子も使用します。これはブラウザに保存され次回訪問時も同じ値のままなので再訪問を区別できますが、いかなる身元とも結び付かず、サイトや端末をまたいで追跡することもありません。Cookieは使用せず、サーバー側でIPアドレスを記録することもありません。これらのリクエストはすべて、ブラウザの開発者ツールのネットワークパネル（/api/event）で内容を確認できます。ページの読み込み時には、他に2つの第三者にもリクエストが送られます: 地図画像用のOpenStreetMapのタイルサーバーと、Cloudflare Web Analytics（static.cloudflareinsights.com — Cookieなし、個人の追跡なし、集計された訪問数のみ）です。どちらもこの過程でIPアドレスを取得しますが、地図についてはどのウェブ地図でも同様です。オフラインでも、地図画像以外はすべて利用できます。「近く」ボタンをタップすると、ブラウザが位置情報の許可を求めます。取得した座標はご自身の端末上で地図を中心に合わせるためだけに使われ、サーバーに送信されたり記録されたりすることはありません。';
+UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 CARTO 타일 서버(basemaps.cartocdn.com, OpenStreetMap 데이터), 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다. "내 주변" 버튼을 누르면 브라우저가 위치 권한을 요청합니다. 좌표는 사용자의 기기에서만 지도를 이동하는 데 사용되며, 서버로 전송되거나 기록되지 않습니다.';UI.ja.privacyNote='🔒 プライバシー: このページは氏名、メールアドレス、電話番号、正確な位置情報などの識別情報を収集せず、お気に入りはご自身のブラウザにのみ保存されます。どの機能が実際に役立っているかを把握するため、匿名の利用データは送信しています — 開いた場所、使った機能、検索ボックスに入力したテキスト（連続する数字は除去・切り詰めた上で、住所そのものではなく検索されている内容が分かるようにしています）、このページへのリンク元サイトのドメイン（ドメインのみで、完全なアドレスは含みません）、画面が3種類のうちどれに当たるか（スマートフォン／タブレット／パソコンの3値のみで、レイアウトの問題を画面サイズと関連付けるためのものです）、そしてこのページをブラウザで開いたのかホーム画面に追加して開いたのかです。また、ブラウザ内でローカルに生成されるランダムな識別子も使用します。これはブラウザに保存され次回訪問時も同じ値のままなので再訪問を区別できますが、いかなる身元とも結び付かず、サイトや端末をまたいで追跡することもありません。Cookieは使用せず、サーバー側でIPアドレスを記録することもありません。これらのリクエストはすべて、ブラウザの開発者ツールのネットワークパネル（/api/event）で内容を確認できます。ページの読み込み時には、他に2つの第三者にもリクエストが送られます: 地図画像用のCARTOのタイルサーバー（basemaps.cartocdn.com、OpenStreetMapデータ）と、Cloudflare Web Analytics（static.cloudflareinsights.com — Cookieなし、個人の追跡なし、集計された訪問数のみ）です。どちらもこの過程でIPアドレスを取得しますが、地図についてはどのウェブ地図でも同様です。オフラインでも、地図画像以外はすべて利用できます。「近く」ボタンをタップすると、ブラウザが位置情報の許可を求めます。取得した座標はご自身の端末上で地図を中心に合わせるためだけに使われ、サーバーに送信されたり記録されたりすることはありません。';
 UI.ko.lSource='출처';UI.ja.lSource='出典';
 UI.ko.srcOfficial='공식 웹사이트';UI.ja.srcOfficial='公式サイト';
 UI.ko.srcPlaces='제3자 지도 데이터 — 전화 확인 권장';UI.ja.srcPlaces='第三者の地図データ（事前に電話確認を推奨）';
@@ -2054,11 +2080,11 @@ UI.en.lowPrecision='📍 This pin is approximate — it can sit about 100 m off.
 UI.fr.lowPrecision='📍 Ce repère est approximatif — il peut être décalé d’une centaine de mètres. C’est l’adresse ci-dessus qui est exacte, et c’est elle qu’utilise le bouton Itinéraire.';
 UI.es.lowPrecision='📍 Este marcador es aproximado — puede desviarse unos 100 m. La dirección de arriba es la parte exacta, y es la que usa el botón Cómo llegar.';
 UI.ko.lowPrecision='📍 이 핀은 대략적인 위치로 100m 정도 어긋날 수 있습니다. 정확한 것은 위의 주소이며, “길찾기” 버튼도 주소를 사용합니다.';UI.ja.lowPrecision='📍 このピンはおおよその位置で、100mほどずれることがあります。正確なのは上の住所で、「経路案内」ボタンもこの住所を使用します。';
-UI.zh.themeLabel='🧭 按主题筛选（可与分类叠加）';
-UI.en.themeLabel='🧭 Filter by theme (stacks with categories)';
-UI.fr.themeLabel='🧭 Filtrer par thème (se combine aux catégories)';
-UI.es.themeLabel='🧭 Filtrar por tema (se suma a las categorías)';
-UI.ko.themeLabel='🧭 테마로 필터 (분류와 함께 적용)';UI.ja.themeLabel='🧭 テーマで絞り込む（カテゴリーと併用可）';
+UI.zh.themeLabel='🗂️ 按主题筛选（可与分类叠加）';
+UI.en.themeLabel='🗂️ Filter by theme (stacks with categories)';
+UI.fr.themeLabel='🗂️ Filtrer par thème (se combine aux catégories)';
+UI.es.themeLabel='🗂️ Filtrar por tema (se suma a las categorías)';
+UI.ko.themeLabel='🗂️ 테마로 필터 (분류와 함께 적용)';UI.ja.themeLabel='🗂️ テーマで絞り込む（カテゴリーと併用可）';
 UI.zh.themeHint='主题是“打卡点”的另一种分法：一个地点可以同时属于多个主题，也会和上面的分类重叠——图书馆既是「亲子遛娃」也是「免费低价」「冬天室内」「学生常用」。勾选多个主题表示“同时满足”，因此选得越多结果越少；主题、分类、区域三者是叠加生效的。不勾选任何主题时不做主题筛选。';
 UI.en.themeHint='Themes are a second way of slicing the same places: one place can carry several, and they deliberately overlap the categories above — a library is at once Kids & Family, Free & Low-cost, Indoor / Winter and Student Life. Ticking more than one theme means "all of them", so each extra tick narrows the result. Themes, categories and areas all apply together. With no theme ticked, no theme filter is applied.';
 UI.fr.themeHint='Les thèmes découpent les mêmes lieux autrement : un lieu peut en porter plusieurs, et ils recoupent volontairement les catégories ci-dessus — une bibliothèque est à la fois « Enfants et famille », « Gratuit ou abordable », « Intérieur / hiver » et « Vie étudiante ». Cocher plusieurs thèmes signifie « tous à la fois » : chaque coche supplémentaire restreint le résultat. Thèmes, catégories et secteurs s’appliquent ensemble. Aucun thème coché = aucun filtre par thème.';
@@ -3271,7 +3297,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.13b';
+const DATA_VERSION='2026.09.13c';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3475,10 +3501,12 @@ const ICONS={
   tree:'<path d="M12 3l5 6h-3l4 5h-4l3 4H7l3-4H6l4-5H7z"/><path d="M12 18v3"/>',
   bag:'<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/>',
   family:'<circle cx="8" cy="7" r="2.5"/><circle cx="16" cy="7" r="2.5"/><circle cx="12" cy="13" r="2"/><path d="M3 19v-1a3.5 3.5 0 013.5-3.5h1M21 19v-1a3.5 3.5 0 00-3.5-3.5h-1"/><path d="M9 21v-1a3 3 0 016 0v1"/>',
+  pill:'<rect x="2.5" y="8.5" width="19" height="7" rx="3.5" transform="rotate(-45 12 12)"/><path d="M9.5 9.5l5 5"/>',
+  layers:'<path d="M12 4l8 4.5-8 4.5-8-4.5z"/><path d="M4 13l8 4.5 8-4.5"/><path d="M4 16.5L12 21l8-4.5"/>',
   wifi_off:'<path d="M3 3l18 18"/><path d="M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3"/><path d="M12 18h.01"/>'
 };
 // which drawing stands in for which emoji when a string is rendered as HTML
-const EMOJI_ICON={'🧭':'guide','🏠':'home','🧳':'suitcase','🆓':'free','🧒':'child','❄️':'snowflake','🕒':'clock','🚶':'walk','💡':'bulb','📍':'pin','🏷️':'tag','🚌':'bus','⭐':'star','🔗':'share','💬':'chat','ℹ️':'info','🔍':'search','📞':'phone','☎️':'phone','🌐':'globe','🚨':'alert','🧺':'basket','🎉':'sparkles','📷':'camera','🕰️':'history','🎨':'palette','🌏':'world','🎒':'backpack','🎯':'target','🪪':'idcard','⚕️':'health','🚗':'car','🏦':'bank','🏫':'school','🧾':'receipt','🤝':'people','🧓':'elder','🩺':'sick','🔑':'key','🤲':'hands','🛡️':'shield','⚖️':'scale','📄':'doc','📅':'calendar','🖨️':'print','↺':'reset','📴':'wifi_off','💊':'health','🎓':'gradcap','💪':'dumbbell','🌳':'tree','🛍️':'bag','👨‍👩‍👧':'family'};
+const EMOJI_ICON={'🧭':'guide','🏠':'home','🧳':'suitcase','🆓':'free','🧒':'child','❄️':'snowflake','🕒':'clock','🚶':'walk','💡':'bulb','📍':'pin','🏷️':'tag','🚌':'bus','⭐':'star','🔗':'share','💬':'chat','ℹ️':'info','🔍':'search','📞':'phone','☎️':'phone','🌐':'globe','🚨':'alert','🧺':'basket','🎉':'sparkles','📷':'camera','🕰️':'history','🎨':'palette','🌏':'world','🎒':'backpack','🎯':'target','🪪':'idcard','⚕️':'health','🚗':'car','🏦':'bank','🏫':'school','🧾':'receipt','🤝':'people','🧓':'elder','🩺':'sick','🔑':'key','🤲':'hands','🛡️':'shield','⚖️':'scale','📄':'doc','📅':'calendar','🖨️':'print','↺':'reset','📴':'wifi_off','💊':'pill','🗂️':'layers','🎓':'gradcap','💪':'dumbbell','🌳':'tree','🛍️':'bag','👨‍👩‍👧':'family'};
 function ico(name,cls){
   const d=ICONS[name];if(!d)return '';
   return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+d+'</svg>';
@@ -3502,6 +3530,7 @@ function renderTaskList(){
   if(!host)return;
   const u=UI[L_];
   _taskOpen=null;
+  try{writeURLState();}catch(e){}
   let h='<p class="task-lead">'+esc(u.taskLead)+'</p>';
   h+='<input type="search" class="task-search" id="taskSearch" placeholder="'+esc(u.taskSearchPh)+'" value="'+esc(_taskQ)+'" autocomplete="off">';
   const arr=arrivalDate();
@@ -3620,8 +3649,13 @@ function openTask(id,src){
   if(src!=='lang')trackEvent('task_open',{id:id,src:src||'other'});
   // A card is one level deeper than the list: Back returns to the list,
   // not out of the guide (a navigation stack, the way a phone user expects).
-  if(guideBackdropEl.classList.contains('open')&&!_taskOpen&&src!=='link')pushSheetState('guideTask');
+  // 2026-09-13: only ever on top of the guide's own entry — a guide opened
+  // from a link has none, and a card entry with nothing under it made ✕ step
+  // the browser off the page (popSheetState assumes two entries)
+  let underGuide=false;try{underGuide=!!(history.state&&history.state[_SHEET_KEY]==='guideBackdrop');}catch(e){}
+  if(guideBackdropEl.classList.contains('open')&&!_taskOpen&&underGuide)pushSheetState('guideTask');
   _taskOpen=id;
+  try{writeURLState();}catch(e){}
   const u=UI[L_];
   const row=(label,body,cls)=>body?'<div class="task-row'+(cls?' '+cls:'')+'"><div class="task-lb">'
       +esc(label)+'</div><div class="task-bd">'+body+'</div></div>':'';
@@ -4008,7 +4042,13 @@ const map=L.map('map',{scrollWheelZoom:true}).setView(CITY.centre,CITY.zoom);
 // Place data, search and the guide all work with no network because everything is
 // in this file. Only the background imagery needs one — say so rather than leaving
 // a grey rectangle that looks like a broken app.
-const tiles=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:18,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors'});
+// 2026-09-13: the map imagery moved off OpenStreetMap's volunteer tile servers.
+// Their usage policy forbids apps distributed to the public without prior
+// permission, and they blocked this site ("Access blocked"). CARTO's Voyager
+// basemap is OpenStreetMap data, styled and served by CARTO under terms that
+// allow a free public map with attribution. Same data, same attribution to the
+// OSM contributors, plus CARTO's.
+const tiles=L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{subdomains:'abcd',maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a>'});
 let tileFails=0,offlineDismissed=false,offlineCompactTimer=null;
 const offlineEl=document.getElementById('offlineNote');
 const offlineTextEl=document.getElementById('offlineText');
@@ -4022,7 +4062,7 @@ function offlineShowExpanded(){
   if(!offlineEl)return;
   if(!_offlineLogged){_offlineLogged=true;trackEvent('offline_shown',{online:navigator.onLine!==false});}
   offlineEl.hidden=false;offlineEl.classList.remove('compact');
-  offlineTextEl.textContent=UI[L_].offlineTiles;
+  offlineTextEl.innerHTML=iconify(UI[L_].offlineTiles);
   clearTimeout(offlineCompactTimer);
   // Long enough to read once (5 lines max, five languages), then get out of the
   // way. Any tap on the badge — including the one that expands it — restarts this.
@@ -4663,7 +4703,7 @@ function setRouteFocus(on){
 // the cluster has to expand to it first.
 // The marker a cluster zoom is currently flying toward, if any. See hideMarker().
 let _focusPending=null;
-function focusMarker(m,zoom){
+function focusMarker(m,zoom,_settled){
   // 2026-09-08 audit: tapping a saved place and then changing a filter before
   // the zoom landed threw twice ("Cannot use 'in' operator to search for
   // '_leaflet_id' in undefined") and, through the global error trap, showed the
@@ -4674,6 +4714,15 @@ function focusMarker(m,zoom){
   // the cluster in the meantime leaves that undefined. So guarding the callback
   // is too late — the marker has to survive the flight. It is held here and
   // released on arrival, and only then hidden if the filters still exclude it.
+  // 2026-09-13: a zoom animation still in flight (Reset's flight home, a
+  // fitBounds) lands *after* the zoom-to-marker and pulls the map away from the
+  // card it just opened. Wait for it to finish, then focus.
+  // The animation only starts on the next frame, so it cannot be seen
+  // synchronously: look one frame later, and if it is running, wait it out.
+  if(!_settled){
+    requestAnimationFrame(()=>{if(map._animatingZoom)map.once('zoomend',()=>focusMarker(m,zoom,true));else focusMarker(m,zoom,true);});
+    return;
+  }
   if(cluster&&cluster.hasLayer(m)){
     _focusPending=m;
     let shown=false;
@@ -5057,7 +5106,7 @@ function apply(){let v=0;
   // a theme on is what stops a theme filter from being invisible from outside.
   const catBadgeN=aC.size+aT.size;
   if(catBadgeN>0){catBadge.hidden=false;catBadge.textContent=catBadgeN;}else{catBadge.hidden=true;}
-  const dims=(aR.size===totalR?0:1)+(aC.size>0?1:0)+(aT.size>0?1:0)+(openNow?1:0);
+  const dims=(aR.size===totalR?0:1)+(aC.size>0?1:0)+(aT.size>0?1:0)+(openNow?1:0)+(nearOnly?1:0);
   // a preset whose every category has been unticked is no longer a preset
   if(aC.size===0&&selPresets.size){selPresets.clear();presetsAdjusted=false;}
   // P0-B: this used to unconditionally show Reset and only dim it (.idle) when
@@ -5096,8 +5145,8 @@ function updatePanelTitle(){
   const base=panelMode==='area'?u.regLabel:panelMode==='cat'?u.catLabel:
              panelMode==='bus'?u.busBtnLabel:u.favBtnLabel;
   const countText=lastVisible===P.length?u.showingAll(P.length):u.showing(lastVisible,P.length);
-  document.getElementById('panelTitle').textContent=
-    (panelMode==='area'||panelMode==='cat')?base+' · '+countText:base;
+  document.getElementById('panelTitle').innerHTML=
+    iconify(base)+((panelMode==='area'||panelMode==='cat')?' · '+esc(countText):'');
 }
 // P0-B: Reset is now genuinely absent — in the DOM's `hidden` sense, so assistive
 // tech skips it too — the moment every axis is back at its default, rather than
@@ -5323,7 +5372,7 @@ function renderActiveFilters(){
   // undoes it, so it gets a chip here like everything else it sits beside.
   if(selectedRoute&&owns(BR,selectedRoute)){
     const chip=document.createElement('div');chip.className='af-chip af-route';
-    chip.innerHTML='<span>🚌 '+u.routeLabel(selectedRoute)+'</span><button class="x" data-kind="route" data-k="'+esc(selectedRoute)+'" aria-label="'+esc(u.routeExit)+'">✕</button>';
+    chip.innerHTML='<span>'+ico('bus')+u.routeLabel(selectedRoute)+'</span><button class="x" data-kind="route" data-k="'+esc(selectedRoute)+'" aria-label="'+esc(u.routeExit)+'">✕</button>';
     chip.querySelector('.x').onclick=()=>selectRoute(null);
     root.appendChild(chip);
   }
@@ -5387,12 +5436,13 @@ function renderActiveFilters(){
 // .hl-tx) and keep the row to one line, without losing the accessible name — that
 // stays on the element itself via aria-label regardless of which part is visible.
 
+function stripEmoji(str){for(let i=0;i<_EMOJI_KEYS.length;i++){const k=_EMOJI_KEYS[i];if(str.indexOf(k)===0)return str.slice(k.length).replace(/^\s+/,'');}return str;}
 function setHL(id,label){
   const el=document.getElementById(id),sp=label.indexOf(' ');
   const em=sp>-1?label.slice(0,sp):label;
   el.querySelector('.hl-ic').innerHTML=emojiIcon(em);
-  el.querySelector('.hl-tx').textContent=sp>-1?label.slice(sp):'';
-  el.setAttribute('aria-label',label);
+  el.querySelector('.hl-tx').textContent=sp>-1?label.slice(sp+1):'';
+  el.setAttribute('aria-label',stripEmoji(label));   // a screen reader says the words, not the pictogram
 }
 function setLang(l){
   // Defence in depth: readURLState already filters, but a future caller might not.
@@ -5444,7 +5494,7 @@ function setLang(l){
     if(tt)tt.setContent(esc(it.name)+(g?'<span class="lm-g">'+esc(g)+'</span>':''));
   });
   setTimeout(updateLandmarkLabelVisibility,60);
-  document.getElementById('noteTitle').textContent=u.noteToggleLabel;
+  document.getElementById('noteTitle').innerHTML=iconify(u.noteToggleLabel);
   setHL('guideToggle',u.guideToggleLabel);
   document.getElementById('guideToggle').dataset.short=u.guideToggleShort;
   setHL('shareBtn',u.shareBtnLabel);
@@ -5459,7 +5509,7 @@ function setLang(l){
   document.getElementById('panelClose').setAttribute('aria-label',u.aClose);
   document.getElementById('busCoverage').textContent=u.busCoverage;
   const onl=document.getElementById('offlineNote');
-  if(onl&&!onl.hidden)document.getElementById('offlineText').textContent=u.offlineTiles;
+  if(onl&&!onl.hidden)document.getElementById('offlineText').innerHTML=iconify(u.offlineTiles);
   document.getElementById('offlineClose').setAttribute('aria-label',u.aClose);
   document.getElementById('favBtnLabel').textContent=u.favBtnLabel;
   updateFavIONote();
@@ -5468,7 +5518,7 @@ function setLang(l){
   document.getElementById('favCode').placeholder=u.favPastePrompt;
   document.getElementById('guideTitle').innerHTML=iconify(u.guideToggleLabel);
   const qg=document.getElementById('qpGuide');
-  if(qg){qg.innerHTML=iconify(u.guideToggleLabel);qg.setAttribute('aria-label',u.guideToggleLabel);
+  if(qg){qg.innerHTML=iconify(u.guideToggleLabel);qg.setAttribute('aria-label',stripEmoji(u.guideToggleLabel));
     qg.onclick=()=>openGuide('quickpick');}
   // The guide is stored in tiers so another city reuses everything but guideCity,
   // and another province swaps only guideProv. GUIDE_ORDER keeps the reading order
@@ -5489,7 +5539,7 @@ function setLang(l){
   document.getElementById('busPanelHint').textContent=u.busPanelHint;
   Object.keys(PRESETS).forEach(key=>{const el=document.getElementById(key);if(el)el.innerHTML=iconify(u[key]);});
   const qm=document.getElementById('qpMore');
-  if(qm){qm.innerHTML=ico('more')+esc(u.qpMore);qm.title=u.catLabel;}
+  if(qm){qm.innerHTML=ico('more')+esc(u.qpMore);qm.title=stripEmoji(u.catLabel);}
   document.getElementById('presetSecLabel').innerHTML=iconify(u.presetSecLabel);
   document.getElementById('presetSecHint').textContent=u.presetSecHint;
   // Chip width changes per language (French/Spanish labels run longer than English),
@@ -5580,7 +5630,11 @@ function renderLangMenu(){
   const menu=document.getElementById('langMenu');if(!menu)return;
   // only the phone's list is reordered; the desktop segmented control keeps a
   // stable order so a hand that knows where 中文 sits still finds it there
-  let phone=false;try{phone=window.matchMedia('(max-width:600px)').matches;}catch(e){}
+  let phone=false;try{phone=window.matchMedia('(max-width:600px)').matches||window.matchMedia('(max-height:500px) and (orientation:landscape) and (max-width:900px)').matches;}catch(e){}
+  const tiny=phone&&window.innerWidth<=360;
+  if(cur&&tiny)cur.textContent=({en:'EN',fr:'FR',es:'ES',zh:'中文',ko:'한국어',ja:'日本語'})[L_]||L_;
+  // the list reads as names on a phone ("Français"), as codes in the desktop strip
+  menu.querySelectorAll('.lang-btn').forEach(b=>{if(!b.dataset.code)b.dataset.code=b.textContent;b.textContent=phone?(LANG_NAMES[b.dataset.lang]||b.dataset.code):b.dataset.code;});
   if(!phone)return;
   // current language first, then the one the phone itself speaks, then the rest
   let guess=null;try{guess=detectLang();}catch(e){}
@@ -5594,6 +5648,7 @@ function closeLangMenu(){const sw=document.getElementById('langSw');if(!sw.class
 document.getElementById('langMenuBtn').onclick=()=>{const sw=document.getElementById('langSw');if(sw.classList.contains('open'))closeLangMenu();else{trackEvent('lang_menu',{});openLangMenu();}};
 document.addEventListener('click',e=>{const sw=document.getElementById('langSw');if(sw.classList.contains('open')&&!sw.contains(e.target))closeLangMenu();});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLangMenu();});
+let _lmResizeT=null;window.addEventListener('resize',()=>{clearTimeout(_lmResizeT);_lmResizeT=setTimeout(()=>{try{closeLangMenu();renderLangMenu();}catch(e){}},120);});
 // The URL has quietly carried the current language/area/category/search/route for
 // several rounds now (writeURLState), but nothing ever told a reader that copying
 // the address bar sends someone else straight to this same view — a "here are the
@@ -5653,7 +5708,7 @@ function copyShareLink(){
 }
 function renderShareSheet(){
   const u=UI[L_],grid=document.getElementById('shareGrid');
-  document.getElementById('shareTitle').textContent=u.shareTitle;
+  document.getElementById('shareTitle').innerHTML=iconify(u.shareTitle);
   document.getElementById('shareLead').textContent=u.shareLead;
   document.getElementById('shareNote').textContent=u.shareNote;
   const nat=document.getElementById('shareNative');
@@ -6066,7 +6121,7 @@ function renderRoute(key,fit){
       map.once('moveend',()=>setTimeout(updateStopLabelVisibility,340));
     }
     updateStopLabelVisibility();
-    ind.innerHTML='<span>🚌 '+u.routeLabel(key)+' '+r.n+u.parenL+u.stopsN(r.s.length)+u.parenR+'</span><span class="bi-hint">'+esc(u.routeModeHint)+'</span><button class="x" type="button" aria-label="'+esc(u.routeExit)+'" title="'+esc(u.routeExit)+'">✕</button>';
+    ind.innerHTML='<span>'+ico('bus')+u.routeLabel(key)+' '+r.n+u.parenL+u.stopsN(r.s.length)+u.parenR+'</span><span class="bi-hint">'+esc(u.routeModeHint)+'</span><button class="x" type="button" aria-label="'+esc(u.routeExit)+'" title="'+esc(u.routeExit)+'">✕</button>';
     // 2026-09-08 audit: the markup ships with a static `hidden` attribute that
     // nothing ever cleared. .bus-indicator.show{display:flex} is an author rule,
     // so it beat [hidden] and the bar appeared on screen — but `hidden` also
@@ -6095,9 +6150,11 @@ function updateStatusRoute(){
   const count=st.dataset.count||st.textContent, region=st.dataset.region||'';
   st.textContent=count+(selectedRoute?' · 🚌 '+u.routeLabel(selectedRoute):'')+(region?' · '+region:'');
 }
-function selectRoute(key){
-  trackEvent('route_select',{id:key||selectedRoute,action:key?'select':'deselect'});
-  renderRoute(key,true);
+function selectRoute(key,opts){
+  trackEvent('route_select',{id:key||selectedRoute,action:key?'select':'deselect',src:opts&&opts.src||undefined});
+  // from a place card the reader is looking at *this* place; drawing the line
+  // without re-fitting keeps the card open (a zoom-out re-clusters the marker)
+  renderRoute(key,!(opts&&opts.keepView));
   closePanel();
   if(key)dismissFirstUse('route');
 }
@@ -6357,7 +6414,7 @@ document.addEventListener('click',(e)=>{
   if(panel.contains(e.target)||areaBtnEl.contains(e.target)||catBtnEl.contains(e.target)||busBtnEl.contains(e.target)||favBtnEl.contains(e.target))return;
   // the Quick Picks "More" chip opens this very panel; its click must not
   // also count as a click outside it
-  if(e.target.closest&&e.target.closest('#qpMore'))return;
+  if(e.target.closest&&(e.target.closest('#qpMore')||e.target.closest('#searchSuggest')))return;
   closePanel();
 });
 // Everything a user can put the page into, undone in one place. It used to leave
@@ -6367,7 +6424,7 @@ function resetAll(){
   // "how many filters before someone gives up" needs the answer: was anything
   // actually set, or did they open the app and immediately scrub back to the
   // city-wide view?
-  const wasDirty=!!(searchTerm||selectedRoute||presetsAdjusted||openNow||aC.size>0||aT.size>0||aR.size<Object.keys(RI).length);
+  const wasDirty=!!(searchTerm||selectedRoute||presetsAdjusted||openNow||nearOnly||aC.size>0||aT.size>0||aR.size<Object.keys(RI).length);
   // "dirty: true" says something was on but not what, so it cannot tell a reader
   // clearing one stray area filter apart from one abandoning a search that went
   // nowhere. The dimensions are cheap and make the event diagnostic.
@@ -6504,7 +6561,7 @@ function popSheetState(id){
     const cur=history.state&&history.state[_SHEET_KEY];
     let n=0;
     if(cur===id)n=1;
-    else if(id==='guideBackdrop'&&cur==='guideTask')n=2;   // closing the guide from inside a card
+    else if(id==='guideBackdrop'&&cur==='guideTask')n=2;   // closing the guide from inside a card (a card entry only ever sits on a guide entry — see openTask)
     if(!n)return;
     _popSelf=true;
     clearTimeout(_popSelfTimer);
@@ -6639,6 +6696,10 @@ function closeModal(back,fromPop){
   if(back===guideBackdropEl)trackGuideClose();
   if(!back.classList.contains('open'))return;
   back.classList.remove('open');
+  // the next opening starts from the list (openGuide already renders it), so the
+  // card is no longer "open" — otherwise the next door-opened card would skip
+  // its history entry and Back would close the whole guide
+  if(back===guideBackdropEl){_taskOpen=null;try{writeURLState();}catch(e){}}
   back.removeAttribute('role');back.removeAttribute('aria-modal');
   const m=back.querySelector('.guide-modal');if(m){m.style.transform='';m.classList.remove('dragging','settling');}
   if(!fromPop)popSheetState(back.id);
@@ -6714,6 +6775,7 @@ function showSearchSuggest(){
     b.onclick=()=>{hideSearchSuggest();searchInputEl.blur();sg.go();};
     box.appendChild(b);
   });
+  try{const sb=document.querySelector('.search-bar').getBoundingClientRect();box.style.top=(sb.bottom+(window.scrollY||0)+6)+'px';}catch(e){}
   box.hidden=false;
   dismissFirstUse('search');
 }
@@ -6721,7 +6783,11 @@ function hideSearchSuggest(){const box=document.getElementById('searchSuggest');
 (function(){
   const si=searchInputEl;if(!si)return;
   si.addEventListener('focus',()=>{if(!si.value)showSearchSuggest();});
-  si.addEventListener('blur',()=>{setTimeout(()=>{if(document.activeElement!==si)hideSearchSuggest();},150);});
+  const box=document.getElementById('searchSuggest');
+  const stillInside=()=>{const a=document.activeElement;return a===si||(box&&box.contains(a));};
+  si.addEventListener('blur',()=>{setTimeout(()=>{if(!stillInside())hideSearchSuggest();},150);});
+  if(box){box.addEventListener('focusout',()=>{setTimeout(()=>{if(!stillInside())hideSearchSuggest();},0);});
+    box.addEventListener('keydown',e=>{if(e.key==='Escape'){hideSearchSuggest();si.focus();}});}
   si.addEventListener('input',()=>{if(si.value)hideSearchSuggest();else if(document.activeElement===si)showSearchSuggest();});
   si.addEventListener('keydown',e=>{if(e.key==='Escape'&&!si.value){hideSearchSuggest();si.blur();}});
 })();
@@ -6876,7 +6942,7 @@ document.getElementById('qpOpen').onclick=()=>{
 };
 document.getElementById('map').addEventListener('click',e=>{
   const rb=e.target.closest&&e.target.closest('.pv-route');
-  if(rb){e.preventDefault();e.stopPropagation();trackEvent('popup_route',{route:rb.dataset.route});selectRoute(rb.dataset.route);return;}
+  if(rb){e.preventDefault();e.stopPropagation();trackEvent('popup_route',{route:rb.dataset.route});selectRoute(rb.dataset.route,{keepView:true,src:'popup'});return;}
   const go=e.target.closest&&e.target.closest('.pv-task-go');
   if(!go)return;
   e.preventDefault();e.stopPropagation();
@@ -6949,6 +7015,7 @@ function writeURLState(){
     if(searchTerm)q.set('q',searchInputEl.value.trim());
     if(selectedRoute)q.set('route',selectedRoute);
     if(openNow)q.set('o','1');
+    if(_taskOpen&&guideBackdropEl&&guideBackdropEl.classList.contains('open'))q.set('task',_taskOpen);
     // ?debug=1 is the maintainer's own flag; dropping it on the first rewrite
     // meant a reload silently turned the debug panel and env:'dev' tagging off
     if(_IS_DEBUG)q.set('debug','1');
