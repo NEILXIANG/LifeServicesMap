@@ -803,6 +803,18 @@ else:
              % (_vd, (_dd - _vd).days, _dd))
     if _vd > _dd:
         fail('VERIFIED (%s) is later than DATA_VERSION (%s)' % (_vd, _dd))
+    # (2026-09-13) the task cards carry their own check date (CITY.tasksChecked),
+    # shown at the foot of every card. Same rule: it must exist and not go stale.
+    _tm = re.search(r"tasksChecked:'(\d{4})-(\d{2})-(\d{2})'", html)
+    if not _tm:
+        fail("CITY.tasksChecked missing — the card footer's check date has nowhere to come from")
+    else:
+        _td = _dt2.date(int(_tm.group(1)), int(_tm.group(2)), int(_tm.group(3)))
+        if (_dd - _td).days > 60:
+            fail('CITY.tasksChecked (%s) is %d days behind DATA_VERSION (%s) — reread the 14 cards against their sources'
+                 % (_td, (_dd - _td).days, _dd))
+    if '{TD}' in html and "replace('{TD}'" not in html:
+        fail('taskVerified uses {TD} but nothing substitutes it')
 
 # ------------------------------------------------- 17. data has a shelf life
 # (2026-09-10) Hours and phone numbers are the first fields to go stale, and a

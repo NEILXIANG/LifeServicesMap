@@ -1,4 +1,4 @@
-import asyncio, sys, os, re, glob, shutil, atexit, tempfile
+import asyncio, sys, os, re, glob, shutil, atexit, tempfile, subprocess
 from playwright.async_api import async_playwright
 
 # Test the file that is actually shipped, not a copy that was made by hand at some
@@ -88,6 +88,7 @@ def check(label, cond, detail=''):
     if not cond: FAIL.append(label)
 
 N = None   # number of places, read from the file under test at startup
+CITY_TASKS_CHECKED = (re.search(r"tasksChecked:'(\d{4}-\d{2}-\d{2})'", open(os.path.join(os.path.dirname(os.path.abspath(__file__)),'src','data-kamloops.js'),encoding='utf-8').read()) or [None,'0000'])[1]
 
 async def main():
     global N
@@ -1036,8 +1037,12 @@ async def main():
         await pge.wait_for_timeout(700)
         drawn=await pge.evaluate("""()=>[...document.querySelectorAll('.leaflet-tooltip.landmark-label')]
             .filter(e=>getComputedStyle(e).display!=='none').map(e=>e.textContent)""")
-        check("58 every landmark finds a slot on the opening view",
-              len(drawn)==lmk['n'], drawn)
+        # 2026-09-13: a label that would hang off the map's edge is no longer drawn
+        # as a clipped fragment, so only landmarks whose point is inside the map
+        # (with room for the label) are expected on a 390px opening view
+        inview=await pge.evaluate("""()=>{const sz=mapref.getSize();return landmarkMarkers.filter(it=>{const p=mapref.latLngToContainerPoint([it.lat,it.lng]);return p.x>70&&p.x<sz.x-70&&p.y>30&&p.y<sz.y-30;}).length;}""")
+        check("58 every landmark inside the opening view finds a slot",
+              len(drawn)>=inview and len(drawn)>=3, (drawn,inview))
 
         for k,sel in (('free','#qpFree'),('family','#qpFamily'),('indoor','#qpIndoor')):
             check("59 quick-pick %s carries a real theme icon and label"%k,
@@ -1683,8 +1688,127 @@ async def main():
         await pg72.reload(); await pg72.wait_for_timeout(1200)
         v2=await pg72.evaluate("()=>({n:parseInt(localStorage.getItem('kamloopsVisits'),10),ss:(_evBuf.slice().reverse().find(e=>e.t==='session_start')||{p:{}}).p.visits})")
         check("72 visits are counted per load and reported on session_start", v1>=1 and v2['n']==v1+1 and v2['ss']==v1+1, (v1,v2))
+        # print a card: the body is position:fixed while a sheet is open, which used
+        # to print as a blank page on desktop
+        pg72p=await b.new_page(viewport={'width':1280,'height':900})
+        await pg72p.goto(URL+'?lang=en&task=msp'); await pg72p.wait_for_timeout(1500)
+        await pg72p.evaluate("()=>{window.print=()=>{};document.getElementById('taskPrint').click();}")
+        await pg72p.emulate_media(media='print'); await pg72p.wait_for_timeout(100)
+        prt=await pg72p.evaluate("""()=>{const r=s=>{const e=document.querySelector(s);return e?e.getBoundingClientRect():{height:0,width:0};};
+            const gone=s=>{const e=document.querySelector(s);return !e||getComputedStyle(e).display==='none';};
+            return {cls:document.body.classList.contains('print-task'),bodyPos:getComputedStyle(document.body).position,
+                    modalH:Math.round(r('#guideTasks').height),modalW:Math.round(r('#guideTasks').width),
+                    map:gone('#map'),tools:gone('.task-tools'),guide:gone('#guideBody'),header:gone('header'),
+                    white:getComputedStyle(document.body).backgroundColor==='rgb(255, 255, 255)'};}""")
+        pdfp=os.path.join(tempfile.gettempdir(),'kl-print-check.pdf')
+        await pg72p.pdf(path=pdfp, format='Letter', print_background=True)
+        try: ptxt=subprocess.run(['pdftotext',pdfp,'-'],capture_output=True,text=True,timeout=30).stdout
+        except Exception: ptxt='Service BC (pdftotext unavailable)'
+        prt['pdfHasCard']=('Service BC' in ptxt) and ('455 Columbia' in ptxt)
+        prt['pdfNoChrome']=('Quick Picks' not in ptxt) and ('Bus Routes' not in ptxt)
+        check("72 printing a card lays the card out on a white page with the app chrome gone",
+              prt['cls'] and prt['bodyPos']=='static' and prt['modalH']>200 and prt['modalW']>600 and prt['map'] and prt['tools'] and prt['guide'] and prt['header'] and prt['white'] and prt['pdfHasCard'] and prt['pdfNoChrome'], prt)
+        await pg72p.emulate_media(media='screen'); await pg72p.evaluate("()=>window.dispatchEvent(new Event('afterprint'))")
+        check("72 afterprint restores the screen layout", not await pg72p.evaluate("()=>document.body.classList.contains('print-task')"))
+        await pg72p.close()
         check("72 no page errors across round 72", len(e72)==0, e72[:3])
         await pg72.close()
+
+        print("\n--- launch audit fixes (round 73) ---")
+        pg73=await b.new_page(viewport={'width':390,'height':844}, has_touch=True, is_mobile=True)
+        e73=[]; pg73.on('pageerror', lambda e: e73.append(str(e)))
+        await pg73.goto(URL); await pg73.wait_for_timeout(1500)
+        # single-result search: popup inside the map, at street zoom, twice in a row
+        async def single(term):
+            await pg73.fill('#searchInput',term); await pg73.wait_for_timeout(900)
+            return await pg73.evaluate("""()=>{const pp=document.querySelector('.leaflet-popup');const mr=document.getElementById('map').getBoundingClientRect();
+              return {z:map.getZoom(),v:lastVisible,popup:!!pp,top:pp?Math.round(pp.getBoundingClientRect().top-mr.top):-999};}""")
+        s1=await single('South Kamloops Secondary')
+        await pg73.click('#searchClear'); await pg73.wait_for_timeout(400)
+        s2=await single('South Kamloops Secondary')
+        check("73 a single search result opens its popup inside the map at street zoom, and again after clearing", s1['v']==1 and s1['popup'] and s1['top']>=0 and s1['z']>=15 and s2['popup'] and s2['top']>=0, (s1,s2))
+        # a re-run of apply() with nothing changed must not move the view or reopen the popup
+        await pg73.evaluate("()=>{map.closePopup();map.setZoom(13);}"); await pg73.wait_for_timeout(400)
+        await pg73.evaluate("()=>apply()"); await pg73.wait_for_timeout(400)
+        still=await pg73.evaluate("()=>({z:map.getZoom(),popup:!!document.querySelector('.leaflet-popup')})")
+        check("73 re-applying unchanged filters (the minute tick) leaves the view and the closed popup alone", still['z']==13 and not still['popup'], still)
+        await pg73.click('#searchClear'); await pg73.wait_for_timeout(400)
+        # a search whose one result is hidden by the category filter focuses the visible one
+        hid=await pg73.evaluate("""()=>{aC=new Set(['pharmacy']);renderCats();apply();searchInputEl.value='north';runSearch();
+            const pp=document.querySelector('.leaflet-popup');return {v:lastVisible,name:pp?pp.querySelector('.pt').textContent:''};}""")
+        await pg73.wait_for_timeout(600)
+        hid2=await pg73.evaluate("()=>{const pp=document.querySelector('.leaflet-popup');return {v:lastVisible,name:pp?pp.querySelector('.pt').textContent:''};}")
+        check("73 the single visible result is the one focused, not a filtered-out match", hid2['v']==1 and 'Shoppers' in hid2['name'], hid2)
+        await pg73.evaluate("()=>resetAll()"); await pg73.wait_for_timeout(400)
+        # open-now round-trips through the URL and re-lights a preset
+        onurl=await pg73.evaluate("""()=>{document.getElementById('qpOpen').click();document.getElementById('daily').click();return location.search;}""")
+        await pg73.goto(URL+onurl); await pg73.wait_for_timeout(1500)
+        rt=await pg73.evaluate("()=>({open:openNow,chip:document.getElementById('qpOpen').classList.contains('active'),daily:document.getElementById('daily').classList.contains('active'),sp:selPresets.has('daily')})")
+        check("73 open-now and the Daily preset survive a reload through the URL", 'o=1' in onurl and rt['open'] and rt['chip'] and rt['daily'] and rt['sp'], (onurl,rt))
+        await pg73.evaluate("()=>resetAll()"); await pg73.wait_for_timeout(300)
+        # panel counts follow open-now and the search term
+        cnt=await pg73.evaluate("""()=>{searchInputEl.value='bank';runSearch();renderCats();
+            const b=[...document.querySelectorAll('#catGrid .cat-btn')].find(x=>x.textContent.includes('Bank'));const m=b?parseInt((b.querySelector('.cnt').textContent.match(/\\d+/)||[0])[0],10):-1;
+            const sch=[...document.querySelectorAll('#catGrid .cat-btn')].find(x=>x.textContent.includes('High Schools'));const ms=sch?parseInt((sch.querySelector('.cnt').textContent.match(/\\d+/)||[0])[0],10):-1;
+            searchInputEl.value='';runSearch();return {bank:m,school:ms,vis:lastVisible};}""")
+        check("73 category counts in the sheet follow the search term", cnt['bank']>0 and cnt['school']==0, cnt)
+        # a standalone popup (favourite hidden by a filter) follows the language
+        await pg73.evaluate("""()=>{resetAll();const m=M.find(x=>x.data.c==='school');favorites.add(m.data.id);aC=new Set(['bank']);renderCats();apply();window._spm=m;}""")
+        await pg73.wait_for_timeout(500)
+        await pg73.evaluate("()=>focusMarker(window._spm,16)"); await pg73.wait_for_timeout(700)
+        sp=await pg73.evaluate("""()=>{const pp=document.querySelector('.leaflet-popup');const mr=document.getElementById('map').getBoundingClientRect();
+            const top=pp?Math.round(pp.getBoundingClientRect().top-mr.top):-999;setLang('zh');const zh=document.querySelector('.leaflet-popup')?.textContent||'';setLang('en');
+            favorites.delete(window._spm.data.id);resetAll();return {top,zh:/导航|电话|时间|路线/.test(zh)};}""")
+        check("73 a filtered-out favourite opens inside the map and re-renders on language switch", sp['top']>=0 and sp['zh'], sp)
+        # translated Leaflet controls, named map and dialogs
+        await pg73.evaluate("()=>setLang('fr')"); await pg73.wait_for_timeout(300)
+        a11y=await pg73.evaluate("""()=>{const zi=document.querySelector('.leaflet-control-zoom-in');const mp=document.getElementById('map');
+            openGuide('header');const lb=guideBackdropEl.getAttribute('aria-labelledby');closeModal(guideBackdropEl);
+            const out={zoom:zi&&zi.getAttribute('aria-label'),map:mp.getAttribute('aria-label'),role:mp.getAttribute('role'),lb};setLang('en');return out;}""")
+        check("73 Leaflet controls, the map and the dialogs are named in the reader's language", a11y['zoom']=='Zoom avant' and a11y['role']=='region' and 'Kamloops' in (a11y['map'] or '') and a11y['lb']=='guideTitle', a11y)
+        await pg73.wait_for_timeout(300)
+        # Escape in the guide search clears the box instead of closing the guide; the list follows
+        esc=await pg73.evaluate("""()=>{openGuide('header');const ts=document.getElementById('taskSearch');ts.value='bank';ts.dispatchEvent(new Event('input',{bubbles:true}));
+            const n1=document.querySelectorAll('#taskBuckets .task-card').length;
+            ts.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}));
+            const n2=document.querySelectorAll('#taskBuckets .task-card').length;const open=guideBackdropEl.classList.contains('open');
+            ts.value='';ts.dispatchEvent(new Event('search',{bubbles:true}));
+            return {n1,n2,open,q:_taskQ};}""")
+        check("73 Escape in the guide search clears the box, keeps the guide open, and the list follows", esc['n1']<esc['n2'] and esc['n2']>=14 and esc['open'] and esc['q']=='', esc)
+        await pg73.keyboard.press('Escape'); await pg73.wait_for_timeout(300)
+        # whole calendar days for deadlines
+        dl=await pg73.evaluate("""()=>{const t=localISODate();setArrival(t);const d=deadlineDate({id:'licence'});const n=daysLeft(d);setArrival(null);return n;}""")
+        check("73 the licence deadline counts 90 whole days from today, morning or afternoon", dl==90, dl)
+        # arrival date works with storage blocked
+        mem=await pg73.evaluate("""()=>{const real=localStorage;try{Object.defineProperty(window,'localStorage',{get(){throw new Error('blocked');},configurable:true});
+            setArrival('2026-06-01');const a=arrivalDate();setArrival(null);const b=arrivalDate();
+            Object.defineProperty(window,'localStorage',{value:real,configurable:true});return {a,b};}catch(e){return {err:String(e)};}}""")
+        check("73 the arrival date still works for the sitting when storage is blocked", mem.get('a')=='2026-06-01' and mem.get('b') is None, mem)
+        # in-app browser: share-sheet email copies the link, not an empty address
+        pgw=await b.new_page(viewport={'width':390,'height':844}, has_touch=True, is_mobile=True, user_agent='Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.40')
+        await pgw.goto(URL); await pgw.wait_for_timeout(1400)
+        wx=await pgw.evaluate("""()=>{window._cp='';document.execCommand=()=>{const ta=document.activeElement;window._cp=ta&&ta.value||'';return true;};
+            document.getElementById('shareBtn').click();const a=document.querySelector('#shareBackdrop a[href^="mailto:"]');if(!a)return {noLink:true};a.click();
+            const t=document.querySelector('.toast');return {inApp:IN_APP_BROWSER,copied:window._cp,toast:t?t.textContent:''};}""")
+        check("73 in an in-app browser the share sheet's Email copies the link and says so", wx.get('inApp') and 'city=' in (wx.get('copied') or '') and 'copied' in (wx.get('toast') or '').lower(), wx)
+        await pgw.close()
+        # landscape phone keeps the map on screen
+        pgl=await b.new_page(viewport={'width':844,'height':390}, has_touch=True, is_mobile=True)
+        await pgl.goto(URL); await pgl.wait_for_timeout(1200)
+        land=await pgl.evaluate("()=>{const r=document.getElementById('map').getBoundingClientRect();return {top:Math.round(r.top),visible:Math.round(Math.min(r.bottom,innerHeight)-r.top),hscroll:document.documentElement.scrollWidth>innerWidth};}")
+        check("73 a phone held sideways sees the map without scrolling", land['visible']>=150 and not land['hscroll'], land)
+        await pgl.close()
+        # 320px: language buttons on one line
+        pgs=await b.new_page(viewport={'width':320,'height':568}, has_touch=True, is_mobile=True)
+        await pgs.goto(URL); await pgs.wait_for_timeout(1200)
+        lb=await pgs.evaluate("()=>[...document.querySelectorAll('.lang-btn')].map(b=>Math.round(b.getBoundingClientRect().height))")
+        check("73 320px: every language button stays on one line", max(lb)-min(lb)<=2 and max(lb)<=44, lb)
+        await pgs.close()
+        # the card footer date comes from the data layer and nothing leaks
+        foot=await pg73.evaluate("()=>{openGuide('header','msp');const f=document.querySelector('.task-checked');const t=f?f.textContent:'';closeModal(guideBackdropEl);return t;}")
+        check("73 the card footer carries the data layer's check date", '{TD}' not in foot and CITY_TASKS_CHECKED in foot, foot)
+        check("73 no page errors across round 73", len(e73)==0, e73[:3])
+        await pg73.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})

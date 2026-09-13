@@ -4,10 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Kamloops Life Guide</title>
-<meta name="description" id="metaDesc" content="Kamloops living-services map: schools, healthcare, housing, transit, groceries and resident essentials across every neighbourhood.">
+<meta name="description" id="metaDesc" content="What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.">
 <meta property="og:type" content="website">
 <meta property="og:title" id="ogTitle" content="Kamloops Life Guide">
 <meta property="og:description" id="ogDesc" content="What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.">
+<meta property="og:url" content="https://kamloops-lifemap.neilxiang.workers.dev/">
+<meta property="og:image" content="https://kamloops-lifemap.neilxiang.workers.dev/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
 <link rel="icon" type="image/svg+xml" href="icon.svg">
 <!-- Safari has never accepted an SVG apple-touch-icon, so the previous line
      pointed iOS at a file it silently ignored and the home-screen tile came out
@@ -70,7 +75,7 @@
      vertical space on the page. */
   .sub{margin:3px 0 0;font-size:13px;line-height:1.4;color:var(--sub-ink);max-width:760px;text-wrap:balance;}
   .lang-sw{position:absolute;top:24px;right:20px;display:flex;gap:2px;background:#e9e9eb;border-radius:9px;padding:2px;}
-  .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:#48484a;transition:all .15s cubic-bezier(.4,0,.2,1);}
+  .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:#48484a;white-space:nowrap;transition:all .15s cubic-bezier(.4,0,.2,1);}
   .lang-btn.active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04);}
   .header-links{position:absolute;top:60px;right:20px;display:flex;align-items:center;gap:14px;}
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
@@ -375,7 +380,8 @@
      empty box and nothing to clear. Same trap as #noteToggle's. */
   .search-clear[hidden]{display:none;}
   @media(max-width:600px){.search-bar{margin:10px 10px 0;max-width:none;}}
-  .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#f2a900;}
+  .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#8a5a00;}  /* 2026-09-13: was #f2a900 (2.0:1); the empty ☆ is text and needs 4.5:1 */
+  .fav-star.active{color:#a66300;}
   .fav-star:hover{transform:scale(1.15);}
   #guideBackdrop,#noteBackdrop,#shareBackdrop{align-items:center!important;justify-content:center!important;background:rgba(32,33,36,.5);pointer-events:none;}
   #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open{pointer-events:auto;}
@@ -801,9 +807,19 @@
   .task-dl.past{background:#eee;color:#555;text-decoration:line-through;}
   .task-alldone{margin:14px 0 4px;padding:12px 14px;border-radius:10px;background:#e6f4ea;color:#137333;font-size:13px;line-height:1.5;}
   .task-search{width:100%;box-sizing:border-box;margin:0 0 10px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:13.5px;background:var(--card);color:var(--ink);}
+  /* 2026-09-13: while a sheet is open the body is position:fixed (lockBodyScroll),
+     and a fixed body prints as a blank page on desktop — the card came out empty.
+     The body is put back to normal flow for the print, the paper is white, and the
+     modal is a plain block so it takes the page width. */
   @media print{ body.print-task > *:not(#guideBackdrop){display:none!important;}
-    body.print-task #guideBackdrop{position:static;background:none;display:block!important;}
-    body.print-task .guide-modal{box-shadow:none;max-height:none;width:auto;}
+    body.print-task{position:static!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;
+      height:auto!important;min-height:0!important;overflow:visible!important;background:#fff!important;display:block!important;}
+    body.print-task #guideBackdrop{position:static;background:none;display:block!important;animation:none;
+      -webkit-backdrop-filter:none;backdrop-filter:none;height:auto;}
+    body.print-task .guide-modal{display:block;box-shadow:none;max-height:none;width:auto;max-width:none;margin:0;border-radius:0;animation:none;transform:none!important;}
+    body.print-task .guide-body{overflow:visible;max-height:none;}
+    body.print-task .sheet-grab{display:none!important;}
+    html:has(body.print-task){background:#fff;}
     body.print-task .task-tools,body.print-task .task-close,body.print-task #taskBack,body.print-task .guide-head button,
     body.print-task .task-map,body.print-task .task-checked a,body.print-task .guide-toc,body.print-task #guideBody,body.print-task .task-dl-set{display:none!important;} }
   .task-caveat{margin:10px 0 0;padding:7px 10px;border-left:3px solid var(--line);font-size:11.5px;line-height:1.5;color:var(--sub-ink);}
@@ -898,6 +914,21 @@
      the longer default, which is what actually earns back the space this block is
      tightening everything else for.
      Targets stay at 44px: shrinking them back is not an acceptable trade. */
+  /* 2026-09-13: a phone held sideways (844x390) has 390px of height and got the
+     full portrait stack — the map began ~320px down, 70px visible. The tagline
+     and label rows go, the rhythm tightens, and the map takes what is left. */
+  @media(max-height:500px) and (orientation:landscape) and (max-width:900px){
+    .sub{display:none;}
+    header{padding-top:4px;padding-bottom:0;gap:4px 10px;}
+    h1{font-size:15px;margin-top:0;}
+    .search-bar{margin-top:4px;}
+    .ftoolbar{padding-top:5px;row-gap:4px;}
+    .qp-row{padding-top:4px;}
+    .qp-head{display:none;}
+    .status{order:2;flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .reset-btn{order:3;margin-left:0;}
+    #map{margin-top:5px;min-height:min(72vh,420px);min-height:min(72dvh,420px);}
+  }
   @media(max-height:680px) and (max-width:600px){
     header{padding-top:6px;padding-bottom:0;gap:6px 10px;}
     h1{font-size:15.5px;margin-top:0;}
@@ -1274,7 +1305,7 @@ UI.zh.cavLegal='ℹ️ 这不是法律意见。它告诉你去哪、找谁；你
 UI.zh.cavHealth='🚨 紧急情况请打 911。这张卡讲的是非紧急的路径；不构成医疗建议。';UI.en.cavHealth='🚨 In an emergency, call 911. This card is the non-emergency path; it is not medical advice.';UI.fr.cavHealth='🚨 En cas d’urgence, composez le 911. Cette fiche décrit le parcours non urgent; ce n’est pas un avis médical.';UI.es.cavHealth='🚨 En una emergencia, llame al 911. Esta ficha es la vía no urgente; no es consejo médico.';UI.ko.cavHealth='🚨 응급 상황에는 911. 이 카드는 비응급 경로이며 의료 조언이 아닙니다.';UI.ja.cavHealth='🚨 緊急時は911へ。このカードは非緊急の手順で、医療的助言ではありません。';
 UI.zh.cavTax='ℹ️ 以 CRA 官网为准，规则每年会变。这不是税务建议。';UI.en.cavTax='ℹ️ The CRA is the authority and the rules change every year. This is not tax advice.';UI.fr.cavTax='ℹ️ L’ARC fait foi et les règles changent chaque année. Ceci n’est pas un conseil fiscal.';UI.es.cavTax='ℹ️ La CRA es la autoridad y las normas cambian cada año. Esto no es asesoría fiscal.';UI.ko.cavTax='ℹ️ CRA가 기준이며 규정은 매년 바뀝니다. 세무 조언이 아닙니다.';UI.ja.cavTax='ℹ️ CRAが基準で、規則は毎年変わります。税務の助言ではありません。';
 UI.zh.taskShare='发给需要的人';UI.en.taskShare='Send this card';UI.fr.taskShare='Envoyer cette fiche';UI.es.taskShare='Enviar esta ficha';UI.ko.taskShare='이 카드 보내기';UI.ja.taskShare='このカードを送る';
-UI.zh.taskPrint='打印这张卡';UI.en.taskPrint='Print this card';UI.fr.taskPrint='Imprimer';UI.es.taskPrint='Imprimir';UI.ko.taskPrint='인쇄';UI.ja.taskPrint='印刷';
+UI.zh.taskPrint='打印这张卡';UI.en.taskPrint='Print this card';UI.fr.taskPrint='Imprimer cette fiche';UI.es.taskPrint='Imprimir esta ficha';UI.ko.taskPrint='이 카드 인쇄';UI.ja.taskPrint='このカードを印刷';
 UI.zh.taskCal='加入日历';UI.en.taskCal='Add to calendar';UI.fr.taskCal='Ajouter au calendrier';UI.es.taskCal='Añadir al calendario';UI.ko.taskCal='캘린더에 추가';UI.ja.taskCal='カレンダーに追加';
 UI.zh.taskLinkCopied='链接已复制';UI.en.taskLinkCopied='Link copied';UI.fr.taskLinkCopied='Lien copié';UI.es.taskLinkCopied='Enlace copiado';UI.ko.taskLinkCopied='링크 복사됨';UI.ja.taskLinkCopied='リンクをコピーしました';
 UI.zh.arriveLabel='你是哪天到的？';UI.en.arriveLabel='When did you arrive?';UI.fr.arriveLabel='Arrivé(e) quand ?';UI.es.arriveLabel='¿Cuándo llegó?';UI.ko.arriveLabel='언제 도착하셨나요?';UI.ja.arriveLabel='いつ到着しましたか？';
@@ -1303,7 +1334,11 @@ UI.zh.clearedAll='已清除全部筛选';UI.en.clearedAll='All filters cleared';
 UI.zh.recPick='推荐';UI.en.recPick='Our pick';UI.fr.recPick='Notre choix';UI.es.recPick='Recomendado';UI.ko.recPick='추천';UI.ja.recPick='おすすめ';
 UI.zh.fuSafe='免费 · 不用注册 · 不收集你的任何信息';UI.en.fuSafe='Free · no sign-up · nothing collected about you';UI.fr.fuSafe='Gratuit · sans inscription · rien de collecté sur vous';UI.es.fuSafe='Gratis · sin registro · no se recopila nada sobre usted';UI.ko.fuSafe='무료 · 가입 없음 · 개인정보 수집 없음';UI.ja.fuSafe='無料 · 登録不要 · あなたの情報は集めません';
 UI.zh.verTip='数据版本——数据说明里提到的版本号就是它';UI.en.verTip='Data version — the version number the data note refers to';UI.fr.verTip='Version des données — le numéro mentionné dans la note';UI.es.verTip='Versión de los datos — el número que menciona la nota';UI.ko.verTip='데이터 버전 — 데이터 안내에서 말하는 버전 번호';UI.ja.verTip='データのバージョン — データ注記にある版番号';
-UI.zh.copiedEmail='已复制邮箱地址：{E}（微信里打不开邮件，请到邮件应用粘贴）';UI.en.copiedEmail='Email address copied: {E} (this app cannot open mail — paste it in your mail app)';UI.fr.copiedEmail='Adresse copiée : {E} (cette appli n’ouvre pas le courriel — collez-la dans votre messagerie)';UI.es.copiedEmail='Correo copiado: {E} (esta app no abre el correo — péguelo en su app de correo)';UI.ko.copiedEmail='이메일 주소 복사됨: {E} (이 앱에서는 메일이 열리지 않습니다 — 메일 앱에 붙여넣으세요)';UI.ja.copiedEmail='メールアドレスをコピーしました：{E}（このアプリではメールを開けません — メールアプリに貼り付けてください）';
+UI.zh.copiedEmail='已复制邮箱地址：{E}（微信里打不开邮件，请到邮件应用粘贴）';UI.en.copiedEmail='Email address copied: {E} (this app cannot open mail — paste it in your mail app)';UI.en.copyFailedEmail='This app cannot open mail. The address is {E} — write it down or open this page in your browser';UI.en.copyFailedLink='This app cannot open mail or copy. Open this page in your browser to share: {L}';UI.fr.copiedEmail='Adresse copiée : {E} (cette appli n’ouvre pas le courriel — collez-la dans votre messagerie)';UI.es.copiedEmail='Correo copiado: {E} (esta app no abre el correo — péguelo en su app de correo)';UI.ko.copiedEmail='이메일 주소 복사됨: {E} (이 앱에서는 메일이 열리지 않습니다 — 메일 앱에 붙여넣으세요)';UI.ja.copiedEmail='メールアドレスをコピーしました：{E}（このアプリではメールを開けません — メールアプリに貼り付けてください）';UI.ja.copyFailedEmail='このアプリではメールを開けません。アドレスは {E} です — 控えるか、ブラウザでこのページを開いてください';UI.ja.copyFailedLink='このアプリではメールもコピーもできません。ブラウザでこのページを開いて共有してください：{L}'
+UI.zh.copyFailedEmail='这个应用里打不开邮件。邮箱是 {E}——请记下来，或用手机浏览器打开本页';UI.zh.copyFailedLink='这个应用里打不开邮件也无法复制。请用手机浏览器打开本页再分享：{L}'
+UI.fr.copyFailedEmail='Cette appli n’ouvre pas le courriel. L’adresse est {E} — notez-la ou ouvrez cette page dans votre navigateur';UI.fr.copyFailedLink='Cette appli ne peut ni ouvrir le courriel ni copier. Ouvrez cette page dans votre navigateur pour partager : {L}'
+UI.es.copyFailedEmail='Esta app no abre el correo. La dirección es {E} — anótela o abra esta página en su navegador';UI.es.copyFailedLink='Esta app no puede abrir el correo ni copiar. Abra esta página en su navegador para compartir: {L}'
+UI.ko.copyFailedEmail='이 앱에서는 메일이 열리지 않습니다. 주소는 {E}입니다 — 적어 두거나 브라우저에서 이 페이지를 여세요';UI.ko.copyFailedLink='이 앱에서는 메일도 복사도 되지 않습니다. 브라우저에서 이 페이지를 열어 공유하세요: {L}';
 UI.zh.icsInApp='微信内无法保存日历文件——请用手机浏览器打开这一页再试';UI.en.icsInApp='This app cannot save a calendar file — open this page in your phone’s browser and try again';UI.fr.icsInApp='Cette appli ne peut pas enregistrer le fichier calendrier — ouvrez cette page dans le navigateur du téléphone';UI.es.icsInApp='Esta app no puede guardar el archivo de calendario — abra esta página en el navegador del teléfono';UI.ko.icsInApp='이 앱에서는 캘린더 파일을 저장할 수 없습니다 — 휴대폰 브라우저에서 이 페이지를 여세요';UI.ja.icsInApp='このアプリではカレンダーファイルを保存できません — スマホのブラウザでこのページを開いてください';
 UI.zh.fuHeadS='第一次来？从这里开始：';UI.en.fuHeadS='First time here? Start with:';UI.fr.fuHeadS='Première visite ? Commencez par :';UI.es.fuHeadS='¿Primera vez aquí? Empiece por:';UI.ko.fuHeadS='처음이신가요? 여기서 시작:';UI.ja.fuHeadS='初めてですか？まずはここから:';
 UI.zh.fuGuide='遇到事情不知道怎么办——办医保、SIN（工卡）、驾照、入学、找房，一步一步。';UI.en.fuGuide='Something to sort out — health card, SIN, licence, school, housing — step by step.';UI.fr.fuGuide='Une démarche à faire — carte santé, NAS, permis, école, logement — étape par étape.';UI.es.fuGuide='Algo que resolver — tarjeta de salud, SIN, licencia, escuela, vivienda — paso a paso.';UI.ko.fuGuide='해야 할 일이 있을 때 — 의료카드, SIN, 면허, 학교, 주거 — 단계별로.';UI.ja.fuGuide='やることがあるとき — 医療カード、SIN、免許、就学、住まい — 順を追って。';
@@ -1336,7 +1371,7 @@ UI.zh.taskOpenMap='在地图上打开 →';UI.en.taskOpenMap='Open it on the map
 UI.zh.taskSource='官方说明';UI.en.taskSource='Official page';UI.fr.taskSource='Page officielle';UI.es.taskSource='Página oficial';UI.ko.taskSource='공식 안내';UI.ja.taskSource='公式ページ';
 UI.zh.taskBack='← 返回全部事项';UI.en.taskBack='← All tasks';UI.fr.taskBack='← Toutes les démarches';UI.es.taskBack='← Todos los trámites';UI.ko.taskBack='← 전체 목록';UI.ja.taskBack='← 一覧に戻る';
 UI.zh.taskReadMore='想读长文版指南？往下翻。';UI.en.taskReadMore='Want the long-form guide? Keep scrolling.';UI.fr.taskReadMore='Vous voulez le guide détaillé ? Continuez à défiler.';UI.es.taskReadMore='¿Quiere la guía completa? Siga bajando.';UI.ko.taskReadMore='자세한 안내문을 원하시면 아래로 스크롤하세요.';UI.ja.taskReadMore='詳しい解説はこの下にあります。';
-UI.zh.taskVerified='本卡内容已于 2026-09-08 对照官方页面核对';UI.en.taskVerified='Checked against the official pages on 2026-09-08';UI.fr.taskVerified='Vérifié auprès des pages officielles le 2026-09-08';UI.es.taskVerified='Verificado con las páginas oficiales el 2026-09-08';UI.ko.taskVerified='2026-09-08 공식 페이지 기준으로 확인함';UI.ja.taskVerified='2026-09-08 に公式ページと照合済み';
+UI.zh.taskVerified='本卡内容已于 {TD} 对照官方页面核对';UI.en.taskVerified='Checked against the official pages on {TD}';UI.fr.taskVerified='Vérifié auprès des pages officielles le {TD}';UI.es.taskVerified='Verificado con las páginas oficiales el {TD}';UI.ko.taskVerified='{TD} 공식 페이지 기준으로 확인함';UI.ja.taskVerified='{TD} に公式ページと照合済み';
 // 2026-09-09 — the privacy statement was one accurate, unread 400-word paragraph,
 // and a disclosure nobody reads is not a disclosure. These are the three questions
 // a reader actually has, answered in one line each; the full text is one tap below,
@@ -1449,7 +1484,7 @@ UI.zh.lSvc='礼拜时间';
 UI.zh.lEmail='邮箱';
 UI.zh.lVerified='信息核实于';
 UI.zh.lVerifiedTip='这是本条记录本身被核实的时间，和整份数据的“最后核实日期”是两回事——那个日期指的是整份数据最近一次全面核对的时间。';
-UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
+UI.zh.favIONote='收藏只存在这台设备的浏览器里。换设备或清理浏览器数据前，可以复制成一串文字自己保存或发给自己——不会下载任何文件，就是一串可以再粘贴回来的文字。';UI.zh.favIONoteEmpty=' 如果你有之前从别的设备复制的那串文字，可以粘贴在下方，再点「导入代码」找回。';UI.zh.favExport='复制代码';UI.zh.favImport='导入代码';UI.zh.favCopied='已复制到剪贴板';UI.zh.favImported='已导入 {N} 处收藏';UI.zh.favImportedOne='已导入 1 处收藏';UI.zh.favImportedNone='这串代码里的收藏这里都已经有了';UI.zh.favBadCode='没认出这串文字，请检查是否复制完整';UI.zh.favPastePrompt='粘贴之前复制的那串文字，然后再点一次「导入代码」';
 UI.zh.favAdd='加入收藏';UI.zh.favRemove='取消收藏';
 UI.zh.favAddedMsg='⭐ 已加入收藏';UI.zh.favRemovedMsg='已取消收藏';UI.zh.errorHint='⚠️ 页面遇到错误，请刷新重试。';UI.zh.aSkip='跳到地图';UI.zh.aNavLang='选择界面语言';UI.zh.aNavHeader='页面操作';UI.zh.aNavFilters='地图筛选工具栏';UI.zh.aLandmarksIntro='按用途快速筛选地点';UI.zh.aResultsAnnounce=(v,t)=>`已显示 ${v} / ${t} 处地点`;
 UI.zh.privacyNote='🔒 隐私：本页面不收集姓名、邮箱、电话、精确位置这类个人身份信息，收藏夹只存在你自己的浏览器里。为了了解哪些功能真正有用，页面会发送匿名使用数据，内容包括你点开了哪些地点、用了哪些功能、在搜索框里输入的文字（会先去掉连续数字并截断，用来判断大家在找什么）、把你带到这里的那个网站的域名（只有域名，没有具体网址）、你的屏幕落在手机／平板／电脑哪一档（只有这三个值，用来判断布局在哪种屏幕上不好用），以及这个页面是从浏览器打开的还是已经装到桌面上。同时会有一个在你浏览器本地随机生成的标识符，它保存在浏览器里、下次再来仍然是同一个，用来区分回访，但不与任何身份信息关联，也不跨站点或跨设备追踪；不写 Cookie，服务端不记录 IP 地址。这些请求在浏览器开发者工具的网络面板里可以逐条看到全部内容（/api/event）。页面加载时还会向另外两个第三方发出请求：地图底图（OpenStreetMap 的瓦片服务器），以及 Cloudflare Web Analytics 的统计脚本（static.cloudflareinsights.com，不写 Cookie、不做个人追踪，只汇总访问量等指标）。这两者在请求过程中都会看到你的 IP —— 前者是所有网页地图的共同机制。断网时除底图外全部功能照常可用。如果你点击“附近”按钮来定位自己，浏览器会请求位置权限；坐标只会在你自己的设备上使用来让地图居中，绝不会发送到我们的服务器，也不会被记录。';
@@ -1496,7 +1531,7 @@ UI.en.lSvc='Services';
 UI.en.lEmail='Email';
 UI.en.lVerified='Verified';
 UI.en.lVerifiedTip='When this specific listing was checked — a different thing from the page-wide "Last verified" date, which is when the whole dataset was last reviewed.';
-UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
+UI.en.favIONote='Favourites live only in this browser. Before switching devices or clearing your browser data, copy them as a short line of text and keep it, or send it to yourself — this doesn\'t download a file, just text you can paste back in later.';UI.en.favIONoteEmpty=' Already have a code copied from another device? Paste it below and press Import Code to bring those favourites here.';UI.en.favExport='Copy Code';UI.en.favImport='Import Code';UI.en.favCopied='Copied to the clipboard';UI.en.favImported='Imported {N} favourites';UI.en.favImportedOne='Imported 1 favourite';UI.en.favImportedNone='Every favourite in that code was already saved here';UI.en.favBadCode='That text was not recognised — check it was copied in full';UI.en.favPastePrompt='Paste the code you copied, then press Import Code again';
 UI.en.favAdd='Add to favourites';UI.en.favRemove='Remove from favourites';
 UI.en.favAddedMsg='⭐ Added to favourites';UI.en.favRemovedMsg='Removed from favourites';UI.en.errorHint='⚠️ The page hit an error — please refresh to recover.';UI.en.aSkip='Skip to map';UI.en.aNavLang='Interface language';UI.en.aNavHeader='Page actions';UI.en.aNavFilters='Map filters toolbar';UI.en.aLandmarksIntro='Filter places by purpose';UI.en.aResultsAnnounce=(v,t)=>`Showing ${v} of ${t} places`;
 UI.en.privacyNote='🔒 Privacy: this page does not collect identifying information such as your name, email, phone number or precise location, and your favourites stay in your own browser. To understand which parts are actually useful it does send anonymous usage data — which places you open, which features you use, the text you type into the search box (digit runs stripped and truncated, so it shows what people look for rather than an address), the domain of whatever site linked you here (the domain only, never the full address), which of three buckets your screen falls into (phone / tablet / desktop — just those three values, so layout problems can be traced to a screen size), and whether the page was opened in a browser or installed to your home screen. It also uses a random identifier generated locally in your browser; it is stored there and stays the same on your next visit so return use can be told apart, but it is not linked to any identity and does not track you across sites or devices. No cookies are set and no IP address is recorded on the server. You can inspect every one of these requests in full in your browser\'s DevTools Network panel (/api/event). Two other third parties receive a request when the page loads: OpenStreetMap\'s tile servers for the map imagery, and Cloudflare Web Analytics (static.cloudflareinsights.com — no cookies, no individual tracking, aggregate visit counts only). Both see your IP address in the process; for the map that is the same as any web map. Offline, everything but the imagery still works. If you tap the Near Me button, your browser will ask for location permission; your coordinates are used only on your own device to centre the map — they are never sent to our server or logged.';
@@ -1542,7 +1577,7 @@ UI.fr.lSvc='Offices';
 UI.fr.lEmail='Courriel';
 UI.fr.lVerified='Vérifié';
 UI.fr.lVerifiedTip='Date à laquelle cette fiche précise a été vérifiée — différente de la date « Dernière vérification » de l’ensemble du jeu de données, qui indique son dernier examen complet.';
-UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
+UI.fr.favIONote='Les favoris ne vivent que dans ce navigateur. Avant de changer d’appareil ou d’effacer vos données, copiez-les sous forme de texte et conservez-le — aucun fichier n’est téléchargé, seulement du texte que vous pourrez recoller plus tard.';UI.fr.favIONoteEmpty=' Vous avez déjà un code copié depuis un autre appareil? Collez-le ci-dessous et appuyez sur Importer le code pour retrouver ces favoris ici.';UI.fr.favExport='Copier le code';UI.fr.favImport='Importer le code';UI.fr.favCopied='Copié dans le presse-papiers';UI.fr.favImported='{N} favoris importés';UI.fr.favImportedOne='1 favori importé';UI.fr.favImportedNone='Tous les favoris de ce code étaient déjà enregistrés';UI.fr.favBadCode='Texte non reconnu — vérifiez qu’il a été copié en entier';UI.fr.favPastePrompt='Collez le code copié, puis appuyez de nouveau sur Importer le code';
 UI.fr.favAdd='Ajouter aux favoris';UI.fr.favRemove='Retirer des favoris';
 UI.fr.favAddedMsg='⭐ Ajouté aux favoris';UI.fr.favRemovedMsg='Retiré des favoris';UI.fr.errorHint='⚠️ Une erreur est survenue — veuillez actualiser pour réinitialiser.';UI.fr.aSkip='Aller à la carte';UI.fr.aNavLang='Langue de l\'interface';UI.fr.aNavHeader='Actions de la page';UI.fr.aNavFilters='Barre des filtres de la carte';UI.fr.aLandmarksIntro='Filtrer les lieux par usage';UI.fr.aResultsAnnounce=(v,t)=>`Affichage de ${v} sur ${t} lieu${t>1?'x':''}`;
 UI.fr.privacyNote='🔒 Confidentialité : cette page ne recueille pas d\'informations identifiantes comme votre nom, courriel, téléphone ou position précise, et vos favoris restent dans votre propre navigateur. Pour savoir quelles parties servent vraiment, elle envoie des données d\'usage anonymes — les lieux que vous ouvrez, les fonctions que vous utilisez, le texte saisi dans la recherche (suites de chiffres retirées et texte tronqué), le domaine du site qui vous a amené ici (le domaine seul, jamais l\'adresse complète), la catégorie de votre écran parmi trois (téléphone / tablette / ordinateur — ces trois valeurs seulement, pour rattacher un problème de mise en page à une taille d\'écran), et si la page a été ouverte dans un navigateur ou installée sur votre écran d\'accueil. Elle utilise aussi un identifiant aléatoire généré localement dans votre navigateur; il y est conservé et reste le même à votre prochaine visite afin de distinguer les retours, sans être lié à une identité ni vous suivre entre sites ou appareils. Aucun témoin (cookie) n\'est déposé et aucune adresse IP n\'est enregistrée côté serveur. Vous pouvez inspecter chacune de ces requêtes dans l\'onglet Réseau des outils de développement (/api/event). Deux autres tiers reçoivent une requête au chargement : les serveurs de tuiles d\'OpenStreetMap pour le fond de carte, et Cloudflare Web Analytics (static.cloudflareinsights.com — sans témoins, sans suivi individuel, uniquement des totaux de visites). Les deux voient alors votre adresse IP; pour la carte, c\'est le cas de toute carte web. Hors ligne, tout fonctionne sauf le fond de carte. Si vous touchez le bouton Près de moi, votre navigateur demandera l\'autorisation de localisation; vos coordonnées ne servent qu\'à centrer la carte sur votre propre appareil — elles ne sont jamais envoyées à notre serveur ni enregistrées.';
@@ -1589,7 +1624,7 @@ UI.es.lSvc='Servicios';
 UI.es.lEmail='Correo';
 UI.es.lVerified='Verificado';
 UI.es.lVerifiedTip='Cuándo se verificó esta ficha en concreto — distinto de la fecha "Última verificación" de todo el conjunto de datos, que indica su última revisión completa.';
-UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
+UI.es.favIONote='Los favoritos solo viven en este navegador. Antes de cambiar de dispositivo o borrar sus datos, cópielos como una línea de texto y guárdela — no se descarga ningún archivo, solo texto que puede volver a pegar más tarde.';UI.es.favIONoteEmpty=' ¿Ya tiene un código copiado de otro dispositivo? Péguelo abajo y pulse Importar código para traer esos favoritos aquí.';UI.es.favExport='Copiar código';UI.es.favImport='Importar código';UI.es.favCopied='Copiado al portapapeles';UI.es.favImported='{N} favoritos importados';UI.es.favImportedOne='1 favorito importado';UI.es.favImportedNone='Todos los favoritos de ese código ya estaban guardados';UI.es.favBadCode='No se reconoció ese texto — compruebe que se copió completo';UI.es.favPastePrompt='Pegue el código copiado y pulse Importar código de nuevo';
 UI.es.favAdd='Añadir a favoritos';UI.es.favRemove='Quitar de favoritos';
 UI.es.favAddedMsg='⭐ Añadido a favoritos';UI.es.favRemovedMsg='Quitado de favoritos';UI.es.errorHint='⚠️ Se produjo un error — actualice la página para recuperar.';UI.es.aSkip='Saltar al mapa';UI.es.aNavLang='Idioma de la interfaz';UI.es.aNavHeader='Acciones de página';UI.es.aNavFilters='Barra de filtros del mapa';UI.es.aLandmarksIntro='Filtrar lugares por uso';UI.es.aResultsAnnounce=(v,t)=>`Mostrando ${v} de ${t} lugar${t===1?'':'es'}`;
 UI.es.privacyNote='🔒 Privacidad: esta página no recopila información identificativa como su nombre, correo, teléfono o ubicación precisa, y sus favoritos permanecen en su propio navegador. Para saber qué partes resultan útiles sí envía datos de uso anónimos: qué lugares abre, qué funciones usa, el texto que escribe en el buscador (se eliminan las secuencias de dígitos y se recorta), el dominio del sitio que le trajo hasta aquí (solo el dominio, nunca la dirección completa), en cuál de tres categorías cae su pantalla (teléfono / tableta / computadora — solo esos tres valores, para poder atribuir un problema de diseño a un tamaño de pantalla) y si la página se abrió en un navegador o está instalada en su pantalla de inicio. También usa un identificador aleatorio generado localmente en su navegador; se guarda allí y sigue siendo el mismo en su próxima visita para distinguir las vueltas, sin vincularse a ninguna identidad ni seguirle entre sitios o dispositivos. No se instalan cookies ni se registra su dirección IP en el servidor. Puede inspeccionar cada una de estas solicitudes en el panel Red de las herramientas de desarrollo (/api/event). Al cargar la página, otros dos terceros reciben una solicitud: los servidores de teselas de OpenStreetMap para el mapa base y Cloudflare Web Analytics (static.cloudflareinsights.com: sin cookies, sin seguimiento individual, solo recuentos agregados de visitas). Ambos ven su dirección IP en el proceso; en el caso del mapa, como cualquier mapa web. Sin conexión, todo funciona salvo las imágenes del mapa. Si toca el botón Cerca de mí, su navegador solicitará permiso de ubicación; sus coordenadas se usan solo en su propio dispositivo para centrar el mapa — nunca se envían a nuestro servidor ni se registran.';
@@ -1636,7 +1671,7 @@ UI.ko.lSvc='예배 시간';UI.ja.lSvc='礼拝時間';
 UI.ko.lEmail='이메일';UI.ja.lEmail='メール';
 UI.ko.lVerified='정보 확인일';UI.ja.lVerified='確認日';
 UI.ko.lVerifiedTip='이 항목 자체가 확인된 시점입니다 — 데이터 전체의 "최종 확인일"과는 다른 개념으로, 그 날짜는 전체 데이터를 마지막으로 점검한 시점을 뜻합니다.';UI.ja.lVerifiedTip='これはこの項目自体が確認された日付です。データ全体の「最終確認日」とは別のもので、そちらはデータセット全体を最後に見直した日付を指します。';
-UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ja.favIONote='お気に入りはこのブラウザにのみ保存されます。機種変更やブラウザデータの削除の前に、短いテキストとしてコピーして保管するか、自分宛てに送っておいてください — ファイルをダウンロードするのではなく、後で貼り付けて使えるテキストです。';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ja.favIONoteEmpty=' 他の端末でコピーしたコードをお持ちですか？下に貼り付けて「コードを読み込む」を押すと、そのお気に入りを取り込めます。';UI.ko.favExport='코드 복사';UI.ja.favExport='コードをコピー';UI.ko.favImport='코드 가져오기';UI.ja.favImport='コードを読み込む';UI.ko.favCopied='클립보드에 복사했습니다';UI.ja.favCopied='クリップボードにコピーしました';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ja.favImported='お気に入りを{N}件読み込みました';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ja.favBadCode='このテキストを認識できませんでした — 全体をコピーできているか確認してください';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';UI.ja.favPastePrompt='コピーしたコードを貼り付けてから、もう一度「コードを読み込む」を押してください';
+UI.ko.favIONote='즐겨찾기는 이 브라우저에만 저장됩니다. 기기를 바꾸거나 브라우저 데이터를 지우기 전에 짧은 텍스트로 복사해 보관하세요 — 파일이 다운로드되는 것이 아니라, 나중에 다시 붙여넣을 수 있는 텍스트입니다.';UI.ja.favIONote='お気に入りはこのブラウザにのみ保存されます。機種変更やブラウザデータの削除の前に、短いテキストとしてコピーして保管するか、自分宛てに送っておいてください — ファイルをダウンロードするのではなく、後で貼り付けて使えるテキストです。';UI.ko.favIONoteEmpty=' 다른 기기에서 복사한 코드가 있나요? 아래에 붙여넣고 "코드 가져오기"를 누르면 그 즐겨찾기를 이곳으로 가져올 수 있습니다.';UI.ja.favIONoteEmpty=' 他の端末でコピーしたコードをお持ちですか？下に貼り付けて「コードを読み込む」を押すと、そのお気に入りを取り込めます。';UI.ko.favExport='코드 복사';UI.ja.favExport='コードをコピー';UI.ko.favImport='코드 가져오기';UI.ja.favImport='コードを読み込む';UI.ko.favCopied='클립보드에 복사했습니다';UI.ja.favCopied='クリップボードにコピーしました';UI.ko.favImported='즐겨찾기 {N}개를 가져왔습니다';UI.ko.favImportedOne='즐겨찾기 1개를 가져왔습니다';UI.ko.favImportedNone='이 코드의 즐겨찾기는 이미 모두 저장되어 있습니다';UI.ja.favImported='お気に入りを{N}件読み込みました';UI.ja.favImportedOne='お気に入りを1件読み込みました';UI.ja.favImportedNone='この文字列のお気に入りはすべて登録済みです';UI.ko.favBadCode='인식할 수 없는 텍스트입니다 — 전체를 복사했는지 확인하세요';UI.ja.favBadCode='このテキストを認識できませんでした — 全体をコピーできているか確認してください';UI.ko.favPastePrompt='복사한 텍스트를 붙여넣은 뒤 "코드 가져오기"를 다시 누르세요';UI.ja.favPastePrompt='コピーしたコードを貼り付けてから、もう一度「コードを読み込む」を押してください';
 UI.ko.favAdd='즐겨찾기에 추가';UI.ja.favAdd='お気に入りに追加';UI.ko.favRemove='즐겨찾기에서 제거';UI.ja.favRemove='お気に入りから削除';
 UI.ko.favAddedMsg='⭐ 즐겨찾기에 추가됨';UI.ja.favAddedMsg='⭐ お気に入りに追加しました';UI.ko.favRemovedMsg='즐겨찾기에서 제거됨';UI.ja.favRemovedMsg='お気に入りから削除しました';UI.ko.errorHint='⚠️ 페이지에 오류가 발생했습니다. 새로 고침해 주세요.';UI.ja.errorHint='⚠️ ページでエラーが発生しました。再読み込みしてください。';UI.ko.aSkip='지도로 건너뛰기';UI.ja.aSkip='地図へスキップ';UI.ko.aNavLang='인터페이스 언어';UI.ja.aNavLang='インターフェース言語';UI.ko.aNavHeader='페이지 작업';UI.ja.aNavHeader='ページ操作';UI.ko.aNavFilters='지도 필터 도구 모음';UI.ja.aNavFilters='地図フィルターツールバー';UI.ko.aLandmarksIntro='용도별로 장소 빠르게 걸러보기';UI.ja.aLandmarksIntro='用途で場所を絞り込む';UI.ko.aResultsAnnounce=(v,t)=>`총 ${t}곳 중 ${v}곳 표시`;UI.ja.aResultsAnnounce=(v,t)=>`全${t}件中${v}件を表示`;
 UI.ko.privacyNote='🔒 개인정보: 이 페이지는 이름·이메일·전화번호·정확한 위치 같은 식별 정보를 수집하지 않으며, 즐겨찾기는 사용자의 브라우저에만 저장됩니다. 어떤 기능이 실제로 도움이 되는지 파악하기 위해 익명 사용 데이터는 전송합니다 — 어떤 장소를 열었는지, 어떤 기능을 썼는지, 검색창에 입력한 텍스트(연속된 숫자는 제거하고 길이를 잘라냅니다), 이곳으로 연결해 준 사이트의 도메인(도메인만이며 전체 주소는 아닙니다), 화면이 휴대폰·태블릿·데스크톱 중 어디에 해당하는지(이 세 값뿐이며, 레이아웃 문제를 화면 크기와 연결하기 위한 것입니다), 그리고 이 페이지를 브라우저에서 열었는지 홈 화면에 설치해 열었는지입니다. 또한 브라우저에서 로컬로 생성된 임의 식별자를 사용합니다. 브라우저에 저장되어 다음 방문에도 동일하게 유지되므로 재방문을 구분할 수 있지만, 어떤 신원과도 연결되지 않고 사이트나 기기를 넘나들며 추적하지 않습니다. 쿠키는 사용하지 않으며 서버에 IP 주소를 기록하지 않습니다. 이 요청들은 브라우저 개발자도구 네트워크 패널에서 내용 전체를 확인할 수 있습니다(/api/event). 페이지를 열면 두 곳의 제3자에 요청이 전송됩니다: 지도 배경 이미지를 위한 OpenStreetMap 타일 서버, 그리고 Cloudflare Web Analytics(static.cloudflareinsights.com — 쿠키 없음, 개인 추적 없음, 방문 수 등 집계 지표만). 두 곳 모두 이 과정에서 사용자의 IP를 보게 되며, 지도의 경우 모든 웹 지도와 동일합니다. 오프라인에서도 배경 이미지를 제외한 모든 기능이 작동합니다. "내 주변" 버튼을 누르면 브라우저가 위치 권한을 요청합니다. 좌표는 사용자의 기기에서만 지도를 이동하는 데 사용되며, 서버로 전송되거나 기록되지 않습니다.';UI.ja.privacyNote='🔒 プライバシー: このページは氏名、メールアドレス、電話番号、正確な位置情報などの識別情報を収集せず、お気に入りはご自身のブラウザにのみ保存されます。どの機能が実際に役立っているかを把握するため、匿名の利用データは送信しています — 開いた場所、使った機能、検索ボックスに入力したテキスト（連続する数字は除去・切り詰めた上で、住所そのものではなく検索されている内容が分かるようにしています）、このページへのリンク元サイトのドメイン（ドメインのみで、完全なアドレスは含みません）、画面が3種類のうちどれに当たるか（スマートフォン／タブレット／パソコンの3値のみで、レイアウトの問題を画面サイズと関連付けるためのものです）、そしてこのページをブラウザで開いたのかホーム画面に追加して開いたのかです。また、ブラウザ内でローカルに生成されるランダムな識別子も使用します。これはブラウザに保存され次回訪問時も同じ値のままなので再訪問を区別できますが、いかなる身元とも結び付かず、サイトや端末をまたいで追跡することもありません。Cookieは使用せず、サーバー側でIPアドレスを記録することもありません。これらのリクエストはすべて、ブラウザの開発者ツールのネットワークパネル（/api/event）で内容を確認できます。ページの読み込み時には、他に2つの第三者にもリクエストが送られます: 地図画像用のOpenStreetMapのタイルサーバーと、Cloudflare Web Analytics（static.cloudflareinsights.com — Cookieなし、個人の追跡なし、集計された訪問数のみ）です。どちらもこの過程でIPアドレスを取得しますが、地図についてはどのウェブ地図でも同様です。オフラインでも、地図画像以外はすべて利用できます。「近く」ボタンをタップすると、ブラウザが位置情報の許可を求めます。取得した座標はご自身の端末上で地図を中心に合わせるためだけに使われ、サーバーに送信されたり記録されたりすることはありません。';
@@ -1657,6 +1692,10 @@ UI.ko.busCoverage='{TRANSIT}가 이 도시에서 운행하는 14개 정규 노�
 UI.ko.aSearch='장소 검색';UI.ja.aSearch='場所を検索';
 UI.ko.aClearSearch='검색어 지우기';UI.ja.aClearSearch='検索をクリア';
 UI.ko.aClose='닫기';UI.ja.aClose='閉じる';
+UI.zh.aZoomIn='放大地图';UI.en.aZoomIn='Zoom in';UI.fr.aZoomIn='Zoom avant';UI.es.aZoomIn='Acercar';UI.ko.aZoomIn='지도 확대';UI.ja.aZoomIn='地図を拡大';
+UI.zh.aZoomOut='缩小地图';UI.en.aZoomOut='Zoom out';UI.fr.aZoomOut='Zoom arrière';UI.es.aZoomOut='Alejar';UI.ko.aZoomOut='지도 축소';UI.ja.aZoomOut='地図を縮小';
+UI.zh.aClosePopup='关闭地点卡片';UI.en.aClosePopup='Close place card';UI.fr.aClosePopup='Fermer la fiche du lieu';UI.es.aClosePopup='Cerrar la ficha del lugar';UI.ko.aClosePopup='장소 카드 닫기';UI.ja.aClosePopup='スポットカードを閉じる';
+UI.zh.aMap='地图：{CITY} 的生活服务地点';UI.en.aMap='Map: places and services in {CITY}';UI.fr.aMap='Carte : lieux et services à {CITY}';UI.es.aMap='Mapa: lugares y servicios en {CITY}';UI.ko.aMap='지도: {CITY}의 생활 서비스 장소';UI.ja.aMap='地図：{CITY} の生活サービス施設';
 UI.zh.clusterLabel=n=>`${n} 个地点，点击展开`; UI.zh.metaDesc='{CITY} 生活指南：办医保、SIN（工卡）、驾照、入学、找房、看病——去哪里、带什么、怎么一步步办完，附全市核实过的地点地图。免费、无需注册。';
 UI.en.clusterLabel=n=>`${n} places, click to expand`; UI.en.metaDesc='{CITY} Life Guide: health card, SIN, driver’s licence, school, housing, a doctor — where to go, what to bring, and how to finish it step by step, with a map of verified places across the city. Free, no sign-up.';
 UI.fr.clusterLabel=n=>`${n} lieux, cliquez pour agrandir`; UI.fr.metaDesc='Guide pratique de {CITY} : carte santé, NAS, permis, école, logement, médecin — où aller, quoi apporter, comment y arriver étape par étape, avec une carte des lieux vérifiés de toute la ville. Gratuit, sans inscription.';
@@ -2424,6 +2463,9 @@ const CITY={
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kamloops/home'},
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact:'neilxiang@hotmail.com',
+  // the day the 14 task cards were last read against their official sources
+  // (shown at the foot of every card; validate.py keeps it honest)
+  tasksChecked:'2026-09-08',
   // Bus-stop labels are forced on for interchanges; the pattern is language- and
   // city-specific, so it lives here rather than hard-coded in the renderer.
   keyStop:/exch|station|terminal/i,
@@ -3138,7 +3180,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.11f';
+const DATA_VERSION='2026.09.13a';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3286,6 +3328,12 @@ function renderTaskList(){
   if(ts){
     ts.addEventListener('compositionend',()=>{_taskQ=ts.value;renderTaskBuckets();});
     ts.oninput=e=>{if(e&&e.isComposing)return;_taskQ=ts.value;renderTaskBuckets();};
+    // 2026-09-13: Chromium's native Escape on <input type=search> empties the
+    // box with a 'search' event and no 'input' event, so the list stayed
+    // filtered by a query nobody could see. Escape with text = clear the box
+    // and stop there; the second Escape closes the guide, as before.
+    ts.addEventListener('search',()=>{if(ts.value!==_taskQ){_taskQ=ts.value;renderTaskBuckets();}});
+    ts.addEventListener('keydown',e=>{if(e.key==='Escape'&&ts.value){e.preventDefault();e.stopPropagation();ts.value='';_taskQ='';renderTaskBuckets();}});
   }
   const ad=host.querySelector('#arriveDate');
   if(ad)ad.onchange=()=>{setArrival(ad.value);trackEvent('arrival_set',{set:!!ad.value});renderTaskList();};
@@ -3441,7 +3489,7 @@ function openTask(id,src){
     +'<p class="task-local">'+esc(u.taskLocalOnly)+'</p></div>';
   if(t.src)h+='<p class="task-src"><a href="'+esc(t.src)+'" target="_blank" rel="noopener">'
       +esc(u.taskSource)+': '+esc(t.srcName)+' ↗</a></p>';
-  h+='<p class="task-src task-checked">'+esc(u.taskVerified)
+  h+='<p class="task-src task-checked">'+esc(u.taskVerified.replace('{TD}',CITY.tasksChecked||VERIFIED))
     +' · <a href="'+esc(transFixHref(t))+'">'+esc(u.taskTransFix)+'</a></p>';
   host.innerHTML=h;
   host.scrollIntoView({block:'start'});
@@ -3468,12 +3516,14 @@ function openTask(id,src){
   if(sh)sh.onclick=()=>shareTask(t);
   const pr=host.querySelector('#taskPrint');
   if(pr)pr.onclick=()=>{trackEvent('task_print',{id:id});document.body.classList.add('print-task');window.print();
+    // afterprint is the real end of printing (a preview can stay open far longer
+    // than 1.5 s); the timer remains as the fallback for engines without it
     setTimeout(()=>document.body.classList.remove('print-task'),1500);};
   const cal=host.querySelector('#taskCal');
   if(cal)cal.onclick=()=>{trackEvent('task_calendar',{id:id});if(downloadIcs(t)===false)return;
     const dd=deadlineDate(t);if(dd)showToast(u.calAdded.replace('{D}',fmtDate(dd,L_)));};
   const dls=host.querySelector('#taskDlSet');
-  if(dls)dls.onclick=()=>{renderTaskList();const ad=document.getElementById('arriveDate');if(ad){ad.focus();try{ad.showPicker&&ad.showPicker();}catch(e){}}};
+  if(dls)dls.onclick=()=>{renderTaskList();popSheetState('guideTask');const ad=document.getElementById('arriveDate');if(ad){ad.focus();try{ad.showPicker&&ad.showPicker();}catch(e){}}};
   const mb=host.querySelector('.task-map');
   if(mb)mb.onclick=()=>{
     const m=M.find(x=>x.data.id===mb.dataset.pid);
@@ -3791,7 +3841,9 @@ map.on('popupopen',e=>{
   // without those, so guard with m?.data. Stash the source so popupclose can
   // attribute the close to the same place and produce marker_view/close pairs.
   const m=e.popup&&e.popup._source;
-  _lastPopupSource=(m&&m.data)?m:null;
+  // standalone popups (favourites / guide hand-off for a filtered-out place)
+  // carry their place on the popup itself; pair their close the same way
+  _lastPopupSource=(m&&m.data)?m:(e.popup&&e.popup._kplace?{data:e.popup._kplace,ck:e.popup._kplace.c,gk:e.popup._kplace.g,_standalone:true}:null);
   // Popups were built once at load, so a tab left open across an evening — or
   // an installed PWA — kept saying "● Open now · until 4:30 PM" at 3 a.m. The
   // card is rebuilt at the moment it opens, so the pill and the open-now
@@ -3801,8 +3853,10 @@ map.on('popupopen',e=>{
     if(m&&m.data)e.popup.setContent(popup(m.data,m.i));
     else if(e.popup&&e.popup._kplace)e.popup.setContent(popup(e.popup._kplace,e.popup._kidx||0));
   }catch(err){}
+  try{const cb=e.popup&&e.popup._closeButton;if(cb){cb.title=UI[L_].aClosePopup;cb.setAttribute('aria-label',UI[L_].aClosePopup);}}catch(err){}
   dismissFirstUse('popup');
   if(m&&m.data){_popupOpenedAt=Date.now();trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk});}
+  else if(e.popup&&e.popup._kplace)_popupOpenedAt=Date.now();
   if(offlineEl&&!offlineEl.hidden){offlineEl.hidden=true;offlineEl.dataset.yielded='1';clearTimeout(offlineCompactTimer);}
 });
 map.on('popupclose',()=>{
@@ -3880,7 +3934,7 @@ const geoNoteEl=(function(){
 })();
 function onGeoClick(){
   if(!('geolocation' in navigator)){
-    geoMessage(UI[L_].geoUnsupported);
+    geoMessage(UI[L_].geoUnsupported,'geoUnsupported');
     trackEvent('geo_locate',{result:'unsupported'});
     return;
   }
@@ -3893,6 +3947,7 @@ function onGeoClick(){
 }
 function showGeoExplain(){
   const u=UI[L_];
+  _geoNoteKey='explain';
   document.getElementById('geoNoteText').textContent=u.geoExplainText;
   const ok=document.getElementById('geoNoteOk'),cancel=document.getElementById('geoNoteCancel');
   ok.textContent=u.geoExplainOk;ok.classList.add('primary');ok.hidden=false;
@@ -3903,11 +3958,13 @@ function showGeoExplain(){
     geoNoteEl.hidden=true;
     runGeolocate();
   };
-  cancel.onclick=()=>{geoNoteEl.hidden=true;trackEvent('geo_locate',{result:'explain_declined'});};
+  cancel.onclick=()=>{geoNoteEl.hidden=true;_geoNoteKey=null;trackEvent('geo_locate',{result:'explain_declined'});};
   geoNoteEl.classList.remove('err');
   geoNoteEl.hidden=false;
 }
-function geoMessage(msg){
+let _geoNoteKey=null;   // which note is on screen, so a language switch can redraw it
+function geoMessage(msg,key){
+  _geoNoteKey=key||null;
   const ok=document.getElementById('geoNoteOk'),cancel=document.getElementById('geoNoteCancel');
   document.getElementById('geoNoteText').textContent=msg;
   ok.hidden=true;
@@ -3945,7 +4002,7 @@ function runGeolocate(){
     err=>{
       btn.classList.remove('loading');
       const key=err.code===1?'geoDenied':err.code===2?'geoUnavailable':'geoTimeout';
-      geoMessage(UI[L_][key]);
+      geoMessage(UI[L_][key],key);
       trackEvent('geo_locate',{result:key==='geoDenied'?'denied':key==='geoUnavailable'?'unavailable':'timeout'});
     },
     {enableHighAccuracy:false,timeout:8000,maximumAge:60000}
@@ -4406,7 +4463,10 @@ function focusMarker(m,zoom){
     setTimeout(()=>{show();settle();},1600);
     return;
   }
-  if(zoom)map.setView(m.getLatLng(),zoom);
+  // 2026-09-13: an animated setView followed by a synchronous openPopup let the
+  // popup auto-pan against the pre-animation projection and land clipped above
+  // the map (title, star and close button off-screen). Jump, then open.
+  if(zoom)map.setView(m.getLatLng(),zoom,{animate:false});
   if(markerHome().hasLayer(m)){m.openPopup();return;}
   // The marker is filtered off the map. Tapping a saved place used to close the
   // panel, pan the map and then show nothing at all — a dead end with no
@@ -4524,8 +4584,10 @@ function themeCount(k){
   // on, not against none of them. For a theme that is already on, that is simply
   // its current contribution, so one expression serves both states.
   const want=new Set(aT);want.add(k);
+  // 2026-09-13: "open now" and the search term narrow the map, so they narrow
+  // this number too — the panel promised "what you get if you tick it"
   return P.filter(p=>p.t&&aR.has(p.g)&&(aC.size===0||aC.has(p.c))
-    &&[...want].every(t=>p.t.indexOf(t)>=0)).length;
+    &&[...want].every(t=>p.t.indexOf(t)>=0)&&openNowOk(p)&&(!searchTerm||matchScore(p,searchTerm)>0)).length;
 }
 function renderThemes(){
   const row=document.getElementById('themeRow');
@@ -4585,7 +4647,7 @@ function renderCats(){
       card.classList.toggle('open',open);};
     card.appendChild(label);
     const g=document.createElement('div');g.className='cat-grid';
-    cats.forEach(k=>{const n=P.filter(p=>p.c===k&&aR.has(p.g)&&(aT.size===0||(p.t&&[...aT].every(t=>p.t.indexOf(t)>=0)))).length;
+    cats.forEach(k=>{const n=P.filter(p=>p.c===k&&aR.has(p.g)&&(aT.size===0||(p.t&&[...aT].every(t=>p.t.indexOf(t)>=0)))&&openNowOk(p)&&(!searchTerm||matchScore(p,searchTerm)>0)).length;
       const b=document.createElement('button');b.className='cat-btn'+(aC.has(k)?' active':'')+(n===0?' zero':'');
       b.style.setProperty('--bc',CD[k]);
       if(n===0)b.title=UI[L_].catZeroHint;
@@ -4681,6 +4743,7 @@ function markerPasses(m,sc){
   if(!searchTerm)return true;
   return (sc===undefined?matchScore(m.data,searchTerm):sc)>0;
 }
+let _lastFitKey='';
 function apply(){let v=0;
   // WCAG 2.4.4 / 4.1.3: capture the previous visible count so we can decide
   // whether to re-announce to the polite live region. Re-announcing on every
@@ -4708,9 +4771,23 @@ function apply(){let v=0;
   if(searching){
     st.textContent=u.searchResultsN(v);
     st.dataset.count=st.textContent;st.dataset.region='';
-    if(v>0&&v<=40){map.fitBounds(bounds,{padding:[50,50],maxZoom:16});}
-    if(v===1){const only=M.find(m=>m.score>0);if(only)focusMarker(only,16);}
+    // 2026-09-13: fit (or focus) only when the search/filters actually changed.
+    // The open-now minute tick, a tab coming back and a language switch all
+    // re-run apply(); they used to throw the reader's zoomed-in view back to the
+    // city and re-open a popup they had just closed. One result → focusMarker
+    // alone (it zooms itself); fitBounds and focusMarker together let the popup
+    // open at the old zoom and end up clipped above the map.
+    const fitKey=searchTerm+'|'+[...aR].sort().join(',')+'|'+[...aC].sort().join(',')+'|'+[...aT].sort().join(',')+'|'+(openNow?1:0)+'|'+(selectedRoute||'');
+    if(fitKey!==_lastFitKey){
+      _lastFitKey=fitKey;
+      if(v===1){const only=M.find(m=>m.score>0&&markerHome().hasLayer(m));
+        // jump (no animation) to street level first, then open — the popup then
+        // auto-pans against the projection it will actually be shown in
+        if(only){try{map.setView(only.getLatLng(),Math.max(map.getZoom(),16),{animate:false});}catch(e){}focusMarker(only);}}
+      else if(v>0&&v<=40){map.fitBounds(bounds,{padding:[50,50],maxZoom:16});}
+    }
   }else{
+    _lastFitKey='';   // the next search fits again, even if it is the same term
     // On a short, narrow screen this line has to share a row with Reset, and the
     // count is the half worth keeping — which regions are on is already visible on
     // the Area button. The full sentence stays in the title attribute.
@@ -4848,7 +4925,7 @@ function renderEmptyState(v,searching,filtered){
     if(hit){
       const go=document.createElement('button');go.className='empty-btn empty-guide';
       go.innerHTML='🧭 '+esc(u.emptyGuideHint.replace('{T}',taskText(hit.t)));
-      go.onclick=()=>{trackEvent('guide_open',{src:'search_empty',task:hit.id});openGuide('search_empty',hit.id);};
+      go.onclick=()=>openGuide('search_empty',hit.id);   // openGuide records guide_open itself
       el.appendChild(go);
     }
   }
@@ -5053,9 +5130,11 @@ function setLang(l){
   // Defence in depth: readURLState already filters, but a future caller might not.
   if(!owns(UI,l))l='en';
   // the first call is the page settling on its language, not a reader switching
-  if(L_!==l&&window._langInit)trackEvent('lang_change',{from:L_,to:l});
+  const prevL=L_,changed=L_!==l&&window._langInit;
   window._langInit=true;
   L_=l;const u=UI[l];
+  // recorded after L_ moves so the envelope's language column is the new one
+  if(changed)trackEvent('lang_change',{from:prevL,to:l});
   document.documentElement.lang=({zh:'zh-CN',en:'en-CA',fr:'fr-CA'})[l]||l;
   const title=tpl(u.title,l);
   document.getElementById('h1').textContent=title;
@@ -5193,6 +5272,9 @@ function setLang(l){
     if(tx)tx.textContent=u.geoBtnLabel;
   }
   if(geoMarker&&geoMarker.getTooltip())geoMarker.setTooltipContent(u.geoHereLabel);
+  // the location note (permission denied / explain) keeps its language too
+  try{if(geoNoteEl&&!geoNoteEl.hidden&&_geoNoteKey){
+    if(_geoNoteKey==='explain')showGeoExplain();else geoMessage(u[_geoNoteKey],_geoNoteKey);}}catch(e){}
   updateThemeQuickpicks();
   updateQpFade();
   document.querySelectorAll('.lang-btn').forEach(b=>{
@@ -5201,10 +5283,22 @@ function setLang(l){
     b.setAttribute('aria-pressed',on?'true':'false');
     if(on)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
   M.forEach(m=>m.setPopupContent(popup(m.data,m.i)));
+  // a standalone popup (favourite / guide hand-off for a filtered-out place)
+  // is not bound to a marker; it carries its place and is re-rendered here
+  try{const op=map._popup;if(op&&op._kplace&&map.hasLayer(op))op.setContent(popup(op._kplace,op._kidx||0));}catch(e){}
+  // Leaflet's own controls speak English unless told otherwise
+  try{const u2=UI[l];document.querySelectorAll('.leaflet-control-zoom-in').forEach(b=>{b.title=u2.aZoomIn;b.setAttribute('aria-label',u2.aZoomIn);});
+    document.querySelectorAll('.leaflet-control-zoom-out').forEach(b=>{b.title=u2.aZoomOut;b.setAttribute('aria-label',u2.aZoomOut);});
+    document.querySelectorAll('.leaflet-popup-close-button').forEach(b=>{b.title=u2.aClosePopup;b.setAttribute('aria-label',u2.aClosePopup);});
+    const mapEl=document.getElementById('map');if(mapEl){mapEl.setAttribute('role','region');mapEl.setAttribute('aria-label',tpl(u2.aMap,l));}}catch(e){}
   // cluster bubbles carry a translated aria-label, so they have to be redrawn too
   if(cluster&&cluster.refreshClusters)cluster.refreshClusters();
   updateFavBadge();
   renderRegs();renderCats();renderThemes();apply();
+  // 2026-09-13: the map was created before the header and toolbar had their
+  // text, and longer labels (fr/es) wrap and push it down; Leaflet kept the
+  // pre-text size all session, so every fit centred ~40px low on a phone.
+  requestAnimationFrame(()=>{try{map.invalidateSize(false);}catch(e){}});
 }
 
 document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{setStoredLang(b.dataset.lang);setLang(b.dataset.lang);};});
@@ -5521,7 +5615,11 @@ function computeLabelVisibility(items,forceFn,slots,allowFn){
   // space first — processing in list order used to let an ordinary item take a
   // slot a forced one then drew over.
   const placed=[];
-  const clear=r=>placed.every(t=>rectsClear(r,t));               // never touch another label
+  // 2026-09-13: a label straddling the map's edge is clipped to a fragment
+  // ("…t Park"); a slot that does not fit inside the container is no slot
+  let W=Infinity,H=Infinity;try{const sz=map.getSize();W=sz.x;H=sz.y;}catch(e){}
+  const inside=r=>r.l>=0&&r.t>=0&&r.r<=W&&r.b<=H;
+  const clear=r=>inside(r)&&placed.every(t=>rectsClear(r,t));    // never touch another label, never hang off the edge
   // A loop bus route can pass the same exchange bay twice, so two forced labels
   // carry the identical name and land on top of each other. The second one adds
   // nothing a reader can use, so it is dropped rather than smudged over the first.
@@ -5761,14 +5859,16 @@ function wireFavIO(){
     if(!box.value.trim()){box.focus();favMsg(u.favPastePrompt);return;}
     const ids=parseFavCode(box.value);
     if(ids===null){trackEvent('fav_import',{ok:false,reason:'bad_code'});favMsg(u.favBadCode);return;}
-    trackEvent('fav_import',{ok:true,n:ids.length});
+    // count what is new to this browser, not what the code contained
+    const fresh=ids.filter(id=>!favorites.has(id));
+    trackEvent('fav_import',{ok:true,n:fresh.length});
     ids.forEach(id=>favorites.add(id));
     saveFavorites();
     const added=new Set(ids);
     updateFavBadge();
     M.forEach(m=>{if(added.has(m.data.id))m.setPopupContent(popup(m.data,m.i));});
     renderFavList();
-    favMsg(u.favImported.replace('{N}',ids.length));
+    favMsg(fresh.length===0?u.favImportedNone:(fresh.length===1?u.favImportedOne:u.favImported.replace('{N}',fresh.length)));
   };
 }
 function resetFavIO(){
@@ -6000,6 +6100,7 @@ const searchInputEl=document.getElementById('searchInput'),searchClearEl=documen
 // while you were still typing. preSearchView remembers where you were so that
 // clearing the search puts the map back instead of stranding you at the last hit.
 let searchTimer=null,preSearchView=null,searchRaw='';
+let _lastCountedTerm='';
 function runSearch(){
   const wasSearching=!!searchTerm;
   const raw=searchInputEl.value.trim().toLowerCase();
@@ -6011,6 +6112,8 @@ function runSearch(){
   if(searchTerm&&!wasSearching)preSearchView={c:map.getCenter(),z:map.getZoom()};
   if(!searchTerm&&preSearchView){map.setView(preSearchView.c,preSearchView.z);preSearchView=null;}
   apply();
+  // panel counts follow the search term (see renderCats / themeCount)
+  if(searchTerm!==_lastCountedTerm){_lastCountedTerm=searchTerm;renderCats();renderThemes();}
   scheduleSearchLog();
 }
 // Logging waits for typing to stop, and never logs the same settled query twice
@@ -6124,11 +6227,16 @@ window.addEventListener('popstate',e=>{
   const id=(e.state&&e.state[_SHEET_KEY])||null;
   // Back from an open card returns to the list
   if(id==='guideBackdrop'&&guideBackdropEl.classList.contains('open')&&_taskOpen){renderTaskList();return;}
+  const wasOpen=[guideBackdropEl,noteBackdropEl,shareBackdropEl].some(b=>b&&b.classList.contains('open'))||panel.classList.contains('open');
   [guideBackdropEl,noteBackdropEl,shareBackdropEl].forEach(b=>{
     if(b&&b.classList.contains('open')&&id!==b.id)closeModal(b,true);
   });
   if(panel.classList.contains('open')&&id!=='panel')closePanel(true);
   writeURLState();
+  // 2026-09-13: a reload with a card open leaves the older sheet entries in
+  // history. Landing on one of them with nothing open is a dead Back press;
+  // step over it so the next press does what the reader meant.
+  if(id&&!wasOpen){_popSelf=true;clearTimeout(_popSelfTimer);_popSelfTimer=setTimeout(()=>{_popSelf=false;},600);history.go(-1);}
 });
 // 2026-09-11: "open now" and the deadline countdown were computed only on
 // interaction — a tab left open overnight kept last night's answer. They are
@@ -6148,11 +6256,22 @@ if(IN_APP_BROWSER)document.addEventListener('click',e=>{
   const a=e.target&&e.target.closest?e.target.closest('a[href^="mailto:"]'):null;
   if(!a)return;
   e.preventDefault();
-  const addr=decodeURIComponent(a.getAttribute('href').slice(7).split('?')[0]);
+  const href=a.getAttribute('href');
+  const addr=decodeURIComponent(href.slice(7).split('?')[0]);
   const u=UI[L_];
-  showToast((copyText(addr)?u.copiedEmail:u.copiedEmail).replace('{E}',addr),{ms:4500});
-  trackEvent('mailto_fallback',{});
+  // 2026-09-13: the share sheet's ✉️ is "mailto:?subject=…&body=<link>" — no
+  // address. Copying "" and announcing it was the bug; copy the link instead.
+  if(!addr){
+    let body='';try{body=decodeURIComponent((new URLSearchParams(href.split('?')[1]||'')).get('body')||'');}catch(err){}
+    const link=body||location.href;
+    showToast(copyText(link)?u.linkCopied:u.copyFailedLink.replace('{L}',link),{ms:4500});
+    trackEvent('mailto_fallback',{kind:'share'});
+    return;
+  }
+  showToast((copyText(addr)?u.copiedEmail:u.copyFailedEmail).replace('{E}',addr),{ms:6000});
+  trackEvent('mailto_fallback',{kind:'contact'});
 });
+window.addEventListener('afterprint',()=>document.body.classList.remove('print-task'));
 const _sessionStartedAt=Date.now();let _lastEndSent=0;
 document.addEventListener('visibilitychange',()=>{
   if(document.visibilityState==='hidden'){
@@ -6163,7 +6282,9 @@ document.addEventListener('visibilitychange',()=>{
   }
   if(document.visibilityState!=='visible')return;
   try{if(openNow)apply();updateGuideProgress();applyQuickPickOrder(true);
-    if(guideBackdropEl.classList.contains('open')&&!_taskOpen)renderTaskList();}catch(e){}
+    // only the list below the search box is refreshed — replacing the box
+    // itself would close the keyboard on a phone mid-typing
+    if(guideBackdropEl.classList.contains('open')&&!_taskOpen)renderTaskBuckets();}catch(e){}
 });
 setInterval(()=>{try{if(openNow&&document.visibilityState==='visible')apply();}catch(e){}},60000);
 // A reload with a sheet open leaves its marker in history.state; treat the
@@ -6206,6 +6327,9 @@ function openModal(back){
   back.classList.add('open');
   back.setAttribute('role','dialog');
   back.setAttribute('aria-modal','true');
+  // name the dialog by its own title so a screen reader says what opened
+  const ttl=back.querySelector('.panel-title');
+  if(ttl&&ttl.id)back.setAttribute('aria-labelledby',ttl.id);
   lockBodyScroll();
   pushSheetState(back.id);
   const first=back.querySelector('.panel-close');
@@ -6244,16 +6368,18 @@ const _FU_KEY='kamloopsFirstUseSeen';
 // The card goes away on the first thing the reader does — a search, a filter,
 // a route, an opened place — as well as on its own ✕. It sat on top of place
 // popups otherwise, hiding the name and the star of the very place just tapped.
+let _fuDismissed=false;
 function dismissFirstUse(src){
   const el=document.getElementById('firstUse');
   if(!el||el.hidden)return;
+  _fuDismissed=true;   // storage may be blocked (private mode); remember in memory for this sitting
   try{localStorage.setItem(_FU_KEY,'1');}catch(e){}
   el.hidden=true;
   if(src&&src!=='card')trackEvent('firstuse_dismiss',{via:src});
 }
 function renderFirstUse(){
   const el=document.getElementById('firstUse');if(!el)return;
-  let seen=false;try{seen=!!localStorage.getItem(_FU_KEY);}catch(e){}
+  let seen=_fuDismissed;try{seen=seen||!!localStorage.getItem(_FU_KEY);}catch(e){}
   // On a very short screen the card would push the map — the thing that shows
   // what this page is — below the fold. There it is simply not shown (and not
   // marked seen, so a later visit on a taller screen still gets it once).
@@ -6283,8 +6409,9 @@ function renderFirstUse(){
 // Arrival date: asked once, kept in this browser only, never sent. It turns
 // "90 days" into an actual date, and lets the list be sorted by what is due.
 const _ARRIVE_KEY='kamloopsArrived';
-function arrivalDate(){try{const v=localStorage.getItem(_ARRIVE_KEY);return v&&/^\d{4}-\d{2}-\d{2}$/.test(v)?v:null;}catch(e){return null;}}
-function setArrival(v){try{if(v)localStorage.setItem(_ARRIVE_KEY,v);else localStorage.removeItem(_ARRIVE_KEY);}catch(e){}updateGuideProgress();}
+let _arriveMem=null;   // storage may be blocked (private mode): the date still works for this sitting
+function arrivalDate(){try{const v=localStorage.getItem(_ARRIVE_KEY);if(v&&/^\d{4}-\d{2}-\d{2}$/.test(v))return v;}catch(e){}return _arriveMem;}
+function setArrival(v){_arriveMem=(v&&/^\d{4}-\d{2}-\d{2}$/.test(v))?v:null;try{if(v)localStorage.setItem(_ARRIVE_KEY,v);else localStorage.removeItem(_ARRIVE_KEY);}catch(e){}updateGuideProgress();}
 // The landing-screen strip: "3 of 14 done · licence by 30 Nov (51 days)".
 // Shown only once there is something of the reader's own to show.
 function updateGuideProgress(){
@@ -6317,7 +6444,9 @@ function deadlineDate(t){
 function fmtDate(d,l){
   try{return new Intl.DateTimeFormat({zh:'zh-CN',en:'en-CA',fr:'fr-CA',es:'es',ko:'ko',ja:'ja'}[l]||l,{year:'numeric',month:'long',day:'numeric'}).format(d);}catch(e){return d.toISOString().slice(0,10);}
 }
-function daysLeft(d){return Math.ceil((d-new Date())/86400000);}
+// 2026-09-13: whole calendar days between today and the deadline — Math.ceil
+// against the deadline's noon said "91 days" all morning and "90" all afternoon
+function daysLeft(d){const n=new Date();const a=Date.UTC(n.getFullYear(),n.getMonth(),n.getDate()),b=Date.UTC(d.getFullYear(),d.getMonth(),d.getDate());return Math.round((b-a)/86400000);}
 function downloadIcs(t){
   const d=deadlineDate(t);if(!d)return;
   if(IN_APP_BROWSER){showToast(UI[L_].icsInApp,{ms:4500});return false;}
@@ -6367,8 +6496,11 @@ let _guideOpenedAt=0;
 // what the popup door needs: the reader is standing at Service Canada asking
 // what to do there, not browsing.
 function openGuide(src,task){
-  _guideOpenedAt=Date.now();
-  trackEvent('guide_open',{src:src||'header',task:task||undefined});
+  // one open, one event: a double tap on the button opens the sheet once
+  if(!guideBackdropEl.classList.contains('open')){
+    _guideOpenedAt=Date.now();
+    trackEvent('guide_open',{src:src||'header',task:task||undefined});
+  }
   openModal(guideBackdropEl);
   if(task){openTask(task,src||'guide');}else if(_taskOpen){renderTaskList();}
 }
@@ -6376,7 +6508,7 @@ document.getElementById('guideToggle').onclick=()=>openGuide('header');
 document.getElementById('qpOpen').onclick=()=>{
   openNow=!openNow;
   trackEvent('open_now_toggle',{action:openNow?'on':'off'});
-  updateOpenQuickpick();apply();
+  updateOpenQuickpick();renderCats();renderThemes();apply();
 };
 document.getElementById('map').addEventListener('click',e=>{
   const go=e.target.closest&&e.target.closest('.pv-task-go');
@@ -6430,6 +6562,9 @@ function readURLState(){
   if(qq)out.q=qq;
   const rt=q.get('route');
   if(owns(BR,rt))out.route=rt;
+  // 2026-09-13: "open now" is a filter like the others; a shared or reloaded
+  // link keeps it (it is re-evaluated against the clock on arrival, of course)
+  if(q.get('o')==='1')out.open=true;
   // ?task=msp opens that card. It says *which* card, never whether it was
   // ticked — that stays in localStorage and never enters a link.
   const tk=q.get('task');
@@ -6447,6 +6582,10 @@ function writeURLState(){
     if(aT.size)q.set('t',[...aT].join(','));
     if(searchTerm)q.set('q',searchInputEl.value.trim());
     if(selectedRoute)q.set('route',selectedRoute);
+    if(openNow)q.set('o','1');
+    // ?debug=1 is the maintainer's own flag; dropping it on the first rewrite
+    // meant a reload silently turned the debug panel and env:'dev' tagging off
+    if(_IS_DEBUG)q.set('debug','1');
     // replaceState, not pushState: filtering is not navigation and should not
     // fill the back button with dozens of intermediate states
     history.replaceState(history.state||null,'',location.pathname+'?'+q.toString()+location.hash);
@@ -6524,6 +6663,9 @@ function detectLang(){
     if(st.regions){aR=new Set(st.regions);}
     if(st.cats){aC=new Set(st.cats);}
     if(st.themes){aT=new Set(st.themes);}
+    if(st.open){openNow=true;}
+    // a link whose categories equal a Quick Pick exactly lights that chip again
+    if(st.cats){Object.keys(PRESETS).forEach(k=>{if(setEq(aC,PRESETS[k]))selPresets.add(k);});}
     if(st.q){searchInputEl.value=st.q;searchRaw=st.q.toLowerCase();
       if(st.q.length>=MIN_QUERY)searchTerm=st.q.toLowerCase();
       searchClearEl.hidden=false;}

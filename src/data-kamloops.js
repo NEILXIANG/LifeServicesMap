@@ -26,6 +26,9 @@ const CITY={
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kamloops/home'},
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact:'neilxiang@hotmail.com',
+  // the day the 14 task cards were last read against their official sources
+  // (shown at the foot of every card; validate.py keeps it honest)
+  tasksChecked:'2026-09-08',
   // Bus-stop labels are forced on for interchanges; the pattern is language- and
   // city-specific, so it lives here rather than hard-coded in the renderer.
   keyStop:/exch|station|terminal/i,
