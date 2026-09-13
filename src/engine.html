@@ -66,6 +66,28 @@
      vertical space on the page. */
   .sub{margin:3px 0 0;font-size:13px;line-height:1.4;color:var(--sub-ink);max-width:760px;text-wrap:balance;}
   .lang-sw{position:absolute;top:24px;right:20px;display:flex;gap:2px;background:#e9e9eb;border-radius:9px;padding:2px;}
+  .lang-menu{display:flex;gap:2px;}
+  /* the line-icon set (item 15): sized to the text it sits beside */
+  .ic{width:1.15em;height:1.15em;vertical-align:-.22em;flex:0 0 auto;display:inline-block;}
+  .hl-ic .ic{width:15px;height:15px;vertical-align:-3px;}
+  .fbicon .ic{width:15px;height:15px;vertical-align:-3px;}
+  .sec-label .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2px;color:var(--accent-text);}
+  .preset-chip .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2.5px;}
+  .theme-btn .ic,.pv-themes .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .pact-btn .ic{width:13px;height:13px;}
+  .search-ic .ic{width:16px;height:16px;color:var(--sub-ink);display:block;}
+  .task-ic .ic{width:22px;height:22px;color:var(--accent-text);}
+  .task-ic-lg .ic{width:26px;height:26px;color:var(--accent-text);vertical-align:-5px;}
+  .ss-ic .ic{width:18px;height:18px;color:var(--accent-text);}
+  .hl-lead .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .theme-btn .icon .ic{width:13px;height:13px;display:block;}
+  .panel-title .ic,.fhint .ic{width:14px;height:14px;vertical-align:-2px;margin-right:4px;}
+  .pv-near .ic{width:13px;height:13px;vertical-align:-2px;margin-right:2px;}
+  .empty-btn .ic{width:15px;height:15px;vertical-align:-3px;margin-right:4px;}
+  .lang-menu-btn{display:none;align-items:center;gap:5px;padding:6px 10px;border-radius:9px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:600;color:var(--ink);cursor:pointer;min-height:36px;white-space:nowrap;}
+  @media(pointer:coarse){.lang-menu-btn{min-height:44px;min-width:44px;}}
+  .lang-menu-btn .lm-ch{font-size:10px;color:var(--sub-ink);}
+  .lang-menu-btn .lm-ic{font-size:13px;}
   .lang-btn{padding:5px 12px;border-radius:7px;border:none;background:transparent;font-size:12px;cursor:pointer;font-weight:590;color:#48484a;white-space:nowrap;transition:all .15s cubic-bezier(.4,0,.2,1);}
   .lang-btn.active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04);}
   .header-links{position:absolute;top:60px;right:20px;display:flex;align-items:center;gap:14px;}
@@ -256,6 +278,11 @@
   /* Same pill, read-only, inside a place popup — this is where most people will
      first learn the axis exists, so it has to look like the filter it maps to. */
   .pv-themes{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px;}
+  .pv-near{display:flex;flex-direction:column;gap:3px;margin:7px 0 2px;font-size:12px;line-height:1.5;color:var(--ink);}
+  .pv-near .pv-dist{color:var(--accent-text);font-weight:600;}
+  .pv-route{display:inline-block;min-width:24px;padding:1px 6px;border-radius:999px;border:1.5px solid var(--rc);color:var(--rc);background:var(--card);font:inherit;font-size:11.5px;font-weight:700;line-height:1.3;cursor:pointer;vertical-align:baseline;}
+  .pv-route:hover{background:var(--rc);color:#fff;}
+  @media(pointer:coarse){.pv-route{min-height:32px;min-width:32px;padding:4px 8px;}}
   /* 2026-09-10 — the guide reaches the map ("where do I go" → pin) but the
      map never reached the guide. A reader who opens Service Canada's popup
      sees an address and hours and nothing about the thing they came to do
@@ -371,6 +398,20 @@
      empty box and nothing to clear. Same trap as #noteToggle's. */
   .search-clear[hidden]{display:none;}
   @media(max-width:600px){.search-bar{margin:10px 10px 0;max-width:none;}}
+  .search-suggest{margin:6px 20px 0;max-width:420px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);padding:4px;display:flex;flex-direction:column;position:relative;z-index:900;}
+  .search-suggest[hidden]{display:none;}
+  .search-suggest .ss-h{font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--sub-ink);padding:6px 10px 2px;font-weight:600;}
+  .search-suggest button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;border-radius:8px;padding:9px 10px;font:inherit;font-size:13px;color:var(--ink);cursor:pointer;min-height:40px;}
+  .search-suggest button:hover,.search-suggest button:focus-visible{background:var(--paper);outline:none;}
+  .search-suggest .ss-ic{flex:0 0 auto;width:22px;text-align:center;}
+  .search-suggest .ss-k{margin-left:auto;font-size:10.5px;color:var(--sub-ink);white-space:nowrap;}
+  @media(max-width:600px){.search-suggest{margin:6px 10px 0;max-width:none;}}
+  /* the first-use card is one line now that the search box carries the doors */
+  .firstuse.slim{padding:8px 44px 8px 12px;}
+  .firstuse.slim .fu-safe{display:block;margin:0;font-size:12px;line-height:1.4;}
+  .firstuse.flyer .fu-h{margin-bottom:6px;}
+  .firstuse.flyer .fu-rows{display:flex;flex-wrap:wrap;gap:6px;}
+  .firstuse.flyer .fu-row span{display:none;}
   .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#8a5a00;}  /* 2026-09-13: was #f2a900 (2.0:1); the empty ☆ is text and needs 4.5:1 */
   .fav-star.active{color:#a66300;}
   .fav-star:hover{transform:scale(1.15);}
@@ -756,6 +797,12 @@
   .task-steps{margin:0;padding-left:19px;}
   .task-steps li{margin:0 0 6px;}
   .task-steps li:last-child{margin-bottom:0;}
+  .task-step label{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+  .task-step input{flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);}
+  .task-step.on span{color:var(--sub-ink);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--sub-ink) 50%,transparent);}
+  .task-due{font-size:10.5px;font-weight:600;color:var(--sub-ink);background:var(--paper);border-radius:999px;padding:2px 7px;}
+  .task-stepc{font-size:10.5px;font-weight:600;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 10%,var(--card));border-radius:999px;padding:2px 7px;}
+  @media print{ .task-step.on span{text-decoration:none;color:inherit;} }
   .task-place{font-size:12.5px;line-height:1.6;}
   .task-hrs{color:var(--sub-ink);font-size:11.5px;}
   .task-map{margin-top:7px;background:var(--accent);color:#fff;border:none;border-radius:16px;
@@ -838,7 +885,12 @@
   @media(max-width:600px){
     h1,.sub{padding-right:0;}
     .sub{font-size:12px;flex:1 1 100%;order:4;margin:0;}
-    .lang-sw{position:static;display:inline-flex;margin:0;}
+    .lang-sw{position:relative;display:inline-flex;margin:0;background:none;padding:0;}
+    .lang-menu-btn{display:inline-flex;}
+    .lang-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:1100;flex-direction:column;gap:2px;min-width:150px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);}
+    .lang-sw.open .lang-menu{display:flex;}
+    .lang-menu .lang-btn{text-align:left;padding:9px 12px;border-radius:8px;font-size:13.5px;}
+    .lang-menu .lang-btn.active{background:color-mix(in srgb,var(--accent) 12%,var(--card));color:var(--accent-text);box-shadow:none;}
     /* wrap, not clip — a 4th link (Share) here should never be able to run off
        the edge of a narrow phone the way a fixed nowrap row could. */
     .header-links{position:static;display:inline-flex;flex-wrap:wrap;margin:0 0 0 auto;gap:8px 12px;justify-content:flex-end;}
@@ -942,6 +994,7 @@
       .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
       .cat-btn,.note-toggle,.cat-util-btn,.af-chip{min-height:36px;}
       .lang-btn{min-width:36px;}
+      .lang-menu-btn{min-height:36px;min-width:36px;}
       .panel-close,.offline-x,.fav-star{min-width:40px;min-height:40px;}
       .footer-note-btn{min-height:36px;min-width:36px;}
       .search-clear{min-width:36px;min-height:36px;}
@@ -997,12 +1050,18 @@
 <a href="#map" class="skip-link" id="skipLink"></a>
 <header role="banner">
   <div class="lang-sw" role="group" id="langSw" aria-label="">
+    <!-- 2026-09-13 (item 13): on a phone the six buttons fold into one menu
+         button that names the current language; the list opens below it with
+         the current language first and the phone's own language next. -->
+    <button class="lang-menu-btn" id="langMenuBtn" type="button" aria-haspopup="true" aria-expanded="false"><span class="lm-ic" aria-hidden="true">🌐</span><span id="langMenuCur">EN</span><span class="lm-ch" aria-hidden="true">▾</span></button>
+    <div class="lang-menu" id="langMenu">
     <button class="lang-btn active" data-lang="en" lang="en" aria-label="English" title="English">EN</button>
     <button class="lang-btn" data-lang="fr" lang="fr" aria-label="Français" title="Français">FR</button>
     <button class="lang-btn" data-lang="es" lang="es" aria-label="Español" title="Español">ES</button>
     <button class="lang-btn" data-lang="zh" lang="zh-CN" aria-label="中文" title="中文">中文</button>
     <button class="lang-btn" data-lang="ko" lang="ko" aria-label="한국어" title="한국어">한국어</button>
     <button class="lang-btn" data-lang="ja" lang="ja" aria-label="日本語" title="日本語">日本語</button>
+    </div>
   </div>
   <div class="header-links" role="group" id="headerLinksGroup" aria-label="">
     <button class="note-toggle" id="shareBtn"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
@@ -1043,10 +1102,14 @@
   </div>
 </div>
 <div class="search-bar">
-  <span class="search-ic" aria-hidden="true">🔍</span>
+  <span class="search-ic" aria-hidden="true" data-ic="search">🔍</span>
   <input type="search" id="searchInput" autocomplete="off">
   <button class="search-clear" id="searchClear" hidden>✕</button>
 </div>
+<!-- 2026-09-13: the search box leads first use — with nothing typed, a tap
+     shows four things people actually ask, two of them cards and two of
+     them map questions. Hidden once there is text, on Escape, or on blur. -->
+<div class="search-suggest" id="searchSuggest" hidden></div>
 <div class="search-note" id="searchNote" role="status" aria-live="polite"></div>
 <!-- WCAG 2.4.4 / 4.1.3: visually-hidden polite live region for screen readers.
      sr-only keeps it accessible but invisible; aria-live=polite queues updates
@@ -1054,19 +1117,19 @@
 <div id="a11yAnnounce" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 <div class="ftoolbar" role="toolbar" id="ftoolbar" aria-label="">
   <button class="filter-btn" id="areaBtn" aria-haspopup="dialog">
-    <span class="fbicon">📍</span><span id="areaBtnLabel"></span><span class="badge" id="areaBadge" hidden></span>
+    <span class="fbicon" data-ic="pin">📍</span><span id="areaBtnLabel"></span><span class="badge" id="areaBadge" hidden></span>
     <span class="chev">▾</span>
   </button>
   <button class="filter-btn" id="catBtn" aria-haspopup="dialog">
-    <span class="fbicon">🏷️</span><span id="catBtnLabel"></span><span class="badge" id="catBadge" hidden></span>
+    <span class="fbicon" data-ic="tag">🏷️</span><span id="catBtnLabel"></span><span class="badge" id="catBadge" hidden></span>
     <span class="chev">▾</span>
   </button>
   <button class="filter-btn" id="busBtn" aria-haspopup="dialog">
-    <span class="fbicon">🚌</span><span id="busBtnLabel"></span>
+    <span class="fbicon" data-ic="bus">🚌</span><span id="busBtnLabel"></span>
     <span class="chev">▾</span>
   </button>
   <button class="filter-btn" id="favBtn" aria-haspopup="dialog">
-    <span class="fbicon">⭐</span><span id="favBtnLabel"></span><span class="badge" id="favBadge" hidden></span>
+    <span class="fbicon" data-ic="star">⭐</span><span id="favBtnLabel"></span><span class="badge" id="favBadge" hidden></span>
     <span class="chev">▾</span>
   </button>
   <div class="status" id="statusText" title=""></div>
@@ -1096,6 +1159,7 @@
     <button class="preset-chip" id="qpFamily" type="button"></button>
     <button class="preset-chip" id="qpIndoor" type="button"></button>
     <button class="preset-chip" id="qpOpen" type="button" aria-pressed="false"></button>
+    <button class="preset-chip" id="qpNear" type="button" aria-pressed="false" hidden></button>
     <!-- 2026-09-11: the row used to hold fourteen chips; a 390px phone shows three,
          and nothing past the sixth was ever reached. The seven category sets
          (kids/edu/health/…) now live at the top of the Category sheet, which this
@@ -1281,6 +1345,23 @@ UI.zh.taskProblem='需要帮助的时候';UI.en.taskProblem='When you need help'
 // 2026-09-08 (multidisciplinary pass). Labels for: marking a task done,
 // deadline salience, the "did this work?" loop, the sentence you can read
 // aloud at a counter, and who is allowed to see your information.
+// item 7: relative timing on each card, and the landing strip's "this week"
+UI.zh.dueWeek1='第 1 周';UI.en.dueWeek1='Week 1';UI.fr.dueWeek1='Semaine 1';UI.es.dueWeek1='Semana 1';UI.ko.dueWeek1='첫 주';UI.ja.dueWeek1='最初の 1 週間';
+UI.zh.dueMonth3='90 天内';UI.en.dueMonth3='Within 90 days';UI.fr.dueMonth3='Dans les 90 jours';UI.es.dueMonth3='En 90 días';UI.ko.dueMonth3='90일 이내';UI.ja.dueMonth3='90 日以内';
+UI.zh.dueSeason='每年 4 月 30 日前';UI.en.dueSeason='By April 30 each year';UI.fr.dueSeason='Avant le 30 avril';UI.es.dueSeason='Antes del 30 de abril';UI.ko.dueSeason='매년 4월 30일까지';UI.ja.dueSeason='毎年 4 月 30 日まで';
+UI.zh.dueAny='随时';UI.en.dueAny='Any time';UI.fr.dueAny='À tout moment';UI.es.dueAny='Cuando quieras';UI.ko.dueAny='언제든지';UI.ja.dueAny='いつでも';
+UI.zh.dueNeed='用到时';UI.en.dueNeed='When needed';UI.fr.dueNeed='Au besoin';UI.es.dueNeed='Cuando haga falta';UI.ko.dueNeed='필요할 때';UI.ja.dueNeed='必要なとき';
+UI.zh.gpThisWeek='本周该做';UI.en.gpThisWeek='This week';UI.fr.gpThisWeek='Cette semaine';UI.es.gpThisWeek='Esta semana';UI.ko.gpThisWeek='이번 주 할 일';UI.ja.gpThisWeek='今週やること';
+// item 4: steps are ticked one by one
+UI.zh.stepProgress=(n,t)=>`步骤 ${n}/${t}`;UI.en.stepProgress=(n,t)=>`${n}/${t} steps`;UI.fr.stepProgress=(n,t)=>`${n}/${t} étapes`;UI.es.stepProgress=(n,t)=>`${n}/${t} pasos`;UI.ko.stepProgress=(n,t)=>`단계 ${n}/${t}`;UI.ja.stepProgress=(n,t)=>`手順 ${n}/${t}`;
+UI.zh.stepsAllDone='全部步骤已完成——这张卡已标为办好';UI.en.stepsAllDone='Every step ticked — this card is now marked done';UI.fr.stepsAllDone='Toutes les étapes cochées — la fiche est marquée faite';UI.es.stepsAllDone='Todos los pasos marcados — la ficha queda hecha';UI.ko.stepsAllDone='모든 단계 완료 — 이 카드는 완료로 표시됩니다';UI.ja.stepsAllDone='すべての手順が完了 — このカードは完了になりました';
+// item 10A / 11: nearest stop, distance from the reader, "within a 15-minute walk"
+UI.zh.pvNearStop='最近公交站';UI.en.pvNearStop='Nearest bus stop';UI.fr.pvNearStop='Arrêt de bus le plus proche';UI.es.pvNearStop='Parada de autobús más cercana';UI.ko.pvNearStop='가장 가까운 버스 정류장';UI.ja.pvNearStop='最寄りのバス停';
+UI.zh.pvRoutes='线路';UI.en.pvRoutes='routes';UI.fr.pvRoutes='lignes';UI.es.pvRoutes='líneas';UI.ko.pvRoutes='노선';UI.ja.pvRoutes='路線';
+UI.zh.pvFromYou='距你';UI.en.pvFromYou='from you';UI.fr.pvFromYou='de vous';UI.es.pvFromYou='de ti';UI.ko.pvFromYou='내 위치에서';UI.ja.pvFromYou='現在地から';
+UI.zh.walkMin=(n)=>`步行约 ${n} 分钟`;UI.en.walkMin=(n)=>`about ${n} min on foot`;UI.fr.walkMin=(n)=>`environ ${n} min à pied`;UI.es.walkMin=(n)=>`unos ${n} min a pie`;UI.ko.walkMin=(n)=>`도보 약 ${n}분`;UI.ja.walkMin=(n)=>`徒歩約 ${n} 分`;
+UI.zh.nearLabel='步行 15 分钟内';UI.en.nearLabel='15-min walk';UI.fr.nearLabel='À 15 min à pied';UI.es.nearLabel='A 15 min a pie';UI.ko.nearLabel='도보 15분 이내';UI.ja.nearLabel='徒歩 15 分以内';
+UI.zh.nearNeedsLocation='先点地图右下角的"附近"，让页面知道你在哪';UI.en.nearNeedsLocation='Tap "Near me" at the bottom right of the map first, so the page knows where you are';UI.fr.nearNeedsLocation='Touchez d’abord « Près de moi » en bas à droite de la carte';UI.es.nearNeedsLocation='Primero toca «Cerca de mí» abajo a la derecha del mapa';UI.ko.nearNeedsLocation='먼저 지도 오른쪽 아래의 "내 주변"을 누르세요';UI.ja.nearNeedsLocation='先に地図右下の「近く」をタップしてください';
 UI.zh.taskProgress=(d,t)=>`已完成 ${d} / ${t}`;UI.en.taskProgress=(d,t)=>`${d} of ${t} done`;UI.fr.taskProgress=(d,t)=>`${d} sur ${t} faites`;UI.es.taskProgress=(d,t)=>`${d} de ${t} hechas`;UI.ko.taskProgress=(d,t)=>`${t}건 중 ${d}건 완료`;UI.ja.taskProgress=(d,t)=>`${t}件中 ${d}件 完了`;
 UI.zh.taskMarkDone='标记为已办好';UI.en.taskMarkDone='Mark this done';UI.fr.taskMarkDone='Marquer comme fait';UI.es.taskMarkDone='Marcar como hecho';UI.ko.taskMarkDone='완료로 표시';UI.ja.taskMarkDone='完了にする';
 UI.zh.taskUndone='已办好 · 点一下取消';UI.en.taskUndone='Done · tap to undo';UI.fr.taskUndone='Fait · touchez pour annuler';UI.es.taskUndone='Hecho · toque para deshacer';UI.ko.taskUndone='완료 · 눌러서 취소';UI.ja.taskUndone='完了 · タップで取り消し';
@@ -1446,6 +1527,16 @@ UI.ko.shareBtnLabel='🔗 공유';UI.ja.shareBtnLabel='🔗 共有'; UI.ko.share
 UI.ko.favBtnLabel='즐겨찾기';UI.ja.favBtnLabel='お気に入り';
 UI.ko.noFavorites='아직 즐겨찾기한 장소가 없습니다 — 장소 팝업의 ☆를 눌러 저장하세요';UI.ja.noFavorites='お気に入りはまだありません — 場所のポップアップにある☆をタップして保存してください';
 UI.ko.searchPlaceholder='장소 검색, 또는 질문: 의료카드는 어떻게?';UI.ja.searchPlaceholder='場所を検索、または質問：医療カードは？';
+// three real questions the box rotates through while it is empty (item 1)
+UI.zh.searchPhRot=['怎么办医保卡？','哪路公交到 TRU？','附近哪家药房现在开着？'];UI.en.searchPhRot=['How do I get a health card?','Which bus goes to TRU?','Which pharmacy is open now?'];
+UI.fr.searchPhRot=['Comment obtenir la carte santé ?','Quel bus va à TRU ?','Quelle pharmacie est ouverte maintenant ?'];UI.es.searchPhRot=['¿Cómo obtengo la tarjeta de salud?','¿Qué autobús va a TRU?','¿Qué farmacia está abierta ahora?'];
+UI.ko.searchPhRot=['의료카드는 어떻게 만드나요?','TRU 가는 버스는 몇 번?','지금 문 연 약국은?'];UI.ja.searchPhRot=['医療カードはどう申請する？','TRU へ行くバスは？','今開いている薬局は？'];
+UI.zh.ssHead='大家常问';UI.en.ssHead='People often ask';UI.fr.ssHead='Questions fréquentes';UI.es.ssHead='Preguntas frecuentes';UI.ko.ssHead='자주 묻는 질문';UI.ja.ssHead='よくある質問';
+UI.zh.ssOpenPharmacy='附近哪家药房现在开着？';UI.en.ssOpenPharmacy='Which pharmacy is open now?';UI.fr.ssOpenPharmacy='Quelle pharmacie est ouverte maintenant ?';UI.es.ssOpenPharmacy='¿Qué farmacia está abierta ahora?';UI.ko.ssOpenPharmacy='지금 문 연 약국은?';UI.ja.ssOpenPharmacy='今開いている薬局は？';
+UI.zh.ssBusTru='哪路公交到 TRU？';UI.en.ssBusTru='Which bus goes to TRU?';UI.fr.ssBusTru='Quel bus va à TRU ?';UI.es.ssBusTru='¿Qué autobús va a TRU?';UI.ko.ssBusTru='TRU 가는 버스는 몇 번?';UI.ja.ssBusTru='TRU へ行くバスは？';
+UI.zh.ssKindGuide='办事卡';UI.en.ssKindGuide='guide';UI.fr.ssKindGuide='fiche';UI.es.ssKindGuide='ficha';UI.ko.ssKindGuide='안내 카드';UI.ja.ssKindGuide='ガイド';
+UI.zh.ssKindMap='地图';UI.en.ssKindMap='map';UI.fr.ssKindMap='carte';UI.es.ssKindMap='mapa';UI.ko.ssKindMap='지도';UI.ja.ssKindMap='地図';
+UI.zh.fuFlyerHead='传单上的三件事，点一下就到';UI.en.fuFlyerHead='The three things on the flyer — one tap each';UI.fr.fuFlyerHead='Les trois points du dépliant — un geste chacun';UI.es.fuFlyerHead='Las tres cosas del volante — un toque cada una';UI.ko.fuFlyerHead='전단지의 세 가지 — 한 번만 누르세요';UI.ja.fuFlyerHead='チラシの三つのこと — ワンタップで';
 UI.ko.searchResultsN=n=>n===0?'일치하는 장소를 찾을 수 없습니다':`검색 결과 ${n}건`;UI.ja.searchResultsN=n=>n===0?'一致する場所が見つかりませんでした':`検索結果 ${n}件`;
 UI.zh.d=['周一','周二','周三','周四','周五','周六','周日'];
 UI.zh.dAll='每日';
@@ -2552,7 +2643,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.13a';
+const DATA_VERSION='2026.09.13b';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -2623,9 +2714,33 @@ let taskDone=new Set();
 try{const raw=JSON.parse(localStorage.getItem(_TASK_DONE_KEY)||'[]');
     if(Array.isArray(raw))taskDone=new Set(raw.filter(x=>typeof x==='string'));}catch(e){}
 function saveTaskDone(){try{localStorage.setItem(_TASK_DONE_KEY,JSON.stringify([...taskDone]));}catch(e){}try{updateGuideProgress();}catch(e){}}
-function toggleTaskDone(id){
+// 2026-09-13 (item 4): steps are ticked one at a time; ticking the last one
+// marks the card done, un-ticking any step un-marks it. Same device-only rule.
+const _STEP_KEY='kamloopsSteps';
+let stepDone={};
+try{const raw=JSON.parse(localStorage.getItem(_STEP_KEY)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))stepDone=raw;}catch(e){}
+function saveStepDone(){try{localStorage.setItem(_STEP_KEY,JSON.stringify(stepDone));}catch(e){}}
+function stepsOf(t){return Array.isArray(t.steps)?t.steps.length:0;}
+function stepsDoneN(t){const a=stepDone[t.id];return Array.isArray(a)?a.filter(i=>i>=0&&i<stepsOf(t)).length:0;}
+function setStep(id,i,on){
+  const t=TASKS.find(x=>x.id===id);if(!t)return false;
+  const cur=new Set(Array.isArray(stepDone[id])?stepDone[id]:[]);
+  if(on)cur.add(i);else cur.delete(i);
+  stepDone[id]=[...cur].sort((a,b)=>a-b);
+  saveStepDone();
+  trackEvent('task_step',{id:id,action:on?'tick':'untick',n:cur.size,of:stepsOf(t)});
+  const all=stepsOf(t)>0&&cur.size>=stepsOf(t);
+  let changed=false;
+  if(all&&!taskDone.has(id)){toggleTaskDone(id,true);changed=true;}
+  else if(!all&&taskDone.has(id)){toggleTaskDone(id,true);changed=true;}
+  return changed;
+}
+function toggleTaskDone(id,fromStep){
   const now=!taskDone.has(id);
   if(now)taskDone.add(id);else taskDone.delete(id);
+  // the card's steps follow the card button: done = every step ticked, undone =
+  // none. A change that came from a step keeps the other steps as they are.
+  if(!fromStep)try{const t=TASKS.find(x=>x.id===id);if(t){stepDone[id]=now?t.steps.map((_,i)=>i):[];saveStepDone();}}catch(e){}
   saveTaskDone();
   // Which card, never sent: the privacy summary promises ticks stay on the
   // device, and the funnel question ("do people finish?") only needs the count.
@@ -2672,6 +2787,84 @@ function taskMatchesLoose(t,q){
   return words.length>0&&words.every(w=>bag.indexOf(w)>=0);
 }
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+// 2026-09-13 (item 15): one monochrome line-icon set for the chrome — SF Symbols
+// in spirit: 24-grid, 1.8 stroke, round caps, currentColor. The emoji stay in
+// the six-language strings as the source of truth (and as the fallback when a
+// string reaches a place that renders plain text); ico()/iconify() swap a
+// leading emoji for its drawing wherever HTML is rendered. Category pins keep
+// their emoji: fifty-one coloured pictograms are a different job.
+const ICONS={
+  guide:'<circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2.2 5.3-5.3 2.2 2.2-5.3z"/>',
+  home:'<path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/><path d="M10 19v-5h4v5"/>',
+  suitcase:'<rect x="4" y="8" width="16" height="11" rx="2"/><path d="M9 8V6a2 2 0 012-2h2a2 2 0 012 2v2"/><path d="M4 13h16"/>',
+  free:'<path d="M12 5v14"/><path d="M15.5 8.5a3 3 0 00-3-1.5h-1a2.5 2.5 0 000 5h1a2.5 2.5 0 010 5h-1a3 3 0 01-3-1.5"/>',
+  child:'<circle cx="12" cy="7" r="3"/><path d="M6 20v-3a4 4 0 014-4h4a4 4 0 014 4v3"/>',
+  snowflake:'<path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9"/><path d="M12 3l-2 2M12 3l2 2M12 21l-2-2M12 21l2-2M4.2 7.5l2.7.7M4.2 7.5l.7-2.7M19.8 16.5l-2.7-.7M19.8 16.5l-.7 2.7M4.2 16.5l2.7-.7M4.2 16.5l.7 2.7M19.8 7.5l-2.7.7M19.8 7.5l-.7-2.7"/>',
+  clock:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+  walk:'<circle cx="13" cy="4.5" r="1.6"/><path d="M10 21l2-6 3 2v4"/><path d="M8 13l2-5 3 1 2.5 3.5H18"/><path d="M12 8l-1.5 6"/>',
+  bulb:'<path d="M9 18h6"/><path d="M10 21h4"/><path d="M8.5 14.5A6 6 0 1115.5 14.5c-.7.6-1.5 1.8-1.5 3.5h-4c0-1.7-.8-2.9-1.5-3.5z"/>',
+  pin:'<path d="M12 21s-6-5.5-6-11a6 6 0 0112 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2.2"/>',
+  tag:'<path d="M3.5 12.5V4.5a1 1 0 011-1h8l8 8-8 8z"/><circle cx="8" cy="8" r="1.3"/>',
+  bus:'<rect x="4" y="4" width="16" height="14" rx="3"/><path d="M4 12h16"/><path d="M7 21v-3M17 21v-3"/><path d="M8 15.5h.01M16 15.5h.01"/>',
+  star:'<path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1.1 5.9-5.3-2.9-5.3 2.9 1.1-5.9-4.3-4.1 5.9-.8z"/>',
+  share:'<path d="M12 4v12"/><path d="M8 8l4-4 4 4"/><path d="M5 13v6h14v-6"/>',
+  chat:'<path d="M4 6a2 2 0 012-2h12a2 2 0 012 2v8a2 2 0 01-2 2h-7l-5 4v-4H6a2 2 0 01-2-2z"/>',
+  info:'<circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/>',
+  search:'<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.3-4.3"/>',
+  phone:'<path d="M6 3h3l2 5-2.5 1.5a11 11 0 006 6L16 13l5 2v3a2 2 0 01-2 2A16 16 0 014 5a2 2 0 012-2z"/>',
+  globe:'<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 010 18M12 3a14 14 0 000 18"/>',
+  nav:'<path d="M12 3l8 18-8-4-8 4z"/>',
+  alert:'<path d="M12 4l9 16H3z"/><path d="M12 10v4"/><path d="M12 17h.01"/>',
+  basket:'<path d="M4 10h16l-1.5 9h-13z"/><path d="M8 10l3-6M16 10l-3-6"/><path d="M9 14v2M15 14v2"/>',
+  sparkles:'<path d="M12 3l1.8 4.7L18.5 9.5l-4.7 1.8L12 16l-1.8-4.7L5.5 9.5l4.7-1.8z"/><path d="M19 15l.8 2.2L22 18l-2.2.8L19 21l-.8-2.2L16 18l2.2-.8z"/>',
+  camera:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-3h5L16 7"/><circle cx="12" cy="13.5" r="3.5"/>',
+  history:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5h4"/><path d="M5 12a7 7 0 011.5-4.3"/>',
+  palette:'<path d="M12 3a9 9 0 100 18h1.5a2 2 0 001.4-3.4 2 2 0 011.4-3.4H19a3 3 0 003-3 8.5 8.5 0 00-10-8.2z"/><circle cx="7.5" cy="12" r="1"/><circle cx="9.5" cy="7.5" r="1"/><circle cx="14.5" cy="6.5" r="1"/>',
+  world:'<circle cx="12" cy="12" r="9"/><path d="M4 9.5c2 .5 3.5 2 3.5 4 0 1.5 1 2.5 2.5 2.5 1 0 1.5 1.5 1.5 3"/><path d="M20.5 10c-2-.5-3.5 1-4.5 2s-3 .5-3-1.5S15 7 17 7c1 0 2 .5 3.5 3z"/>',
+  backpack:'<path d="M7 9a5 5 0 0110 0v11H7z"/><path d="M9 9V6a3 3 0 016 0v3"/><path d="M7 14h10"/><path d="M10 20v-4h4v4"/>',
+  target:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2"/>',
+  idcard:'<rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="11" r="2"/><path d="M5.5 16c.5-1.5 1.6-2.3 3-2.3s2.5.8 3 2.3"/><path d="M14 10h4M14 13.5h4"/>',
+  health:'<path d="M12 20.5s-7.5-4.6-7.5-10A4.2 4.2 0 0112 8a4.2 4.2 0 017.5 2.5c0 5.4-7.5 10-7.5 10z"/><path d="M8.5 13h2l1-2 1.5 4 1-2h1.5"/>',
+  car:'<path d="M5 13l1.5-5a2 2 0 011.9-1.4h7.2a2 2 0 011.9 1.4L19 13"/><rect x="3.5" y="13" width="17" height="5" rx="1.5"/><path d="M6 18v2M18 18v2"/><path d="M7 15.5h.01M17 15.5h.01"/>',
+  bank:'<path d="M3 9l9-5 9 5"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8"/><path d="M3 20h18"/><path d="M3 17h18"/>',
+  school:'<path d="M4 5h6a2 2 0 012 2v13a2 2 0 00-2-2H4z"/><path d="M20 5h-6a2 2 0 00-2 2v13a2 2 0 012-2h6z"/>',
+  receipt:'<path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+  people:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 14.5a3.5 3.5 0 015 3.5v2"/>',
+  elder:'<circle cx="11" cy="5.5" r="2.3"/><path d="M8 21v-6l-1-5a2 2 0 012-2h4a2 2 0 012 2v3"/><path d="M12 21v-5"/><path d="M17 12v9"/>',
+  sick:'<path d="M6 4v6a6 6 0 0012 0V4"/><path d="M5 4h2M17 4h2"/><path d="M12 16v2a3 3 0 003 3h1a3 3 0 003-3v-1"/><circle cx="19" cy="14" r="1.8"/>',
+  key:'<circle cx="8" cy="14" r="4"/><path d="M11 11l9-9"/><path d="M16 6l2.5 2.5M19 3l2 2"/>',
+  hands:'<path d="M12 21s-7-4-7-9V6l3-1v6"/><path d="M12 21s7-4 7-9V6l-3-1v6"/><path d="M8 11c0-2 2-3 4-1 2-2 4-1 4 1"/>',
+  shield:'<path d="M12 3l8 3v6c0 4.5-3.5 7.5-8 9-4.5-1.5-8-4.5-8-9V6z"/><path d="M9 12l2 2 4-4"/>',
+  scale:'<path d="M12 3v18"/><path d="M5 7h14"/><path d="M8 21h8"/><path d="M3 14l3-7 3 7a3 3 0 01-6 0z"/><path d="M15 14l3-7 3 7a3 3 0 01-6 0z"/>',
+  more:'<circle cx="12" cy="12" r="9"/><path d="M8 12h.01M12 12h.01M16 12h.01"/>',
+  reset:'<path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v5h5"/>',
+  doc:'<path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M9.5 13h5M9.5 16.5h5"/>',
+  calendar:'<rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16"/><path d="M8 3v4M16 3v4"/>',
+  print:'<path d="M7 9V4h10v5"/><rect x="4" y="9" width="16" height="8" rx="2"/><path d="M7 14h10v6H7z"/>',
+  check:'<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  gradcap:'<path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v4c0 1.5 2.2 3 5 3s5-1.5 5-3v-4"/><path d="M21 9v5"/>',
+  dumbbell:'<path d="M7 8v8M17 8v8"/><path d="M4 10v4M20 10v4"/><path d="M7 12h10"/>',
+  tree:'<path d="M12 3l5 6h-3l4 5h-4l3 4H7l3-4H6l4-5H7z"/><path d="M12 18v3"/>',
+  bag:'<path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 016 0v2"/>',
+  family:'<circle cx="8" cy="7" r="2.5"/><circle cx="16" cy="7" r="2.5"/><circle cx="12" cy="13" r="2"/><path d="M3 19v-1a3.5 3.5 0 013.5-3.5h1M21 19v-1a3.5 3.5 0 00-3.5-3.5h-1"/><path d="M9 21v-1a3 3 0 016 0v1"/>',
+  wifi_off:'<path d="M3 3l18 18"/><path d="M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3"/><path d="M12 18h.01"/>'
+};
+// which drawing stands in for which emoji when a string is rendered as HTML
+const EMOJI_ICON={'🧭':'guide','🏠':'home','🧳':'suitcase','🆓':'free','🧒':'child','❄️':'snowflake','🕒':'clock','🚶':'walk','💡':'bulb','📍':'pin','🏷️':'tag','🚌':'bus','⭐':'star','🔗':'share','💬':'chat','ℹ️':'info','🔍':'search','📞':'phone','☎️':'phone','🌐':'globe','🚨':'alert','🧺':'basket','🎉':'sparkles','📷':'camera','🕰️':'history','🎨':'palette','🌏':'world','🎒':'backpack','🎯':'target','🪪':'idcard','⚕️':'health','🚗':'car','🏦':'bank','🏫':'school','🧾':'receipt','🤝':'people','🧓':'elder','🩺':'sick','🔑':'key','🤲':'hands','🛡️':'shield','⚖️':'scale','📄':'doc','📅':'calendar','🖨️':'print','↺':'reset','📴':'wifi_off','💊':'health','🎓':'gradcap','💪':'dumbbell','🌳':'tree','🛍️':'bag','👨‍👩‍👧':'family'};
+function ico(name,cls){
+  const d=ICONS[name];if(!d)return '';
+  return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+d+'</svg>';
+}
+// "🧭 How do I…?" → <svg …/> How do I…?   (text is escaped; the emoji is the key)
+// (no \p{…} regex: the syntax floor is ES2017 and a parse error there is a blank page)
+const _EMOJI_KEYS=Object.keys(EMOJI_ICON).sort((a,b)=>b.length-a.length);
+function iconify(str,cls){
+  if(typeof str!=='string')return '';
+  for(let i=0;i<_EMOJI_KEYS.length;i++){const k=_EMOJI_KEYS[i];
+    if(str.indexOf(k)===0)return ico(EMOJI_ICON[k],cls)+esc(str.slice(k.length).replace(/^\s+/,''));}
+  return esc(str);
+}
+function emojiIcon(em,cls){return (em&&EMOJI_ICON[em])?ico(EMOJI_ICON[em],cls):esc(em||'');}
 function localISODate(d){
   d=d||new Date();
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -2720,20 +2913,24 @@ function renderTaskBuckets(){
   // Progress before the list: seeing "3 of 11 done" reframes the same eleven
   // errands from a wall into a sequence someone is already partway through.
   const doneN=TASKS.filter(t=>taskDone.has(t.id)).length;
-  if(doneN>0){
+  const stepsAll=TASKS.reduce((a,t)=>a+stepsOf(t),0),stepsN=TASKS.reduce((a,t)=>a+stepsDoneN(t),0);
+  if(doneN>0||stepsN>0){
     h+='<div class="task-progress"><div class="task-bar"><span style="width:'
-      +Math.round(doneN/TASKS.length*100)+'%"></span></div><span class="task-pc">'
-      +esc(u.taskProgress(doneN,TASKS.length))+'</span></div>';
+      +Math.round(stepsN/Math.max(stepsAll,1)*100)+'%"></span></div><span class="task-pc">'
+      +esc(u.taskProgress(doneN,TASKS.length))+' · '+esc(u.stepProgress(stepsN,stepsAll))+'</span></div>';
   }
   let any=0;
   TASK_BUCKETS.forEach(b=>{
     let items=TASKS.filter(t=>t.when===b&&taskMatches(t,_taskQ));
     if(!items.length)return;
     any+=items.length;
-    if(arrivalDate()){
-      const key=t=>{const d=deadlineDate(t);return d?daysLeft(d):1e9;};
-      items=items.slice().sort((x,y)=>key(x)-key(y));
-    }
+    // timeline order: week 1 → 90 days → tax season → any time; a real
+    // deadline (arrival date set) breaks ties inside a rank
+    // a real date (arrival date set) outranks everything: it is the one fact
+    // that stops being useful the day after; undated cards then follow the rank
+    const rank={week1:0,month3:1,season:2,any:3,need:4};
+    const key=t=>{const d=deadlineDate(t);return d?Math.max(daysLeft(d),0):1e6+(rank[t.due]||0)*1e3;};
+    items=items.slice().sort((x,y)=>key(x)-key(y));
     h+='<div class="task-bucket">'+esc(b==='first'?u.taskFirst:b==='ongoing'?u.taskOngoing:u.taskProblem)+'</div>';
     // A person in crisis should not have to open a card to find a phone number.
     if(b==='problem')h+=hotlineHtml(true);
@@ -2749,9 +2946,13 @@ function renderTaskBuckets(){
           dl='<span class="task-dl'+(n<0?' past':n<=14?' soon':'')+'">'+esc(n<0?u.dlPast:u.dlBy(fmtDate(dd,L_),n))+'</span>';}
         else dl='<span class="task-dl">'+esc(taskText(t.deadline))+'</span>';
       }
+      const dueL=t.due&&u['due'+t.due.charAt(0).toUpperCase()+t.due.slice(1)];
+      const sn=stepsDoneN(t),st=stepsOf(t);
+      const stepChip=(!done&&sn>0&&st>0)?'<span class="task-stepc">'+esc(u.stepProgress(sn,st))+'</span>':'';
       h+='<button type="button" class="task-card'+(done?' is-done':'')+'" data-task="'+esc(t.id)+'">'
-        +'<span class="task-top"><span class="task-ic" aria-hidden="true">'+t.icon+'</span>'
-        +dl+(done?'<span class="task-done-b">✓ '+esc(u.taskDoneBadge)+'</span>':'')+'</span>'
+        +'<span class="task-top"><span class="task-ic" aria-hidden="true">'+emojiIcon(t.icon)+'</span>'
+        +(dueL&&!dl&&!done?'<span class="task-due">'+esc(dueL)+'</span>':'')
+        +dl+stepChip+(done?'<span class="task-done-b">✓ '+esc(u.taskDoneBadge)+'</span>':'')+'</span>'
         +'<span class="task-q">'+esc(taskText(t.q))+'</span>'
         +'<span class="task-t">'+esc(taskText(t.t))+'</span></button>';
     });
@@ -2791,16 +2992,17 @@ function openTask(id,src){
   if(src!=='lang')trackEvent('task_open',{id:id,src:src||'other'});
   // A card is one level deeper than the list: Back returns to the list,
   // not out of the guide (a navigation stack, the way a phone user expects).
-  if(guideBackdropEl.classList.contains('open')&&!_taskOpen)pushSheetState('guideTask');
+  if(guideBackdropEl.classList.contains('open')&&!_taskOpen&&src!=='link')pushSheetState('guideTask');
   _taskOpen=id;
   const u=UI[L_];
   const row=(label,body,cls)=>body?'<div class="task-row'+(cls?' '+cls:'')+'"><div class="task-lb">'
       +esc(label)+'</div><div class="task-bd">'+body+'</div></div>':'';
   let h='<button type="button" class="task-back" id="taskBack">'+esc(u.taskBack)+'</button>'
-       +'<div class="task-head"><span class="task-ic-lg" aria-hidden="true">'+t.icon+'</span>'
+       +'<div class="task-head"><span class="task-ic-lg" aria-hidden="true">'+emojiIcon(t.icon)+'</span>'
        +'<div><h4>'+esc(taskText(t.t))+'</h4><p>'+esc(taskText(t.why))+'</p></div></div>';
+  const sd=new Set(Array.isArray(stepDone[t.id])?stepDone[t.id]:[]);
   h+=row(u.taskSteps,'<ol class="task-steps">'
-      +t.steps.map(x=>'<li>'+esc(taskText(x))+'</li>').join('')+'</ol>');
+      +t.steps.map((x,i)=>'<li class="task-step'+(sd.has(i)?' on':'')+'"><label><input type="checkbox" data-step="'+i+'"'+(sd.has(i)?' checked':'')+'><span>'+esc(taskText(x))+'</span></label></li>').join('')+'</ol>');
   h+=row(u.taskBring,t.bring?esc(taskText(t.bring)):'');
   // "Where do I go" is the question the rest of this app can already answer, so
   // it hands off to the map rather than repeating an address that could drift.
@@ -2867,11 +3069,19 @@ function openTask(id,src){
   host.scrollIntoView({block:'start'});
   document.getElementById('taskBack').onclick=()=>{trackEvent('task_back',{id:id});renderTaskList();popSheetState('guideTask');};
   const tick=document.getElementById('taskTick');
+  const syncTick=()=>{const on=taskDone.has(id);if(!tick)return;tick.classList.toggle('on',on);tick.textContent=on?('✓ '+u.taskUndone):u.taskMarkDone;};
   if(tick)tick.onclick=()=>{
-    const now=toggleTaskDone(id);
-    tick.classList.toggle('on',now);
-    tick.textContent=now?('✓ '+u.taskUndone):u.taskMarkDone;
+    toggleTaskDone(id);syncTick();
+    host.querySelectorAll('.task-step input').forEach(cb=>{cb.checked=taskDone.has(id);cb.closest('.task-step').classList.toggle('on',cb.checked);});
   };
+  host.querySelectorAll('.task-step input').forEach(cb=>{
+    cb.onchange=()=>{
+      cb.closest('.task-step').classList.toggle('on',cb.checked);
+      const changed=setStep(id,parseInt(cb.dataset.step,10),cb.checked);
+      syncTick();
+      if(changed&&taskDone.has(id))showToast(u.stepsAllDone,{ms:3000});
+    };
+  });
   const fb=document.getElementById('taskFb');
   if(fb)fb.querySelectorAll('.task-fb-b').forEach(b=>{
     b.onclick=()=>{
@@ -3271,6 +3481,28 @@ tiles.addTo(map);
 let geoExplained=false;
 try{geoExplained=localStorage.getItem('kamloopsGeoExplained')==='1';}catch(e){}
 let geoMarker=null,geoAccCircle=null;
+// 2026-09-13 (items 10A / 11): where the reader is (only while the page is
+// open, never stored), and metres between two points
+let userPos=null;
+function distM(a,b,c,d){const R=6371000,toR=Math.PI/180;const dLat=(c-a)*toR,dLng=(d-b)*toR;const x=Math.sin(dLat/2)**2+Math.cos(a*toR)*Math.cos(c*toR)*Math.sin(dLng/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
+function fmtDist(m){return m<950?Math.round(m/10)*10+' m':(m/1000).toFixed(1)+' km';}
+function distFromUser(p){return userPos?distM(userPos[0],userPos[1],p.lat,p.lng):null;}
+const NEAR_M=1200;   // ~15 minutes on foot
+let nearOnly=false;
+function nearOk(p){return !nearOnly||(userPos&&distFromUser(p)<=NEAR_M);}
+// nearest stop across all routes, with every route that serves a stop of that
+// name within 80 m (exchanges list the same bay under several routes)
+let _stopIndex=null;
+function nearestStop(p){
+  if(typeof BR==='undefined')return null;
+  if(!_stopIndex){_stopIndex=[];Object.keys(BR).forEach(k=>{(BR[k].s||[]).forEach(st=>_stopIndex.push({k:k,n:st[0],lat:st[1],lng:st[2]}));});}
+  let best=null;
+  _stopIndex.forEach(st=>{const d=distM(p.lat,p.lng,st.lat,st.lng);if(!best||d<best.d)best={d:d,st:st};});
+  if(!best||best.d>800)return null;
+  const routes=[];_stopIndex.forEach(st=>{if(routes.indexOf(st.k)<0&&distM(best.st.lat,best.st.lng,st.lat,st.lng)<=80)routes.push(st.k);});
+  routes.sort((a,b)=>parseInt(a,10)-parseInt(b,10));
+  return {name:best.st.n,d:best.d,routes:routes};
+}
 const GeoControl=L.Control.extend({
   options:{position:'bottomright'},
   onAdd:function(){
@@ -3367,6 +3599,9 @@ function runGeolocate(){
       const acc=Math.min(pos.coords.accuracy||0,2000);
       if(acc>30)geoAccCircle=L.circle([lat,lng],{radius:acc,color:'#1a73e8',weight:1,fillColor:'#1a73e8',fillOpacity:.08}).addTo(map);
       map.setView([lat,lng],15);
+      userPos=[lat,lng];
+      // distances appear in open cards and the favourites list from now on
+      try{M.forEach(m=>m.setPopupContent(popup(m.data,m.i)));if(map._popup&&map._popup._kplace)map._popup.setContent(popup(map._popup._kplace,map._popup._kidx||0));renderFavList();updateNearQuickpick();applyQuickPickOrder();if(nearOnly)apply();}catch(e){}
       const ann=document.getElementById('a11yAnnounce');
       if(ann)ann.textContent=UI[L_].geoFoundAnnounce;
       trackEvent('geo_locate',{result:'success'});
@@ -3470,13 +3705,13 @@ function showToast(msg,opts){
 // Everything Reset and "Clear all" throw away, kept for one Undo. Forgiveness
 // is cheaper than a confirmation dialog and never gets in the way.
 function filterSnapshot(){
-  return {aR:[...aR],aC:[...aC],aT:[...aT],sp:[...selPresets],pa:presetsAdjusted,on:openNow,
+  return {aR:[...aR],aC:[...aC],aT:[...aT],sp:[...selPresets],pa:presetsAdjusted,on:openNow,near:nearOnly,
           q:searchInputEl?searchInputEl.value:'',route:selectedRoute,view:{c:map.getCenter(),z:map.getZoom()}};
 }
 function restoreSnapshot(sn){
   if(!sn)return;
   aR=new Set(sn.aR);aC=new Set(sn.aC);aT=new Set(sn.aT);selPresets=new Set(sn.sp);presetsAdjusted=sn.pa;
-  openNow=sn.on;updateOpenQuickpick();
+  openNow=sn.on;updateOpenQuickpick();nearOnly=!!sn.near;updateNearQuickpick();
   if(searchInputEl){searchInputEl.value=sn.q;clearTimeout(searchTimer);searchRaw=sn.q.trim().toLowerCase();searchTerm=searchRaw.length>=MIN_QUERY?searchRaw:'';searchClearEl.hidden=!searchRaw;}
   renderRegs();renderCats();renderThemes();
   if(sn.route)renderRoute(sn.route,false);
@@ -3689,7 +3924,7 @@ function popup(p,idx){
   let themesHtml='';
   if(p.t&&p.t.length){
     const ks=TORDER.filter(k=>p.t.indexOf(k)>=0);
-    const pill=k=>'<span class="pv-theme">'+TIC[k]+' '+themeLabel(k)+'</span>';
+    const pill=k=>'<span class="pv-theme">'+emojiIcon(TIC[k])+themeLabel(k)+'</span>';
     themesHtml='<div class="pv-themes">'+ks.slice(0,4).map(pill).join('')
       +(ks.length>4?'<button type="button" class="pv-theme pv-more-t" onclick="this.parentNode.classList.add(\'all\')">+'+(ks.length-4)+'</button><span class="pv-rest">'+ks.slice(4).map(pill).join('')+'</span>':'')
       +'</div>';
@@ -3731,6 +3966,15 @@ function popup(p,idx){
   // a real, readable place to navigate to instead of a confusing pair of numbers.
   // A destination string with no civic number ("Cooney Bay") makes the maps app
   // guess; fall back to the exact coordinates in that case.
+  const du=distFromUser(p);
+  const ns=nearestStop(p);
+  if(du!==null||ns){
+    b+='<div class="pv-near">';
+    if(du!==null)b+='<span class="pv-dist">'+ico('pin')+fmtDist(du)+' '+u.pvFromYou+' · '+u.walkMin(Math.max(1,Math.round(du/80)))+'</span>';
+    if(ns)b+='<span class="pv-stop">'+ico('bus')+u.pvNearStop+u.colon+esc(ns.name)+' ('+fmtDist(ns.d)+') · '+u.pvRoutes+u.colon
+      +ns.routes.map(k=>'<button type="button" class="pv-route" data-route="'+k+'" style="--rc:'+(BR[k].co||'#555')+'">'+k+'</button>').join(' ')+'</span>';
+    b+='</div>';
+  }
   const hasCivic=/\d/.test(p.a||'');
   const dest=hasCivic?encodeURIComponent(p.n+', '+p.a+CITY.navSuffix)
                      :(p.lat+','+p.lng);
@@ -3740,9 +3984,9 @@ function popup(p,idx){
   // intent signal — a tap on the call/web/navigate button — without sprinkling
   // trackEvent calls into this render function (one of the popup's two phone
   // digits forms already runs through it).
-  b+='<a class="pact-btn primary" data-cta="nav" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="https://www.google.com/maps/dir/?api=1&destination='+dest+'" target="_blank" rel="noopener"><span class="pact-ic">🧭</span>'+u.lNav+'</a>';
-  if(phoneDigits)b+='<a class="pact-btn" data-cta="call" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="tel:'+phoneDigits.replace(/[^\d]/g,'')+'"><span class="pact-ic">📞</span>'+u.lCall+'</a>';
-  if(p.w)b+='<a class="pact-btn" data-cta="web" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="'+p.w+'" target="_blank" rel="noopener"><span class="pact-ic">🌐</span>'+u.lWeb2+'</a>';
+  b+='<a class="pact-btn primary" data-cta="nav" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="https://www.google.com/maps/dir/?api=1&destination='+dest+'" target="_blank" rel="noopener"><span class="pact-ic">'+ico('nav')+'</span>'+u.lNav+'</a>';
+  if(phoneDigits)b+='<a class="pact-btn" data-cta="call" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="tel:'+phoneDigits.replace(/[^\d]/g,'')+'"><span class="pact-ic">'+ico('phone')+'</span>'+u.lCall+'</a>';
+  if(p.w)b+='<a class="pact-btn" data-cta="web" data-pid="'+p.id+'" data-pcat="'+p.c+'" href="'+p.w+'" target="_blank" rel="noopener"><span class="pact-ic">'+ico('globe')+'</span>'+u.lWeb2+'</a>';
   b+='</div>';
   return b;
 }
@@ -3972,7 +4216,7 @@ function renderThemes(){
     b.type='button';
     b.setAttribute('aria-pressed',aT.has(k)?'true':'false');
     if(n===0)b.title=UI[L_].themeZeroHint;
-    b.innerHTML='<span class="icon">'+TIC[k]+'</span><span>'+themeLabel(k)+'</span><span class="cnt">('+n+')</span>';
+    b.innerHTML='<span class="icon">'+emojiIcon(TIC[k])+'</span><span>'+themeLabel(k)+'</span><span class="cnt">('+n+')</span>';
     b.onclick=()=>{
       const action=aT.has(k)?'remove':'add';
       if(aT.has(k))aT.delete(k);else aT.add(k);
@@ -4110,7 +4354,7 @@ const MIN_QUERY=2;
 // apply() passes the score it has already computed; the focus cleanup in
 // focusMarker() calls it for one marker with no score in hand.
 function markerPasses(m,sc){
-  const inFilter=(aC.size===0||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data)&&openNowOk(m.data);
+  const inFilter=(aC.size===0||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data)&&openNowOk(m.data)&&nearOk(m.data);
   if(!inFilter)return false;
   if(!searchTerm)return true;
   return (sc===undefined?matchScore(m.data,searchTerm):sc)>0;
@@ -4131,7 +4375,7 @@ function apply(){let v=0;
   // spreadsheet does, so a filter chip stays true for as long as it's on screen.
   // 2026-09-10: 'open now' narrows the map like any other filter and is
   // counted as one — Reset, the empty state and the search note all read this.
-  const filtered=aR.size<totalR||aC.size>0||aT.size>0||openNow;
+  const filtered=aR.size<totalR||aC.size>0||aT.size>0||openNow||nearOnly;
   const bounds=[];
   M.forEach(m=>{
     const sc=searching?matchScore(m.data,searchTerm):0;
@@ -4244,14 +4488,14 @@ let _lastEmptyKind=null;
 function hotlineHtml(compact){
   const u=UI[L_];
   const items=(CITY.hotlines||[]).map(h=>'<a class="hl-line" href="tel:'+esc(h.n.replace(/[^\d]/g,''))+'"><b>'+esc(h.n)+'</b> '+esc(u['hot_'+h.t]||h.t)+'</a>');
-  return '<div class="hotlines'+(compact?' compact':'')+'"><span class="hl-lead">'+esc(u.hotlinesLead)+'</span>'+items.join('')+'</div>';
+  return '<div class="hotlines'+(compact?' compact':'')+'"><span class="hl-lead">'+iconify(u.hotlinesLead)+'</span>'+items.join('')+'</div>';
 }
 function renderEmptyState(v,searching,filtered){
   const el=document.getElementById('emptyState'),u=UI[L_];
   if(v>0){el.hidden=true;el.innerHTML='';_lastEmptyKind=null;return;}
   el.hidden=false;
   let msg,label,act;
-  const clearFiltersAct=()=>{aR=new Set(Object.keys(RI));aC.clear();aT.clear();selPresets.clear();presetsAdjusted=false;openNow=false;updateOpenQuickpick();renderRegs();renderCats();renderThemes();if(selectedRoute)renderRoute(null,false);apply();};
+  const clearFiltersAct=()=>{aR=new Set(Object.keys(RI));aC.clear();aT.clear();selPresets.clear();presetsAdjusted=false;openNow=false;updateOpenQuickpick();nearOnly=false;updateNearQuickpick();renderRegs();renderCats();renderThemes();if(selectedRoute)renderRoute(null,false);apply();};
   const onlyOpen=openNow&&aC.size===0&&aT.size===0&&aR.size===Object.keys(RI).length;
   if(searching&&onlyOpen){
     // "library" + open now at 9 pm: the libraries exist, they are closed. Say
@@ -4296,7 +4540,7 @@ function renderEmptyState(v,searching,filtered){
     const hit=q.length>=2?TASKS.find(t=>taskMatchesLoose(t,q)):null;
     if(hit){
       const go=document.createElement('button');go.className='empty-btn empty-guide';
-      go.innerHTML='🧭 '+esc(u.emptyGuideHint.replace('{T}',taskText(hit.t)));
+      go.innerHTML=ico('guide')+esc(u.emptyGuideHint.replace('{T}',taskText(hit.t)));
       go.onclick=()=>openGuide('search_empty',hit.id);   // openGuide records guide_open itself
       el.appendChild(go);
     }
@@ -4361,16 +4605,31 @@ THEME_QUICKPICKS.forEach(k=>{
 function updateOpenQuickpick(){
   const el=document.getElementById('qpOpen');
   if(!el)return;
-  el.innerHTML='<span aria-hidden="true">🕒</span> '+UI[L_].openNowLabel;
+  el.innerHTML=ico('clock')+esc(UI[L_].openNowLabel);
   el.classList.toggle('active',openNow);
   el.setAttribute('aria-pressed',openNow?'true':'false');
 }
+function updateNearQuickpick(){
+  const el=document.getElementById('qpNear');
+  if(!el)return;
+  el.innerHTML=ico('walk')+esc(UI[L_].nearLabel);
+  el.classList.toggle('active',nearOnly);
+  el.setAttribute('aria-pressed',nearOnly?'true':'false');
+}
+document.getElementById('qpNear').onclick=()=>{
+  const u=UI[L_];
+  if(!userPos){showToast(u.nearNeedsLocation,{ms:4500});trackEvent('near_toggle',{action:'no_location'});return;}
+  nearOnly=!nearOnly;
+  trackEvent('near_toggle',{action:nearOnly?'on':'off'});
+  updateNearQuickpick();apply();
+  if(nearOnly){try{map.setView(userPos,15);}catch(e){}}
+};
 function updateThemeQuickpicks(){
-  updateOpenQuickpick();
+  updateOpenQuickpick();updateNearQuickpick();
   THEME_QUICKPICKS.forEach(k=>{
     const el=document.getElementById(tqpId(k));
     if(!el)return;
-    el.innerHTML='<span aria-hidden="true">'+TIC[k]+'</span> '+themeLabel(k);
+    el.innerHTML=emojiIcon(TIC[k])+esc(themeLabel(k));
     el.classList.toggle('active',aT.has(k));
     el.setAttribute('aria-pressed',aT.has(k)?'true':'false');
   });
@@ -4399,10 +4658,11 @@ const LANDED_SRC=(function(){try{const v=new URLSearchParams(location.search).ge
 let _qpClock=null;
 function quickPickContext(fresh){
   if(fresh||!_qpClock){const now=cityNow();_qpClock={h:Math.floor(now.m/60),d:now.d,mo:cityMonth()};}
-  return {h:_qpClock.h,d:_qpClock.d,mo:_qpClock.mo,src:LANDED_SRC,visits:visitCount(),on:{indoor:aT.has('indoor')}};
+  return {h:_qpClock.h,d:_qpClock.d,mo:_qpClock.mo,src:LANDED_SRC,visits:visitCount(),on:{indoor:aT.has('indoor'),near:!!userPos}};
 }
 function quickPickOrder(ctx){
-  const r={daily:10,newcomer:20,qpFree:30,qpFamily:40,qpIndoor:Infinity,qpOpen:50};
+  const r={daily:10,newcomer:20,qpFree:30,qpFamily:40,qpIndoor:Infinity,qpOpen:50,qpNear:Infinity};
+  if(ctx.on&&ctx.on.near)r.qpNear=2;   // located: "15-min walk" sits right after the guide
   const winter=ctx.mo>=11||ctx.mo<=3,weekend=ctx.d>=6,evening=ctx.h>=17||ctx.d===7;
   if(winter||(ctx.on&&ctx.on.indoor))r.qpIndoor=25;
   if(/^(flyer|card)/.test(ctx.src||''))r.newcomer=5;
@@ -4415,7 +4675,7 @@ function quickPickOrder(ctx){
 function applyQuickPickOrder(fresh){
   const row=document.getElementById('presetRow');if(!row)return;
   const order=quickPickOrder(quickPickContext(fresh));
-  const all=['qpGuide','daily','newcomer','qpFree','qpFamily','qpIndoor','qpOpen','qpMore'];
+  const all=['qpGuide','daily','newcomer','qpFree','qpFamily','qpIndoor','qpOpen','qpNear','qpMore'];
   all.forEach(id=>{const el=document.getElementById(id);if(el)el.hidden=order.indexOf(id)<0;});
   const cur=Array.prototype.filter.call(row.children,c=>!c.hidden).map(c=>c.id);
   const same=cur.length===order.length&&cur.every((id,i)=>id===order[i]);
@@ -4430,7 +4690,7 @@ function renderActiveFilters(){
   const root=document.getElementById('activeFilters');root.innerHTML='';
   const u=UI[L_];
   const totalR=Object.keys(RI).length,totalC=Object.keys(CI).length;
-  if(aR.size===totalR&&aC.size===0&&aT.size===0&&!openNow&&!selectedRoute)return;
+  if(aR.size===totalR&&aC.size===0&&aT.size===0&&!openNow&&!selectedRoute&&!nearOnly)return;
   // The route is a filter-like state: it changes what the map shows and Reset
   // undoes it, so it gets a chip here like everything else it sits beside.
   if(selectedRoute&&owns(BR,selectedRoute)){
@@ -4464,6 +4724,12 @@ function renderActiveFilters(){
     chip.querySelector('.x').onclick=()=>{openNow=false;updateOpenQuickpick();apply();};
     root.appendChild(chip);
   }
+  if(nearOnly){
+    const chip=document.createElement('div');chip.className='af-chip';
+    chip.innerHTML='<span>🚶 '+u.nearLabel+'</span><button class="x" data-kind="near" data-k="now" aria-label="'+u.aClose+'">✕</button>';
+    chip.querySelector('.x').onclick=()=>{nearOnly=false;updateNearQuickpick();apply();};
+    root.appendChild(chip);
+  }
   // With "open now" on, the reader may be asking at an hour when the answer is
   // a phone, not a door. The 24-hour lines ride along with the chip row — no
   // extra tap, no need for the result to be empty first.
@@ -4492,9 +4758,11 @@ function renderActiveFilters(){
 // an icon span and a text span lets narrow phones drop just the text (CSS hides
 // .hl-tx) and keep the row to one line, without losing the accessible name — that
 // stays on the element itself via aria-label regardless of which part is visible.
+
 function setHL(id,label){
   const el=document.getElementById(id),sp=label.indexOf(' ');
-  el.querySelector('.hl-ic').textContent=sp>-1?label.slice(0,sp):label;
+  const em=sp>-1?label.slice(0,sp):label;
+  el.querySelector('.hl-ic').innerHTML=emojiIcon(em);
   el.querySelector('.hl-tx').textContent=sp>-1?label.slice(sp):'';
   el.setAttribute('aria-label',label);
 }
@@ -4555,6 +4823,7 @@ function setLang(l){
   document.getElementById('shareBtn').title=u.shareBtnTip;
   const si=document.getElementById('searchInput');
   si.placeholder=u.searchPlaceholder;si.setAttribute('aria-label',u.aSearch);
+  try{startPlaceholderRotation();hideSearchSuggest();}catch(e){}
   document.getElementById('searchClear').setAttribute('aria-label',u.aClearSearch);
   document.getElementById('noteClose').setAttribute('aria-label',u.aClose);
   document.getElementById('guideClose').setAttribute('aria-label',u.aClose);
@@ -4569,9 +4838,9 @@ function setLang(l){
   document.getElementById('favExport').textContent=u.favExport;
   document.getElementById('favImport').textContent=u.favImport;
   document.getElementById('favCode').placeholder=u.favPastePrompt;
-  document.getElementById('guideTitle').textContent=u.guideToggleLabel;
+  document.getElementById('guideTitle').innerHTML=iconify(u.guideToggleLabel);
   const qg=document.getElementById('qpGuide');
-  if(qg){qg.textContent=u.guideToggleLabel;
+  if(qg){qg.innerHTML=iconify(u.guideToggleLabel);qg.setAttribute('aria-label',u.guideToggleLabel);
     qg.onclick=()=>openGuide('quickpick');}
   // The guide is stored in tiers so another city reuses everything but guideCity,
   // and another province swaps only guideProv. GUIDE_ORDER keeps the reading order
@@ -4582,17 +4851,18 @@ function setLang(l){
   // Keep the task layer in the reader's language too — and keep them on the
   // task they were reading rather than bouncing them back to the list.
   if(_taskOpen)openTask(_taskOpen,'lang'); else renderTaskList();try{updateGuideProgress();}catch(e){}
-  document.getElementById('quickLabel').textContent=u.quickLabel;
+  document.getElementById('quickLabel').innerHTML=iconify(u.quickLabel);
+  document.querySelectorAll('[data-ic]').forEach(el=>{el.innerHTML=ico(el.dataset.ic);});
   document.getElementById('clearCat').textContent=u.clearCatFilter;
-  document.getElementById('themeLabel').textContent=u.themeLabel;
+  document.getElementById('themeLabel').innerHTML=iconify(u.themeLabel);
   document.getElementById('themeHint').textContent=u.themeHint;
   document.getElementById('themeRow').setAttribute('aria-label',u.themeLabel);
   document.getElementById('catPanelHint').textContent=u.catPanelHint;
   document.getElementById('busPanelHint').textContent=u.busPanelHint;
-  Object.keys(PRESETS).forEach(key=>{const el=document.getElementById(key);if(el)el.textContent=u[key];});
+  Object.keys(PRESETS).forEach(key=>{const el=document.getElementById(key);if(el)el.innerHTML=iconify(u[key]);});
   const qm=document.getElementById('qpMore');
-  if(qm){qm.textContent=u.qpMore;qm.title=u.catLabel;}
-  document.getElementById('presetSecLabel').textContent=u.presetSecLabel;
+  if(qm){qm.innerHTML=ico('more')+esc(u.qpMore);qm.title=u.catLabel;}
+  document.getElementById('presetSecLabel').innerHTML=iconify(u.presetSecLabel);
   document.getElementById('presetSecHint').textContent=u.presetSecHint;
   // Chip width changes per language (French/Spanish labels run longer than English),
   // which changes whether the row overflows at all.
@@ -4654,6 +4924,7 @@ function setLang(l){
     b.classList.toggle('active',on);
     b.setAttribute('aria-pressed',on?'true':'false');
     if(on)b.setAttribute('aria-current','true');else b.removeAttribute('aria-current');});
+  try{renderLangMenu();}catch(e){}
   M.forEach(m=>m.setPopupContent(popup(m.data,m.i)));
   // a standalone popup (favourite / guide hand-off for a filtered-out place)
   // is not bound to a marker; it carries its place and is re-rendered here
@@ -4673,7 +4944,28 @@ function setLang(l){
   requestAnimationFrame(()=>{try{map.invalidateSize(false);}catch(e){}});
 }
 
-document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{setStoredLang(b.dataset.lang);setLang(b.dataset.lang);};});
+document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{setStoredLang(b.dataset.lang);setLang(b.dataset.lang);closeLangMenu();};});
+// item 13: the phone's single language button and its list
+const LANG_NAMES={en:'English',fr:'Français',es:'Español',zh:'中文',ko:'한국어',ja:'日本語'};
+function renderLangMenu(){
+  const cur=document.getElementById('langMenuCur');if(cur)cur.textContent=LANG_NAMES[L_]||L_.toUpperCase();
+  const menu=document.getElementById('langMenu');if(!menu)return;
+  // only the phone's list is reordered; the desktop segmented control keeps a
+  // stable order so a hand that knows where 中文 sits still finds it there
+  let phone=false;try{phone=window.matchMedia('(max-width:600px)').matches;}catch(e){}
+  if(!phone)return;
+  // current language first, then the one the phone itself speaks, then the rest
+  let guess=null;try{guess=detectLang();}catch(e){}
+  const order=[L_].concat(guess&&guess!==L_?[guess]:[]);
+  const rest=[...menu.querySelectorAll('.lang-btn')].filter(b=>order.indexOf(b.dataset.lang)<0);
+  order.map(k=>menu.querySelector('.lang-btn[data-lang="'+k+'"]')).filter(Boolean).concat(rest).forEach(b=>menu.appendChild(b));
+}
+function openLangMenu(){const sw=document.getElementById('langSw');sw.classList.add('open');document.getElementById('langMenuBtn').setAttribute('aria-expanded','true');
+  const a=sw.querySelector('.lang-btn.active');if(a)a.focus();}
+function closeLangMenu(){const sw=document.getElementById('langSw');if(!sw.classList.contains('open'))return;sw.classList.remove('open');document.getElementById('langMenuBtn').setAttribute('aria-expanded','false');}
+document.getElementById('langMenuBtn').onclick=()=>{const sw=document.getElementById('langSw');if(sw.classList.contains('open'))closeLangMenu();else{trackEvent('lang_menu',{});openLangMenu();}};
+document.addEventListener('click',e=>{const sw=document.getElementById('langSw');if(sw.classList.contains('open')&&!sw.contains(e.target))closeLangMenu();});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLangMenu();});
 // The URL has quietly carried the current language/area/category/search/route for
 // several rounds now (writeURLState), but nothing ever told a reader that copying
 // the address bar sends someone else straight to this same view — a "here are the
@@ -5192,7 +5484,7 @@ function dismissHint(){
 // setLang() (language just changed) and from TIGHT's own change listener (screen
 // crossed the breakpoint while the hint was still showing).
 function refreshHint(){
-  document.getElementById('fhint').textContent=hintDismissed?'':(TIGHT.matches?UI[L_].hintShort:UI[L_].hint);
+  document.getElementById('fhint').innerHTML=hintDismissed?'':iconify(TIGHT.matches?UI[L_].hintShort:UI[L_].hint);
 }
 const FAV_CODE_PREFIX='KAM1:';
 function favCode(){return FAV_CODE_PREFIX+[...favorites].join('.');}
@@ -5275,7 +5567,8 @@ function renderFavList(){
     const p=m.data;
     const item=document.createElement('div');item.className='bus-item fav-item';
     const tagTxt=(p.tag&&u[p.tag])?' <span class="fav-tag">'+u[p.tag]+'</span>':'';
-    item.innerHTML='<span class="dot" style="background:'+catColour(p.c)+'"></span><button class="rt-name">'+p.n+tagTxt+'</button><button class="rt-remove" aria-label="'+u.aClose+'">✕</button>';
+    const fd=distFromUser(p);
+    item.innerHTML='<span class="dot" style="background:'+catColour(p.c)+'"></span><button class="rt-name">'+p.n+tagTxt+(fd!==null?'<span class="rt-stop">📍 '+fmtDist(fd)+'</span>':'')+'</button><button class="rt-remove" aria-label="'+u.aClose+'">✕</button>';
     item.querySelector('.rt-name').onclick=()=>{
       // Re-opening a saved place is the clearest evidence that favourites are
       // being used as intended, and it was the one favourites action with no
@@ -5454,7 +5747,7 @@ function resetAll(){
     cats:aC.size,themes:aT.size,areas:aR.size<Object.keys(RI).length});
   const snap=wasDirty?filterSnapshot():null;
   aR=new Set(Object.keys(RI));
-  aC.clear(); aT.clear(); selPresets.clear(); presetsAdjusted=false; openNow=false; updateOpenQuickpick();
+  aC.clear(); aT.clear(); selPresets.clear(); presetsAdjusted=false; openNow=false; updateOpenQuickpick(); nearOnly=false; updateNearQuickpick();
   searchInputEl.value=''; clearTimeout(searchTimer); searchTerm=''; searchRaw='';
   searchClearEl.hidden=true; preSearchView=null;
   if(selectedRoute)renderRoute(null,false);
@@ -5691,10 +5984,11 @@ function attachSheetDrag(back,modal){
     el.addEventListener('pointerdown',down);el.addEventListener('pointermove',move);
     el.addEventListener('pointerup',up);el.addEventListener('pointercancel',()=>end(false));});
 }
-function openModal(back){
+function openModal(back,opts){
   // Idempotent: a second open (a ?task= link racing a header tap) used to
   // count the scroll lock twice and leave the page frozen after one close.
   if(back.classList.contains('open'))return;
+  const noHistory=!!(opts&&opts.noHistory);
   lastFocused=document.activeElement;
   back.classList.add('open');
   back.setAttribute('role','dialog');
@@ -5703,7 +5997,10 @@ function openModal(back){
   const ttl=back.querySelector('.panel-title');
   if(ttl&&ttl.id)back.setAttribute('aria-labelledby',ttl.id);
   lockBodyScroll();
-  pushSheetState(back.id);
+  // 2026-09-13: a card opened straight from a link (a flyer's QR, a shared
+  // card) *is* the page the reader arrived at; Back should leave, not peel
+  // three layers. No history entry is pushed for that opening.
+  if(!noHistory)pushSheetState(back.id);
   const first=back.querySelector('.panel-close');
   if(first)first.focus();
 }
@@ -5749,6 +6046,57 @@ function dismissFirstUse(src){
   el.hidden=true;
   if(src&&src!=='card')trackEvent('firstuse_dismiss',{via:src});
 }
+// --- item 1: the search box asks the questions ------------------------------
+let _phTimer=null,_phIdx=0;
+function startPlaceholderRotation(){
+  clearInterval(_phTimer);_phTimer=null;
+  const si=searchInputEl;if(!si)return;
+  const u=UI[L_];const rot=u.searchPhRot||[];
+  si.placeholder=u.searchPlaceholder;
+  if(!rot.length)return;
+  let reduce=false;try{reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
+  if(reduce)return;
+  _phTimer=setInterval(()=>{
+    if(document.visibilityState!=='visible'||si.value||document.activeElement===si)return;
+    _phIdx=(_phIdx+1)%(rot.length+1);
+    si.placeholder=_phIdx===0?u.searchPlaceholder:rot[_phIdx-1];
+  },4000);
+}
+function searchSuggestions(){
+  const u=UI[L_];
+  const card=id=>{const t=typeof TASKS!=='undefined'&&TASKS.find(x=>x.id===id);return t?{ic:t.icon||'🧭',label:(t.q&&(t.q[L_]||t.q.en))||id,kind:u.ssKindGuide,go:()=>{trackEvent('search_suggest',{to:'task:'+id});openGuide('suggest',id);}}:null;};
+  const out=[card('msp'),card('sin')].filter(Boolean);
+  out.push({ic:'💊',label:u.ssOpenPharmacy,kind:u.ssKindMap,go:()=>{trackEvent('search_suggest',{to:'open_pharmacy'});
+    aC=new Set(['pharmacy']);selPresets.clear();presetsAdjusted=false;openNow=true;updateOpenQuickpick();renderCats();renderThemes();apply();
+    try{const b=M.filter(m=>markerHome().hasLayer(m)).map(m=>[m.data.lat,m.data.lng]);if(b.length)map.fitBounds(b,{padding:[40,40],maxZoom:15});}catch(e){}}});
+  out.push({ic:'🚌',label:u.ssBusTru,kind:u.ssKindMap,go:()=>{trackEvent('search_suggest',{to:'bus_tru'});_busQ='TRU';openPanel('bus');const inp=document.getElementById('busSearch');if(inp){inp.value='TRU';}renderBusList();}});
+  return out;
+}
+function showSearchSuggest(){
+  const box=document.getElementById('searchSuggest');if(!box)return;
+  if(searchInputEl.value){hideSearchSuggest();return;}
+  const u=UI[L_];
+  box.innerHTML='<div class="ss-h">'+esc(u.ssHead)+'</div>';
+  searchSuggestions().forEach(sg=>{
+    const b=document.createElement('button');b.type='button';
+    b.innerHTML='<span class="ss-ic" aria-hidden="true">'+emojiIcon(sg.ic)+'</span><span></span><span class="ss-k"></span>';
+    b.children[1].textContent=sg.label;b.children[2].textContent=sg.kind;
+    // pointerdown, not click: the input's blur would hide the list first
+    b.addEventListener('pointerdown',e=>{e.preventDefault();});
+    b.onclick=()=>{hideSearchSuggest();searchInputEl.blur();sg.go();};
+    box.appendChild(b);
+  });
+  box.hidden=false;
+  dismissFirstUse('search');
+}
+function hideSearchSuggest(){const box=document.getElementById('searchSuggest');if(box)box.hidden=true;}
+(function(){
+  const si=searchInputEl;if(!si)return;
+  si.addEventListener('focus',()=>{if(!si.value)showSearchSuggest();});
+  si.addEventListener('blur',()=>{setTimeout(()=>{if(document.activeElement!==si)hideSearchSuggest();},150);});
+  si.addEventListener('input',()=>{if(si.value)hideSearchSuggest();else if(document.activeElement===si)showSearchSuggest();});
+  si.addEventListener('keydown',e=>{if(e.key==='Escape'&&!si.value){hideSearchSuggest();si.blur();}});
+})();
 function renderFirstUse(){
   const el=document.getElementById('firstUse');if(!el)return;
   let seen=_fuDismissed;try{seen=seen||!!localStorage.getItem(_FU_KEY);}catch(e){}
@@ -5760,20 +6108,30 @@ function renderFirstUse(){
   if(seen){el.hidden=true;el.innerHTML='';return;}
   const u=UI[L_];
   el.hidden=false;
-  el.innerHTML='<div class="fu-h"><span class="fu-hl">'+esc(u.fuHead)+'</span><span class="fu-hs">'+esc(u.fuHeadS)+'</span></div>'
-    +'<div class="fu-safe">'+esc(u.fuSafe)+'</div>'
-    +'<button type="button" class="fu-x" id="fuClose" aria-label="'+esc(u.aClose)+'">✕</button>'
-    +'<div class="fu-rows">'
-    +'<div class="fu-row"><button type="button" data-go="guide">'+esc(u.guideToggleShort)+'</button><span>'+esc(u.fuGuide)+'</span></div>'
-    +'<div class="fu-row"><button type="button" data-go="search">'+esc(u.fuSearchBtn)+'</button><span>'+esc(u.fuSearch)+'</span></div>'
-    +'<div class="fu-row"><button type="button" data-go="open">'+esc(u.fuOpenBtn)+'</button><span>'+esc(u.fuOpen)+'</span></div>'
-    +'</div>';
+  // 2026-09-13 (items 1 & 2): someone who scanned a flyer gets the flyer's
+  // three promises as three buttons; everyone else gets one honest line —
+  // the search box now carries the doors (see showSearchSuggest).
+  const fromFlyer=/^(flyer|card)/.test(LANDED_SRC||'');
+  el.classList.toggle('flyer',fromFlyer);el.classList.toggle('slim',!fromFlyer);
+  if(fromFlyer){
+    const tl=id=>{const t=typeof TASKS!=='undefined'&&TASKS.find(x=>x.id===id);return t?((t.icon?t.icon+' ':'')+(t.t[L_]||t.t.en)):id;};
+    el.innerHTML='<div class="fu-h"><span class="fu-hs">'+esc(u.fuFlyerHead)+'</span></div>'
+      +'<button type="button" class="fu-x" id="fuClose" aria-label="'+esc(u.aClose)+'">✕</button>'
+      +'<div class="fu-rows">'
+      +['msp','sin','settle'].map(id=>'<div class="fu-row"><button type="button" data-go="task:'+id+'">'+iconify(tl(id))+'</button></div>').join('')
+      +'</div><div class="fu-safe">'+esc(u.fuSafe)+'</div>';
+  }else{
+    el.innerHTML='<div class="fu-safe">'+esc(u.fuSafe)+'</div>'
+      +'<button type="button" class="fu-x" id="fuClose" aria-label="'+esc(u.aClose)+'">✕</button>';
+  }
   const done=()=>dismissFirstUse('card');
   el.querySelector('#fuClose').onclick=()=>{trackEvent('firstuse_dismiss',{});done();};
   el.querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{
     trackEvent('firstuse_go',{to:b.dataset.go});done();
-    if(b.dataset.go==='guide')openGuide('firstuse');
-    else if(b.dataset.go==='search')searchInputEl.focus();
+    const go=b.dataset.go;
+    if(go.indexOf('task:')===0)openGuide('flyer',go.slice(5));
+    else if(go==='guide')openGuide('firstuse');
+    else if(go==='search')searchInputEl.focus();
     else{openNow=true;updateOpenQuickpick();apply();}
   });
 }
@@ -5794,12 +6152,18 @@ function updateGuideProgress(){
   if(arrivalDate()){
     TASKS.forEach(t=>{if(!t.deadline||taskDone.has(t.id))return;const d=deadlineDate(t);if(!d)return;const n=daysLeft(d);if(n<0)return;if(!next||n<next.n)next={t,d,n};});
   }
-  if(!doneN&&!next){el.hidden=true;el.innerHTML='';return;}
+  const stepsAll=TASKS.reduce((a,t)=>a+stepsOf(t),0),stepsN=TASKS.reduce((a,t)=>a+stepsDoneN(t),0);
+  // item 7: once the reader has started (a tick, a step, an arrival date),
+  // the strip names the next week-1 card still open — "this week: get a SIN"
+  const started=doneN>0||stepsN>0||!!arrivalDate();
+  const week=started?TASKS.find(t=>t.due==='week1'&&!taskDone.has(t.id)):null;
+  if(!started){el.hidden=true;el.innerHTML='';return;}
   el.hidden=false;
-  el.innerHTML='<span class="gp-bar"><span style="width:'+Math.round(doneN/TASKS.length*100)+'%"></span></span>'
+  el.innerHTML='<span class="gp-bar"><span style="width:'+Math.round(stepsN/Math.max(stepsAll,1)*100)+'%"></span></span>'
     +'<span>'+esc(u.taskProgress(doneN,TASKS.length))+'</span>'
-    +(next?'<span class="gp-dl'+(next.n<=14?' soon':'')+'">'+esc(taskText(next.t.t))+' · '+esc(u.dlBy(fmtDate(next.d,L_),next.n))+'</span>':'');
-  el.onclick=()=>openGuide('progress',next?next.t.id:undefined);
+    +(next?'<span class="gp-dl'+(next.n<=14?' soon':'')+'">'+esc(taskText(next.t.t))+' · '+esc(u.dlBy(fmtDate(next.d,L_),next.n))+'</span>'
+      :(week?'<span class="gp-dl">'+esc(u.gpThisWeek)+esc(u.colon)+esc(taskText(week.t))+'</span>':''));
+  el.onclick=()=>openGuide('progress',next?next.t.id:(week?week.id:undefined));
 }
 // The rule for each dated card, from its own source: licence 90 days from
 // arrival; tax April 30 of the year after arrival (first return); rights one
@@ -5873,7 +6237,7 @@ function openGuide(src,task){
     _guideOpenedAt=Date.now();
     trackEvent('guide_open',{src:src||'header',task:task||undefined});
   }
-  openModal(guideBackdropEl);
+  openModal(guideBackdropEl,{noHistory:src==='link'});
   if(task){openTask(task,src||'guide');}else if(_taskOpen){renderTaskList();}
 }
 document.getElementById('guideToggle').onclick=()=>openGuide('header');
@@ -5883,6 +6247,8 @@ document.getElementById('qpOpen').onclick=()=>{
   updateOpenQuickpick();renderCats();renderThemes();apply();
 };
 document.getElementById('map').addEventListener('click',e=>{
+  const rb=e.target.closest&&e.target.closest('.pv-route');
+  if(rb){e.preventDefault();e.stopPropagation();trackEvent('popup_route',{route:rb.dataset.route});selectRoute(rb.dataset.route);return;}
   const go=e.target.closest&&e.target.closest('.pv-task-go');
   if(!go)return;
   e.preventDefault();e.stopPropagation();

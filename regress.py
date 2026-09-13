@@ -1,6 +1,14 @@
 import asyncio, sys, os, re, glob, shutil, atexit, tempfile, subprocess
 from playwright.async_api import async_playwright
 
+# 2026-09-13 (item 13): on phones the six language buttons live in a menu behind
+# one button; open it first when the target button is not on screen
+async def pick_lang(pg,lang):
+    sel='[data-lang="%s"]'%lang
+    if not await pg.is_visible(sel):
+        await pg.click('#langMenuBtn'); await pg.wait_for_timeout(150)
+    await pg.click(sel)
+
 # Test the file that is actually shipped, not a copy that was made by hand at some
 # point and has been quietly ageing ever since. Both fixtures are regenerated on
 # every run from kamloops.html.
@@ -142,7 +150,7 @@ async def main():
         print("\n--- search ---")
         for term,lang,expect in [('a','en','gated'),('bank','en','some'),('은행','ko','some'),
                                  ('banque','fr','some'),('银行','zh','some'),('langar','en','some')]:
-            await pg.click('[data-lang="%s"]'%lang); await pg.wait_for_timeout(300)
+            await pick_lang(pg,lang); await pg.wait_for_timeout(300)
             await pg.fill('#searchInput',term); await pg.wait_for_timeout(560)
             n=await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)).length")
             note=await pg.inner_text('#searchNote')
@@ -150,7 +158,7 @@ async def main():
             else: check("14/33 %r [%s] finds results"%(term,lang), 0<n<120, n)
             await pg.click('#searchClear'); await pg.wait_for_timeout(300)
 
-        await pg.click('[data-lang="en"]'); await pg.wait_for_timeout(300)
+        await pick_lang(pg,'en'); await pg.wait_for_timeout(300)
         print("\n--- search + filters combine (P0-2) ---")
         # Search used to silently bypass Area/Category — a "bank" search while North
         # Shore was selected quietly searched the whole city. It now narrows within
@@ -286,7 +294,7 @@ async def main():
         import re as _re
         leaks=set()
         for _lg in ['en','fr','es','zh','ko','ja']:
-            await pg.click('[data-lang="%s"]' % _lg); await pg.wait_for_timeout(320)
+            await pick_lang(pg,_lg); await pg.wait_for_timeout(320)
             await pg.click('#guideToggle'); await pg.wait_for_timeout(260)
             _g=await pg.inner_text('#guideBody'); await pg.keyboard.press('Escape'); await pg.wait_for_timeout(160)
             leaks |= set(_re.findall(r'\{[A-Z_]+\}', await pg.inner_text('body')))
@@ -295,7 +303,7 @@ async def main():
         await pg.evaluate("resetAll()"); await pg.wait_for_timeout(600)
         check("05 map centre comes from CITY",
               await pg.evaluate("JSON.stringify([+mapref.getCenter().lat.toFixed(3),+mapref.getCenter().lng.toFixed(3)])")==await pg.evaluate("JSON.stringify(CITYref.centre)"))
-        await pg.click('[data-lang="en"]'); await pg.wait_for_timeout(300)
+        await pick_lang(pg,'en'); await pg.wait_for_timeout(300)
 
         print("\n--- accessibility ---")
         a=await pg.evaluate("""()=>{
@@ -518,7 +526,7 @@ async def main():
                 pgc=await b.new_page(viewport={'width':w,'height':h}, has_touch=True, is_mobile=True)
                 pgc.on('pageerror', lambda e: allerrs.append(str(e)))
                 await pgc.goto(URL); await pgc.wait_for_timeout(900)
-                await pgc.click('[data-lang="%s"]'%lang); await pgc.wait_for_timeout(250)
+                await pick_lang(pgc,lang); await pgc.wait_for_timeout(250)
                 r=await pgc.evaluate(TOUCH_PROBE)
                 tag='%s@%dx%d'%(lang,w,h)
                 floor = 33 if (w <= 340 and h <= 600) else 40
@@ -601,7 +609,7 @@ async def main():
                 await pgp.goto(URL)
                 await pgp.wait_for_function('()=>window.Mref&&Mref.length>200', timeout=20000)
                 await pgp.wait_for_timeout(400)
-                await pgp.click('[data-lang="%s"]'%lang); await pgp.wait_for_timeout(250)
+                await pick_lang(pgp,lang); await pgp.wait_for_timeout(250)
                 r=await pgp.evaluate(TALL_POPUP_PROBE)
                 tag='%s@%dx%d'%(lang,w,h)
                 if r.get('none'): pprobs.append(tag+' popup never opened')
@@ -634,7 +642,7 @@ async def main():
                 pg2=await b.new_page(viewport={'width':w,'height':h})
                 pg2.on('pageerror', lambda e: allerrs.append(str(e)))
                 await pg2.goto(URL); await pg2.wait_for_timeout(750)
-                await pg2.click('[data-lang="%s"]'%lang); await pg2.wait_for_timeout(250)
+                await pick_lang(pg2,lang); await pg2.wait_for_timeout(250)
                 m=await pg2.evaluate("""()=>{const mp=document.getElementById('map').getBoundingClientRect();
                   return {ov:document.body.scrollWidth-innerWidth,
                           mapShare:Math.round(100*(Math.min(mp.bottom,innerHeight)-Math.max(mp.top,0))/innerHeight)};}""")
@@ -669,7 +677,7 @@ async def main():
             pg3=await b.new_page(viewport={'width':1280,'height':900})
             errs=[]; pg3.on('pageerror', lambda e: errs.append(str(e)))
             await pg3.goto(URL); await pg3.wait_for_timeout(1500)
-            await pg3.click('[data-lang="%s"]'%lang); await pg3.wait_for_timeout(350)
+            await pick_lang(pg3,lang); await pg3.wait_for_timeout(350)
             for bid in ['#areaBtn','#areaBtn','#catBtn','#catBtn','#busBtn','#busBtn','#favBtn','#favBtn']:
                 await pg3.click(bid); await pg3.wait_for_timeout(150)
             await pg3.click('#guideToggle'); await pg3.wait_for_timeout(250); await pg3.keyboard.press('Escape')
@@ -1105,8 +1113,9 @@ async def main():
         await pgt2.goto(URL); await pgt2.wait_for_timeout(1000)
         fhint_txt=await pgt2.evaluate("()=>document.getElementById('fhint').textContent")
         short_expected=await pgt2.evaluate("()=>UI[L_].hintShort")
+        # 2026-09-13: the leading emoji is drawn as an icon now; compare the words
         check("60 a short screen shows the shortened hint instead of nothing",
-              len(fhint_txt)>0 and fhint_txt==short_expected, {'shown':fhint_txt,'expected':short_expected})
+              len(fhint_txt)>0 and fhint_txt.strip()==short_expected.replace('🔍','').strip(), {'shown':fhint_txt,'expected':short_expected})
         check("60 no page errors on a short screen", len(et2)==0, et2[:3])
         # This page is has_touch/is_mobile, i.e. pointer:coarse -- exactly the
         # condition under which @media(pointer:coarse){.header-links a,...} would
@@ -1591,12 +1600,15 @@ async def main():
         check("71 ?task= opens that card and carries no personal state", dl['open'] and '驾照' in (dl['card'] or '') and 'done' not in dl['url'], dl)
         await pg71.keyboard.press('Escape'); await pg71.wait_for_timeout(200)
         # first-use card: shown once, every door works, never again after dismissal
+        # 2026-09-13 (item 1): the card is one honest line now — the doors moved
+        # into the search box's suggestions; the flyer variant is checked in round 74
         fu=await pg71.evaluate("""()=>{localStorage.removeItem('kamloopsFirstUseSeen');renderFirstUse();
             const el=document.getElementById('firstUse');const shown=!el.hidden;
-            const n=el.querySelectorAll('[data-go]').length;
-            el.querySelector('[data-go=open]').click();
-            return {shown,n,openNow:openNow,hiddenAfter:el.hidden,stored:localStorage.getItem('kamloopsFirstUseSeen')};}""")
-        check("71 the first-use card shows once, its doors act, and it stays dismissed", fu['shown'] and fu['n']==3 and fu['openNow'] and fu['hiddenAfter'] and fu['stored']=='1', fu)
+            const n=el.querySelectorAll('[data-go]').length;const slim=el.classList.contains('slim');
+            const safe=(el.querySelector('.fu-safe')||{}).textContent||'';
+            el.querySelector('#fuClose').click();
+            return {shown,n,slim,safe:safe.length>10,hiddenAfter:el.hidden,stored:localStorage.getItem('kamloopsFirstUseSeen')};}""")
+        check("71 the first-use card shows once as one line, closes, and stays dismissed", fu['shown'] and fu['n']==0 and fu['slim'] and fu['safe'] and fu['hiddenAfter'] and fu['stored']=='1', fu)
         await pg71.reload(); await pg71.wait_for_timeout(1300)
         check("71 …and does not come back on the next visit", await pg71.evaluate("()=>document.getElementById('firstUse').hidden"))
         # hotlines ride with open-now, and sit above the 'need help' bucket
@@ -1801,14 +1813,116 @@ async def main():
         # 320px: language buttons on one line
         pgs=await b.new_page(viewport={'width':320,'height':568}, has_touch=True, is_mobile=True)
         await pgs.goto(URL); await pgs.wait_for_timeout(1200)
+        await pgs.click('#langMenuBtn'); await pgs.wait_for_timeout(200)
         lb=await pgs.evaluate("()=>[...document.querySelectorAll('.lang-btn')].map(b=>Math.round(b.getBoundingClientRect().height))")
-        check("73 320px: every language button stays on one line", max(lb)-min(lb)<=2 and max(lb)<=44, lb)
+        check("73 320px: every language button stays on one line", max(lb)-min(lb)<=2 and max(lb)<=44 and min(lb)>0, lb)
+        await pgs.keyboard.press('Escape')
         await pgs.close()
         # the card footer date comes from the data layer and nothing leaks
         foot=await pg73.evaluate("()=>{openGuide('header','msp');const f=document.querySelector('.task-checked');const t=f?f.textContent:'';closeModal(guideBackdropEl);return t;}")
         check("73 the card footer carries the data layer's check date", '{TD}' not in foot and CITY_TASKS_CHECKED in foot, foot)
         check("73 no page errors across round 73", len(e73)==0, e73[:3])
         await pg73.close()
+
+        print("\n--- UX batch: search-led first use, timeline, steps, distance, language menu, icons (round 74) ---")
+        pg74=await b.new_page(viewport={'width':390,'height':844}, has_touch=True, is_mobile=True)
+        e74=[]; pg74.on('pageerror', lambda e: e74.append(str(e)))
+        # item 2: a flyer arrival gets the flyer's three promises as buttons
+        await pg74.goto(URL+'?src=flyer-f-2609'); await pg74.wait_for_timeout(1500)
+        fl=await pg74.evaluate("""()=>{localStorage.removeItem('kamloopsFirstUseSeen');renderFirstUse();const el=document.getElementById('firstUse');
+            return {flyer:el.classList.contains('flyer'),doors:[...el.querySelectorAll('[data-go]')].map(b=>b.dataset.go)};}""")
+        check("74 arriving from a flyer, the first-use card offers the flyer's three cards", fl['flyer'] and fl['doors']==['task:msp','task:sin','task:settle'], fl)
+        await pg74.evaluate("()=>document.querySelector('#firstUse [data-go=\"task:msp\"]').click()"); await pg74.wait_for_timeout(500)
+        check("74 …and each door opens its card", await pg74.evaluate("()=>guideBackdropEl.classList.contains('open')&&_taskOpen==='msp'"))
+        await pg74.keyboard.press('Escape'); await pg74.wait_for_timeout(300)
+        # item 1: suggestions on focus, gone on typing; each one acts
+        await pg74.goto(URL+'?lang=zh'); await pg74.wait_for_timeout(1500)
+        await pg74.focus('#searchInput'); await pg74.wait_for_timeout(250)
+        sg=await pg74.evaluate("()=>({hidden:document.getElementById('searchSuggest').hidden,n:document.querySelectorAll('#searchSuggest button').length,rot:Array.isArray(UI.zh.searchPhRot)&&UI.zh.searchPhRot.length===3})")
+        check("74 an empty search box offers four suggestions on focus", (not sg['hidden']) and sg['n']==4 and sg['rot'], sg)
+        await pg74.fill('#searchInput','bank'); await pg74.wait_for_timeout(200)
+        check("74 …which disappear once there is text", await pg74.evaluate("()=>document.getElementById('searchSuggest').hidden"))
+        await pg74.click('#searchClear'); await pg74.wait_for_timeout(200)
+        await pg74.focus('#searchInput'); await pg74.wait_for_timeout(250)
+        await pg74.click('#searchSuggest button:nth-of-type(3)'); await pg74.wait_for_timeout(700)
+        ph=await pg74.evaluate("()=>({open:openNow,cats:[...aC],vis:lastVisible,sug:document.getElementById('searchSuggest').hidden})")
+        check("74 'which pharmacy is open now' sets pharmacy + open-now", ph['open'] and ph['cats']==['pharmacy'] and ph['sug'], ph)
+        await pg74.evaluate("()=>resetAll()"); await pg74.wait_for_timeout(200)
+        await pg74.focus('#searchInput'); await pg74.wait_for_timeout(250)
+        await pg74.click('#searchSuggest button:nth-of-type(4)'); await pg74.wait_for_timeout(600)
+        bt=await pg74.evaluate("()=>({panel:document.getElementById('panel').classList.contains('open'),mode:panelMode,q:_busQ,n:document.querySelectorAll('#busList .bus-item').length})")
+        check("74 'which bus goes to TRU' opens the bus sheet filtered to TRU", bt['panel'] and bt['mode']=='bus' and bt['q']=='TRU' and 0<bt['n']<14, bt)
+        await pg74.keyboard.press('Escape'); await pg74.wait_for_timeout(300)
+        # item 3: a card opened from a link is the page — one Back leaves
+        await pg74.goto(URL+'?lang=en'); await pg74.wait_for_timeout(800)
+        await pg74.goto(URL+'?task=msp'); await pg74.wait_for_timeout(1500)
+        dl3=await pg74.evaluate("()=>({open:guideBackdropEl.classList.contains('open'),task:_taskOpen,st:!!(history.state&&history.state.kSheet)})")
+        await pg74.go_back(); await pg74.wait_for_timeout(600)
+        left='task=msp' not in pg74.url
+        check("74 a card opened from a link pushes no history: one Back leaves", dl3['open'] and dl3['task']=='msp' and not dl3['st'] and left, (dl3,pg74.url))
+        # item 7 + 4: timeline order, step ticks, auto-done, progress by steps
+        await pg74.goto(URL+'?lang=zh'); await pg74.wait_for_timeout(1500)
+        tl=await pg74.evaluate("""()=>{openGuide('header');const ids=[...document.querySelectorAll('#taskBuckets .task-card')].map(c=>c.dataset.task);
+            const due=[...document.querySelectorAll('#taskBuckets .task-due')].map(x=>x.textContent);
+            return {first:ids.slice(0,6),lic:ids.indexOf('licence'),tax:ids.indexOf('tax'),dueN:due.length,allDue:TASKS.every(t=>t.due)};}""")
+        check("74 the list runs on a timeline: week-1 cards before the 90-day and tax-season ones", tl['allDue'] and tl['lic']>tl['first'].index('bank') and tl['tax']>tl['lic'] and tl['dueN']>=5, tl)
+        st=await pg74.evaluate("""()=>{openTask('sin','t');const cbs=[...document.querySelectorAll('.task-step input')];
+            cbs[0].checked=true;cbs[0].dispatchEvent(new Event('change'));const one={sd:(stepDone.sin||[]).slice(),done:taskDone.has('sin')};
+            cbs.forEach(cb=>{if(!cb.checked){cb.checked=true;cb.dispatchEvent(new Event('change'));}});const all={sd:(stepDone.sin||[]).slice(),done:taskDone.has('sin')};
+            cbs[0].checked=false;cbs[0].dispatchEvent(new Event('change'));const un={sd:(stepDone.sin||[]).slice(),done:taskDone.has('sin')};
+            document.getElementById('taskTick').click();const btn={done:taskDone.has('sin'),all:cbs.every(c=>c.checked)};
+            document.getElementById('taskBack').click();const pc=(document.querySelector('.task-pc')||{}).textContent||'';
+            return {n:cbs.length,one,all,un,btn,pc};}""")
+        check("74 steps tick one by one; the last tick marks the card done, an un-tick un-marks it, the button ticks all",
+              st['n']==2 and st['one']['sd']==[0] and not st['one']['done'] and st['all']['done'] and st['all']['sd']==[0,1]
+              and not st['un']['done'] and st['un']['sd']==[1] and st['btn']['done'] and st['btn']['all'] and '/' in st['pc'], st)
+        await pg74.evaluate("()=>{closeModal(guideBackdropEl);}"); await pg74.wait_for_timeout(300)
+        # (file:// pages share storage: start from a clean slate, earlier rounds tick cards)
+        await pg74.evaluate("()=>{taskDone.clear();stepDone={};saveTaskDone();saveStepDone();setArrival(null);}")
+        strip=await pg74.evaluate("()=>{toggleTaskDone('sin');updateGuideProgress();const el=document.getElementById('guideProgress');const t=el.textContent;const shown=!el.hidden;toggleTaskDone('sin');return {shown,week:t.indexOf(UI.zh.gpThisWeek)>=0};}")
+        check("74 once started, the landing strip names this week's next card", strip['shown'] and strip['week'], strip)
+        await pg74.evaluate("()=>{taskDone.clear();stepDone={};saveTaskDone();saveStepDone();}")
+        # item 10A / 11: nearest stop with route buttons; distance once located; 15-min-walk chip
+        ns=await pg74.evaluate("""()=>{const m=M.find(x=>/Royal Inland/.test(x.data.n));const html=popup(m.data,m.i);const d=document.createElement('div');d.innerHTML=html;
+            return {stop:!!d.querySelector('.pv-stop'),routes:[...d.querySelectorAll('.pv-route')].map(b=>b.dataset.route),dist:!!d.querySelector('.pv-dist'),near:document.getElementById('qpNear').hidden};}""")
+        check("74 a place card names its nearest stop and the routes that serve it; no distance before locating", ns['stop'] and len(ns['routes'])>=1 and not ns['dist'] and ns['near'], ns)
+        await pg74.evaluate("()=>{userPos=[50.6745,-120.3273];M.forEach(m=>m.setPopupContent(popup(m.data,m.i)));renderFavList();updateNearQuickpick();applyQuickPickOrder();}"); await pg74.wait_for_timeout(200)
+        nr=await pg74.evaluate("""()=>{const m=M.find(x=>/Royal Inland/.test(x.data.n));const d=document.createElement('div');d.innerHTML=popup(m.data,m.i);
+            const dist=(d.querySelector('.pv-dist')||{}).textContent||'';document.getElementById('qpNear').click();
+            const on={near:nearOnly,vis:lastVisible,chip:!!document.querySelector('.af-chip .x[data-kind=near]')};
+            const far=M.filter(x=>markerHome().hasLayer(x)).every(x=>distFromUser(x.data)<=NEAR_M);
+            resetAll();return {dist,shownChip:!document.getElementById('qpNear').hidden,on,far,after:nearOnly};}""")
+        check("74 once located: distance on the card, a '15-min walk' chip that filters and resets", ('m' in nr['dist']) and nr['shownChip'] and nr['on']['near'] and 0<nr['on']['vis']<N and nr['on']['chip'] and nr['far'] and not nr['after'], nr)
+        await pg74.evaluate("""()=>{const m=M.find(x=>/Royal Inland/.test(x.data.n));map.setView(m.getLatLng(),16,{animate:false});focusMarker(m);}""")
+        await pg74.wait_for_timeout(800)
+        rt=await pg74.evaluate("""()=>{const rb=document.querySelector('.leaflet-popup .pv-route');if(!rb)return {noBtn:true};rb.click();return {sel:selectedRoute,k:rb.dataset.route};}""")
+        await pg74.wait_for_timeout(500)
+        check("74 a route number on the card draws that route", rt.get('sel') and rt['sel']==rt['k'], rt)
+        await pg74.evaluate("()=>{userPos=null;resetAll();}"); await pg74.wait_for_timeout(300)
+        # item 13: the phone's language menu
+        lm=await pg74.evaluate("()=>({btn:document.getElementById('langMenuBtn').offsetHeight>0,listHidden:document.querySelector('.lang-btn').offsetHeight===0,cur:document.getElementById('langMenuCur').textContent})")
+        await pg74.click('#langMenuBtn'); await pg74.wait_for_timeout(200)
+        lm2=await pg74.evaluate("()=>({open:document.getElementById('langSw').classList.contains('open'),first:document.querySelector('#langMenu .lang-btn').dataset.lang,vis:document.querySelector('.lang-btn').offsetHeight>0})")
+        await pg74.click('[data-lang="ko"]'); await pg74.wait_for_timeout(300)
+        lm3=await pg74.evaluate("()=>({L:L_,closed:!document.getElementById('langSw').classList.contains('open'),cur:document.getElementById('langMenuCur').textContent})")
+        check("74 on a phone the languages sit behind one button: current first, pick closes it", lm['btn'] and lm['listHidden'] and lm['cur']=='中文' and lm2['open'] and lm2['first']=='zh' and lm2['vis'] and lm3['L']=='ko' and lm3['closed'] and lm3['cur']=='한국어', (lm,lm2,lm3))
+        await pg74.evaluate("()=>setLang('en')")
+        # item 15: the chrome draws its icons; the six-language strings keep their emoji
+        ic=await pg74.evaluate("""()=>({filters:[...document.querySelectorAll('.fbicon')].every(e=>e.querySelector('svg.ic')),
+            header:[...document.querySelectorAll('.hl-ic')].filter(e=>e.closest('[hidden]')===null).every(e=>e.querySelector('svg.ic')),
+            qp:!!document.querySelector('#qpGuide svg.ic')&&!!document.querySelector('#daily svg.ic')&&!!document.querySelector('#qpOpen svg.ic'),
+            search:!!document.querySelector('.search-ic svg.ic'),
+            popup:(()=>{const m=M[0];const d=document.createElement('div');d.innerHTML=popup(m.data,m.i);return d.querySelectorAll('.pact-btn svg.ic').length>=1;})(),
+            emojiKept:UI.en.guideToggleLabel.indexOf('🧭')===0,
+            lang:typeof ICONS==='object'&&Object.keys(ICONS).length>=40})""")
+        check("74 the chrome uses the line-icon set; strings keep their emoji as the fallback", all(ic.values()), ic)
+        pg74d=await b.new_page(viewport={'width':1280,'height':900})
+        await pg74d.goto(URL); await pg74d.wait_for_timeout(1200)
+        dk=await pg74d.evaluate("()=>({menuHidden:document.getElementById('langMenuBtn').offsetHeight===0,six:[...document.querySelectorAll('.lang-btn')].filter(b=>b.offsetHeight>0).length,order:[...document.querySelectorAll('#langMenu .lang-btn')].map(b=>b.dataset.lang).join(''),sug:(()=>{document.getElementById('searchInput').focus();return document.querySelectorAll('#searchSuggest button').length;})()})")
+        check("74 desktop keeps the six-button language control in its usual order, and the suggestions", dk['menuHidden'] and dk['six']==6 and dk['order']=='enfreszhkoja' and dk['sug']==4, dk)
+        await pg74d.close()
+        check("74 no page errors across round 74", len(e74)==0, e74[:3])
+        await pg74.close()
 
         print("\n--- cluster plugin absent (CDN failure) ---")
         pg4=await b.new_page(viewport={'width':1100,'height':800})
