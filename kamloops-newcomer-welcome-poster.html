@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamloops Life Services Map — A4 Flyer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto:wght@400;500;700;900&family=Noto+Sans+SC:wght@400;500;700;900&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap');
+
+        :root {
+            --g-blue: #1a73e8;
+            --g-red: #ea4335;
+            --g-yellow: #fbbc04;
+            --g-green: #34a853;
+            --g-text: #202124;
+            --g-sub: #5f6368;
+            --g-border: #dadce0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', 'Noto Sans SC', 'Noto Sans KR', 'Noto Sans JP', sans-serif;
+            background: #e8eaed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── A4 Frame ── */
+        .a4 {
+            width: 210mm;
+            height: 297mm;
+            background: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 40px rgba(0,0,0,.18);
+        }
+
+        /* ── Map Background Canvas ── */
+        #mapBg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        /* ── Content Layer ── */
+        .layer {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding: 10mm 10mm 8mm;
+        }
+
+        /* ── Material Components ── */
+        .m-card {
+            background: rgba(255,255,255,0.94);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border: 1px solid var(--g-border);
+            box-shadow: 0 1px 3px rgba(60,64,67,.10), 0 1px 2px rgba(60,64,67,.20);
+            border-radius: 12px;
+        }
+
+        .lang-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            border: 1px solid;
+        }
+
+        /* ── Print ── */
+        @media print {
+            @page { size: A4 portrait; margin: 0; }
+            body { background: #fff !important; }
+            .a4 {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+            }
+            .m-card {
+                background: rgba(255,255,255,0.96) !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        #qrcode img, #qrcode canvas {
+            display: block;
+            margin: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="a4">
+    <canvas id="mapBg"></canvas>
+
+    <div class="layer">
+
+        <!-- ═══════════════════ HEADER ═══════════════════ -->
+        <header class="text-center space-y-1">
+
+            <!-- Jesus Loves You Banner -->
+            <div class="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg ring-[3px] ring-amber-400/70">
+                <div class="w-4 h-4 rounded-full bg-white ring-2 ring-amber-300 flex items-center justify-center shrink-0">
+                    <svg class="w-2.5 h-2.5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10.5 2.5C10.5 1.95 10.95 1.5 11.5 1.5H12.5C13.05 1.5 13.5 1.95 13.5 2.5V7.5H18.5C19.05 7.5 19.5 7.95 19.5 8.5V9.5C19.5 10.05 19.05 10.5 18.5 10.5H13.5V21.5C13.5 22.05 13.05 22.5 12.5 22.5H11.5C10.95 22.5 10.5 22.05 10.5 21.5V10.5H5.5C4.95 10.5 4.5 10.05 4.5 9.5V8.5C4.5 7.95 4.95 7.5 5.5 7.5H10.5V2.5Z"/>
+                    </svg>
+                </div>
+                <span class="text-sm font-black tracking-wide drop-shadow">Jesus Loves You</span>
+            </div>
+
+            <!-- Title -->
+            <div>
+                <h1 class="text-[30px] font-black tracking-tight leading-none" style="color: var(--g-blue);">
+                    Kamloops Life Services Map
+                </h1>
+            </div>
+
+            <!-- Feature Pills -->
+            <div class="flex flex-wrap justify-center gap-1.5">
+                <span class="lang-badge bg-blue-50 text-[#1a73e8] border-blue-200">
+                    <span>✦</span> 260+ Locations
+                </span>
+                <span class="lang-badge bg-emerald-50 text-[#34a853] border-emerald-200">
+                    <span>✦</span> Offline Ready
+                </span>
+                <span class="lang-badge bg-purple-50 text-purple-700 border-purple-200">
+                    <span>✦</span> 6 Languages
+                </span>
+                <span class="lang-badge bg-amber-50 text-amber-700 border-amber-200">
+                    <span>✦</span> 100% Free
+                </span>
+            </div>
+        </header>
+
+        <!-- ═══════════════════ 6-LANGUAGE CARDS ═══════════════════ -->
+        <section class="grid grid-cols-2 gap-1.5 mt-2 flex-grow">
+
+            <!-- 🇬🇧 English -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#1a73e8] text-white text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇬🇧 English</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">Essential Guide</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                        <span><strong>260+ places, 47 categories:</strong> Schools, clinics, dental, pharmacies, banks, grocers, gyms, parks, gov offices</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                        <span><strong>Settling-in guide:</strong> Step-by-step — SIN, bank account, credit, MSP health card, driver's licence, tenant rights</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                        <span><strong>Transit navigator:</strong> All 14 BC Transit routes, 475 stops, fares & school bus routes mapped</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                        <span><strong>7 neighbourhoods:</strong> Filter by area, category or theme — works offline as a PWA</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 🇫🇷 Français -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#f9ab00] text-slate-900 text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇫🇷 Français</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">Guide Pratique</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-amber-600 font-black shrink-0">✓</span>
+                        <span><strong>260+ lieux, 47 catégories :</strong> Écoles, cliniques, dentistes, pharmacies, banques, épiceries, gyms, parcs, bureaux gov.</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-amber-600 font-black shrink-0">✓</span>
+                        <span><strong>Guide d'installation :</strong> Étapes — SIN, compte bancaire, crédit, carte MSP, permis, droits des locataires</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-amber-600 font-black shrink-0">✓</span>
+                        <span><strong>Guide transports :</strong> 14 routes BC Transit, 475 arrêts, tarifs et autobus scolaires cartographiés</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-amber-600 font-black shrink-0">✓</span>
+                        <span><strong>7 quartiers :</strong> Filtrer par secteur, catégorie ou thème — fonctionne hors ligne (PWA)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 🇪🇸 Español -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#e8710a] text-white text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇪🇸 Español</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">Guía de Servicios</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-orange-600 font-black shrink-0">✓</span>
+                        <span><strong>260+ lugares, 47 categorías:</strong> Escuelas, clínicas, dentistas, farmacias, bancos, mercados, gimnasios, parques, oficinas gov.</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-orange-600 font-black shrink-0">✓</span>
+                        <span><strong>Guía de asentamiento:</strong> Pasos — SIN, cuenta bancaria, crédito, tarjeta MSP, licencia, derechos del inquilino</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-orange-600 font-black shrink-0">✓</span>
+                        <span><strong>Navegador transporte:</strong> 14 rutas BC Transit, 475 paradas, tarifas y rutas escolares mapeadas</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-orange-600 font-black shrink-0">✓</span>
+                        <span><strong>7 barrios:</strong> Filtrar por zona, categoría o tema — funciona sin conexión (PWA)</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 🇨🇳 中文 -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#34a853] text-white text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇨🇳 中文</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">甘露市生活必备</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#34a853] font-black shrink-0">✓</span>
+                        <span><strong>260+ 地点，47 个分类：</strong>学校、诊所、牙科、药房、银行、超市、健身房、公园、政府机构</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#34a853] font-black shrink-0">✓</span>
+                        <span><strong>落地安居指南：</strong>SIN、银行账户、信用记录、MSP 医疗卡、驾照、租房权益——逐步办</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#34a853] font-black shrink-0">✓</span>
+                        <span><strong>公交全景导航：</strong>14 条 BC Transit 线路、475 个站点、票价及校车路线全收录</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#34a853] font-black shrink-0">✓</span>
+                        <span><strong>7 大区域覆盖：</strong>按区域 / 分类 / 主题筛选——支持离线使用（PWA）</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 🇰🇷 한국어 -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#9333ea] text-white text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇰🇷 한국어</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">정착 가이드</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-purple-600 font-black shrink-0">✓</span>
+                        <span><strong>260+ 장소, 47개 분류:</strong> 학교, 클리닉, 치과, 약국, 은행, 마트, 헬스장, 공원, 관공서</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-purple-600 font-black shrink-0">✓</span>
+                        <span><strong>정착 단계별 안내:</strong> SIN, 은행계좌, 신용점수, MSP 건강카드, 운전면허, 임차인 권리</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-purple-600 font-black shrink-0">✓</span>
+                        <span><strong>대중교통 안내:</strong> BC Transit 14개 노선, 475개 정류장, 요금 및 스쿨버스 노선 수록</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-purple-600 font-black shrink-0">✓</span>
+                        <span><strong>7개 지역 커버:</strong> 지역·분류·테마별 필터링 — PWA 오프라인 지원</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- 🇯🇵 日本語 -->
+            <div class="m-card p-3 flex flex-col">
+                <div class="flex items-center gap-2 border-b border-slate-200 pb-1.5 mb-2">
+                    <span class="bg-[#ea4335] text-white text-[10.5px] font-black px-2.5 py-0.5 rounded-md">🇯🇵 日本語</span>
+                    <span class="text-[9.5px] font-bold text-[#5f6368] uppercase tracking-wider ml-auto">生活案内マップ</span>
+                </div>
+                <ul class="text-[11px] text-[#202124] font-bold space-y-1 leading-snug flex-grow">
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                        <span><strong>260+ スポット、47 カテゴリ：</strong>学校、クリニック、歯科、薬局、銀行、スーパー、ジム、公園、役所</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                        <span><strong>定住ガイド：</strong>SIN、銀行口座、信用履歴、MSP医療カード、免許、賃貸人の権利—手順通り</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                        <span><strong>交通ナビ：</strong>BC Transit 14路線、475停留所、運賃・スクールバス路線も網羅</span>
+                    </li>
+                    <li class="flex items-start gap-1.5">
+                        <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                        <span><strong>7エリア対応：</strong>エリア・カテゴリ・テーマで絞り込み — PWAオフライン対応</span>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════ FOOTER / QR ═══════════════════ -->
+        <footer class="m-card mt-2 p-2.5 flex items-center gap-4">
+            <div class="shrink-0">
+                <div id="qrcode" class="p-1.5 bg-white rounded-lg border border-[#dadce0] shadow-sm"></div>
+            </div>
+            <div class="flex flex-col space-y-0.5 flex-grow">
+                <div class="inline-flex items-center gap-1.5 text-[10px] font-black text-[#1a73e8] uppercase tracking-wide">
+                    <span class="relative flex h-2 w-2">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34a853] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2 w-2 bg-[#34a853]"></span>
+                    </span>
+                    Scan to Open Map
+                </div>
+                <div class="text-[14px] font-black text-[#202124] font-mono tracking-tight">
+                    kamloops-lifemap.neilxiang.workers.dev
+                </div>
+                <div class="text-[10px] text-[#5f6368] font-bold leading-tight">
+                    Point your camera at the QR code · 手机扫描 · 스캔 · スキャン · Scanner · Escanear
+                </div>
+            </div>
+            <div class="shrink-0 text-right text-[9px] text-[#5f6368] font-bold leading-relaxed">
+                <div class="text-[11px] font-black text-[#34a853]">❤️ Jesus Loves You</div>
+                <div>Welcome to Kamloops!</div>
+                <div class="mt-0.5">CC BY-NC 4.0</div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+
+<script>
+const MAP_URL = "https://kamloops-lifemap.neilxiang.workers.dev";
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    /* ── QR Code ── */
+    new QRCode(document.getElementById("qrcode"), {
+        text: MAP_URL, width: 80, height: 80,
+        colorDark: "#202124", colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+
+    /* ── Kamloops Map Background ── */
+    const c = document.getElementById('mapBg');
+    const ctx = c.getContext('2d');
+
+    function resize() {
+        const rect = c.parentElement.getBoundingClientRect();
+        c.width  = rect.width;
+        c.height = rect.height;
+        draw();
+    }
+
+    function draw() {
+        const W = c.width, H = c.height;
+        ctx.clearRect(0, 0, W, H);
+
+        /* Subtle paper base */
+        ctx.fillStyle = '#fafbfc';
+        ctx.fillRect(0, 0, W, H);
+
+        /* ── Mountain silhouettes (north shore) ── */
+        ctx.save();
+        ctx.globalAlpha = 0.06;
+        ctx.fillStyle = '#5f6368';
+        ctx.beginPath();
+        ctx.moveTo(0, H * 0.18);
+        ctx.lineTo(W * 0.08, H * 0.08);
+        ctx.lineTo(W * 0.15, H * 0.14);
+        ctx.lineTo(W * 0.22, H * 0.04);
+        ctx.lineTo(W * 0.30, H * 0.12);
+        ctx.lineTo(W * 0.38, H * 0.06);
+        ctx.lineTo(W * 0.45, H * 0.15);
+        ctx.lineTo(W * 0.52, H * 0.09);
+        ctx.lineTo(W * 0.58, H * 0.16);
+        ctx.lineTo(W * 0.65, H * 0.05);
+        ctx.lineTo(W * 0.72, H * 0.13);
+        ctx.lineTo(W * 0.80, H * 0.07);
+        ctx.lineTo(W * 0.88, H * 0.14);
+        ctx.lineTo(W * 0.95, H * 0.08);
+        ctx.lineTo(W, H * 0.16);
+        ctx.lineTo(W, H * 0.22);
+        ctx.lineTo(0, H * 0.22);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+
+        /* ── Thompson River system ── */
+        // Main South Thompson — wide fill
+        ctx.beginPath();
+        ctx.moveTo(-20, H * 0.34);
+        ctx.bezierCurveTo(W * 0.15, H * 0.32, W * 0.30, H * 0.36, W * 0.46, H * 0.38);
+        ctx.bezierCurveTo(W * 0.35, H * 0.39, W * 0.15, H * 0.37, -20, H * 0.38);
+        ctx.closePath();
+        ctx.fillStyle = 'rgba(138,180,248,0.18)';
+        ctx.fill();
+
+        // South Thompson stroke (wide glow + center line)
+        ctx.beginPath();
+        ctx.moveTo(-20, H * 0.35);
+        ctx.bezierCurveTo(W * 0.15, H * 0.33, W * 0.30, H * 0.365, W * 0.46, H * 0.38);
+        ctx.lineWidth = 28;
+        ctx.strokeStyle = 'rgba(66,133,244,0.12)';
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(-20, H * 0.35);
+        ctx.bezierCurveTo(W * 0.15, H * 0.33, W * 0.30, H * 0.365, W * 0.46, H * 0.38);
+        ctx.lineWidth = 8;
+        ctx.strokeStyle = 'rgba(66,133,244,0.22)';
+        ctx.stroke();
+
+        // North Thompson — from northeast
+        ctx.beginPath();
+        ctx.moveTo(W + 20, H * 0.28);
+        ctx.bezierCurveTo(W * 0.75, H * 0.30, W * 0.58, H * 0.34, W * 0.46, H * 0.38);
+        ctx.lineWidth = 22;
+        ctx.strokeStyle = 'rgba(66,133,244,0.10)';
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(W + 20, H * 0.28);
+        ctx.bezierCurveTo(W * 0.75, H * 0.30, W * 0.58, H * 0.34, W * 0.46, H * 0.38);
+        ctx.lineWidth = 6;
+        ctx.strokeStyle = 'rgba(66,133,244,0.20)';
+        ctx.stroke();
+
+        // Thompson River continues west-southwest after confluence
+        ctx.beginPath();
+        ctx.moveTo(W * 0.46, H * 0.38);
+        ctx.bezierCurveTo(W * 0.35, H * 0.42, W * 0.15, H * 0.48, -20, H * 0.52);
+        ctx.lineWidth = 30;
+        ctx.strokeStyle = 'rgba(66,133,244,0.10)';
+        ctx.lineCap = 'round';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(W * 0.46, H * 0.38);
+        ctx.bezierCurveTo(W * 0.35, H * 0.42, W * 0.15, H * 0.48, -20, H * 0.52);
+        ctx.lineWidth = 9;
+        ctx.strokeStyle = 'rgba(66,133,244,0.20)';
+        ctx.stroke();
+
+        // Kamloops Lake (south)
+        ctx.beginPath();
+        ctx.ellipse(W * 0.50, H * 0.88, W * 0.22, H * 0.06, -0.1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(66,133,244,0.07)';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(W * 0.50, H * 0.88, W * 0.18, H * 0.04, -0.1, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(66,133,244,0.05)';
+        ctx.fill();
+
+        /* ── Road grid ── */
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = 'rgba(95,99,104,0.10)';
+
+        const roads = [
+            [[0, H * 0.42], [W * 0.25, H * 0.44], [W * 0.50, H * 0.42], [W * 0.75, H * 0.40], [W, H * 0.38]],
+            [[W, H * 0.22], [W * 0.70, H * 0.30], [W * 0.46, H * 0.38]],
+            [[W * 0.46, H * 0.38], [W * 0.42, H * 0.20], [W * 0.38, 0]],
+            [[W * 0.44, H * 0.28], [W * 0.45, H * 0.42], [W * 0.43, H * 0.60]],
+            [[W * 0.55, H * 0.20], [W * 0.60, H * 0.30], [W * 0.58, H * 0.38]],
+            [[W * 0.15, H * 0.55], [W * 0.35, H * 0.52], [W * 0.55, H * 0.55]],
+            [[W * 0.10, H * 0.58], [W * 0.25, H * 0.56], [W * 0.40, H * 0.58]],
+            [[W * 0.10, H * 0.26], [W * 0.30, H * 0.24], [W * 0.44, H * 0.28]],
+            [[0, H * 0.48], [W * 0.12, H * 0.50], [W * 0.25, H * 0.48]],
+            [[W * 0.50, H * 0.42], [W * 0.65, H * 0.50], [W * 0.80, H * 0.55]],
+        ];
+
+        roads.forEach(pts => {
+            ctx.beginPath();
+            ctx.moveTo(pts[0][0], pts[0][1]);
+            for (let i = 1; i < pts.length - 1; i++) {
+                ctx.quadraticCurveTo(pts[i][0], pts[i][1], pts[i+1][0], pts[i+1][1]);
+            }
+            if (pts.length === 3) {
+                ctx.quadraticCurveTo(pts[1][0], pts[1][1], pts[2][0], pts[2][1]);
+            }
+            ctx.stroke();
+        });
+
+        /* ── Region labels ── */
+        ctx.font = '700 10px "Google Sans", Roboto, sans-serif';
+        ctx.fillStyle = 'rgba(32,33,36,0.18)';
+        ctx.textAlign = 'center';
+
+        const labels = [
+            ['BROCKLEHURST', W * 0.60, H * 0.22],
+            ['NORTH SHORE', W * 0.25, H * 0.26],
+            ['DOWNTOWN', W * 0.45, H * 0.40],
+            ['WESTSYDE', W * 0.10, H * 0.46],
+            ['VALLEYVIEW', W * 0.72, H * 0.46],
+            ['TRU', W * 0.28, H * 0.54],
+            ['SAHALI', W * 0.22, H * 0.60],
+            ['ABERDEEN', W * 0.20, H * 0.72],
+            ['MISSION FLATS', W * 0.55, H * 0.62],
+            ['DALLAS', W * 0.72, H * 0.56],
+            ['SUN RIVER', W * 0.60, H * 0.76],
+            ['KAMLOOPS LAKE', W * 0.50, H * 0.88],
+        ];
+
+        labels.forEach(([text, x, y]) => {
+            ctx.fillText(text, x, y);
+        });
+
+        /* ── Confluence marker ── */
+        ctx.beginPath();
+        ctx.arc(W * 0.46, H * 0.38, 5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(26,115,232,0.15)';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(W * 0.46, H * 0.38, 2, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(26,115,232,0.25)';
+        ctx.fill();
+
+        /* ── Scattered POI dots ── */
+        ctx.fillStyle = 'rgba(52,168,83,0.10)';
+        const pois = [
+            [0.42, 0.36], [0.48, 0.40], [0.44, 0.42], [0.50, 0.38],
+            [0.30, 0.54], [0.25, 0.56], [0.20, 0.70], [0.18, 0.72],
+            [0.58, 0.22], [0.62, 0.24], [0.70, 0.44], [0.74, 0.48],
+            [0.12, 0.46], [0.08, 0.48], [0.55, 0.60], [0.60, 0.58],
+            [0.35, 0.50], [0.40, 0.56], [0.46, 0.44], [0.48, 0.36],
+        ];
+        pois.forEach(([px, py]) => {
+            ctx.beginPath();
+            ctx.arc(W * px, H * py, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+        });
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+});
+</script>
+
+</body>
+</html>

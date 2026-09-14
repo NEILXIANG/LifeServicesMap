@@ -98,7 +98,7 @@ LABELS = [
   ('poi',   'Kenna Cartwright Park',50.6635, -120.3775,   0,   0),
 ]
 
-def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None, pins=None):
+def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None, pins=None, pin_colors=None):
     xy = make(W, H, bounds)
     out = []
     if tone == 'colour':
@@ -149,11 +149,13 @@ def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None, pins=Non
     # so the band is a first-week route map rather than decoration.
     if pins:
         sw = W / 1240.0
-        for num, la, lo, dx, dy in pins:
+        pcols = pin_colors or ['#1a73e8'] * len(pins)
+        for i, (num, la, lo, dx, dy) in enumerate(pins):
             x, y = xy(la, lo)
             x += dx * sw; y += dy * sw
             r = 14 * sw
-            out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="#1a73e8" stroke="#fff" stroke-width="%.1f"/>' % (x, y, r, 2.2 * sw))
+            col = pcols[i] if i < len(pcols) else '#1a73e8'
+            out.append('<circle cx="%.1f" cy="%.1f" r="%.1f" fill="%s" stroke="#fff" stroke-width="%.1f"/>' % (x, y, r, col, 2.2 * sw))
             out.append('<text x="%.1f" y="%.1f" text-anchor="middle" font-family="Roboto,Arial,sans-serif" font-weight="700" font-size="%.1f" fill="#fff">%s</text>' % (x, y + 5.6 * sw, 16 * sw, num))
     return '\n'.join(out)
 

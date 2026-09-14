@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamloops Life Services Map - Google Material Style Poster (A4 Portrait)</title>
+    <!-- Tailwind CSS & QRCode.js -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&family=Roboto:wght@400;500;700;900&display=swap');
+        
+        :root {
+            --google-bg: #ffffff;
+            --google-card: #ffffff;
+            --google-blue: #1a73e8;
+            --google-red: #ea4335;
+            --google-yellow: #fbbc04;
+            --google-green: #34a853;
+            --google-text: #202124;
+            --google-subtext: #5f6368;
+        }
+
+        body {
+            font-family: 'Google Sans', 'Roboto', -apple-system, sans-serif;
+            background-color: #17191c;
+            background-image: radial-gradient(at 50% 0%, #2d3136 0px, transparent 80%), radial-gradient(at 100% 100%, #111315 0px, transparent 50%);
+            color: var(--google-text);
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Strict A4 Portrait Ratio Box - Perfectly proportioned for no clipping and compact elegance */
+        .poster-frame {
+            width: 100%;
+            max-width: 680px;
+            height: 1100px;
+            background-color: var(--google-bg);
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.25);
+            border-radius: 1.5rem;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            padding: 24px 28px !important;
+        }
+
+        /* Google Material Design Elevation Cards */
+        .google-card {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            box-shadow: 0 1px 3px rgba(60, 64, 67, 0.12), 0 1px 2px rgba(60, 64, 67, 0.24);
+            border-radius: 12px;
+        }
+
+        .google-pill {
+            background: #ffffff;
+            border: 1px solid #dadce0;
+            box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+        }
+
+        /* Strict A4 Portrait Print Stylesheet */
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+            body {
+                background: #ffffff !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+                display: block;
+                height: 297mm;
+            }
+            .poster-frame {
+                box-shadow: none !important;
+                border: none !important;
+                border-radius: 0 !important;
+                width: 210mm !important;
+                height: 297mm !important;
+                max-width: none !important;
+                padding: 10mm 12mm !important;
+                margin: 0 auto !important;
+                background-color: #ffffff !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                box-sizing: border-box !important;
+            }
+        }
+
+        #qrcode img, #qrcode canvas {
+            display: block;
+            margin: auto;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="p-2 sm:p-4">
+
+    <div class="poster-frame relative border border-slate-300">
+        
+        <!-- Enhanced Vector Canvas Watermark (Thompson River Confluence & Road Grid) -->
+        <canvas id="mapCanvas" class="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-25"></canvas>
+
+        <!-- MAIN CONTENT WRAPPER -->
+        <div class="relative z-10 flex flex-col space-y-3">
+            
+            <header class="flex flex-col items-center justify-center pt-1 space-y-2">
+                <!-- Extremely Prominent Google-styled Faith Badge -->
+                <div class="google-pill px-6 py-2 rounded-full inline-flex items-center justify-center gap-2.5 bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 text-white shadow-lg ring-4 ring-amber-400/80 animate-pulse">
+                    <div class="w-5 h-5 rounded-full bg-white ring-2 ring-amber-300 shadow-inner flex items-center justify-center shrink-0">
+                        <svg class="w-3.5 h-3.5 text-blue-600" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M10.5 2.5C10.5 1.94772 10.9477 1.5 11.5 1.5H12.5C13.0523 1.5 13.5 1.94772 13.5 2.5V7.5H18.5C19.0523 7.5 19.5 7.94772 19.5 8.5V9.5C19.5 10.0523 19.0523 10.5 18.5 10.5H13.5V21.5C13.5 22.0523 13.0523 22.5 12.5 22.5H11.5C10.9477 22.5 10.5 22.0523 10.5 21.5V10.5H5.5C4.94772 10.5 4.5 10.0523 4.5 9.5V8.5C4.5 7.94772 4.94772 7.5 5.5 7.5H10.5V2.5Z"/>
+                        </svg>
+                    </div>
+                    <span class="text-[17px] sm:text-[19px] font-black tracking-wide text-white drop-shadow-md">
+                        ✨ Jesus Loves You ✨
+                    </span>
+                </div>
+            </header>
+
+            <section class="text-center space-y-1">
+                <h1 class="text-3xl sm:text-[40px] font-black tracking-tight text-[#1a73e8] leading-none">
+                    Kamloops Life Services Map
+                </h1>
+                
+                <p class="text-[13px] sm:text-[14.5px] text-[#5f6368] font-bold max-w-xl mx-auto leading-snug px-1">
+                    Your essential interactive guide to local services, transit routes, walk-in clinics & daily living resources.
+                </p>
+
+                <!-- Google-style Feature Pills with high contrast text -->
+                <div class="flex flex-wrap justify-center items-center gap-2 pt-1">
+                    <span class="bg-blue-50 text-[#1a73e8] border border-blue-200 text-[12px] font-black px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <span class="font-black">✦</span> 260+ Mapped Locations
+                    </span>
+                    <span class="bg-emerald-50 text-[#34a853] border border-emerald-200 text-[12px] font-black px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <span class="font-black">✦</span> Offline Capable (No Data Needed)
+                    </span>
+                    <span class="bg-purple-50 text-purple-700 border border-purple-200 text-[12px] font-black px-3.5 py-1 rounded-full shadow-sm flex items-center gap-1">
+                        <span class="font-black">✦</span> 100% Free • No Signup
+                    </span>
+                </div>
+            </section>
+
+            <section class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+
+                <!-- 🌐 English Guide -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#1a73e8] text-white text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🌐 English Guide
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">ESSENTIAL LIFE MAP</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                            <span><strong>260+ Mapped spots:</strong> Banks, walk-in clinics, grocers, hubs</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                            <span><strong>Transit navigator:</strong> Complete BC Transit route finder</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#1a73e8] font-black shrink-0">✓</span>
+                            <span><strong>Offline capable:</strong> Works directly on mobile browsers</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 🇫🇷 Français -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#f9ab00] text-slate-900 text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🇫🇷 Français
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">GUIDE PRATIQUE</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-amber-700 font-black shrink-0">✓</span>
+                            <span><strong>260+ lieux répertoriés :</strong> Banques, cliniques, marchés, hubs</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-amber-700 font-black shrink-0">✓</span>
+                            <span><strong>Navigateur transports :</strong> Guide complet BC Transit</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-amber-700 font-black shrink-0">✓</span>
+                            <span><strong>Mode hors ligne :</strong> Fonctionne sur navigateur mobile</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 🇪🇸 Español -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#e8710a] text-white text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🇪🇸 Español
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">GUÍA DE SERVICIOS</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-orange-700 font-black shrink-0">✓</span>
+                            <span><strong>260+ lugares mapeados:</strong> Bancos, clínicas, mercados, centros</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-orange-700 font-black shrink-0">✓</span>
+                            <span><strong>Navegador de transporte:</strong> Guía completa BC Transit</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-orange-700 font-black shrink-0">✓</span>
+                            <span><strong>Funciona sin datos:</strong> Directo en el navegador móvil</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 🇨🇳 中文指南 -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#34a853] text-white text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🇨🇳 中文指南
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">甘露市生活必备</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#34a853] font-black shrink-0">✓</span>
+                            <span><strong>260+ 实用地点：</strong> 银行、诊所、生鲜超市、社区枢纽</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#34a853] font-black shrink-0">✓</span>
+                            <span><strong>公交出行导航：</strong> 全套 BC Transit 线路与站点查询</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#34a853] font-black shrink-0">✓</span>
+                            <span><strong>支持离线使用：</strong> 手机浏览器直接打开，无需流量</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 🇰🇷 한국어 -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#9333ea] text-white text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🇰🇷 한국어
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">정착 가이드</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-purple-700 font-black shrink-0">✓</span>
+                            <span><strong>260+ 주요 장소:</strong> 은행, 클리닉, 마트, 주요 센터</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-purple-700 font-black shrink-0">✓</span>
+                            <span><strong>대중교통 길잡이:</strong> BC Transit 전체 버스 노선 안내</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-purple-700 font-black shrink-0">✓</span>
+                            <span><strong>오프라인 지원:</strong> 모바일 브라우저에서 데이터 없이 사용</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 🇯🇵 日本語 -->
+                <div class="google-card p-3 sm:p-3.5 rounded-xl flex flex-col justify-between space-y-1.5">
+                    <div class="flex items-center justify-between border-b border-slate-200 pb-1.5">
+                        <span class="bg-[#ea4335] text-white text-[12px] font-black px-2.5 py-0.5 rounded-md tracking-wide">
+                            🇯🇵 日本語
+                        </span>
+                        <span class="text-[11.5px] font-bold text-[#5f6368] uppercase tracking-wider">カムループス生活案内マップ</span>
+                    </div>
+                    <ul class="text-[13px] sm:text-[14px] text-[#202124] space-y-1 font-bold leading-snug">
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                            <span><strong>260ヶ所以上のスポット：</strong> 銀行、クリニック、スーパー</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                            <span><strong>交通ナビゲーション：</strong> BC Transit 路線・バス停案内</span>
+                        </li>
+                        <li class="flex items-start gap-1.5">
+                            <span class="text-[#ea4335] font-black shrink-0">✓</span>
+                            <span><strong>オフライン対応：</strong> ブラウザで通信なしで動作</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </section>
+
+        </div>
+
+        <footer class="relative z-10 bg-white rounded-xl p-3 sm:p-3.5 border border-[#dadce0] shadow-md flex flex-col sm:flex-row items-center gap-4 mt-2">
+            
+            <!-- Clean QR Code Box -->
+            <div class="flex flex-col items-center shrink-0">
+                <div id="qrcode" class="p-1.5 bg-white rounded-lg border border-[#dadce0] shadow-sm"></div>
+            </div>
+
+            <!-- Action Guidance & Clean Web Domain -->
+            <div class="flex flex-col space-y-1 text-center sm:text-left flex-grow">
+                <div class="inline-flex items-center justify-center sm:justify-start gap-1.5 text-[12.5px] font-black text-[#1a73e8] uppercase tracking-wide">
+                    <span class="relative flex h-2.5 w-2.5">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34a853] opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#34a853]"></span>
+                    </span>
+                    <span>SCAN QR CODE TO OPEN MAP</span>
+                </div>
+                
+                <!-- Google-style Crisp Domain Display with Max Contrast -->
+                <div class="text-[16px] sm:text-[18px] font-black text-[#202124] font-mono tracking-tight flex items-center justify-center sm:justify-start">
+                    <span>kamloops-lifemap.neilxiang.workers.dev</span>
+                </div>
+
+                <div class="text-[11.5px] text-[#202124] font-bold leading-tight">
+                    👉 Point your smartphone camera at the QR code to open directly · Works offline anywhere in Kamloops
+                    <div class="text-[11px] text-[#5f6368] font-bold pt-0.5">
+                        Scan with camera • 手机相机扫描 • カメラでスキャン • 카메라 스캔
+                    </div>
+                </div>
+
+                <div class="text-[12px] font-black text-[#34a853] flex items-center justify-center sm:justify-start gap-1">
+                    <span>❤️</span> Welcome to Kamloops! Jesus loves you, and we wish you peace and success.
+                </div>
+            </div>
+
+        </footer>
+
+    </div>
+
+    <script>
+        const MAP_URL = "https://kamloops-lifemap.neilxiang.workers.dev";
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Render High Quality Google Material QR Code
+            const qrContainer = document.getElementById("qrcode");
+            new QRCode(qrContainer, {
+                text: MAP_URL,
+                width: 70,
+                height: 70,
+                colorDark : "#202124",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+
+            // Canvas Map River Watermark Drawing
+            const canvas = document.getElementById('mapCanvas');
+            const ctx = canvas.getContext('2d');
+
+            function resizeCanvas() {
+                canvas.width = canvas.parentElement.clientWidth;
+                canvas.height = canvas.parentElement.clientHeight;
+                drawMap();
+            }
+
+            function drawMap() {
+                const w = canvas.width;
+                const h = canvas.height;
+                ctx.clearRect(0, 0, w, h);
+
+                // Thompson River Main Waterway (Dual-stroke for vivid depth)
+                ctx.beginPath();
+                ctx.moveTo(-40, h * 0.35);
+                ctx.bezierCurveTo(w * 0.35, h * 0.32, w * 0.48, h * 0.42, w + 40, h * 0.38);
+                ctx.lineWidth = 44;
+                ctx.strokeStyle = '#bdc1c6';
+                ctx.lineCap = 'round';
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(-40, h * 0.35);
+                ctx.bezierCurveTo(w * 0.35, h * 0.32, w * 0.48, h * 0.42, w + 40, h * 0.38);
+                ctx.lineWidth = 24;
+                ctx.strokeStyle = '#8ab4f8';
+                ctx.stroke();
+
+                // North Thompson River Branch
+                ctx.beginPath();
+                ctx.moveTo(w * 0.46, h * 0.38);
+                ctx.bezierCurveTo(w * 0.52, h * 0.58, w * 0.60, h * 0.78, w * 0.68, h + 40);
+                ctx.lineWidth = 30;
+                ctx.strokeStyle = '#bdc1c6';
+                ctx.lineCap = 'round';
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(w * 0.46, h * 0.38);
+                ctx.bezierCurveTo(w * 0.52, h * 0.58, w * 0.60, h * 0.78, w * 0.68, h + 40);
+                ctx.lineWidth = 16;
+                ctx.strokeStyle = '#8ab4f8';
+                ctx.stroke();
+
+                // Crisp Arterial Road Network & Topo Lines
+                ctx.lineWidth = 2;
+                ctx.strokeStyle = '#9aa0a6';
+
+                const roads = [
+                    [[0, h * 0.18], [w * 0.5, h * 0.22], [w, h * 0.15]],
+                    [[0, h * 0.48], [w * 0.45, h * 0.46], [w, h * 0.52]],
+                    [[w * 0.20, 0], [w * 0.25, h * 0.50], [w * 0.30, h]],
+                    [[w * 0.72, 0], [w * 0.68, h * 0.60], [w * 0.78, h]],
+                    [[w * 0.05, h * 0.82], [w * 0.50, h * 0.72], [w * 0.95, h * 0.85]]
+                ];
+
+                roads.forEach(path => {
+                    ctx.beginPath();
+                    ctx.moveTo(path[0][0], path[0][1]);
+                    ctx.quadraticCurveTo(path[1][0], path[1][1], path[2][0], path[2][1]);
+                    ctx.stroke();
+                });
+
+                // Kamloops Geographic Text Overlay Labels on Canvas (Darker for crisp readability)
+                ctx.font = '800 12px "Google Sans", Roboto, sans-serif';
+                ctx.fillStyle = 'rgba(32, 33, 36, 0.75)';
+                
+                ctx.fillText('NORTH SHORE', w * 0.15, h * 0.28);
+                ctx.fillText('DOWNTOWN KAMLOOPS', w * 0.46, h * 0.44);
+                ctx.fillText('TRU / SAHALI', w * 0.15, h * 0.58);
+                ctx.fillText('NORTH THOMPSON RIVER', w * 0.58, h * 0.72);
+                ctx.fillText('SOUTH THOMPSON RIVER', w * 0.52, h * 0.33);
+                ctx.fillText('ABERDEEN', w * 0.15, h * 0.78);
+            }
+
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+        });
+    </script>
+</body>
+</html>

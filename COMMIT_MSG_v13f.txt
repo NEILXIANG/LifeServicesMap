@@ -1,0 +1,72 @@
+fix: first-time-user bug sweep — 25 defects across phone, tablet and desktop (v2026.09.13f)
+
+Three audits driven as a first-time visitor (390/320/landscape phone, 820/768/
+1024 tablet, 1280/1920 desktop + keyboard, six languages). Bugs only; no
+behaviour was added. Every fix is checked by regress round 76 (27 checks).
+
+Logic / crashes
+- Typing an arrival date digit by digit fired change with a half-typed year
+  ("0002-09-01"); the tax deadline became an Invalid Date and fmtDate's own
+  fallback threw — uncaught, "page hit an error" toast — and a stored partial
+  year made every later guide open throw. Only a real date between 1990 and
+  today is accepted (validArrival); a future or partial value is ignored and
+  the field shows what is stored once it loses focus. fmtDate guards NaN.
+- fmtDist: 949 m → "950 m", 950 → "0.9 km", 951 → "1.0 km" (binary halves in
+  toFixed). Rounds on an integer first; the scale is monotonic.
+- Ticking a step did not refresh the landing progress strip (only marking a
+  whole card did) — it appeared after the next reload.
+
+Navigation / history
+- Guide opened from a link (flyer QR, ?task=): "← All tasks" then another card
+  then Back left the site. The list now takes the guide's history entry at that
+  point, so Back returns to the list and the next Back closes the guide.
+- Closing the guide with a card open, then reopening, showed the stale card
+  with no entry under it (Back closed the whole guide). Reopens on the list.
+- Double tap on the guide/share button: the second tap hit the backdrop that
+  had just slid in and closed the sheet. Backdrop taps in the first 400 ms are
+  ignored.
+- Swipe-down on the sheet header never dismissed (pointercancel: the browser
+  claimed the gesture) — touch-action:none on .guide-head, as on the handle.
+
+Map card vs route bar / notes vs locate button
+- Choosing a route from a place card laid the route bar over the card's name,
+  ★ and ✕ (phone and tablet ≤900). panPad/popMaxH now include the bar; an open
+  card is re-laid out and nudged clear (relayoutOpenPopup), also on rotate —
+  which previously clipped the card's header above the map.
+- Offline note ✕ was under the 48 px locate button on a Chinese phone (tapping
+  it opened the location explainer); the explainer's "Not now" was half under
+  it. The corner's height varies (attribution wraps), so placeMapNotes()
+  measures the control and lifts both notes above it (--note-lift).
+- 601–900 px: the zoom control was drawn over the start of the route bar.
+- A wide landmark label could sit fully over a small cluster bubble and hide
+  its count; slots that leave every bubble readable are tried first.
+- "Open it on the map" on 1024×768 left the card's action row below the fold
+  (Leaflet pans inside the map, not the window): the page scrolls to show it.
+
+Layout / targets
+- 390 px phone: the place count was squeezed into 16 px ("2…", "全"); it now
+  wraps to the second row as its comment always said.
+- Landing strip: nowrap on the deadline made the count one glyph per line
+  (8 lines in Chinese) and pushed the date off screen. The row wraps.
+- Filter sheets share one scrolling body: a scrolled Category opened Bus
+  Routes 400 px down with its search box off screen. A new section starts at
+  its top (after the panel is displayed — a hidden one ignores scrollTop).
+- 1024×600 landscape tablet: the panel's Done bar sat 45 px below the screen;
+  positionPanel caps the height to what is left below the button.
+- Flyer landing card ≥700 px: heading was empty (.fu-hs is hidden there) and
+  the 44 px ✕ target reached into the first button. Heading rendered plain and
+  as tall as the ✕.
+- Korean/Japanese title broke inside a word at 601–660 px (word-break:keep-all).
+- Popup ✕ was Leaflet's 24 px on phones — the only exit when the card fills
+  the map; 40 px on coarse pointers. Favourites row: the 16 px name button now
+  takes the row's full 44 px; ✕ 32 px.
+- Debug panel (?debug=1) was drawn over the guide sheet (z 99999 → 1150) and
+  its event count never refreshed.
+- Favourites import/export message kept the old language after a switch.
+
+Not changed (deliberate, needs a decision): place markers stay out of the tab
+order (regress check 42), so a keyboard-only user cannot open a place card
+from the map.
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01VsDzcKJiP8dHXiGFNrmFX6

@@ -66,7 +66,8 @@ BAND_BOUNDS = (50.6520, 50.7160, -120.6200, -120.2050)
 PINS = [(1, SERVICE_BC['lat'], SERVICE_BC['lng'], -14, 0),
         (2, SERVICE_CA['lat'], SERVICE_CA['lng'], 14, 0),
         (3, KIS['lat'], KIS['lng'], 0, 0)]
-MAP_COLOUR = mapart.build(MAP_W, MAP_H, tone='colour', labels=True, roads=True, bounds=BAND_BOUNDS, pins=PINS)
+MAP_COLOUR = mapart.build(MAP_W, MAP_H, tone='colour', labels=True, roads=True, bounds=BAND_BOUNDS, pins=PINS,
+                        pin_colors=['#007AFF', '#34C759', '#FF9500'])
 
 # The four questions this tool exists to answer — numbered, because the sequence
 # is real (you cannot bring documents before you know where to go).
@@ -111,15 +112,20 @@ CARDS = [('en','English','Your first week, answered'),
          ('ko','한국어','첫 주에 가장 많이 묻는 세 가지'),
          ('ja','日本語','最初の一週間でよく聞かれる三つのこと')]
 
+# 2026-09 Apple system accents — one per language card (blue / green / orange /
+# pink / purple / teal) and per promise bubble (blue / green / orange / pink).
+CARD_COLORS = ['#007AFF', '#34C759', '#FF9500', '#FF2D55', '#AF52DE', '#5AC8FA']
 def cards_html():
     out = []
-    for lang, tag, head in CARDS:
-        rows = ''.join('<li><b>%s</b><span><i class="n">%d</i>%s</span></li>' % (q, i + 1, a) for i, (q, a) in enumerate(qa(lang)))
-        out.append('<article class="card" lang="%s"><div class="card-tag">%s</div><h3>%s</h3><ul>%s</ul></article>' % (lang, tag, head, rows))
+    for idx, (lang, tag, head) in enumerate(CARDS):
+        c = CARD_COLORS[idx % len(CARD_COLORS)]
+        rows = ''.join('<li><b>%s</b><span><i class="n" style="background:%s">%d</i>%s</span></li>' % (q, c, i + 1, a) for i, (q, a) in enumerate(qa(lang)))
+        out.append('<article class="card" lang="%s" style="border-left-color:%s"><div class="card-tag" style="color:%s">%s</div><h3>%s</h3><ul>%s</ul></article>' % (lang, c, c, tag, head, rows))
     return '\n'.join(out)
 
+PR_COLORS = ['#007AFF', '#34C759', '#FF9500', '#FF2D55']
 def promise_html():
-    return '\n'.join('<div class="pr"><span class="pr-n">%d</span><b>%s</b><span>%s</span></div>' % (i + 1, q, a)
+    return '\n'.join('<div class="pr"><span class="pr-n" style="background:%s">%d</span><b>%s</b><span>%s</span></div>' % (PR_COLORS[i % len(PR_COLORS)], i + 1, q, a)
                      for i, (q, a) in enumerate(PROMISE))
 
 MAP_SVG = '<svg viewBox="0 0 %d %d" preserveAspectRatio="xMidYMid slice" class="mapart">%s</svg>' % (MAP_W, MAP_H, MAP_COLOUR)
@@ -140,7 +146,7 @@ FOOT = ('Please print and post freely — black and white is fine, Letter paper 
 # ---- editions ------------------------------------------------------------------
 FAITH = dict(
     file='jesus-loves-you-flyer', src='flyer-f',
-    mark='<svg class="mark" width="10" height="13" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#1a73e8" stroke-width="4.6" stroke-linecap="round"/></svg>',
+    mark='<svg class="mark" width="10" height="13" viewBox="0 0 24 32" aria-hidden="true"><path d="M12 1.6 v28.8 M2.6 10.4 h18.8" fill="none" stroke="#007AFF" stroke-width="4.6" stroke-linecap="round"/></svg>',
     eyebrow='Kamloops · Community welcome',
     h1='Jesus <em>Loves</em> You',
     sub='Kamloops Life Guide — six languages, free',
@@ -166,60 +172,59 @@ def page_css(paper):
     name, w, h, band = PAPER[paper]
     return f'''
 @page{{size:{name} portrait;margin:0}} *{{box-sizing:border-box}} html,body{{margin:0;padding:0}}
-body{{font-family:"Roboto","Helvetica Neue",Arial,"Noto Sans CJK SC","Noto Sans CJK KR","Noto Sans CJK JP",sans-serif;
- color:#202124;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+body{{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Helvetica Neue",Helvetica,Arial,"Songti SC","Hiragino Sans","Apple SD Gothic Neo","Noto Sans CJK SC","Noto Sans CJK KR","Noto Sans CJK JP",sans-serif;
+ color:#1C1C1E;background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
 .page{{width:{w};height:{h};overflow:hidden;background:#fff;padding:8mm 11mm 6mm;display:flex;flex-direction:column}}
-/* 2026-09-10: borrowed from the earlier "Apple-style" sheet — the QR sits
-   top-right beside the title (the first thing a passer-by can scan), the four
-   pills say "why trust it" in one row, the palette is blue + black + grey only
-   so a black-and-white photocopy loses nothing, and the address is repeated in
-   a solid bar at the foot for anyone who has to copy it by hand. */
+/* 2026-09-11: Apple system colour palette — the six language cards each take their
+   own system accent (blue / green / orange / pink / purple / teal), the four promise
+   bubbles use blue / green / orange / pink, the URL bar is an Apple gradient, and the
+   neutral greys are iOS group / tertiary tones. Map pins are multi-colour. */
 .mast{{display:grid;grid-template-columns:1fr 40mm;gap:6mm;align-items:start}}
-.eyebrow{{display:inline-flex;align-items:center;gap:2mm;background:#e8f0fe;color:#1a73e8;border-radius:999px;
+.eyebrow{{display:inline-flex;align-items:center;gap:2mm;background:#E9F2FF;color:#007AFF;border-radius:999px;
  padding:1.2mm 3.4mm 1.2mm 2mm;font-size:7.6pt;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:2.4mm}}
 .eyebrow .mark{{display:inline-block;line-height:0}}
-h1{{margin:0;font-size:31pt;line-height:1.0;font-weight:700;letter-spacing:-.022em;color:#202124}}
-h1 em{{font-style:normal;color:#1a73e8}}
-.h1sub{{margin:1.4mm 0 0;font-size:11pt;color:#3c4043;font-weight:500}}
-.lead{{margin:2mm 0 0;font-size:10pt;line-height:1.34;color:#3c4043;max-width:150mm;text-wrap:balance}}
-.lead b{{color:#202124;font-weight:600}}
-.who{{margin:1.2mm 0 0;font-size:8.8pt;line-height:1.35;color:#5f6368;max-width:150mm;text-wrap:balance}}
-.qrbox{{border:1px solid #dadce0;border-radius:10px;padding:2.6mm 2.6mm 2.2mm;text-align:center;background:#fff;
- box-shadow:0 1px 3px rgba(60,64,67,.14)}}
+h1{{margin:0;font-size:31pt;line-height:1.0;font-weight:700;letter-spacing:-.022em;color:#1C1C1E}}
+h1 em{{font-style:normal;color:#007AFF}}
+.h1sub{{margin:1.4mm 0 0;font-size:11pt;color:#3a3a3c;font-weight:500}}
+.lead{{margin:2mm 0 0;font-size:10pt;line-height:1.34;color:#3a3a3c;max-width:150mm;text-wrap:balance}}
+.lead b{{color:#1C1C1E;font-weight:600}}
+.who{{margin:1.2mm 0 0;font-size:8.8pt;line-height:1.35;color:#8E8E93;max-width:150mm;text-wrap:balance}}
+.qrbox{{border:1px solid #E5E5EA;border-radius:10px;padding:2.6mm 2.6mm 2.2mm;text-align:center;background:#fff;
+ box-shadow:0 1px 3px rgba(0,0,0,.10)}}
 .qr{{width:34mm;height:34mm;margin:0 auto}}
 .qr svg{{width:100%;height:100%;display:block}}
-.qrbox h4{{margin:1.6mm 0 .6mm;font-size:8.6pt;font-weight:700;letter-spacing:.12em;color:#1a73e8;text-transform:uppercase}}
-.qrbox .url{{display:block;font-size:6.9pt;line-height:1.3;color:#5f6368;word-break:break-all}}
+.qrbox h4{{margin:1.6mm 0 .6mm;font-size:8.6pt;font-weight:700;letter-spacing:.12em;color:#007AFF;text-transform:uppercase}}
+.qrbox .url{{display:block;font-size:6.9pt;line-height:1.3;color:#8E8E93;word-break:break-all}}
 .badges{{display:flex;justify-content:center;flex-wrap:wrap;gap:2.2mm;margin-top:3mm}}
-.badge{{font-size:8pt;font-weight:600;color:#3c4043;background:#f1f3f4;border:1px solid #e3e5e8;border-radius:999px;padding:1.3mm 4mm}}
+.badge{{font-size:8pt;font-weight:600;color:#1C1C1E;background:#F2F2F7;border:1px solid #E5E5EA;border-radius:999px;padding:1.3mm 4mm}}
 .promise{{margin-top:3.2mm;display:grid;grid-template-columns:repeat(4,1fr);gap:3mm}}
-.pr{{background:#f8f9fa;border:1px solid #e8eaed;border-radius:9px;padding:2.2mm 2.6mm 2.4mm;text-align:center}}
-.pr-n{{display:inline-block;width:6mm;height:6mm;line-height:6mm;border-radius:50%;background:#1a73e8;color:#fff;font-size:10pt;font-weight:700;margin-bottom:1.4mm}}
-.pr b{{display:block;font-size:9.6pt;line-height:1.25;margin-bottom:.8mm}}
-.pr span:last-child{{display:block;font-size:8.4pt;line-height:1.35;color:#5f6368}}
-.mapwrap{{margin-top:3.2mm;border:1px solid #dadce0;border-radius:10px;overflow:hidden;position:relative;
- flex:0 0 {band};box-shadow:0 1px 2px rgba(60,64,67,.12)}}
+.pr{{background:#fff;border:1px solid #E5E5EA;border-radius:12px;padding:2.2mm 2.6mm 2.4mm;text-align:center}}
+.pr-n{{display:inline-block;width:6mm;height:6mm;line-height:6mm;border-radius:50%;background:#007AFF;color:#fff;font-size:10pt;font-weight:700;margin-bottom:1.4mm}}
+.pr b{{display:block;font-size:9.6pt;line-height:1.25;margin-bottom:.8mm;color:#1C1C1E}}
+.pr span:last-child{{display:block;font-size:8.4pt;line-height:1.35;color:#8E8E93}}
+.mapwrap{{margin-top:3.2mm;border:1px solid #E5E5EA;border-radius:10px;overflow:hidden;position:relative;
+ flex:0 0 {band};box-shadow:0 1px 2px rgba(0,0,0,.08)}}
 .mapart{{width:100%;height:100%;display:block}}
-.maptag{{position:absolute;left:3mm;bottom:2.6mm;background:rgba(255,255,255,.92);border:1px solid #dadce0;
- border-radius:6px;padding:1mm 2.4mm;font-size:7.6pt;font-weight:700;color:#3c4043;letter-spacing:.04em}}
-.lb-city{{font:700 15px "Roboto",Arial,sans-serif;fill:#5f6368;letter-spacing:.13em;text-anchor:middle}}
-.lb-water{{font:italic 500 14px "Roboto",Arial,sans-serif;fill:#5b93bf;text-anchor:middle}}
-.lb-poi{{font:600 13px "Roboto",Arial,sans-serif;fill:#3c4043}} .lb-dot{{fill:#5f6368}}
+.maptag{{position:absolute;left:3mm;bottom:2.6mm;background:rgba(255,255,255,.92);border:1px solid #E5E5EA;
+ border-radius:6px;padding:1mm 2.4mm;font-size:7.6pt;font-weight:700;color:#1C1C1E;letter-spacing:.04em}}
+.lb-city{{font:700 15px "Roboto",Arial,sans-serif;fill:#8E8E93;letter-spacing:.13em;text-anchor:middle}}
+.lb-water{{font:italic 500 14px "Roboto",Arial,sans-serif;fill:#5AC8FA;text-anchor:middle}}
+.lb-poi{{font:600 13px "Roboto",Arial,sans-serif;fill:#1C1C1E}} .lb-dot{{fill:#8E8E93}}
 .cards{{margin-top:3.2mm;display:grid;grid-template-columns:repeat(2,1fr);gap:2.4mm 4mm}}
-.card{{border:1px solid #dadce0;border-radius:9px;padding:2.2mm 3.2mm 2.4mm;background:#fff}}
-.card-tag{{font-size:7.4pt;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#1a73e8;margin-bottom:.8mm}}
-.card h3{{margin:0 0 1mm;font-size:9.4pt;line-height:1.25;font-weight:700}}
+.card{{border:1px solid #E5E5EA;border-left-width:3px;border-radius:12px;padding:2.2mm 3.2mm 2.4mm;background:#fff}}
+.card-tag{{font-size:7.4pt;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#007AFF;margin-bottom:.8mm}}
+.card h3{{margin:0 0 1mm;font-size:9.4pt;line-height:1.25;font-weight:700;color:#1C1C1E}}
 .card ul{{margin:0;padding:0;list-style:none}}
 .card li{{font-size:8.3pt;line-height:1.28;margin-bottom:.5mm;display:grid;grid-template-columns:auto 1fr;gap:0 2mm}}
-.card li b{{color:#202124;white-space:nowrap}} .card li span{{color:#5f6368}}
-.card li i.n{{display:inline-block;width:3.4mm;height:3.4mm;line-height:3.4mm;border-radius:50%;background:#1a73e8;color:#fff;font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-right:1.2mm;vertical-align:-.3mm}}
+.card li b{{color:#1C1C1E;white-space:nowrap}} .card li span{{color:#8E8E93}}
+.card li i.n{{display:inline-block;width:3.4mm;height:3.4mm;line-height:3.4mm;border-radius:50%;background:#007AFF;color:#fff;font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-right:1.2mm;vertical-align:-.3mm}}
 .card[lang=zh] h3,.card[lang=ko] h3,.card[lang=ja] h3{{font-size:9.4pt}}
-.tail{{margin-top:auto;padding-top:2.6mm;border-top:1px solid #dadce0}}
-.closing{{margin:0;font-size:8.6pt;line-height:1.4;color:#3c4043;text-align:center;text-wrap:balance}}
-.nophone{{margin:1mm 0 0;font-size:8.4pt;line-height:1.4;color:#5f6368;text-align:center}}
-.urlbar{{margin:2.6mm auto 0;width:150mm;background:#1a73e8;color:#fff;border-radius:999px;padding:3mm 6mm;
+.tail{{margin-top:auto;padding-top:2.6mm;border-top:1px solid #E5E5EA}}
+.closing{{margin:0;font-size:8.6pt;line-height:1.4;color:#3a3a3c;text-align:center;text-wrap:balance}}
+.nophone{{margin:1mm 0 0;font-size:8.4pt;line-height:1.4;color:#8E8E93;text-align:center}}
+.urlbar{{margin:2.6mm auto 0;width:150mm;background:linear-gradient(120deg,#007AFF,#5856D6 58%,#FF2D55);color:#fff;border-radius:999px;padding:3mm 6mm;
  text-align:center;font-size:12.5pt;font-weight:700;letter-spacing:.01em}}
-.foot{{margin-top:2mm;font-size:6.8pt;line-height:1.45;color:#80868b;text-align:center}}
+.foot{{margin-top:2mm;font-size:6.8pt;line-height:1.45;color:#AEAEB2;text-align:center}}
 '''
 
 def flyer_html(ed, paper):
@@ -290,7 +295,7 @@ for ed in (FAITH, SECULAR):
             for word in ('Jesus', 'cross', 'bless', 'God', 'church'):
                 if word.lower() in html.lower():
                     raise SystemExit('secular edition still contains %r' % word)
-        name = '%s-%s.html' % (ed['file'], paper)
+        name = '%s-%s-apple.html' % (ed['file'], paper)
         io.open(name, 'w', encoding='utf-8').write(html); outputs.append(name)
 sheet = 'kamloops-life-guide-cards-letter.html'
 io.open(sheet, 'w', encoding='utf-8').write(cards_sheet_html()); outputs.append(sheet)
