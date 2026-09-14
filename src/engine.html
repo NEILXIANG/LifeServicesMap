@@ -2669,7 +2669,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.13d';
+const DATA_VERSION='2026.09.13e';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3538,6 +3538,23 @@ layer.on('tileload',()=>{
 }
 wireTileEvents(tiles);
 tiles.addTo(map);
+// A provider that *answers* with an image saying "invalid key" / "quota
+// exceeded" never raises tileerror — the picture loads fine. So one real tile
+// is fetched and its status read: anything but 2xx (MapTiler answers 403 to a
+// missing origin — e.g. a file:// copy — or a spent quota) hands the map to
+// the fallback provider at once. A network failure is left to tileerror.
+(function probePrimaryTiles(){
+  if(!(CITY.tiles&&CITY.tiles.fallback&&CITY.tiles.fallback.url)||typeof fetch!=='function')return;
+  try{
+    const c=map.getCenter(),zUrl=Math.max(1,Math.min(map.getZoom(),12)+(_T.zoomOffset||0));
+    const n=Math.pow(2,zUrl),lat=c.lat*Math.PI/180;
+    const x=Math.floor((c.lng+180)/360*n),y=Math.floor((1-Math.log(Math.tan(lat)+1/Math.cos(lat))/Math.PI)/2*n);
+    const url=_T.url.replace('{z}',zUrl).replace('{x}',x).replace('{y}',y).replace('{s}',(_T.subdomains||'abc').charAt(0)).replace('{r}','');
+    fetch(url,{mode:'cors',cache:'no-store',credentials:'omit'}).then(r=>{
+      if(!r.ok){trackEvent('tile_probe',{status:r.status});swapToFallbackTiles();}
+    }).catch(()=>{});
+  }catch(e){}
+})();
 
 // P0-A — "Near me". A Leaflet control, not a header button: the header is under
 // active pressure from P0-B to give the map more first-screen height, and this
