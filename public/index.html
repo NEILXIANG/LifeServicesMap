@@ -105,6 +105,10 @@
      ran under the right-hand controls; on a touch tablet the 44px controls
      collided with each other */
   @media(min-width:601px) and (max-width:1100px){h1{padding-right:370px;}.sub{padding-right:370px;}}
+  /* keep-all stops the Korean/Japanese title breaking inside a word ("가이/드",
+     "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
+     wraps at spaces as before */
+  h1{word-break:keep-all;}
   @media(min-width:601px) and (pointer:coarse){.lang-sw{top:18px;}.header-links{top:76px;}}
   @media(max-width:360px){.lang-menu-btn{padding:6px 8px;}.lang-menu-btn .lm-ic{display:none;}}
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
@@ -180,6 +184,10 @@
   .firstuse[hidden]{display:none;}
   .firstuse .fu-h{font-size:13px;font-weight:700;margin:0 28px 2px 0;}
   .firstuse .fu-safe{font-size:11.5px;color:var(--sub-ink);margin:0 28px 7px 0;}
+  /* the flyer card's rows are full-width buttons; the 44px ✕ target in the corner
+     reached down into the first one (a tap at its top-right corner dismissed the
+     card instead of opening MSP). A heading as tall as the ✕ keeps them apart. */
+  .firstuse.flyer .fu-h{min-height:36px;display:flex;align-items:center;}
   @media(max-height:700px){.firstuse .fu-safe{display:none;}}
   .firstuse .fu-x{position:absolute;top:2px;right:2px;background:none;border:none;font-size:15px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
   .fu-rows{display:flex;flex-wrap:wrap;gap:6px;}
@@ -204,7 +212,13 @@
   .guide-progress[hidden]{display:none;}
   .guide-progress .gp-bar{flex:0 0 72px;height:6px;border-radius:3px;background:color-mix(in srgb,var(--accent) 18%,transparent);overflow:hidden;}
   .guide-progress .gp-bar span{display:block;height:100%;background:var(--accent);}
-  .guide-progress .gp-dl{margin-left:auto;font-weight:600;color:var(--accent-text);white-space:nowrap;}
+  /* 2026-09-13 audit: nowrap on the deadline made the flex row give the count
+     one character per line (8 lines tall in Chinese) and pushed the date — the
+     reason the strip exists — off the right edge on every phone. Let the row
+     wrap: the count keeps its width, the deadline drops to a second line. */
+  .guide-progress{flex-wrap:wrap;}
+  .guide-progress .gp-cnt{white-space:nowrap;}
+  .guide-progress .gp-dl{margin-left:auto;font-weight:600;color:var(--accent-text);min-width:0;}
   .guide-progress .gp-dl.soon{color:#b3261e;}
   @media(max-width:600px){.guide-progress{margin:6px 12px 0;width:calc(100% - 24px);font-size:12px;}}
   .active-filters{display:flex;flex-wrap:wrap;gap:6px;padding:9px 20px 0;}
@@ -382,7 +396,11 @@
      back. It now floats inside the map, so the ✕ is on screen whenever the route
      is, and the label-placement pass treats it as an obstacle. */
   .bus-indicator{display:none;position:absolute;z-index:850;top:10px;left:12px;right:12px;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.12);font-size:12.5px;font-weight:600;color:var(--ink);}
-  @media(min-width:901px){.bus-indicator{left:56px;right:auto;max-width:560px;}}
+  /* the zoom control is only hidden at <=600px, so the bar has to clear it from
+     601px up, not just on the 901px+ layout (2026-09-13 audit: at 601-900 the
+     +/- buttons were drawn over the start of the route name) */
+  @media(min-width:601px){.bus-indicator{left:56px;}}
+  @media(min-width:901px){.bus-indicator{right:auto;max-width:560px;}}
   .bus-indicator.show{display:flex;}
   .bus-indicator[hidden]{display:none;}
   .bus-indicator .x{cursor:pointer;color:var(--sub-ink);font-weight:700;margin-left:auto;padding:0 6px;min-width:36px;min-height:32px;background:none;border:none;font-size:15px;border-radius:8px;}
@@ -399,7 +417,11 @@
   .bus-item .rt-count{font-size:10.5px;color:var(--accent-text);font-weight:700;white-space:nowrap;}
   .fav-empty{color:var(--sub-ink);font-size:12.5px;padding:20px 4px;text-align:center;line-height:1.7;}
   .fav-tag{color:var(--sub-ink);font-size:11px;}
-  .fav-item .rt-remove{font-size:13px;color:var(--sub-ink);cursor:pointer;padding:2px 4px;flex:0 0 auto;}
+  .fav-item .rt-remove{font-size:13px;color:var(--sub-ink);cursor:pointer;padding:2px 4px;flex:0 0 auto;min-width:32px;min-height:32px;}
+  /* 2026-09-13 audit: the row looks 44px tall but the name button inside it was
+     16px — most of the row did nothing on a phone. Negative margins let the
+     button take the row's own padding, so the whole row height is the target. */
+  .fav-item .rt-name{text-align:left;cursor:pointer;align-self:stretch;display:flex;align-items:center;flex-wrap:wrap;gap:2px 6px;margin:-10px 0;padding:10px 0;}
   .fav-item .rt-remove:hover{color:#c0392b;}
   .search-bar{display:flex;align-items:center;gap:8px;margin:12px 20px 0;padding:9px 14px;background:var(--card);border:1px solid var(--line);border-radius:12px;max-width:420px;}
   .search-bar:focus-within{background:var(--card);border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent);}
@@ -453,7 +475,10 @@
     .guide-modal.dragging{animation:none;transition:none;}
     .guide-modal.settling{transition:transform .2s cubic-bezier(.2,.8,.3,1);}
     .sheet-grab{display:flex;}
-    .guide-head{padding-top:6px;}
+    /* touch-action:none, as on .sheet-grab: attachSheetDrag listens on the head
+       too, but without it the browser claimed the swipe (pointercancel) and the
+       sheet snapped back — only the thin handle ever dismissed (2026-09-13) */
+    .guide-head{padding-top:6px;touch-action:none;}
   }
   /* Press feedback: a control that is being pressed gives a little. Scoped to
      the app's own buttons, never to map markers. */
@@ -604,7 +629,7 @@
      and the full text would never collapse. Same trap as the four the audit
      found; validate.py check 14 fails the build without this line. */
   .pv-full[hidden]{display:none;}
-  .offline-note{position:absolute;left:12px;right:12px;bottom:56px;z-index:900;
+  .offline-note{position:absolute;left:12px;right:12px;bottom:var(--note-lift,56px);z-index:900;
     padding:8px 32px 8px 12px;background:#fef7e0;border:1px solid #fde293;
     border-radius:8px;font-size:12px;color:#7a5c00;line-height:1.55;
     box-shadow:0 2px 10px rgba(0,0,0,.14);}
@@ -613,7 +638,7 @@
     color:#7a5c00;font-size:14px;line-height:1;cursor:pointer;border-radius:6px;}
   .offline-x:hover{background:#fdecc0;border:none;}
   /* left:56px keeps it clear of Leaflet's zoom control, which sits above it. */
-  @media(min-width:901px){.offline-note{left:auto;right:16px;bottom:64px;max-width:340px;}}
+  @media(min-width:901px){.offline-note{left:auto;right:16px;bottom:var(--note-lift,64px);max-width:340px;}}
   /* The full note reads fine once, but it sat over the map's busiest spot
      indefinitely — on a short phone it blanketed the markers a reader most wants to
      tap. After a few seconds it shrinks to a small badge in the emptiest corner
@@ -671,11 +696,11 @@
      (denied/unavailable/timeout/unsupported) share this box, distinguished only by
      .err — an amber tone matching .offline-note's own "something didn't work"
      colour, so the page has one visual vocabulary for that state, not two. */
-  .geo-note{position:absolute;left:12px;right:12px;bottom:56px;z-index:901;
+  .geo-note{position:absolute;left:12px;right:12px;bottom:var(--note-lift,56px);z-index:901;
     background:var(--card);border:1px solid var(--line);border-radius:10px;
     padding:12px 14px;font-size:12px;line-height:1.5;color:var(--ink);
     box-shadow:0 2px 10px rgba(0,0,0,.16);}
-  @media(min-width:901px){.geo-note{left:auto;right:16px;max-width:300px;bottom:60px;}}
+  @media(min-width:901px){.geo-note{left:auto;right:16px;max-width:300px;bottom:var(--note-lift,60px);}}
   .geo-note[hidden]{display:none;}
   .geo-note p{margin:0 0 10px;}
   .geo-note.err{border-color:#fde293;background:#fef7e0;color:#7a5c00;}
@@ -747,6 +772,19 @@
        other control here specifically for that reason, not as a general size
        increase for icon buttons. */
     .geo-btn{min-width:48px;min-height:48px;}
+    /* 2026-09-13 audit: with the 48px Near Me button (plus its 10px margin and
+       the attribution strip) the bottom-right corner is ~76px tall, so the two
+       notes anchored at bottom:56px slid under it — the offline note's ✕ was
+       covered on a Chinese phone (tapping it opened the location explainer)
+       and the explainer's own "Not now" button was half under the locate
+       control. The corner's height varies (48px button, a wrapped attribution
+       line), so placeMapNotes() measures it and sets --note-lift on the map;
+       the fallbacks below are the old fixed values. */
+    /* Leaflet's popup ✕ is 24px; on a 390px phone the popup fills the map, so
+       tapping beside it to close is not an option and the ✕ is the only exit. */
+    .leaflet-popup-close-button{width:40px!important;height:40px!important;
+      font-size:22px!important;line-height:40px!important;top:0!important;right:0!important;}
+    .rt-remove{min-width:40px;min-height:40px;}
   }
   @media(prefers-reduced-motion:reduce){
     *,*::before,*::after{
@@ -964,7 +1002,10 @@
   @media(max-width:480px){
     .ftoolbar{flex-wrap:wrap;row-gap:6px;}
     /* the count and Reset share the second row: Reset alone cost a third */
-    .status{order:2;flex:1 1 0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    /* 2026-09-13 audit: flex-basis 0 let the count squeeze into the 16px left
+       beside the four pills ("2…", "全") instead of wrapping to the second row
+       this comment describes; an auto basis wraps it when it does not fit. */
+    .status{order:2;flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
     .reset-btn{order:3;margin-left:auto;}
   }
   /* 2026-09-10: four pills + Reset wrapped to two rows on every 390px phone in
@@ -3310,7 +3351,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.13e';
+const DATA_VERSION='2026.09.13f';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3386,7 +3427,10 @@ function saveTaskDone(){try{localStorage.setItem(_TASK_DONE_KEY,JSON.stringify([
 const _STEP_KEY='kamloopsSteps';
 let stepDone={};
 try{const raw=JSON.parse(localStorage.getItem(_STEP_KEY)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))stepDone=raw;}catch(e){}
-function saveStepDone(){try{localStorage.setItem(_STEP_KEY,JSON.stringify(stepDone));}catch(e){}}
+// the landing strip counts ticked steps as "started" (updateGuideProgress), so
+// it has to be refreshed here too, not only when a whole card is marked done —
+// 2026-09-13 audit: a first tick left the strip hidden until the next reload
+function saveStepDone(){try{localStorage.setItem(_STEP_KEY,JSON.stringify(stepDone));}catch(e){}try{updateGuideProgress();}catch(e){}}
 function stepsOf(t){return Array.isArray(t.steps)?t.steps.length:0;}
 function stepsDoneN(t){const a=stepDone[t.id];return Array.isArray(a)?a.filter(i=>i>=0&&i<stepsOf(t)).length:0;}
 function setStep(id,i,on){
@@ -3571,7 +3615,13 @@ function renderTaskList(){
     ts.addEventListener('keydown',e=>{if(e.key==='Escape'&&ts.value){e.preventDefault();e.stopPropagation();ts.value='';_taskQ='';renderTaskBuckets();}});
   }
   const ad=host.querySelector('#arriveDate');
-  if(ad)ad.onchange=()=>{setArrival(ad.value);trackEvent('arrival_set',{set:!!ad.value});renderTaskList();};
+  if(ad){
+    ad.onchange=()=>{const v=ad.value;if(!setArrival(v))return;trackEvent('arrival_set',{set:!!v});renderTaskList();};
+    // a value the field ends up with that was never accepted (a future date,
+    // a half-typed year) is shown as what is actually stored once the reader
+    // leaves the field — touching the value mid-edit would fight the browser
+    ad.onblur=()=>{const cur=arrivalDate()||'';if(ad.value!==cur)ad.value=cur;};
+  }
   const ac=host.querySelector('#arriveClear');
   if(ac)ac.onclick=()=>{setArrival(null);renderTaskList();};
 }
@@ -3742,7 +3792,18 @@ function openTask(id,src){
     +' · <a href="'+esc(transFixHref(t))+'">'+esc(u.taskTransFix)+'</a></p>';
   host.innerHTML=h;
   host.scrollIntoView({block:'start'});
-  document.getElementById('taskBack').onclick=()=>{trackEvent('task_back',{id:id});renderTaskList();popSheetState('guideTask');};
+  document.getElementById('taskBack').onclick=()=>{
+    trackEvent('task_back',{id:id});renderTaskList();
+    // 2026-09-13 audit: a guide opened from a link has no entry of its own, so
+    // once the reader steps "← back to list" they have navigated *inside* the
+    // page — from here the list is a level above the map, and the next card
+    // needs an entry to sit on (openTask only pushes one over a guide entry;
+    // without it Back from that card left the site). Give the guide its entry
+    // now; on the normal stack the card entry is popped as before.
+    let under=false;try{under=!!(history.state&&history.state[_SHEET_KEY]);}catch(e){}
+    if(!under&&guideBackdropEl.classList.contains('open'))pushSheetState('guideBackdrop');
+    else popSheetState('guideTask');
+  };
   const tick=document.getElementById('taskTick');
   const syncTick=()=>{const on=taskDone.has(id);if(!tick)return;tick.classList.toggle('on',on);tick.textContent=on?('✓ '+u.taskUndone):u.taskMarkDone;};
   if(tick)tick.onclick=()=>{
@@ -3997,10 +4058,10 @@ function buildDebugPanel(){
   panel.id='debugPanel';
   panel.style.cssText='position:fixed;right:12px;bottom:12px;width:340px;max-height:80vh;'
     +'overflow:auto;background:#111;color:#eee;font:12px/1.4 -apple-system,system-ui,sans-serif;'
-    +'padding:10px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.35);z-index:99999;'
+    +'padding:10px;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.35);z-index:1150;'   // under the sheets (1200), over the map
     +'border:1px solid #333';
   panel.innerHTML='<b style="font-size:13px">click tracking · debug</b>'
-    +'<div style="margin:6px 0;color:#9c9">'+_evBuf.length+' events stored</div>'
+    +'<div style="margin:6px 0;color:#9c9" id="dbgCount">'+_evBuf.length+' events stored</div>'
     +'<div id="dbgStats"></div>'
     +'<button id="dbgExport" style="margin-top:8px;width:48%;padding:6px;background:#0a4;color:#fff;'
     +'border:0;border-radius:4px;cursor:pointer">Export JSON</button>'
@@ -4009,6 +4070,7 @@ function buildDebugPanel(){
     +'<div id="dbgSummary" style="margin-top:8px;font:11px/1.4 ui-monospace,Menlo,monospace"></div>';
   document.body.appendChild(panel);
   const refresh=()=>{
+    const dc=document.getElementById('dbgCount');if(dc)dc.textContent=_evBuf.length+' events stored';   // was the count at build time only
     const counts={};
     const cats={},regs={},queries={};
     for(const e of _evBuf){
@@ -4091,8 +4153,24 @@ if(offlineEl&&L.DomEvent)L.DomEvent.disableClickPropagation(offlineEl);
 const firstUseEl=document.getElementById('firstUse');
 if(firstUseEl&&L.DomEvent){L.DomEvent.disableClickPropagation(firstUseEl);L.DomEvent.disableScrollPropagation(firstUseEl);}
 let _offlineLogged=false;
+// 2026-09-13 audit: the offline note and the location explainer are anchored a
+// fixed 56-64px up from the map's bottom edge, but the corner they share with
+// the locate control is taller than that on a phone (48px button + margin + a
+// two-line attribution): the note's ✕ was under the button — tapping it opened
+// the explainer — and the explainer's "Not now" was half covered. Measure the
+// control and lift the notes just above it; CSS keeps the old values as fallback.
+function placeMapNotes(){
+  try{
+    const mapEl=document.getElementById('map'),ctrl=mapEl&&mapEl.querySelector('.geo-ctrl');
+    if(!mapEl||!ctrl)return;
+    const m=mapEl.getBoundingClientRect(),c=ctrl.getBoundingClientRect();
+    if(!c.height)return;
+    mapEl.style.setProperty('--note-lift',Math.round(m.bottom-c.top+8)+'px');
+  }catch(e){}
+}
 function offlineShowExpanded(){
   if(!offlineEl)return;
+  placeMapNotes();
   if(!_offlineLogged){_offlineLogged=true;trackEvent('offline_shown',{online:navigator.onLine!==false});}
   offlineEl.hidden=false;offlineEl.classList.remove('compact');
   offlineTextEl.innerHTML=iconify(UI[L_].offlineTiles);
@@ -4147,6 +4225,19 @@ map.on('popupopen',e=>{
   if(m&&m.data){_popupOpenedAt=Date.now();trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk});}
   else if(e.popup&&e.popup._kplace)_popupOpenedAt=Date.now();
   if(offlineEl&&!offlineEl.hidden){offlineEl.hidden=true;offlineEl.dataset.yielded='1';clearTimeout(offlineCompactTimer);}
+  // 2026-09-13 audit: Leaflet's auto-pan keeps a popup inside the *map*, not
+  // the window — on a 1024x768 tablet the map runs past the fold, and "open it
+  // on the map" from a card left the popup's action row below the screen.
+  // Once it has settled, scroll the page just enough to show the whole card.
+  setTimeout(()=>{try{
+    if(scrollLockCount>0)return;
+    const c=e.popup&&e.popup._container;if(!c||!e.popup.isOpen())return;
+    const r=c.getBoundingClientRect(),vh=window.innerHeight;
+    let dy=0;
+    if(r.top<8)dy=r.top-8;                                   // header clipped: scroll up
+    else if(r.bottom>vh-8)dy=Math.min(r.bottom-vh+8,r.top-8); // buttons clipped: scroll down, but keep the header on screen
+    if(Math.abs(dy)>2)window.scrollBy({top:dy,behavior:window.matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth'});
+  }catch(err){}},350);
 });
 map.on('popupclose',()=>{
   // The popupclose event fires for every Leaflet popup — include cluster
@@ -4212,7 +4303,10 @@ let geoMarker=null,geoAccCircle=null;
 // open, never stored), and metres between two points
 let userPos=null;
 function distM(a,b,c,d){const R=6371000,toR=Math.PI/180;const dLat=(c-a)*toR,dLng=(d-b)*toR;const x=Math.sin(dLat/2)**2+Math.cos(a*toR)*Math.cos(c*toR)*Math.sin(dLng/2)**2;return 2*R*Math.asin(Math.sqrt(x));}
-function fmtDist(m){return m<950?Math.round(m/10)*10+' m':(m/1000).toFixed(1)+' km';}
+// 2026-09-13 audit: toFixed(1) on binary halves gave 949 m -> "950 m", 950 ->
+// "0.9 km", 951 -> "1.0 km" — a place 950 m away read as nearer than one at
+// 949. Round to the nearest 100 m on an integer first, so the scale is monotonic.
+function fmtDist(m){return m<950?Math.round(m/10)*10+' m':(Math.round(m/100)/10).toFixed(1)+' km';}
 function distFromUser(p){return userPos?distM(userPos[0],userPos[1],p.lat,p.lng):null;}
 const NEAR_M=1200;   // ~15 minutes on foot
 let nearOnly=false;
@@ -4291,6 +4385,7 @@ function showGeoExplain(){
   };
   cancel.onclick=()=>{geoNoteEl.hidden=true;_geoNoteKey=null;trackEvent('geo_locate',{result:'explain_declined'});};
   geoNoteEl.classList.remove('err');
+  placeMapNotes();
   geoNoteEl.hidden=false;
 }
 let _geoNoteKey=null;   // which note is on screen, so a language switch can redraw it
@@ -4302,6 +4397,7 @@ function geoMessage(msg,key){
   cancel.textContent=UI[L_].geoDismiss;
   cancel.onclick=()=>{geoNoteEl.hidden=true;};
   geoNoteEl.classList.add('err');
+  placeMapNotes();
   geoNoteEl.hidden=false;
 }
 function runGeolocate(){
@@ -4348,7 +4444,11 @@ function runGeolocate(){
 // Padding the auto-pan makes Leaflet shift the map until the popup clears it.
 // On a phone the control is hidden altogether (pinch to zoom), and there the same
 // padding would push the popup off the right edge instead — so it is conditional.
-function panPad(){return L.point(window.innerWidth>600?58:14,12);}
+// 2026-09-13 audit: the route bar (.bus-indicator, top:10px) sits over the map
+// too, so while a route is drawn the popup has to clear it as well — otherwise
+// choosing a route from a place card laid the bar over the card's name, ★ and ✕.
+function busBarH(){const bi=document.getElementById('busIndicator');return (bi&&bi.classList.contains('show'))?bi.offsetHeight+10:0;}
+function panPad(){return L.point(window.innerWidth>600?58:14,12+busBarH());}
 // The longest note runs to 287 characters, and French and Spanish come out longer
 // still. Uncapped, that popup was 456px tall on a 568px phone — most of the screen,
 // with its top edge outside the map. Leaflet's own maxHeight adds an internal scroll
@@ -4360,7 +4460,7 @@ function popMaxH(){
   const el=document.getElementById('map');
   const h=el?el.getBoundingClientRect().height:window.innerHeight*0.6;
   // ~86px goes to the popup's own wrapper padding, tip and close button.
-  return Math.max(150,Math.min(440,Math.round(h-86)));
+  return Math.max(150,Math.min(440,Math.round(h-86-busBarH())));
 }
 const POPUP_OPTS={autoPanPaddingTopLeft:panPad(),autoPanPaddingBottomRight:L.point(14,14),
                   maxHeight:popMaxH()};
@@ -5572,6 +5672,7 @@ function setLang(l){
   document.getElementById('offlineClose').setAttribute('aria-label',u.aClose);
   document.getElementById('favBtnLabel').textContent=u.favBtnLabel;
   updateFavIONote();
+  favMsg('');   // 2026-09-13 audit: an import/export result stayed in the old language
   document.getElementById('favExport').textContent=u.favExport;
   document.getElementById('favImport').textContent=u.favImport;
   document.getElementById('favCode').placeholder=u.favPastePrompt;
@@ -5799,7 +5900,7 @@ document.getElementById('shareBtn').onclick=()=>{
   openModal(shareBackdropEl);
 };
 document.getElementById('shareClose').onclick=()=>closeModal(shareBackdropEl);
-shareBackdropEl.onclick=(e)=>{if(e.target===shareBackdropEl)closeModal(shareBackdropEl);};
+shareBackdropEl.onclick=(e)=>{if(e.target===shareBackdropEl&&!justOpened(shareBackdropEl))closeModal(shareBackdropEl);};
 shareBackdropEl.addEventListener('keydown',e=>trapTab(e,shareBackdropEl));
 document.getElementById('shareNative').onclick=()=>{
   if(!navigator.share)return;
@@ -5814,7 +5915,7 @@ document.getElementById('shareNative').onclick=()=>{
 const noteBackdropEl=document.getElementById('noteBackdrop');
 document.getElementById('noteToggle').onclick=()=>{trackEvent('note_open',{});openModal(noteBackdropEl);};
 document.getElementById('noteClose').onclick=()=>closeModal(noteBackdropEl);
-noteBackdropEl.onclick=(e)=>{if(e.target===noteBackdropEl)closeModal(noteBackdropEl);};
+noteBackdropEl.onclick=(e)=>{if(e.target===noteBackdropEl&&!justOpened(noteBackdropEl))closeModal(noteBackdropEl);};
 noteBackdropEl.addEventListener('keydown',e=>trapTab(e,noteBackdropEl));
 // Escape always dismisses the topmost thing that is open
 document.addEventListener('keydown',(e)=>{
@@ -6047,15 +6148,23 @@ function computeLabelVisibility(items,forceFn,slots,allowFn){
       r.txt=e.txt; e.off=cand[i]; show.add(e.idx); placed.push(r); return;
     }
   });
-  const fits=r=>clear(r)
-             && !clusters.some(c=>overlapFrac(r,c)>0.30);         // and don't sit on a bubble
+  const fits=r=>clear(r)&&!clusters.some(c=>overlapFrac(r,c)>0.30);
+  // 2026-09-13 audit: 30% of the *label* let a wide label sit fully over a small
+  // bubble and hide its count ("68" under "North Kamloops Library"). Slots that
+  // also leave every bubble's own count readable are tried first; only when a
+  // landmark has no such slot does it take one the old rule allowed — a name
+  // over a number still beats no name at all on a 390px opening view.
+  const fitsWell=r=>fits(r)&&!clusters.some(c=>overlapFrac(c,r)>0.35);
   entries.forEach(e=>{
     if(e.force||!e.rect||!e.allow)return;
     const cand=slots&&e.el?labelSlots(e.el):[[0,0]];
-    for(let i=0;i<cand.length;i++){
-      const r=i===0?e.rect:labelRect(e.el,e.pt,cand[i][0],cand[i][1]);
-      if(!fits(r))continue;
-      e.off=cand[i];placed.push(r);show.add(e.idx);return;
+    const rects=cand.map((c,i)=>i===0?e.rect:labelRect(e.el,e.pt,c[0],c[1]));
+    for(const ok of [fitsWell,fits]){
+      for(let i=0;i<cand.length;i++){
+        const r=rects[i];
+        if(!ok(r))continue;
+        e.off=cand[i];placed.push(r);show.add(e.idx);return;
+      }
     }
   });
   entries.forEach(e=>{
@@ -6193,6 +6302,10 @@ function renderRoute(key,fit){
   }else{
     ind.classList.remove('show');ind.innerHTML='';ind.hidden=true;
   }
+  // the bar changes how much of the map a popup may use (see panPad): push the
+  // new padding to every bound popup, and nudge an open one out from under it
+  syncPanPad();
+  relayoutOpenPopup();
   renderBusList();
   updateResetState();
   renderActiveFilters();
@@ -6336,11 +6449,16 @@ function renderFavList(){
   });
 }
 function positionPanel(){
-  if(window.innerWidth<=900){panel.style.left='';panel.style.top='';return;}
+  if(window.innerWidth<=900){panel.style.left='';panel.style.top='';panel.style.maxHeight='';return;}
   const btn=panelMode==='area'?areaBtnEl:panelMode==='cat'?catBtnEl:panelMode==='bus'?busBtnEl:favBtnEl;
   const r=btn.getBoundingClientRect();const w=460;
   let left=Math.min(r.left,window.innerWidth-w-20);left=Math.max(left,20);
-  panel.style.left=left+'px';panel.style.top=(r.bottom+8)+'px';
+  const top=r.bottom+8;
+  panel.style.left=left+'px';panel.style.top=top+'px';
+  // 2026-09-13 audit: the CSS cap (72vh) ignores where the panel starts, so on
+  // a short landscape tablet (1024x600) the Done bar sat 45px below the screen
+  // and the last rows could never be scrolled to. Cap it to what is left.
+  panel.style.maxHeight=Math.max(240,Math.min(640,window.innerHeight*0.72,window.innerHeight-top-12))+'px';
 }
 function openPanel(mode){
   // The four buttons at the top of the screen all funnel through here when the
@@ -6348,6 +6466,10 @@ function openPanel(mode){
   // point captures "which filter do users open most" without instrumenting
   // each button or the close behavior separately.
   trackEvent('panel_open',{mode:mode,prev:panelMode});
+  // 2026-09-13 audit: the four sections share one scrolling body, so a list
+  // scrolled in Category opened Bus Routes 400px down with its search box off
+  // screen. A different section starts at its top.
+  const modeChanged=panelMode!==mode;
   panelMode=mode;
   panelAreaEl.hidden=(mode!=='area');
   panelCatEl.hidden=(mode!=='cat');
@@ -6364,6 +6486,9 @@ function openPanel(mode){
   if(mode==='fav'){resetFavIO();renderFavList();}
   const wasOpen=backdrop.classList.contains('open');
   backdrop.classList.add('open');panel.classList.add('open');
+  // (after the panel is displayed: a closed panel is display:none and keeps its
+  // old offset internally — a scrollTop set while hidden does nothing)
+  if(modeChanged){const pb=panel.querySelector('.panel-body');if(pb)pb.scrollTop=0;}
   if(!wasOpen){
     lockBodyScroll();
     pushSheetState('panel');
@@ -6462,7 +6587,15 @@ function showDragHintOnce(){
   // must restore the panel, never close it — the user did not ask for that.
   grab.addEventListener('pointercancel',()=>end(false));
 })();
-window.addEventListener('resize',()=>{if(panel.classList.contains('open'))positionPanel();syncPanPad();});
+// 2026-09-13 audit: a popup that was open when the phone turned sideways kept
+// its portrait height, and its name/★/✕ ended up above the (now shorter) map.
+// Leaflet only applies maxHeight when a popup opens, so re-lay the open one out.
+let _popupResizeT=null;
+function relayoutOpenPopup(){
+  try{const pu=map._popup;if(pu&&pu.isOpen&&pu.isOpen()){pu.options.autoPanPaddingTopLeft=panPad();pu.options.maxHeight=popMaxH();pu.update();}}catch(e){}
+}
+window.addEventListener('resize',()=>{if(panel.classList.contains('open'))positionPanel();syncPanPad();placeMapNotes();
+  clearTimeout(_popupResizeT);_popupResizeT=setTimeout(relayoutOpenPopup,150);});
 if(TIGHT.addEventListener)TIGHT.addEventListener('change',()=>{refreshHint();apply();});
 document.addEventListener('click',(e)=>{
   if(!panel.classList.contains('open')||window.innerWidth<=900)return;
@@ -6745,9 +6878,15 @@ function openModal(back,opts){
   // card) *is* the page the reader arrived at; Back should leave, not peel
   // three layers. No history entry is pushed for that opening.
   if(!noHistory)pushSheetState(back.id);
+  back._openedAt=Date.now();
   const first=back.querySelector('.panel-close');
   if(first)first.focus();
 }
+// 2026-09-13 audit: a double tap on the header's guide/share button — the
+// second tap landing 80-250ms later on the dimmed backdrop that had just slid
+// in over the button — opened the sheet and shut it again. A backdrop tap
+// inside the first 400ms is that second tap, not a decision to leave.
+function justOpened(back){return !!(back._openedAt&&Date.now()-back._openedAt<400);}
 function closeModal(back,fromPop){
   // Hooked here, not on the ✕ button: Escape and a tap on the dimmed backdrop
   // are how most people actually leave a modal, and each of those used to exit
@@ -6868,7 +7007,11 @@ function renderFirstUse(){
   el.classList.toggle('flyer',fromFlyer);el.classList.toggle('slim',!fromFlyer);
   if(fromFlyer){
     const tl=id=>{const t=typeof TASKS!=='undefined'&&TASKS.find(x=>x.id===id);return t?((t.icon?t.icon+' ':'')+(t.t[L_]||t.t.en)):id;};
-    el.innerHTML='<div class="fu-h"><span class="fu-hs">'+esc(u.fuFlyerHead)+'</span></div>'
+    // 2026-09-13 audit: this heading wore the .fu-hs "short variant" class, which
+    // the >=700px layout hides in favour of a long variant the flyer card never
+    // had — so on a tablet the card opened with an empty heading and the ✕
+    // landed on the first button. The flyer heading is the same at every width.
+    el.innerHTML='<div class="fu-h">'+esc(u.fuFlyerHead)+'</div>'
       +'<button type="button" class="fu-x" id="fuClose" aria-label="'+esc(u.aClose)+'">✕</button>'
       +'<div class="fu-rows">'
       +['msp','sin','settle'].map(id=>'<div class="fu-row"><button type="button" data-go="task:'+id+'">'+iconify(tl(id))+'</button></div>').join('')
@@ -6893,8 +7036,25 @@ function renderFirstUse(){
 // "90 days" into an actual date, and lets the list be sorted by what is due.
 const _ARRIVE_KEY='kamloopsArrived';
 let _arriveMem=null;   // storage may be blocked (private mode): the date still works for this sitting
-function arrivalDate(){try{const v=localStorage.getItem(_ARRIVE_KEY);if(v&&/^\d{4}-\d{2}-\d{2}$/.test(v))return v;}catch(e){}return _arriveMem;}
-function setArrival(v){_arriveMem=(v&&/^\d{4}-\d{2}-\d{2}$/.test(v))?v:null;try{if(v)localStorage.setItem(_ARRIVE_KEY,v);else localStorage.removeItem(_ARRIVE_KEY);}catch(e){}updateGuideProgress();}
+// 2026-09-13 audit: typing a date into the field (rather than picking one)
+// fires change with a partial year — "0002-09-01", "0020-09-01", "0202-09-01"
+// — and the tax deadline for year 3 is an Invalid Date, which fmtDate's own
+// fallback then threw on (uncaught, "page hit an error" toast), and a stored
+// partial year made every later guide open throw too. Only a real calendar
+// date between 1990 and today counts; anything else is treated as "not set".
+function validArrival(v){
+  if(!v||!/^\d{4}-\d{2}-\d{2}$/.test(v))return false;
+  const y=+v.slice(0,4);if(y<1990||y>2100)return false;
+  const d=new Date(v+'T12:00:00');if(isNaN(d)||localISODate(d)!==v)return false;   // 02-31 rolls over: reject
+  return v<=localISODate();
+}
+function arrivalDate(){try{const v=localStorage.getItem(_ARRIVE_KEY);if(validArrival(v))return v;}catch(e){}return validArrival(_arriveMem)?_arriveMem:null;}
+function setArrival(v){
+  // A partial or future value clears nothing: the reader is still typing, or
+  // the picker will correct it — the previous good date stays until a valid
+  // one replaces it, and an empty value (the field's own clear) removes it.
+  if(v&&!validArrival(v))return false;
+  _arriveMem=v||null;try{if(v)localStorage.setItem(_ARRIVE_KEY,v);else localStorage.removeItem(_ARRIVE_KEY);}catch(e){}updateGuideProgress();return true;}
 // The landing-screen strip: "3 of 14 done · licence by 30 Nov (51 days)".
 // Shown only once there is something of the reader's own to show.
 function updateGuideProgress(){
@@ -6931,6 +7091,7 @@ function deadlineDate(t){
   return null;
 }
 function fmtDate(d,l){
+  if(!(d instanceof Date)||isNaN(d))return '';
   try{return new Intl.DateTimeFormat({zh:'zh-CN',en:'en-CA',fr:'fr-CA',es:'es',ko:'ko',ja:'ja'}[l]||l,{year:'numeric',month:'long',day:'numeric'}).format(d);}catch(e){return d.toISOString().slice(0,10);}
 }
 // 2026-09-13: whole calendar days between today and the deadline — Math.ceil
@@ -6991,7 +7152,10 @@ function openGuide(src,task){
     trackEvent('guide_open',{src:src||'header',task:task||undefined});
   }
   openModal(guideBackdropEl,{noHistory:src==='link'});
-  if(task){openTask(task,src||'guide');}else if(_taskOpen){renderTaskList();}
+  // 2026-09-13 audit: closeModal clears _taskOpen but leaves the card's markup
+  // in place, so the next opening showed the stale card with no entry under it
+  // (Back then closed the whole guide). A leftover card means "render the list".
+  if(task){openTask(task,src||'guide');}else if(_taskOpen||document.getElementById('taskBack')){renderTaskList();}
 }
 document.getElementById('guideToggle').onclick=()=>openGuide('header');
 document.getElementById('qpOpen').onclick=()=>{
@@ -7017,7 +7181,7 @@ function trackGuideClose(){
   _guideOpenedAt=0;
 }
 document.getElementById('guideClose').onclick=()=>closeModal(guideBackdropEl);
-guideBackdropEl.onclick=(e)=>{if(e.target===guideBackdropEl)closeModal(guideBackdropEl);};
+guideBackdropEl.onclick=(e)=>{if(e.target===guideBackdropEl&&!justOpened(guideBackdropEl))closeModal(guideBackdropEl);};
 guideBackdropEl.addEventListener('keydown',e=>trapTab(e,guideBackdropEl));
 
 // Expand every placeholder once, for every language, before the first render.
