@@ -846,6 +846,7 @@
   @media(max-width:600px){.task-row{grid-template-columns:1fr;gap:3px;}}
   .task-lb{font-size:11px;font-weight:700;color:var(--sage);letter-spacing:.03em;padding-top:1px;}
   .task-bd{font-size:12.5px;line-height:1.6;color:var(--ink);}
+  .task-bd a[href^="tel:"]{color:var(--accent-text);text-decoration:none;font-weight:600;}
   .task-steps{margin:0;padding-left:0;list-style:none;counter-reset:step;}
   .task-steps li{margin:0 0 6px;}
   .task-step{counter-increment:step;display:flex;align-items:flex-start;gap:6px;}
@@ -1506,6 +1507,7 @@ UI.zh.taskCost='费用';UI.en.taskCost='Cost';UI.fr.taskCost='Coût';UI.es.taskC
 UI.zh.taskWait='等待期';UI.en.taskWait='How long you wait';UI.fr.taskWait='Délai d’attente';UI.es.taskWait='Cuánto espera';UI.ko.taskWait='대기 기간';UI.ja.taskWait='待機期間';
 UI.zh.taskNote='要注意';UI.en.taskNote='Worth knowing';UI.fr.taskNote='Bon à savoir';UI.es.taskNote='Conviene saber';UI.ko.taskNote='알아둘 점';UI.ja.taskNote='知っておくこと';
 UI.zh.taskHelp='卡住了找谁';UI.en.taskHelp='If you get stuck';UI.fr.taskHelp='En cas de blocage';UI.es.taskHelp='Si se atasca';UI.ko.taskHelp='막혔을 때 연락처';UI.ja.taskHelp='行き詰まったら';
+UI.zh.taskAlso='更多免费帮助';UI.en.taskAlso='More free help';UI.fr.taskAlso="Plus d'aide gratuite";UI.es.taskAlso='Más ayuda gratuita';UI.ko.taskAlso='추가 무료 도움';UI.ja.taskAlso='無料の追加支援';
 UI.zh.taskOpenMap='在地图上打开 →';UI.en.taskOpenMap='Open it on the map →';UI.fr.taskOpenMap='Ouvrir sur la carte →';UI.es.taskOpenMap='Abrir en el mapa →';UI.ko.taskOpenMap='지도에서 열기 →';UI.ja.taskOpenMap='地図で開く →';
 UI.zh.taskSource='官方说明';UI.en.taskSource='Official page';UI.fr.taskSource='Page officielle';UI.es.taskSource='Página oficial';UI.ko.taskSource='공식 안내';UI.ja.taskSource='公式ページ';
 UI.zh.taskBack='← 返回全部事项';UI.en.taskBack='← All tasks';UI.fr.taskBack='← Toutes les démarches';UI.es.taskBack='← Todos los trámites';UI.ko.taskBack='← 전체 목록';UI.ja.taskBack='← 一覧に戻る';
@@ -2740,6 +2742,13 @@ function verifiedDate(l){
 }
 // Expands the {CITY}/{PROV}/{TRANSIT}/{SD}/{DATE} placeholders used throughout the
 // translated copy. One function so a new city can never half-replace a name.
+// The feedback address used to live in data-kamloops.js as a plain string,
+// which meant every visitor downloaded a page carrying an unbroken, scrapable
+// email address in the raw HTML -- exactly what address-harvesting bots regex
+// for. CITY.contact_r stores it character-reversed instead, so no email-shaped
+// substring exists anywhere in the page source; this reassembles the real
+// address at runtime, the only place it is ever whole.
+function contactEmail(){return (CITY.contact_r||"").split("").reverse().join("");}
 function tpl(str,l){
   if(!str)return str;
   return str
@@ -2749,7 +2758,7 @@ function tpl(str,l){
     .replace(/\{TRANSIT\}/g,CITY.transit.name)
     .replace(/\{SD_URL\}/g,CITY.schoolDistrict.url)
     .replace(/\{SD\}/g,CITY.schoolDistrict.name)
-    .replace(/\{CONTACT\}/g,CITY.contact)
+    .replace(/\{CONTACT\}/g,contactEmail())
     .replace(/\{LIC_URL\}/g,LICENCE.url)
     .replace(/\{LIC\}/g,LICENCE.id)
     .replace(/\{VER\}/g,DATA_VERSION)
@@ -3060,7 +3069,7 @@ function transFixHref(t){
   const subj=u.fbSubject+': '+taskText(t.t)+' ['+L_+']';
   const body=[u.fbLang+': '+L_,u.fbVersion+': '+DATA_VERSION,'task: '+t.id,
               '','---',u.taskTransFix,''].join('\n');
-  return 'mailto:'+CITY.contact+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  return 'mailto:'+contactEmail()+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
 }
 function openTask(id,src){
   const t=TASKS.find(x=>x.id===id);
@@ -3113,7 +3122,9 @@ function openTask(id,src){
     const dd=deadlineDate(t);
     if(dd){const n=daysLeft(dd);
       h+=row(u.taskDeadline,'<b>'+esc(n<0?u.dlPast:u.dlBy(fmtDate(dd,L_),n))+'</b>');}
-    else h+=row(u.taskDeadline,esc(taskText(t.deadline))+' <button type="button" class="task-tool task-dl-set" id="taskDlSet">'+esc(u.dlSetArrival)+'</button>');
+    // rights can never resolve to a computed date (see deadlineDate) — offering
+    // "enter your arrival date" there would promise an exact date that never comes.
+    else h+=row(u.taskDeadline,esc(taskText(t.deadline))+(t.id==='rights'?'':' <button type="button" class="task-tool task-dl-set" id="taskDlSet">'+esc(u.dlSetArrival)+'</button>'));
   }
   // For a reader from a country where dealing with officials carries risk,
   // "go to a government office" is not neutral advice. Saying plainly who does
@@ -3124,8 +3135,12 @@ function openTask(id,src){
   // Put where the risk is, so the front page does not have to frighten everyone.
   const cav={legal:'cavLegal',rights:'cavLegal',deposit:'cavLegal',sick:'cavHealth',msp:'cavHealth',eldercare:'cavHealth',tax:'cavTax'}[t.id];
   if(cav&&u[cav])h+='<div class="task-caveat">'+esc(u[cav])+'</div>';
-  h+=row(u.taskNote,t.note?esc(taskText(t.note)):'');
-  h+=row(u.taskHelp,t.help?esc(taskText(t.help)):'');
+  // 2026-09-15 institution-outreach review: note can hold a phone-number-bearing
+  // block (see hardship's shelter list) the same way help already does — route
+  // both through the same linkifier rather than inventing a second one.
+  h+=row(u.taskNote,t.note?phoneHtml(esc(taskText(t.note))):'');
+  h+=row(u.taskHelp,t.help?phoneHtml(esc(taskText(t.help))):'');
+  h+=row(u.taskAlso,t.also?esc(taskText(t.also)):'');
   // Finish the card with the two things that close a loop: the reader's own
   // "I have done this", and the only signal that can tell the maintainer a card
   // is wrong — that somebody followed it and it did not work.
@@ -3980,8 +3995,18 @@ function mkIcon(k){
 }
 // Wraps just the phone-number-looking part of a string in a tel: link, leaving any
 // trailing note (an email, an office name in brackets, etc.) as plain text.
+// Second alternative: the short civic lines this app also quotes inline in a
+// task's help text (2-1-1, 8-1-1, 9-1-1) — three single digits, hyphens
+// required between each so it can never match a prefix of a longer, grouped
+// number (validate.py's own phone-literal scan is why no example of one is
+// spelled out here).
 function phoneHtml(str){
-  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4})/, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
+  // 2026-09-15: was missing the g flag, so a string with more than one
+  // phone-shaped substring (the hardship card's four-shelter note, added this
+  // pass) only linkified the first and silently left the rest as plain,
+  // unclickable text — every previous caller happened to pass a string with
+  // exactly one number, which is why this went unnoticed until now.
+  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
 }
 // ---- structured opening hours -> localised text -------------------------
 // Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,
@@ -4053,7 +4078,7 @@ function reportHref(p){
               u.fbVersion+': '+DATA_VERSION,
               (location.protocol.indexOf('http')===0?u.fbUrl+': '+location.href:''),
               '','---',u.fbPrompt,''].filter(Boolean).join('\n');
-  return 'mailto:'+CITY.contact+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  return 'mailto:'+contactEmail()+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
 }
 // Where a record's factual fields come from. 'official' means the operator's own
 // site is on file and the reader can check it; 'places' means they cannot, and
@@ -5092,7 +5117,7 @@ function setLang(l){
   }
   setHL('feedbackLink',u.feedbackLink);
   const fl=document.getElementById('feedbackLink');
-  fl.href='mailto:'+CITY.contact+'?subject='+encodeURIComponent(u.fbSubjectGeneral)
+  fl.href='mailto:'+contactEmail()+'?subject='+encodeURIComponent(u.fbSubjectGeneral)
     +'&body='+encodeURIComponent(u.fbLang+': '+l+'\n'+u.fbVersion+': '+DATA_VERSION+'\n\n---\n');
   document.getElementById('areaBtnLabel').textContent=u.areaBtnLabel;
   document.getElementById('catBtnLabel').textContent=u.catBtnLabel;
@@ -6438,15 +6463,19 @@ function updateGuideProgress(){
   el.onclick=()=>openGuide('progress',next?next.t.id:(week?week.id:undefined));
 }
 // The rule for each dated card, from its own source: licence 90 days from
-// arrival; tax April 30 of the year after arrival (first return); rights one
-// year from the event (unknown, so from arrival as the outside bound); MSP has
-// no date — the wait starts when you apply, which is the reason to apply now.
+// arrival; tax April 30 of the year after arrival (first return). MSP has no
+// date — the wait starts when you apply, which is the reason to apply now.
+// rights is deliberately NOT computed here: its one-year clock runs from the
+// incident (see the card's own step 3 and note), a date this app never asks
+// for. It used to stand in arrival+1yr as an "outside bound", but an incident
+// almost always happens after arrival, so that silently understated the real
+// time left and could show "past due" to someone who was not — see the
+// 2026-09 QA report. The card states the rule as text instead.
 function deadlineDate(t){
   const a=arrivalDate();if(!a)return null;
   const d=new Date(a+'T12:00:00');
   if(t.id==='licence'){d.setDate(d.getDate()+90);return d;}
   if(t.id==='tax'){return new Date((d.getFullYear()+1)+'-04-30T12:00:00');}
-  if(t.id==='rights'){d.setFullYear(d.getFullYear()+1);return d;}
   return null;
 }
 function fmtDate(d,l){

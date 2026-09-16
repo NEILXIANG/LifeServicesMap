@@ -25,7 +25,7 @@ async def main():
         for l,v in cards['perLang'].items():
             for x in v: uniq.setdefault(x['id'],set()).add(x['txt'])
         chk("connect + hardship render in all six languages with distinct copy",
-            allsix and cards['n']==13 and all(len(s)==6 for s in uniq.values()),
+            allsix and cards['n']==14 and all(len(s)==6 for s in uniq.values()),  # 14 tasks since 'legal' was added after this script was written
             {'buckets':cards['buckets'],'n':cards['n'],
              'distinct':{k:len(v) for k,v in uniq.items()}})
         chk("they sit in the buckets a reader would look in",

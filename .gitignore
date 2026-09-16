@@ -30,3 +30,12 @@ data/exports/
 /all-records.json
 /open-subset.json
 /open-subset.csv
+
+# 面向机构的个性化邮件草稿（含联系人姓名/邮箱等，不入库）
+/outreach-emails-docx/
+/Claude outputs/kamloops_outreach_emails.md
+
+# 会话临时/中转文件
+/_scratch_link_check/
+/_to_delete/
+flyers/__pycache__/

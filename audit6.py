@@ -12,7 +12,7 @@ e = open('src/engine.html', encoding='utf-8').read()
 P  = json.loads(re.search(r'const P=(\[.*?\]);', d, re.S).group(1))
 RI = json.loads(re.search(r'const RI=(\{.*?\});', d, re.S).group(1))
 CI = json.loads(re.search(r'const CI=(\{.*?\});\n', e, re.S).group(1))
-TASKS = json.loads(re.search(r'const TASKS=(\[.*?\]);\n', e, re.S).group(1))
+TASKS = json.loads(re.search(r'const TASKS=(\[.*?\]);\n', d, re.S).group(1))  # moved to data-kamloops.js since this script was written
 L = ['zh','en','fr','es','ko','ja']
 F = []
 def find(sev, area, msg): F.append((sev, area, msg))
