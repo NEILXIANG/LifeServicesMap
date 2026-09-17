@@ -11,7 +11,7 @@
 | `feedback-log.md` | 用户反馈（群聊 / 邮件 / 私信） | 实时记 |
 | `business-hypothesis.md` | 商业化假设与验证状态 | 每月底更新 |
 
-完整框架见根目录《数据记录与商业化探索框架.md》。
+完整框架见 `docs/archive/2026-09-04-数据记录与商业化探索框架.md`。
 
 ---
 
@@ -36,7 +36,7 @@
 
 ## 上手顺序（本周内）
 
-1. **接 Cloudflare Web Analytics**（一行 JS，详见框架文档第五节）→ 拿到浏览数据
+1. **接 Cloudflare Web Analytics**（一行 JS，详见上面那份框架文档第五节）→ 拿到浏览数据
 2. **填 `analytics-log.md` 第 36 周那一节**：去 Dashboard 截图 + 填基线数据
 3. **走一遍自查清单**（在 `data-quality-log.md` 底部）→ 把发现的问题填进去
 4. **回看 `business-hypothesis.md` 的 5 条假设**：删掉你觉得不该做的（剩下的是真正想探索的）

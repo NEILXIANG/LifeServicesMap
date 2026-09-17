@@ -26,11 +26,22 @@
 // inline handlers; what it does lock down is where the page may load from and
 // talk to, that it cannot be framed, and that plugins/base tags are refused.
 const RATE_LIMIT = 300;            // events per IP per minute (a library's NAT is one IP)
+// 瓦片服务商。这份名单必须同时出现在 img-src 和 connect-src 里：
+// 瓦片本身是 <img>（img-src），但 engine.html 的 probePrimaryTiles() 还会用
+// fetch() 真正取一张瓦片、读它的 HTTP 状态码——因为"key 失效 / 配额用尽"这类
+// 响应会正常返回一张写着错误的图片，tileerror 永远不触发，只能看状态码。
+// 少了 connect-src，那次 fetch 被 CSP 挡下、被 .catch(()=>{}) 吞掉，
+// **Esri 自动降级就静默失效了**：地图今天照常显示，但 MapTiler 的 key 一旦过期，
+// 页面会一直显示"invalid key"的瓦片而不会切到备用源。
+// 2026-09-16 首次真正启用 CSP 时就是这么发现的。
+const TILE_HOSTS =
+  'https://server.arcgisonline.com https://*.arcgisonline.com https://api.maptiler.com ' +
+  'https://tiles.stadiamaps.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org';
 const SECURITY_HEADERS = {
   'Content-Security-Policy':
     "default-src 'self'; script-src 'self' 'unsafe-inline' https://static.cloudflareinsights.com; " +
-    "style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://server.arcgisonline.com https://*.arcgisonline.com https://api.maptiler.com https://tiles.stadiamaps.com https://*.basemaps.cartocdn.com https://*.tile.openstreetmap.org; " +
-    "font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com; " +
+    "style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: " + TILE_HOSTS + "; " +
+    "font-src 'self' data:; connect-src 'self' https://cloudflareinsights.com https://static.cloudflareinsights.com " + TILE_HOSTS + "; " +
     "worker-src 'self'; manifest-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' mailto:",
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'strict-origin-when-cross-origin',

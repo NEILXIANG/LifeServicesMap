@@ -20,6 +20,15 @@ compatibility_date = "2024-09-23"
 directory = "./public"
 binding = "ASSETS"
 
+# 2026-09-16：没有这一行，worker.js 里的 SECURITY_HEADERS 对首页从来没生效过。
+# Workers Static Assets 的默认行为是：请求只要命中静态资源，就由资源层直接返回，
+# Worker 的 fetch 根本不跑。GET / 命中 public/index.html 直接发出去，
+# withSecurityHeaders 没机会执行——所以线上首页一个安全头都没有，
+# 而 /api/event 和那些没有对应文件的敏感路径反而是对的（它们会进 Worker）。
+# run_worker_first 让 Worker 先跑，再由它 fetch ASSETS 并套上安全头。
+# 代价是每个静态请求多一次 Worker 调用（这个站一次冷加载 6 个文件，免费额度 10 万/天）。
+run_worker_first = true
+
 # Analytics Engine dataset — one row per trackEvent() invocation. The dataset
 # is created lazily on first writeDataPoint call, no Dashboard click needed.
 # Free tier: 100,000 writes/day, 90-day retention, no extra billing in this

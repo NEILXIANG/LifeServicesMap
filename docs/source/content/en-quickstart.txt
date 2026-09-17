@@ -1,0 +1,44 @@
+@meta
+lang: en
+out: Kamloops-Life-Guide-User-Guide-QuickStart-EN
+title: Kamloops Life Guide — how to use it
+eyebrow: User guide · Quickstart
+lead: Two pages that cover everything a resident or a front-line worker needs on the first day.
+meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared September 2026
+foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a personal, non-commercial reference · not an official source
+
+@stats
+{TASKS} | task cards
+{PLACES} | places on the map
+6 | languages
+$0 | free, no sign-up
+
+@h2 Open it
+@qr img_77a170d641.png | Scan to open.
+@phone img_458ac75368.png | The task list on a phone.
+@p Type [{URL}]({URL}) into any browser, or scan the code alongside. Nothing to install, no account, nothing asked of you first. On a computer or tablet the language buttons sit at the top right: EN · FR · ES · 中文 · 한국어 · 日本語 — on a phone they collapse into one button (a globe icon and the current language); tap it for the full list. The choice is remembered on that device. To keep it on a phone's home screen, use the browser's "Add to Home Screen" — it then opens like an app and works without a connection.
+
+@h2 The guide ("How do I…?")
+@steps
+Tap the blue **How do I…?** button (top right, and first in the Quick Picks row).
+Cards are grouped as First weeks, Ongoing and When something goes wrong. Type in the search box to find one by your own words ("health card", "驾照", "deposit").
+Open a card. Read What to do, What to bring and Where to go; tap Open on the map to see the office; tap the phone number to call.
+At the bottom: Mark as done, Share (sends a link to this card), Print this card, and — for cards with a deadline — Add to calendar.
+Enter your arrival date at the top of the list and the licence, tax and human-rights deadlines are calculated for you.
+@clear
+
+@h2 The map
+@marks
+**Search box** — a name, a category or a question, in any of the six languages ("pharmacy north shore", "银行", "how do I get a health card?").
+**Quick Picks** — one tap for Daily Essentials, Resident Essentials, Free & Low-cost, Kids & Family, Open now (and Indoor / Winter from November to March). More › opens the full category list with seven one-tap sets.
+**Area · Category · Bus Routes · Favourites** — the four filter buttons. Filters combine; the count line shows how many places remain; Reset clears everything (with an Undo).
+**A place card** — tap any pin: address, phone (tap to call), hours with "open now", website, a note in your language, Directions, and the ☆ to save it to Favourites.
+**Bus Routes** — pick a route; it is drawn with every stop named. Type a stop or a place ("TRU") to find which routes go there.
+**Share** (top right) — copies a link that reproduces exactly what is on screen: language, filters, search, route. On a phone, "Share via your device" also reaches WeChat, LINE and KakaoTalk, which publish no link button of their own.
+
+@h2 If something goes wrong
+@p Every card ends with "If you get stuck": the settlement agency's line (free, interpreters) and 2-1-1. The red strip in the filter row lists 911, 811, 211, 310-6789 (mental health), 1-800-784-2433 / 9-8-8 (suicide crisis). Found an error in the guide? Tap Feedback in the header — it opens an email.
+@p However this reaches you — a counter, a settlement worker, a flyer on a noticeboard — it was written so a hard week goes a little easier. Nothing here tries to sell you anything, and what you type in the search box is sent to the server only as anonymous statistics, never tied to you as a person.
+
+@legal
+Kamloops Life Guide is a personal, non-commercial project by Neil Xiang. It is not published by, affiliated with, or endorsed by the City of Kamloops, the Province of British Columbia, the Government of Canada, or any organisation listed in it. Corrections and questions: {EMAIL}.

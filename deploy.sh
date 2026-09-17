@@ -21,6 +21,11 @@
 # ============================================================================
 set -euo pipefail
 
+# 本次运行专属的临时文件，退出时清掉；固定路径会让 curl 失败时
+# 把上一轮残留的文件当成这次的线上页面来读。
+IDX_TMP="$(mktemp -t deploy-idx.XXXXXX)"
+trap 'rm -f "$IDX_TMP"' EXIT
+
 # ---- 路径与常量 -----------------------------------------------------------
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
 INDEX_FILE="${PROJECT_ROOT}/public/index.html"
@@ -33,7 +38,8 @@ DEPLOY_URL="https://kamloops-lifemap.neilxiang.workers.dev"
 RED='\033[0;31m'; GRN='\033[0;32m'; YEL='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
 say()   { printf "${CYAN}▸ %s${NC}\n" "$*"; }
 ok()    { printf "${GRN}✓ %s${NC}\n" "$*"; }
-warn()  { printf "${YEL}⚠ %s${NC}\n" "$*"; }
+WARN_COUNT=0
+warn()  { WARN_COUNT=$((WARN_COUNT+1)); printf "${YEL}⚠ %s${NC}\n" "$*"; }
 fail()  { printf "${RED}✗ %s${NC}\n" "$*" >&2; exit 1; }
 
 # ---- 参数解析 --------------------------------------------------------------
@@ -69,10 +75,14 @@ if [[ -x "$WRANGLER_BIN" ]]; then
   WRANGLER_CMD() { "$WRANGLER_BIN" "$@"; }
 else
   warn "本地 wrangler 不在 ${WRANGLER_BIN}，将通过 npx 下载（约 30s）"
-  WRANGLER_CMD() {
-    /Users/neilxiang/.workbuddy/binaries/node/versions/22.22.2-2/bin/npx \
-      -y wrangler "$@"
-  }
+  # npx 也按「先用固定路径、找不到就走 PATH」来解析：Node 升级或换机器后
+  # 版本号目录会变，写死路径会让兜底本身失效。
+  NPX_BIN="/Users/neilxiang/.workbuddy/binaries/node/versions/22.22.2-2/bin/npx"
+  [[ -x "$NPX_BIN" ]] || NPX_BIN="$(command -v npx || true)"
+  if [[ -z "$NPX_BIN" ]]; then
+    fail "既找不到 wrangler，也找不到 npx；请先装 Node，或把 wrangler 放回 ${WRANGLER_BIN}"
+  fi
+  WRANGLER_CMD() { "$NPX_BIN" -y wrangler "$@"; }
 fi
 
 # ---- verify-only / login-only 快捷路径 -------------------------------------
@@ -80,10 +90,10 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
   say "[verify-only] 跑线上探针"
   echo
   # 1. 首页 200 + DATA_VERSION
-  curl -s -o /tmp/deploy-idx.html -w '  HTTP %{http_code}\n' "${DEPLOY_URL}/"
-  INDEX_VER=$(grep -oE "DATA_VERSION=[^,]+" /tmp/deploy-idx.html 2>/dev/null | head -1 || echo "DATA_VERSION=?")
-  INDEX_TRACK=$(grep -oc "trackEvent(" /tmp/deploy-idx.html 2>/dev/null || echo "0")
-  INDEX_BEACON=$(grep -oc "sendBeacon" /tmp/deploy-idx.html 2>/dev/null || echo "0")
+  curl -s -o "$IDX_TMP" -w '  HTTP %{http_code}\n' "${DEPLOY_URL}/"
+  INDEX_VER=$(grep -oE "DATA_VERSION=[^,]+" "$IDX_TMP" 2>/dev/null | head -1 || echo "DATA_VERSION=?")
+  INDEX_TRACK=$(grep -o "trackEvent(" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
+  INDEX_BEACON=$(grep -o "sendBeacon" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
   ok "首页  ${INDEX_VER}  trackEvent=${INDEX_TRACK}  sendBeacon=${INDEX_BEACON}"
   # 2. /api/event GET → 404. The Worker only handles POST here; a GET falls
   #    through to env.ASSETS, which has no such file, so 404 proves the Worker
@@ -100,12 +110,23 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
     --data '{"t":"ping","p":{},"sid":"verify-script"}' "${DEPLOY_URL}/api/event")
   if [[ "$XO_CODE" == "403" ]]; then ok "/api/event 跨站 POST → 403（Origin 校验生效）"; else warn "/api/event 跨站 POST → ${XO_CODE}（应为 403）"; fi
   # 3c. security headers on the page
-  CSP=$(curl -s -D - -o /dev/null "${DEPLOY_URL}/" | grep -ci 'content-security-policy')
-  if [[ "$CSP" -ge 1 ]]; then ok "首页带 Content-Security-Policy"; else warn "首页缺少 Content-Security-Policy"; fi
+  # || true：grep 零匹配时退出码 1，set -e 会直接杀掉脚本，
+  # 于是"缺少 CSP"这条警告永远不可能打印出来
+  HDRS=$(curl -s -D - -o /dev/null "${DEPLOY_URL}/")
+  for h in content-security-policy x-content-type-options x-frame-options referrer-policy; do
+    if grep -qi "^${h}:" <<<"$HDRS"; then ok "首页带 ${h}"; else warn "首页缺少 ${h}"; fi
+  done
+  # 对照一组：没有对应静态文件的路径会真正进 Worker。
+  # 如果这里有头、首页没有，说明静态资源根本没经过 Worker（[assets] 的默认行为），
+  # withSecurityHeaders 对首页从来没生效过。
+  if ! grep -qi '^content-security-policy:' <<<"$HDRS" \
+     && curl -s -D - -o /dev/null "${DEPLOY_URL}/__no_such_asset__" | grep -qi '^content-security-policy:'; then
+    warn "安全头只在 Worker 响应上有，静态首页绕过了 Worker —— 见 wrangler.toml 的 [assets]"
+  fi
   # 4. 敏感路径应全 404
   PATHS=(
     "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "validate.py"
+    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
     "package-lock.json" "README.md" "wrangler.toml" "worker.js"
   )
   FAIL=0
@@ -114,8 +135,17 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
     [[ "$code" == "404" ]] && ok "404  /$p" || { warn "$code  /$p"; FAIL=$((FAIL+1)); }
   done
   echo
-  if [[ $FAIL -eq 0 ]]; then ok "全部检查通过"; else warn "${FAIL} 个检查失败"; fi
-  exit $FAIL
+  if [[ $FAIL -gt 0 ]]; then
+    warn "${FAIL} 个敏感路径没有返回 404"
+  fi
+  # 警告也要算数：上面任何一条 ⚠ 都说明线上和预期不一致
+  if [[ $WARN_COUNT -eq 0 ]]; then
+    ok "全部检查通过"
+    exit 0
+  else
+    warn "有 ${WARN_COUNT} 项不符合预期（见上面的 ⚠），不能算通过"
+    exit 1
+  fi
 fi
 
 if [[ $LOGIN_ONLY -eq 1 ]]; then
@@ -146,10 +176,11 @@ if [[ "${VALIDATE_SKIP:-0}" == "1" ]]; then
   warn "[1.5/5] 已按 VALIDATE_SKIP=1 跳过静态校验"
 else
 say "[1.5/5] 运行 validate.py（校验不过就不部署）"
-if [[ ! -f "${PROJECT_ROOT}/validate.py" ]]; then
-  fail "找不到 validate.py — 这道闸门不能跳过"
+VALIDATE_PY="${PROJECT_ROOT}/scripts/validate.py"
+if [[ ! -f "$VALIDATE_PY" ]]; then
+  fail "找不到 ${VALIDATE_PY} — 这道闸门不能跳过"
 fi
-if ! python3 "${PROJECT_ROOT}/validate.py" "$INDEX_FILE"; then
+if ! python3 "$VALIDATE_PY" "$INDEX_FILE"; then
   fail "validate.py 未通过，已中止部署（要临时跳过：VALIDATE_SKIP=1 ./deploy.sh，仅限你清楚后果时）"
 fi
 ok "校验通过"
@@ -161,11 +192,11 @@ say "[2/5] 核对产物与 wrangler 配置"
 [[ -f "$WRANGLER_TOML" ]]  || fail "缺 ${WRANGLER_TOML}"
 [[ -f "$WORKER_FILE" ]]    || fail "缺 ${WORKER_FILE}"
 
-DATA_VERSION=$(grep -oE "DATA_VERSION=[^,;]+" "$INDEX_FILE" | head -1)
+DATA_VERSION=$(grep -oE "DATA_VERSION=[^,;]+" "$INDEX_FILE" | head -1 || true)
 [[ -n "$DATA_VERSION" ]] || fail "index.html 里找不到 DATA_VERSION — 是不是旧文件？"
 SIZE_BYTES=$(wc -c < "$INDEX_FILE" | tr -d ' ')
 SIZE_KB=$(( (SIZE_BYTES + 1023) / 1024 ))
-ok "MD5     $(md5 -q "$INDEX_FILE")"
+ok "MD5     $({ md5 -q "$INDEX_FILE" 2>/dev/null || md5sum "$INDEX_FILE" | cut -d" " -f1; })"
 ok "版本    ${DATA_VERSION}"
 ok "大小    ${SIZE_BYTES} 字节 (${SIZE_KB} KB)"
 ok "Worker  $(basename "$WORKER_FILE") + $(basename "$WRANGLER_TOML")"
@@ -221,10 +252,10 @@ sleep 3
 echo
 
 # 首页
-INDEX_CODE=$(curl -s -o /tmp/deploy-idx.html -w '%{http_code}' "${DEPLOY_URL}/")
-INDEX_VER=$(grep -oE "DATA_VERSION=[^,]+" /tmp/deploy-idx.html 2>/dev/null | head -1 || echo "DATA_VERSION=?")
-INDEX_TRACK=$(grep -oc "trackEvent(" /tmp/deploy-idx.html 2>/dev/null || echo "0")
-INDEX_BEACON=$(grep -oc "sendBeacon" /tmp/deploy-idx.html 2>/dev/null || echo "0")
+INDEX_CODE=$(curl -s -o "$IDX_TMP" -w '%{http_code}' "${DEPLOY_URL}/")
+INDEX_VER=$(grep -oE "DATA_VERSION=[^,]+" "$IDX_TMP" 2>/dev/null | head -1 || echo "DATA_VERSION=?")
+INDEX_TRACK=$(grep -o "trackEvent(" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
+INDEX_BEACON=$(grep -o "sendBeacon" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
 if [[ "$INDEX_CODE" == "200" ]]; then
   ok "首页 200  ${INDEX_VER}  trackEvent=${INDEX_TRACK}  sendBeacon=${INDEX_BEACON}"
 else
@@ -251,7 +282,7 @@ BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: appl
 # 敏感路径全 404
 PATHS=(
   "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "validate.py"
+  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
   "package-lock.json" "README.md" "wrangler.toml" "worker.js"
 )
 LEAKED=0

@@ -12,7 +12,16 @@ reaches every city at once instead of being re-applied to each one by hand.
 """
 import argparse, os, re, sys, datetime
 
-HERE = os.path.dirname(os.path.abspath(__file__))
+def _project_root(p):
+    """向上找到项目根（放着 src/data-kamloops.js 的那一层），
+    整个项目换个目录、或脚本被挪走，都仍然能正确定位。"""
+    for _ in range(6):
+        if os.path.exists(os.path.join(p, 'src', 'data-kamloops.js')):
+            return p
+        p = os.path.dirname(p)
+    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+
+HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(HERE, 'src')
 MARKER = '/*__CITY_DATA__*/'
 
@@ -36,7 +45,10 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
 
     html = html.replace('{{BUILT}}', datetime.date.today().isoformat())
 
-    out_path = out_path or os.path.join(HERE, '%s.html' % city)
+    out_path = out_path or os.path.join(HERE, 'build', '%s.html' % city)
+    # build/ is gitignored, so a fresh clone does not have it yet — create it
+    # rather than crashing with FileNotFoundError on the very first build.
+    os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w', encoding='utf-8').write(html)
 
     # deploy.sh's own [1/5] step rebuilds public/index.html — that is the file

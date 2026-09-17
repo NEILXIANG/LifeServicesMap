@@ -10,11 +10,16 @@ North Thompson down from Westsyde, the South Thompson in from Valleyview, their
 confluence at Riverside Park, and the Thompson running west past McArthur Island
 into Kamloops Lake.
 """
-import re, json, math
+import math
+import os, sys
+_r = os.path.dirname(os.path.abspath(__file__))
+for _ in range(6):
+    if os.path.exists(os.path.join(_r, 'kamdata.py')): break
+    _r = os.path.dirname(_r)
+sys.path.insert(0, _r)
+import kamdata
 
-d = open('src/data-kamloops.js', encoding='utf-8').read()
-BR = json.loads(re.search(r'const BR=(\{.*?\});\s*\n', d, re.S).group(1))
-P = json.loads(re.search(r'const P=(\[.*?\]);\s*\n', d, re.S).group(1))
+BR, P = kamdata.load_all('BR', 'P')
 
 K = math.cos(math.radians(50.70))
 
@@ -162,12 +167,14 @@ def build(W, H, *, tone='colour', labels=True, roads=True, bounds=None, pins=Non
 if __name__ == '__main__':
     W, H = 1240, 500
     css = '''<style>
-      .lb-city{font:700 %.0fpx "Roboto",Arial,sans-serif;fill:#5f6368;letter-spacing:.12em;text-anchor:middle}
+      .lb-city{font:700 %.0fpx "Roboto",Arial,sans-serif;fill:#8E8E93;letter-spacing:.12em;text-anchor:middle}
       .lb-water{font:italic 500 %.0fpx "Roboto",Arial,sans-serif;fill:#5b93bf;text-anchor:middle}
-      .lb-poi{font:600 %.0fpx "Roboto",Arial,sans-serif;fill:#3c4043}
-      .lb-dot{fill:#188038}
+      .lb-poi{font:600 %.0fpx "Roboto",Arial,sans-serif;fill:#1C1C1E}
+      .lb-dot{fill:#8E8E93}
     </style>''' % (15, 14, 13)
-    open('/tmp/shots/mapart.svg', 'w').write(
+    # 产物落在脚本自己的目录下，不跟着当前工作目录跑
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'mapart-preview.svg')
+    open(out, 'w', encoding='utf-8').write(
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 %d %d" width="%d" height="%d">%s%s</svg>'
         % (W, H, W, H, css, build(W, H)))
-    print('wrote /tmp/shots/mapart.svg')
+    print('wrote', out)

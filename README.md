@@ -15,10 +15,10 @@ Everything except the map background works with no network at all.
 | `regress.py` | 114 browser checks. Needs Playwright. |
 | `export-open.py` | Writes out the freely-licensable subset of the data. |
 | `check-links.py` | Checks the 150 external websites still resolve (needs a network). |
-| `DATA-SCHEMA.md` | The data format, and how to add a city. |
+| `docs/guides/DATA-SCHEMA.md` | The data format, and how to add a city. |
 | `CHANGELOG.md` | What changed, and when. Maintained here — the page itself no longer shows a change log. |
 | `tools/` | `monthly-quality-check.sh` — stale POIs plus the link check. |
-| `archive/` | Point-in-time analyses, superseded handbooks and one-off checklists. Not current state — see its README. |
+| `docs/archive/` | Point-in-time analyses, superseded handbooks and one-off checklists. Not current state — see its README. |
 
 ## Everyday use
 
@@ -55,11 +55,11 @@ python3 export-open.py --csv
 Writes `open-subset.json` (and `.csv`) containing only records whose `src` is
 `official` or `own` — the ones with an authoritative source of record behind them.
 The rest rest on third-party map data, whose redistribution follows that platform's
-terms rather than your licence. See `DATA-SCHEMA.md` for what the values mean.
+terms rather than your licence. See `docs/guides/DATA-SCHEMA.md` for what the values mean.
 
 ## A new city
 
-See the last section of `DATA-SCHEMA.md`. In short: copy the data file, replace
+See the last section of `docs/guides/DATA-SCHEMA.md`. In short: copy the data file, replace
 its five objects, run `build.py`. The engine is shared, so an improvement made
 here reaches every city at the next build.
 

@@ -22,9 +22,18 @@ Outputs (all from the same content, so they cannot drift):
   · The four promise cards are numbered, not emoji: institutions copy in
     black and white, and emoji copy as grey blocks.
 """
-import io, re, json, sys
+import io, re, sys
+import os, sys
+_r = os.path.dirname(os.path.abspath(__file__))
+for _ in range(6):
+    if os.path.exists(os.path.join(_r, 'kamdata.py')): break
+    _r = os.path.dirname(_r)
+sys.path.insert(0, _r)
+import kamdata
 import mapart
 import qrcode
+
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 URL_HOST = 'kamloops-lifemap.neilxiang.workers.dev'
 EDITION = '2026-09'          # printed on every page; bump when content changes
@@ -49,11 +58,13 @@ def qr_svg(src_tag):
             '<rect width="%d" height="%d" fill="#fff"/><g fill="#202124">%s</g></svg>' % (n, n, n, n, ''.join(rects)))
 
 # ---- facts from the data, never typed twice ---------------------------------
-_d = io.open('src/data-kamloops.js', encoding='utf-8').read()
-P = json.loads(re.search(r'const P=(\[.*?\]);', _d, re.S).group(1))
+P = mapart.P          # 同一次解析，不重复读 1.5MB 的数据文件
 N_PLACES = len(P)
 def place(name):
-    return next(x for x in P if re.sub(r'^[⭐\s]+', '', x['n']) == name)
+    for x in P:
+        if re.sub(r'^[⭐\s]+', '', x['n']) == name:
+            return x
+    raise SystemExit('数据里找不到地点 %r —— 是不是改名了？传单上的地址靠它' % name)
 SERVICE_BC = place('Service BC Centre')
 SERVICE_CA = place('Service Canada')
 KIS = place('Kamloops Immigrant Services')
@@ -119,7 +130,15 @@ def cards_html():
     out = []
     for idx, (lang, tag, head) in enumerate(CARDS):
         c = CARD_COLORS[idx % len(CARD_COLORS)]
-        rows = ''.join('<li><b>%s</b><span><i class="n" style="background:%s">%d</i>%s</span></li>' % (q, c, i + 1, a) for i, (q, a) in enumerate(qa(lang)))
+        # 三格一行：问题 / 编号 / 去处。三行共用同一套列宽（ul 是 grid，li 用
+        # display:contents 把自己的三个格子交给它），所以编号在一张卡里竖直对齐，
+        # 换行的地址也各自缩在自己那一列里，不再参差不齐。
+        # 编号放在最左边的固定窄列里，六张卡、每张三行的圆点都落在同一条竖线上；
+        # 问题和去处在右边一列里连排，换行的地址统一挂在这一列的左缘，不再参差。
+        # （ul 是 grid，li 用 display:contents 把自己的两个格子交给它。）
+        rows = ''.join('<li><i class="n" style="background:%s">%d</i>'
+                       '<div><b>%s</b> <span>%s</span></div></li>'
+                       % (c, i + 1, q, a) for i, (q, a) in enumerate(qa(lang)))
         out.append('<article class="card" lang="%s" style="border-left-color:%s"><div class="card-tag" style="color:%s">%s</div><h3>%s</h3><ul>%s</ul></article>' % (lang, c, c, tag, head, rows))
     return '\n'.join(out)
 
@@ -130,14 +149,14 @@ def promise_html():
 
 MAP_SVG = '<svg viewBox="0 0 %d %d" preserveAspectRatio="xMidYMid slice" class="mapart">%s</svg>' % (MAP_W, MAP_H, MAP_COLOUR)
 
-_logo = io.open('logo.svg', encoding='utf-8').read()
+_logo = io.open(os.path.join(kamdata.ROOT, 'logo.svg'), encoding='utf-8').read()
 LOGO_SVG = _logo[_logo.index('<svg'):]
 def logo(size):
     return LOGO_SVG.replace('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"',
                             '<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 192 192"' % (size, size))
 
 # Lines every edition shares
-LEAD_BOLD = '<b>free, no sign-up, no ads, nothing collected about you.</b>'
+LEAD_BOLD = '<b>free, no sign-up, no ads, no personal data collected.</b>'
 FOR_WHOM = 'For people who have just arrived — and for anyone who has lived here for years and wants to help someone who just did.'
 NO_PHONE = 'No smartphone? Any library will open it for you at the desk. Or dial 2-1-1 and ask, in your language.'
 FOOT = ('Please print and post freely — black and white is fine, Letter paper · A personal reference, not an official publication · every entry carries a verification date and a source · '
@@ -214,10 +233,13 @@ h1 em{{font-style:normal;color:#007AFF}}
 .card{{border:1px solid #E5E5EA;border-left-width:3px;border-radius:12px;padding:2.2mm 3.2mm 2.4mm;background:#fff}}
 .card-tag{{font-size:7.4pt;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#007AFF;margin-bottom:.8mm}}
 .card h3{{margin:0 0 1mm;font-size:9.4pt;line-height:1.25;font-weight:700;color:#1C1C1E}}
-.card ul{{margin:0;padding:0;list-style:none}}
-.card li{{font-size:8.3pt;line-height:1.28;margin-bottom:.5mm;display:grid;grid-template-columns:auto 1fr;gap:0 2mm}}
+.card ul{{margin:0;padding:0;list-style:none;font-size:8.3pt;line-height:1.28;
+  display:grid;grid-template-columns:3.4mm 1fr;gap:.7mm 1.5mm;align-items:start}}
+.card li{{display:contents}}
+.card li div{{min-width:0}}
 .card li b{{color:#1C1C1E;white-space:nowrap}} .card li span{{color:#8E8E93}}
-.card li i.n{{display:inline-block;width:3.4mm;height:3.4mm;line-height:3.4mm;border-radius:50%;background:#007AFF;color:#fff;font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-right:1.2mm;vertical-align:-.3mm}}
+.card li i.n{{width:3.4mm;height:3.4mm;border-radius:50%;background:#007AFF;color:#fff;
+  font:700 6.6pt/3.4mm Roboto,Arial,sans-serif;text-align:center;margin-top:.2mm}}
 .card[lang=zh] h3,.card[lang=ko] h3,.card[lang=ja] h3{{font-size:9.4pt}}
 .tail{{margin-top:auto;padding-top:2.6mm;border-top:1px solid #E5E5EA}}
 .closing{{margin:0;font-size:8.6pt;line-height:1.4;color:#3a3a3c;text-align:center;text-wrap:balance}}
@@ -286,17 +308,27 @@ body{{font-family:"Roboto","Helvetica Neue",Arial,"Noto Sans CJK SC","Noto Sans 
 </div></body></html>'''
 
 # ---- write everything -------------------------------------------------------------
-outputs = []
+# 先全部生成并检查，再落盘：原来是边写边查，世俗版查出问题时
+# 两份信仰版已经写出去了，留下一半新一半旧的产物。
+pending = []
 for ed in (FAITH, SECULAR):
     for paper in ('letter', 'a4'):
         html = flyer_html(ed, paper)
         if ed is SECULAR:
-            # the whole point of this edition is that nothing religious survives into it
-            for word in ('Jesus', 'cross', 'bless', 'God', 'church'):
-                if word.lower() in html.lower():
+            # the whole point of this edition is that nothing religious survives into it.
+            # 按词边界匹配：原来是子串匹配，"across" 里的 cross、"pagoda" 里的 god
+            # 都会让构建中止。
+            for word in ('Jesus', 'cross', 'crosses', 'bless', 'blessed', 'blessing',
+                         'God', 'church', 'churches'):
+                if re.search(r'\b%s\b' % re.escape(word), html, re.I):
                     raise SystemExit('secular edition still contains %r' % word)
-        name = '%s-%s-apple.html' % (ed['file'], paper)
-        io.open(name, 'w', encoding='utf-8').write(html); outputs.append(name)
-sheet = 'kamloops-life-guide-cards-letter.html'
-io.open(sheet, 'w', encoding='utf-8').write(cards_sheet_html()); outputs.append(sheet)
+        pending.append(('%s-%s-apple.html' % (ed['file'], paper), html))
+pending.append(('kamloops-life-guide-cards-letter.html', cards_sheet_html()))
+
+outputs = []
+for name, html in pending:
+    # 产物落在 flyers/ 下，不跟着当前工作目录跑
+    path = os.path.join(HERE, name)
+    io.open(path, 'w', encoding='utf-8').write(html)
+    outputs.append(os.path.relpath(path, kamdata.ROOT))
 for o in outputs: print('built', o)
