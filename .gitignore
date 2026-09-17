@@ -32,8 +32,12 @@ data/exports/
 /open-subset.csv
 
 # 面向机构的个性化邮件草稿（含联系人姓名/邮箱等，不入库）
-/outreach-emails-docx/
-/docs/outreach/notes/kamloops_outreach_emails.md
+# 2026-09-16：改为入库。仓库是私有的，这些是自己的外联工作数据，
+# 需要跨设备留存。若将来仓库转公开，务必先处理这两项。
+# /outreach-emails-docx/  （原先排除）
+# 2026-09-16：改为入库。仓库是私有的，这些是自己的外联工作数据，
+# 需要跨设备留存。若将来仓库转公开，务必先处理这两项。
+# /docs/outreach/notes/kamloops_outreach_emails.md  （原先排除）
 
 # 会话临时/中转文件
 /_scratch_link_check/
