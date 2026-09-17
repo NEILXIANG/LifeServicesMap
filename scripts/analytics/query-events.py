@@ -59,6 +59,16 @@ query-events.py — 在终端直接查 Cloudflare Analytics Engine 里的埋点�
 """
 
 import json
+
+# macOS 上 python.org 版的 Python 不带系统钥匙串的根证书，不处理的话每次调用
+# Cloudflare API 都会 CERTIFICATE_VERIFY_FAILED，得手动 export SSL_CERT_FILE。
+# 有 certifi 就直接用，省掉那条要记的环境变量。
+try:
+    import certifi, ssl as _ssl, urllib.request as _ureq
+    _ureq.install_opener(_ureq.build_opener(
+        _ureq.HTTPSHandler(context=_ssl.create_default_context(cafile=certifi.where()))))
+except Exception:
+    pass
 import os
 import sys
 import time

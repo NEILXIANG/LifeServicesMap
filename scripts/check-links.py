@@ -48,9 +48,23 @@ HERE = kamdata.ROOT
 UA = ('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 '
       '(KHTML, like Gecko) Chrome/126.0 Safari/537.36')
 TIMEOUT = 12
+HOST_DELAY = 3.0                   # 同一域名两次请求之间的间隔，秒
+# 3 秒是试出来的：数据里 11 个地点同属 kelsongroup.com，1.5 秒仍会被它限流。
+# 宁可慢——整轮也就一两分钟，一个月才跑一次。
 # 证书库只建一次：原来每个 URL 都 create_default_context()，188 条链接就把
 # 整个系统 CA 库读了 188 遍（带 GET 重试是 376 遍）。
-SSL_CTX = ssl.create_default_context()
+def _ssl_ctx():
+    """macOS 上 python.org 版的 Python 不带系统钥匙串里的根证书，默认 context
+    会对每一个 HTTPS 站点报 CERTIFICATE_VERIFY_FAILED。结果是 56 条链接全部
+    BLOCKED，看起来像"整个互联网都挂了"，其实是本机证书库没配——2026-09-16
+    月度巡检第一次真正跑起来时就撞上了这个。有 certifi 就用它的证书包。"""
+    try:
+        import certifi
+        return ssl.create_default_context(cafile=certifi.where())
+    except Exception:
+        return ssl.create_default_context()
+
+SSL_CTX = _ssl_ctx()
 
 
 def load_places(city):
@@ -85,14 +99,20 @@ def _check(url):
                     return ('OK', r.status, final)
                 return ('MOVED', r.status, final)
         except error.HTTPError as e:
-            if e.code in (405, 501) and method == 'HEAD':
-                continue                       # server dislikes HEAD; retry with GET
+            # HEAD 失败一律不作数，改用 GET 复核再下结论。
+            # 原来只对 405/501 重试，于是对 HEAD 回 404 的站点（Wix、Shopify、
+            # 部分 WordPress 和 CDN 很常见）直接判 DEAD——2026-09-16 第一次拿到
+            # 真实数据时，两条 "DEAD" 里就有一条是这么来的，页面其实好好的。
+            if method == 'HEAD':
+                continue
             if e.code in (403, 429):
                 return ('BLOCKED', e.code, url)
             if e.code in (404, 410):
                 return ('DEAD', e.code, url)
             return ('BLOCKED', e.code, url)
         except (error.URLError, TimeoutError, OSError) as e:
+            if method == 'HEAD':
+                continue                       # 同上：超时/连接问题也用 GET 复核
             reason = getattr(e, 'reason', e)
             if 'Name or service not known' in str(reason) or 'nodename' in str(reason):
                 return ('DEAD', 0, 'host does not resolve')
@@ -106,26 +126,54 @@ def main():
     ap.add_argument('--deep-only', action='store_true',
                     help='only URLs with a path — the ones that rot fastest')
     ap.add_argument('--json', default=None, help='also write the full result here')
+    ap.add_argument('--host', default=None,
+                    help='只查这一个域名（子串匹配）。复查某个站点时用，'
+                         '免得为了一条链接把其余 26 个站再惊动一遍')
     ap.add_argument('--workers', type=int, default=6,
-                    help='parallel requests; keep it small, these are small sites')
+                    help='并发的域名数（同一域名始终串行）；这些都是小站，别调大')
     a = ap.parse_args()
 
     places = [p for p in load_places(a.city) if p.get('w')]
     if a.deep_only:
         places = [p for p in places
                   if parse.urlparse(p['w']).path.rstrip('/') != '']
+    if a.host:
+        places = [p for p in places if a.host.lower() in parse.urlparse(p['w']).netloc.lower()]
+        if not places:
+            sys.exit('没有链接属于域名 %r' % a.host)
     print('checking %d links with %d workers…\n' % (len(places), a.workers))
+
+    # 同一个域名串行、并留出间隔；并发只跨域名。
+    # 数据里有 11 个地点同属 kelsongroup.com，原来 6 个并发一起打过去，
+    # 加上 HEAD 失败后补一次 GET，等于瞬间十几个请求砸向一个小站——
+    # 2026-09-16 第一次拿到真实数据时，那 11 条全被限流成 429，
+    # 报告里看起来像"这家网站挂了"，其实是我们自己造成的。
+    by_host = {}
+    for p in places:
+        by_host.setdefault(parse.urlparse(p['w']).netloc.lower(), []).append(p)
+
+    def check_host(group):
+        out = []
+        for i, p in enumerate(group):
+            if i:
+                time.sleep(HOST_DELAY)          # 对同一台服务器留口气
+            out.append((p, check(p['w'])))
+        return out
 
     results = []
     with ThreadPoolExecutor(max_workers=a.workers) as ex:
-        for p, (status, code, final) in zip(places, ex.map(lambda p: check(p['w']), places)):
-            results.append({'name': p['n'], 'id': p['id'], 'url': p['w'],
-                            'status': status, 'code': code, 'final': final})
-            # 行首顶格、每条都打印：月度脚本按行首 grep，缩进和"只打印异常"
-            # 这两件事让它这几个月一直数到 0 OK / 0 DEAD。
-            print('%-8s %-38s %s' % (status, p['n'][:38], p['w']))
-            if status != 'OK' and final and final != p['w']:
-                print('         → %s' % final)
+        pairs = [pair for group in ex.map(check_host, by_host.values()) for pair in group]
+    # 打印顺序回到数据里的原始顺序，方便和上一次的日志对照
+    order = {id(p): i for i, p in enumerate(places)}
+    pairs.sort(key=lambda kv: order[id(kv[0])])
+    for p, (status, code, final) in pairs:
+        results.append({'name': p['n'], 'id': p['id'], 'url': p['w'],
+                        'status': status, 'code': code, 'final': final})
+        # 行首顶格、每条都打印：月度脚本按行首 grep，缩进和"只打印异常"
+        # 这两件事让它这几个月一直数到 0 OK / 0 DEAD。
+        print('%-8s %-38s %s' % (status, p['n'][:38], p['w']))
+        if status != 'OK' and final and final != p['w']:
+            print('         → %s' % final)
 
     counts = {}
     for r in results:
@@ -142,9 +190,15 @@ def main():
     # If nothing at all got through, the problem is this machine's network, not 150
     # websites that all died on the same day. Say so instead of reporting a disaster.
     if results and counts.get('BLOCKED', 0) == len(results):
-        print('\nEvery request was blocked, which means the network here is filtered '
-              '— not that the links are broken.\nRun this from a normal terminal on a '
-              'machine with unrestricted internet access.')
+        if all('CERTIFICATE_VERIFY' in (r['final'] or '') for r in results):
+            print('\n全部 56 条都是证书验证失败 —— 这是本机 Python 的根证书没配，'
+                  '不是链接坏了。\n装一下证书包再跑：'
+                  '\n    pip3 install --upgrade certifi'
+                  '\n（macOS 上也可以跑 Python 安装目录里的 "Install Certificates.command"）')
+        else:
+            print('\nEvery request was blocked, which means the network here is filtered '
+                  '— not that the links are broken.\nRun this from a normal terminal on a '
+                  'machine with unrestricted internet access.')
         sys.exit(2)
 
     # MOVED and BLOCKED are for a human to look at; only DEAD is unambiguous.

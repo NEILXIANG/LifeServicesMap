@@ -158,3 +158,63 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 0 OK, 0 MOVED, 0 DEAD, 1 BLOCKED
 - 完整 log: data/check-links-2026-09-07.log
+
+### 2026-09-16 · 月度巡检
+
+- stale: 0 POI over 180d. nothing to do this cycle.
+- 深链: 0 OK, 0 MOVED, 0 DEAD, 56 BLOCKED（共 56 条）
+- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+
+### 2026-09-16 · 月度巡检
+
+- stale: 0 POI over 180d. nothing to do this cycle.
+- 深链: 46 OK, 2 MOVED, 2 DEAD, 6 BLOCKED（共 56 条）
+- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+
+### 2026-09-16 · 月度巡检
+
+- stale: 0 POI over 180d. nothing to do this cycle.
+- 深链: 36 OK, 2 MOVED, 2 DEAD, 16 BLOCKED（共 56 条）
+- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+
+### 2026-09-16 · 月度巡检
+
+- stale: 0 POI over 180d. nothing to do this cycle.
+- 深链: 46 OK, 2 MOVED, 2 DEAD, 6 BLOCKED（共 56 条）
+- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+
+### 2026-09-16 · 深链巡检结果处理
+
+月度巡检修好后第一次拿到真实数据（46 OK / 2 MOVED / 2 DEAD / 6 BLOCKED，共 56 条深链）。
+
+**已改（3 条）**
+
+| 地点 | 原因 | 新地址 |
+|---|---|---|
+| Scotiabank (Victoria St) | 原通用定位器页 404 | `https://locator.scotiabank.com/`（官网现行定位器，同类替换） |
+| Windsor Plywood | `.com` 永久跳转到 `.ca` | `https://www.windsorplywood.ca/pages/kamloops`（跳转带的 `?shpxid=` 跟踪参数未写入） |
+| KAFS Mini Storage | 官网改版，服务器自身跳转 | `https://www.kafs.ca/program/mini-storage` |
+
+三条都只改了 `w`，**`v` 保持原值**——本次只核了链接可达性，没有重新核实地址、电话、营业时间，改 `v` 等于虚报核实范围。
+
+**查证后确认不用改（1 条）**
+
+- **The Salvation Army Community Services** — 报 HTTP 404，但实际抓取该页面内容完整（344 Poplar Street，周二至周五 10:00–13:00，急难食物包、食物券、公交票、眼镜转介等）。这是**软 404**：服务器返回 404 状态码却照常渲染页面。对真人完全可用，不动。下次巡检它还会报 DEAD，属已知情况。
+
+**已知的反爬拦截，非故障（6 条，不需处理）**
+
+`theseed.ca`（2 条）、`www.londondrugs.com`、`www.saveonfoods.com` 返回 403；
+`www.canada.ca`（Service Canada）读超时。
+这些站点对非浏览器请求设了拦截，真人访问正常。**每月巡检会重复报出，不是待办。**
+
+**`www.kelsongroup.com` 的 11 条：已确认全部正常，之前是我们自己造成的。**
+同一家公司有 11 个公寓地点，早期无节流的版本把它们并发打过去，还在二十分钟内
+连跑四轮，被 IP 级临时限流，11 条全报 429——报告里看起来像"这家网站挂了"。
+加上按域名串行 + 3 秒间隔、并等限流窗口过去后单独复查（`--host kelsongroup`），
+结果 10 OK / 1 BLOCKED，那 1 条还是本轮第一个请求撞上残留窗口，随后即恢复。
+**结论：11 条链接全部有效，无需改动。** 教训是巡检本身必须对小站有礼貌。
+
+**本轮同时修掉的两个巡检自身的缺陷**（详见 `docs/reports/2026-09-16-脚本全面分析与优化.md`）
+
+1. HEAD 请求失败时直接下结论 —— 对 HEAD 回 404 的站点（Wix/Shopify/部分 WordPress 常见）误判为 DEAD。已改为任何 HEAD 失败都用 GET 复核。
+2. 没有按域名节流 —— 56 条深链集中在 27 个域名，其中 `kamloops.ca` 14 条、`kelsongroup.com` 11 条，6 个并发一起打过去把对方打到限流，报告里看起来像"这家网站挂了"。已改为同域名串行、间隔 1.5 秒，并发只跨域名。
