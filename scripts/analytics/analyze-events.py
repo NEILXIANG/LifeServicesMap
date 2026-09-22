@@ -21,7 +21,8 @@ from pathlib import Path
 # 字段含义速查表（供维护者参考）。2026-09-22 按 engine.html 里实际发出的事件重写：
 # 原表里的 marker_cta / clear_filter / all_areas / lang_switch 从未被发出过，
 # 而 cta_click、task_*、help_open、season_* 等真实事件都没有列出。
-# 有意不记录：拨打任何电话号码、"求助"面板里点了什么、完成了哪张办事卡（只记总数）。
+# 有意不记录：拨了哪个号码（办事卡里的电话只记是哪张卡，task_call）、"求助"面板里点了什么、
+# 完成了哪张办事卡（只记总数）。
 EVENT_SCHEMAS = {
     # 会话
     'session_start':  {'...': '页面打开'},
@@ -74,6 +75,7 @@ EVENT_SCHEMAS = {
     'task_to_map':    {'id': '办事卡 id', 'place': '地点 id'},
     'task_src':       {'id': '办事卡 id', 'to': '官方来源域名'},
     'task_link':      {'id': '办事卡 id', 'to': '卡内其他外链域名'},
+    'task_call':      {'id': '在哪张办事卡上点了电话（不记号码）'},
     'task_share':     {'id': '办事卡 id', 'native': '系统分享'},
     'task_print':     {'id': '办事卡 id'}, 'task_calendar': {'id': '办事卡 id'},
     # 求助 / 季节提醒
@@ -199,6 +201,8 @@ def _describe(e):
         return "全选区域"
     if t == 'task_open':
         return f"打开办事卡 {p.get('id','?')}（入口 {p.get('src','?')}）"
+    if t == 'task_call':
+        return f"在办事卡 {p.get('id','?')} 上点了电话"
     if t in ('task_src', 'task_link', 'guide_link', 'season_link'):
         return f"{t}: 点出去 → {p.get('to','?')}"
     if t == 'feedback_click':

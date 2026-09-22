@@ -6351,6 +6351,9 @@ document.addEventListener('click',e=>{
       else if(a.closest('#guideTasks')&&a.closest('.task-checked'))trackEvent('feedback_click',{kind:'task',id:_taskOpen||undefined});
       return;
     }
+    // 2026-09-22 (maintainer's decision): a phone tap inside a task card is
+    // counted as the card only — which number was dialled is never sent.
+    if(/^tel:/i.test(href)){if(a.closest('#guideTasks'))trackEvent('task_call',{id:_taskOpen||undefined});return;}
     if(!/^https?:/i.test(href))return;
     if(a.closest('#guideTasks')){
       trackEvent(a.closest('.task-src')?'task_src':'task_link',{id:_taskOpen||undefined,to:_linkHost(href)});

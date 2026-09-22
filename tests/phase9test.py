@@ -61,7 +61,10 @@ async def main():
         check('the card translation-fix mail link is counted as task feedback', e == [{'kind': 'task', 'id': 'doctor'}], e)
         tel = await pg.evaluate("""()=>{_evBuf.length=0;const a=document.querySelector('#guideTasks a[href^="tel:"]');
             if(a){a.addEventListener('click',e=>e.preventDefault(),{once:true});a.click();}return {had:!!a,ev:_evBuf.map(e=>e.t)}}""")
-        check('tapping a phone number in a card sends nothing', tel['ev'] == [], tel)
+        check('tapping a phone number in a card is counted as that card only, never the number',
+              tel['had'] and tel['ev'] == ['task_call'], tel)
+        tc = await ev('task_call')
+        check('task_call carries the card id and no digits', tc == [{'id': 'doctor'}], tc)
         await pg.evaluate("()=>{closeModal(guideBackdropEl)}"); await pg.wait_for_timeout(200)
 
         # ---- guide text links

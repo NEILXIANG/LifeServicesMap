@@ -24,14 +24,18 @@ async def main():
         # weekend hours: Aberdeen Mall open Saturday 11:00
         st = await pg.evaluate("()=>{const p=P.find(x=>x.id==='9db87af4');return [openState(p.h,{d:6,m:660}).open,openState(p.h,{d:7,m:700}).open]}")
         check('Aberdeen Mall is open at the weekend', st == [True, True], st)
-        st = await pg.evaluate("()=>{const p=P.find(x=>x.id==='c597c849');return [openState(p.h,{d:6,m:660}).open,openState(p.h,{d:6,m:730}).open]}")
-        check('Aberdeen Tiny Library opens at noon on Saturday', st == [False, True], st)
+        # 2026-09-22: TNRL's branch page now lists Saturday 10:00-4:00 (was 12:00-4:00)
+        st = await pg.evaluate("()=>{const p=P.find(x=>x.id==='c597c849');return [openState(p.h,{d:6,m:590}).open,openState(p.h,{d:6,m:630}).open,openState(p.h,{d:6,m:970}).open,openState(p.h,{d:7,m:700}).open,openState(p.h,{d:7,m:730}).open]}")
+        check('Aberdeen Tiny Library: Saturday 10-4, Sunday 12-4 (TNRL page)', st == [False, True, False, False, True], st)
         st = await pg.evaluate("()=>{const p=P.find(x=>x.id==='61154281');return openState(p.h,{d:5,m:600}).open}")
         check('Planet Fitness is open on Friday', st is True)
         st = await pg.evaluate("()=>{const p=P.find(x=>x.id==='ef8db6fb');return openState(p.h,{d:7,m:750}).open}")
         check('K-SPOON is closed on Sunday', st is False)
-        for i, ph in (('42b06f2f', '250-372-7797'), ('88a72602', '250-314-0429'), ('e252ea96', '250-828-3600'), ('54085508', '250-572-4043'), ('046b81d1', '250-372-8911'), ('872c0058', '236-313-0824')):
+        for i, ph in (('42b06f2f', '250-372-7797'), ('88a72602', '250-314-0429'), ('e252ea96', '250-828-3600'), ('872c0058', '236-313-0824')):
             check('%s phone is %s' % (i, ph), await g(i, 'p') == ph)
+        # 2026-09-22 (p14): numbers that no official source confirms are not shown
+        for i in ('54085508', '046b81d1'):
+            check('%s shows no unconfirmed phone' % i, await g(i, 'p') is None)
         check('Paul Lake and Cooney Bay no longer ring the City switchboard', await g('600d0f4c', 'p') is None and await g('5308dd0d', 'p') is None)
         check('Interior Savings is Beem, and still found by its old name', (await g('e3a1f254', 'n')).startswith('Beem') and 'Interior Savings' in (await g('e3a1f254', 'alias')))
         check('BC Wildlife Park is not tagged free', 'free' not in (await g('dd440908', 't')))

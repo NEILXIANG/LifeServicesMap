@@ -21,3 +21,7 @@
 
 对应测试：`tests/phase8test.py`、`tests/phase9test.py`。
 | p11_patch.py | 独立复查：公交末班（11 条线路）、21 个地点坐标、泳池电话、West End 庇护所、家庭司法中心链接、310- 号码可拨打 |
+| p12_patch.py | Aberdeen Tiny Library 周六营业时间（按 TNRL 分馆页） |
+| p13_patch.py | 办事卡电话点击统计 task_call（只记卡，不记号码） |
+| p14_patch.py | 删除 47 个无法与官方来源核对的电话；8 个连锁店链接换成分店页 |
+| p15_patch.py | 5 条"先打电话"说明随之改写（6 种语言） |
