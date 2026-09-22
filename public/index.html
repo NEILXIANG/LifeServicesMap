@@ -314,6 +314,10 @@
      opacity, does the muting so the text itself never drops below AA contrast. */
   .cat-btn.zero{background:var(--card);border-color:var(--line);color:var(--sub-ink);cursor:help;}
   .cat-btn.zero .icon{filter:grayscale(1);}
+  /* 2026-09-22: a selected category while a search runs — kept, but visibly on hold */
+  .cat-btn.active.paused{opacity:.55;}
+  .cat-paused-note{margin:0 0 10px;font-size:12px;font-weight:600;color:var(--accent-text);}
+  .af-chip.af-paused{opacity:.72;border-style:dashed;}
   /* Themes are a second axis, not more categories, so they get their own block at
      the top of this panel and a visual language of their own: a pill rather than a
      square chip, one neutral accent colour rather than 47 category colours. Both
@@ -589,6 +593,27 @@
   .empty-state{margin:14px 20px 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);
     border-radius:10px;font-size:13px;color:var(--sub-ink);line-height:1.7;text-align:center;}
   .empty-state[hidden]{display:none;}
+  /* 2026-09-22: the answer box for health searches, the closest-match note, and
+     the task card that leads an empty result */
+  .search-help{margin:10px 20px 0;padding:14px 16px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;font-size:13px;color:var(--ink);line-height:1.55;text-align:left;}
+  .search-help[hidden]{display:none;}
+  .sh-title{margin:0 0 6px;font-weight:700;font-size:14px;}
+  .sh-note{margin:0 0 8px;color:var(--sub-ink);}
+  .sh-list{margin:0;padding-left:18px;}
+  .sh-list li{margin:4px 0;}
+  .sh-status{font-weight:700;}
+  .sh-status.open{color:var(--sage);}
+  .sh-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .sh-btn{font-family:inherit;font-size:12.5px;font-weight:600;border-radius:8px;padding:7px 12px;cursor:pointer;
+    background:var(--card);color:var(--accent-text);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);}
+  .sh-btn.primary{background:var(--accent);color:#fff;border-color:transparent;}
+  .sh-card{text-align:left;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-radius:10px;background:color-mix(in srgb,var(--accent) 6%,var(--card));color:var(--ink);}
+  .sh-card .sh-lead{margin:0 0 2px;font-size:11.5px;font-weight:600;color:var(--accent-text);}
+  .sh-card .sh-card-t{margin:0 0 4px;font-weight:700;font-size:14px;}
+  .sh-card .sh-card-why{margin:0 0 8px;font-size:12.5px;color:var(--sub-ink);}
+  .sh-card .sh-card-t .ic{width:16px;height:16px;vertical-align:-3px;margin-right:4px;}
   /* Pinch-zoom covers this on a phone, and 44px of permanent chrome over the map
      corner costs more there than the buttons are worth. */
   @media(max-width:600px){.leaflet-control-zoom{display:none;}}
@@ -1011,6 +1036,7 @@
     .fhint{padding:3px 12px 0;font-size:10.5px;line-height:1.2;}
     .search-note{padding:5px 12px 0;}
     .empty-state{margin:10px 12px 0;padding:14px 16px;}
+    .search-help{margin:8px 12px 0;padding:12px 14px;}
     /* whatever is left after the chrome, with a floor so it is never a sliver */
     #map{height:auto;flex:1 1 auto;min-height:min(58vh,420px);min-height:min(58dvh,420px);width:calc(100% - 24px);margin:10px 12px 0;}
     body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
@@ -1251,6 +1277,7 @@
   <button class="reset-btn" id="resetBtn" hidden><span data-ic="reset">↺</span> <span id="resetLabel"></span></button>
 </div>
 <div class="empty-state" id="emptyState" role="status" aria-live="polite" hidden></div>
+<div class="search-help" id="searchHelp" hidden></div>
 <div class="qp-row" id="qpRow" aria-labelledby="quickLabel">
   <div class="qp-head">
     <div class="sec-label" id="quickLabel"></div>
@@ -1510,6 +1537,21 @@ UI.zh.noResultOpenNow='“{Q}” 有匹配的地点，但现在都不营业。';
 UI.zh.emptyOpenSearchBtn='显示全部并看营业时间';UI.en.emptyOpenSearchBtn='Show them with their hours';UI.fr.emptyOpenSearchBtn='Les afficher avec leurs horaires';UI.es.emptyOpenSearchBtn='Mostrarlos con sus horarios';UI.ko.emptyOpenSearchBtn='영업시간과 함께 보기';UI.ja.emptyOpenSearchBtn='営業時間つきで表示';
 UI.zh.emptyRouteNote='公交线路和站点仍显示在地图上。';UI.en.emptyRouteNote='The bus route and its stops stay on the map.';UI.fr.emptyRouteNote='Le trajet d’autobus et ses arrêts restent sur la carte.';UI.es.emptyRouteNote='La ruta de autobús y sus paradas siguen en el mapa.';UI.ko.emptyRouteNote='버스 노선과 정류장은 지도에 계속 표시됩니다.';UI.ja.emptyRouteNote='バス路線と停留所は地図に残ります。';
 UI.zh.emptyGuideHint='是想办事？打开「{T}」';UI.en.emptyGuideHint='Looking for how to? Open “{T}”';UI.fr.emptyGuideHint='Une démarche ? Ouvrir « {T} »';UI.es.emptyGuideHint='¿Busca cómo hacerlo? Abrir “{T}”';UI.ko.emptyGuideHint='방법을 찾으시나요? “{T}” 열기';UI.ja.emptyGuideHint='手順をお探しですか？「{T}」を開く';
+UI.zh.searchClosestNote=(q,n)=>`没有完全匹配「${q}」的地点，地图上是最接近的 ${n} 个。`;UI.en.searchClosestNote=(q,n)=>`No exact match for “${q}” — the map shows the ${n} closest match${n===1?'':'es'}.`;UI.fr.searchClosestNote=(q,n)=>`Aucun résultat exact pour « ${q} » — la carte montre ${n===1?'le résultat le plus proche':'les '+n+' résultats les plus proches'}.`;UI.es.searchClosestNote=(q,n)=>`Ningún resultado exacto para «${q}»: el mapa muestra ${n===1?'el resultado más parecido':'los '+n+' resultados más parecidos'}.`;UI.ko.searchClosestNote=(q,n)=>`“${q}”와 정확히 일치하는 곳이 없어 가장 비슷한 결과 ${n}곳을 지도에 표시합니다.`;UI.ja.searchClosestNote=(q,n)=>`「${q}」に完全に一致する場所がないため、近い結果を${n}件表示しています。`;
+UI.zh.searchClosestN=n=>`最接近的 ${n} 个`;UI.en.searchClosestN=n=>`${n} closest match${n===1?'':'es'}`;UI.fr.searchClosestN=n=>`${n} résultat${n===1?'':'s'} approchant${n===1?'':'s'}`;UI.es.searchClosestN=n=>`${n} resultado${n===1?'':'s'} aproximado${n===1?'':'s'}`;UI.ko.searchClosestN=n=>`비슷한 결과 ${n}곳`;UI.ja.searchClosestN=n=>`近い結果 ${n}件`;
+UI.zh.catsPausedNote='搜索时暂停分类筛选，清空搜索后恢复';UI.en.catsPausedNote='Categories are paused while you search — clear the search to bring them back';UI.fr.catsPausedNote='Catégories en pause pendant la recherche — effacez la recherche pour les rétablir';UI.es.catsPausedNote='Categorías en pausa mientras busca: borre la búsqueda para volver a aplicarlas';UI.ko.catsPausedNote='검색하는 동안 분류 필터는 잠시 꺼집니다 — 검색어를 지우면 다시 적용됩니다';UI.ja.catsPausedNote='検索中はカテゴリーの絞り込みを一時停止しています — 検索を消すと元に戻ります';
+UI.zh.catsPausedShort='搜索时暂停';UI.en.catsPausedShort='paused while searching';UI.fr.catsPausedShort='en pause pendant la recherche';UI.es.catsPausedShort='en pausa durante la búsqueda';UI.ko.catsPausedShort='검색 중 일시 중지';UI.ja.catsPausedShort='検索中は一時停止';
+UI.zh.shCardLead='这可能是你要找的';UI.en.shCardLead='This may be what you need';UI.fr.shCardLead='C’est peut-être ce que vous cherchez';UI.es.shCardLead='Quizá esto es lo que busca';UI.ko.shCardLead='찾으시는 내용일 수 있습니다';UI.ja.shCardLead='お探しの内容かもしれません';
+UI.zh.shOpenCard='打开这张办事卡';UI.en.shOpenCard='Open this guide';UI.fr.shOpenCard='Ouvrir cette fiche';UI.es.shOpenCard='Abrir esta guía';UI.ko.shOpenCard='이 안내 열기';UI.ja.shOpenCard='この手順を開く';
+UI.zh.hcTitle='今天要看病？';UI.en.hcTitle='Need to see someone today?';UI.fr.hcTitle='Besoin de voir quelqu’un aujourd’hui ?';UI.es.hcTitle='¿Necesita atención médica hoy?';UI.ko.hcTitle='오늘 진료가 필요하세요?';UI.ja.hcTitle='今日受診したいですか？';
+UI.zh.hcUpcc='北岸急诊中心（UPCC，700 Tranquille Rd）：不需要家庭医生，直接去。当天名额满了就不再接收，尽量早去。';UI.en.hcUpcc='North Shore UPCC (700 Tranquille Rd): walk in, no family doctor needed. Go early — once the day’s list is full they stop taking people.';UI.fr.hcUpcc='UPCC de la rive nord (700 Tranquille Rd) : sans rendez-vous, sans médecin de famille. Allez-y tôt — une fois la liste du jour pleine, ils n’acceptent plus personne.';UI.es.hcUpcc='UPCC de la ribera norte (700 Tranquille Rd): sin cita y sin médico de familia. Vaya temprano: cuando se llena la lista del día, ya no reciben a nadie.';UI.ko.hcUpcc='노스쇼어 UPCC(700 Tranquille Rd): 예약 없이 바로 가면 되고 주치의가 없어도 됩니다. 그날 명단이 차면 더 받지 않으니 일찍 가세요.';UI.ja.hcUpcc='ノースショアのUPCC（700 Tranquille Rd）：予約不要、かかりつけ医がいなくても受診できます。その日の受付枠が埋まると締め切るので、早めに行きましょう。';
+UI.zh.hcHours='营业时间';UI.en.hcHours='Hours';UI.fr.hcHours='Heures';UI.es.hcHours='Horario';UI.ko.hcHours='운영 시간';UI.ja.hcHours='受付時間';
+UI.zh.hcOpenNow='现在开着';UI.en.hcOpenNow='Open now';UI.fr.hcOpenNow='Ouvert maintenant';UI.es.hcOpenNow='Abierto ahora';UI.ko.hcOpenNow='지금 운영 중';UI.ja.hcOpenNow='現在受付中';
+UI.zh.hcClosedNow='现在已关门';UI.en.hcClosedNow='Closed now';UI.fr.hcClosedNow='Fermé en ce moment';UI.es.hcClosedNow='Cerrado ahora';UI.ko.hcClosedNow='지금은 닫혀 있음';UI.ja.hcClosedNow='現在は受付時間外';
+UI.zh.hc811='不急或拿不准：打 8-1-1，24 小时有护士接听，可以要翻译。';UI.en.hc811='Not urgent, or not sure: call 8-1-1 — a nurse, 24 hours, with interpreters.';UI.fr.hc811='Pas urgent, ou pas sûr : appelez le 8-1-1 — une infirmière, 24 h sur 24, avec interprètes.';UI.es.hc811='Si no es urgente o no está seguro: llame al 8-1-1 — una enfermera, las 24 horas, con intérpretes.';UI.ko.hc811='급하지 않거나 잘 모르겠으면: 8-1-1에 전화하세요 — 24시간 간호사가 받고, 통역을 요청할 수 있습니다.';UI.ja.hc811='急ぎでない、または判断に迷うとき：8-1-1へ — 24時間看護師が対応し、通訳も頼めます。';
+UI.zh.hcPharm='小病：药剂师可以评估并开药，BC 省共 21 种常见小病。';UI.en.hcPharm='Minor ailments: a pharmacist can assess and prescribe — 21 of them in BC.';UI.fr.hcPharm='Affections mineures : un pharmacien peut évaluer et prescrire — 21 en C.-B.';UI.es.hcPharm='Afecciones menores: un farmacéutico puede evaluar y recetar — 21 en BC.';UI.ko.hcPharm='가벼운 질환: 약사가 진찰하고 처방할 수 있습니다 — BC주에서 21가지.';UI.ja.hcPharm='軽い病気：薬剤師が判断して処方できます — BC州では21種類。';
+UI.zh.hc911='胸痛、呼吸困难、大出血：打 911。';UI.en.hc911='Chest pain, trouble breathing, heavy bleeding: call 911.';UI.fr.hc911='Douleur thoracique, difficulté à respirer, saignement abondant : appelez le 911.';UI.es.hc911='Dolor de pecho, dificultad para respirar, sangrado abundante: llame al 911.';UI.ko.hc911='가슴 통증, 호흡 곤란, 심한 출혈: 911에 전화하세요.';UI.ja.hc911='胸の痛み、呼吸困難、大量の出血：911へ。';
+UI.zh.hcShowUpcc='在地图上看';UI.en.hcShowUpcc='Show it on the map';UI.fr.hcShowUpcc='Voir sur la carte';UI.es.hcShowUpcc='Ver en el mapa';UI.ko.hcShowUpcc='지도에서 보기';UI.ja.hcShowUpcc='地図で見る';
 UI.zh.taskSearchNone='没有匹配的卡片。试试换个词，或者打 2-1-1 问。';UI.en.taskSearchNone='No card matches that. Try another word, or call 2-1-1.';UI.fr.taskSearchNone='Aucune fiche ne correspond. Essayez un autre mot, ou appelez le 2-1-1.';UI.es.taskSearchNone='Ninguna ficha coincide. Pruebe otra palabra o llame al 2-1-1.';UI.ko.taskSearchNone='맞는 카드가 없습니다. 다른 말로 찾아보거나 2-1-1에 전화하세요.';UI.ja.taskSearchNone='該当するカードがありません。別の言葉で試すか、2-1-1に電話してください。';
 UI.zh.dlSetArrival='填到达日期，换算成具体日期';UI.en.dlSetArrival='Enter your arrival date to get the exact date';UI.fr.dlSetArrival='Entrez votre date d’arrivée pour la date exacte';UI.es.dlSetArrival='Ingrese su fecha de llegada para ver la fecha exacta';UI.ko.dlSetArrival='도착일을 입력하면 정확한 날짜로 바뀝니다';UI.ja.dlSetArrival='到着日を入れると具体的な日付になります';
 UI.zh.calAdded='已生成日历文件：{D}，提前 7 天提醒';UI.en.calAdded='Calendar file saved — {D}, reminder 7 days before';UI.fr.calAdded='Fichier calendrier enregistré — {D}, rappel 7 jours avant';UI.es.calAdded='Archivo de calendario guardado — {D}, aviso 7 días antes';UI.ko.calAdded='캘린더 파일 저장됨 — {D}, 7일 전 알림';UI.ja.calAdded='カレンダーファイルを保存 — {D}、7日前に通知';
@@ -1714,7 +1756,7 @@ UI.zh.srcPlacesTip='该条目未登记官网，信息来自第三方地图数据
 UI.zh.srcOwnTip='该条目由整理者实地或致电核实。';
 UI.zh.srcStub='未核实（建议致电确认）';
 UI.zh.srcStubTip='该条目是为补全覆盖而新增的占位记录，整理者尚未逐项核实地址/电话/营业时间，前往前请务必致电确认。';
-UI.zh.searchActive='搜索结果已按当前的区域/分类筛选缩小范围';
+UI.zh.searchActive='搜索结果已按当前的区域等筛选缩小范围';
 
 
 
@@ -1761,7 +1803,7 @@ UI.en.srcPlacesTip='No official website on file; the details rest on third-party
 UI.en.srcOwnTip='Checked in person or by phone by the compiler.';
 UI.en.srcStub='Unverified — call ahead';
 UI.en.srcStubTip='Added to fill a coverage gap and not yet checked item by item — confirm the address, phone and hours before you go.';
-UI.en.searchActive='Results narrowed by your current area/category filters';
+UI.en.searchActive='Results narrowed by your current area and other filters';
 
 
 UI.en.busCoverage='All 14 regular routes {TRANSIT} runs here are included. There is no route 8, 11, 12 or 15 — the numbering skips them; nothing is missing. A further 12 school-day-only routes (70–81) are not shown. Routes, stops and service hours were checked line by line against {TRANSIT}’s official GTFS feed (29 August 2026 edition) and all 475 stops matched; for live arrivals, see {TRANSIT}.';
@@ -1807,7 +1849,7 @@ UI.fr.srcPlacesTip='Aucun site officiel enregistré; les détails proviennent de
 UI.fr.srcOwnTip='Vérifié sur place ou par téléphone par l’auteur.';
 UI.fr.srcStub='Non vérifié — appelez avant';
 UI.fr.srcStubTip='Ajouté pour combler une lacune et pas encore vérifié point par point — confirmez l’adresse, le téléphone et les heures avant de vous déplacer.';
-UI.fr.searchActive='Résultats restreints par vos filtres de secteur/catégorie actuels';
+UI.fr.searchActive='Résultats restreints par votre secteur et vos autres filtres actuels';
 
 
 
@@ -1854,7 +1896,7 @@ UI.es.srcPlacesTip='Sin sitio oficial registrado; los datos provienen de mapas d
 UI.es.srcOwnTip='Verificado en persona o por teléfono por el autor.';
 UI.es.srcStub='Sin verificar — llame antes';
 UI.es.srcStubTip='Añadido para cubrir un vacío y aún sin verificar punto por punto — confirme la dirección, el teléfono y el horario antes de ir.';
-UI.es.searchActive='Resultados limitados por sus filtros de zona/categoría actuales';
+UI.es.searchActive='Resultados limitados por su zona y sus otros filtros actuales';
 
 
 
@@ -1901,7 +1943,7 @@ UI.ko.srcPlacesTip='등록된 공식 웹사이트가 없어 제3자 지도 데�
 UI.ko.srcOwnTip='작성자가 직접 방문하거나 전화로 확인했습니다.';UI.ja.srcOwnTip='作成者が現地訪問または電話で確認しました。';
 UI.ko.srcStub='미확인 — 먼저 전화 확인';UI.ja.srcStub='未確認（事前に電話確認を推奨）';
 UI.ko.srcStubTip='누락된 항목을 메우려고 추가했으며 아직 하나씩 확인하지 않았습니다 — 방문 전 주소·전화·운영시간을 확인하세요.';UI.ja.srcStubTip='掲載の抜けを埋めるために追加した項目で、住所・電話・営業時間はまだ個別に確認していません — 訪問前に必ずご確認ください。';
-UI.ko.searchActive='현재 지역/분류 필터에 맞춰 결과가 좁혀졌습니다';UI.ja.searchActive='現在のエリア／カテゴリーフィルターで結果が絞り込まれています';
+UI.ko.searchActive='현재 지역 등 필터에 맞춰 결과가 좁혀졌습니다';UI.ja.searchActive='現在のエリアなどのフィルターで結果が絞り込まれています';
 
 
 
@@ -1923,31 +1965,31 @@ UI.zh.emptyFiltersBtn='清除全部筛选';
 UI.zh.clearSearchBtn='清空搜索';
 UI.zh.searchTooShort='请至少输入 2 个字符';
 UI.zh.noResultHint='没有匹配的地点。换个关键词试试，或检查拼写——搜索会匹配名称、地址、分类和备注。';
-UI.zh.noResultFiltered='在当前的区域/分类筛选范围内，没有匹配这次搜索的地点。';
+UI.zh.noResultFiltered='在当前的筛选条件（区域、主题、现在营业等）下，没有匹配这次搜索的地点。';
 UI.en.emptyFilters='No places match this combination of area and category.';
 UI.en.emptyFiltersBtn='Clear all filters';
 UI.en.clearSearchBtn='Clear search';
 UI.en.searchTooShort='Type at least 2 characters';
 UI.en.noResultHint='No matching places. Try another term or check the spelling — search covers name, address, category and notes.';
-UI.en.noResultFiltered='No places match this search within your current area/category filters.';
+UI.en.noResultFiltered='No places match this search with your current filters (area, theme, open now…).';
 UI.fr.emptyFilters='Aucun lieu ne correspond à cette combinaison de secteur et de catégorie.';
 UI.fr.emptyFiltersBtn='Effacer tous les filtres';
 UI.fr.clearSearchBtn='Effacer la recherche';
 UI.fr.searchTooShort='Saisissez au moins 2 caractères';
 UI.fr.noResultHint='Aucun lieu correspondant. Essayez un autre terme ou vérifiez l’orthographe — la recherche couvre le nom, l’adresse, la catégorie et les notes.';
-UI.fr.noResultFiltered='Aucun lieu ne correspond à cette recherche dans vos filtres de secteur/catégorie actuels.';
+UI.fr.noResultFiltered='Aucun lieu ne correspond à cette recherche avec vos filtres actuels (secteur, thème, ouvert maintenant…).';
 UI.es.emptyFilters='Ningún lugar coincide con esta combinación de zona y categoría.';
 UI.es.emptyFiltersBtn='Borrar todos los filtros';
 UI.es.clearSearchBtn='Borrar búsqueda';
 UI.es.searchTooShort='Escriba al menos 2 caracteres';
 UI.es.noResultHint='No hay lugares coincidentes. Pruebe otro término o revise la ortografía — la búsqueda cubre nombre, dirección, categoría y notas.';
-UI.es.noResultFiltered='Ningún lugar coincide con esta búsqueda dentro de sus filtros de zona/categoría actuales.';
+UI.es.noResultFiltered='Ningún lugar coincide con esta búsqueda con sus filtros actuales (zona, tema, abierto ahora…).';
 UI.ko.emptyFilters='현재 지역과 분류 조합에 해당하는 장소가 없습니다.';UI.ja.emptyFilters='このエリアとカテゴリーの組み合わせに一致する場所はありません。';
 UI.ko.emptyFiltersBtn='모든 필터 해제';UI.ja.emptyFiltersBtn='すべてのフィルターを解除';
 UI.ko.clearSearchBtn='검색어 지우기';UI.ja.clearSearchBtn='検索をクリア';
 UI.ko.searchTooShort='2자 이상 입력하세요';UI.ja.searchTooShort='2文字以上入力してください';
 UI.ko.noResultHint='일치하는 장소가 없습니다. 다른 검색어를 사용하거나 철자를 확인해 보세요 — 검색은 이름·주소·분류·비고를 대상으로 합니다.';UI.ja.noResultHint='一致する場所がありません。別のキーワードを試すか、スペルをご確認ください — 検索対象は名前、住所、カテゴリー、備考です。';
-UI.ko.noResultFiltered='현재 지역/분류 필터 범위 내에서는 이 검색과 일치하는 장소가 없습니다.';UI.ja.noResultFiltered='現在のエリア／カテゴリーフィルター内では、この検索に一致する場所がありません。';
+UI.ko.noResultFiltered='현재 필터(지역, 테마, 지금 영업 중 등)로는 이 검색과 일치하는 장소가 없습니다.';UI.ja.noResultFiltered='現在のフィルター（エリア、テーマ、営業中など）では、この検索に一致する場所がありません。';
 UI.zh.months=['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'];
 UI.zh.closedLabel='休息';
 UI.en.months=['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -2185,11 +2227,11 @@ UI.en.themeLabel='🗂️ Filter by theme (stacks with categories)';
 UI.fr.themeLabel='🗂️ Filtrer par thème (se combine aux catégories)';
 UI.es.themeLabel='🗂️ Filtrar por tema (se suma a las categorías)';
 UI.ko.themeLabel='🗂️ 테마로 필터 (분류와 함께 적용)';UI.ja.themeLabel='🗂️ テーマで絞り込む（カテゴリーと併用可）';
-UI.zh.themeHint='主题是“打卡点”的另一种分法：一个地点可以同时属于多个主题，也会和上面的分类重叠——图书馆既是「亲子遛娃」也是「免费低价」「冬天室内」「学生常用」。勾选多个主题表示“同时满足”，因此选得越多结果越少；主题、分类、区域三者是叠加生效的。不勾选任何主题时不做主题筛选。';
-UI.en.themeHint='Themes are a second way of slicing the same places: one place can carry several, and they deliberately overlap the categories above — a library is at once Kids & Family, Free & Low-cost, Indoor / Winter and Student Life. Ticking more than one theme means "all of them", so each extra tick narrows the result. Themes, categories and areas all apply together. With no theme ticked, no theme filter is applied.';
-UI.fr.themeHint='Les thèmes découpent les mêmes lieux autrement : un lieu peut en porter plusieurs, et ils recoupent volontairement les catégories ci-dessus — une bibliothèque est à la fois « Enfants et famille », « Gratuit ou abordable », « Intérieur / hiver » et « Vie étudiante ». Cocher plusieurs thèmes signifie « tous à la fois » : chaque coche supplémentaire restreint le résultat. Thèmes, catégories et secteurs s’appliquent ensemble. Aucun thème coché = aucun filtre par thème.';
-UI.es.themeHint='Los temas son otra forma de agrupar los mismos lugares: un lugar puede tener varios y se solapan a propósito con las categorías de abajo — una biblioteca es a la vez "Niños y familia", "Gratis o económico", "Bajo techo / invierno" y "Vida estudiantil". Marcar más de un tema significa "todos a la vez", así que cada marca adicional reduce el resultado. Temas, categorías y zonas se aplican juntos. Sin ningún tema marcado, no se aplica filtro por tema.';
-UI.ko.themeHint='테마는 같은 장소를 다른 방식으로 나눈 축입니다. 한 장소가 여러 테마를 가질 수 있고, 아래의 분류와 일부러 겹칩니다 — 도서관은 “아이·가족”이면서 동시에 “무료·저렴”, “실내·겨울”, “학생 생활”이기도 합니다. 테마를 여러 개 선택하면 "모두 해당"을 뜻하므로 선택할수록 결과가 줄어듭니다. 테마·분류·지역은 모두 함께 적용됩니다. 아무것도 선택하지 않으면 테마 필터는 적용되지 않습니다.';UI.ja.themeHint='テーマは同じ場所を別の切り口で分類したものです。1つの場所が複数のテーマを持つことがあり、上のカテゴリーとあえて重なる部分もあります — 図書館は「子供・家族」であると同時に「無料・低価格」「屋内・冬向け」「学生生活」でもあります。複数のテーマにチェックを入れると「すべてに該当」という意味になるため、チェックを増やすほど結果は絞られます。テーマ、カテゴリー、エリアはすべて同時に適用されます。テーマを何もチェックしていない場合、テーマによる絞り込みは行われません。';
+UI.zh.themeHint='主题是“打卡点”的另一种分法：一个地点可以同时属于多个主题，也会和上面的分类重叠——图书馆既是「亲子遛娃」也是「免费低价」「冬天室内」「学生常用」。勾选多个主题表示“同时满足”，因此选得越多结果越少；主题、分类、区域三者是叠加生效的。不勾选任何主题时不做主题筛选。搜索时分类筛选会暂停，只按区域、主题等筛选；清空搜索后恢复。';
+UI.en.themeHint='Themes are a second way of slicing the same places: one place can carry several, and they deliberately overlap the categories above — a library is at once Kids & Family, Free & Low-cost, Indoor / Winter and Student Life. Ticking more than one theme means "all of them", so each extra tick narrows the result. Themes, categories and areas all apply together. With no theme ticked, no theme filter is applied. While you search, categories are paused and only areas, themes and the other filters apply; clearing the search brings them back.';
+UI.fr.themeHint='Les thèmes découpent les mêmes lieux autrement : un lieu peut en porter plusieurs, et ils recoupent volontairement les catégories ci-dessus — une bibliothèque est à la fois « Enfants et famille », « Gratuit ou abordable », « Intérieur / hiver » et « Vie étudiante ». Cocher plusieurs thèmes signifie « tous à la fois » : chaque coche supplémentaire restreint le résultat. Thèmes, catégories et secteurs s’appliquent ensemble. Aucun thème coché = aucun filtre par thème. Pendant une recherche, les catégories sont mises en pause : seuls les secteurs, les thèmes et les autres filtres s’appliquent ; effacer la recherche les rétablit.';
+UI.es.themeHint='Los temas son otra forma de agrupar los mismos lugares: un lugar puede tener varios y se solapan a propósito con las categorías de abajo — una biblioteca es a la vez "Niños y familia", "Gratis o económico", "Bajo techo / invierno" y "Vida estudiantil". Marcar más de un tema significa "todos a la vez", así que cada marca adicional reduce el resultado. Temas, categorías y zonas se aplican juntos. Sin ningún tema marcado, no se aplica filtro por tema. Mientras busca, las categorías quedan en pausa y solo se aplican las zonas, los temas y los demás filtros; al borrar la búsqueda vuelven a aplicarse.';
+UI.ko.themeHint='테마는 같은 장소를 다른 방식으로 나눈 축입니다. 한 장소가 여러 테마를 가질 수 있고, 아래의 분류와 일부러 겹칩니다 — 도서관은 “아이·가족”이면서 동시에 “무료·저렴”, “실내·겨울”, “학생 생활”이기도 합니다. 테마를 여러 개 선택하면 "모두 해당"을 뜻하므로 선택할수록 결과가 줄어듭니다. 테마·분류·지역은 모두 함께 적용됩니다. 아무것도 선택하지 않으면 테마 필터는 적용되지 않습니다. 검색하는 동안에는 분류 필터가 잠시 꺼지고 지역·테마 등 나머지 필터만 적용됩니다. 검색어를 지우면 다시 적용됩니다.';UI.ja.themeHint='テーマは同じ場所を別の切り口で分類したものです。1つの場所が複数のテーマを持つことがあり、上のカテゴリーとあえて重なる部分もあります — 図書館は「子供・家族」であると同時に「無料・低価格」「屋内・冬向け」「学生生活」でもあります。複数のテーマにチェックを入れると「すべてに該当」という意味になるため、チェックを増やすほど結果は絞られます。テーマ、カテゴリー、エリアはすべて同時に適用されます。テーマを何もチェックしていない場合、テーマによる絞り込みは行われません。検索中はカテゴリーの絞り込みが一時停止し、エリアやテーマなどのフィルターだけが適用されます。検索を消すと元に戻ります。';
 UI.zh.themeZeroHint='在当前的区域/分类/主题组合下没有符合的地点。试着少勾一个条件。';
 UI.en.themeZeroHint='Nothing matches this combination of area, category and theme. Try un-ticking one of them.';
 UI.fr.themeZeroHint='Rien ne correspond à cette combinaison de secteur, de catégorie et de thème. Essayez de décocher l’un d’eux.';
@@ -2793,7 +2835,7 @@ const P=[{"n":"South Kamloops Secondary (SKSS)","c":"school","g":"sk","lat":50.6
 {"n":"Arthur Stevenson Elementary","c":"elem","g":"ws","lat":50.7562431,"lng":-120.3466234,"a":"2890 Bank Rd","p":"250-579-9284","w":"https://www.sd73.bc.ca/astevenson","h":{"r":[[1,5,510,930,0]]},"note":{"zh":"SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）","en":"SD73 elementary; to register, bring your child’s birth certificate, BC Services Card and proof of address (and a custody agreement if one applies)","fr":"École primaire du SD73 ; pour l’inscription, apportez l’acte de naissance de l’enfant, sa carte BC Services et une preuve d’adresse (et l’entente de garde, le cas échéant)","es":"Primaria del SD73; para inscribir, traiga la partida de nacimiento del niño, su BC Services Card y un comprobante de domicilio (y el acuerdo de custodia, si corresponde)","ko":"SD73 초등학교. 등록 시 아이의 출생증명서, BC Services Card, 주소 증빙(해당 시 양육권 합의서)을 가져오세요","ja":"SD73の小学校。登録には子どもの出生証明書、BC Services Card、住所の証明（該当する場合は親権の取り決め）を持参"},"src":"official","v":"2026-09","t":["family"],"id":"beee7266"},
 {"n":"Marion Schilling Elementary","c":"elem","g":"vv","lat":50.6760911,"lng":-120.2550857,"a":"2200 Park Dr","p":"250-372-2027","w":"https://www.sd73.bc.ca/mschilling","h":{"r":[[1,5,480,930,0]]},"note":{"zh":"SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）。这里有 StrongStart：0–5 岁孩子和家长一起参加的免费早教活动，不用排队。","en":"SD73 elementary; to register, bring your child’s birth certificate, BC Services Card and proof of address (and a custody agreement if one applies). Has a StrongStart centre: free drop-in early learning for children up to age 5 with their parent or caregiver — no waitlist.","fr":"École primaire du SD73 ; pour l’inscription, apportez l’acte de naissance de l’enfant, sa carte BC Services et une preuve d’adresse (et l’entente de garde, le cas échéant). Accueille un centre StrongStart : éveil gratuit sans inscription pour les enfants jusqu’à 5 ans avec leur parent — pas de liste d’attente.","es":"Primaria del SD73; para inscribir, traiga la partida de nacimiento del niño, su BC Services Card y un comprobante de domicilio (y el acuerdo de custodia, si corresponde). Tiene un centro StrongStart: aprendizaje temprano gratuito y sin cita para niños de hasta 5 años con su padre, madre o cuidador; sin lista de espera.","ko":"SD73 초등학교. 등록 시 아이의 출생증명서, BC Services Card, 주소 증빙(해당 시 양육권 합의서)을 가져오세요. StrongStart 센터가 있습니다: 5세 이하 아이가 부모와 함께 참여하는 무료 조기 학습, 대기자 명단 없음.","ja":"SD73の小学校。登録には子どもの出生証明書、BC Services Card、住所の証明（該当する場合は親権の取り決め）を持参。StrongStartがあります：5歳までの子どもが親と一緒に参加できる無料の幼児教育。順番待ちなし。"},"src":"official","v":"2026-09","t":["family","free"],"id":"b7096197","alias":["StrongStart","幼儿","早教"]},
 {"n":"Royal Inland Hospital","c":"hospital","g":"sk","lat":50.6703494,"lng":-120.3335214,"a":"311 Columbia St","p":"250-374-5111","w":"https://www.interiorhealth.ca/locations/royal-inland-hospital","h":{"a":true},"note":{"zh":"主要医院，急诊科","en":"The main hospital, with an emergency department","fr":"L'hôpital principal, avec un service d'urgence","es":"El hospital principal, con servicio de urgencias","ko":"응급실이 있는 주요 병원","ja":"主要病院、救急科あり"},"src":"official","v":"2026-08","alias":["医院","大医院","急诊","병원","応急","病院","hôpital","hospital"],"id":"1e3e329a","sameComplex":["78386973"]},
-{"n":"North Shore Urgent Care (UPCC)","c":"hospital","g":"ns","lat":50.6964889,"lng":-120.3589069,"a":"700 Tranquille Rd #21-22","p":"250-314-2256","h":{"r":[[1,7,450,1110,0]]},"note":{"zh":"⭐无家庭医生也可用","en":"⭐ Can be used without a family doctor","fr":"⭐ Accessible sans médecin de famille","es":"⭐ Se puede usar sin médico de cabecera","ko":"⭐ 주치의 없이도 이용 가능","ja":"⭐かかりつけ医がなくても利用可能"},"src":"official","v":"2026-09","alias":["急诊","walk in","walkin","급한","急患"],"id":"b29c9af7","w":"https://www.interiorhealth.ca/locations/kamloops-north-shore-urgent-and-primary-care-centre-upcc"},
+{"n":"North Shore Urgent Care (UPCC)","c":"hospital","g":"ns","lat":50.6964889,"lng":-120.3589069,"a":"700 Tranquille Rd #21-22","p":"250-314-2256","h":{"r":[[1,7,450,1110,0]]},"note":{"zh":"⭐无家庭医生也可用","en":"⭐ Can be used without a family doctor","fr":"⭐ Accessible sans médecin de famille","es":"⭐ Se puede usar sin médico de cabecera","ko":"⭐ 주치의 없이도 이용 가능","ja":"⭐かかりつけ医がなくても利用可能"},"src":"official","v":"2026-09","alias":["急诊","walk in","walkin","급한","急患","walk in clinic","walk-in clinic","walk-in","clinique sans rendez-vous","clínica sin cita","无需预约的诊所","免预约诊所","워크인 클리닉","ウォークインクリニック"],"id":"b29c9af7","w":"https://www.interiorhealth.ca/locations/kamloops-north-shore-urgent-and-primary-care-centre-upcc"},
 {"n":"South Shore Urgent Care (UPCLC)","c":"hospital","g":"sk","lat":50.6710681,"lng":-120.3338901,"a":"311 Columbia St","p":"250-314-2256","h":{"r":[[1,7,540,1260,0]],"q":"qAppt"},"note":{"zh":"只接受预约，不接待直接上门。每天早 10 点电话线开放，当天号很快约满，请一到 10 点就打。每天 9:00–21:00 开放，周末也开。","en":"Appointment only — no walk-ins. The phone line opens at 10 am each day and same-day slots go fast, so call right at 10. Open 9 am to 9 pm every day, weekends included.","fr":"Sur rendez-vous seulement — pas de consultation sans rendez-vous. La ligne téléphonique ouvre à 10 h chaque jour et les places du jour partent vite : appelez dès 10 h. Ouvert de 9 h à 21 h tous les jours, fin de semaine comprise.","es":"Solo con cita — no se atiende sin cita. La línea telefónica abre a las 10:00 cada día y los turnos del día se agotan rápido, así que llame justo a las 10. Abierto de 9:00 a 21:00 todos los días, fines de semana incluidos.","ko":"예약제이며 방문 접수는 받지 않습니다. 매일 오전 10시에 전화 예약이 열리고 당일 자리는 금방 차니 10시 정각에 전화하세요. 주말 포함 매일 9시부터 21시까지 엽니다.","ja":"完全予約制で、予約なしの受診はできません。毎日朝10時に電話予約が開き、当日枠はすぐ埋まるので10時ちょうどに電話を。週末を含め毎日9時から21時まで開いています。"},"src":"official","v":"2026-09","alias":["急诊","walk in","walkin","급한","急患"],"id":"78386973","w":"https://www.interiorhealth.ca/locations/kamloops-south-shore-urgent-primary-care-learning-centre","sameComplex":["1e3e329a"]},
 {"n":"Kamloops Primary Care Clinic","c":"hospital","g":"sk","lat":50.6772454,"lng":-120.3296763,"a":"450 Lansdowne St #36","p":"250-851-7954","h":{"r":[[1,5,510,990,0]],"q":"qAppt"},"note":{"zh":"只看已登记的病人。没有家庭医生的话，先打 8-1-1 或在 Health Connect Registry 登记。","en":"Registered patients only. If you have no family doctor, register first through 8-1-1 or the Health Connect Registry.","fr":"Patients inscrits seulement. Sans médecin de famille, inscrivez-vous d’abord par le 8-1-1 ou le Health Connect Registry.","es":"Solo pacientes registrados. Si no tiene médico de familia, regístrese primero llamando al 8-1-1 o en el Health Connect Registry.","ko":"등록된 환자만 진료합니다. 주치의가 없다면 먼저 8-1-1이나 Health Connect Registry로 등록하세요.","ja":"登録患者のみ。かかりつけ医がいない場合は、まず8-1-1かHealth Connect Registryで登録を。"},"src":"official","v":"2026-09","id":"7f3150f8","w":"https://www.interiorhealth.ca/locations/kamloops-primary-care-clinic"},
 {"n":"Aberdeen Medical Centre","c":"hospital","g":"sa","lat":50.6496098,"lng":-120.3734802,"a":"1966 Harrison Way","p":"250-314-5300","h":{"r":[[1,5,480,1020,0]]},"note":{"zh":"需注册成为病人","en":"You must register as a patient first","fr":"Il faut d'abord s'inscrire comme patient","es":"Primero hay que registrarse como paciente","ko":"먼저 환자 등록을 해야 함","ja":"まず患者登録が必要"},"src":"places","v":"2026-08","id":"cea8b106"},
@@ -3379,6 +3421,88 @@ const CO={"school":"#b3552f","elem":"#cd7f32","hospital":"#c0392b","dental":"#e1
 // the row that is wrong, while validate.py stays the thing that stops it
 // shipping at all.
 function catLabel(c){const e=CI[c];return e&&e[L_]?e[L_]:String(c||'');}
+// ---- 2026-09-22: one synonym table for search --------------------------------
+// The words people actually type for each kind of place, in all six languages.
+// A category's own labels (all six) are added automatically below. Terms are
+// matched whole or as a prefix of 4+ Latin letters / 2+ CJK characters, accents
+// ignored. "Clinic" is left out on purpose: dental, vet and legal clinics are
+// clinics too, and a bare "clinic" would also pull in the appointment-only
+// UPCLC for "walk-in clinic" (its note says "not a walk-in").
+// Place names belong in a place's `alias`, not here. scripts/validate.py
+// checks this table (real categories, no crisis or stop words, no duplicates).
+const SYN={
+ school:['high school','high schools','secondary school','secondary','highschool','中学','中學','高中','初中','중학교','고등학교','高校','中学校','lycée','collège','école secondaire','escuela secundaria','preparatoria'],
+ elem:['elementary school','elementary schools','primary school','grade school','小学','小學','초등학교','小学校','école primaire','escuela primaria','primaria'],
+ hospital:['hospital','hospitals','doctor','doctors','family doctor','physician','medical','medical clinic','urgent care','emergency room','医院','醫院','医生','醫生','看病','急诊','急診','병원','의원','의사','응급실','病院','医者','診療所','hôpital','médecin','urgences','médico','urgencias'],
+ dental:['dentist','dentists','dental clinic','teeth','tooth','牙医','牙醫','牙科','看牙','치과','치과의사','歯医者','歯科','dentiste','dentista'],
+ vet:['vet','vets','veterinarian','veterinary','animal hospital','pet clinic','兽医','獸醫','宠物医院','寵物醫院','동물병원','수의사','動物病院','獣医','vétérinaire','veterinario'],
+ pharmacy:['pharmacy','pharmacies','drugstore','drug store','chemist','药房','藥房','药店','藥局','약국','薬局','ドラッグストア','pharmacie','farmacia'],
+ police:['police','police station','rcmp','警察','警察局','警局','경찰','경찰서','警察署','policía','comisaría','gendarmerie'],
+ pool:['pool','pools','swimming','swimming pool','swim','aquatic centre','游泳','游泳池','수영','수영장','水泳','プール','piscine','natation','piscina','natación'],
+ splash:['splash pad','spray park','spray pad','戏水','水上乐园','물놀이','水遊び','jeux d\'eau'],
+ gym:['gym','gyms','fitness','健身','健身房','헬스','헬스장','ジム','フィットネス','salle de sport','gimnasio'],
+ rink:['rink','ice rink','skating','arena','hockey','滑冰','溜冰','冰场','冰場','스케이트','아이스링크','スケート','patinoire','patinaje','pista de hielo'],
+ park:['park','parks','playground','公园','公園','操场','游乐场','공원','놀이터','parc','parque','aire de jeux'],
+ dogpark:['dog park','dog parks','off-leash','off leash','狗公园','遛狗','반려견','애견','ドッグラン','parc à chiens','parque para perros'],
+ beach:['beach','beaches','lake','沙滩','海滩','湖泊','해변','호수','ビーチ','plage','lac','playa','lago'],
+ trail:['trail','trails','hiking','hike','walking trail','步道','徒步','远足','爬山','등산','산책로','트레일','ハイキング','登山','sentier','randonnée','sendero','senderismo'],
+ library:['library','libraries','books','图书馆','圖書館','도서관','図書館','bibliothèque','biblioteca'],
+ museum:['museum','museums','博物馆','博物館','박물관','musée','museo'],
+ cinema:['cinema','movie','movies','movie theatre','movie theater','电影','电影院','電影院','영화','영화관','映画','映画館','cinéma','cine'],
+ grocery:['grocery','groceries','grocery store','supermarket','supermarkets','超市','超级市场','超級市場','买菜','買菜','마트','슈퍼','슈퍼마켓','장보기','スーパー','スーパーマーケット','épicerie','supermarché','supermercado','tienda de comestibles'],
+ asian:['asian grocery','asian market','asian supermarket','chinese grocery','chinese supermarket','chinese market','korean grocery','korean market','japanese grocery','华人超市','中国超市','中國超市','亚洲超市','亞洲超市','韩国超市','日本超市','한인마트','한국마트','한국 마트','아시아 마트','アジア食材','中華食材','韓国食材','épicerie asiatique','supermercado asiático'],
+ restaurant:['restaurant','restaurants','dining','餐馆','餐館','餐厅','餐廳','饭店','吃饭','식당','음식점','레스토랑','レストラン','食堂','飲食店','restaurante'],
+ secondhand:['thrift','thrift store','thrift shop','second hand','second-hand','secondhand','used clothes','used furniture','二手','二手店','旧货','중고','중고매장','リサイクル','古着','friperie','segunda mano','ropa usada'],
+ hardware:['hardware store','tools','五金','五金店','建材','철물점','공구','ホームセンター','金物','quincaillerie','ferretería'],
+ mall:['mall','shopping centre','shopping center','shopping mall','商场','商場','购物中心','購物中心','쇼핑몰','ショッピングモール','centre commercial','centro comercial'],
+ transit:['bus','buses','bus stop','bus exchange','transit','公交','公交车','公車','巴士','버스','대중교통','バス','autobus','autobús'],
+ bank:['bank','banks','banking','atm','银行','銀行','은행','banque','banco'],
+ post:['post office','mail','canada post','邮局','郵局','寄信','우체국','郵便局','bureau de poste','correos','oficina de correos'],
+ conv:['convenience store','corner store','便利店','편의점','コンビニ','dépanneur','tienda de conveniencia'],
+ liquor:['liquor','liquor store','alcohol','beer','wine','买酒','酒类','주류','酒屋','alcool','licorería'],
+ gov:['government','government office','immigration','service canada','政府','移民','政务','정부','이민','役所','gouvernement','gobierno','inmigración'],
+ laundry:['laundry','laundromat','coin laundry','洗衣','洗衣店','自助洗衣','빨래방','세탁소','コインランドリー','laverie','lavandería'],
+ barber:['barber','barbers','hair','haircut','hair salon','hairdresser','理发','理髮','剪头发','美发','이발','미용실','헤어','美容院','床屋','散髪','coiffeur','peluquería','barbería'],
+ gas:['gas','gas station','fuel','petrol','加油','加油站','주유소','ガソリン','essence','gasolinera'],
+ apt:['apartment','apartments','rent','rental','rentals','housing','租房','公寓','아파트','원룸','월세','アパート','賃貸','appartement','logement','apartamento','alquiler'],
+ schoolbus:['school bus','校车','校車','스쿨버스','通学バス','autobus scolaire','autobús escolar'],
+ religious:['church','churches','mosque','temple','gurdwara','synagogue','worship','教会','教會','教堂','寺庙','清真寺','교회','성당','モスク','église','mosquée','iglesia','mezquita','templo'],
+ commctr:['community centre','community center','rec centre','recreation centre','社区中心','社區中心','活动中心','커뮤니티센터','公民館','centre communautaire','centro comunitario'],
+ taxi:['taxi','cab','uber','lyft','rideshare','出租车','計程車','的士','打车','택시','タクシー'],
+ driving:['driving school','driving lessons','驾校','駕校','学车','운전학원','教習所','auto-école','autoescuela'],
+ usedcar:['used car','used cars','car dealer','二手车','二手車','买车','중고차','中古車','voiture d\'occasion','auto usado','carro usado'],
+ autorepair:['mechanic','auto repair','car repair','garage','oil change','tires','修车','修車','汽车维修','汽修','정비소','카센터','自動車修理','garagiste','mécanicien','mecánico','taller mecánico'],
+ daycare:['daycare','day care','childcare','child care','托儿所','托兒所','日托','어린이집','保育園','garderie','crèche','guardería'],
+ tutor:['tutor','tutoring','补习','補習','家教','补课','학원','과외','家庭教師','tutorat','tutoría','clases particulares'],
+ playcenter:['indoor playground','play centre','play center','室内乐园','淘气堡','키즈카페','키즈 카페','室内遊び場','キッズパーク'],
+ legal:['lawyer','lawyers','legal aid','legal help','law','律师','律師','法律','법률','변호사','弁護士','法律相談','avocat','abogado'],
+ propmgmt:['property management','property manager','rental agency','rent','rental','rentals','housing','租房中介','物业','物業','부동산','不動産','agence immobilière','inmobiliaria'],
+ foodbank:['food bank','free food','food hamper','食物银行','食物銀行','免费食物','免費食物','푸드뱅크','무료 음식','フードバンク','食料支援','banque alimentaire','banco de alimentos','comida gratis'],
+ heritage:['heritage','historic','history','historic site','历史','歷史','古迹','역사','史跡','patrimoine','histórico'],
+ indigenous:['indigenous','first nations','aboriginal','native','métis','原住民','원주민','先住民','autochtone','indígena'],
+ support:['shelter','shelters','homeless','outreach','庇护所','庇護所','无家可归','無家可歸','쉼터','노숙','シェルター','refuge','refugio','albergue']
+};
+// Accents never decide a match: "epicerie" finds épicerie. NFC afterwards puts
+// Hangul and kana back together, so only Latin diacritics are dropped.
+function _fold(s){try{return String(s).normalize('NFD').replace(/[̀-ͯ]/g,'').normalize('NFC');}catch(e){return String(s);}}
+const _SYN_IDX=(function(){
+  const m=new Map();
+  const add=(t,c)=>{t=_fold(String(t).toLowerCase().trim());if(t.length<2)return;if(!m.has(t))m.set(t,new Set());m.get(t).add(c);};
+  Object.keys(CI).forEach(c=>Object.values(CI[c]).forEach(lab=>{add(lab,c);String(lab).split('/').forEach(x=>add(x,c));}));
+  Object.keys(SYN).forEach(c=>{if(CI[c])SYN[c].forEach(t=>add(t,c));});
+  return m;
+})();
+const _synCache=new Map();
+function synCats(q){
+  q=_fold(String(q||'').toLowerCase().trim());
+  let r=_synCache.get(q);if(r)return r;
+  r=new Set();
+  const cjk=/[㐀-鿿가-힯぀-ヿ]/.test(q);
+  const pre=q.length>=(cjk?2:4);
+  if(q.length>=2)_SYN_IDX.forEach((cs,t)=>{if(t===q||(pre&&t.startsWith(q)))cs.forEach(c=>r.add(c));});
+  if(_synCache.size>400)_synCache.clear();
+  _synCache.set(q,r);return r;
+}
 function catColour(c){return CD[c]||'#6b7676';}
 function regLabel(g){const e=RI[g];return e&&e[L_]?e[L_]:String(g||'');}
 const CD={"school":"#b3552f","elem":"#a46628","hospital":"#c0392b","dental":"#b45a44","vet":"#a0522d","pharmacy":"#b24700","police":"#2c3e6b","pool":"#177e8f","splash":"#2b7d95","gym":"#c73e6b","rink":"#4a6fa5","park":"#31824d","dogpark":"#577d2e","beach":"#007f8f","trail":"#4e802b","library":"#8a5a9e","museum":"#7d5a3c","cinema":"#9b2f6b","grocery":"#936e16","asian":"#a33a1e","restaurant":"#9e5628","cafe":"#8f5f3c","secondhand":"#5a7a3a","hardware":"#5d4e37","mall":"#6b5b95","transit":"#2f6b4f","bank":"#34495e","post":"#cd4242","conv":"#388073","liquor":"#7b2d4e","gov":"#16697a","laundry":"#477d70","barber":"#9d5719","gas":"#6b7676","apt":"#8e5a3f","schoolbus":"#8d711b","religious":"#55397a","commctr":"#6e5730","taxi":"#8a5600","driving":"#005f6b","usedcar":"#4a332e","autorepair":"#37474f","daycare":"#ad1457","tutor":"#283593","playcenter":"#b03e00","legal":"#455a64","propmgmt":"#556570","foodbank":"#3f631f","heritage":"#63501a","indigenous":"#8c5a2b","support":"#7d3c98"};
@@ -3504,7 +3628,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.13f';
+const DATA_VERSION='2026.09.22';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -4097,6 +4221,15 @@ const _EV_KEY='kamloopsEvents';
 // tagged env:'dev' server-side so it can be excluded from real-user analysis —
 // see trackEvent(). Evaluated once, not per call: location.search never changes.
 const _IS_DEBUG=/[?&]debug=1\b/.test(location.search);
+// 2026-09-22: the maintainer's own phone and laptop were 57% of five days of
+// "user" events. ?maintainer=1 marks this browser once, for good; ?maintainer=0
+// unmarks it. Tagged exactly like ?debug=1 (env:'dev'), without the debug panel.
+const _OWNER_KEY='lifemapMaintainer';
+const _IS_OWNER=(function(){try{
+  const m=/[?&]maintainer=([01])\b/.exec(location.search);
+  if(m){if(m[1]==='1')localStorage.setItem(_OWNER_KEY,'1');else localStorage.removeItem(_OWNER_KEY);}
+  return localStorage.getItem(_OWNER_KEY)==='1';
+}catch(e){return false;}})();
 const _flushThreshold=20;          // matches the burst-throttle size, but triggers
 let _sinceFlush=0;                  // on the FIRST crossing rather than every Nth
 // Upper bound on beacons per page load. A normal session sends 20-60; anything
@@ -4131,7 +4264,7 @@ function trackEvent(type,props){
     // Without it these pollute every aggregate: a fake place id like "p042"
     // from a hand-rolled test POST lands in the same "most viewed places"
     // ranking as real traffic. Filter with double2 = 0 in Analytics Engine.
-    if(_IS_DEBUG)safeProps=Object.assign({env:'dev'},safeProps||{});
+    if(_IS_DEBUG||_IS_OWNER)safeProps=Object.assign({env:'dev'},safeProps||{});
     // 2026-09-11: language, city and version ride outside the props so the
     // Worker can store them as their own columns — Analytics Engine has no
     // JSON functions, so anything inside `p` cannot be grouped by.
@@ -4291,6 +4424,11 @@ function buildDebugPanel(){
 }
 if(_IS_DEBUG)buildDebugPanel();
 let L_='en';
+// 2026-09-22: Leaflet 1.9's map.hasLayer(undefined) throws. The cluster plugin's
+// zoomToShowLayer asks exactly that when a new search hides the marker it was
+// still panning to (rapid searches, pre-existing). Undefined is simply "not on
+// the map".
+(function(){const h=L.Map.prototype.hasLayer;L.Map.prototype.hasLayer=function(l){return !!l&&h.call(this,l);};})();
 const map=L.map('map',{scrollWheelZoom:true}).setView(CITY.centre,CITY.zoom);
 // Place data, search and the guide all work with no network because everything is
 // in this file. Only the background imagery needs one — say so rather than leaving
@@ -5054,7 +5192,7 @@ function setRouteFocus(on){
 // A marker inside a collapsed cluster cannot just be told to open its popup —
 // the cluster has to expand to it first.
 // The marker a cluster zoom is currently flying toward, if any. See hideMarker().
-let _focusPending=null;
+let _focusPending=null,_focusGen=0;
 function focusMarker(m,zoom,_settled){
   // 2026-09-08 audit: tapping a saved place and then changing a filter before
   // the zoom landed threw twice ("Cannot use 'in' operator to search for
@@ -5075,6 +5213,7 @@ function focusMarker(m,zoom,_settled){
     requestAnimationFrame(()=>{if(map._animatingZoom)map.once('zoomend',()=>focusMarker(m,zoom,true));else focusMarker(m,zoom,true);});
     return;
   }
+  const gen=++_focusGen;
   if(cluster&&cluster.hasLayer(m)){
     _focusPending=m;
     let shown=false;
@@ -5086,7 +5225,7 @@ function focusMarker(m,zoom,_settled){
     // something has to open: the marker's own popup when it is on the map,
     // otherwise the same popup opened on the map at its coordinates.
     const show=()=>{
-      if(shown)return;
+      if(shown||gen!==_focusGen)return;   // the reader has asked for another place since
       shown=true;
       try{
         if(map.hasLayer(m)){m.openPopup();return;}
@@ -5231,7 +5370,7 @@ function themeCount(k){
   const want=new Set(aT);want.add(k);
   // 2026-09-13: "open now" and the search term narrow the map, so they narrow
   // this number too — the panel promised "what you get if you tick it"
-  return P.filter(p=>p.t&&aR.has(p.g)&&(aC.size===0||aC.has(p.c))
+  return P.filter(p=>p.t&&aR.has(p.g)&&(aC.size===0||!!searchTerm||aC.has(p.c))
     &&[...want].every(t=>p.t.indexOf(t)>=0)&&openNowOk(p)&&(!searchTerm||matchScore(p,searchTerm)>0)).length;
 }
 function renderThemes(){
@@ -5259,6 +5398,7 @@ function renderThemes(){
 const expandedGroups=new Set(DEFAULT_OPEN_GROUPS);
 function renderCats(){
   const root=document.getElementById('catGrid');root.innerHTML='';
+  if(searchTerm&&aC.size){const n=document.createElement('p');n.className='cat-paused-note';n.textContent=UI[L_].catsPausedNote;root.appendChild(n);}
   GRP.forEach(grp=>{
     // Categories with nothing in the areas currently selected used to disappear
     // from this panel entirely, which reads as "this app doesn't track that" —
@@ -5279,6 +5419,7 @@ function renderCats(){
     label.querySelector('.grp-check').onclick=(e)=>{
       e.stopPropagation();
       const allIn=cats.length>0&&cats.every(k=>aC.has(k));
+      if(!allIn)_endSearchFor('category');
       // ticking a group means "show me these"; ticking it again clears them
       if(allIn){cats.forEach(k=>aC.delete(k));}else{cats.forEach(k=>aC.add(k));}
       trackEvent('category_group_toggle',{group:grp.k,action:allIn?'clear':'select_all'});
@@ -5293,12 +5434,13 @@ function renderCats(){
     card.appendChild(label);
     const g=document.createElement('div');g.className='cat-grid';
     cats.forEach(k=>{const n=P.filter(p=>p.c===k&&aR.has(p.g)&&(aT.size===0||(p.t&&[...aT].every(t=>p.t.indexOf(t)>=0)))&&openNowOk(p)&&(!searchTerm||matchScore(p,searchTerm)>0)).length;
-      const b=document.createElement('button');b.className='cat-btn'+(aC.has(k)?' active':'')+(n===0?' zero':'');
+      const b=document.createElement('button');b.className='cat-btn'+(aC.has(k)?' active':'')+(aC.has(k)&&searchTerm?' paused':'')+(n===0?' zero':'');
       b.style.setProperty('--bc',CD[k]);
       if(n===0)b.title=UI[L_].catZeroHint;
       b.innerHTML='<span class="icon">'+IC[k]+'</span><span>'+CI[k][L_]+'</span><span class="cnt">('+n+')</span>';
       b.onclick=()=>{
         const action=aC.has(k)?'remove':'add';
+        if(action==='add')_endSearchFor('category');
         if(aC.has(k))aC.delete(k);else aC.add(k);
         // a manual tweak no longer wipes the preset highlight; it marks it adjusted
         if(selPresets.size)presetsAdjusted=true;
@@ -5331,11 +5473,18 @@ function noteText(d){
 // "pharmacy north shore": a phrase that names a thing and a place fails as one
 // string, so a multi-word query is tried whole first and then as words that
 // must all hit (each on any field). The weakest word sets the score.
+const _nameHitCache=new Map();
+function _someNameHas(q){
+  let r=_nameHitCache.get(q);
+  if(r===undefined){r=P.some(p=>p.n.toLowerCase().includes(q));if(_nameHitCache.size>400)_nameHitCache.clear();_nameHitCache.set(q,r);}
+  return r;
+}
 function matchScore(d,q){
   const whole=matchScore1(d,q);
   if(whole>0)return whole;
   const words=q.split(/\s+/).filter(w=>w.length>=2);
   if(words.length<2)return 0;
+  if(_someNameHas(q))return 0;           // a whole name was typed: only whole-query matches
   let min=1e9;
   for(const w of words){const sc=matchScore1(d,w);if(sc<=0)return 0;if(sc<min)min=sc;}
   return Math.max(1,min-1);
@@ -5365,6 +5514,8 @@ function matchScore1(d,q){
   if(alias.some(a=>a===q||a.startsWith(q)))return 70;
   if(alias.some(a=>a.includes(q)))return 65;
   if(cat.startsWith(q)||cat.includes(q))return 60;
+  // the synonym table: any word for this kind of place, in any of the six languages
+  if(synCats(q).has(d.c))return 58;
   if(themes.some(t=>t.includes(q)))return 55;
   if(tag&&tag.includes(q))return 50;
   if(addr.includes(q))return 40;
@@ -5383,12 +5534,24 @@ const MIN_QUERY=2;
 // apply() passes the score it has already computed; the focus cleanup in
 // focusMarker() calls it for one marker with no score in hand.
 function markerPasses(m,sc){
-  const inFilter=(aC.size===0||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data)&&openNowOk(m.data)&&nearOk(m.data);
+  // 2026-09-22: a search pauses the category filter (it says "what", like the
+  // category did — the newer one wins). Areas, themes, open now, near me still apply.
+  const inFilter=(aC.size===0||!!searchTerm||aC.has(m.ck))&&aR.has(m.gk)&&themeOk(m.data)&&openNowOk(m.data)&&nearOk(m.data);
   if(!inFilter)return false;
   if(!searchTerm)return true;
   return (sc===undefined?matchScore(m.data,searchTerm):sc)>0;
 }
 let _lastFitKey='';
+// Exact-match count of the last apply() and whether the map is showing closest
+// matches instead — logSearch reports the gap from the exact count.
+let _exactN=0,_closest=false;
+const _CLOSEST_STOP=/^(near|nearby|me|open|now|today|best|good|cheap|store|shop|place|places|kamloops|bc|please)$/;
+function _closestWords(q){
+  q=String(q||'').toLowerCase();
+  if(/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q))return [];   // CJK has no spaces to split on
+  return q.replace(_Q_STOP,' ').replace(/[?¿!¡.,;:()"'“”]/g,' ').split(/\s+/)
+    .filter(w=>w.length>=3&&/[a-zà-ÿ]/.test(w)&&!_CLOSEST_STOP.test(w));
+}
 function apply(){let v=0;
   // WCAG 2.4.4 / 4.1.3: capture the previous visible count so we can decide
   // whether to re-announce to the polite live region. Re-announcing on every
@@ -5404,17 +5567,46 @@ function apply(){let v=0;
   // spreadsheet does, so a filter chip stays true for as long as it's on screen.
   // 2026-09-10: 'open now' narrows the map like any other filter and is
   // counted as one — Reset, the empty state and the search note all read this.
-  const filtered=aR.size<totalR||aC.size>0||aT.size>0||openNow||nearOnly;
+  // categories do not narrow a search (see markerPasses)
+  const filtered=aR.size<totalR||(aC.size>0&&!searching)||aT.size>0||openNow||nearOnly;
   const bounds=[];
   M.forEach(m=>{
     const sc=searching?matchScore(m.data,searchTerm):0;
     m.score=sc;
     const s=markerPasses(m,sc);
     if(s){showMarker(m);v++;bounds.push([m.data.lat,m.data.lng]);}else{hideMarker(m);}});
+  // 2026-09-22: nothing matched every word — show the places that match most of
+  // them rather than an empty map ("walk in clinic", "pharmacy near me").
+  _exactN=v;_closest=false;
+  if(searching&&v===0&&!isCrisisQuery(searchRaw||searchTerm)){
+    // Only for a query of two or more words: a single word that finds nothing
+    // is a typo or a gap, and guessing at it would hide that. Strictest first —
+    // every meaningful word, then one fewer — and never below half of them.
+    const words=_closestWords(searchTerm);
+    if(String(searchTerm).trim().split(/\s+/).length>=2&&words.length>=1){
+      const cand=[];let bestAll=0,bestIn=0;
+      M.forEach(m=>{
+        let hit=0,sc=0;
+        words.forEach(w=>{const x=matchScore1(m.data,w);if(x>=40){hit++;sc+=x;}});
+        if(!hit)return;
+        if(hit>bestAll)bestAll=hit;
+        if(!markerPasses(m,1))return;              // the active filters still apply
+        if(hit>bestIn)bestIn=hit;
+        cand.push({m,hit,sc});
+      });
+      const floor=Math.max(1,Math.ceil(words.length/2));
+      // a closer match exists outside the filters: say so (empty state), don't guess inside them
+      if(bestIn<bestAll)cand.length=0;
+      for(let need=words.length;need>=floor&&!v;need--){
+        cand.forEach(c=>{if(c.hit>=need){c.m.score=c.sc;showMarker(c.m);v++;bounds.push([c.m.data.lat,c.m.data.lng]);}});
+      }
+      _closest=v>0;
+    }
+  }
   const u=UI[L_];
   const st=document.getElementById('statusText');
   if(searching){
-    st.textContent=u.searchResultsN(v);
+    st.textContent=_closest?u.searchClosestN(v):u.searchResultsN(v);
     st.dataset.count=st.textContent;st.dataset.region='';
     // 2026-09-13: fit (or focus) only when the search/filters actually changed.
     // The open-now minute tick, a tab coming back and a language switch all
@@ -5422,7 +5614,7 @@ function apply(){let v=0;
     // city and re-open a popup they had just closed. One result → focusMarker
     // alone (it zooms itself); fitBounds and focusMarker together let the popup
     // open at the old zoom and end up clipped above the map.
-    const fitKey=searchTerm+'|'+[...aR].sort().join(',')+'|'+[...aC].sort().join(',')+'|'+[...aT].sort().join(',')+'|'+(openNow?1:0)+'|'+(selectedRoute||'');
+    const fitKey=searchTerm+'|'+[...aR].sort().join(',')+'||'+[...aT].sort().join(',')+'|'+(openNow?1:0)+'|'+(selectedRoute||'');
     if(fitKey!==_lastFitKey){
       _lastFitKey=fitKey;
       if(v===1){const only=M.find(m=>m.score>0&&markerHome().hasLayer(m));
@@ -5470,7 +5662,7 @@ function apply(){let v=0;
   // still true. The one thing worth saying is that a filter is narrowing the
   // search itself, since that's easy to miss if you set the filter a while ago.
   document.getElementById('searchNote').textContent=
-    searching?(filtered?u.searchActive:''):(searchRaw?u.searchTooShort:'');
+    searching?[filtered?u.searchActive:'',aC.size?u.catsPausedNote:''].filter(Boolean).join(' · '):(searchRaw?u.searchTooShort:'');
   renderActiveFilters();
   updatePresetActive();
   try{updateRegionHulls();}catch(e){}
@@ -5486,6 +5678,7 @@ function apply(){let v=0;
   updateResetState();
   writeURLState();
   renderEmptyState(v,searching,filtered);
+  try{renderSearchHelp();}catch(e){}
 }
 // One honest explanation for each way the map can legitimately end up empty.
 let lastVisible=0,lastDims=0;
@@ -5540,7 +5733,7 @@ function renderEmptyState(v,searching,filtered){
   el.hidden=false;
   let msg,label,act;
   const clearFiltersAct=()=>{aR=new Set(Object.keys(RI));aC.clear();aT.clear();selPresets.clear();presetsAdjusted=false;openNow=false;updateOpenQuickpick();nearOnly=false;updateNearQuickpick();renderRegs();renderCats();renderThemes();if(selectedRoute)renderRoute(null,false);apply();};
-  const onlyOpen=openNow&&aC.size===0&&aT.size===0&&aR.size===Object.keys(RI).length;
+  const onlyOpen=openNow&&(aC.size===0||searching)&&aT.size===0&&aR.size===Object.keys(RI).length;
   if(searching&&onlyOpen){
     // "library" + open now at 9 pm: the libraries exist, they are closed. Say
     // that, and offer to show their hours — never "check the spelling".
@@ -5579,15 +5772,59 @@ function renderEmptyState(v,searching,filtered){
   }
   btn.onclick=()=>{trackEvent('empty_state_recover',{kind:kind});act();};el.appendChild(btn);
   // "health card", 医疗卡, 학교 등록: the reader asked the map a guide question.
+  // 2026-09-22: the card now LEADS the empty state instead of trailing it as a
+  // small second button — the one visitor who hit this tapped past it.
   if(searching){
-    const q=(searchRaw||searchTerm||'').trim();
-    const hit=q.length>=2?TASKS.find(t=>taskMatchesLoose(t,q)):null;
-    if(hit){
-      const go=document.createElement('button');go.className='empty-btn empty-guide';
-      go.innerHTML=ico('guide')+esc(u.emptyGuideHint.replace('{T}',taskText(hit.t)));
-      go.onclick=()=>openGuide('search_empty',hit.id);   // openGuide records guide_open itself
-      el.appendChild(go);
-    }
+    const hit=_taskForQuery();
+    if(hit&&!_isHealthQuery(searchRaw||searchTerm))el.insertBefore(_taskCardEl(hit,'search_empty'),el.firstChild);
+  }
+}
+function _taskForQuery(){
+  const q=(searchRaw||searchTerm||'').trim();
+  return q.length>=2?TASKS.find(t=>taskMatchesLoose(t,q)):null;
+}
+function _firstSentence(s){s=String(s||'');const m=s.match(/^.+?[.!?。！？](\s|$)/);return (m?m[0]:s).trim();}
+function _taskCardEl(t,src){
+  const u=UI[L_],box=document.createElement('div');box.className='sh-card';
+  box.innerHTML='<p class="sh-lead">'+esc(u.shCardLead)+'</p><p class="sh-card-t">'+emojiIcon(t.icon)+esc(taskText(t.t))+'</p>'
+    +'<p class="sh-card-why">'+esc(_firstSentence(taskText(t.why)))+'</p>';
+  const b=document.createElement('button');b.type='button';b.className='sh-btn primary';b.textContent=u.shOpenCard;
+  b.onclick=()=>openGuide(src,t.id);   // openGuide records guide_open itself
+  box.appendChild(b);return box;
+}
+// ---- 2026-09-22: the answer box under the search bar ------------------------
+const _HEALTH_RE=/doctor|clinic|walk.?in\b|sick|urgent|nurse|\bgp\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
+const _NOT_HEALTH_RE=/\bdent|\bvet\b|veterin|animal|\bpets?\b|legal|lawyer|\blaw\b|牙|兽医|獸醫|宠物|寵物|法律|치과|동물|歯|動物/i;
+function _isHealthQuery(q){q=String(q||'');return _HEALTH_RE.test(q)&&!_NOT_HEALTH_RE.test(q);}
+const _UPCC_ID='b29c9af7';
+function renderSearchHelp(){
+  const el=document.getElementById('searchHelp');if(!el)return;
+  const q=(searchRaw||searchTerm||'').trim(),u=UI[L_];
+  if(!searchTerm||isCrisisQuery(q)){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
+  const health=_isHealthQuery(q),upcc=P.find(p=>p.id===_UPCC_ID);
+  if(!health&&!_closest){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
+  el.innerHTML='';el.hidden=false;
+  if(_closest){const n=document.createElement('p');n.className='sh-note';n.textContent=u.searchClosestNote(q,lastVisible);el.appendChild(n);}
+  if(health&&upcc){
+    el.dataset.kind='health';
+    const st=openState(upcc.h),hrs=fmtHours(upcc.h,L_);
+    const stTxt=st?('<span class="sh-status'+(st.open?' open':'')+'">'+esc(st.open?u.hcOpenNow:u.hcClosedNow)+'</span> · '):'';
+    const box=document.createElement('div');
+    box.innerHTML='<p class="sh-title">'+esc(u.hcTitle)+'</p><ul class="sh-list">'
+      +'<li>'+esc(u.hcUpcc)+'<br>'+stTxt+esc(u.hcHours)+u.colon+esc(hrs)+'</li>'
+      +'<li>'+phoneHtml(esc(u.hc811))+'</li><li>'+esc(u.hcPharm)+'</li><li>'+esc(u.hc911).replace(/\b911\b/,'<a href="tel:911">911</a>')+'</li></ul>';
+    const btns=document.createElement('div');btns.className='sh-btns';
+    const b1=document.createElement('button');b1.type='button';b1.className='sh-btn primary';b1.textContent=u.hcShowUpcc;
+    b1.onclick=()=>{const m=M.find(x=>x.data.id===_UPCC_ID);if(m){trackEvent('search_help_click',{kind:'upcc'});focusMarker(m,16);}};
+    btns.appendChild(b1);
+    const sick=TASKS.find(t=>t.id==='sick');
+    if(sick){const b2=document.createElement('button');b2.type='button';b2.className='sh-btn';b2.textContent=u.emptyGuideHint.replace('{T}',taskText(sick.t));
+      b2.onclick=()=>openGuide('search_help','sick');btns.appendChild(b2);}
+    box.appendChild(btns);el.appendChild(box);
+  }else{
+    el.dataset.kind='closest';
+    const hit=_taskForQuery();
+    if(hit)el.appendChild(_taskCardEl(hit,'search_closest'));
   }
 }
 const PRESETS={
@@ -5783,8 +6020,8 @@ function renderActiveFilters(){
     root.appendChild(hl);
   }
   if(aC.size>0){
-    const chip=document.createElement('div');chip.className='af-chip';
-    chip.innerHTML='<span>🏷️ '+u.catsSelected(aC.size)+'</span><button class="x" data-kind="cat" data-k="all" aria-label="'+u.aClose+'">✕</button>';
+    const chip=document.createElement('div');chip.className='af-chip'+(searchTerm?' af-paused':'');
+    chip.innerHTML='<span>🏷️ '+u.catsSelected(aC.size)+(searchTerm?' · '+esc(u.catsPausedShort):'')+'</span><button class="x" data-kind="cat" data-k="all" aria-label="'+u.aClose+'">✕</button>';
     chip.querySelector('.x').onclick=clearCatFilter;
     root.appendChild(chip);
   }
@@ -6185,6 +6422,14 @@ document.addEventListener('keydown',(e)=>{
   if(document.querySelector('.leaflet-popup')){map.closePopup();}
 });
 // One control, and its name matches what it does: remove the category filter.
+// Turning a category, a group or a Quick Pick on is a new "what"; during a search
+// it would otherwise do nothing visible (search pauses categories), so it ends
+// the search. Turning one off leaves the search alone.
+function _endSearchFor(by){
+  if(!searchTerm)return;
+  trackEvent('search_clear',{had:searchRaw.length,n:lastVisible,by:by});
+  searchInputEl.value='';clearTimeout(searchTimer);runSearch();
+}
 function clearCatFilter(){aC.clear();selPresets.clear();presetsAdjusted=false;renderCats();renderThemes();apply();}
 
 document.getElementById('clearCat').onclick=()=>{trackEvent('preset_clear_all',{});clearCatFilter();};
@@ -6192,6 +6437,7 @@ Object.keys(PRESETS).forEach(key=>{
   const el=document.getElementById(key);
   if(el)el.onclick=()=>{
     const had=selPresets.has(key);
+    if(!had)_endSearchFor('preset');
     if(had){selPresets.delete(key);}else{selPresets.add(key);}
     trackEvent('preset_toggle',{id:key,action:had?'remove':'add',active:selPresets.size});
     presetsAdjusted=false;
@@ -6930,15 +7176,15 @@ function logSearch(){
   if(raw===_lastLoggedQuery)return;
   _lastLoggedQuery=raw;
   const totalR=Object.keys(RI).length;
-  const filtered=aR.size<totalR||aC.size>0||aT.size>0;
-  trackEvent('search_run',{q:raw,len:raw.length,n:lastVisible,filtered:filtered});
+  const filtered=aR.size<totalR||aT.size>0;   // categories pause during a search
+  trackEvent('search_run',{q:raw,len:raw.length,n:lastVisible,filtered:filtered,closest:_closest||undefined,catsPaused:aC.size>0||undefined});
   // "What did people look for and find nothing?" points straight at content
   // gaps, so it keeps its own event type: Analytics Engine indexes the type
   // column, and a dedicated type is a cheap scan instead of a filter over every
   // search ever run.
-  if(lastVisible===0){
-    trackEvent('search_empty',{q:raw,len:raw.length,
-      filters:{areas:aR.size<totalR,cat:aC.size>0,theme:aT.size>0,route:!!selectedRoute}});
+  if(_exactN===0){
+    trackEvent('search_empty',{q:raw,len:raw.length,closest:_closest?lastVisible:undefined,
+      filters:{areas:aR.size<totalR,catsPaused:aC.size>0,theme:aT.size>0,route:!!selectedRoute}});
   }
 }
 function scheduleSearchLog(){clearTimeout(searchLogTimer);searchLogTimer=setTimeout(logSearch,SEARCH_SETTLE_MS);}

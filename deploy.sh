@@ -198,6 +198,24 @@ SIZE_BYTES=$(wc -c < "$INDEX_FILE" | tr -d ' ')
 SIZE_KB=$(( (SIZE_BYTES + 1023) / 1024 ))
 ok "MD5     $({ md5 -q "$INDEX_FILE" 2>/dev/null || md5sum "$INDEX_FILE" | cut -d" " -f1; })"
 ok "版本    ${DATA_VERSION}"
+
+# 2026-09-22: the 22 Sept release went live still calling itself 2026.09.13f, so
+# nine days of old-version events and the new version's could not be told apart.
+# If the page differs from what is live, its DATA_VERSION must differ too.
+LOCAL_VER=$(grep -oE "DATA_VERSION='[^']+'" "$INDEX_FILE" | head -1 || true)
+LIVE_TMP="$(mktemp -t deploy-live.XXXXXX)"
+if curl -s -o "$LIVE_TMP" -w '' "${DEPLOY_URL}/" 2>/dev/null && [[ -s "$LIVE_TMP" ]]; then
+  LIVE_VER=$(grep -oE "DATA_VERSION='[^']+'" "$LIVE_TMP" | head -1 || true)
+  LIVE_MD5=$({ md5 -q "$LIVE_TMP" 2>/dev/null || md5sum "$LIVE_TMP" | cut -d" " -f1; })
+  LOCAL_MD5=$({ md5 -q "$INDEX_FILE" 2>/dev/null || md5sum "$INDEX_FILE" | cut -d" " -f1; })
+  rm -f "$LIVE_TMP"
+  if [[ "$LIVE_MD5" != "$LOCAL_MD5" && -n "$LIVE_VER" && "$LIVE_VER" == "$LOCAL_VER" ]]; then
+    fail "页面内容变了，但版本号仍是 ${LOCAL_VER}（和线上相同）— 先改 src/engine.html 里的 DATA_VERSION"
+  fi
+  ok "线上    ${LIVE_VER:-未知}  →  本次 ${LOCAL_VER}"
+else
+  rm -f "$LIVE_TMP"; warn "读不到线上页面，跳过版本号比对"
+fi
 ok "大小    ${SIZE_BYTES} 字节 (${SIZE_KB} KB)"
 ok "Worker  $(basename "$WORKER_FILE") + $(basename "$WRANGLER_TOML")"
 
@@ -256,6 +274,10 @@ INDEX_CODE=$(curl -s -o "$IDX_TMP" -w '%{http_code}' "${DEPLOY_URL}/")
 INDEX_VER=$(grep -oE "DATA_VERSION=[^,]+" "$IDX_TMP" 2>/dev/null | head -1 || echo "DATA_VERSION=?")
 INDEX_TRACK=$(grep -o "trackEvent(" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
 INDEX_BEACON=$(grep -o "sendBeacon" "$IDX_TMP" 2>/dev/null | wc -l | tr -d " ")
+LIVE_NOW=$(grep -oE "DATA_VERSION='[^']+'" "$IDX_TMP" 2>/dev/null | head -1 || true)
+if [[ "$INDEX_CODE" == "200" && -n "$LOCAL_VER" && "$LIVE_NOW" != "$LOCAL_VER" ]]; then
+  warn "线上版本 ${LIVE_NOW:-未知} 与本次 ${LOCAL_VER} 不一致 — 可能是边缘缓存还没生效，稍后跑 bash deploy.sh --verify-only 再看"
+fi
 if [[ "$INDEX_CODE" == "200" ]]; then
   ok "首页 200  ${INDEX_VER}  trackEvent=${INDEX_TRACK}  sendBeacon=${INDEX_BEACON}"
 else

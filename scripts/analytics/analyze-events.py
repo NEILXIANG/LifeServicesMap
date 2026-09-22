@@ -48,10 +48,14 @@ EVENT_SCHEMAS = {
     'reset_all':      {}, 'reset_undo': {},
     'empty_state_shown': {}, 'empty_state_recover': {'kind': '恢复方式'},
     # 搜索（q 已在客户端清洗：去掉 3 位以上数字、截到 24 字；危机类词一律替换成 [crisis]）
-    'search_run':     {'q': '清洗后的搜索词', 'len': '原长度', 'n': '结果数', 'filtered': '是否有筛选'},
-    'search_empty':   {'q': '清洗后的 0 结果搜索词'},
+    'search_run':     {'q': '清洗后的搜索词', 'len': '原长度', 'n': '结果数', 'filtered': '是否有筛选',
+                       'closest': 'true = 没有完全匹配，地图显示的是最接近的结果（2026-09-22 起）',
+                       'catsPaused': 'true = 选了分类，但搜索时分类暂停（2026-09-22 起；filtered 不再算分类）'},
+    'search_empty':   {'q': '清洗后的 0 结果搜索词（完全匹配为 0 就记，即使显示了最接近的结果）',
+                       'closest': '显示了几个最接近的结果（没有则不带）'},
+    'search_help_click': {'kind': 'upcc（看病答案框里点"在地图上看"）'},
     'search_suggest': {'to': '建议去向（task:<id> / bus_tru / open_pharmacy）'},
-    'search_clear':   {'had': '清掉前的长度', 'n': '结果数'},
+    'search_clear':   {'had': '清掉前的长度', 'n': '结果数', 'by': 'category / preset = 搜索时点选分类或快捷选择而结束搜索'},
     # 地点
     'marker_view':    {'id': '地点 id', 'cat': '分类', 'reg': '区域', 'src': 'clustered/hidden_by_filter'},
     'marker_close':   {},
@@ -63,7 +67,7 @@ EVENT_SCHEMAS = {
     'fav_export':     {'n': '条数'}, 'fav_import': {'ok': '是否成功', 'n': '条数'},
     'feedback_click': {'kind': 'place/task/general', 'id': '地点或办事卡 id', 'cat': '分类'},
     # 办事卡与指南
-    'guide_open':     {'src': '入口', 'task': '直达的办事卡'},
+    'guide_open':     {'src': '入口（search_empty / search_closest / search_help = 搜索没结果或看病答案框里的办事卡）', 'task': '直达的办事卡'},
     'guide_close':    {'ms': '停留毫秒'},
     'guide_section_jump': {'id': '章节'},
     'guide_link':     {'to': '指南正文里点出去的网站域名'},
@@ -180,7 +184,9 @@ def _describe(e):
     if t == 'search_run':
         return f"搜索（原长度 {p.get('len','?')}，{p.get('n','?')} 个结果）"
     if t == 'search_empty':
-        return f"搜索 0 结果：{p.get('q','?')}"
+        return f"搜索 0 结果：{p.get('q','?')}" + (f"（改显示最接近的 {p['closest']} 个）" if p.get('closest') else '')
+    if t == 'search_help_click':
+        return f"看病答案框：点了 {p.get('kind','?')}"
     if t == 'marker_view':
         return f"查看标记 {p.get('id','?')} ({p.get('cat','?')})"
     if t == 'cta_click':

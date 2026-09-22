@@ -936,6 +936,52 @@ if _tm:
     except ValueError as e:
         fail('TASKS does not parse: %s' % e)
 
+# ------------------------------------------------- 20. the search synonym table
+# (2026-09-22) SYN maps the words people type to categories, in six languages.
+# A wrong entry here silently puts the wrong places on the map, so: real
+# categories only, no crisis words (those get the crisis panel, not places), no
+# stop words, nothing shorter than two characters, and a term may belong to two
+# categories only when that is deliberate and listed here.
+_SYN_SHARED = {'rent', 'rental', 'rentals', 'housing'}      # apartments and rental agents both
+_m = re.search(r'\nconst SYN=\{.*?\n\};\n', script, re.S)
+if not _m:
+    fail('SYN (the search synonym table) is missing')
+else:
+    _js = _m.group(0) + ('\n' + re.search(r'\nconst _CRISIS_RE=[^\n]*', script).group(0)
+                         + re.search(r'\nconst _Q_STOP=[^\n]*', script).group(0)
+                         + '\nconst _cr=[];Object.keys(SYN).forEach(c=>SYN[c].forEach(t=>{if(_CRISIS_RE.test(t))_cr.push([c,t]);}));'
+                         + '\nconsole.log(JSON.stringify({syn:SYN,crisis:_cr,stop:_Q_STOP.source}));')
+    r = subprocess.run(['node', '-e', _js], capture_output=True, text=True)
+    if r.returncode != 0:
+        fail('SYN does not evaluate: %s' % r.stderr.strip()[:200])
+    else:
+        _o = json.loads(r.stdout)
+        _SYN = _o['syn']
+        _seen = {}
+        _stop = re.compile('^(?:' + _o['stop'].replace('\\b', '') + ')$')
+        for c, terms in _SYN.items():
+            if c not in CI:
+                fail('SYN has unknown category %r' % c)
+            if len(terms) != len(set(t.lower() for t in terms)):
+                fail('SYN[%r] lists a term twice' % c)
+            for t in terms:
+                if t != t.lower() or t != t.strip():
+                    fail('SYN[%r] term %r must be lower-case and trimmed' % (c, t))
+                if len(t) < 2:
+                    fail('SYN[%r] term %r is shorter than two characters' % (c, t))
+                if _stop.match(t):
+                    fail('SYN[%r] term %r is a search stop word' % (c, t))
+                _seen.setdefault(t, set()).add(c)
+        for c, t in _o['crisis']:
+            fail('SYN[%r] term %r is a crisis word — it must reach the crisis panel, not a list of places' % (c, t))
+        for t, cs in _seen.items():
+            if len(cs) > 1 and t not in _SYN_SHARED:
+                fail('SYN term %r is in %d categories %s — list it in _SYN_SHARED if that is deliberate'
+                     % (t, len(cs), sorted(cs)))
+        _empty = [c for c in _SYN if not any(p['c'] == c for p in P)]
+        if _empty:
+            warn('SYN lists words for categories with no places yet: %s' % _empty)
+
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'
       % (len(P), len(CI), len(RI), len(BR), len(html.encode()) // 1024))

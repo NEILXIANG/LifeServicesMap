@@ -181,10 +181,14 @@ async def main():
         await pg.evaluate("(()=>{aCref().clear();['bank'].forEach(k=>aCref().add(k));aRref().clear();aRref().add('ns');renderRegs();renderCats();apply();})()")
         await pg.wait_for_timeout(400)
         await pg.fill('#searchInput','bank'); await pg.wait_for_timeout(650)
-        expected=await pg.evaluate("Pref.filter(p=>p.c==='bank'&&p.g==='ns').length")
+        # 2026-09-22 (plan B): a search pauses the category filter — the area still
+        # narrows it. So: every North Shore place that matches "bank", not only the
+        # Banks category, and nothing outside North Shore.
+        expected=await pg.evaluate("Pref.filter(p=>p.g==='ns'&&matchScore(p,'bank')>0).length")
         shown=await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)).length")
-        check("65 search narrows within active filters, not around them",
-              shown==expected, "%d shown vs %d expected (ns banks)"%(shown,expected))
+        outside=await pg.evaluate("Mref.filter(m=>markerHome().hasLayer(m)&&m.data.g!=='ns').length")
+        check("65 search narrows within the area filter, not around it (categories pause during a search)",
+              shown==expected and outside==0 and shown>0, "%d shown vs %d expected (ns 'bank' matches), %d outside"%(shown,expected,outside))
         chips=await pg.evaluate("getComputedStyle(document.getElementById('activeFilters')).display")
         check("65 filter chips stay visible while searching (no longer bypassed)", chips!='none', chips)
         note=await pg.inner_text('#searchNote')
@@ -1759,8 +1763,10 @@ async def main():
         still=await pg73.evaluate("()=>({z:map.getZoom(),popup:!!document.querySelector('.leaflet-popup')})")
         check("73 re-applying unchanged filters (the minute tick) leaves the view and the closed popup alone", still['z']==13 and not still['popup'], still)
         await pg73.click('#searchClear'); await pg73.wait_for_timeout(400)
-        # a search whose one result is hidden by the category filter focuses the visible one
-        hid=await pg73.evaluate("""()=>{aC=new Set(['pharmacy']);renderCats();apply();searchInputEl.value='north';runSearch();
+        # a search whose best result is hidden by a filter focuses the visible one
+        # (2026-09-22: categories pause during a search, so an area does the hiding —
+        #  "shoppers" ranks the Summit store first; North Shore shows only Tranquille)
+        hid=await pg73.evaluate("""()=>{aR=new Set(['ns']);renderRegs();apply();searchInputEl.value='shoppers';runSearch();
             const pp=document.querySelector('.leaflet-popup');return {v:lastVisible,name:pp?pp.querySelector('.pt').textContent:''};}""")
         await pg73.wait_for_timeout(600)
         hid2=await pg73.evaluate("()=>{const pp=document.querySelector('.leaflet-popup');return {v:lastVisible,name:pp?pp.querySelector('.pt').textContent:''};}")

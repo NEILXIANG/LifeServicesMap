@@ -25,3 +25,13 @@
 | p13_patch.py | 办事卡电话点击统计 task_call（只记卡，不记号码） |
 | p14_patch.py | 删除 47 个无法与官方来源核对的电话；8 个连锁店链接换成分店页 |
 | p15_patch.py | 5 条"先打电话"说明随之改写（6 种语言） |
+| p16_patch.py | 数据版本号 2026.09.22；北岸 UPCC 加 walk-in clinic 搜索词（6 种语言）；维护者设备标记 `?maintainer=1` |
+| p17_patch.py | 搜索没结果：显示最接近的结果、办事卡置顶、看病答案框；修复快速连续搜索时的 hasLayer 脚本错误 |
+
+对应测试：`tests/phase10test.py`、`tests/phase11test.py`。
+| p18_patch.py | 统一同义词表 SYN（6 种语言，按分类）；最接近结果不再被筛选挡住；输入完整地点名称时只按整个名称匹配；过时的地图聚焦请求自动作废 |
+
+对应测试：`tests/phase12test.py`；`scripts/validate.py` 第 20 项检查同义词表。
+| p19_patch.py | 方案 B：搜索时暂停分类筛选（区域、主题、现在营业、附近照常）；搜索中点选分类或快捷选择会结束搜索 |
+
+对应测试：`tests/phase13test.py`；`tests/regress.py` 第 65、73 轮两条断言按新规则改写。

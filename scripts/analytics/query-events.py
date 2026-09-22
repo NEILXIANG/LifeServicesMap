@@ -38,6 +38,7 @@ query-events.py — 在终端直接查 Cloudflare Analytics Engine 里的埋点�
   ./query-events.py links               # 用户点出去的外部网站（办事卡来源 / 卡内 / 指南）
   ./query-events.py feedback            # 点"报告错误 / 反馈"的次数
   ./query-events.py calls               # 办事卡里的电话被点了多少次（按卡；不含号码）
+  ./query-events.py sources             # 各推广渠道（?src=）带来的会话数
   ./query-events.py season              # 季节提醒：显示 / 点链接 / 关闭
   ./query-events.py help                # "求助"面板每日打开次数（不含拨了哪个号码）
   ./query-events.py session <sid>       # 单个会话的完整轨迹
@@ -238,6 +239,15 @@ SELECT blob2 AS kind, blob8 AS card, blob10 AS site, count() AS clicks, count(DI
 FROM {DATASET}
 WHERE blob2 IN ('task_src','task_link','guide_link') AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
 GROUP BY kind, card, site ORDER BY clicks DESC LIMIT 100
+""",
+    ),
+    "sources": (
+        "各推广渠道带来的会话数（链接里的 ?src=；空 = 直接打开 / 没带标记）",
+        f"""
+SELECT blob7 AS src, count() AS sessions, count(DISTINCT blob1) AS users
+FROM {DATASET}
+WHERE blob2 = 'session_start' AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
+GROUP BY src ORDER BY sessions DESC
 """,
     ),
     "calls": (
