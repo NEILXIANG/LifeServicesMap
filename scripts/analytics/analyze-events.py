@@ -18,25 +18,78 @@ import json
 from collections import Counter
 from pathlib import Path
 
-# 字段含义速查表（供维护者参考）
+# 字段含义速查表（供维护者参考）。2026-09-22 按 engine.html 里实际发出的事件重写：
+# 原表里的 marker_cta / clear_filter / all_areas / lang_switch 从未被发出过，
+# 而 cta_click、task_*、help_open、season_* 等真实事件都没有列出。
+# 有意不记录：拨打任何电话号码、"求助"面板里点了什么、完成了哪张办事卡（只记总数）。
 EVENT_SCHEMAS = {
+    # 会话
+    'session_start':  {'...': '页面打开'},
+    'session_end':    {'dur': '停留秒数（离开页面时）'},
+    'lang_menu':      {},
     'lang_change':    {'from': '原语言', 'to': '新语言'},
-    'preset_toggle':  {'id': '预设 id', 'action': 'add/remove', 'active': '累计激活数'},
-    'panel_open':     {'mode': '面板类型 area/cat/bus/fav', 'prev': '前一个面板'},
+    'theme_toggle':   {'id': '主题', 'action': 'add/remove/remove_chip', 'active': '累计'},
+    'firstuse_go':    {'to': '首屏引导去向'},
+    'firstuse_dismiss': {'via': '关闭方式'},
+    # 地图筛选
+    'panel_open':     {'mode': 'area/cat/bus/fav', 'prev': '前一个面板'},
     'panel_close':    {'mode': '面板类型'},
-    'route_select':   {'id': '公交线路 id', 'action': 'select/deselect'},
-    'search_run':     {'q_len': '查询长度（不存原词，防 PII）', 'len': '冗余字段'},
-    'search_empty':   {'q_len': '0 结果查询的长度', 'filters': '当时激活的筛选'},
-    'marker_view':    {'id': '地点 id', 'cat': '分类', 'reg': '区域'},
-    'marker_cta':     {'id': '地点 id', 'cta': 'nav/call/web/share'},
-    'share_click':    {'method': 'clipboard/native'},
-    'category_toggle':{'id': '分类 id', 'action': 'add/remove', 'active': '累计'},
-    'region_toggle':  {'id': '区域 id', 'action': 'add/remove', 'active': '累计'},
-    'fav_toggle':     {'id': '收藏 id', 'action': 'add/remove'},
-    'reset_all':      {},
-    'clear_filter':   {'target': 'search/area/cat/route/all'},
-    'all_areas':      {},
-    'lang_switch':    {'from': '原', 'to': '新'},  # 与 lang_change 同义，保留兼容
+    'preset_toggle':  {'id': '预设 id', 'action': 'add/remove', 'active': '累计激活数'},
+    'preset_clear_all': {},
+    'category_toggle':{'id': '分类 id', 'action': 'add/remove'},
+    'category_group_toggle': {'group': '分组', 'action': 'clear/select_all'},
+    'region_toggle':  {'id': '区域 id', 'action': 'add/remove'},
+    'region_select_all': {},
+    'filter_clear_chip': {'kind': '筛选类型', 'id': '被清掉的项'},
+    'open_now_toggle':{'action': 'on/off'},
+    'near_toggle':    {'action': 'on/off/no_location'},
+    'geo_locate':     {'result': 'success/denied/unavailable/timeout/unsupported'},
+    'reset_all':      {}, 'reset_undo': {},
+    'empty_state_shown': {}, 'empty_state_recover': {'kind': '恢复方式'},
+    # 搜索（q 已在客户端清洗：去掉 3 位以上数字、截到 24 字；危机类词一律替换成 [crisis]）
+    'search_run':     {'q': '清洗后的搜索词', 'len': '原长度', 'n': '结果数', 'filtered': '是否有筛选'},
+    'search_empty':   {'q': '清洗后的 0 结果搜索词'},
+    'search_suggest': {'to': '建议去向（task:<id> / bus_tru / open_pharmacy）'},
+    'search_clear':   {'had': '清掉前的长度', 'n': '结果数'},
+    # 地点
+    'marker_view':    {'id': '地点 id', 'cat': '分类', 'reg': '区域', 'src': 'clustered/hidden_by_filter'},
+    'marker_close':   {},
+    'cta_click':      {'kind': 'call/nav/web', 'id': '地点 id', 'cat': '分类'},
+    'popup_route':    {'route': '弹窗里点的公交线路'},
+    'route_select':   {'id': '线路', 'action': 'select/deselect', 'src': '入口'},
+    'fav_toggle':     {'action': 'add/remove', 'cat': '分类', 'reg': '区域'},
+    'fav_open':       {'cat': '分类', 'reg': '区域', 'total': '收藏数'},
+    'fav_export':     {'n': '条数'}, 'fav_import': {'ok': '是否成功', 'n': '条数'},
+    'feedback_click': {'kind': 'place/task/general', 'id': '地点或办事卡 id', 'cat': '分类'},
+    # 办事卡与指南
+    'guide_open':     {'src': '入口', 'task': '直达的办事卡'},
+    'guide_close':    {'ms': '停留毫秒'},
+    'guide_section_jump': {'id': '章节'},
+    'guide_link':     {'to': '指南正文里点出去的网站域名'},
+    'task_open':      {'id': '办事卡 id', 'src': '入口'},
+    'task_back':      {'id': '办事卡 id'},
+    'task_step':      {'action': 'tick/untick', 'n': '已勾步数', 'of': '总步数'},
+    'task_done':      {'action': 'done/undone', 'total': '已完成张数（不记是哪张）'},
+    'task_outcome':   {'id': '办事卡 id', 'result': 'worked/stuck'},
+    'task_to_map':    {'id': '办事卡 id', 'place': '地点 id'},
+    'task_src':       {'id': '办事卡 id', 'to': '官方来源域名'},
+    'task_link':      {'id': '办事卡 id', 'to': '卡内其他外链域名'},
+    'task_share':     {'id': '办事卡 id', 'native': '系统分享'},
+    'task_print':     {'id': '办事卡 id'}, 'task_calendar': {'id': '办事卡 id'},
+    # 求助 / 季节提醒
+    'help_open':      {},
+    'season_shown':   {'id': 'winter/wildfire（每次打开页面最多一次）'},
+    'season_link':    {'id': '季节', 'to': '点出去的网站域名'},
+    'season_close':   {'id': '季节'},
+    # 分享 / 说明 / 技术
+    'share_open':     {'native': '系统分享'},
+    'share_click':    {'stage': 'intent/result', 'target': '渠道', 'method': '复制方式'},
+    'note_open':      {'src': '入口'}, 'privacy_expand': {'action': 'open/close'},
+    'mailto_fallback':{'kind': 'contact/share（应用内浏览器打不开邮件时改为复制）'},
+    'offline_shown':  {'online': '浏览器是否认为在线'}, 'offline_note': {'action': 'dismiss'},
+    'tile_probe':     {'status': '地图瓦片状态码'}, 'tile_fallback': {},
+    'sw_register':    {'ok': '是否成功'}, 'pwa_install': {}, 'qp_more': {},
+    'js_error':       {'...': '脚本错误摘要'},
 }
 
 
@@ -90,8 +143,13 @@ def quality_checks(events):
          all(set((e.get('p') or {}).keys()) >= {'id','action','active'} for e in events if e.get('t')=='preset_toggle')),
         # 原来断言"恰好剩一个没关"，用户把面板全关掉反而被判成"埋点系统有问题"
         ('panel open/close 配对（未关的不该多于 1 个）', 0 <= opens - closes <= 1),
-        ('无搜索关键词（隐私保护）',
-         not any('q' in e.get('p',{}) for e in events)),
+        # 原来断言"没有 q"，而 search_run / search_empty 本来就会带清洗后的 q，
+        # 每次导出都会被判"有问题"。现在检查的是 q 确实被清洗过。
+        ('搜索词已清洗（无 3 位以上数字、≤24 字）',
+         all(isinstance((e.get('p') or {}).get('q'), str)
+             and (e['p']['q'] == '[crisis]'
+                  or (len(e['p']['q']) <= 24 and not __import__('re').search(r'\d{3,}', e['p']['q'])))
+             for e in events if 'q' in (e.get('p') or {}))),
     ]
 
 
@@ -118,13 +176,13 @@ def _describe(e):
     if t == 'route_select':
         return f"公交线路: 选 {p['id']} 号"
     if t == 'search_run':
-        return f"搜索（长度 {p.get('q_len','?')}）"
+        return f"搜索（原长度 {p.get('len','?')}，{p.get('n','?')} 个结果）"
     if t == 'search_empty':
-        return f"搜索 0 结果（长度 {p.get('q_len','?')}）"
+        return f"搜索 0 结果：{p.get('q','?')}"
     if t == 'marker_view':
         return f"查看标记 {p.get('id','?')} ({p.get('cat','?')})"
-    if t == 'marker_cta':
-        return f"点 CTA: {p.get('cta','?')} → {p.get('id','?')}"
+    if t == 'cta_click':
+        return f"点 CTA: {p.get('kind','?')} → {p.get('id','?')}"
     if t == 'category_toggle':
         return f"分类 {p['id']}: {'加' if p['action']=='add' else '去'}"
     if t == 'region_toggle':
@@ -135,10 +193,18 @@ def _describe(e):
         return f"分享（{p.get('method','?')}）"
     if t == 'reset_all':
         return "重置全部"
-    if t == 'clear_filter':
-        return f"清除筛选: {p.get('target','?')}"
-    if t == 'all_areas':
+    if t == 'filter_clear_chip':
+        return f"清除筛选: {p.get('kind','?')} {p.get('id','')}"
+    if t == 'region_select_all':
         return "全选区域"
+    if t == 'task_open':
+        return f"打开办事卡 {p.get('id','?')}（入口 {p.get('src','?')}）"
+    if t in ('task_src', 'task_link', 'guide_link', 'season_link'):
+        return f"{t}: 点出去 → {p.get('to','?')}"
+    if t == 'feedback_click':
+        return f"点反馈（{p.get('kind','?')}）{p.get('id','') or ''}"
+    if t == 'season_shown':
+        return f"显示季节提醒 {p.get('id','?')}"
     return f"{t}: {p}"
 
 
@@ -196,7 +262,7 @@ def analyze_file(path):
     if panels:
         print(f" • 面板切换路径: {' → '.join(panels)}")
 
-    empty_q = [(e.get('p') or {}).get('q_len', '?') for e in events if e.get('t') == 'search_empty']
+    empty_q = [(e.get('p') or {}).get('q', '?') for e in events if e.get('t') == 'search_empty']
     if empty_q:
         print(f" • 搜索 0 结果: {len(empty_q)} 次（说明用户有未被满足的需求）")
 

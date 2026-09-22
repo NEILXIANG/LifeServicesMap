@@ -33,6 +33,12 @@ query-events.py — 在终端直接查 Cloudflare Analytics Engine 里的埋点�
   ./query-events.py presets             # 预设标签热度
   ./query-events.py routes              # 公交线路需求
   ./query-events.py recent              # 最近 30 条原始事件
+  ./query-events.py tasks               # 办事卡打开次数（按卡、按入口）
+  ./query-events.py taskout             # 办事卡"有用 / 卡住了"反馈
+  ./query-events.py links               # 用户点出去的外部网站（办事卡来源 / 卡内 / 指南）
+  ./query-events.py feedback            # 点"报告错误 / 反馈"的次数
+  ./query-events.py season              # 季节提醒：显示 / 点链接 / 关闭
+  ./query-events.py help                # "求助"面板每日打开次数（不含拨了哪个号码）
   ./query-events.py session <sid>       # 单个会话的完整轨迹
   ./query-events.py --list              # 列出所有预设
   ./query-events.py "SELECT ..."        # 任意 SQL
@@ -52,6 +58,12 @@ query-events.py — 在终端直接查 Cloudflare Analytics Engine 里的埋点�
   blob1     = sid      匿名会话 ID（客户端生成，跨刷新复用）
   blob2     = t        事件类型（小写下划线）
   blob3     = props    JSON 字符串（≤2048 字符）
+  blob4     = lang     界面语言          blob5 = city   城市 key
+  blob6     = host     站点域名          blob7 = p.src  入口（task_open / guide_open 等）
+  blob8     = p.id || p.task             地点 / 办事卡 / 季节提醒的 id
+  blob9     = p.cat    分类
+  blob10    = p.kind || p.target || p.to || p.mode   动作类型或外链域名
+  blob11    = ver      数据版本
   double1   = d        客户端 Date.now()（毫秒，时钟可能不准）
   double2   = env      1 = 维护者流量（?debug=1 / 部署冒烟），0 = 真实用户
   index1    = t        同 blob2，用于加速过滤
@@ -198,6 +210,60 @@ SELECT blob3 AS props, count() AS selects, count(DISTINCT blob1) AS users
 FROM {DATASET}
 WHERE blob2 = 'route_select' AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
 GROUP BY props ORDER BY selects DESC LIMIT 100
+""",
+    ),
+    "tasks": (
+        "办事卡打开次数：哪张卡最常被打开、从哪里打开",
+        f"""
+SELECT blob8 AS card, blob7 AS src, count() AS opens, count(DISTINCT blob1) AS users
+FROM {DATASET}
+WHERE blob2 = 'task_open' AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
+GROUP BY card, src ORDER BY opens DESC LIMIT 100
+""",
+    ),
+    "taskout": (
+        "办事卡反馈：\"有用\" 还是 \"卡住了\"（卡住多的卡优先重写）",
+        f"""
+SELECT blob8 AS card, blob3 AS props, count() AS n
+FROM {DATASET}
+WHERE blob2 = 'task_outcome' AND timestamp > NOW() - INTERVAL '90' DAY AND double2 != 1
+GROUP BY card, props ORDER BY n DESC LIMIT 100
+""",
+    ),
+    "links": (
+        "用户点出去的外部网站：task_src=卡片官方来源 / task_link=卡内其他链接 / guide_link=指南正文",
+        f"""
+SELECT blob2 AS kind, blob8 AS card, blob10 AS site, count() AS clicks, count(DISTINCT blob1) AS users
+FROM {DATASET}
+WHERE blob2 IN ('task_src','task_link','guide_link') AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
+GROUP BY kind, card, site ORDER BY clicks DESC LIMIT 100
+""",
+    ),
+    "feedback": (
+        "点 \"报告错误 / 反馈\" 的次数（place=地点弹窗 · task=办事卡翻译纠错 · general=通用反馈链接）",
+        f"""
+SELECT blob10 AS kind, blob8 AS id, count() AS clicks
+FROM {DATASET}
+WHERE blob2 = 'feedback_click' AND timestamp > NOW() - INTERVAL '90' DAY AND double2 != 1
+GROUP BY kind, id ORDER BY clicks DESC LIMIT 100
+""",
+    ),
+    "season": (
+        "季节提醒：显示了多少次、点了哪个链接、关掉多少次",
+        f"""
+SELECT blob8 AS season, blob2 AS event, blob10 AS site, count() AS n, count(DISTINCT blob1) AS users
+FROM {DATASET}
+WHERE blob2 IN ('season_shown','season_link','season_close') AND timestamp > NOW() - INTERVAL '90' DAY AND double2 != 1
+GROUP BY season, event, site ORDER BY season, n DESC
+""",
+    ),
+    "help": (
+        "\"求助\" 面板每日打开次数（只有打开这一个动作；拨了哪个号码从不记录）",
+        f"""
+SELECT toDate(timestamp) AS day, count() AS opens, count(DISTINCT blob1) AS users
+FROM {DATASET}
+WHERE blob2 = 'help_open' AND timestamp > NOW() - INTERVAL '30' DAY AND double2 != 1
+GROUP BY day ORDER BY day
 """,
     ),
     "recent": (

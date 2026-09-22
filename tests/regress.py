@@ -503,7 +503,8 @@ async def main():
         check("44 house wording 新居民 used throughout", len(dh['oldTerm'])==0, dh['oldTerm'][:3])
         check("44 the duplicated agency appears exactly once", dh['immigrant']==1, dh['immigrant'])
         oa=await pg.evaluate("""()=>{const o={};['zh','en','fr','es','ko','ja'].forEach(l=>{setLang(l);
-          const p=Pref.find(x=>x.n==='Riverside Park');
+          // 2026-09-21: City parks now carry Parks Bylaw 35-104 hours (5–23); the open-air row with nothing posted is an informal site
+          const p=Pref.find(x=>x.n==='Cooney Bay');
           o[l]=popup(p,Pref.indexOf(p)).indexOf(UI[l].hOnSite)>-1;});setLang('en');return o;}""")
         check("44 open-air places say 'hours posted on site' in all six languages", all(oa.values()), oa)
 

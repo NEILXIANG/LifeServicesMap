@@ -39,6 +39,17 @@ def find_built(here, argv_path=None):
     sys.exit('several .html files here; name one: %s <file>' % os.path.basename(__file__))
 
 PATH = find_built(HERE, sys.argv[1] if len(sys.argv) > 1 else None)
+
+# 2026-09-21：不带参数时校验的是 build/kamloops.html。如果数据源比它新，
+# 说明改了数据还没重建——这时"all invariants hold"校验的是上一版，是个假通过。
+# （维护中真的发生过：加了 4 个地点、连续三次显示通过，重建后才报出主题顺序错误。）
+if len(sys.argv) <= 1:
+    _built_t = os.path.getmtime(PATH)
+    for _src in ('src/data-kamloops.js', 'src/engine.html'):
+        _sp = os.path.join(HERE, _src)
+        if os.path.exists(_sp) and os.path.getmtime(_sp) > _built_t + 1:
+            sys.exit('✗ %s 比构建产物 %s 新——先跑 python3 build.py 再校验，'
+                     '否则校验的是旧版本' % (_src, os.path.relpath(PATH, HERE)))
 FAIL = []
 WARN = []
 
@@ -119,12 +130,14 @@ if bare_dupes:
 def host(u):
     m = re.match(r'https?://(?:www\.)?([^/]+)', u or '')
     return m.group(1).lower() if m else None
-seen = {}
+seen = {}; seen_id = {}
 for p in P:
     h = host(p.get('w'))
     if not h: continue
     key = (p['a'].strip().lower(), h)
-    if key in seen:
+    if key in seen and seen_id[key] in (p.get('sameComplex') or []):
+        pass   # declared as one site (a water park inside its park, a clinic inside the hospital)
+    elif key in seen:
         a, b = bare(seen[key]), bare(p['n'])
         # One name containing the other is the shape a real duplicate takes.
         if a in b or b in a:
@@ -133,7 +146,7 @@ for p in P:
         else:
             warn('%r and %r share an address and a website — check they are really two '
                  'places' % (seen[key], p['n']))
-    seen[key] = p['n']
+    seen[key] = p['n']; seen_id[key] = p['id']
 
 # ---------------------------------------------------------------- 3. no re-introduced risk content
 def note_strings(p):
@@ -825,6 +838,17 @@ else:
                  % (_td, (_dd - _td).days, _dd))
     if '{TD}' in html and "replace('{TD}'" not in html:
         fail('taskVerified uses {TD} but nothing substitutes it')
+    # (2026-09-21) "open now" steps aside on statutory holidays; the list is
+    # finite, so say so well before it runs out rather than after.
+    _hm = re.search(r"holidays:\[([^\]]*)\]", html)
+    if not _hm:
+        fail('CITY.holidays missing — open now would trust weekday hours on a statutory holiday')
+    else:
+        _hd = re.findall(r"'(\d{4}-\d{2}-\d{2})'", _hm.group(1))
+        if not _hd or _hd != sorted(_hd):
+            fail('CITY.holidays is empty or out of order')
+        elif (_dt2.date.fromisoformat(_hd[-1]) - _dt2.date.today()).days < 120:
+            warn('CITY.holidays ends %s — add the next year before then (p3_patch.py generates it)' % _hd[-1])
 # (2026-09-13) the map imagery host must be one whose terms allow a public app, and
 # the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
 _tile = re.search(r"tiles:\{url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", html)
@@ -885,7 +909,7 @@ if _qm:
 _TASK_CATS = {
   'settle': {'gov'}, 'sin': {'gov'}, 'msp': {'gov'}, 'licence': {'gov'}, 'bank': {'bank'},
   'connect': {'commctr','library','indigenous'}, 'sick': {'hospital'}, 'hardship': {'foodbank','support'},
-  'legal': {'legal'}, 'eldercare': {'commctr','hospital','support'},
+  'legal': {'legal'}, 'eldercare': {'commctr','hospital','support'}, 'jobloss': {'gov'}, 'doctor': {'hospital'}, 'housing': {'legal'},
 }
 _tm = re.search(r'const TASKS=(\[.*?\]);\n', html, re.S)
 if not _tm:

@@ -6,6 +6,11 @@ Check that every website in the data still resolves.
     python3 check-links.py              # check them all
     python3 check-links.py --deep-only  # only the links with a path, which rot fastest
     python3 check-links.py --json out.json
+    python3 check-links.py --pages data/link-pages.json
+                                        # every link in the page (places, task cards,
+                                        # guide text, seasonal notes): status, final URL,
+                                        # title and heading, so a human can check that
+                                        # each one opens the RIGHT page, not just a page
 
 Run this from a normal terminal on a machine with unrestricted internet access.
 Neither the cloud sandbox this project is built in nor the desktop workspace has
@@ -120,6 +125,82 @@ def _check(url):
     return ('BLOCKED', 0, 'no method accepted')
 
 
+def all_links():
+    """Every outbound link a reader can click, with what it is supposed to be.
+    Places carry `w`; task cards `src`; the guide text and the city block carry
+    hrefs and `u:`/`src:` entries (seasonal notes, local crisis line)."""
+    P, T = kamdata.load_all('P', 'TASKS')
+    out, seen = [], set()
+    def add(url, kind, ref, what):
+        if not url or not url.startswith('http') or url in seen:
+            if url in seen:
+                for o in out:
+                    if o['url'] == url: o['used_for'].append(what)
+            return
+        seen.add(url); out.append({'url': url, 'kind': kind, 'ref': ref, 'used_for': [what]})
+    for p in P:
+        add(p.get('w'), 'place', p['id'], 'place "%s" (%s) at %s' % (p['n'], p['c'], p.get('a')))
+    for t in T:
+        add(t.get('src'), 'task', t['id'], 'task card "%s"' % t['t']['en'])
+    for f in ('src/engine.html', 'src/data-kamloops.js'):
+        txt = open(os.path.join(HERE, f), encoding='utf-8').read()
+        for u in re.findall(r'href=\\?"(https?://[^"\\]+)', txt) + re.findall(r"(?:u|src|w):'(https?://[^']+)'", txt):
+            if "'+" in u or any(h in u for h in ('maptiler', 'arcgisonline', 'openstreetmap.org/copyright', 'esri.com', 'cdnjs.', 'google.com/maps')):
+                continue
+            add(u, 'text', f, 'link in %s' % f)
+    return out
+
+
+def fetch_page(url):
+    """GET the page and keep just enough to tell what it is."""
+    req = request.Request(url, headers={'User-Agent': UA, 'Accept': 'text/html,*/*',
+                                        'Accept-Language': 'en-CA,en;q=0.9'})
+    row = {'status': '', 'code': 0, 'final': '', 'title': '', 'h1': '', 'site': '', 'desc': '', 'text': ''}
+    try:
+        with request.urlopen(req, timeout=TIMEOUT + 8, context=SSL_CTX) as r:
+            row['code'], row['final'] = r.status, r.geturl()
+            raw = r.read(600000).decode(r.headers.get_content_charset() or 'utf-8', 'replace')
+    except error.HTTPError as e:
+        row['code'], row['final'] = e.code, url
+        row['status'] = 'DEAD' if e.code in (404, 410) else 'BLOCKED'
+        return row
+    except Exception as e:
+        row['status'] = 'DEAD' if 'nodename' in str(e) or 'not known' in str(e) else 'BLOCKED'
+        row['final'] = str(e)[:80]
+        return row
+    grab = lambda pat: (re.search(pat, raw, re.I | re.S) or [None, ''])[1]
+    clean = lambda x: re.sub(r'\s+', ' ', re.sub(r'<[^>]+>', ' ', x or '')).strip()
+    row['title'] = clean(grab(r'<title[^>]*>(.*?)</title>'))[:140]
+    row['h1'] = clean(grab(r'<h1[^>]*>(.*?)</h1>'))[:140]
+    row['site'] = clean(grab(r'<meta[^>]+property=["\']og:site_name["\'][^>]+content=["\']([^"\']*)'))[:80]
+    row['desc'] = clean(grab(r'<meta[^>]+name=["\']description["\'][^>]+content=["\']([^"\']*)'))[:200]
+    body = re.sub(r'<(script|style|noscript)[^>]*>.*?</\1>', ' ', raw, flags=re.I | re.S)
+    row['text'] = clean(grab(r'<main[^>]*>(.*?)</main>') or body)[:400]
+    same = parse.urlparse(row['final']).netloc.lower().replace('www.', '') == parse.urlparse(url).netloc.lower().replace('www.', '')
+    row['status'] = 'OK' if same and parse.urlparse(row['final']).path.rstrip('/') == parse.urlparse(url).path.rstrip('/') else 'MOVED'
+    return row
+
+
+def pages_mode(path, workers):
+    links = all_links()
+    print('fetching %d pages (one host at a time, %gs apart)…' % (len(links), HOST_DELAY))
+    by_host = {}
+    for l in links:
+        by_host.setdefault(parse.urlparse(l['url']).netloc.lower(), []).append(l)
+    def run(group):
+        for i, l in enumerate(group):
+            if i: time.sleep(HOST_DELAY)
+            l.update(fetch_page(l['url']))
+            print('%-8s %-60s %s' % (l['status'], l['url'][:60], l['title'][:60]), flush=True)
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        list(ex.map(run, by_host.values()))
+    json.dump(links, open(path, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
+    counts = {}
+    for l in links: counts[l['status']] = counts.get(l['status'], 0) + 1
+    print('\n' + ' · '.join('%s %d' % (k, counts[k]) for k in sorted(counts)))
+    print('wrote %s — send it back for the page-by-page check' % path)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--city', default='kamloops')
@@ -131,7 +212,11 @@ def main():
                          '免得为了一条链接把其余 26 个站再惊动一遍')
     ap.add_argument('--workers', type=int, default=6,
                     help='并发的域名数（同一域名始终串行）；这些都是小站，别调大')
+    ap.add_argument('--pages', default=None,
+                    help='fetch every link in the page and record title/heading/final URL here')
     a = ap.parse_args()
+    if a.pages:
+        return pages_mode(a.pages, a.workers)
 
     places = [p for p in load_places(a.city) if p.get('w')]
     if a.deep_only:

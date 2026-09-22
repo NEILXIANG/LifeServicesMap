@@ -95,7 +95,8 @@
   /* 2026-09-13 visual audit: between phone and wide desktop the title and tagline
      ran under the right-hand controls; on a touch tablet the 44px controls
      collided with each other */
-  @media(min-width:601px) and (max-width:1100px){h1{padding-right:370px;}.sub{padding-right:370px;}}
+  /* 2026-09-21: 420, not 370 — the header row gained the Help button */
+  @media(min-width:601px) and (max-width:1100px){h1{padding-right:420px;}.sub{padding-right:420px;}}
   /* keep-all stops the Korean/Japanese title breaking inside a word ("가이/드",
      "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
      wraps at spaces as before */
@@ -173,6 +174,15 @@
      Wide screens: top-right corner, one line per door, clear of the zoom control. */
   .firstuse{position:absolute;z-index:850;left:12px;right:12px;top:10px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.12);}
   .firstuse[hidden]{display:none;}
+  /* 2026-09-22: the seasonal reminder sits where the first-use card sits, and
+     only when that card is gone — never two cards stacked over the map */
+  .season-note{position:absolute;z-index:840;left:12px;right:12px;top:10px;padding:8px 44px 8px 12px;border-radius:12px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 16px rgba(0,0,0,.08);font-size:12.5px;line-height:1.45;color:var(--ink);}
+  .season-note[hidden]{display:none;}
+  .season-note .sn-ic .ic{width:15px;height:15px;vertical-align:-3px;margin-right:4px;}
+  .season-note .sn-links{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:3px;}
+  .season-note .sn-links a{color:var(--accent-text);font-weight:600;text-decoration:none;}
+  .season-note .sn-x{position:absolute;top:0;right:0;background:none;border:none;font-size:15px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
+  @media(min-width:700px){.season-note{left:auto;right:16px;top:16px;width:min(380px,calc(100% - 32px));}}
   .firstuse .fu-h{font-size:13px;font-weight:700;margin:0 28px 2px 0;}
   .firstuse .fu-safe{font-size:11.5px;color:var(--sub-ink);margin:0 28px 7px 0;}
   /* the flyer card's rows are full-width buttons; the 44px ✕ target in the corner
@@ -192,10 +202,24 @@
   .hotlines{margin:8px 0 4px;padding:9px 11px;border-radius:10px;background:#fff4f4;border:1px solid #f3c9c9;font-size:12.5px;line-height:1.55;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;}
   .hotlines.compact{margin:0 0 10px;font-size:12px;}
   .af-hotlines{flex:0 0 100%;}
+  .af-holiday{margin:4px 0 0;font-size:12.5px;font-weight:600;color:#8a4b00;}
+  .pv-open.hol{background:#fff3e0;color:#8a4b00;}
   .af-hotlines .hotlines{margin:4px 0 0;}
   .hotlines .hl-lead{font-weight:700;color:#8a1c1c;flex:0 0 100%;}
   .hotlines .hl-line{white-space:nowrap;color:var(--ink);text-decoration:none;}
   .hotlines .hl-line b{color:#a11;}
+  .help-btn .hl-ic,.help-btn{color:#a11;}
+  .crisis-block{margin:0 0 8px;}
+  .crisis-lead{margin:0 0 4px;font-weight:700;color:#8a1c1c;line-height:1.5;}
+  .crisis-more,.help-note{margin:6px 0 0;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
+  .help-local,.help-info{margin:8px 0 0;font-size:13px;line-height:1.6;}
+  .help-local a,.help-info a{color:#a11;text-decoration:none;}
+  .help-lead{margin:0 0 6px;font-size:13.5px;line-height:1.6;font-weight:600;}
+  .help-actions{margin:16px 0 0;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px;}
+  .help-exit,.help-clear{font:inherit;font-size:13.5px;font-weight:700;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer;text-align:center;}
+  .help-exit{background:#8a1c1c;color:#fff;border:none;}
+  .help-clear{background:none;color:var(--ink);border:1px solid var(--line);margin-top:8px;}
+  .help-clear.armed{border-color:#a11;color:#a11;}
   .fhint{padding:5px 20px 0;font-size:11px;color:var(--sub-ink);}
   /* 2026-09-10: the reason to come back — ticks and the next deadline — lived
      only inside the guide modal. One line on the landing screen carries it. */
@@ -326,7 +350,7 @@
   /* filter panel shell — content identical, only container adapts by breakpoint */
   .backdrop{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(32,33,36,.4);display:none;z-index:1200;pointer-events:none;}
   .backdrop.open{display:flex;}
-  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}
+  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}
   @media(max-width:900px){.backdrop.open{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}}
   .panel{background:var(--card);display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);pointer-events:auto;}
   /* The grab area is 22px tall so a thumb can find it; only the 4px bar shows. */
@@ -368,6 +392,8 @@
   .footer-emergency{display:inline-block;margin-top:4px;padding:3px 9px;border-radius:6px;
     background:#fdecea;color:#a02622;font-weight:700;}
   .footer-emergency b{color:inherit;}
+  .footer-emergency a{color:inherit;text-decoration:none;}
+  .footer-emergency a:hover b{text-decoration:underline;}
   .footer-privacy{font-size:11px;display:inline-block;margin-top:4px;color:var(--sub-ink);}
   /* 2026-09-08 audit: hiding the header's Data Notes button (2026-09-08, at the
      owner's request) also removed the only way to open #noteBackdrop — and that
@@ -447,8 +473,8 @@
   .fav-star{background:none;border:none;cursor:pointer;font-size:16px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#8a5a00;}  /* 2026-09-13: was #f2a900 (2.0:1); the empty ☆ is text and needs 4.5:1 */
   .fav-star.active{color:#a66300;}
   .fav-star:hover{transform:scale(1.15);}
-  #guideBackdrop,#noteBackdrop,#shareBackdrop{align-items:center!important;justify-content:center!important;background:rgba(32,33,36,.5);pointer-events:none;}
-  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open{pointer-events:auto;}
+  #guideBackdrop,#noteBackdrop,#shareBackdrop,#helpBackdrop{align-items:center!important;justify-content:center!important;background:rgba(32,33,36,.5);pointer-events:none;}
+  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{pointer-events:auto;}
   .guide-modal{background:var(--card);display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);border-radius:16px;width:600px;max-width:92vw;max-height:82vh;margin:auto;pointer-events:auto;}
   .sheet-grab{display:none;padding:8px 0 4px;flex:0 0 auto;cursor:grab;touch-action:none;justify-content:center;}
   /* 2026-09-11 (interaction pass, Apple-style): on a phone the guide, the data
@@ -458,8 +484,8 @@
   @keyframes sheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
   @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
   @media(max-width:900px){
-    #guideBackdrop,#noteBackdrop,#shareBackdrop{align-items:flex-end!important;justify-content:stretch!important;}
-    #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open{animation:fadeIn .2s ease-out;}
+    #guideBackdrop,#noteBackdrop,#shareBackdrop,#helpBackdrop{align-items:flex-end!important;justify-content:stretch!important;}
+    #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{animation:fadeIn .2s ease-out;}
     .guide-modal{width:100%;max-width:none;margin:0;border-radius:16px 16px 0 0;max-height:92vh;max-height:92dvh;
       padding-bottom:env(safe-area-inset-bottom);}
     .backdrop.open .guide-modal{animation:sheetUp .28s cubic-bezier(.2,.8,.3,1);}
@@ -964,6 +990,7 @@
        the guideToggleShort UI key's own comment. A ::after avoids touching the hl-tx
        machinery the other three links still rely on to stay icon-only. */
     #guideToggle::after{content:attr(data-short);font-size:11px;font-weight:700;margin-left:3px;color:#fff;}
+    #helpBtn::after{content:attr(data-short);font-size:11px;font-weight:700;margin-left:3px;color:#a11;}
     /* language switcher and the three utility links share one compact band, and
        the title drops below them instead of each taking a row of its own */
     header{padding:10px 12px 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
@@ -1132,6 +1159,7 @@
     </div>
   </div>
   <div class="header-links" role="group" id="headerLinksGroup" aria-label="">
+    <button class="note-toggle help-btn" id="helpBtn" type="button"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
     <button class="note-toggle" id="shareBtn"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
     <a class="feedback-link" id="feedbackLink" href="#"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></a>
     <button class="note-toggle" id="guideToggle"><span class="hl-ic" aria-hidden="true"></span><span class="hl-tx"></span></button>
@@ -1144,6 +1172,16 @@
   <h1 id="h1" aria-describedby="sub"></h1>
   <p class="sub" id="sub"></p>
 </header>
+<div class="backdrop" id="helpBackdrop">
+  <div class="guide-modal" id="helpModal">
+    <div class="sheet-grab" aria-hidden="true"><div class="panel-handle"></div></div>
+    <div class="guide-head">
+      <div class="panel-title" id="helpTitle"></div>
+      <button class="panel-close" id="helpClose">✕</button>
+    </div>
+    <div class="guide-body" id="helpBody"></div>
+  </div>
+</div>
 <div class="backdrop" id="shareBackdrop">
   <div class="guide-modal" id="shareModal">
     <div class="sheet-grab" aria-hidden="true"><div class="panel-handle"></div></div>
@@ -1242,7 +1280,7 @@
      page does, in the reader's own terms, each a live door. Dismissed with one
      tap and remembered in this browser only. -->
 <div class="active-filters" id="activeFilters"></div>
-<div id="map" tabindex="-1"><div class="bus-indicator" id="busIndicator" role="status" aria-live="polite" hidden></div><div class="firstuse" id="firstUse" hidden></div><div class="offline-note" id="offlineNote" role="status" hidden><span id="offlineText"></span><button class="offline-x" id="offlineClose" type="button">✕</button></div></div>
+<div id="map" tabindex="-1"><div class="bus-indicator" id="busIndicator" role="status" aria-live="polite" hidden></div><div class="firstuse" id="firstUse" hidden></div><div class="season-note" id="seasonNote" role="note" hidden></div><div class="offline-note" id="offlineNote" role="status" hidden><span id="offlineText"></span><button class="offline-x" id="offlineClose" type="button">✕</button></div></div>
 <div class="footer" id="footer"></div>
 <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
 
@@ -1323,7 +1361,7 @@
 </div>
 
 <script id="app">
-const UI={"zh":{"title":"{CITY} 生活指南","sub":"遇到事情不知道怎么办、去哪里办、要带什么——这里一步一步告诉你 · 给刚到的人，也给住了很久、想帮人的人","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与声明</h3><p>最后一次整体核对：{DATE}。每个地点还各自标了自己的核实日期与来源类型；办事卡标了官方出处链接。</p><p><b>这是什么。</b>一个人整理的、六种语言的本地生活参考。不是政府或任何机构发布的，与页面上列出的任何商家、机构都没有关联，也不代表它们。</p><p><b>它不是什么。</b>不是法律意见、医疗建议、移民咨询或税务建议。它告诉你去哪、找谁；具体到你自己的情况，请找那个“谁”——卡片里都列了。紧急情况请打 911。</p><p><b>会变的东西。</b>营业时间、费用、政策都会变。出发前打个电话——这是我们的建议，也是我们能负责的边界。在法律允许的范围内，我们不对因依赖本页面信息而产生的损失承担责任。</p><p><b>第三方。</b>页面里链接的网站、地图底图、以及来自 Google Places 的地址电话等事实数据，各有各的条款；它们不由本页面负责。</p><p><b>纠错与下架。</b>发现错误请来信，我们会改，改动记录在版本号里。你发来的纠错可能被采用，采用即视为同意以本页面的许可发布，默认不署名。如果你是被列出的机构，信息有误或不愿被列出，来信即改——收到后 5 个工作日内处理。</p><p><b>适用法律。</b>本声明受加拿大 British Columbia 省法律管辖。本页面面向成年人及其家庭，不向任何人收集个人信息。因为没有能识别你的数据，我们也没有什么可以替你查询或删除——这是设计使然，不是推脱。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子场所","newcomer":"🧳 居民必备","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"个人整理的参考 · 非官方 · 每条标注了核实日期与出处 · 办事以机构本身为准 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省住宅租赁管理处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 <b>911</b>（报警 / 火警 / 救护）· <b>8-1-1</b>（非紧急健康咨询，有中文翻译）· <b>250-828-3000</b>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 这个页面会记录用到了哪些功能，用来找出哪里做得不好</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Life Guide","sub":"What to do, where to go, what to bring — step by step · for people who just arrived, and for anyone who wants to help them","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last verified &amp; statement</h3><p>Last full check: {DATE}. Every place also carries its own verification date and source type; every task card links its official source.</p><p><b>What this is.</b> A local living reference in six languages, compiled by one person. It is not published by any government or organisation, and it is not affiliated with, and does not represent, any business or organisation listed here.</p><p><b>What it is not.</b> It is not legal advice, medical advice, immigration advice or tax advice. It tells you where to go and who to ask; for your own situation, ask that “who” — every card names them. In an emergency, call 911.</p><p><b>Things that change.</b> Hours, fees and rules all change. Phone before you set out — that is our advice, and it is also the edge of what we can answer for. To the extent the law allows, we accept no liability for loss arising from reliance on this page.</p><p><b>Third parties.</b> Sites linked from here, the map imagery, and factual data such as addresses and phone numbers drawn from Google Places are each under their own terms; this page does not answer for them.</p><p><b>Corrections and removal.</b> If something is wrong, write to us and we will fix it; changes are recorded in the version number. A correction you send may be used, and sending it is taken as agreement to publish it under this page’s licence, unattributed unless you ask. If you are an organisation listed here and the entry is wrong, or you would rather not be listed, write and it will be changed — within 5 working days of your message.</p><p><b>Governing law.</b> This statement is governed by the laws of British Columbia, Canada. This page is for adults and their families; it collects personal information from no one. Because nothing here can identify you, there is nothing we could look up or delete on your behalf — by design, not by evasion.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Kids’ Places","newcomer":"🧳 Resident Essentials","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"A personal reference · not official · every entry carries a verification date and source · the office itself has the final word · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <b>911</b> · <b>8-1-1</b> (non-emergency health advice) · <b>250-828-3000</b> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 This page records which features get used, to find what isn’t working</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Guide pratique de {CITY}","sub":"Quoi faire, où aller, quoi apporter — étape par étape · pour qui arrive, et pour qui veut aider","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et déclaration</h3><p>Dernière vérification complète : {DATE}. Chaque lieu porte aussi sa propre date de vérification et son type de source; chaque fiche renvoie à sa source officielle.</p><p><b>Ce que c’est.</b> Une référence de vie locale en six langues, compilée par une personne. Elle n’est publiée par aucun gouvernement ni organisme, et n’est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente.</p><p><b>Ce que ce n’est pas.</b> Ce n’est ni un avis juridique, ni un avis médical, ni un conseil en immigration ou en fiscalité. Elle vous dit où aller et à qui demander; pour votre propre situation, demandez à ce « qui » — chaque fiche le nomme. En cas d’urgence, composez le 911.</p><p><b>Ce qui change.</b> Heures, frais et règles changent. Téléphonez avant de partir — c’est notre conseil, et c’est aussi la limite de ce dont nous pouvons répondre. Dans la mesure permise par la loi, nous déclinons toute responsabilité pour une perte découlant de la confiance accordée à cette page.</p><p><b>Tiers.</b> Les sites liés, le fond de carte et les données factuelles (adresses, téléphones) tirées de Google Places relèvent chacun de leurs propres conditions; cette page n’en répond pas.</p><p><b>Corrections et retrait.</b> Si quelque chose est faux, écrivez-nous et nous corrigerons; les changements sont consignés dans le numéro de version. Une correction envoyée peut être utilisée, et l’envoyer vaut accord pour la publier sous la licence de cette page, sans attribution sauf demande. Si vous êtes un organisme mentionné et que l’entrée est erronée, ou que vous préférez ne pas y figurer, écrivez et ce sera changé — dans les 5 jours ouvrables suivant votre message.</p><p><b>Droit applicable.</b> Cette déclaration est régie par les lois de la Colombie-Britannique, Canada. Cette page s’adresse aux adultes et à leurs familles; elle ne recueille de renseignements personnels auprès de personne. Comme rien ici ne permet de vous identifier, il n’y a rien que nous puissions consulter ou supprimer pour vous — par conception, non par dérobade.</p>","noteToggleLabel":"ℹ️ À propos des données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Lieux pour enfants","newcomer":"🧳 Essentiels résidents","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Référence personnelle · non officielle · chaque entrée porte une date de vérification et une source · l'organisme lui-même a le dernier mot · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <b>911</b> · <b>8-1-1</b> (conseils santé non urgents, interprète en français sur demande) · <b>250-828-3000</b> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Cette page enregistre les fonctions utilisées, pour repérer ce qui ne marche pas</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Commentaires","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Guía práctica de {CITY}","sub":"Qué hacer, adónde ir, qué llevar — paso a paso · para quien llega, y para quien quiere ayudar","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y declaración</h3><p>Última revisión completa: {DATE}. Cada lugar lleva además su propia fecha de verificación y tipo de fuente; cada ficha enlaza su fuente oficial.</p><p><b>Qué es.</b> Una referencia de vida local en seis idiomas, recopilada por una persona. No la publica ningún gobierno ni organización, y no está afiliada ni representa a ningún negocio u organización aquí listado.</p><p><b>Qué no es.</b> No es asesoría legal, médica, migratoria ni fiscal. Le dice adónde ir y a quién preguntar; para su propia situación, pregunte a ese «quién» — cada ficha lo nombra. En una emergencia, llame al 911.</p><p><b>Lo que cambia.</b> Horarios, tarifas y normas cambian. Llame antes de salir — es nuestro consejo y también el límite de lo que podemos responder. En la medida que la ley permite, no asumimos responsabilidad por pérdidas derivadas de confiar en esta página.</p><p><b>Terceros.</b> Los sitios enlazados, las imágenes del mapa y los datos de hecho (direcciones, teléfonos) tomados de Google Places tienen cada uno sus propios términos; esta página no responde por ellos.</p><p><b>Correcciones y retiro.</b> Si algo está mal, escríbanos y lo corregiremos; los cambios quedan en el número de versión. Una corrección enviada puede usarse, y enviarla se entiende como acuerdo para publicarla bajo la licencia de esta página, sin atribución salvo que la pida. Si usted es una organización listada y la entrada es errónea, o prefiere no aparecer, escriba y se cambiará — dentro de los 5 días hábiles siguientes a su mensaje.</p><p><b>Ley aplicable.</b> Esta declaración se rige por las leyes de Columbia Británica, Canadá. Esta página es para adultos y sus familias; no recopila información personal de nadie. Como nada aquí puede identificarle, no hay nada que podamos consultar ni borrar en su nombre — por diseño, no por evasiva.</p>","noteToggleLabel":"ℹ️ Sobre los datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Lugares para niños","newcomer":"🧳 Esenciales para residentes","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Referencia personal · no oficial · cada entrada lleva fecha de verificación y fuente · la última palabra la tiene la oficina · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <b>911</b> · <b>8-1-1</b> (asesoría de salud no urgente, intérprete en español a pedido) · <b>250-828-3000</b> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Esta página registra qué funciones se usan, para detectar lo que no funciona</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 가이드","sub":"무엇을, 어디서, 무엇을 가지고 — 단계별로 · 막 도착한 분에게, 그리고 돕고 싶은 분에게","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 안내</h3><p>마지막 전체 점검: {DATE}. 각 장소에는 자체 확인일과 출처 유형이, 각 카드에는 공식 출처 링크가 있습니다.</p><p><b>이것은 무엇인가.</b> 한 사람이 정리한 여섯 언어의 지역 생활 참고 자료입니다. 어떤 정부나 기관이 발행한 것이 아니며, 여기 나열된 어떤 업체·기관과도 관련이 없고 그들을 대표하지 않습니다.</p><p><b>이것이 아닌 것.</b> 법률·의료·이민·세무 조언이 아닙니다. 어디로 가고 누구에게 물을지를 알려줄 뿐이며, 본인의 상황은 그 “누구”에게 물으세요 — 모든 카드에 적혀 있습니다. 응급 상황에는 911.</p><p><b>바뀌는 것들.</b> 운영시간, 비용, 규정은 바뀝니다. 출발 전에 전화하세요 — 이것이 우리의 조언이자, 우리가 책임질 수 있는 경계입니다. 법이 허용하는 범위에서, 이 페이지를 신뢰함으로써 생긴 손실에 대해 책임을 지지 않습니다.</p><p><b>제3자.</b> 링크된 사이트, 지도 배경, Google Places에서 가져온 주소·전화 등 사실 정보는 각자의 약관을 따르며, 이 페이지가 책임지지 않습니다.</p><p><b>정정과 삭제.</b> 틀린 것이 있으면 알려주세요. 고치고, 변경은 버전 번호에 기록합니다. 보내주신 정정은 사용될 수 있으며, 보내는 것은 이 페이지의 라이선스로 게시하는 데 동의하는 것으로 봅니다(요청이 없으면 익명). 여기 나열된 기관으로서 정보가 틀렸거나 나열되기를 원치 않으면 알려주세요. 연락을 받은 뒤 5 영업일 이내에 바꿉니다.</p><p><b>준거법.</b> 이 안내는 캐나다 브리티시컬럼비아주 법의 적용을 받습니다. 이 페이지는 성인과 그 가족을 위한 것이며, 누구의 개인정보도 수집하지 않습니다. 사용자를 식별할 수 있는 데이터가 없으므로, 대신 조회하거나 삭제해 드릴 것도 없습니다 — 회피가 아니라 설계입니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 순서","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 아이와 갈 곳","newcomer":"🧳 주민 필수","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"개인이 정리한 참고 자료 · 비공식 · 모든 항목에 확인일과 출처 표기 · 최종 확인은 해당 기관에 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 주택임대청(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <b>911</b>(긴급상황) · <b>8-1-1</b>(비응급 건강 상담, 한국어 통역 요청 가능) · <b>250-828-3000</b>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 이 페이지는 어떤 기능이 쓰였는지 기록합니다 — 무엇이 잘 안 되는지 찾기 위해서입니다</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"},"ja":{"title": "{CITY} 生活ガイド", "sub": "何を、どこで、何を持って — 順を追って · 来たばかりの人に、そして助けたい人に", "note": "<h3>⚠️ データの出典と収録範囲</h3><p>本ページのデータは個人が作成したもので、Google Placesおよび各機関の公式サイトから収集し、市内全域をカバーしています。各カテゴリーには主要なスポットを厳選して掲載しています（レストラン・ガソリンスタンドなどは市内に数百件あり、全てを網羅したリストではありません。🚌公共交通機関は主要な乗換拠点のみを表示し、備考欄に記載する経由路線番号は参考情報です。停留所が非常に多いため全ては掲載できません。運賃は目安として大人片道$2.25・1日券$4.50・月間パス$55です（Umoカードまたはタップ決済対応）。正確な路線・運賃・リアルタイムの到着情報は{TRANSIT}の公式サイトでご確認ください）。</p><h3>🏢 実用的な注意事項</h3><p>賃貸料金は電話または公式サイトでご確認ください。営業時間は変更される場合があるため、訪問前に電話でご確認することをお勧めします。</p><h3>📅 最終確認日と声明</h3><p>最後の全体確認: {DATE}。各場所には個別の確認日と出典の種類が、各カードには公式の出典リンクがあります。</p><p><b>これは何か。</b>一人が編集した六言語の地域生活の参考資料です。政府や団体が発行したものではなく、掲載されたいかなる事業者・団体とも関係がなく、それらを代表するものでもありません。</p><p><b>これは何でないか。</b>法律・医療・移民・税務の助言ではありません。どこへ行き誰に聞くかを示すだけで、ご自身の状況はその「誰か」に聞いてください — 各カードに名前があります。緊急時は911へ。</p><p><b>変わるもの。</b>営業時間、料金、規則は変わります。出かける前に電話を — それが私たちの助言であり、私たちが責任を持てる境界でもあります。法律の許す範囲で、このページへの依拠から生じた損失について責任を負いません。</p><p><b>第三者。</b>リンク先のサイト、地図の背景、Google Placesから得た住所・電話などの事実データは、それぞれの規約に従い、このページは責任を負いません。</p><p><b>訂正と削除。</b>誤りがあればお知らせください。修正し、変更はバージョン番号に記録します。送られた訂正は採用されることがあり、送信はこのページのライセンスで公開することへの同意とみなします（希望がなければ無記名）。掲載団体で、記載が誤っているか掲載を望まない場合は、お知らせいただければ変更します — ご連絡から5営業日以内に対応します。</p><p><b>準拠法。</b>この声明はカナダ・ブリティッシュコロンビア州の法律に準拠します。このページは成人とその家族向けで、誰の個人情報も収集しません。あなたを特定できるデータがないため、代わりに照会や削除をすることもできません — 逃げではなく、そういう設計です。</p>", "noteToggleLabel": "ℹ️ データについて", "regLabel": "📍 エリアで絞り込み", "catLabel": "🏷️ カテゴリーで絞り込み", "allReg": "すべてのエリア", "allCat": "✓ すべてのカテゴリー", "noCat": "✕ すべて解除", "nextDayPrefix": "翌日", "lStopSeq": "停留所順", "lStops": "停留所数", "lService": "運行時間", "lFare": "運賃", "busFareText": "大人片道$2.25 · 1日券$4.50 · 月間パス$55（Umoカードまたはタップ決済対応）", "busCaveat": "上記は当該路線の全便の運行時間帯です（週末延長便を含む）— 正確な時刻・運賃は{TRANSIT}の公式時刻表でご確認ください", "busBtnLabel": "バス路線", "auto": "🚗 交通", "daily": "🏠 暮らしの基本", "kids": "👨‍👩‍👧 子供向け施設", "newcomer": "🧳 住民の手続き先", "sports": "💪 スポーツ・フィットネス", "lPhone": "電話", "lHours": "時間", "lWeb": "公式サイトへ →", "footer": "個人がまとめた参考資料 · 非公式 · 各項目に確認日と出典を記載 · 最終確認は機関へ · 学区の割り当ては<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}公式ツール</a>でご確認ください · バス路線・停留所・リアルタイム到着情報は<a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}公式サイト</a>でご確認ください · 賃貸トラブル・敷金・退去通知などは<a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC州住宅賃貸局（RTB）</a>（<b>1-800-665-8779</b>）へ<br><span class=\"footer-emergency\">🚨 緊急電話: <b>911</b>（緊急時）· <b>8-1-1</b>（非緊急の健康相談、日本語通訳依頼可）· <b>250-828-3000</b>（RCMP非緊急）</span><br>💬 ご意見・ご提案: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 このページは、どの機能が使われたかを記録しています（うまくいっていない箇所を見つけるため）</span>", "edu": "🎓 教育", "health": "⚕️ 医療", "outdoor": "🌳 アウトドア", "shopping": "🛍️ ショッピング", "lNav": "経路案内", "feedbackLink": "💬 フィードバック", "lCall": "電話", "lWeb2": "公式サイト"}};
+const UI={"zh":{"title":"{CITY} 生活指南","sub":"遇到事情不知道怎么办、去哪里办、要带什么——这里一步一步告诉你 · 刚到的人和住了很多年的人，都用得上","note":"<h3>⚠️ 数据来源与覆盖范围</h3><p>本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。</p><h3>🏢 实用提醒</h3><p>公寓租金请以致电/官网为准。营业时间可能变动，建议前往前电话确认。</p><h3>📅 核实日期与声明</h3><p>最后一次整体核对：{DATE}。每个地点还各自标了自己的核实日期与来源类型；办事卡标了官方出处链接。</p><p><b>这是什么。</b>一个人整理的、六种语言的本地生活参考。不是政府或任何机构发布的，与页面上列出的任何商家、机构都没有关联，也不代表它们。</p><p><b>它不是什么。</b>不是法律意见、医疗建议、移民咨询或税务建议。它告诉你去哪、找谁；具体到你自己的情况，请找那个“谁”——卡片里都列了。紧急情况请打 911。</p><p><b>会变的东西。</b>营业时间、费用、政策都会变。出发前打个电话——这是我们的建议，也是我们能负责的边界。在法律允许的范围内，我们不对因依赖本页面信息而产生的损失承担责任。</p><p><b>第三方。</b>页面里链接的网站、地图底图、以及来自 Google Places 的地址电话等事实数据，各有各的条款；它们不由本页面负责。</p><p><b>纠错与下架。</b>发现错误请来信，我们会改，改动记录在版本号里。你发来的纠错可能被采用，采用即视为同意以本页面的许可发布，默认不署名。如果你是被列出的机构，信息有误或不愿被列出，来信即改——收到后 5 个工作日内处理。</p><p><b>适用法律。</b>本声明受加拿大 British Columbia 省法律管辖。本页面面向成年人及其家庭，不向任何人收集个人信息。因为没有能识别你的数据，我们也没有什么可以替你查询或删除——这是设计使然，不是推脱。</p>","noteToggleLabel":"ℹ️ 数据说明","regLabel":"📍 按区域筛选","catLabel":"🏷️ 按分类筛选","allReg":"全部区域","allCat":"✓ 全部分类","noCat":"✕ 清空分类","nextDayPrefix":"次日","lStopSeq":"站序","lStops":"站数","lService":"运营时间","lFare":"票价","busFareText":"成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）","busCaveat":"以上为该线路全部班次时间范围（含周末延时班次），具体时刻/票价请以{TRANSIT}官网当期时刻表为准","busBtnLabel":"公交线路","auto":"🚗 交通","daily":"🏠 日常必备","kids":"👨‍👩‍👧 亲子场所","newcomer":"🧳 刚搬来","sports":"💪 运动健身","lPhone":"电话","lHours":"时间","lWeb":"访问官网 →","footer":"个人整理的参考 · 非官方 · 每条标注了核实日期与出处 · 办事以机构本身为准 · 学区划片请用 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}官方工具</a> 确认 · 公交线路/站点/实时到站请用 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}官网</a> 查询 · 租房纠纷/押金/搬迁通知等找 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC省住宅租赁管理处RTB</a>（<b>1-800-665-8779</b>）<br><span class=\"footer-emergency\">🚨 <a href=\"tel:911\"><b>911</b></a>（报警 / 火警 / 救护）· <a href=\"tel:988\"><b>9-8-8</b></a>（自杀危机，24 小时）· <a href=\"tel:811\"><b>8-1-1</b></a>（非紧急健康咨询，有中文翻译）· <a href=\"tel:2508283000\"><b>250-828-3000</b></a>（RCMP非紧急）</span><br>💬 使用反馈/建议：<a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 这个页面会记录用到了哪些功能，用来找出哪里做得不好</span>","edu":"🎓 教育","health":"⚕️ 医疗","outdoor":"🌳 户外探索","shopping":"🛍️ 购物采购","lNav":"导航前往","feedbackLink":"💬 意见反馈","lCall":"电话","lWeb2":"官网"},"en":{"title":"{CITY} Life Guide","sub":"What to do, where to go, what to bring — step by step · for people who just arrived, and for people who have lived here for years","note":"<h3>⚠️ Source &amp; Coverage</h3><p>This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}'s own site).</p><h3>🏢 Practical Notes</h3><p>For apartment rents, confirm by phone or on the building’s website. Hours may change; call ahead to confirm.</p><h3>📅 Last verified &amp; statement</h3><p>Last full check: {DATE}. Every place also carries its own verification date and source type; every task card links its official source.</p><p><b>What this is.</b> A local living reference in six languages, compiled by one person. It is not published by any government or organisation, and it is not affiliated with, and does not represent, any business or organisation listed here.</p><p><b>What it is not.</b> It is not legal advice, medical advice, immigration advice or tax advice. It tells you where to go and who to ask; for your own situation, ask that “who” — every card names them. In an emergency, call 911.</p><p><b>Things that change.</b> Hours, fees and rules all change. Phone before you set out — that is our advice, and it is also the edge of what we can answer for. To the extent the law allows, we accept no liability for loss arising from reliance on this page.</p><p><b>Third parties.</b> Sites linked from here, the map imagery, and factual data such as addresses and phone numbers drawn from Google Places are each under their own terms; this page does not answer for them.</p><p><b>Corrections and removal.</b> If something is wrong, write to us and we will fix it; changes are recorded in the version number. A correction you send may be used, and sending it is taken as agreement to publish it under this page’s licence, unattributed unless you ask. If you are an organisation listed here and the entry is wrong, or you would rather not be listed, write and it will be changed — within 5 working days of your message.</p><p><b>Governing law.</b> This statement is governed by the laws of British Columbia, Canada. This page is for adults and their families; it collects personal information from no one. Because nothing here can identify you, there is nothing we could look up or delete on your behalf — by design, not by evasion.</p>","noteToggleLabel":"ℹ️ Data Notes","regLabel":"📍 Filter by Area","catLabel":"🏷️ Filter by Category","allReg":"All Areas","allCat":"✓ All Categories","noCat":"✕ Clear All","nextDayPrefix":"next-day ","lStopSeq":"Stop #","lStops":"Stops","lService":"Service Hours","lFare":"Fare","busFareText":"Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)","busCaveat":"Range covers all scheduled trips (incl. late weekend service) — confirm exact times/fares on {TRANSIT}’s current schedule","busBtnLabel":"Bus Routes","auto":"🚗 Transport","daily":"🏠 Daily Essentials","kids":"👨‍👩‍👧 Kids’ Places","newcomer":"🧳 Just moved","sports":"💪 Sports & Fitness","lPhone":"Phone","lHours":"Hours","lWeb":"Visit Website →","footer":"A personal reference · not official · every entry carries a verification date and source · the office itself has the final word · For school catchments use the <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} official tool</a> · For transit routes/stops/live arrivals use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · For tenant rights/deposits/notices see the <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC Residential Tenancy Branch</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergency: <a href=\"tel:911\"><b>911</b></a> · <a href=\"tel:988\"><b>9-8-8</b></a> (suicide crisis, 24 h) · <a href=\"tel:811\"><b>8-1-1</b></a> (non-emergency health advice) · <a href=\"tel:2508283000\"><b>250-828-3000</b></a> (RCMP non-emergency)</span><br>💬 Feedback & suggestions: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 This page records which features get used, to find what isn’t working</span>","edu":"🎓 Education","health":"⚕️ Health","outdoor":"🌳 Outdoors","shopping":"🛍️ Shopping","lNav":"Directions","feedbackLink":"💬 Feedback","lCall":"Call","lWeb2":"Website"},"fr":{"title":"Guide pratique de {CITY}","sub":"Quoi faire, où aller, quoi apporter — étape par étape · pour qui arrive, et pour qui vit ici depuis des années","note":"<h3>⚠️ Source et couverture</h3><p>Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).</p><h3>🏢 Remarques pratiques</h3><p>Pour les loyers, confirmez par téléphone ou sur le site de l’immeuble. Les heures peuvent changer; appelez pour confirmer.</p><h3>📅 Dernière vérification et déclaration</h3><p>Dernière vérification complète : {DATE}. Chaque lieu porte aussi sa propre date de vérification et son type de source; chaque fiche renvoie à sa source officielle.</p><p><b>Ce que c’est.</b> Une référence de vie locale en six langues, compilée par une personne. Elle n’est publiée par aucun gouvernement ni organisme, et n’est affiliée à aucune entreprise ou organisation mentionnée, ni ne les représente.</p><p><b>Ce que ce n’est pas.</b> Ce n’est ni un avis juridique, ni un avis médical, ni un conseil en immigration ou en fiscalité. Elle vous dit où aller et à qui demander; pour votre propre situation, demandez à ce « qui » — chaque fiche le nomme. En cas d’urgence, composez le 911.</p><p><b>Ce qui change.</b> Heures, frais et règles changent. Téléphonez avant de partir — c’est notre conseil, et c’est aussi la limite de ce dont nous pouvons répondre. Dans la mesure permise par la loi, nous déclinons toute responsabilité pour une perte découlant de la confiance accordée à cette page.</p><p><b>Tiers.</b> Les sites liés, le fond de carte et les données factuelles (adresses, téléphones) tirées de Google Places relèvent chacun de leurs propres conditions; cette page n’en répond pas.</p><p><b>Corrections et retrait.</b> Si quelque chose est faux, écrivez-nous et nous corrigerons; les changements sont consignés dans le numéro de version. Une correction envoyée peut être utilisée, et l’envoyer vaut accord pour la publier sous la licence de cette page, sans attribution sauf demande. Si vous êtes un organisme mentionné et que l’entrée est erronée, ou que vous préférez ne pas y figurer, écrivez et ce sera changé — dans les 5 jours ouvrables suivant votre message.</p><p><b>Droit applicable.</b> Cette déclaration est régie par les lois de la Colombie-Britannique, Canada. Cette page s’adresse aux adultes et à leurs familles; elle ne recueille de renseignements personnels auprès de personne. Comme rien ici ne permet de vous identifier, il n’y a rien que nous puissions consulter ou supprimer pour vous — par conception, non par dérobade.</p>","noteToggleLabel":"ℹ️ À propos des données","regLabel":"📍 Filtrer par secteur","catLabel":"🏷️ Filtrer par catégorie","allReg":"Tous les secteurs","allCat":"✓ Toutes les catégories","noCat":"✕ Tout effacer","nextDayPrefix":"lendemain ","lStopSeq":"Arrêt n°","lStops":"Arrêts","lService":"Heures de service","lFare":"Tarif","busFareText":"Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)","busCaveat":"Plage couvrant tous les trajets prévus (incl. service tardif de fin de semaine) — vérifiez les horaires/tarifs exacts sur le site de {TRANSIT}","busBtnLabel":"Lignes de bus","auto":"🚗 Transport","daily":"🏠 Essentiels quotidiens","kids":"👨‍👩‍👧 Lieux pour enfants","newcomer":"🧳 Nouvelle installation","sports":"💪 Sports et fitness","lPhone":"Tél.","lHours":"Heures","lWeb":"Site web →","footer":"Référence personnelle · non officielle · chaque entrée porte une date de vérification et une source · l'organisme lui-même a le dernier mot · Pour les zones scolaires, utilisez l'<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">outil officiel {SD}</a> · Pour les itinéraires/arrêts de bus, utilisez <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Pour les droits des locataires, voir la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Residential Tenancy Branch de la C.-B.</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Urgence : <a href=\"tel:911\"><b>911</b></a> · <a href=\"tel:988\"><b>9-8-8</b></a> (crise suicidaire, 24 h) · <a href=\"tel:811\"><b>8-1-1</b></a> (conseils santé non urgents, interprète en français sur demande) · <a href=\"tel:2508283000\"><b>250-828-3000</b></a> (GRC non urgent)</span><br>💬 Commentaires et suggestions : <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Cette page enregistre les fonctions utilisées, pour repérer ce qui ne marche pas</span>","edu":"🎓 Éducation","health":"⚕️ Santé","outdoor":"🌳 Plein air","shopping":"🛍️ Achats","lNav":"Itinéraire","feedbackLink":"💬 Commentaires","lCall":"Appeler","lWeb2":"Site web"},"es":{"title":"Guía práctica de {CITY}","sub":"Qué hacer, adónde ir, qué llevar — paso a paso · para quien llega, y para quien lleva años aquí","note":"<h3>⚠️ Fuente y cobertura</h3><p>Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).</p><h3>🏢 Notas prácticas</h3><p>Para los alquileres, confirme por teléfono o en el sitio web del edificio. Los horarios pueden cambiar; llame con anticipación para confirmar.</p><h3>📅 Última verificación y declaración</h3><p>Última revisión completa: {DATE}. Cada lugar lleva además su propia fecha de verificación y tipo de fuente; cada ficha enlaza su fuente oficial.</p><p><b>Qué es.</b> Una referencia de vida local en seis idiomas, recopilada por una persona. No la publica ningún gobierno ni organización, y no está afiliada ni representa a ningún negocio u organización aquí listado.</p><p><b>Qué no es.</b> No es asesoría legal, médica, migratoria ni fiscal. Le dice adónde ir y a quién preguntar; para su propia situación, pregunte a ese «quién» — cada ficha lo nombra. En una emergencia, llame al 911.</p><p><b>Lo que cambia.</b> Horarios, tarifas y normas cambian. Llame antes de salir — es nuestro consejo y también el límite de lo que podemos responder. En la medida que la ley permite, no asumimos responsabilidad por pérdidas derivadas de confiar en esta página.</p><p><b>Terceros.</b> Los sitios enlazados, las imágenes del mapa y los datos de hecho (direcciones, teléfonos) tomados de Google Places tienen cada uno sus propios términos; esta página no responde por ellos.</p><p><b>Correcciones y retiro.</b> Si algo está mal, escríbanos y lo corregiremos; los cambios quedan en el número de versión. Una corrección enviada puede usarse, y enviarla se entiende como acuerdo para publicarla bajo la licencia de esta página, sin atribución salvo que la pida. Si usted es una organización listada y la entrada es errónea, o prefiere no aparecer, escriba y se cambiará — dentro de los 5 días hábiles siguientes a su mensaje.</p><p><b>Ley aplicable.</b> Esta declaración se rige por las leyes de Columbia Británica, Canadá. Esta página es para adultos y sus familias; no recopila información personal de nadie. Como nada aquí puede identificarle, no hay nada que podamos consultar ni borrar en su nombre — por diseño, no por evasiva.</p>","noteToggleLabel":"ℹ️ Sobre los datos","regLabel":"📍 Filtrar por zona","catLabel":"🏷️ Filtrar por categoría","allReg":"Todas las zonas","allCat":"✓ Todas las categorías","noCat":"✕ Borrar todo","nextDayPrefix":"día siguiente ","lStopSeq":"Parada n.°","lStops":"Paradas","lService":"Horario de servicio","lFare":"Tarifa","busFareText":"Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)","busCaveat":"El rango cubre todos los viajes programados (incl. servicio nocturno de fin de semana) — confirme horarios/tarifas exactos en el horario actual de {TRANSIT}","busBtnLabel":"Rutas de autobús","auto":"🚗 Transporte","daily":"🏠 Esenciales diarios","kids":"👨‍👩‍👧 Lugares para niños","newcomer":"🧳 Recién mudado","sports":"💪 Deportes y fitness","lPhone":"Teléfono","lHours":"Horario","lWeb":"Visitar sitio web →","footer":"Referencia personal · no oficial · cada entrada lleva fecha de verificación y fuente · la última palabra la tiene la oficina · Para zonas escolares use la <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">herramienta oficial de {SD}</a> · Para rutas/paradas de autobús y llegadas en vivo use <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}</a> · Para derechos del inquilino/depósitos/avisos vea la <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">Oficina de Arrendamientos Residenciales de BC (RTB)</a> (<b>1-800-665-8779</b>)<br><span class=\"footer-emergency\">🚨 Emergencias: <a href=\"tel:911\"><b>911</b></a> · <a href=\"tel:988\"><b>9-8-8</b></a> (crisis suicida, 24 h) · <a href=\"tel:811\"><b>8-1-1</b></a> (asesoría de salud no urgente, intérprete en español a pedido) · <a href=\"tel:2508283000\"><b>250-828-3000</b></a> (RCMP no urgente)</span><br>💬 Comentarios y sugerencias: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 Esta página registra qué funciones se usan, para detectar lo que no funciona</span>","edu":"🎓 Educación","health":"⚕️ Salud","outdoor":"🌳 Aire libre","shopping":"🛍️ Compras","lNav":"Cómo llegar","feedbackLink":"💬 Comentarios","lCall":"Llamar","lWeb2":"Sitio web"},"ko":{"title":"{CITY} 생활 가이드","sub":"무엇을, 어디서, 무엇을 가지고 — 단계별로 · 막 도착한 분에게도, 오래 살아온 분에게도","note":"<h3>⚠️ 출처 및 수집 범위</h3><p>이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).</p><h3>🏢 실용 안내</h3><p>아파트 임대료는 전화 또는 해당 건물 웹사이트로 확인하세요. 운영시간은 변경될 수 있으니 방문 전 전화로 확인하는 것이 좋습니다.</p><h3>📅 최종 확인일 및 안내</h3><p>마지막 전체 점검: {DATE}. 각 장소에는 자체 확인일과 출처 유형이, 각 카드에는 공식 출처 링크가 있습니다.</p><p><b>이것은 무엇인가.</b> 한 사람이 정리한 여섯 언어의 지역 생활 참고 자료입니다. 어떤 정부나 기관이 발행한 것이 아니며, 여기 나열된 어떤 업체·기관과도 관련이 없고 그들을 대표하지 않습니다.</p><p><b>이것이 아닌 것.</b> 법률·의료·이민·세무 조언이 아닙니다. 어디로 가고 누구에게 물을지를 알려줄 뿐이며, 본인의 상황은 그 “누구”에게 물으세요 — 모든 카드에 적혀 있습니다. 응급 상황에는 911.</p><p><b>바뀌는 것들.</b> 운영시간, 비용, 규정은 바뀝니다. 출발 전에 전화하세요 — 이것이 우리의 조언이자, 우리가 책임질 수 있는 경계입니다. 법이 허용하는 범위에서, 이 페이지를 신뢰함으로써 생긴 손실에 대해 책임을 지지 않습니다.</p><p><b>제3자.</b> 링크된 사이트, 지도 배경, Google Places에서 가져온 주소·전화 등 사실 정보는 각자의 약관을 따르며, 이 페이지가 책임지지 않습니다.</p><p><b>정정과 삭제.</b> 틀린 것이 있으면 알려주세요. 고치고, 변경은 버전 번호에 기록합니다. 보내주신 정정은 사용될 수 있으며, 보내는 것은 이 페이지의 라이선스로 게시하는 데 동의하는 것으로 봅니다(요청이 없으면 익명). 여기 나열된 기관으로서 정보가 틀렸거나 나열되기를 원치 않으면 알려주세요. 연락을 받은 뒤 5 영업일 이내에 바꿉니다.</p><p><b>준거법.</b> 이 안내는 캐나다 브리티시컬럼비아주 법의 적용을 받습니다. 이 페이지는 성인과 그 가족을 위한 것이며, 누구의 개인정보도 수집하지 않습니다. 사용자를 식별할 수 있는 데이터가 없으므로, 대신 조회하거나 삭제해 드릴 것도 없습니다 — 회피가 아니라 설계입니다.</p>","noteToggleLabel":"ℹ️ 데이터 안내","regLabel":"📍 지역별 필터","catLabel":"🏷️ 분류별 필터","allReg":"전체 지역","allCat":"✓ 전체 분류","noCat":"✕ 분류 초기화","nextDayPrefix":"익일 ","lStopSeq":"정류장 순서","lStops":"정류장 수","lService":"운행 시간","lFare":"요금","busFareText":"성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)","busCaveat":"위 시간대는 해당 노선의 전체 운행 범위입니다(주말 연장 운행 포함) — 정확한 시간/요금은 {TRANSIT} 공식 시간표를 확인하세요","busBtnLabel":"버스 노선","auto":"🚗 교통","daily":"🏠 생활 필수","kids":"👨‍👩‍👧 아이와 갈 곳","newcomer":"🧳 막 이사 옴","sports":"💪 스포츠·피트니스","lPhone":"전화","lHours":"시간","lWeb":"웹사이트 방문 →","footer":"개인이 정리한 참고 자료 · 비공식 · 모든 항목에 확인일과 출처 표기 · 최종 확인은 해당 기관에 · 학군 배정은 <a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD} 공식 도구</a>로 확인 · 버스 노선/정류장/실시간 도착 정보는 <a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT} 웹사이트</a>에서 조회 · 임대 분쟁/보증금/퇴거 통지 등은 <a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC주 주택임대청(RTB)</a>(<b>1-800-665-8779</b>)에 문의<br><span class=\"footer-emergency\">🚨 긴급 전화: <a href=\"tel:911\"><b>911</b></a>(긴급상황) · <a href=\"tel:988\"><b>9-8-8</b></a>(자살 위기, 24시간) · <a href=\"tel:811\"><b>8-1-1</b></a>(비응급 건강 상담, 한국어 통역 요청 가능) · <a href=\"tel:2508283000\"><b>250-828-3000</b></a>(RCMP 비응급)</span><br>💬 의견 및 제안: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 이 페이지는 어떤 기능이 쓰였는지 기록합니다 — 무엇이 잘 안 되는지 찾기 위해서입니다</span>","edu":"🎓 교육","health":"⚕️ 의료","outdoor":"🌳 야외활동","shopping":"🛍️ 쇼핑","lNav":"길찾기","feedbackLink":"💬 피드백","lCall":"전화","lWeb2":"웹사이트"},"ja":{"title": "{CITY} 生活ガイド", "sub": "何を、どこで、何を持って — 順を追って · 来たばかりの人にも、長く住んでいる人にも", "note": "<h3>⚠️ データの出典と収録範囲</h3><p>本ページのデータは個人が作成したもので、Google Placesおよび各機関の公式サイトから収集し、市内全域をカバーしています。各カテゴリーには主要なスポットを厳選して掲載しています（レストラン・ガソリンスタンドなどは市内に数百件あり、全てを網羅したリストではありません。🚌公共交通機関は主要な乗換拠点のみを表示し、備考欄に記載する経由路線番号は参考情報です。停留所が非常に多いため全ては掲載できません。運賃は目安として大人片道$2.25・1日券$4.50・月間パス$55です（Umoカードまたはタップ決済対応）。正確な路線・運賃・リアルタイムの到着情報は{TRANSIT}の公式サイトでご確認ください）。</p><h3>🏢 実用的な注意事項</h3><p>賃貸料金は電話または公式サイトでご確認ください。営業時間は変更される場合があるため、訪問前に電話でご確認することをお勧めします。</p><h3>📅 最終確認日と声明</h3><p>最後の全体確認: {DATE}。各場所には個別の確認日と出典の種類が、各カードには公式の出典リンクがあります。</p><p><b>これは何か。</b>一人が編集した六言語の地域生活の参考資料です。政府や団体が発行したものではなく、掲載されたいかなる事業者・団体とも関係がなく、それらを代表するものでもありません。</p><p><b>これは何でないか。</b>法律・医療・移民・税務の助言ではありません。どこへ行き誰に聞くかを示すだけで、ご自身の状況はその「誰か」に聞いてください — 各カードに名前があります。緊急時は911へ。</p><p><b>変わるもの。</b>営業時間、料金、規則は変わります。出かける前に電話を — それが私たちの助言であり、私たちが責任を持てる境界でもあります。法律の許す範囲で、このページへの依拠から生じた損失について責任を負いません。</p><p><b>第三者。</b>リンク先のサイト、地図の背景、Google Placesから得た住所・電話などの事実データは、それぞれの規約に従い、このページは責任を負いません。</p><p><b>訂正と削除。</b>誤りがあればお知らせください。修正し、変更はバージョン番号に記録します。送られた訂正は採用されることがあり、送信はこのページのライセンスで公開することへの同意とみなします（希望がなければ無記名）。掲載団体で、記載が誤っているか掲載を望まない場合は、お知らせいただければ変更します — ご連絡から5営業日以内に対応します。</p><p><b>準拠法。</b>この声明はカナダ・ブリティッシュコロンビア州の法律に準拠します。このページは成人とその家族向けで、誰の個人情報も収集しません。あなたを特定できるデータがないため、代わりに照会や削除をすることもできません — 逃げではなく、そういう設計です。</p>", "noteToggleLabel": "ℹ️ データについて", "regLabel": "📍 エリアで絞り込み", "catLabel": "🏷️ カテゴリーで絞り込み", "allReg": "すべてのエリア", "allCat": "✓ すべてのカテゴリー", "noCat": "✕ すべて解除", "nextDayPrefix": "翌日", "lStopSeq": "停留所順", "lStops": "停留所数", "lService": "運行時間", "lFare": "運賃", "busFareText": "大人片道$2.25 · 1日券$4.50 · 月間パス$55（Umoカードまたはタップ決済対応）", "busCaveat": "上記は当該路線の全便の運行時間帯です（週末延長便を含む）— 正確な時刻・運賃は{TRANSIT}の公式時刻表でご確認ください", "busBtnLabel": "バス路線", "auto": "🚗 交通", "daily": "🏠 暮らしの基本", "kids": "👨‍👩‍👧 子供向け施設", "newcomer": "🧳 引っ越してきたら", "sports": "💪 スポーツ・フィットネス", "lPhone": "電話", "lHours": "時間", "lWeb": "公式サイトへ →", "footer": "個人がまとめた参考資料 · 非公式 · 各項目に確認日と出典を記載 · 最終確認は機関へ · 学区の割り当ては<a href=\"{SD_URL}\" target=\"_blank\" rel=\"noopener\">{SD}公式ツール</a>でご確認ください · バス路線・停留所・リアルタイム到着情報は<a href=\"{TRANSIT_URL}\" target=\"_blank\" rel=\"noopener\">{TRANSIT}公式サイト</a>でご確認ください · 賃貸トラブル・敷金・退去通知などは<a href=\"https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies\" target=\"_blank\" rel=\"noopener\">BC州住宅賃貸局（RTB）</a>（<b>1-800-665-8779</b>）へ<br><span class=\"footer-emergency\">🚨 緊急電話: <a href=\"tel:911\"><b>911</b></a>（緊急時）· <a href=\"tel:988\"><b>9-8-8</b></a>（自殺の危機、24時間）· <a href=\"tel:811\"><b>8-1-1</b></a>（非緊急の健康相談、日本語通訳依頼可）· <a href=\"tel:2508283000\"><b>250-828-3000</b></a>（RCMP非緊急）</span><br>💬 ご意見・ご提案: <a href=\"mailto:{CONTACT}\">{CONTACT}</a><br><span class=\"footer-privacy\">📊 このページは、どの機能が使われたかを記録しています（うまくいっていない箇所を見つけるため）</span>", "edu": "🎓 教育", "health": "⚕️ 医療", "outdoor": "🌳 アウトドア", "shopping": "🛍️ ショッピング", "lNav": "経路案内", "feedbackLink": "💬 フィードバック", "lCall": "電話", "lWeb2": "公式サイト"}};
 UI.zh.showing=(v,t)=>`${v} / ${t} 处地点`;
 UI.en.showing=(v,t)=>`${v} / ${t} place${t===1?'':'s'}`;
 UI.fr.showing=(v,t)=>`${v} / ${t} lieu${t===1?'':'x'}`;
@@ -1434,7 +1472,7 @@ UI.zh.taskProgress=(d,t)=>`已完成 ${d} / ${t}`;UI.en.taskProgress=(d,t)=>`${d
 UI.zh.taskMarkDone='标记为已办好';UI.en.taskMarkDone='Mark this done';UI.fr.taskMarkDone='Marquer comme fait';UI.es.taskMarkDone='Marcar como hecho';UI.ko.taskMarkDone='완료로 표시';UI.ja.taskMarkDone='完了にする';
 UI.zh.taskUndone='已办好 · 点一下取消';UI.en.taskUndone='Done · tap to undo';UI.fr.taskUndone='Fait · touchez pour annuler';UI.es.taskUndone='Hecho · toque para deshacer';UI.ko.taskUndone='완료 · 눌러서 취소';UI.ja.taskUndone='完了 · タップで取り消し';
 UI.zh.taskDoneBadge='已办好';UI.en.taskDoneBadge='Done';UI.fr.taskDoneBadge='Fait';UI.es.taskDoneBadge='Hecho';UI.ko.taskDoneBadge='완료';UI.ja.taskDoneBadge='完了';
-UI.zh.taskLocalOnly='勾选只存在这台设备的浏览器里，不会上传。';UI.en.taskLocalOnly='Ticks stay in this browser on this device. Nothing is uploaded.';UI.fr.taskLocalOnly='Les coches restent dans ce navigateur, sur cet appareil. Rien n’est envoyé.';UI.es.taskLocalOnly='Las marcas se quedan en este navegador, en este dispositivo. No se envía nada.';UI.ko.taskLocalOnly='체크 표시는 이 기기의 브라우저에만 저장되며 전송되지 않습니다.';UI.ja.taskLocalOnly='チェックはこの端末のブラウザにのみ保存され、送信されません。';
+UI.zh.taskLocalOnly='勾选只存在这台设备的浏览器里；用同一台设备的人也能看到。';UI.en.taskLocalOnly='Ticks are saved only in this browser, on this device — anyone who uses this device can see them.';UI.fr.taskLocalOnly='Les coches sont enregistrées seulement dans ce navigateur, sur cet appareil — toute personne qui l’utilise peut les voir.';UI.es.taskLocalOnly='Las marcas se guardan solo en este navegador, en este dispositivo; quien use este dispositivo puede verlas.';UI.ko.taskLocalOnly='체크 표시는 이 기기의 브라우저에만 저장됩니다. 이 기기를 쓰는 다른 사람도 볼 수 있습니다.';UI.ja.taskLocalOnly='チェックはこの端末のブラウザにだけ保存されます。この端末を使う人は誰でも見られます。';
 UI.zh.taskDeadline='有时限';UI.en.taskDeadline='Deadline';UI.fr.taskDeadline='Délai';UI.es.taskDeadline='Plazo';UI.ko.taskDeadline='기한';UI.ja.taskDeadline='期限';
 UI.zh.taskSay='到了可以这样说（英文）';UI.en.taskSay='What to say when you get there';UI.fr.taskSay='Quoi dire sur place (en anglais)';UI.es.taskSay='Qué decir al llegar (en inglés)';UI.ko.taskSay='가서 이렇게 말하세요(영어)';UI.ja.taskSay='窓口でこう言えば大丈夫（英語）';
 UI.zh.taskSayHint='读出来就行——照着念完全没问题。';UI.en.taskSayHint='Reading it out is fine — nobody minds.';UI.fr.taskSayHint='Le lire à voix haute convient parfaitement.';UI.es.taskSayHint='Leerlo en voz alta está perfectamente bien.';UI.ko.taskSayHint='그대로 읽어도 괜찮습니다.';UI.ja.taskSayHint='そのまま読み上げて大丈夫です。';
@@ -1472,7 +1510,7 @@ UI.zh.undo='撤销';UI.en.undo='Undo';UI.fr.undo='Annuler';UI.es.undo='Deshacer'
 UI.zh.resetDone='已恢复全市视图';UI.en.resetDone='Back to the whole city';UI.fr.resetDone='Retour à toute la ville';UI.es.resetDone='De vuelta a toda la ciudad';UI.ko.resetDone='전체 도시 보기로 돌아왔습니다';UI.ja.resetDone='全市表示に戻しました';
 UI.zh.clearedAll='已清除全部筛选';UI.en.clearedAll='All filters cleared';UI.fr.clearedAll='Tous les filtres effacés';UI.es.clearedAll='Todos los filtros borrados';UI.ko.clearedAll='모든 필터를 지웠습니다';UI.ja.clearedAll='すべての絞り込みを解除しました';
 UI.zh.recPick='推荐';UI.en.recPick='Our pick';UI.fr.recPick='Notre choix';UI.es.recPick='Recomendado';UI.ko.recPick='추천';UI.ja.recPick='おすすめ';
-UI.zh.fuSafe='免费 · 不用注册 · 不收集你的任何信息';UI.en.fuSafe='Free · no sign-up · nothing collected about you';UI.fr.fuSafe='Gratuit · sans inscription · rien de collecté sur vous';UI.es.fuSafe='Gratis · sin registro · no se recopila nada sobre usted';UI.ko.fuSafe='무료 · 가입 없음 · 개인정보 수집 없음';UI.ja.fuSafe='無料 · 登録不要 · あなたの情報は集めません';
+UI.zh.fuSafe='免费 · 不用注册 · 不要你的姓名和位置';UI.en.fuSafe='Free · no sign-up · never asks your name or sends your location';UI.fr.fuSafe='Gratuit · sans inscription · ni votre nom ni votre position ne sont envoyés';UI.es.fuSafe='Gratis · sin registro · no pide su nombre ni envía su ubicación';UI.ko.fuSafe='무료 · 가입 없음 · 이름을 묻지 않고 위치를 보내지 않음';UI.ja.fuSafe='無料 · 登録不要 · 名前を聞かず、位置情報も送りません';
 UI.zh.verTip='数据版本——数据说明里提到的版本号就是它';UI.en.verTip='Data version — the version number the data note refers to';UI.fr.verTip='Version des données — le numéro mentionné dans la note';UI.es.verTip='Versión de los datos — el número que menciona la nota';UI.ko.verTip='데이터 버전 — 데이터 안내에서 말하는 버전 번호';UI.ja.verTip='データのバージョン — データ注記にある版番号';
 UI.zh.copiedEmail='已复制邮箱地址：{E}（微信里打不开邮件，请到邮件应用粘贴）';UI.en.copiedEmail='Email address copied: {E} (this app cannot open mail — paste it in your mail app)';UI.en.copyFailedEmail='This app cannot open mail. The address is {E} — write it down or open this page in your browser';UI.en.copyFailedLink='This app cannot open mail or copy. Open this page in your browser to share: {L}';UI.fr.copiedEmail='Adresse copiée : {E} (cette appli n’ouvre pas le courriel — collez-la dans votre messagerie)';UI.es.copiedEmail='Correo copiado: {E} (esta app no abre el correo — péguelo en su app de correo)';UI.ko.copiedEmail='이메일 주소 복사됨: {E} (이 앱에서는 메일이 열리지 않습니다 — 메일 앱에 붙여넣으세요)';UI.ja.copiedEmail='メールアドレスをコピーしました：{E}（このアプリではメールを開けません — メールアプリに貼り付けてください）';UI.ja.copyFailedEmail='このアプリではメールを開けません。アドレスは {E} です — 控えるか、ブラウザでこのページを開いてください';UI.ja.copyFailedLink='このアプリではメールもコピーもできません。ブラウザでこのページを開いて共有してください：{L}'
 UI.zh.copyFailedEmail='这个应用里打不开邮件。邮箱是 {E}——请记下来，或用手机浏览器打开本页';UI.zh.copyFailedLink='这个应用里打不开邮件也无法复制。请用手机浏览器打开本页再分享：{L}'
@@ -1495,6 +1533,25 @@ UI.zh.hot_mental='心理支持';UI.en.hot_mental='mental health';UI.fr.hot_menta
 UI.zh.hot_suicide='自杀危机';UI.en.hot_suicide='suicide crisis';UI.fr.hot_suicide='crise suicidaire';UI.es.hot_suicide='crisis suicida';UI.ko.hot_suicide='자살 위기';UI.ja.hot_suicide='自殺の危機';
 UI.zh.hot_health='健康咨询（有翻译）';UI.en.hot_health='health advice (interpreters)';UI.fr.hot_health='conseils santé (interprètes)';UI.es.hot_health='consejo de salud (con intérprete)';UI.ko.hot_health='건강 상담(통역)';UI.ja.hot_health='健康相談（通訳あり）';
 UI.zh.hot_info='转介（母语）';UI.en.hot_info='referrals, any language';UI.fr.hot_info='orientation, toute langue';UI.es.hot_info='derivaciones, en su idioma';UI.ko.hot_info='안내·연결(모국어 가능)';UI.ja.hot_info='相談窓口（母語可）';
+UI.zh.holidayPill='今天是法定假日——营业时间可能不同';UI.en.holidayPill='Holiday today — hours may differ';UI.fr.holidayPill='Jour férié — les heures peuvent changer';UI.es.holidayPill='Hoy es feriado: el horario puede cambiar';UI.ko.holidayPill='오늘은 법정 공휴일 — 영업시간이 다를 수 있음';UI.ja.holidayPill='今日は法定休日 — 営業時間が異なる場合あり';
+UI.zh.holidayOpenNote='今天是法定假日，平时的营业时间不一定适用——去之前先打电话。下面这些电话 24 小时有人接。';UI.en.holidayOpenNote='Today is a statutory holiday, so regular hours may not apply — call before you go. These lines answer around the clock.';UI.fr.holidayOpenNote='Aujourd’hui est un jour férié : les heures habituelles peuvent ne pas s’appliquer — appelez avant d’y aller. Ces lignes répondent jour et nuit.';UI.es.holidayOpenNote='Hoy es feriado, así que el horario habitual puede no aplicarse: llame antes de ir. Estas líneas atienden a toda hora.';UI.ko.holidayOpenNote='오늘은 법정 공휴일이라 평소 영업시간이 적용되지 않을 수 있습니다 — 가기 전에 전화하세요. 아래 전화는 24시간 받습니다.';UI.ja.holidayOpenNote='今日は法定休日なので、通常の営業時間が当てはまらないことがあります — 行く前に電話を。以下の電話は24時間つながります。';
+UI.zh.qAppt='需预约';UI.en.qAppt='by appointment';UI.fr.qAppt='sur rendez-vous';UI.es.qAppt='con cita';UI.ko.qAppt='예약제';UI.ja.qAppt='予約制';
+UI.zh.lListed='收录于';UI.en.lListed='Listed';UI.fr.lListed='Ajouté';UI.es.lListed='Añadido';UI.ko.lListed='등록일';UI.ja.lListed='掲載日';
+UI.zh.lListedTip='这条是从第三方地图数据收录的日期，还没有和商家本身核对过。';UI.en.lListedTip='When this entry was added from third-party map data. It has not been checked with the business itself.';UI.fr.lListedTip='Date d’ajout de cette fiche à partir de données cartographiques tierces. Elle n’a pas été vérifiée auprès de l’établissement.';UI.es.lListedTip='Cuándo se añadió esta ficha a partir de datos de mapas de terceros. No se ha comprobado con el propio negocio.';UI.ko.lListedTip='제3자 지도 데이터에서 이 항목을 등록한 날짜입니다. 업체에 직접 확인한 것은 아닙니다.';UI.ja.lListedTip='第三者の地図データからこの項目を追加した日付です。店舗・施設に直接確認したものではありません。';
+UI.zh.hot_victim='犯罪 / 家暴受害者支援（VictimLink）';UI.en.hot_victim='victims of crime or abuse (VictimLink)';UI.fr.hot_victim='victimes de crime ou de violence (VictimLink)';UI.es.hot_victim='víctimas de delito o violencia (VictimLink)';UI.ko.hot_victim='범죄·폭력 피해자 지원(VictimLink)';UI.ja.hot_victim='犯罪・暴力の被害者支援（VictimLink）';
+UI.zh.hot_indigenous='原住民危机热线（KUU-US）';UI.en.hot_indigenous='Indigenous crisis line (KUU-US)';UI.fr.hot_indigenous='ligne de crise autochtone (KUU-US)';UI.es.hot_indigenous='línea de crisis indígena (KUU-US)';UI.ko.hot_indigenous='원주민 위기 상담(KUU-US)';UI.ja.hot_indigenous='先住民のための危機ライン（KUU-US）';
+UI.zh.helpBtnLabel='📞 求助';UI.en.helpBtnLabel='📞 Help now';UI.fr.helpBtnLabel='📞 Aide';UI.es.helpBtnLabel='📞 Ayuda';UI.ko.helpBtnLabel='📞 도움';UI.ja.helpBtnLabel='📞 相談';
+UI.zh.helpBtnShort='求助';UI.en.helpBtnShort='Help';UI.fr.helpBtnShort='Aide';UI.es.helpBtnShort='Ayuda';UI.ko.helpBtnShort='도움';UI.ja.helpBtnShort='相談';
+UI.zh.helpTitle='📞 需要帮助';UI.en.helpTitle='📞 Help now';UI.fr.helpTitle='📞 Besoin d’aide';UI.es.helpTitle='📞 Ayuda ahora';UI.ko.helpTitle='📞 지금 도움받기';UI.ja.helpTitle='📞 いま相談する';
+UI.zh.helpLead='现在有危险就打 911。其他情况，选一个合适的电话——都是免费的。';UI.en.helpLead='In danger right now? Call 911. Otherwise, pick the line that fits — they are free.';UI.fr.helpLead='En danger maintenant ? Composez le 911. Sinon, choisissez la ligne qui vous convient — elles sont gratuites.';UI.es.helpLead='¿En peligro ahora mismo? Llame al 911. Si no, elija la línea que le sirva: son gratuitas.';UI.ko.helpLead='지금 위험하다면 911에 전화하세요. 그 밖에는 맞는 전화를 고르세요 — 모두 무료입니다.';UI.ja.helpLead='いま危険なら911へ。それ以外は、合う窓口を選んでください。どれも無料です。';
+UI.zh.helpInfo='帮你找本地合适的机构，可用母语——工作日 9:00–21:00，不是 24 小时';UI.en.helpInfo='finds the right local service, in your language — weekdays 9am–9pm, not 24 hours';UI.fr.helpInfo='trouve le bon service local, dans votre langue — en semaine 9 h–21 h, pas 24 h sur 24';UI.es.helpInfo='encuentra el servicio local adecuado, en su idioma — días laborables 9–21 h, no 24 horas';UI.ko.helpInfo='맞는 지역 서비스를 모국어로 안내 — 평일 9:00–21:00, 24시간 아님';UI.ja.helpInfo='地域の合う窓口を母語で案内 — 平日9:00–21:00、24時間ではありません';
+UI.zh.helpExit='立即离开这个页面';UI.en.helpExit='Leave this page now';UI.fr.helpExit='Quitter cette page maintenant';UI.es.helpExit='Salir de esta página ahora';UI.ko.helpExit='지금 이 페이지 나가기';UI.ja.helpExit='今すぐこのページを離れる';
+UI.zh.helpExitNote='会在这个标签页打开 Google。浏览记录里仍可能留有本站——和别人共用设备时，建议用浏览器的无痕模式。';UI.en.helpExitNote='Opens Google in this tab. This site may still show in your browser history — on a shared device, a private window is safer.';UI.fr.helpExitNote='Ouvre Google dans cet onglet. Ce site peut rester dans l’historique — sur un appareil partagé, une fenêtre privée est plus sûre.';UI.es.helpExitNote='Abre Google en esta pestaña. Este sitio puede seguir en el historial; en un dispositivo compartido, una ventana privada es más segura.';UI.ko.helpExitNote='이 탭에서 Google을 엽니다. 방문 기록에 이 사이트가 남을 수 있으니, 함께 쓰는 기기라면 시크릿 창이 더 안전합니다.';UI.ja.helpExitNote='このタブでGoogleを開きます。閲覧履歴にこのサイトが残ることがあるので、共用の端末ではプライベートウィンドウが安全です。';
+UI.zh.helpClear='清除这台设备上的记录';UI.en.helpClear='Clear what this site saved on this device';UI.fr.helpClear='Effacer ce que ce site a enregistré sur cet appareil';UI.es.helpClear='Borrar lo que este sitio guardó en este dispositivo';UI.ko.helpClear='이 사이트가 이 기기에 저장한 내용 지우기';UI.ja.helpClear='このサイトがこの端末に保存した内容を消す';
+UI.zh.helpClearConfirm='再点一次确认清除';UI.en.helpClearConfirm='Tap again to clear';UI.fr.helpClearConfirm='Touchez encore pour effacer';UI.es.helpClearConfirm='Toque otra vez para borrar';UI.ko.helpClearConfirm='한 번 더 누르면 지워집니다';UI.ja.helpClearConfirm='もう一度押すと消えます';
+UI.zh.helpClearNote='收藏、勾选、语言和到达日期都会删掉，页面会重新打开。';UI.en.helpClearNote='Favourites, ticks, language and arrival date are removed, and the page reopens.';UI.fr.helpClearNote='Favoris, coches, langue et date d’arrivée sont supprimés, puis la page se rouvre.';UI.es.helpClearNote='Se borran favoritos, marcas, idioma y fecha de llegada, y la página se vuelve a abrir.';UI.ko.helpClearNote='즐겨찾기, 체크, 언어, 도착일이 삭제되고 페이지가 다시 열립니다.';UI.ja.helpClearNote='お気に入り、チェック、言語、到着日が消え、ページが開き直されます。';
+UI.zh.crisisLead='你不必一个人扛。现在有危险就打 911。下面这些电话都能帮你，而且免费：';UI.en.crisisLead='You don’t have to face this alone. In danger right now? Call 911. These lines are here for you, free:';UI.fr.crisisLead='Vous n’avez pas à affronter cela seul·e. En danger maintenant ? Composez le 911. Ces lignes sont là pour vous, gratuitement :';UI.es.crisisLead='No tiene que enfrentar esto solo/a. ¿En peligro ahora? Llame al 911. Estas líneas están para usted, gratis:';UI.ko.crisisLead='혼자 감당하지 않아도 됩니다. 지금 위험하다면 911에 전화하세요. 아래 전화가 무료로 도와줍니다:';UI.ja.crisisLead='ひとりで抱えなくて大丈夫です。いま危険なら911へ。次の窓口が無料で力になります：';
+UI.zh.crisisMore='你在这里输入的字不会发送到任何地方。';UI.en.crisisMore='What you typed here is not sent anywhere.';UI.fr.crisisMore='Ce que vous avez tapé ici n’est envoyé nulle part.';UI.es.crisisMore='Lo que escribió aquí no se envía a ningún lugar.';UI.ko.crisisMore='여기에 입력한 내용은 어디에도 전송되지 않습니다.';UI.ja.crisisMore='ここに入力した言葉はどこにも送信されません。';
 UI.zh.taskStuckExit='卡住了不是你的问题。打给定居服务专员（免费、有翻译），或打 2-1-1 用母语说明情况：';UI.en.taskStuckExit='Being stuck is not on you. Call a settlement worker (free, interpreters available), or 2-1-1 in your own language:';UI.fr.taskStuckExit='Être bloqué n’est pas votre faute. Appelez un intervenant en établissement (gratuit, interprètes disponibles), ou le 2-1-1 dans votre langue :';UI.es.taskStuckExit='Atascarse no es culpa suya. Llame a un trabajador de asentamiento (gratis, con intérpretes) o al 2-1-1 en su idioma:';UI.ko.taskStuckExit='막힌 건 본인 잘못이 아닙니다. 정착 지원 담당자(무료, 통역 가능)나 2-1-1에 모국어로 전화하세요:';UI.ja.taskStuckExit='行き詰まるのはあなたのせいではありません。定住支援ワーカー（無料、通訳あり）か、母語で2-1-1に電話を:';
 UI.zh.taskThanks='谢谢——这条反馈会用来修正这张卡。';UI.en.taskThanks='Thank you — this is used to fix this card.';UI.fr.taskThanks='Merci — cela sert à corriger cette fiche.';UI.es.taskThanks='Gracias — sirve para corregir esta ficha.';UI.ko.taskThanks='감사합니다 — 이 카드를 고치는 데 사용됩니다.';UI.ja.taskThanks='ありがとうございます — このカードの改善に使われます。';
 UI.zh.taskFeedbackQ='这张卡帮到你了吗？';UI.en.taskFeedbackQ='Did this card work for you?';UI.fr.taskFeedbackQ='Cette fiche vous a-t-elle aidé ?';UI.es.taskFeedbackQ='¿Le sirvió esta ficha?';UI.ko.taskFeedbackQ='이 카드가 도움이 되었나요?';UI.ja.taskFeedbackQ='このカードは役に立ちましたか？';
@@ -2184,11 +2241,11 @@ UI.zh.guideCA1=`<h3>🛬 落地头两周：按这个顺序办</h3>
 
 `;
 UI.zh.guideProv=`<h3>⚕️ {PROV}健康卡（MSP + BC Services Card）</h3>
-<p>{PROV}的公共医疗保险叫MSP（Medical Services Plan），居民需要通过<a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC官网</a>申请BC Services Card。<b>等待期的算法是：成为本省居民当月的剩余时间 + 之后两个整月</b>，也就是最长接近三个月；这段时间内在本地看病、急诊都要自费全额支付，因此强烈建议在落地前就买好临时医疗保险覆盖空窗期（多数保险不覆盖既往病史，要提前看清条款）。从加拿大其他省搬来的人，请保留原省份的医保直到等待期结束。等待期是从<b>申请</b>算起的，所以落地当天就递交，不要拖。自2020年1月起，MSP对已参保居民不再收取月费。</p>
+<p>{PROV}的公共医疗保险叫MSP（Medical Services Plan），居民需要通过<a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">Health Insurance BC官网</a>申请BC Services Card。<b>等待期的算法是：成为本省居民当月的剩余时间 + 之后两个整月</b>，也就是最长接近三个月；这段时间内在本地看病、急诊都要自费全额支付，因此强烈建议在落地前就买好临时医疗保险覆盖空窗期（多数保险不覆盖既往病史，要提前看清条款）。从加拿大其他省搬来的人，请保留原省份的医保直到等待期结束。等待期是从<b>申请</b>算起的，所以落地当天就递交，不要拖。自2020年1月起，MSP对已参保居民不再收取月费。</p>
 <h3>🩺 找不到家庭医生怎么办</h3>
 <p>本省家庭医生短缺是普遍现象，很多本地长住居民同样没有家庭医生，这不是针对新来者的差别待遇。正规做法是登记<b>Health Connect Registry（家庭医生轮候登记）</b>：在 <a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC官网</a> 在线登记只需几分钟，或拨 <b>8-1-1</b> 用你的母语登记（提供130多种语言）。登记需要你的个人健康号（PHN）、住址、电话和邮箱。在轮候期间，你并不是没有医疗可用：<b>8-1-1</b> 全天24小时有护士、药剂师、营养师接听；<b>Urgent and Primary Care Centre（紧急与基层医疗中心）</b>处理当天可看的非急症；<b>walk-in clinic（无需预约诊所）</b>可以看常见病；社区药剂师在本省可以为一部分轻症开药、也可以打疫苗；真正危及生命时才去医院急诊或打911。看病时记得可以免费要求传译（见上一节）。</p>
 <h3>🚗 驾照、车险与冬季轮胎</h3>
-<p>{PROV}驾照由ICBC负责。多数国家/地区的驾照可以直接换领或凭驾龄减免部分路考，具体请查<a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC官网“New to BC”页面</a>确认自己是否符合互认协议；本地考驾照可以在地图「分类 → 驾校」里找。两件居民常吃亏的事：<b>一是保险折扣</b>——你在原籍国的多年无事故记录，只有拿到原保险公司出具的英文“无索赔证明”（claims history letter）才可能被承认，否则会被当作新手按最高费率计价，这封信最好在离境前就开好；<b>二是冬季轮胎</b>——本省大量山区公路在每年10月1日至次年3月31日（部分路段延长至4月30日）强制要求冬季轮胎，合规轮胎须带 M+S 标志或三峰雪花标志，且胎面深度至少3.5毫米。四季胎不等于冬季胎，交警会拦查并罚款，山路上不合规还可能被要求掉头。</p>
+<p>{PROV}驾照由ICBC负责。多数国家/地区的驾照可以直接换领或凭驾龄减免部分路考，具体请查<a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">ICBC官网“New to BC”页面</a>确认自己是否符合互认协议；本地考驾照可以在地图「分类 → 驾校」里找。两件居民常吃亏的事：<b>一是保险折扣</b>——你在原籍国的多年无事故记录，只有拿到原保险公司出具的英文“无索赔证明”（claims history letter）才可能被承认，否则会被当作新手按最高费率计价，这封信最好在离境前就开好；<b>二是冬季轮胎</b>——本省大部分公路在每年10月1日至次年4月30日强制要求冬季轮胎（少数不经过山口的路段到3月31日为止），合规轮胎须带 M+S 标志或三峰雪花标志，且胎面深度至少3.5毫米。四季胎不等于冬季胎，交警会拦查并罚款，山路上不合规还可能被要求掉头。</p>
 <h3>🎒 子女入学与英语支持</h3>
 <p>{CITY}属于{SD}学区，公立学校按住址划片，可用<a href="{SD_URL}" target="_blank" rel="noopener">{SD}官方划片查询工具</a>输入住址确认对应学校，再联系学校或学区办理登记，通常需要出生证明/护照、疫苗接种记录、住址证明、以及移民身份文件。三件家长最需要知道的事：<b>一、英语不是入学门槛</b>——学校有ELL（English Language Learner，英语学习者）支持，孩子会被安排在正常年级同时接受额外语言辅导，不会因为英语不好被降级；<b>二、有免费的定居工作者进校服务</b>——SWIS（Settlement Workers in Schools）是专门面向新移民家庭的免费服务，帮你理解学校制度、参加家长会、填表、对接课外资源，也能帮忙安排传译；<b>三、加拿大学校的家校沟通比很多国家频繁</b>——邮件、家校App、家长会都很重要，读不懂就直接说需要翻译，学校有义务让你听懂关于你孩子的信息。</p>
 <h3>🏠 租房：法律给你的底线</h3>
@@ -2255,11 +2312,11 @@ UI.en.guideCA1=`<h3>🛬 Your First Two Weeks, in Order</h3>
 
 `;
 UI.en.guideProv=`<h3>⚕️ BC Health Coverage (MSP + BC Services Card)</h3>
-<p>BC's public health plan is called MSP (Medical Services Plan). Apply for your BC Services Card through the <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC website</a>. <b>The wait period is the remainder of the month you become a resident plus two more full months</b> — close to three months at worst. During it, doctor visits and emergency care are billed to you in full, so arrange private medical insurance <em>before</em> you arrive to cover the gap (most policies exclude pre-existing conditions — read that clause). If you're moving from another Canadian province, keep your previous provincial plan until the wait ends. The clock starts when you <b>apply</b>, so apply on your first day rather than later. Since January 2020, MSP charges enrolled residents no monthly premium.</p>
+<p>BC's public health plan is called MSP (Medical Services Plan). Apply for your BC Services Card through the <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">Health Insurance BC website</a>. <b>The wait period is the remainder of the month you become a resident plus two more full months</b> — close to three months at worst. During it, doctor visits and emergency care are billed to you in full, so arrange private medical insurance <em>before</em> you arrive to cover the gap (most policies exclude pre-existing conditions — read that clause). If you're moving from another Canadian province, keep your previous provincial plan until the wait ends. The clock starts when you <b>apply</b>, so apply on your first day rather than later. Since January 2020, MSP charges enrolled residents no monthly premium.</p>
 <h3>🩺 When You Can't Find a Family Doctor</h3>
 <p>The shortage of family doctors here is general — plenty of lifelong residents don't have one either. Nobody is singling you out. The proper step is to join the <b>Health Connect Registry</b>, the provincial waitlist: register online in a few minutes at <a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC</a>, or call <b>8-1-1</b> and register in your own language (130+ languages available). You'll need your Personal Health Number (PHN), address, phone and email. While you wait, you are not without care: <b>8-1-1</b> puts you through to nurses, pharmacists and dietitians 24 hours a day; an <b>Urgent and Primary Care Centre</b> handles same-day non-emergencies; a <b>walk-in clinic</b> covers routine illness; community pharmacists in BC can prescribe for a list of minor ailments and give vaccinations; and hospital emergency or 911 is for genuine emergencies. Remember you can request a free interpreter for any of these (see the previous section).</p>
 <h3>🚗 Driver's Licence, Insurance and Winter Tires</h3>
-<p>BC driver's licences are administered by ICBC. Licences from many countries can be exchanged directly, or may qualify for reduced road-test requirements based on driving experience — check the <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC "New to BC" page</a> to see if your licence qualifies under a reciprocal agreement. To take lessons locally, see Category → Driving School. Two things residents routinely lose money on: <b>insurance history</b> — your years of claim-free driving abroad only count if you bring a claims-history letter in English from your previous insurer; without it you are rated as a brand-new driver at the highest premium, and that letter is far easier to obtain before you leave than after. And <b>winter tires</b> — most BC mountain highways require them from October 1 to March 31, with some routes extended to April 30. A legal winter tire carries either the M+S marking or the three-peaked mountain/snowflake symbol and has at least 3.5 mm of tread. All-seasons are not automatically winter tires; police do check, fines apply, and on a mountain route you can be turned back.</p>
+<p>BC driver's licences are administered by ICBC. Licences from many countries can be exchanged directly, or may qualify for reduced road-test requirements based on driving experience — check the <a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">ICBC "New to BC" page</a> to see if your licence qualifies under a reciprocal agreement. To take lessons locally, see Category → Driving School. Two things residents routinely lose money on: <b>insurance history</b> — your years of claim-free driving abroad only count if you bring a claims-history letter in English from your previous insurer; without it you are rated as a brand-new driver at the highest premium, and that letter is far easier to obtain before you leave than after. And <b>winter tires</b> — most BC highways require them from October 1 to April 30, and a few routes outside the mountain passes end on March 31. A legal winter tire carries either the M+S marking or the three-peaked mountain/snowflake symbol and has at least 3.5 mm of tread. All-seasons are not automatically winter tires; police do check, fines apply, and on a mountain route you can be turned back.</p>
 <h3>🎒 School Enrolment and Language Support</h3>
 <p>{CITY} is in the {SD} school district. Public schools are assigned by home address — use the <a href="{SD_URL}" target="_blank" rel="noopener">{SD} catchment finder</a> to find your local school, then contact the school or district to register. You'll typically need a birth certificate/passport, immunization records, proof of address, and your immigration documents. Three things parents most need to know: <b>1. English is not an entry requirement.</b> Schools provide ELL (English Language Learner) support: your child is placed in their normal grade level and receives extra language help alongside it, not held back for language. <b>2. There are free settlement workers inside the schools.</b> SWIS (Settlement Workers in Schools) is a free service specifically for resident families — it explains how the school system works, helps with forms and parent-teacher meetings, connects you to activities, and can arrange interpretation. <b>3. School-home communication is more frequent than in many countries.</b> Email, school apps and parent meetings all matter; if you can't read something, say that you need translation. The school has an obligation to make information about your child understandable to you.</p>
 <h3>🏠 Renting: The Floor the Law Gives You</h3>
@@ -2317,7 +2374,7 @@ UI.fr.guideCA1=`<h3>🛬 Vos deux premières semaines, dans l'ordre</h3>
 <h3>🗣️ Si votre anglais n'est pas courant : vous avez droit à un interprète gratuit</h3>
 <p>C'est le droit le moins utilisé des résidents. Par l'entremise du Provincial Language Service, le système de santé public de la province offre <b>l'interprétation gratuite dans plus de 200 langues, 24 heures sur 24, sans frais pour les patients ni leur famille</b>. Au moment de prendre rendez-vous ou à l'accueil, dites simplement : « I need an interpreter. I speak ______. » En cas d'urgence, la ligne est le <b>1-877-228-2557</b>. La ligne santé <b>8-1-1</b> couvre plus de 130 langues, et la ligne de services communautaires <b>2-1-1</b> offre de l'aiguillage dans une douzaine. N'utilisez pas votre enfant comme interprète en consultation médicale : une erreur de terme médical a de vraies conséquences, et c'est un poids injuste pour un enfant. Banques, écoles et cliniques juridiques peuvent aussi organiser une interprétation téléphonique — demander n'est pas déranger, c'est utiliser un service prévu pour vous. Un bout de papier portant le nom de votre langue en anglais (« Mandarin », « Tagalog », « Tigrinya ») accélère la demande.</p>
 <h3>🧾 Produisez une déclaration de revenus même avec un revenu nul</h3>
-<p>Beaucoup de prestations canadiennes ne se demandent pas — elles se <em>calculent à partir de votre déclaration</em>. Le crédit pour la TPS/TVH, l'Allocation canadienne pour enfants (ACE) et la plupart des suppléments provinciaux sont versés automatiquement d'après la déclaration de l'année précédente. Autrement dit : <b>même une année sans aucun revenu, il faut déclarer, sinon vous ne recevez rien</b>, et réclamer rétroactivement est bien plus lourd. La saison s'ouvre généralement en février, l'échéance des particuliers est le 30 avril. Si votre revenu est modeste et votre situation simple — ce qui décrit la plupart des résidents, des étudiants et des prestataires — une <b>clinique d'impôts gratuite</b> appuyée par l'ARC (Programme communautaire des bénévoles en matière d'impôts) la produira gratuitement pour vous ; cherchez par code postal sur le <a href="https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/programme-communautaire-benevoles-matiere-impots.html" target="_blank" rel="noopener">site de l'ARC</a>. Une première déclaration doit habituellement être postée sur papier avant que la production en ligne vous soit ouverte.</p>
+<p>Beaucoup de prestations canadiennes ne se demandent pas — elles se <em>calculent à partir de votre déclaration</em>. Le crédit pour la TPS/TVH, l'Allocation canadienne pour enfants (ACE) et la plupart des suppléments provinciaux sont versés automatiquement d'après la déclaration de l'année précédente. Autrement dit : <b>même une année sans aucun revenu, il faut déclarer, sinon vous ne recevez rien</b>, et réclamer rétroactivement est bien plus lourd. La saison s'ouvre généralement en février, l'échéance des particuliers est le 30 avril. Si votre revenu est modeste et votre situation simple — ce qui décrit la plupart des résidents, des étudiants et des prestataires — une <b>clinique d'impôts gratuite</b> appuyée par l'ARC (Programme communautaire des bénévoles en matière d'impôts) la produira gratuitement pour vous ; cherchez par code postal sur le <a href="https://www.canada.ca/fr/agence-revenu/services/impot/particuliers/programme-communautaire-benevoles-matiere-impot.html" target="_blank" rel="noopener">site de l'ARC</a>. Une première déclaration doit habituellement être postée sur papier avant que la production en ligne vous soit ouverte.</p>
 <h3>💼 Emploi, CV et reconnaissance des diplômes</h3>
 <p>Trois choses fonctionnent autrement ici qu'ailleurs, et c'est là que les gens bloquent :</p>
 <p><b>1. Le format du CV est différent.</b> Un CV canadien fait généralement 1 à 2 pages et ne comporte <b>ni photo, ni âge, ni sexe, ni état civil, ni numéro d'identité</b> — les inclure peut faire écarter votre CV, les employeurs évitant tout ce qui ressemble à un risque de discrimination. Mettez en avant des résultats chiffrés plutôt qu'une liste de tâches, et réécrivez la lettre de présentation pour chaque poste.</p>
@@ -2326,11 +2383,11 @@ UI.fr.guideCA1=`<h3>🛬 Vos deux premières semaines, dans l'ordre</h3>
 
 `;
 UI.fr.guideProv=`<h3>⚕️ Couverture santé de la C.-B. (MSP + carte BC Services)</h3>
-<p>Le régime public de santé de la C.-B. s'appelle MSP (Medical Services Plan). Faites votre demande de carte BC Services sur le site de <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC</a>. <b>Le délai d'attente correspond au reste du mois où vous devenez résident, plus deux mois complets</b> — près de trois mois au pire. Pendant ce temps, consultations et urgences vous sont facturées en entier : souscrivez une assurance médicale privée <em>avant</em> d'arriver pour couvrir la période (la plupart des polices excluent les affections préexistantes — lisez cette clause). Si vous venez d'une autre province canadienne, conservez votre régime précédent jusqu'à la fin du délai. Le compte à rebours démarre à la <b>demande</b> : faites-la dès le premier jour. Depuis janvier 2020, le MSP n'exige plus de prime mensuelle des résidents inscrits.</p>
+<p>Le régime public de santé de la C.-B. s'appelle MSP (Medical Services Plan). Faites votre demande de carte BC Services sur le site de <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">Health Insurance BC</a>. <b>Le délai d'attente correspond au reste du mois où vous devenez résident, plus deux mois complets</b> — près de trois mois au pire. Pendant ce temps, consultations et urgences vous sont facturées en entier : souscrivez une assurance médicale privée <em>avant</em> d'arriver pour couvrir la période (la plupart des polices excluent les affections préexistantes — lisez cette clause). Si vous venez d'une autre province canadienne, conservez votre régime précédent jusqu'à la fin du délai. Le compte à rebours démarre à la <b>demande</b> : faites-la dès le premier jour. Depuis janvier 2020, le MSP n'exige plus de prime mensuelle des résidents inscrits.</p>
 <h3>🩺 Quand vous ne trouvez pas de médecin de famille</h3>
 <p>La pénurie de médecins de famille est générale ici — beaucoup de résidents de longue date n'en ont pas non plus. Personne ne vous vise en particulier. La bonne démarche est de s'inscrire au <b>Health Connect Registry</b>, la liste d'attente provinciale : inscription en ligne en quelques minutes sur <a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC</a>, ou par téléphone au <b>8-1-1</b> dans votre langue (plus de 130 langues). Il faut votre numéro personnel de santé (PHN), votre adresse, votre téléphone et votre courriel. En attendant, vous n'êtes pas sans soins : le <b>8-1-1</b> vous met en contact avec des infirmières, pharmaciens et diététistes 24 heures sur 24 ; un <b>Urgent and Primary Care Centre</b> traite le non-urgent le jour même ; une <b>clinique sans rendez-vous</b> couvre les maladies courantes ; en C.-B., les pharmaciens communautaires peuvent prescrire pour une liste d'affections mineures et vacciner ; l'urgence hospitalière et le 911 sont pour les vraies urgences. Rappel : vous pouvez demander un interprète gratuit pour tout cela (section précédente).</p>
 <h3>🚗 Permis, assurance et pneus d'hiver</h3>
-<p>Les permis de conduire de la C.-B. sont gérés par ICBC. Les permis de nombreux pays peuvent être échangés directement, ou donner droit à un examen de route allégé selon l'expérience — consultez la page <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">« New to BC » d'ICBC</a> pour vérifier les ententes de réciprocité. Pour des cours de conduite locaux, voir Catégorie → Auto-école. Deux postes où les résidents perdent régulièrement de l'argent : <b>l'historique d'assurance</b> — vos années sans sinistre à l'étranger ne comptent que si vous rapportez une lettre d'historique de réclamations en anglais de votre ancien assureur ; sans elle, vous êtes tarifé comme un conducteur débutant, au tarif le plus élevé, et cette lettre est bien plus facile à obtenir avant le départ qu'après. Et <b>les pneus d'hiver</b> — la plupart des routes de montagne de la C.-B. les exigent du 1er octobre au 31 mars, certaines jusqu'au 30 avril. Un pneu d'hiver conforme porte la mention M+S ou le symbole de la montagne à trois pics et du flocon, avec au moins 3,5 mm de sculpture. Les quatre-saisons ne sont pas automatiquement des pneus d'hiver ; la police vérifie, des amendes s'appliquent, et sur une route de montagne on peut vous faire rebrousser chemin.</p>
+<p>Les permis de conduire de la C.-B. sont gérés par ICBC. Les permis de nombreux pays peuvent être échangés directement, ou donner droit à un examen de route allégé selon l'expérience — consultez la page <a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">« New to BC » d'ICBC</a> pour vérifier les ententes de réciprocité. Pour des cours de conduite locaux, voir Catégorie → Auto-école. Deux postes où les résidents perdent régulièrement de l'argent : <b>l'historique d'assurance</b> — vos années sans sinistre à l'étranger ne comptent que si vous rapportez une lettre d'historique de réclamations en anglais de votre ancien assureur ; sans elle, vous êtes tarifé comme un conducteur débutant, au tarif le plus élevé, et cette lettre est bien plus facile à obtenir avant le départ qu'après. Et <b>les pneus d'hiver</b> — la plupart des routes de la C.-B. les exigent du 1er octobre au 30 avril, et quelques routes hors des cols de montagne s'arrêtent au 31 mars. Un pneu d'hiver conforme porte la mention M+S ou le symbole de la montagne à trois pics et du flocon, avec au moins 3,5 mm de sculpture. Les quatre-saisons ne sont pas automatiquement des pneus d'hiver ; la police vérifie, des amendes s'appliquent, et sur une route de montagne on peut vous faire rebrousser chemin.</p>
 <h3>🎒 Inscription scolaire et soutien linguistique</h3>
 <p>{CITY} fait partie du district scolaire {SD}. Les écoles publiques sont assignées selon l'adresse — utilisez l'<a href="{SD_URL}" target="_blank" rel="noopener">outil de recherche d'école {SD}</a> pour trouver votre école, puis contactez l'école ou le district pour l'inscription. Il faut généralement un certificat de naissance/passeport, le carnet de vaccination, une preuve d'adresse et vos documents d'immigration. Trois choses que les parents doivent savoir : <b>1. L'anglais n'est pas une condition d'admission.</b> Les écoles offrent un soutien ELL (English Language Learner) : l'enfant est placé dans son niveau normal et reçoit en parallèle une aide linguistique — on ne le fait pas redoubler pour la langue. <b>2. Des intervenants en établissement travaillent gratuitement dans les écoles.</b> SWIS (Settlement Workers in Schools) s'adresse spécifiquement aux familles nouvellement arrivées : explication du système scolaire, aide aux formulaires et aux rencontres parents-enseignants, orientation vers les activités, organisation d'un interprète. <b>3. La communication école-famille est plus fréquente que dans bien des pays.</b> Courriels, applications scolaires et rencontres comptent ; si vous ne comprenez pas un document, dites que vous avez besoin d'une traduction. L'école a l'obligation de vous rendre compréhensible ce qui concerne votre enfant.</p>
 <h3>🏠 Location : le plancher que la loi vous garantit</h3>
@@ -2397,11 +2454,11 @@ UI.es.guideCA1=`<h3>🛬 Sus primeras dos semanas, en orden</h3>
 
 `;
 UI.es.guideProv=`<h3>⚕️ Cobertura de salud de BC (MSP + tarjeta Services Card)</h3>
-<p>El plan público de salud de BC se llama MSP (Medical Services Plan). Solicite su tarjeta BC Services Card a través del <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">sitio web de Health Insurance BC</a>. <b>El período de espera es lo que reste del mes en que usted pasa a ser residente, más dos meses completos</b> — cerca de tres meses en el peor caso. Durante ese tiempo, las consultas y las urgencias se le facturan por completo, así que contrate un seguro médico privado <em>antes</em> de llegar para cubrir el hueco (la mayoría de las pólizas excluyen condiciones preexistentes: lea esa cláusula). Si se muda desde otra provincia canadiense, conserve su plan anterior hasta que termine la espera. El reloj arranca cuando usted <b>solicita</b>, así que solicite el primer día. Desde enero de 2020, el MSP no cobra prima mensual a los residentes inscritos.</p>
+<p>El plan público de salud de BC se llama MSP (Medical Services Plan). Solicite su tarjeta BC Services Card a través del <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">sitio web de Health Insurance BC</a>. <b>El período de espera es lo que reste del mes en que usted pasa a ser residente, más dos meses completos</b> — cerca de tres meses en el peor caso. Durante ese tiempo, las consultas y las urgencias se le facturan por completo, así que contrate un seguro médico privado <em>antes</em> de llegar para cubrir el hueco (la mayoría de las pólizas excluyen condiciones preexistentes: lea esa cláusula). Si se muda desde otra provincia canadiense, conserve su plan anterior hasta que termine la espera. El reloj arranca cuando usted <b>solicita</b>, así que solicite el primer día. Desde enero de 2020, el MSP no cobra prima mensual a los residentes inscritos.</p>
 <h3>🩺 Cuando no encuentra médico de familia</h3>
 <p>La escasez de médicos de familia aquí es general: muchos residentes de toda la vida tampoco tienen uno. No es que a usted lo estén tratando distinto. El paso correcto es inscribirse en el <b>Health Connect Registry</b>, la lista de espera provincial: en línea, en pocos minutos, en <a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC</a>, o llamando al <b>8-1-1</b> para inscribirse en su propio idioma (más de 130 idiomas). Necesitará su Número Personal de Salud (PHN), dirección, teléfono y correo. Mientras espera, no se queda sin atención: el <b>8-1-1</b> le comunica con enfermeras, farmacéuticos y dietistas las 24 horas; un <b>Urgent and Primary Care Centre</b> atiende lo no urgente el mismo día; una <b>clínica sin cita</b> cubre dolencias corrientes; en BC los farmacéuticos comunitarios pueden recetar para una lista de afecciones menores y vacunar; y la urgencia hospitalaria o el 911 son para emergencias reales. Recuerde que puede pedir intérprete gratuito para todo esto (sección anterior).</p>
 <h3>🚗 Licencia, seguro y neumáticos de invierno</h3>
-<p>Las licencias de conducir de BC son administradas por ICBC. Las licencias de muchos países pueden canjearse directamente, o calificar para requisitos reducidos de examen según la experiencia — consulte la página <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">"New to BC" de ICBC</a> para ver si su licencia califica bajo un acuerdo recíproco. Para tomar clases localmente, vea Categoría → Autoescuela. Dos cosas en las que los residentes pierden dinero de forma rutinaria: <b>el historial de seguro</b> — sus años sin siniestros en el extranjero solo cuentan si trae una carta de historial de reclamaciones en inglés de su aseguradora anterior; sin ella le tarifan como conductor novato, la prima más cara, y esa carta es mucho más fácil de obtener antes de salir que después. Y <b>los neumáticos de invierno</b> — la mayoría de las carreteras de montaña de BC los exigen del 1 de octubre al 31 de marzo, y algunas rutas hasta el 30 de abril. Un neumático de invierno legal lleva la marca M+S o el símbolo de la montaña de tres picos con copo de nieve, y al menos 3,5 mm de dibujo. Los "all-season" no son automáticamente neumáticos de invierno; la policía revisa, hay multas, y en una ruta de montaña pueden hacerle dar la vuelta.</p>
+<p>Las licencias de conducir de BC son administradas por ICBC. Las licencias de muchos países pueden canjearse directamente, o calificar para requisitos reducidos de examen según la experiencia — consulte la página <a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">"New to BC" de ICBC</a> para ver si su licencia califica bajo un acuerdo recíproco. Para tomar clases localmente, vea Categoría → Autoescuela. Dos cosas en las que los residentes pierden dinero de forma rutinaria: <b>el historial de seguro</b> — sus años sin siniestros en el extranjero solo cuentan si trae una carta de historial de reclamaciones en inglés de su aseguradora anterior; sin ella le tarifan como conductor novato, la prima más cara, y esa carta es mucho más fácil de obtener antes de salir que después. Y <b>los neumáticos de invierno</b> — la mayoría de las carreteras de BC los exigen del 1 de octubre al 30 de abril, y algunas rutas fuera de los pasos de montaña terminan el 31 de marzo. Un neumático de invierno legal lleva la marca M+S o el símbolo de la montaña de tres picos con copo de nieve, y al menos 3,5 mm de dibujo. Los "all-season" no son automáticamente neumáticos de invierno; la policía revisa, hay multas, y en una ruta de montaña pueden hacerle dar la vuelta.</p>
 <h3>🎒 Matrícula escolar y apoyo lingüístico</h3>
 <p>{CITY} pertenece al distrito escolar {SD}. Las escuelas públicas se asignan según la dirección — use el <a href="{SD_URL}" target="_blank" rel="noopener">buscador de zona escolar de {SD}</a> para encontrar su escuela local, luego contacte a la escuela o al distrito para inscribirse. Generalmente necesitará certificado de nacimiento/pasaporte, registro de vacunación, comprobante de domicilio y sus documentos de inmigración. Tres cosas que los padres más necesitan saber: <b>1. El inglés no es requisito de admisión.</b> Las escuelas ofrecen apoyo ELL (English Language Learner): su hijo va al grado que le corresponde y recibe ayuda lingüística adicional en paralelo; no se le retrasa de grado por el idioma. <b>2. Hay trabajadores de asentamiento gratuitos dentro de las escuelas.</b> SWIS (Settlement Workers in Schools) es un servicio gratuito específico para familias residentes: explica cómo funciona el sistema escolar, ayuda con formularios y reuniones de padres, conecta con actividades y puede gestionar interpretación. <b>3. La comunicación escuela-familia es más frecuente que en muchos países.</b> Los correos, las aplicaciones escolares y las reuniones importan; si no entiende algo, diga que necesita traducción. La escuela tiene la obligación de hacerle comprensible la información sobre su hijo.</p>
 <h3>🏠 Alquiler: el mínimo que le garantiza la ley</h3>
@@ -2488,11 +2545,11 @@ UI.ko.guideCA1=`<h3>🛬 도착 후 첫 2주, 이 순서대로</h3>
 
 `;
 UI.ko.guideProv=`<h3>⚕️ BC주 건강보험(MSP + BC Services Card)</h3>
-<p>BC주의 공공 의료보험은 MSP(Medical Services Plan)라고 합니다. <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BC 웹사이트</a>를 통해 BC Services Card를 신청하세요. <b>대기 기간은 이 주의 거주자가 된 달의 남은 기간에 두 달을 더한 기간</b>으로, 최대 3개월에 가깝습니다. 이 기간에는 진료비와 응급실 비용을 전액 본인이 부담하므로, 도착 <em>전에</em> 민간 의료보험을 들어 공백을 메우는 것이 좋습니다(대부분의 보험은 기왕증을 보장하지 않으니 해당 조항을 꼭 확인하세요). 캐나다 다른 주에서 이주하는 경우, 대기 기간이 끝날 때까지 이전 주의 보험을 유지하세요. 대기 시계는 <b>신청한 시점</b>부터 돌아가므로 도착 첫날 신청하고 미루지 마세요. 2020년 1월부터 MSP는 가입 거주자에게 월 보험료를 받지 않습니다.</p>
+<p>BC주의 공공 의료보험은 MSP(Medical Services Plan)라고 합니다. <a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">Health Insurance BC 웹사이트</a>를 통해 BC Services Card를 신청하세요. <b>대기 기간은 이 주의 거주자가 된 달의 남은 기간에 두 달을 더한 기간</b>으로, 최대 3개월에 가깝습니다. 이 기간에는 진료비와 응급실 비용을 전액 본인이 부담하므로, 도착 <em>전에</em> 민간 의료보험을 들어 공백을 메우는 것이 좋습니다(대부분의 보험은 기왕증을 보장하지 않으니 해당 조항을 꼭 확인하세요). 캐나다 다른 주에서 이주하는 경우, 대기 기간이 끝날 때까지 이전 주의 보험을 유지하세요. 대기 시계는 <b>신청한 시점</b>부터 돌아가므로 도착 첫날 신청하고 미루지 마세요. 2020년 1월부터 MSP는 가입 거주자에게 월 보험료를 받지 않습니다.</p>
 <h3>🩺 가정의를 구하지 못할 때</h3>
 <p>이곳의 가정의 부족은 전반적인 문제로, 평생 이곳에 산 주민들도 가정의가 없는 경우가 많습니다. 주민만 겪는 차별이 아닙니다. 올바른 절차는 주 단위 대기자 명단인 <b>Health Connect Registry</b>에 등록하는 것입니다. <a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC</a>에서 온라인으로 몇 분이면 등록되고, <b>8-1-1</b>로 전화하면 모국어로 등록할 수 있습니다(130개 이상 언어 지원). 개인건강번호(PHN), 주소, 전화번호, 이메일이 필요합니다. 기다리는 동안에도 이용할 의료는 있습니다. <b>8-1-1</b>은 24시간 간호사·약사·영양사와 연결되고, <b>Urgent and Primary Care Centre</b>는 응급은 아니지만 당일 진료가 필요한 경우를 맡으며, <b>워크인 클리닉</b>은 일반적인 질환을 봅니다. BC주에서는 동네 약사가 일부 경증 질환에 처방하고 예방접종도 할 수 있습니다. 병원 응급실과 911은 진짜 응급 상황을 위한 것입니다. 이 모든 경우에 무료 통역을 요청할 수 있다는 점을 기억하세요(앞 절 참조).</p>
 <h3>🚗 운전면허, 자동차보험, 겨울용 타이어</h3>
-<p>BC주 운전면허는 ICBC에서 관리합니다. 많은 국가/지역의 운전면허는 직접 교환하거나 운전 경력에 따라 도로주행시험이 일부 면제될 수 있습니다. <a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBC의 "New to BC" 페이지</a>에서 상호 인정 협약 대상인지 확인하세요. 현지에서 운전 교습을 받으려면 지도의 「분류 → 운전학원」에서 찾을 수 있습니다. 주민이 자주 손해를 보는 두 가지가 있습니다. <b>첫째, 보험 경력</b>입니다. 본국에서 무사고로 보낸 여러 해는, 이전 보험사가 영어로 발급한 사고이력 증명서(claims history letter)를 가져와야만 인정됩니다. 없으면 초보 운전자로 분류되어 가장 비싼 보험료를 내게 되며, 이 서류는 출국 후보다 출국 전에 받는 편이 훨씬 쉽습니다. <b>둘째, 겨울용 타이어</b>입니다. BC주의 산악 고속도로 대부분은 매년 10월 1일부터 3월 31일까지(일부 구간은 4월 30일까지) 겨울용 타이어를 의무화합니다. 합법적인 겨울용 타이어에는 M+S 표시 또는 삼봉설상(three-peaked mountain/snowflake) 마크가 있어야 하고, 트레드 깊이가 최소 3.5mm여야 합니다. 사계절 타이어가 곧 겨울용 타이어인 것은 아닙니다. 경찰이 실제로 단속하고 벌금이 부과되며, 산길에서는 되돌아가라는 지시를 받을 수도 있습니다.</p>
+<p>BC주 운전면허는 ICBC에서 관리합니다. 많은 국가/지역의 운전면허는 직접 교환하거나 운전 경력에 따라 도로주행시험이 일부 면제될 수 있습니다. <a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">ICBC의 "New to BC" 페이지</a>에서 상호 인정 협약 대상인지 확인하세요. 현지에서 운전 교습을 받으려면 지도의 「분류 → 운전학원」에서 찾을 수 있습니다. 주민이 자주 손해를 보는 두 가지가 있습니다. <b>첫째, 보험 경력</b>입니다. 본국에서 무사고로 보낸 여러 해는, 이전 보험사가 영어로 발급한 사고이력 증명서(claims history letter)를 가져와야만 인정됩니다. 없으면 초보 운전자로 분류되어 가장 비싼 보험료를 내게 되며, 이 서류는 출국 후보다 출국 전에 받는 편이 훨씬 쉽습니다. <b>둘째, 겨울용 타이어</b>입니다. BC주의 고속도로 대부분은 매년 10월 1일부터 4월 30일까지 겨울용 타이어를 의무화하며, 산악 고개가 아닌 일부 구간은 3월 31일에 끝납니다. 합법적인 겨울용 타이어에는 M+S 표시 또는 삼봉설상(three-peaked mountain/snowflake) 마크가 있어야 하고, 트레드 깊이가 최소 3.5mm여야 합니다. 사계절 타이어가 곧 겨울용 타이어인 것은 아닙니다. 경찰이 실제로 단속하고 벌금이 부과되며, 산길에서는 되돌아가라는 지시를 받을 수도 있습니다.</p>
 <h3>🎒 자녀 학교 등록과 언어 지원</h3>
 <p>{CITY}는 {SD} 학군에 속하며, 공립학교는 주소지에 따라 배정됩니다. <a href="{SD_URL}" target="_blank" rel="noopener">{SD} 공식 학군 조회 도구</a>에 주소를 입력해 해당 학교를 확인한 후, 학교 또는 학군 사무소에 연락해 등록 절차를 진행하세요. 보통 출생증명서/여권, 예방접종 기록, 주소 증명, 이민 서류가 필요합니다. 학부모가 가장 알아야 할 세 가지가 있습니다. <b>첫째, 영어는 입학 조건이 아닙니다.</b> 학교는 ELL(English Language Learner) 지원을 제공합니다. 아이는 원래 학년에 배치되고 그와 병행해 추가 언어 지원을 받으며, 영어 때문에 학년이 내려가지 않습니다. <b>둘째, 학교 안에 무료 정착지원 담당자가 있습니다.</b> SWIS(Settlement Workers in Schools)는 신규 이민 가정을 위한 무료 서비스로, 학교 제도를 설명하고 서류 작성과 학부모 상담을 돕고 방과후 자원을 연결하며 통역도 준비해 줍니다. <b>셋째, 학교와 가정 사이의 연락이 많은 나라보다 훨씬 잦습니다.</b> 이메일, 학교 앱, 학부모 면담이 모두 중요합니다. 읽을 수 없는 문서가 있으면 번역이 필요하다고 말하세요. 학교는 자녀에 관한 정보를 보호자가 이해할 수 있게 전달할 의무가 있습니다.</p>
 <h3>🏠 임대: 법이 보장하는 최저선</h3>
@@ -2513,11 +2570,11 @@ UI.ko.guideProv=`<h3>⚕️ BC주 건강보험(MSP + BC Services Card)</h3>
 <p>정착 초기에 현금이 빠듯한 것은 매우 흔한 일이며, 부끄러움 없이 도움을 청할 수 있는 경로가 촘촘히 마련되어 있습니다. <b>푸드뱅크</b>는 가구 구성원의 신분증을 제시하면 식품을 제공하며, 이민 신분을 따지지 않습니다(현지 정보는 다음 절과 지도에 있습니다). <b>2-1-1</b>은 캐나다의 지역사회 서비스 연계 전화로, 무료이고 비밀이 보장되며 십여 개 언어로 이용할 수 있습니다. 어떤 어려움인지 말하면 그 문제를 다루는 지역 기관을 알려 줍니다. 집세, 식품, 보육, 가정폭력, 정신건강, 노인 서비스 모두 물어볼 수 있습니다. 집세 자체가 문제라면 2-1-1이나 지역 기관에 <b>Rent Bank</b>(퇴거를 막기 위한 소액 상환형 대출)에 대해 물어보세요. 자격이 되는 저소득 주민은 주정부의 <b>Income Assistance</b>(사회부조)를 신청할 수 있습니다. 공과금은 회사에 전화해 분납을 요청하세요. 이 대화는 공급이 끊긴 뒤보다 끊기기 전에 훨씬 잘 풀립니다. 한 가지 주의할 점: 푸드뱅크나 지역 사회복지 서비스를 이용하는 것은 이민 신청과는 별개의 사안이지만, 일부 비자 유형에는 관련 조건이 있습니다. 확실하지 않다면 두려움 때문에 굶지 말고, 먼저 정착지원 기관이나 법률 지원 기관에 무료로 문의하세요.</p>
 
 `;UI.ja.guideProv=`<h3>⚕️ BC州の医療保険（MSP + BC Services Card）</h3>
-<p>BC州の公的医療制度はMSP（Medical Services Plan）といいます。<a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/enrolment" target="_blank" rel="noopener">Health Insurance BCのウェブサイト</a>からBC Services Cardを申請してください。<b>待機期間は、居住者になった月の残り日数に、まるまる2か月を加えた期間</b>——最長で3か月近くになることもあります。この間の診察や救急対応は全額自己負担になるため、到着<em>前</em>に民間の医療保険に加入して空白期間をカバーしてください（多くの保険は既往症を除外しているので、その条項は必ず読んでください）。カナダの他州から移ってきた場合は、待機期間が終わるまで以前の州の保険を維持してください。時計は<b>申請した瞬間</b>から動き出すので、後回しにせず到着当日に申請しましょう。2020年1月以降、MSPは加入者から月額保険料を徴収していません。</p>
+<p>BC州の公的医療制度はMSP（Medical Services Plan）といいます。<a href="https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp" target="_blank" rel="noopener">Health Insurance BCのウェブサイト</a>からBC Services Cardを申請してください。<b>待機期間は、居住者になった月の残り日数に、まるまる2か月を加えた期間</b>——最長で3か月近くになることもあります。この間の診察や救急対応は全額自己負担になるため、到着<em>前</em>に民間の医療保険に加入して空白期間をカバーしてください（多くの保険は既往症を除外しているので、その条項は必ず読んでください）。カナダの他州から移ってきた場合は、待機期間が終わるまで以前の州の保険を維持してください。時計は<b>申請した瞬間</b>から動き出すので、後回しにせず到着当日に申請しましょう。2020年1月以降、MSPは加入者から月額保険料を徴収していません。</p>
 <h3>🩺 かかりつけ医が見つからないとき</h3>
 <p>家庭医の不足はこの地域全体の問題で、長年住んでいる住民の多くもかかりつけ医を持っていません。あなたが特別に不利な扱いを受けているわけではありません。正しい手順は、州の待機者リストである<b>Health Connect Registry</b>に登録することです：<a href="https://www.healthlinkbc.ca/find-care/health-connect-registry" target="_blank" rel="noopener">HealthLink BC</a>から数分でオンライン登録できるほか、<b>8-1-1</b>に電話して自分の言語で登録することもできます（130以上の言語に対応）。個人健康保険番号（PHN）、住所、電話番号、メールアドレスが必要です。待っている間も医療から見放されるわけではありません——<b>8-1-1</b>は24時間、看護師・薬剤師・栄養士につながり、<b>Urgent and Primary Care Centre</b>は緊急ではない当日対応の症状を、<b>ウォークインクリニック</b>は日常的な体調不良を診てくれます。BC州の薬剤師は一部の軽度の症状について処方や予防接種を行うこともでき、本当の緊急時は救急外来か911です。これらすべてで無料通訳を依頼できることも忘れないでください（前節参照）。</p>
 <h3>🚗 運転免許、保険、冬用タイヤ</h3>
-<p>BC州の運転免許はICBCが管轄しています。多くの国の免許はそのまま交換できるか、運転経験に応じて実技試験の一部が免除されることがあります——<a href="https://www.icbc.com/driver-licensing/new-to-bc" target="_blank" rel="noopener">ICBCの「New to BC」ページ</a>で自分の免許が相互協定の対象か確認してください。地元で教習を受けたい場合は「カテゴリー→自動車教習所」を見てください。住民がよく損をする点が2つあります：<b>保険加入歴</b>——海外での無事故運転歴は、以前の保険会社から英語の事故歴証明書を取り寄せた場合にのみ有効です。それがないと保険初心者として最も高い保険料で査定され、その証明書は出発前に取得する方がずっと簡単です。そして<b>冬用タイヤ</b>——BC州のほとんどの山岳道路では10月1日から3月31日まで（一部は4月30日まで延長）冬用タイヤの装着が義務付けられています。適合するタイヤにはM+Sの表示か、三つの山と雪の結晶のマークがあり、溝の深さが3.5mm以上必要です。オールシーズンタイヤは自動的に冬用タイヤとはみなされません。警察の取り締まりがあり、違反すると罰金の対象になるほか、山岳道路では引き返しを命じられることもあります。</p>
+<p>BC州の運転免許はICBCが管轄しています。多くの国の免許はそのまま交換できるか、運転経験に応じて実技試験の一部が免除されることがあります——<a href="https://icbc.com/driver-licensing/moving-bc/moving-from-another-country" target="_blank" rel="noopener">ICBCの「New to BC」ページ</a>で自分の免許が相互協定の対象か確認してください。地元で教習を受けたい場合は「カテゴリー→自動車教習所」を見てください。住民がよく損をする点が2つあります：<b>保険加入歴</b>——海外での無事故運転歴は、以前の保険会社から英語の事故歴証明書を取り寄せた場合にのみ有効です。それがないと保険初心者として最も高い保険料で査定され、その証明書は出発前に取得する方がずっと簡単です。そして<b>冬用タイヤ</b>——BC州のほとんどの道路では10月1日から4月30日まで冬用タイヤの装着が義務付けられています（山岳の峠を通らない一部の道路は3月31日まで）。適合するタイヤにはM+Sの表示か、三つの山と雪の結晶のマークがあり、溝の深さが3.5mm以上必要です。オールシーズンタイヤは自動的に冬用タイヤとはみなされません。警察の取り締まりがあり、違反すると罰金の対象になるほか、山岳道路では引き返しを命じられることもあります。</p>
 <h3>🎒 学校の入学手続きと言語サポート</h3>
 <p>{CITY}は{SD}学区に属しています。公立学校は自宅住所によって割り当てられるため、<a href="{SD_URL}" target="_blank" rel="noopener">{SD}の学区検索ツール</a>で地元の学校を調べ、その学校または学区事務局に連絡して登録してください。通常、出生証明書／パスポート、予防接種の記録、住所証明、移民関連書類が必要です。保護者が特に知っておきたいことが3つあります：<b>1. 英語力は入学の条件ではありません。</b> 学校にはELL（English Language Learner）支援があり、お子さんは学年相応のクラスに在籍しながら追加の言語サポートを受けます。言語を理由に学年を下げられることはありません。<b>2. 学校には無料の定住支援ワーカーがいます。</b> SWIS（Settlement Workers in Schools）は住民家庭のための無料サービスで、学校制度の仕組みを説明し、書類作成や保護者面談に付き添い、地域の活動につなげ、通訳の手配もしてくれます。<b>3. 学校と家庭のやり取りは、多くの国より頻繁です。</b> メール、学校専用アプリ、保護者面談はどれも重要です。読めないものがあれば「翻訳が必要です」とはっきり伝えてください。お子さんに関する情報を保護者が理解できる形にするのは学校側の義務です。</p>
 <h3>🏠 賃貸住宅：法律が保障する最低ライン</h3>
@@ -2649,9 +2706,22 @@ function cityNow(){
 function cityMonth(){
   try{return parseInt(new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,month:'numeric'}).format(new Date()),10);}catch(e){return new Date().getMonth()+1;}
 }
+// 2026-09-21: the city's own date, cached for a minute — openState runs for
+// every place on every filter tap.
+let _isoAt=0,_iso='';
+function cityISODate(){
+  const t=Date.now();
+  if(t-_isoAt>60000){_isoAt=t;try{_iso=new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){_iso='';}}
+  return _iso;
+}
+function isHolidayToday(){return !!(CITY.holidays&&CITY.holidays.indexOf(cityISODate())>=0);}
 function openState(h,now){
   if(!h||typeof h!=='object')return null;
   if(h.a)return {open:true,until:null};
+  // A statutory holiday: the weekday hours on file are not today's hours.
+  // "Unknown" is the honest answer (a clock passed in by a caller is a
+  // question about an ordinary day, not today).
+  if(!now&&isHolidayToday())return null;
   if(h.k)return null;
   // 2026-09-10: `q` marks hours that belong to an office, box office or parish
   // office rather than the place itself, and `se` marks a season. A spray park
@@ -2807,7 +2877,7 @@ function setStep(id,i,on){
   if(on)cur.add(i);else cur.delete(i);
   stepDone[id]=[...cur].sort((a,b)=>a-b);
   saveStepDone();
-  trackEvent('task_step',{id:id,action:on?'tick':'untick',n:cur.size,of:stepsOf(t)});
+  trackEvent('task_step',{action:on?'tick':'untick',n:cur.size,of:stepsOf(t)});
   const all=stepsOf(t)>0&&cur.size>=stepsOf(t);
   let changed=false;
   if(all&&!taskDone.has(id)){toggleTaskDone(id,true);changed=true;}
@@ -2908,6 +2978,9 @@ const ICONS={
   bank:'<path d="M3 9l9-5 9 5"/><path d="M5 9v8M9.5 9v8M14.5 9v8M19 9v8"/><path d="M3 20h18"/><path d="M3 17h18"/>',
   school:'<path d="M4 5h6a2 2 0 012 2v13a2 2 0 00-2-2H4z"/><path d="M20 5h-6a2 2 0 00-2 2v13a2 2 0 012-2h6z"/>',
   receipt:'<path d="M6 3h12v18l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5L6 21z"/><path d="M9 8h6M9 12h6M9 16h3"/>',
+  briefcase:'<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 012-2h2a2 2 0 012 2v2"/><path d="M3 12h18"/>',
+  flame:'<path d="M12 3c1 3 5 5.5 5 10a5 5 0 01-10 0c0-2.2 1.2-3.8 2.5-5 .3 1.6 1.2 2.6 2.2 3C11.5 8.5 11 5.5 12 3z"/>',
+  clipboard:'<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M9 10h6M9 14h6M9 18h3"/>',
   people:'<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.3"/><path d="M3 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><path d="M16 14.5a3.5 3.5 0 015 3.5v2"/>',
   elder:'<circle cx="11" cy="5.5" r="2.3"/><path d="M8 21v-6l-1-5a2 2 0 012-2h4a2 2 0 012 2v3"/><path d="M12 21v-5"/><path d="M17 12v9"/>',
   sick:'<path d="M6 4v6a6 6 0 0012 0V4"/><path d="M5 4h2M17 4h2"/><path d="M12 16v2a3 3 0 003 3h1a3 3 0 003-3v-1"/><circle cx="19" cy="14" r="1.8"/>',
@@ -2931,7 +3004,7 @@ const ICONS={
   wifi_off:'<path d="M3 3l18 18"/><path d="M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3"/><path d="M12 18h.01"/>'
 };
 // which drawing stands in for which emoji when a string is rendered as HTML
-const EMOJI_ICON={'🧭':'guide','🏠':'home','🧳':'suitcase','🆓':'free','🧒':'child','❄️':'snowflake','🕒':'clock','🚶':'walk','💡':'bulb','📍':'pin','🏷️':'tag','🚌':'bus','⭐':'star','🔗':'share','💬':'chat','ℹ️':'info','🔍':'search','📞':'phone','☎️':'phone','🌐':'globe','🚨':'alert','🧺':'basket','🎉':'sparkles','📷':'camera','🕰️':'history','🎨':'palette','🌏':'world','🎒':'backpack','🎯':'target','🪪':'idcard','⚕️':'health','🚗':'car','🏦':'bank','🏫':'school','🧾':'receipt','🤝':'people','🧓':'elder','🩺':'sick','🔑':'key','🤲':'hands','🛡️':'shield','⚖️':'scale','📄':'doc','📅':'calendar','🖨️':'print','↺':'reset','📴':'wifi_off','💊':'pill','🗂️':'layers','🎓':'gradcap','💪':'dumbbell','🌳':'tree','🛍️':'bag','👨‍👩‍👧':'family'};
+const EMOJI_ICON={'🧭':'guide','🏠':'home','🧳':'suitcase','🆓':'free','🧒':'child','❄️':'snowflake','🕒':'clock','🚶':'walk','💡':'bulb','📍':'pin','🏷️':'tag','🚌':'bus','⭐':'star','🔗':'share','💬':'chat','ℹ️':'info','🔍':'search','📞':'phone','☎️':'phone','🌐':'globe','🚨':'alert','🧺':'basket','🎉':'sparkles','📷':'camera','🕰️':'history','🎨':'palette','🌏':'world','🎒':'backpack','🎯':'target','🪪':'idcard','⚕️':'health','🚗':'car','🏦':'bank','🏫':'school','🧾':'receipt','🤝':'people','🧓':'elder','🩺':'sick','🔑':'key','🤲':'hands','🛡️':'shield','⚖️':'scale','📄':'doc','📅':'calendar','🖨️':'print','↺':'reset','📴':'wifi_off','💊':'pill','🗂️':'layers','🎓':'gradcap','💪':'dumbbell','🌳':'tree','🛍️':'bag','👨‍👩‍👧':'family','💼':'briefcase','🔥':'flame','📋':'clipboard'};
 function ico(name,cls){
   const d=ICONS[name];if(!d)return '';
   return '<svg class="ic'+(cls?' '+cls:'')+'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'+d+'</svg>';
@@ -3291,6 +3364,10 @@ function getSid(){
     return sid;
   }catch(e){return 'anon';}
 }
+// 2026-09-21: a search that says someone may be in danger gets the lines that
+// answer, above any results, and the words themselves are never uploaded.
+const _CRISIS_RE=/\b(suicid\w*|kill my ?self|kill me|want to die|self[- ]?harm\w*|overdos\w*|abus\w*|violen\w*|domestic|hits me|beats me|rape\w*|sexual assault|assault\w*|unsafe|in danger|crisis|crise|dv|me tuer|mourir|agress\w*|agresi\w*|matarme|morir|maltrato\w*)\b|自杀|想死|不想活|轻生|自残|家暴|暴力|被打|打我|虐待|性侵|强奸|危机|자살|죽고 싶|자해|폭력|학대|폭행|自殺|死にたい|自傷|性暴力/i;
+function isCrisisQuery(q){return !!q&&_CRISIS_RE.test(String(q));}
 const _evBuf=[];
 const _EV_MAX=1000;
 const _EV_KEY='kamloopsEvents';
@@ -3325,7 +3402,7 @@ function trackEvent(type,props){
     // privacy note. Any event carrying `q` is now cleaned, including ones that
     // do not exist yet.
     if(props&&typeof props.q==='string'){
-      safeProps=Object.assign({},props,{q:_sanitiseQuery(props.q)});
+      safeProps=Object.assign({},props,{q:isCrisisQuery(props.q)?'[crisis]':_sanitiseQuery(props.q)});
     }
     // env:'dev' marks maintainer traffic — anyone who opened the ?debug=1
     // panel, plus the smoke-test events deploy.sh fires after each release.
@@ -3372,6 +3449,10 @@ function trackEvent(type,props){
   }catch(e){}
 }
 function flushEvents(){
+  // 2026-09-21: the local copy exists only for the maintainer's ?debug=1
+  // panel. On an ordinary visit it was a readable history of every search
+  // and card, left on a device that may be shared — so it stays in memory.
+  if(!_IS_DEBUG)return;
   try{localStorage.setItem(_EV_KEY,JSON.stringify(_evBuf));}catch(e){
     // localStorage full (5 MB cap) is the only realistic cause here — a single
     // user cannot realistically type 5 MB of events, but a corrupted prior write
@@ -3386,7 +3467,8 @@ function scheduleFlush(){setTimeout(()=>{flushEvents();if(document.visibilitySta
 window.addEventListener('beforeunload',flushEvents);
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='hidden')flushEvents();});
 try{
-  const saved=localStorage.getItem(_EV_KEY);
+  if(!_IS_DEBUG)localStorage.removeItem(_EV_KEY);   // clears what older versions left behind
+  const saved=_IS_DEBUG?localStorage.getItem(_EV_KEY):null;
   if(saved){const arr=JSON.parse(saved);if(Array.isArray(arr))_evBuf.push(...arr.slice(-_EV_MAX));}
 }catch(e){}
 _sinceFlush=_evBuf.length%_flushThreshold;
@@ -3576,6 +3658,7 @@ layer.on('tileerror',()=>{
   if(offlineEl&&offlineEl.hidden)offlineShowExpanded();
 });
 map.on('popupopen',e=>{
+  try{document.getElementById('seasonNote').hidden=true;}catch(_){}
   // The popup is the only way to reach a place's detail, so every popup-open
   // is exactly a "this place was inspected" event. The marker's index and the
   // category are on m.data / m.ck; cluster spiderfy opens synthetic layers
@@ -3614,6 +3697,7 @@ map.on('popupopen',e=>{
   }catch(err){}},350);
 });
 map.on('popupclose',()=>{
+  setTimeout(()=>{try{renderSeason();}catch(_){}},0);
   // The popupclose event fires for every Leaflet popup — include cluster
   // spiderfies by guarding on m?.data, then the (id,cat,reg) matches the
   // marker_view for clean funnel reports. _source may be null when Leaflet
@@ -4006,7 +4090,7 @@ function phoneHtml(str){
   // pass) only linkified the first and silently left the rest as plain,
   // unclickable text — every previous caller happened to pass a string with
   // exactly one number, which is why this went unnoticed until now.
-  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
+  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
 }
 // ---- structured opening hours -> localised text -------------------------
 // Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,
@@ -4116,7 +4200,7 @@ function popup(p,idx){
   // The name is the one thing every reader opened the popup for, so it leads —
   // the category/region tags used to sit above it, which put metadata ahead of the
   // primary fact. They now sit as a supporting line right under the name instead.
-  const pick=/^⭐/.test(p.n), nm=p.n.replace(/^[⭐\s]+/,'');
+  const pick=!!p.pick||/^⭐/.test(p.n), nm=p.n.replace(/^[⭐\s]+/,'');
   let b='<div class="pt">'+esc(nm)+'<button class="fav-star'+starActive+'" data-i="'+idx+'" onclick="toggleFav(this,event)" aria-pressed="'+faved+'" aria-label="'+(faved?u.favRemove:u.favAdd)+'">'+starChar+'</button></div>';
   b+='<div class="ptags"><span class="tag" style="background:'+catColour(p.c)+'">'+catLabel(p.c)+'</span><span class="tag tag2">'+regLabel(p.g)+'</span>';
   // A qualifier that used to sit inside the Chinese name ("（韩餐）") is data now,
@@ -4162,7 +4246,8 @@ function popup(p,idx){
   const hTxt=p.h?fmtHours(p.h,L_):(CITY.openAir.indexOf(p.c)>=0?u.hOnSite:u.hUnknown);
   const os=openState(p.h);
   const pill=os?('<span class="pv-open '+(os.open?'on':'off')+'">'+(os.open?u.openNowYes:u.openNowNo)
-    +(os.open&&os.until!==null?' · '+u.openUntil+' '+fmtClock(os.until,L_):'')+'</span>'):'';
+    +(os.open&&os.until!==null?' · '+u.openUntil+' '+fmtClock(os.until,L_):'')+'</span>')
+    :(p.h&&!p.h.a&&isHolidayToday()?'<span class="pv-open hol">'+esc(u.holidayPill)+'</span>':'');
   b+='<div class="pr"><span class="pl">'+u.lHours+'</span>'+pill+hTxt+'</div>';
   b+=themesHtml;
   const nTxt=noteText(p);
@@ -4171,7 +4256,9 @@ function popup(p,idx){
   // Data Notes measure two different things (this one record vs. the whole
   // dataset) — a tooltip says so here rather than leaving the reader to notice
   // they don't always match.
-  b+='<div class="pv">'+srcHTML(p,u)+(p.v?'<span class="pv-verified" title="'+u.lVerifiedTip.replace(/"/g,'&quot;')+'">'+u.lVerified+' '+fmtStamp(p.v,L_)+'</span> · ':'')
+  b+='<div class="pv">'+srcHTML(p,u)+(p.v?(p.src==='places'
+      ?'<span class="pv-verified" title="'+u.lListedTip.replace(/"/g,'&quot;')+'">'+u.lListed+' '+fmtStamp(p.v,L_)+'</span> · '
+      :'<span class="pv-verified" title="'+u.lVerifiedTip.replace(/"/g,'&quot;')+'">'+u.lVerified+' '+fmtStamp(p.v,L_)+'</span> · '):'')
     +'<a class="pv-report" href="'+reportHref(p)+'">'+u.reportIssue+'</a></div>';
   // Destination is the place name + address (not raw lat/lng) so the map app shows
   // a real, readable place to navigate to instead of a confusing pair of numbers.
@@ -4705,14 +4792,29 @@ let _lastEmptyKind=null;
 // The lines that answer at 3 a.m. Built once, shown wherever a reader may be
 // standing when everything else is closed: the open-now empty state, the top of
 // the guide's "when you need help" bucket, and the first-use card.
+function localCrisisHtml(){
+  const line=c=>'<p class="help-local">'+esc(c.note[L_]||c.note.en)+' <a href="tel:'+esc(c.n.replace(/[^\d]/g,''))+'"><b>'+esc(c.n)+'</b></a></p>';
+  return (CITY.localLines||[]).map(line).join('')+(CITY.localCrisis?line(CITY.localCrisis):'');
+}
 function hotlineHtml(compact){
   const u=UI[L_];
   const items=(CITY.hotlines||[]).map(h=>'<a class="hl-line" href="tel:'+esc(h.n.replace(/[^\d]/g,''))+'"><b>'+esc(h.n)+'</b> '+esc(u['hot_'+h.t]||h.t)+'</a>');
   return '<div class="hotlines'+(compact?' compact':'')+'"><span class="hl-lead">'+iconify(u.hotlinesLead)+'</span>'+items.join('')+'</div>';
 }
+function crisisHtml(){
+  const u=UI[L_];
+  return '<div class="crisis-block"><p class="crisis-lead">'+esc(u.crisisLead)+'</p>'+hotlineHtml(false)+localCrisisHtml()
+    +'<p class="crisis-more">'+esc(u.crisisMore)+'</p></div>';
+}
 function renderEmptyState(v,searching,filtered){
   const el=document.getElementById('emptyState'),u=UI[L_];
-  if(v>0){el.hidden=true;el.innerHTML='';_lastEmptyKind=null;return;}
+  const crisis=searching&&isCrisisQuery(searchRaw||searchTerm);
+  if(v>0){
+    _lastEmptyKind=null;
+    if(crisis){el.hidden=false;el.dataset.kind='crisis';el.innerHTML=crisisHtml();}
+    else{el.hidden=true;el.innerHTML='';}
+    return;
+  }
   el.hidden=false;
   let msg,label,act;
   const clearFiltersAct=()=>{aR=new Set(Object.keys(RI));aC.clear();aT.clear();selPresets.clear();presetsAdjusted=false;openNow=false;updateOpenQuickpick();nearOnly=false;updateNearQuickpick();renderRegs();renderCats();renderThemes();if(selectedRoute)renderRoute(null,false);apply();};
@@ -4731,13 +4833,13 @@ function renderEmptyState(v,searching,filtered){
   }else if(onlyOpen){
     // Nothing is open. Say so — and, since the person asking at this hour may
     // be in trouble, show the lines that answer anyway. Never a bare zero.
-    msg=u.emptyOpenNow;label=u.emptyOpenBtn;act=()=>{openNow=false;updateOpenQuickpick();apply();};
+    msg=isHolidayToday()?u.holidayOpenNote:u.emptyOpenNow;label=u.emptyOpenBtn;act=()=>{openNow=false;updateOpenQuickpick();apply();};
   }else{
     msg=u.emptyFilters;label=u.emptyFiltersBtn;act=clearFiltersAct;
   }
   // The hotline block belongs to "nothing in the city is open" — not to a
   // closed library. The chip row already carries it while open-now is on.
-  el.innerHTML='<p>'+msg+'</p>'+(selectedRoute?'<p class="empty-route">'+esc(u.emptyRouteNote)+'</p>':'')+(onlyOpen&&!searching?hotlineHtml(false):'');
+  el.innerHTML=(crisis?crisisHtml():'')+'<p>'+msg+'</p>'+(selectedRoute?'<p class="empty-route">'+esc(u.emptyRouteNote)+'</p>':'')+(onlyOpen&&!searching?hotlineHtml(false):'');
   const btn=document.createElement('button');btn.className='empty-btn';btn.textContent=label;
   // 2026-09-08 audit: this button is the app's clearest "I hit a dead end and
   // tried to get out of it" signal, and it recorded nothing — so the one moment
@@ -4954,7 +5056,8 @@ function renderActiveFilters(){
   // a phone, not a door. The 24-hour lines ride along with the chip row — no
   // extra tap, no need for the result to be empty first.
   if(openNow){
-    const hl=document.createElement('div');hl.className='af-hotlines';hl.innerHTML=hotlineHtml(true);
+    const hl=document.createElement('div');hl.className='af-hotlines';
+    hl.innerHTML=(isHolidayToday()?'<p class="af-holiday">'+esc(u.holidayOpenNote)+'</p>':'')+hotlineHtml(true);
     root.appendChild(hl);
   }
   if(aC.size>0){
@@ -5029,6 +5132,7 @@ function setLang(l){
   };
   setHL('noteToggle',u.noteToggleLabel);
   renderFirstUse();
+  try{renderSeason();}catch(e){}
   // Landmark labels: sign name, and under it the same thing in the reader's
   // language when the data has one. Re-set on every language change.
   landmarkMarkers.forEach(it=>{
@@ -5041,6 +5145,9 @@ function setLang(l){
   setHL('guideToggle',u.guideToggleLabel);
   document.getElementById('guideToggle').dataset.short=u.guideToggleShort;
   setHL('shareBtn',u.shareBtnLabel);
+  setHL('helpBtn',u.helpBtnLabel);
+  document.getElementById('helpBtn').dataset.short=u.helpBtnShort;
+  if(helpBackdropEl&&helpBackdropEl.classList.contains('open'))renderHelpSheet();
   document.getElementById('shareBtn').title=u.shareBtnTip;
   const si=document.getElementById('searchInput');
   si.placeholder=u.searchPlaceholder;si.setAttribute('aria-label',u.aSearch);
@@ -5228,8 +5335,17 @@ function shareText(){
   // shared message reads as something rather than a bare URL.
   return (document.getElementById('h1').textContent||document.title||'').trim();
 }
+// The link a reader chooses to send: the address bar plus the search, when
+// there is one and it is not a cry for help.
+function shareHref(){
+  try{
+    const raw=searchInputEl.value.trim();
+    if(!searchTerm||!raw||isCrisisQuery(raw))return location.href;
+    const x=new URL(location.href);x.searchParams.set('q',raw);return x.toString();
+  }catch(e){return location.href;}
+}
 function copyShareLink(){
-  const u=UI[L_],href=location.href;
+  const u=UI[L_],href=shareHref();
   trackEvent('share_click',{stage:'intent',target:'copy'});
   let copied=false;
   try{
@@ -5270,7 +5386,7 @@ function renderShareSheet(){
   SHARE_TARGETS.forEach(t=>{
     const a=document.createElement('a');
     a.className='share-item';a.target='_blank';a.rel='noopener';
-    a.href=t.url(location.href,shareText());
+    a.href=t.url(shareHref(),shareText());
     a.innerHTML='<span class="si" aria-hidden="true">'+t.ic+'</span><span></span>';
     a.lastChild.textContent=t.name||u[t.label];
     a.onclick=()=>{trackEvent('share_click',{stage:'intent',target:t.k});
@@ -5289,13 +5405,48 @@ shareBackdropEl.addEventListener('keydown',e=>trapTab(e,shareBackdropEl));
 document.getElementById('shareNative').onclick=()=>{
   if(!navigator.share)return;
   trackEvent('share_click',{stage:'intent',target:'native'});
-  navigator.share({title:shareText(),url:location.href}).then(
+  navigator.share({title:shareText(),url:shareHref()}).then(
     // A dismissed sheet rejects with AbortError, which is a normal outcome and
     // not a failure — telling them apart is the whole point of logging it.
     ()=>{trackEvent('share_click',{stage:'result',target:'native',shared:true});closeModal(shareBackdropEl);},
     (err)=>{const aborted=err&&err.name==='AbortError';
             trackEvent('share_click',{stage:'result',target:'native',shared:false,aborted:!!aborted});});
 };
+const helpBackdropEl=document.getElementById('helpBackdrop');
+// 2026-09-21: one door that is always on screen, for the moment someone is not
+// looking for a place but for a person to talk to.
+let _clearArmed=false;
+function renderHelpSheet(){
+  const u=UI[L_],body=document.getElementById('helpBody');
+  document.getElementById('helpTitle').innerHTML=iconify(u.helpTitle);
+  _clearArmed=false;
+  body.innerHTML='<p class="help-lead">'+esc(u.helpLead)+'</p>'+hotlineHtml(false)+localCrisisHtml()
+    +'<p class="help-info"><a href="tel:'+esc(CITY.help.info)+'"><b>2-1-1</b></a> '+esc(u.helpInfo)+'</p>'
+    +'<div class="help-actions"><button type="button" class="help-exit" id="helpExit"></button><p class="help-note" id="helpExitNote"></p>'
+    +'<button type="button" class="help-clear" id="helpClear"></button><p class="help-note" id="helpClearNote"></p></div>';
+  document.getElementById('helpExit').textContent=u.helpExit;
+  document.getElementById('helpExitNote').textContent=u.helpExitNote;
+  const cl=document.getElementById('helpClear');cl.textContent=u.helpClear;
+  document.getElementById('helpClearNote').textContent=u.helpClearNote;
+  document.getElementById('helpExit').onclick=()=>{
+    try{sessionStorage.clear();}catch(e){}
+    location.replace('https://www.google.com/');
+  };
+  cl.onclick=()=>{
+    if(!_clearArmed){_clearArmed=true;cl.classList.add('armed');cl.textContent=u.helpClearConfirm;return;}
+    try{Object.keys(localStorage).filter(k=>/^kamloops/.test(k)).forEach(k=>localStorage.removeItem(k));}catch(e){}
+    try{sessionStorage.clear();}catch(e){}
+    location.replace(location.pathname);
+  };
+}
+document.getElementById('helpBtn').onclick=()=>{
+  trackEvent('help_open',{});
+  renderHelpSheet();
+  openModal(helpBackdropEl);
+};
+document.getElementById('helpClose').onclick=()=>closeModal(helpBackdropEl);
+helpBackdropEl.onclick=(e)=>{if(e.target===helpBackdropEl&&!justOpened(helpBackdropEl))closeModal(helpBackdropEl);};
+helpBackdropEl.addEventListener('keydown',e=>trapTab(e,helpBackdropEl));
 const noteBackdropEl=document.getElementById('noteBackdrop');
 document.getElementById('noteToggle').onclick=()=>{trackEvent('note_open',{});openModal(noteBackdropEl);};
 document.getElementById('noteClose').onclick=()=>closeModal(noteBackdropEl);
@@ -5304,6 +5455,7 @@ noteBackdropEl.addEventListener('keydown',e=>trapTab(e,noteBackdropEl));
 // Escape always dismisses the topmost thing that is open
 document.addEventListener('keydown',(e)=>{
   if(e.key!=='Escape')return;
+  if(helpBackdropEl.classList.contains('open')){closeModal(helpBackdropEl);return;}
   if(shareBackdropEl.classList.contains('open')){closeModal(shareBackdropEl);return;}
   if(guideBackdropEl.classList.contains('open')){closeModal(guideBackdropEl);return;}
   if(noteBackdropEl.classList.contains('open')){closeModal(noteBackdropEl);return;}
@@ -5712,6 +5864,7 @@ function selectRoute(key,opts){
   // without re-fitting keeps the card open (a zoom-out re-clusters the marker)
   renderRoute(key,!(opts&&opts.keepView));
   closePanel();
+  try{renderSeason();}catch(e){}
   if(key)dismissFirstUse('route');
 }
 function dismissHint(){
@@ -6086,6 +6239,7 @@ setTimeout(()=>{try{
   attachSheetDrag(guideBackdropEl,document.getElementById('guideModal'));
   attachSheetDrag(noteBackdropEl,document.getElementById('noteModal'));
   attachSheetDrag(shareBackdropEl,document.getElementById('shareModal'));
+  attachSheetDrag(helpBackdropEl,document.getElementById('helpModal'));
 }catch(e){}},0);
 // Every overlay (the two centred modals here, and the four bottom-sheet panels in
 // openPanel/closePanel below) sits on a position:fixed backdrop, but fixed
@@ -6153,8 +6307,8 @@ window.addEventListener('popstate',e=>{
   const id=(e.state&&e.state[_SHEET_KEY])||null;
   // Back from an open card returns to the list
   if(id==='guideBackdrop'&&guideBackdropEl.classList.contains('open')&&_taskOpen){renderTaskList();return;}
-  const wasOpen=[guideBackdropEl,noteBackdropEl,shareBackdropEl].some(b=>b&&b.classList.contains('open'))||panel.classList.contains('open');
-  [guideBackdropEl,noteBackdropEl,shareBackdropEl].forEach(b=>{
+  const wasOpen=[guideBackdropEl,noteBackdropEl,shareBackdropEl,helpBackdropEl].some(b=>b&&b.classList.contains('open'))||panel.classList.contains('open');
+  [guideBackdropEl,noteBackdropEl,shareBackdropEl,helpBackdropEl].forEach(b=>{
     if(b&&b.classList.contains('open')&&id!==b.id)closeModal(b,true);
   });
   if(panel.classList.contains('open')&&id!=='panel')closePanel(true);
@@ -6178,6 +6332,33 @@ function copyText(txt){
   try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(txt);return true;}}catch(e){}
   return false;
 }
+// 2026-09-22 tracking audit: outbound links and the feedback mail link were
+// invisible in the data — a card's official source, links in the guide text, and
+// "Report an issue". One listener, capture phase so it runs before the in-app
+// browser mailto handler below can stop anything. Records the destination host
+// only. The Help sheet and every tel: link are left out on purpose.
+function _linkHost(href){try{return new URL(href,location.href).hostname.replace(/^www\./,'');}catch(e){return '';}}
+document.addEventListener('click',e=>{
+  try{
+    const a=e.target&&e.target.closest?e.target.closest('a[href]'):null;
+    if(!a||a.closest('#helpModal'))return;
+    const href=a.getAttribute('href')||'';
+    if(/^mailto:/i.test(href)){
+      if(a.classList.contains('pv-report')){
+        const box=a.closest('.leaflet-popup-content'),pv=box&&box.querySelector('[data-pid]');
+        trackEvent('feedback_click',{kind:'place',id:pv?pv.dataset.pid:undefined,cat:pv?pv.dataset.pcat:undefined});
+      }else if(a.id==='feedbackLink')trackEvent('feedback_click',{kind:'general'});
+      else if(a.closest('#guideTasks')&&a.closest('.task-checked'))trackEvent('feedback_click',{kind:'task',id:_taskOpen||undefined});
+      return;
+    }
+    if(!/^https?:/i.test(href))return;
+    if(a.closest('#guideTasks')){
+      trackEvent(a.closest('.task-src')?'task_src':'task_link',{id:_taskOpen||undefined,to:_linkHost(href)});
+    }else if(a.closest('#guideBody')){
+      trackEvent('guide_link',{to:_linkHost(href)});
+    }
+  }catch(err){}
+},true);
 if(IN_APP_BROWSER)document.addEventListener('click',e=>{
   const a=e.target&&e.target.closest?e.target.closest('a[href^="mailto:"]'):null;
   if(!a)return;
@@ -6309,12 +6490,47 @@ const _FU_KEY='kamloopsFirstUseSeen';
 // a route, an opened place — as well as on its own ✕. It sat on top of place
 // popups otherwise, hiding the name and the star of the very place just tapped.
 let _fuDismissed=false;
+// --- 2026-09-22: the seasonal reminder ------------------------------------
+// One line on the map while a season from CITY.seasons is on. It waits for the
+// first-use card, steps aside for a place card or a drawn route, and once
+// closed stays closed for that season on this device.
+function activeSeason(){
+  const iso=cityISODate();if(!iso||!CITY.seasons)return null;
+  const md=iso.slice(5);
+  return CITY.seasons.find(x=>x.from<=x.to?(md>=x.from&&md<=x.to):(md>=x.from||md<=x.to))||null;
+}
+function seasonKey(x){
+  const iso=cityISODate(),y=parseInt(iso.slice(0,4),10),md=iso.slice(5);
+  // a season that wraps the new year belongs to the year it started in
+  return 'kamloopsSeason_'+x.id+'_'+(x.from>x.to&&md<=x.to?y-1:y);
+}
+let _seasonClosedMem={},_seasonShown={};
+function renderSeason(){
+  const el=document.getElementById('seasonNote');if(!el)return;
+  const x=activeSeason(),fu=document.getElementById('firstUse');
+  let closed=false;
+  if(x){closed=!!_seasonClosedMem[x.id];try{closed=closed||localStorage.getItem(seasonKey(x))==='1';}catch(e){}}
+  const busy=(fu&&!fu.hidden)||!!selectedRoute||!!(typeof map!=='undefined'&&map._popup&&map._popup.isOpen&&map._popup.isOpen());
+  if(!x||closed||busy){el.hidden=true;return;}
+  const u=UI[L_];
+  el.innerHTML='<span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)
+    +'<span class="sn-links">'+x.links.map(k=>'<a href="'+esc(k.u)+'" target="_blank" rel="noopener" data-season-link="'+esc(x.id)+'">'+esc(k.t[L_]||k.t.en)+' ›</a>').join('')+'</span>'
+    +'<button type="button" class="sn-x" id="seasonClose" aria-label="'+esc(u.aClose)+'">✕</button>';
+  el.hidden=false;
+  if(!_seasonShown[x.id]){_seasonShown[x.id]=1;trackEvent('season_shown',{id:x.id});}
+  document.getElementById('seasonClose').onclick=()=>{
+    _seasonClosedMem[x.id]=true;try{localStorage.setItem(seasonKey(x),'1');}catch(e){}
+    el.hidden=true;trackEvent('season_close',{id:x.id});
+  };
+  el.querySelectorAll('[data-season-link]').forEach(a=>a.onclick=()=>trackEvent('season_link',{id:x.id,to:a.getAttribute('href').split('/')[2]}));
+}
 function dismissFirstUse(src){
   const el=document.getElementById('firstUse');
   if(!el||el.hidden)return;
   _fuDismissed=true;   // storage may be blocked (private mode); remember in memory for this sitting
   try{localStorage.setItem(_FU_KEY,'1');}catch(e){}
   el.hidden=true;
+  try{renderSeason();}catch(e){}
   if(src&&src!=='card')trackEvent('firstuse_dismiss',{via:src});
 }
 // --- item 1: the search box asks the questions ------------------------------
@@ -6623,7 +6839,8 @@ function writeURLState(){
     if(aR.size&&aR.size<Object.keys(RI).length)q.set('r',[...aR].join(','));
     if(aC.size)q.set('c',[...aC].join(','));
     if(aT.size)q.set('t',[...aT].join(','));
-    if(searchTerm)q.set('q',searchInputEl.value.trim());
+    // 2026-09-21: the search box stays out of the address bar — it is what
+    // lands in browser history on a shared device. A share adds it on purpose.
     if(selectedRoute)q.set('route',selectedRoute);
     if(openNow)q.set('o','1');
     if(_taskOpen&&guideBackdropEl&&guideBackdropEl.classList.contains('open'))q.set('task',_taskOpen);
