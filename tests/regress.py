@@ -1644,14 +1644,15 @@ async def main():
         check("71 the first-use card shows once as one line, closes, and stays dismissed", fu['shown'] and fu['n']==0 and fu['slim'] and fu['safe'] and fu['hiddenAfter'] and fu['stored']=='1', fu)
         await pg71.reload(); await pg71.wait_for_timeout(1300)
         check("71 …and does not come back on the next visit", await pg71.evaluate("()=>document.getElementById('firstUse').hidden"))
-        # hotlines ride with open-now, and sit above the 'need help' bucket
+        # 2026-09-24 (p33): "open now" no longer hangs the 24-hour lines under the chip row;
+        # they still sit above the guide's 'need help' bucket, all dialable
         hl=await pg71.evaluate("""()=>{openNow=true;updateOpenQuickpick();apply();
             const a=document.querySelectorAll('#activeFilters .hotlines .hl-line').length;
-            openNow=false;apply();
+            openNow=false;updateOpenQuickpick();apply();
             document.getElementById('guideToggle').click();
             const g=document.querySelectorAll('#guideTasks .hotlines.compact .hl-line').length;
             return {a,g,tel:[...document.querySelectorAll('#guideTasks .hl-line')].every(x=>/^tel:\\d+$/.test(x.getAttribute('href')))};}""")
-        check("71 24-hour lines appear with 'open now' and above 'when you need help', all dialable", hl['a']>=4 and hl['g']>=4 and hl['tel'], hl)
+        check("71 'open now' shows no crisis lines under the filters; they stay above 'when you need help', all dialable", hl['a']==0 and hl['g']>=4 and hl['tel'], hl)
         # arrival date turns '90 days' into a date, sorts, and stays on the device
         ar=await pg71.evaluate("""()=>{renderTaskList();const i=document.getElementById('arriveDate');i.value='2026-08-01';i.dispatchEvent(new Event('change'));
             const first=document.querySelector('.task-card').dataset.task;

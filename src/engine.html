@@ -201,10 +201,9 @@
   @media(pointer:coarse){.fu-row button{min-height:44px;min-width:72px;}}
   .hotlines{margin:8px 0 4px;padding:9px 11px;border-radius:10px;background:#fff4f4;border:1px solid #f3c9c9;font-size:12.5px;line-height:1.55;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;}
   .hotlines.compact{margin:0 0 10px;font-size:11.5px;}
-  .af-hotlines{flex:0 0 100%;}
+  .af-note{flex:0 0 100%;}
   .af-holiday{margin:4px 0 0;font-size:12.5px;font-weight:600;color:#8a4b00;}
   .pv-open.hol{background:#fff2e0;color:#8a4a00;}
-  .af-hotlines .hotlines{margin:4px 0 0;}
   .hotlines .hl-lead{font-weight:700;color:#8a1c1c;flex:0 0 100%;}
   .hotlines .hl-line{white-space:normal;color:var(--ink);text-decoration:none;}
   .hotlines .hl-line b{white-space:nowrap;}   /* the line may wrap, the number never does */
@@ -1632,6 +1631,7 @@ UI.zh.hot_health='健康咨询（有翻译）';UI.en.hot_health='health advice (
 UI.zh.hot_info='转介（母语）';UI.en.hot_info='referrals, any language';UI.fr.hot_info='orientation, toute langue';UI.es.hot_info='derivaciones, en su idioma';UI.ko.hot_info='안내·연결(모국어 가능)';UI.ja.hot_info='相談窓口（母語可）';
 UI.zh.holidayPill='今天是法定假日——营业时间可能不同';UI.en.holidayPill='Holiday today — hours may differ';UI.fr.holidayPill='Jour férié — les heures peuvent changer';UI.es.holidayPill='Hoy es feriado: el horario puede cambiar';UI.ko.holidayPill='오늘은 법정 공휴일 — 영업시간이 다를 수 있음';UI.ja.holidayPill='今日は法定休日 — 営業時間が異なる場合あり';
 UI.zh.holidayOpenNote='今天是法定假日，平时的营业时间不一定适用——去之前先打电话。下面这些电话 24 小时有人接。';UI.en.holidayOpenNote='Today is a statutory holiday, so regular hours may not apply — call before you go. These lines answer around the clock.';UI.fr.holidayOpenNote='Aujourd’hui est un jour férié : les heures habituelles peuvent ne pas s’appliquer — appelez avant d’y aller. Ces lignes répondent jour et nuit.';UI.es.holidayOpenNote='Hoy es feriado, así que el horario habitual puede no aplicarse: llame antes de ir. Estas líneas atienden a toda hora.';UI.ko.holidayOpenNote='오늘은 법정 공휴일이라 평소 영업시간이 적용되지 않을 수 있습니다 — 가기 전에 전화하세요. 아래 전화는 24시간 받습니다.';UI.ja.holidayOpenNote='今日は法定休日なので、通常の営業時間が当てはまらないことがあります — 行く前に電話を。以下の電話は24時間つながります。';
+UI.zh.holidayChipNote='今天是法定假日，平时的营业时间不一定适用——去之前先打电话。';UI.en.holidayChipNote='Today is a statutory holiday, so regular hours may not apply — call before you go.';UI.fr.holidayChipNote='Aujourd’hui est un jour férié : les heures habituelles peuvent ne pas s’appliquer — appelez avant d’y aller.';UI.es.holidayChipNote='Hoy es feriado, así que el horario habitual puede no aplicarse: llame antes de ir.';UI.ko.holidayChipNote='오늘은 법정 공휴일이라 평소 영업시간이 적용되지 않을 수 있습니다 — 가기 전에 전화하세요.';UI.ja.holidayChipNote='今日は法定休日なので、通常の営業時間が当てはまらないことがあります — 行く前に電話を。';
 UI.zh.qAppt='需预约';UI.en.qAppt='by appointment';UI.fr.qAppt='sur rendez-vous';UI.es.qAppt='con cita';UI.ko.qAppt='예약제';UI.ja.qAppt='予約制';
 UI.zh.lListed='收录于';UI.en.lListed='Listed';UI.fr.lListed='Ajouté';UI.es.lListed='Añadido';UI.ko.lListed='등록일';UI.ja.lListed='掲載日';
 UI.zh.lListedTip='这条是从第三方地图数据收录的日期，还没有和商家本身核对过。';UI.en.lListedTip='When this entry was added from third-party map data. It has not been checked with the business itself.';UI.fr.lListedTip='Date d’ajout de cette fiche à partir de données cartographiques tierces. Elle n’a pas été vérifiée auprès de l’établissement.';UI.es.lListedTip='Cuándo se añadió esta ficha a partir de datos de mapas de terceros. No se ha comprobado con el propio negocio.';UI.ko.lListedTip='제3자 지도 데이터에서 이 항목을 등록한 날짜입니다. 업체에 직접 확인한 것은 아닙니다.';UI.ja.lListedTip='第三者の地図データからこの項目を追加した日付です。店舗・施設に直接確認したものではありません。';
@@ -3137,22 +3137,35 @@ function taskText(v){return v&&(v[L_]||v.en)||'';}
 // health card" and "医保怎么办" should both land on the MSP card.
 const _Q_STOP=/\b(how|do|does|i|me|my|get|a|an|the|to|where|what|can|is|in|for|find|need|apply|comment|je|un|une|le|la|les|où|cómo|dónde|puedo|el|los|las|de|para|mi|obtener|obtengo|consigo|saco|quiero|hago|ma|mon|mes|avoir|faire)\b/g;
 const _Q_STOP_CJK=/(怎么办|怎么|去哪里|去哪|在哪里|在哪|哪里|如何|办理|申请|需要|我要|我想|어떻게|어디서|어디|하나요|해요|받나요|신청|どうすれば|どこで|どこ|どう|ですか|申請|方法|は|を|の)/g;
-function taskMatchesLoose(t,q){
+function _wordStartIn(hay,q){
+  let i=hay.indexOf(q);
+  // a query of three letters or fewer ("er", "ei") must be a whole word, not a prefix
+  const whole=q.length<=3,W=/[0-9a-z\u00c0-\u024f]/;
+  while(i>=0){
+    if((i===0||!W.test(hay[i-1]))&&(!whole||i+q.length>=hay.length||!W.test(hay[i+q.length])))return true;
+    i=hay.indexOf(q,i+1);}
+  return false;
+}
+function taskMatchesLoose(t,q,strict){
   q=(q||'').trim().toLowerCase();if(!q)return false;
   const tx=v=>v?((v[L_]||'')+' '+(v.en||'')):'';
   const bag=[tx(t.q),tx(t.t),...(t.alias||[])].join(' ').toLowerCase();
-  if(bag.indexOf(q)>=0)return true;
+  const cjkQ=/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q);
+  // Latin text: the query has to start at a word boundary ("rent" is not in "parents")
+  if(cjkQ?bag.indexOf(q)>=0:_wordStartIn(bag,q))return true;
+  if(strict&&!cjkQ)return false;
   const cjk=/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q);
   if(cjk){
     let core=q.replace(_Q_STOP_CJK,'').replace(/[\s？?！!。，、]/g,'');
     core=core.replace(/(는|은|이|가|을|를|에서|에|로|도)$/,'');   // a trailing Korean particle
     if(core.length<2)return false;
     if(bag.indexOf(core)>=0)return true;
+    if(strict)return false;
     // "孩子上学": the card's own alias sits inside the reader's phrase
     return (t.alias||[]).some(a=>a.length>=2&&core.indexOf(String(a).toLowerCase())>=0);
   }
   const words=q.replace(_Q_STOP,' ').replace(/[?¿!¡.,]/g,' ').split(/\s+/).filter(w=>w.length>=2);
-  return words.length>0&&words.every(w=>bag.indexOf(w)>=0);
+  return words.length>0&&words.every(w=>_wordStartIn(bag,w));   // "er" is not in "worker"
 }
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 // 2026-09-13 (item 15): one monochrome line-icon set for the chrome — SF Symbols
@@ -5213,9 +5226,28 @@ function renderEmptyState(v,searching,filtered){
     if(hit&&!_isHealthQuery(searchRaw||searchTerm))el.insertBefore(_taskCardEl(hit,'search_empty'),el.firstChild);
   }
 }
+// 2026-09-24: strongest match first. (1) a card with this exact alias; (2) the
+// query in a card's own text, starting at a word boundary; (3) only then the loose
+// rule that finds an alias inside a longer phrase — and never for a query that is
+// itself a kind of place or a place's own alias ("食物银行" is a food bank, not a
+// bank; "동물병원" is a vet, not a clinic). A lone generic word suggests nothing.
+const _TASK_GENERIC=new Set(['free','help','card','cheap','info','service','services','centre','center','office','support',
+  'gratuit','gratuite','gratis','aide','ayuda','免费','免費','帮助','幫助','무료','도움','無料','助け']);
+function _isPlaceWord(q){
+  if(synCats(q).size)return true;
+  const lq=q.toLowerCase();
+  return P.some(p=>(p.alias||[]).some(a=>String(a).toLowerCase()===lq));
+}
 function _taskForQuery(){
   const q=(searchRaw||searchTerm||'').trim();
-  return q.length>=2?TASKS.find(t=>taskMatchesLoose(t,q)):null;
+  if(q.length<2)return null;
+  const lq=q.toLowerCase();
+  if(_TASK_GENERIC.has(lq))return null;
+  const exact=TASKS.find(t=>(t.alias||[]).some(a=>String(a).toLowerCase()===lq));
+  if(exact)return exact;
+  const strong=TASKS.find(t=>taskMatchesLoose(t,q,true));
+  if(strong)return strong;
+  return _isPlaceWord(q)?null:(TASKS.find(t=>taskMatchesLoose(t,q))||null);
 }
 function _firstSentence(s){s=String(s||'');const m=s.match(/^.+?[.!?。！？](\s|$)/);return (m?m[0]:s).trim();}
 function _taskCardEl(t,src){
@@ -5227,8 +5259,8 @@ function _taskCardEl(t,src){
   box.appendChild(b);return box;
 }
 // ---- 2026-09-22: the answer box under the search bar ------------------------
-const _HEALTH_RE=/doctor|clinic|walk.?in\b|sick|urgent|nurse|\bgp\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
-const _NOT_HEALTH_RE=/\bdent|\bvet\b|veterin|animal|\bpets?\b|legal|lawyer|\blaw\b|牙|兽医|獸醫|宠物|寵物|法律|치과|동물|歯|動物/i;
+const _HEALTH_RE=/doctor|clinic|walk.?in\b|sick|urgent|nurs[e](?!ry)|\bgp\b|\ber\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
+const _NOT_HEALTH_RE=/\bdent|\bvet\b|veterin|animal|\bpets?\b|legal|lawyer|\blaw\b|牙|兽医|獸醫|宠物|寵物|法律|치과|동물|수의|歯|動物|獣医|\beyes?\b|optom|glasses|lunettes|gafas|眼科|眼镜|眼鏡|안과|안경|目医者|insurance|seguro|assurance|保险|保險|보험|保険/i;
 function _isHealthQuery(q){q=String(q||'');return _HEALTH_RE.test(q)&&!_NOT_HEALTH_RE.test(q);}
 const _UPCC_ID='b29c9af7';
 function renderSearchHelp(){
@@ -5445,13 +5477,15 @@ function renderActiveFilters(){
     chip.querySelector('.x').onclick=()=>{nearOnly=false;updateNearQuickpick();apply();};
     root.appendChild(chip);
   }
-  // With "open now" on, the reader may be asking at an hour when the answer is
-  // a phone, not a door. The 24-hour lines ride along with the chip row — no
-  // extra tap, no need for the result to be empty first.
-  if(openNow){
-    const hl=document.createElement('div');hl.className='af-hotlines';
-    hl.innerHTML=(isHolidayToday()?'<p class="af-holiday">'+esc(u.holidayOpenNote)+'</p>':'')+hotlineHtml(true);
-    root.appendChild(hl);
+  // 2026-09-24: the 24-hour lines used to ride along here whenever "open now"
+  // was on — a row of crisis lines under a search for an open pharmacy at 2 pm.
+  // They stay where they answer a real need: the Help button, a crisis search,
+  // and the empty state when nothing at all is open. On a statutory holiday the
+  // row still says listed hours may not hold.
+  if(openNow&&isHolidayToday()){
+    const hn=document.createElement('div');hn.className='af-note';
+    hn.innerHTML='<p class="af-holiday">'+esc(u.holidayChipNote)+'</p>';
+    root.appendChild(hn);
   }
   if(aC.size>0){
     const chip=document.createElement('div');chip.className='af-chip'+(searchTerm?' af-paused':'');
