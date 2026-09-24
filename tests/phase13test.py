@@ -31,6 +31,9 @@ async def main():
             await pg.evaluate("""([c,r,t,o,q])=>{setLang('en');aC=new Set(c);aR=new Set(r||Object.keys(RI));aT=new Set(t);
               openNow=o;updateOpenQuickpick();renderRegs();renderCats();renderThemes();searchInputEl.value=q;runSearch();apply();}""",
                               [list(cats), regs, list(themes), open_now, q])
+            # 2026-09-24 (p31): changes made while the cluster animates a zoom land when
+            # the animation ends — read the map once nothing is queued
+            await pg.wait_for_function("()=>!M.some(m=>m._want!==undefined)", timeout=4000)
             return await st()
         nlib = await pg.evaluate("()=>P.filter(p=>matchScore(p,'library')>0).length")
 
@@ -56,8 +59,15 @@ async def main():
         check('a theme still narrows a search (every result carries "%s")' % th, s['n'] > 0 and all(th in x['t'] for x in s['shown']), s['n'])
         await setup()
         s = await setup(['park'], open_now=True, q='pharmacy')
-        oc = await pg.evaluate("()=>P.filter(p=>p.c==='pharmacy'&&openNowOk(p)).length")
-        check('"open now" still narrows a search (%d open pharmacies)' % oc, s['n'] == oc, (s['n'], oc))
+        # every place the search matches that is open right now (a grocery whose note mentions a
+        # pharmacy counts too — the point of the check is that "open now" still applies)
+        oc = await pg.evaluate("()=>P.filter(p=>matchScore(p,'pharmacy')>0&&openNowOk(p)).length")
+        # how many the same search finds with no "open now" — the filter has to have
+        # something to narrow, but at 4am the honest answer is that none are open, so
+        # the count itself cannot be required to be above zero.
+        allm = await pg.evaluate("()=>P.filter(p=>matchScore(p,'pharmacy')>0).length")
+        check('"open now" still narrows a search (%d of %d matches open)' % (oc, allm),
+              s['n'] == oc and allm > 0 and oc <= allm, (s['n'], oc, allm))
         await setup()
 
         # ---- empty states

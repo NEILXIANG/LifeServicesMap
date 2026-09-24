@@ -68,7 +68,11 @@ for p in P:
 
 # ---- 4. duplicates & near-duplicates ---------------------------------------
 seen=collections.defaultdict(list)
-for p in P: seen[re.sub(r'[^a-z]','',p['n'].lower())].append(p)
+# 2026-09-24: digits are part of a name here — "6th Avenue Childcare",
+# "7-Eleven (8th St)", and the child care centres told apart by their civic
+# number ("Parasol (350 Seymour St)" vs "(352 Seymour St)"). Stripping them made
+# distinct places look identical.
+for p in P: seen[re.sub(r'[^a-z0-9]','',p['n'].lower())].append(p)
 for k,v in seen.items():
     if len(v)>1: find('P1','data', "duplicate name: %s" % [x['n'] for x in v])
 for i in range(n):

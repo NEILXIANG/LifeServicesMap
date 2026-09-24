@@ -29,7 +29,10 @@ async def main():
                         ('zh', '牙医', 'dental'), ('zh', '买菜', 'grocery'), ('zh', '修车', 'autorepair'), ('zh', '警察', 'police'),
                         ('ko', '세탁소', 'laundry'), ('ko', '한인마트', 'asian'), ('ja', '歯医者', 'dental'), ('ja', '美容院', 'barber'),
                         ('fr', 'dentiste', 'dental'), ('fr', 'essence', 'gas'), ('fr', 'laverie', 'laundry'),
-                        ('es', 'dentista', 'dental'), ('es', 'peluquería', 'barber'), ('es', 'veterinario', 'vet')):
+                        ('es', 'dentista', 'dental'), ('es', 'peluquería', 'barber'), ('es', 'veterinario', 'vet'),
+                        # 2026-09-24: in BC kindergarten is grade K at an elementary school; preschool is childcare
+                        ('en', 'kindergarten', 'elem'), ('en', 'preschool', 'daycare'), ('en', 'child minding', 'daycare'),
+                        ('ko', '유치원', 'daycare'), ('ja', '幼稚園', 'daycare'), ('zh', '学前班', 'daycare')):
             h = await hits(l, q)
             got = sum(1 for x in h if x['c'] == c)
             check('%s "%s" finds every %s place' % (l, q, c), got == await ncat(c) and got > 0, (got, [x['n'] for x in h][:5]))
@@ -50,6 +53,21 @@ async def main():
         # a name still outranks a category word
         h = await hits('en', 'clinic')
         check('"clinic": a place named "…Clinic" still ranks above a category match', h and 'clinic' in h[0]['n'].lower(), h[:2])
+        # 2026-09-24: a word inside a multi-word term counts too
+        for q, cats in (('school', {'school', 'elem', 'schoolbus', 'driving'}),
+                        ('centre', {'mall', 'commctr', 'pool', 'playcenter'}),
+                        ('store', {'secondhand', 'liquor', 'pharmacy', 'grocery', 'hardware', 'conv'})):
+            got = set(await pg.evaluate("q=>[...synCats(q)]", q))
+            check('"%s" reaches the terms that contain it (%s)' % (q, ', '.join(sorted(cats))), got == cats, sorted(got))
+        h = await hits('en', 'school')
+        check('"school" now finds all 25 elementary schools', sum(1 for x in h if x['c'] == 'elem') == await ncat('elem'), sum(1 for x in h if x['c'] == 'elem'))
+        for q in ('de', 'la', 'eau', 'tax', 'du'):
+            check('the connecting word "%s" matches no category' % q, await pg.evaluate("q=>synCats(q).size===0", q))
+        # (a centre literally named "…Preschool & Kindergarten" matches by name — that is right;
+        #  what must not happen is the word itself being treated as a daycare category)
+        check('"kindergarten" is a school word, not a daycare category', await pg.evaluate("()=>{const c=[...synCats('kindergarten')];return c.includes('elem')&&!c.includes('daycare')}"))
+        h = await hits('en', 'kindergarten')
+        check('"kindergarten" finds every elementary school', sum(1 for x in h if x['c'] == 'elem') == await ncat('elem'), sum(1 for x in h if x['c'] == 'elem'))
         h = await hits('en', 'bank')
         check('"bank": the banks come first', h and h[0]['c'] in ('bank', 'foodbank'), h[:2])
         # things that should stay empty

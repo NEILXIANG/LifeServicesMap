@@ -262,7 +262,10 @@ if _deep:
 # Every record has to say where its facts come from. 'official' additionally has to
 # be checkable — a claim of an official source with no link to it is exactly the
 # kind of unfalsifiable credibility marker this field exists to avoid.
-SRC_OK = {'official', 'places', 'own', 'stub-pending-verify'}
+# 'opendata' (2026-09-24): a provincial dataset — its own tier, between the
+# organisation's own page and third-party map data. The licence panel carries
+# the Open Government Licence – British Columbia attribution it requires.
+SRC_OK = {'official', 'places', 'own', 'opendata', 'stub-pending-verify'}
 for p in P:
     sv = p.get('src')
     if sv is None:
@@ -359,10 +362,17 @@ for i in range(len(P)):
         if not ca or not cb or ca[1] != cb[1] or ca[0] == cb[0]: continue
         d = math.hypot((a['lat'] - b['lat']) * 111000,
                        (a['lng'] - b['lng']) * 111000 * 0.635)
+        # (2026-09-24) Neighbouring civic numbers legitimately sit metres apart:
+        # the BC Address Geocoder resolves 350 and 352 Seymour St to points 4 m
+        # apart, and a childcare inside a school shares the school's point. What
+        # this check is for is a coordinate copied from a place further down the
+        # street, so a wide gap in the numbers still fails; a close one warns.
         if d < 30 and 'low' not in (a.get('precision'), b.get('precision')):
-            fail('%r (%s) and %r (%s) are %dm apart but have different civic '
-                 'numbers on the same street — one coordinate is borrowed'
-                 % (a['n'], a['a'], b['n'], b['a'], d))
+            close = abs(int(ca[0]) - int(cb[0])) <= 30
+            (warn if close else fail)('%r (%s) and %r (%s) are %dm apart but have different civic '
+                 'numbers on the same street — %s'
+                 % (a['n'], a['a'], b['n'], b['a'], d,
+                    'neighbouring numbers, check it is right' if close else 'one coordinate is borrowed'))
 
 # ------------------------------------------------- 3c4. coordinates vs street geometry
 # The pair check above only fires when a bad coordinate happens to land near
@@ -981,6 +991,25 @@ else:
         _empty = [c for c in _SYN if not any(p['c'] == c for p in P)]
         if _empty:
             warn('SYN lists words for categories with no places yet: %s' % _empty)
+
+# ------------------------------------------------- 21. the ES2017 syntax floor
+# A syntax error anywhere in the app script is a blank page, not a broken
+# feature. The constructs below are newer than ES2017 and have each been used in
+# this file by mistake at least once or are easy to reach for; none of them may
+# appear in the app's own script. (The build also runs the vendor code, which
+# has its own floor and is not checked here.)
+_app = html[html.find('<script>', html.find('</style>')):]
+_app = re.sub(r"//[^\n]*", '', _app)                        # comments may mention them
+for _pat, _why in ((r'\\[pP]\{', 'Unicode property escape \\p{…} (ES2018)'),
+                   (r'[\w\)\]]\?\.[A-Za-z_$\[(]', 'optional chaining ?. (ES2020)'),
+                   (r'\?\?(?!=)', 'nullish coalescing ?? (ES2020)'),
+                   (r'\(\?<[=!]', 'regex lookbehind (ES2018)'),
+                   (r'\(\?<[A-Za-z]', 'named capture group (ES2018)'),
+                   (r'catch\s*\{', 'catch without a binding (ES2019)')):
+    _m = re.search(_pat, _app)
+    if _m:
+        fail('%s in the app script: %r — above the ES2017 floor; on an older browser '
+             'the whole page fails to parse' % (_why, _app[max(0, _m.start() - 30):_m.end() + 30]))
 
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'

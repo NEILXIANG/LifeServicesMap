@@ -17,7 +17,7 @@ async def main():
         pg = await ctx.new_page()
         errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
         await pg.goto(URL); await pg.wait_for_timeout(1500)
-        check('DATA_VERSION is 2026.09.22 and rides on every event', await pg.evaluate("()=>DATA_VERSION==='2026.09.22'&&_evBuf.every(e=>e.v==='2026.09.22')"))
+        check('DATA_VERSION is 2026.09.24 and rides on every event', await pg.evaluate("()=>DATA_VERSION==='2026.09.24'&&_evBuf.every(e=>e.v==='2026.09.24')"))
         for l, q in (('en', 'walk in clinic'), ('en', 'Walk-in clinic'), ('fr', 'clinique sans rendez-vous'), ('es', 'clínica sin cita'),
                      ('zh', '免预约诊所'), ('ko', '워크인 클리닉'), ('ja', 'ウォークインクリニック')):
             r = await pg.evaluate("([l,q])=>{setLang(l);searchInputEl.value=q;runSearch();return {n:lastVisible,hits:P.filter(p=>matchScore(p,q.toLowerCase())>0).map(p=>p.n)}}", [l, q])

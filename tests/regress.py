@@ -136,6 +136,13 @@ async def main():
           emailInPhone:Pref.filter(p=>(p.p||'').includes('@')).length,
           cjkNames:Pref.filter(p=>/[\\u4e00-\\u9fff]/.test(p.n)).length,
           structuredHours:Pref.filter(p=>p.h&&typeof p.h==='object').length,
+          // 2026-09-24: hours are not published for every kind of place. A city park
+          // posts them on site; SD73 does not publish office hours and bell times move
+          // with the school year; the province's child care dataset carries none. Those
+          // records say "hours unknown" on purpose, so the ratio is measured over the
+          // kinds of place that do have published hours.
+          hoursExpected:Pref.filter(p=>!['park','trail','beach','dogpark','splash','elem','school','daycare','schoolbus','apt'].includes(p.c)).length,
+          hoursExpectedWith:Pref.filter(p=>!['park','trail','beach','dogpark','splash','elem','school','daycare','schoolbus','apt'].includes(p.c)&&p.h&&typeof p.h==='object').length,
           stamps:Pref.filter(p=>p.v).length})""")
         check("01 every place survives the build", d['n']==N and N>=240, d['n'])
         check("01 no hard-coded ratings", d['ratings']==0)
@@ -146,7 +153,10 @@ async def main():
         check("06 no email in phone field", d['emailInPhone']==0)
         # Not a fixed number: 18 open-air records deliberately lost their hours in round 7,
         # because "hours posted on site" is the honest answer for a city park.
-        check("31 most records carry structured hours", d['structuredHours'] > N*0.7, d['structuredHours'])
+        check("31 most records that can have hours carry them",
+              d['hoursExpectedWith'] > d['hoursExpected']*0.85,   # transit exchanges, taxis and some places of worship post none either
+              "%d/%d (of %d records in total; parks, schools and child care publish none)"
+              % (d['hoursExpectedWith'], d['hoursExpected'], N))
         check("02 verification stamps present", d['stamps']==N)
 
         print("\n--- hours rendering across languages ---")
@@ -238,8 +248,13 @@ async def main():
         check("10 popup stays open when starring", stillOpen)
         await pg.evaluate("mapref.closePopup()"); await pg.wait_for_timeout(250)
         await pg.evaluate("()=>{const i=Pref.findIndex(x=>/Canada Games/.test(x.n));focusRef(Mref[i],18);}"); await pg.wait_for_timeout(700)
-        star=await pg.evaluate("(document.querySelector('.fav-star')||{}).textContent")
-        check("10 star state survives reopen", star=='★', star)
+        # 2026-09-24 (p27): the star is the icon set's star, filled by a class, not
+        # the ★ character — the saved state now reads off aria-pressed and .active.
+        star=await pg.evaluate("""()=>{const s=document.querySelector('.fav-star');
+            return s?{p:s.getAttribute('aria-pressed'),on:s.classList.contains('active'),
+                      svg:!!s.querySelector('svg.ic'),glyph:/[★☆]/.test(s.textContent)}:null;}""")
+        check("10 star state survives reopen",
+              bool(star) and star['p']=='true' and star['on'] and star['svg'] and not star['glyph'], star)
         badge=await pg.inner_text('#favBadge')
         await pg.click('#favBtn'); await pg.wait_for_timeout(450)
         rows=await pg.evaluate("document.querySelectorAll('#favList .fav-item').length")

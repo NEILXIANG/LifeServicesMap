@@ -17,7 +17,10 @@ async def main():
         await pg.goto(URL); await pg.wait_for_timeout(1500)
         r = await pg.evaluate("()=>({stars:P.filter(p=>/⭐/.test(p.n)).map(p=>p.n),picks:P.filter(p=>p.pick).length})")
         check('no ⭐ left in any name; picks kept as a field', not r['stars'] and r['picks'] >= 15, r)
-        tag = await pg.evaluate("()=>{const p=P.find(x=>x.id==='2c686174');return /tag-pick/.test(popup(p,0))&&!/⭐⭐/.test(popup(p,0).split('tag-pick')[0])}")
+        # 2026-09-24 (p27): the chip class is .pchip-pick now and it draws the icon
+        # set's star instead of the ⭐ character, so the name block must carry no ⭐.
+        tag = await pg.evaluate("()=>{const p=P.find(x=>x.id==='2c686174');const h=popup(p,0);"
+                                "return /pchip-pick/.test(h)&&!/⭐/.test(h.split('pchip-pick')[0])}")
         check("an editor's pick still shows its tag", tag)
         sr = await pg.evaluate("()=>{searchInputEl.value='Kenna';runSearch();return lastVisible}")
         check('a former ⭐ place is still found by name', sr >= 1, sr)

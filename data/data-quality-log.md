@@ -294,3 +294,31 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 - Mustard Seed 冬季庇护所（1140 River St）已加上，但 OSM 只能匹配到街道，图钉用了同街相邻门牌的坐标，并标为近似位置；是否已开放需打电话确认。
 - 市政府开放数据许可：未替你接受。
 - 进度条把"没钱吃饭 / 被歧视"算作待办：涉及交互改动，另议。
+
+## 2026-09-24 学校与托儿数据补全、同义词与图标（p20–p26）
+
+依据：省 K-12 学校开放数据、省 Child Care Map（OGL-BC）、BC Address Geocoder、SD73 各校官网。每个阶段都跑了 `build.py`、`validate.py`、`tests/regress.py`、`soci2`、`tasktest`、`audit6`、`audit7`，并新增了该阶段自己的测试。补丁脚本在 `docs/archive/scripts/fixes-2026-09-21/`。
+
+1. **搜不到幼儿园 / 托儿（p20、p22）**
+   - kindergarten 指向小学（BC 的 K 年级在小学里），preschool、child minding、유치원、幼稚園、学前班、préscolaire、preescolar 指向托儿。
+   - 同义词改为按词匹配：搜 school 能同时命中 elementary school、high school、school bus；`clinic`/`clinics` 列入跳过词，避免"走进式诊所"被只接受预约的 UPCLC 抢答。
+2. **补齐 25 所小学（p21）**
+   - 省 K-12 开放数据比对后补进缺的 15 所，电话与网址逐校对着 SD73 官网核实，来源标 `official`。
+3. **持牌托儿中心 84 家（p25）**
+   - 来自省 Child Care Map 的 80 家团体托儿中心；地址逐个过 BC Address Geocoder 重新定位，得分 ≥95 且与原坐标相差 150 m 以内才采用官方点位，否则标为近似位置。
+   - 去重（同名 / 40 m 内）、同楼多张牌照合并、同一运营方的分店按街道改名。
+   - **有意不收**：38 家持牌"家庭式"托儿（地址是私人住宅）。
+4. **新来源标签（p23）**
+   - 新增"省政府开放数据"来源类型（6 语）与 Open Government Licence – BC 署名，写进数据说明。
+5. **小学时间不再瞎写（p24）**
+   - 删掉未经核实的 8:30–15:30；25 所小学统一在备注里说明"各校时间不同、每年变动，去之前打电话或看学校页面"。
+6. **图标审查（p26）**
+   - 见 `docs/archive/scripts/fixes-2026-09-21/README.md` 的 p26 一行；配套测试 `tests/phase16test.py`。
+
+**数据规模**：292 → 387 个地点；来源分布 official 251 / opendata 80 / places 56；22 个近似位置。
+
+**未做、需要你决定的**
+- 38 家家庭式托儿（私人住宅地址）是否收录。
+- 5 所独立/私立学校（Kamloops Christian、Our Lady of Perpetual Help、Sk'elep、St. Ann's Academy、First Baptist Classical）是否加入。
+- `scripts/export-open.py` 目前只导出 `official` + `own`，未包含 80 条 opendata 记录。
+- 市政府开放数据许可：仍未替你接受。
