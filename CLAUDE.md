@@ -18,8 +18,8 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 
 ## 结构
 
-- `app/engine/` — 引擎，按 `parts.txt` 顺序拼成一个 HTML：`head.html`、`styles.css`、`body.html`、`js/*.js`（按功能分 18 个文件）。`src/data-kamloops.js` — 城市数据。
-- `build.py` 把引擎、数据、`vendor/` 的 Leaflet 合成一个文件。**只改 `src/`，不要手改构建产物。**
+- `app/engine/` — 引擎，按 `parts.txt` 顺序拼成一个 HTML：`head.html`、`styles.css`、`body.html`、`js/*.js`（按功能分 18 个文件）。`cities/kamloops/` — 城市数据：`city.json`（构建期配置）、`data.js`（手写部分，用 `/*@json*/` `/*@text*/` 引用其余文件）、`places.json` 等、`guide/<lang>.html`。字段说明见 `docs/guides/DATA-SCHEMA.md`，地点记录的结构由 `schemas/place.schema.json` 校验。
+- `build.py` 把引擎、数据、`vendor/` 的 Leaflet 合成一个文件。**只改 `app/` 和 `cities/`，不要手改构建产物。** 脚本读写数据一律通过 `kamdata.py`。
 - `scripts/` 校验、链接检查、开放数据导出、统计分析；`tests/` 浏览器测试（Playwright）。
 - `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头。
 - 运营资料（外联邮件、对外 PDF）不在仓库里，在同级目录 `../Guide to Life in Canada - ops/`。

@@ -1,15 +1,29 @@
 # Data schema
 
-Everything city-specific lives in one file: `src/data-<city>.js`. The engine
+Everything city-specific lives in one folder: `cities/<city>/`. The engine
 (`app/engine/`) contains no facts about any particular city. To build a new
-city you copy that one data file, replace its contents, and run `build.py`.
+city you copy that folder, replace its contents, and run `build.py --city <city>`.
 
-Run `python3 validate.py` after every edit. It checks most of what follows
+Run `./scripts/check-all.sh --quick` (build + `scripts/validate.py`) after every edit. It checks most of what follows
 mechanically, so a mistake here is usually caught before it reaches anyone.
 
 ---
 
-## The five things in a data file
+## The files in a city folder (since 2026-10-03)
+
+| File | Holds | Edit by hand? |
+|---|---|---|
+| `city.json` | Build-time settings: page title, description, site URL, `storagePrefix` (localStorage key prefix — never change it for a live city), search stopwords | yes |
+| `data.js` | The hand-written part: `CITY`, `LANDMARK_GLOSS`, `FAV_MIGRATE`, with comments. The big blocks are pulled in by `/*@json file*/` and `/*@text file*/` directives | yes |
+| `places.json` | `P` — checked against `schemas/place.schema.json` | yes, or via `kamdata.save('P', …)` |
+| `regions.json` `bus-routes.json` `tasks.json` `quarantine.json` `landmarks.json` | `RI`, `BR`, `TASKS`, `QUARANTINE`, `LANDMARKS` | yes |
+| `guide/<lang>.html` | `UI.<lang>.guideCity`, one file per language | yes |
+
+The JSON files are stored indented (one field per line, so a diff shows exactly
+what changed); `build.py` compacts them back. `kamdata.data_text()` returns the
+expanded data exactly as the page receives it.
+
+## The objects in the data
 
 | Object | What it is |
 |---|---|
@@ -94,6 +108,7 @@ the note is always the compiler's own writing.
 | Value | Means | Validator requires |
 |---|---|---|
 | `official` | The operator's or governing body's own website is on file, so a reader can check the details at the source | a `w` field |
+| `opendata` | Taken from a government open-data set (e.g. the city's GIS / BC Data Catalogue) | — |
 | `places` | No authoritative source on file; the details rest on third-party map data | — |
 | `own` | Checked in person or by phone by the compiler | — |
 | `stub-pending-verify` | The details come from an official or first-party page but nobody has yet stood at the door or dialled the number | — |
@@ -259,10 +274,13 @@ inflates the count a person uses to judge how much choice they have.
 
 ## Adding a city
 
-1. `cp src/data-kamloops.js src/data-<city>.js`
-2. Replace `CITY`, `RI`, `P`, `BR`; set `FAV_MIGRATE={}`; rewrite the six
-   `UI.<lang>.guideCity` blocks
+1. `cp -r cities/kamloops cities/<city>`
+2. In `city.json` set a new `id`, title, description, site URL and a **new**
+   `storagePrefix`; in `data.js` replace `CITY` and set `FAV_MIGRATE={}`; replace
+   `places.json`, `regions.json`, `bus-routes.json`, `tasks.json`; empty
+   `quarantine.json` and `landmarks.json` (`[]`); rewrite `guide/<lang>.html`
 3. If it is in another province, also update the `guideProv` tier **in the engine**
    — or move it into the data file if you are supporting several provinces
 4. `python3 build.py --city <city>`
-5. `python3 validate.py` and `python3 regress.py`
+5. `python3 scripts/validate.py build/<city>.html`; the browser tests are still
+   Kamloops-specific until phase 3 of the multi-city plan

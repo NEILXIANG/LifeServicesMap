@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "place.schema.json",
+  "title": "Place record (cities/<city>/places.json)",
+  "description": "One element of the places array. Business rules (category/region keys exist, bounds, translations all-or-nothing, sameComplex symmetry) live in scripts/validate.py; this file checks shape. See docs/guides/DATA-SCHEMA.md.",
+  "type": "object",
+  "required": ["id", "n", "c", "g", "lat", "lng", "a", "src", "v"],
+  "additionalProperties": false,
+  "properties": {
+    "id":          {"type": "string", "pattern": "^[0-9a-z]{7,8}$"},
+    "n":           {"type": "string", "minLength": 1},
+    "c":           {"type": "string"},
+    "g":           {"type": "string"},
+    "lat":         {"type": "number"},
+    "lng":         {"type": "number"},
+    "a":           {"type": "string"},
+    "src":         {"type": "string", "enum": ["official", "opendata", "places", "own", "stub-pending-verify"]},
+    "v":           {"type": "string", "pattern": "^\\d{4}-\\d{2}$"},
+    "p":           {"type": "string"},
+    "pq":          {"type": "string"},
+    "e":           {"type": "string"},
+    "w":           {"type": "string", "pattern": "^https?://"},
+    "h":           {"type": "object"},
+    "note":        {"type": "object", "required": ["zh", "en"]},
+    "tag":         {"type": "string"},
+    "t":           {"type": "array", "items": {"type": "string"}},
+    "alias":       {"type": "array", "items": {"type": "string"}},
+    "sameComplex": {"type": "array", "items": {"type": "string"}},
+    "precision":   {"type": "string", "enum": ["low"]},
+    "pick":        {"type": "integer"}
+  }
+}

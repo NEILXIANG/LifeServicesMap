@@ -5,7 +5,7 @@
 # names stable.
 #
 # What it does:
-#   1. Reads src/data-<city>.js, scans every POI's `v` (YYYY-MM). Anything older
+#   1. Reads the city data (cities/<city>/, via kamdata), scans every POI's `v` (YYYY-MM). Anything older
 #      than 180 days lands in data/stale-POIs-YYYY-MM.md, grouped by age bucket.
 #   2. Re-checks every link in the dataset (deep URLs are the ones that rot first
 #      and dominate this output). Each run writes data/check-links-YYYY-MM-DD.log.

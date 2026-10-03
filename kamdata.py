@@ -1,5 +1,12 @@
 #!/usr/bin/env python3
-r"""kamdata.py — 一个地方读写 src/data-kamloops.js，别的脚本都从这里取。
+r"""kamdata.py — 一个地方读写城市数据和引擎源码，别的脚本都从这里取。
+
+2026-10-03（多城市阶段 2）：城市数据从 src/data-kamloops.js 拆到 cities/<city>/：
+data.js 是手写部分（注释、CITY、LANDMARK_GLOSS…），大块数据放在 places.json 等
+独立 JSON 里，data.js 用 /*@json 文件名*/ 引用，guideCity 长文用 /*@text guide/<lang>.html*/。
+data_text() 把它们展开回原来的完整 JS（与拆分前逐字节相同）；load/save 直接读写 JSON 文件。
+
+以下是原来的说明：
 
 为什么存在：在这之前，九个脚本各写了一遍
 `json.loads(re.search(r'const P=(\[.*?\]);', ...))`，其中四个还会把结果写回去，
@@ -39,16 +46,49 @@ def today():
         return datetime.date.today()
 
 def root(start=None):
-    """向上找到项目根（放着 src/data-kamloops.js 的那一层），不写死层级。"""
+    """向上找到项目根（放着 app/engine/parts.txt 的那一层），不写死层级。"""
     p = start or os.path.dirname(os.path.abspath(__file__))
     for _ in range(6):
-        if os.path.exists(os.path.join(p, 'src', 'data-kamloops.js')):
+        if os.path.exists(os.path.join(p, 'app', 'engine', 'parts.txt')):
             return p
         p = os.path.dirname(p)
-    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+    raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 ROOT = root()
-DATA = os.path.join(ROOT, 'src', 'data-kamloops.js')
+CITY = 'kamloops'                    # 默认城市；阶段 3 起各脚本用 --city 覆盖
+
+def city_dir(city=None):
+    return os.path.join(ROOT, 'cities', city or CITY)
+
+def data_template(city=None):
+    return os.path.join(city_dir(city), 'data.js')
+
+DATA = data_template()               # 兼容旧代码：手写部分所在的文件
+
+# 大块数据各自一个 JSON 文件；"lines" 表示构建时数组一条记录一行（P 一直如此）
+JSON_FILES = {'RI': 'regions.json', 'P': 'places.json', 'QUARANTINE': 'quarantine.json',
+              'BR': 'bus-routes.json', 'LANDMARKS': 'landmarks.json', 'TASKS': 'tasks.json'}
+_INCLUDE = re.compile(r'/\*@(json|text) ([^ *]+)( lines)?\*/')
+
+def data_text(city=None):
+    """完整的城市数据 JS：data.js 里的 /*@json*/ /*@text*/ 展开后的结果。"""
+    d = city_dir(city)
+    def expand(m):
+        kind, rel, lines = m.group(1), m.group(2), bool(m.group(3))
+        path = os.path.join(d, rel)
+        if kind == 'text':
+            return open(path, encoding='utf-8').read()
+        return dumps(json.load(open(path, encoding='utf-8')), lines)
+    return _INCLUDE.sub(expand, open(data_template(city), encoding='utf-8').read())
+
+def data_files(city=None):
+    """城市数据涉及的全部源文件（data.js + 它引用的文件）。"""
+    d = city_dir(city)
+    t = open(data_template(city), encoding='utf-8').read()
+    return [data_template(city)] + [os.path.join(d, m.group(2)) for m in _INCLUDE.finditer(t)]
+
+def data_mtime(city=None):
+    return max(os.path.getmtime(p) for p in data_files(city))
 ENGINE_DIR = os.path.join(ROOT, 'app', 'engine')
 
 def engine_parts():
@@ -67,7 +107,7 @@ def engine_mtime():
     return max(os.path.getmtime(p) for p in engine_parts() + [os.path.join(ENGINE_DIR, 'parts.txt')])
 
 def _src(engine=False):
-    return engine_text() if engine else open(DATA, encoding='utf-8').read()
+    return engine_text() if engine else data_text()
 
 def _span(text, name):
     """返回 const <name>= 后面那个 JSON 字面量的 (start, end)。
@@ -99,6 +139,8 @@ def _span(text, name):
 
 def load(name, engine=False):
     """读出一个顶层常量（P / TASKS / BR / RI / CI…）。"""
+    if not engine and name in JSON_FILES:
+        return json.load(open(os.path.join(city_dir(), JSON_FILES[name]), encoding='utf-8'))
     text = _src(engine)
     a, b = _span(text, name)
     return json.loads(text[a:b])
@@ -125,6 +167,13 @@ def save(name, value, engine=False):
     排版跟着原来的来：P 本来是一条记录一行（`},\n{`），
     如果统统压成一行，改一个字段的 diff 会变成整个 45 万字符的行，没法看。
     """
+    if not engine and name in JSON_FILES:
+        # 独立 JSON 文件：整份重写，缩进一格，一个字段一行，diff 只落在改动的那几行
+        path = os.path.join(city_dir(), JSON_FILES[name])
+        with open(path, 'w', encoding='utf-8') as f:
+            json.dump(value, f, ensure_ascii=False, indent=1)
+            f.write('\n')
+        return path
     if engine:
         # the constant lives in exactly one engine part; find it and edit only that file
         hits = [p for p in engine_parts()

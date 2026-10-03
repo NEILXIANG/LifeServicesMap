@@ -4,7 +4,7 @@
 Build one self-contained HTML file from the reusable engine plus one city's data.
 
     python3 build.py                 # -> kamloops.html
-    python3 build.py --city kelowna  # -> kelowna.html from src/data-kelowna.js
+    python3 build.py --city kelowna  # -> build/kelowna.html from cities/kelowna/
 
 The single-file output is deliberate: no server, no build step for the reader, and
 anyone can keep their own copy. The split exists so that an engine improvement
@@ -14,13 +14,13 @@ import argparse, os, re, sys, datetime, json
 from html import escape as html_escape
 
 def _project_root(p):
-    """向上找到项目根（放着 src/data-kamloops.js 的那一层），
+    """向上找到项目根（放着 app/engine/parts.txt 的那一层），
     整个项目换个目录、或脚本被挪走，都仍然能正确定位。"""
     for _ in range(6):
-        if os.path.exists(os.path.join(p, 'src', 'data-kamloops.js')):
+        if os.path.exists(os.path.join(p, 'app', 'engine', 'parts.txt')):
             return p
         p = os.path.dirname(p)
-    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+    raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(HERE, 'src')
@@ -31,14 +31,14 @@ META_MARKER = '/*__CITY_META__*/'
 
 
 def build(city, out_path=None, inline_libs=True, sync_public=True):
-    data_path = os.path.join(SRC, 'data-%s.js' % city)
-    if not os.path.exists(data_path):
-        sys.exit('missing %s' % data_path)
+    if not os.path.exists(kamdata.data_template(city)):
+        sys.exit('missing %s' % kamdata.data_template(city))
 
     # 2026-10-03 (multi-city phase 2): the engine is split into app/engine/*,
     # concatenated in the order of app/engine/parts.txt.
     engine = kamdata.engine_text()
-    data = open(data_path, encoding='utf-8').read()
+    # 2026-10-03 (phase 2): cities/<city>/data.js with its JSON / guide includes expanded
+    data = kamdata.data_text(city)
 
     if MARKER not in engine:
         sys.exit('the engine (app/engine/) has lost its %s marker' % MARKER)

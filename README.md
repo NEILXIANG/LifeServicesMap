@@ -9,7 +9,9 @@ Everything except the map background works with no network at all.
 |---|---|
 | `build/kamloops.html` | **The deliverable.** Built — do not hand-edit. `public/index.html` is a byte-identical copy that Cloudflare serves. |
 | `app/engine/` | The reusable engine, split into `head.html`, `styles.css`, `body.html` and `js/*.js`; `parts.txt` gives the order. No city facts in it. |
-| `src/data-kamloops.js` | Everything specific to Kamloops. |
+| `cities/kamloops/` | Everything specific to Kamloops: `city.json`, `data.js`, `places.json` and the other JSON files, `guide/<lang>.html`. |
+| `schemas/` | JSON Schema for the data files (checked by `validate.py`). |
+| `kamdata.py` | The one place scripts read and write engine and city data through. |
 | `build.py` | Merges the two (plus `vendor/` libraries) into one self-contained HTML file. |
 | `vendor/` | Leaflet and MarkerCluster, inlined so the map works offline. |
 | `scripts/check-all.sh` | Build + every check in one command. |
@@ -37,7 +39,7 @@ python3 scripts/validate.py            # ~150 static checks, a second
 ./scripts/check-all.sh                 # plus every browser test
 ```
 
-Edit `src/`, never the built HTML — a rebuild overwrites it.
+Edit `app/` and `cities/`, never the built HTML — a rebuild overwrites it.
 
 ## Running the browser tests
 

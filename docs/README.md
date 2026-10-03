@@ -41,7 +41,7 @@ python3 docs/source/builddocs.py --html-only # 没装 playwright 时，只出 HT
 旧目录一律不动，所以任何时候都能对比两批材料的差别。
 
 数字不要手写。地点数、办事卡数、分类数、区域数、公交线数、站点数、"大致位置"条数、主题数、
-版本号、核实日期，全部由脚本在构建时从 `src/data-kamloops.js` 和 `public/index.html` 现取
+版本号、核实日期，全部由脚本在构建时从 `cities/kamloops/`（经 kamdata）和 `public/index.html` 现取
 （占位符 `{PLACES}` `{TASKS}` `{CATS}` `{AREAS}` `{ROUTES}` `{STOPS}` `{APPROX}` `{THEMES}`
 `{VERSION}` `{VERIFIED}`）。曾经因为手写数字出过错，别再手写。
 
@@ -79,7 +79,7 @@ python3 docs/source/builddocs.py --html-only # 没装 playwright 时，只出 HT
   docs/                           见上文
 ```
 
-**路径约定**：所有脚本都用 `_project_root()` 向上查找 `src/data-kamloops.js` 来定位项目根，
+**路径约定**：所有脚本都用 `_project_root()` 向上查找 `app/engine/parts.txt` 来定位项目根，
 因此整个项目可以移动到任何目录（含中文和空格的路径已实测），脚本也可以从任意工作目录调用。
 唯一的例外是 `deploy.sh` 里指向本机 wrangler/npx 的绝对路径，找不到时会自动回退到 PATH。
 
@@ -90,7 +90,7 @@ python3 docs/source/builddocs.py --html-only # 没装 playwright 时，只出 HT
 
 ## 脚本共用的数据入口：根目录 `kamdata.py`
 
-任何要读写 `src/data-kamloops.js` 的脚本都从它取，不要再各写一遍正则：
+任何要读写城市数据（`cities/<city>/`）或引擎源码的脚本都从它取，不要再各写一遍正则：
 
 ```python
 import os, sys
@@ -103,7 +103,8 @@ import kamdata
 
 P = kamdata.load('P')                  # 也可以 'TASKS' / 'BR' / 'RI'
 CI = kamdata.load('CI', engine=True)   # CI 在 app/engine/ 里
-kamdata.save('P', P)                   # 只替换那一段，排版保持一条记录一行
+kamdata.save('P', P)                   # 写回 cities/kamloops/places.json（缩进格式）
+kamdata.data_text()                    # 展开后的完整城市数据 JS（与页面里的一致）
 kamdata.today()                        # Kamloops 当地日期（不看构建机器时区）
 ```
 

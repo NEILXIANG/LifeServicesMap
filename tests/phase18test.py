@@ -23,7 +23,7 @@ def script_ok(lang, t):
 async def main():
     sys.path.insert(0, ROOT); import kamdata; src = kamdata.engine_text()
     check('the app script has no Unicode property escape (ES2017 floor)', '\\p{' not in src[src.find('<script>', src.find('</style>')):])
-    data = open(os.path.join(ROOT, 'src', 'data-kamloops.js'), encoding='utf-8').read()
+    data = kamdata.data_text()
     es = data[data.index('UI.es.guideCity'):data.index('UI.ko.guideCity')]
     check('Spanish uses one thousands separator in the city guide', not re.search(r'\d{1,3},\d{3}\b', es), re.findall(r'\d{1,3},\d{3}', es)[:3])
 

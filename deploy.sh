@@ -123,7 +123,7 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
   # 4. 敏感路径应全 404
   PATHS=(
     "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "scripts/validate.py"
+    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "cities/kamloops/places.json" "scripts/validate.py"
     "package-lock.json" "README.md" "wrangler.toml" "worker.js"
   )
   FAIL=0
@@ -301,7 +301,7 @@ BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: appl
 # 敏感路径全 404
 PATHS=(
   "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "scripts/validate.py"
+  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "cities/kamloops/places.json" "scripts/validate.py"
   "package-lock.json" "README.md" "wrangler.toml" "worker.js"
 )
 LEAKED=0

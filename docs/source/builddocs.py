@@ -4,7 +4,7 @@ builddocs.py — 从 content/*.txt 重新生成 docs/for-the-city 下的说明�
 
 为什么存在：这批 PDF 原来是手工排版、没有源文件，改一句话都要动 PDF 内部。
 现在正文写在 content/ 里的纯文本源里，数字（地点数、办事卡数、版本号、核实日期）
-在构建时从 src/data-kamloops.js 和 public/index.html 现取，改完跑一次就全部同步。
+在构建时从 cities/kamloops/（经 kamdata）和 public/index.html 现取，改完跑一次就全部同步。
 
 用法：
     python3 docs/builddocs.py                 # 全部重建

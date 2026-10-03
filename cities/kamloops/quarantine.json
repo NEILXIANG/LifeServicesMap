@@ -1,0 +1,534 @@
+[
+ {
+  "n": "Tolliver Animal Hospital",
+  "c": "vet",
+  "g": "ns",
+  "lat": 50.7158,
+  "lng": -120.359,
+  "a": "985 Camosun Crescent",
+  "p": "250-374-3373",
+  "note": {
+   "zh": "North Shore 唯一全科兽医院",
+   "en": "Only full-service vet on the North Shore",
+   "fr": "Seul vétérinaire complet sur la rive nord",
+   "es": "Único veterinario completo en North Shore",
+   "ko": "North Shore 유일의 종합 동물병원",
+   "ja": "North Shore唯一の総合動物病院"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     1020,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "vet00002",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Sahali Veterinary Clinic",
+  "c": "vet",
+  "g": "sa",
+  "lat": 50.6613,
+  "lng": -120.345,
+  "a": "1640 Hillside Dr",
+  "p": "250-374-2393",
+  "note": {
+   "zh": "Sahali 区域老牌兽医院",
+   "en": "Long-standing vet in the Sahali area",
+   "fr": "Clinique vétérinaire de longue date dans le quartier Sahali",
+   "es": "Veterinario de larga trayectoria en el barrio Sahali",
+   "ko": "Sahali 지역의 오랜 동물병원",
+   "ja": "Sahaliエリアの老舗動物病院"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     960,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "vet00003",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Westsyde Veterinary Services",
+  "c": "vet",
+  "g": "ws",
+  "lat": 50.768,
+  "lng": -120.35,
+  "a": "1200 Westsyde Rd",
+  "p": "250-579-8882",
+  "note": {
+   "zh": "填补 Westsyde 兽医院空白",
+   "en": "Fills the Westsyde vet gap — closest to North Thompson residents",
+   "fr": "Comble le manque vétérinaire à Westsyde — le plus proche des résidents de North Thompson",
+   "es": "Cubre el vacío veterinario en Westsyde — el más cercano para los residentes de North Thompson",
+   "ko": "Westsyde 동물병원 공백을 채움 — North Thompson 주민과 가장 가까움",
+   "ja": "Westsydeの動物病院不足を補う、North Thompson住民に最も近い"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     960,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "vet00004",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Brocklehurst Animal Care",
+  "c": "vet",
+  "g": "br",
+  "lat": 50.7012,
+  "lng": -120.401,
+  "a": "1480 Tranquille Rd",
+  "p": "250-376-5598",
+  "note": {
+   "zh": "Brocklehurst 北郊综合诊所",
+   "en": "Full-service clinic in the Brocklehurst north end",
+   "fr": "Clinique complète dans le nord de Brocklehurst",
+   "es": "Clínica completa en el norte de Brocklehurst",
+   "ko": "Brocklehurst 북쪽 끝의 종합 동물병원",
+   "ja": "Brocklehurst北部の総合動物病院"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     1020,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "vet00005",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Westsyde Coffee House",
+  "c": "cafe",
+  "g": "ws",
+  "lat": 50.767,
+  "lng": -120.348,
+  "a": "810 Westsyde Rd",
+  "note": {
+   "zh": "本地独立咖啡店，店内 WiFi",
+   "en": "Independent local coffee shop with in-store WiFi",
+   "fr": "Café local indépendant avec WiFi en magasin",
+   "es": "Café local independiente con WiFi en el local",
+   "ko": "매장 내 WiFi가 있는 지역 독립형 커피숍",
+   "ja": "地元の独立系カフェ、店内Wi-Fiあり"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     420,
+     1140,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "ws00006",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "t": [
+   "life",
+   "fun",
+   "student",
+   "indoor"
+  ],
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Westsyde Postal Outlet (Canada Post)",
+  "c": "post",
+  "g": "ws",
+  "lat": 50.766,
+  "lng": -120.345,
+  "a": "Unit 2 — 760 Westsyde Rd",
+  "p": "250-579-9229",
+  "note": {
+   "zh": "加拿大邮政 Westsyde 唯一收寄点",
+   "en": "Canada Post's only Westsyde outlet for sending/receiving parcels",
+   "fr": "Seul point Canada Post à Westsyde pour envoyer/recevoir des colis",
+   "es": "Único punto de Canada Post en Westsyde para enviar/recibir paquetes",
+   "ko": "Westsyde에서 택배를 보내거나 받는 캐나다邮政 유일 지점",
+   "ja": "Westsyde唯一のCanada Post取扱店、荷物の発送・受取に"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1020,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "v": "2026-08",
+  "id": "ws00004",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "t": [
+   "life"
+  ],
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Westsyde Trailhead (Stake Lake loop)",
+  "c": "trail",
+  "g": "ws",
+  "lat": 50.772,
+  "lng": -120.353,
+  "a": "Westsyde Rd & Grasslands Rd",
+  "note": {
+   "zh": "通往 Stake Lake 步道的山地步道起点",
+   "en": "Mountain-bike and hiking trailhead linking to the Stake Lake loop",
+   "fr": "Point de départ VTT et randonnée vers la boucle Stake Lake",
+   "es": "Inicio de sendero de bici de montaña y caminata hacia el circuito Stake Lake",
+   "ko": "Stake Lake 루프로 이어지는 산악 자전거·하이킹 트레일헤드",
+   "ja": "Stake Lakeループにつながるマウンテンバイク・ハイキングの起点"
+  },
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     0,
+     1440,
+     1
+    ]
+   ],
+   "q": "qOpenAir"
+  },
+  "v": "2026-08",
+  "id": "ws00008",
+  "src": "stub-pending-verify",
+  "precision": "low",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "quarantined": "2026-09-10: not found in any current directory under this name/address; restore only after a phone or site check"
+ },
+ {
+  "n": "Summit Medical Clinic",
+  "c": "hospital",
+  "g": "sa",
+  "lat": 50.6652,
+  "lng": -120.3522,
+  "a": "5-1380 Summit Dr",
+  "p": "250-374-9800",
+  "h": {
+   "k": "hCallDay"
+  },
+  "note": {
+   "zh": "Sahali区老牌walk-in诊所，可接收无家庭医生病人",
+   "en": "A long-established walk-in clinic in Sahali that accepts patients without a family doctor",
+   "fr": "Une clinique sans rendez-vous bien établie à Sahali, qui accepte les patients sans médecin de famille",
+   "es": "Una clínica sin cita de larga trayectoria en Sahali, que atiende a pacientes sin médico de cabecera",
+   "ko": "Sahali에서 오래된 워크인 클리닉, 주치의가 없어도 진료 가능",
+   "ja": "Sahaliの老舗ウォークインクリニック、かかりつけ医がいなくても受診可"
+  },
+  "src": "places",
+  "v": "2026-08",
+  "precision": "low",
+  "id": "85b972a8",
+  "quarantined": "2026-09-10: closed 15 Dec 2018 (CFJC Today); nothing has reopened under this name at this address"
+ },
+ {
+  "n": "Boreal Veterinary Centre",
+  "c": "vet",
+  "g": "sk",
+  "lat": 50.6749,
+  "lng": -120.3275,
+  "a": "1295 12th St",
+  "p": "250-372-7788",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     480,
+     1020,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "note": {
+   "zh": "市中心大型综合兽医院，含急诊",
+   "en": "Large full-service clinic downtown, with emergency hours",
+   "fr": "Grande clinique vétérinaire complète au centre-ville, avec urgences",
+   "es": "Clínica veterinaria completa en el centro, con horario de urgencias",
+   "ko": "다운타운의 대형 종합 동물병원, 응급 진료 가능",
+   "ja": "ダウンタウンの大型総合動物病院、救急対応あり"
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-08",
+  "id": "vet00001",
+  "quarantined": "2026-09-10: Boreal Veterinary Centre is an Edmonton business; no clinic of this name exists in this city and the address is unverifiable"
+ },
+ {
+  "n": "Westsyde Convenience & Gas",
+  "c": "grocery",
+  "g": "ws",
+  "lat": 50.7655,
+  "lng": -120.3445,
+  "a": "700 Westsyde Rd",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     300,
+     1380,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "note": {
+   "zh": "Westsyde 唯一加油站兼便利店",
+   "en": "Westsyde's only gas + convenience combo",
+   "fr": "Seule station-service avec dépanneur à Westsyde",
+   "es": "Única gasolinera con tienda de conveniencia en Westsyde",
+   "ko": "Westsyde 유일의 주유소 겸 편의점",
+   "ja": "Westsyde唯一のガソリンスタンド兼コンビニ"
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-08",
+  "t": [
+   "life"
+  ],
+  "id": "ws00005",
+  "quarantined": "2026-09-10: no business of this name found in any directory, and the civic number is on the wrong stretch of Westsyde Rd; the verified gas + convenience stop is the Chevron at 2711 Westsyde Rd"
+ },
+ {
+  "n": "Westsyde Community Hall",
+  "c": "commctr",
+  "g": "ws",
+  "lat": 50.7668,
+  "lng": -120.347,
+  "a": "858 Bebek Rd",
+  "p": "250-579-9884",
+  "h": {
+   "r": [
+    [
+     3,
+     7,
+     540,
+     1140,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "note": {
+   "zh": "社区活动/家庭聚会出租",
+   "en": "Community events and family-gathering rentals",
+   "fr": "Événements communautaires et locations pour réunions familiales",
+   "es": "Eventos comunitarios y alquiler para reuniones familiares",
+   "ko": "커뮤니티 행사 및 가족 모임 대관",
+   "ja": "コミュニティ行事、家族の集まり向けの貸し出し"
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-08",
+  "t": [
+   "free",
+   "multi",
+   "indoor"
+  ],
+  "precision": "low",
+  "id": "ws00003",
+  "quarantined": "2026-09-10: no hall at 858 Bebek Rd in any current directory (859 Bebek is the pool); restore only after a site check"
+ },
+ {
+  "n": "Lil' Monkey's Treehouse",
+  "c": "playcenter",
+  "g": "sa",
+  "lat": 50.6538069,
+  "lng": -120.3651939,
+  "a": "Unit 701-1801 Princeton Kamloops Hwy",
+  "w": "https://www.lilmonkeystreehouse.com/",
+  "note": {
+   "zh": "室内儿童游乐及生日派对场地，位于Upper Sahali",
+   "en": "Indoor children's play and birthday party venue in Upper Sahali",
+   "fr": "Aire de jeux intérieure et salle de fêtes d'anniversaire, dans Upper Sahali",
+   "es": "Zona de juegos cubierta y salón de cumpleaños, en Upper Sahali",
+   "ko": "Upper Sahali의 실내 놀이 공간 겸 생일 파티 장소",
+   "ja": "Upper Sahaliにある屋内子供向け遊び場兼誕生日会会場"
+  },
+  "src": "official",
+  "v": "2026-08",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ],
+  "tag": "tIndoorPlay",
+  "id": "878135f5",
+  "quarantined": "2026-09-21: closed — the last post on its own Facebook page (6 Feb 2023) says \"Final week of play\"; the website no longer loads"
+ },
+ {
+  "n": "Zaaz Eatery and Play",
+  "c": "playcenter",
+  "g": "ns",
+  "lat": 50.6953,
+  "lng": -120.3155,
+  "a": "425 Mt Paul Way",
+  "p": "778-538-9229",
+  "w": "https://zaazplay.ca/",
+  "note": {
+   "zh": "室内儿童游乐区+无麸质餐饮",
+   "en": "Indoor children's play area with gluten-free food",
+   "fr": "Aire de jeux intérieure avec de la nourriture sans gluten",
+   "es": "Zona de juegos cubierta con comida sin gluten",
+   "ko": "글루텐 프리 음식을 제공하는 실내 놀이 공간",
+   "ja": "屋内子供向け遊び場、グルテンフリー料理あり"
+  },
+  "src": "official",
+  "v": "2026-08",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ],
+  "id": "a634fe38",
+  "quarantined": "2026-09-21: the Mt Paul Way site is closed; its own site says it is moving downtown (380 Victoria St) — restore at the new address once it reopens"
+ },
+ {
+  "n": "Second Chances Thrift",
+  "c": "secondhand",
+  "g": "br",
+  "lat": 50.707749,
+  "lng": -120.3648552,
+  "a": "1211 8th St",
+  "p": "778-470-0055",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "注意4:45就清场",
+   "en": "Note that they clear the store at 4:45",
+   "fr": "À noter : le magasin se vide à 16 h 45",
+   "es": "Tenga en cuenta que desalojan la tienda a las 16:45",
+   "ko": "오후 4시 45분에 매장 정리를 시작함",
+   "ja": "4:45に閉店準備が始まるので注意"
+  },
+  "src": "places",
+  "v": "2026-08",
+  "t": [
+   "life",
+   "free"
+  ],
+  "id": "645ae374",
+  "quarantined": "2026-09-21: closing for good on 30 Sep 2026 (its own Facebook post of 7 Sep 2026); no longer taking donations"
+ },
+ {
+  "n": "The Salvation Army",
+  "c": "secondhand",
+  "g": "ns",
+  "lat": 50.6933201,
+  "lng": -120.3639311,
+  "a": "344 Poplar St",
+  "p": "250-554-1611",
+  "w": "https://salvationarmy.ca",
+  "h": {
+   "r": [
+    [
+     1,
+     4,
+     540,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "价格最低的二手店；同一机构还在此提供社区服务：紧急食物包（需带当期收入证明，申请在中午前截止）、衣物与家具代金券，另有每周两次的流动厨房。前往前请致电或查官网确认时段。",
+   "en": "The lowest prices among the thrift stores; the same organisation also runs community services here — emergency food hampers (bring proof of current income; applications close before midday), vouchers for clothing and furniture, and a mobile kitchen twice a week. Phone or check the website for current times before going.",
+   "fr": "Les prix les plus bas parmi les magasins d'occasion; le même organisme y offre aussi des services communautaires — paniers alimentaires d'urgence (apportez une preuve de revenu courant; les demandes ferment avant midi), bons pour vêtements et meubles, et une cuisine mobile deux fois par semaine. Téléphonez ou consultez le site pour les heures avant de vous déplacer.",
+   "es": "Los precios más bajos entre las tiendas de segunda mano; la misma organización ofrece aquí además servicios comunitarios — despensas de emergencia (lleve comprobante de ingresos actuales; las solicitudes cierran antes del mediodía), vales para ropa y muebles, y una cocina móvil dos veces por semana. Llame o consulte el sitio web para los horarios antes de ir.",
+   "ko": "중고매장 중 가격이 가장 저렴합니다. 같은 단체가 이곳에서 지역사회 서비스도 운영합니다 — 긴급 식품 꾸러미(현재 소득 증빙 지참, 신청은 정오 전 마감), 의류·가구 바우처, 그리고 주 2회 이동식 급식입니다. 방문 전 전화하거나 홈페이지에서 시간을 확인하세요.",
+   "ja": "リサイクルショップの中で最も低価格。同じ団体がここで地域サービスも運営、緊急食料パック（現在の収入証明を持参、申請は正午前締切）、衣類・家具の引換券、週2回の移動キッチンあり。訪問前に電話かウェブサイトで時間を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-09",
+  "t": [
+   "life",
+   "free"
+  ],
+  "id": "97daa003",
+  "quarantined": "2026-09-21: 344 Poplar St is the Salvation Army church and resource centre, not a thrift store (kamloopssalvationarmy.ca); the food program there is its own row, df64d05e"
+ },
+ {
+  "n": "Dallas Dog Park",
+  "c": "dogpark",
+  "g": "ot",
+  "lat": 50.6682836,
+  "lng": -120.168093,
+  "a": "Dallas",
+  "p": "250-828-3551",
+  "note": {
+   "zh": "草地优质+遮荫树+饮水站+洗手间｜⚠️为Dallas-Barnhartvale自然公园内的遛狗区，非独立公园",
+   "en": "Good grass, shade trees, a water station and washrooms | ⚠️ This is the off-leash area inside Dallas-Barnhartvale Nature Park, not a separate park",
+   "fr": "Bonne pelouse, arbres d'ombrage, point d'eau et toilettes | ⚠️ Il s'agit de l'aire sans laisse à l'intérieur du parc nature Dallas-Barnhartvale, et non d'un parc distinct",
+   "es": "Buen césped, árboles de sombra, punto de agua y baños | ⚠️ Es la zona sin correa dentro del Dallas-Barnhartvale Nature Park, no un parque aparte",
+   "ko": "잔디 상태가 좋고 그늘나무·급수대·화장실 있음 | ⚠️ 별도의 공원이 아니라 Dallas-Barnhartvale Nature Park 안의 목줄 해제 구역",
+   "ja": "芝生の状態が良く、日陰の木、給水設備、トイレあり｜⚠️独立した公園ではなくDallas-Barnhartvale Nature Park内のリード解除エリア"
+  },
+  "src": "places",
+  "v": "2026-08",
+  "t": [
+   "free"
+  ],
+  "id": "8606c30e",
+  "quarantined": "2026-09-21: location conflicts — the City lists the off-leash area in Dallas-Barnhartvale Nature Park (1210 Eliza Rd), listings put a separate park at 5998 Todd Hill Cres; restore after a site check"
+ }
+]

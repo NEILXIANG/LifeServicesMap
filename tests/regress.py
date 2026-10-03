@@ -13,14 +13,14 @@ async def pick_lang(pg,lang):
 # point and has been quietly ageing ever since. Both fixtures are regenerated on
 # every run from kamloops.html.
 def _project_root(p):
-    """向上找到项目根（放着 src/data-kamloops.js 的那一层），
+    """向上找到项目根（放着 app/engine/parts.txt 的那一层），
     这样脚本放在 scripts/ 或 tests/ 里也能正确定位，不必待在根目录。"""
     import os as _os
     for _ in range(6):
-        if _os.path.exists(_os.path.join(p, 'src', 'data-kamloops.js')):
+        if _os.path.exists(_os.path.join(p, 'app', 'engine', 'parts.txt')):
             return p
         p = _os.path.dirname(p)
-    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+    raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 
@@ -106,7 +106,9 @@ def check(label, cond, detail=''):
     if not cond: FAIL.append(label)
 
 N = None   # number of places, read from the file under test at startup
-CITY_TASKS_CHECKED = (re.search(r"tasksChecked:'(\d{4}-\d{2}-\d{2})'", open(os.path.join(HERE,'src','data-kamloops.js'),encoding='utf-8').read()) or [None,'0000'])[1]
+sys.path.insert(0, HERE)
+import kamdata
+CITY_TASKS_CHECKED = (re.search(r"tasksChecked:'(\d{4}-\d{2}-\d{2})'", kamdata.data_text()) or [None,'0000'])[1]
 
 async def main():
     global N

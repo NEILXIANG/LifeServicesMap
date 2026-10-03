@@ -1,0 +1,58 @@
+{
+ "sk": {
+  "zh": "South Kamloops/市中心（河南岸）",
+  "en": "South Kamloops/Downtown (south riverbank)",
+  "fr": "South Kamloops/Centre (rive sud)",
+  "es": "South Kamloops/Centro (orilla sur)",
+  "ko": "South Kamloops/다운타운 (강 남쪽)",
+  "ja": "South Kamloops/ダウンタウン（川の南岸）"
+ },
+ "ns": {
+  "zh": "North Shore（河北岸，与市中心隔河相望）",
+  "en": "North Shore (across the river from Downtown)",
+  "fr": "North Shore (rive nord, face au centre-ville)",
+  "es": "North Shore (orilla norte, frente al centro)",
+  "ko": "North Shore (강 북쪽, 다운타운 건너편)",
+  "ja": "North Shore（川の北岸、ダウンタウンの対岸）"
+ },
+ "sa": {
+  "zh": "Sahali/Aberdeen（市中心南边山坡，TRU大学所在地）",
+  "en": "Sahali/Aberdeen (hillside south of Downtown, home to TRU)",
+  "fr": "Sahali/Aberdeen (coteau au sud du centre-ville, siège de TRU)",
+  "es": "Sahali/Aberdeen (colina al sur del centro, sede de TRU)",
+  "ko": "Sahali/Aberdeen (다운타운 남쪽 언덕, TRU 대학 소재지)",
+  "ja": "Sahali/Aberdeen（ダウンタウン南側の丘陵地、TRU大学の所在地）"
+ },
+ "br": {
+  "zh": "Brocklehurst（西区，河北岸）",
+  "en": "Brocklehurst (west side, north bank)",
+  "fr": "Brocklehurst (côté ouest, rive nord)",
+  "es": "Brocklehurst (lado oeste, orilla norte)",
+  "ko": "Brocklehurst (서쪽, 강 북쪽)",
+  "ja": "Brocklehurst（西側、川の北岸）"
+ },
+ "vv": {
+  "zh": "Valleyview（东区，沿河谷）",
+  "en": "Valleyview (east side, along the valley)",
+  "fr": "Valleyview (côté est, le long de la vallée)",
+  "es": "Valleyview (lado este, junto al valle)",
+  "ko": "Valleyview (동쪽, 계곡을 따라)",
+  "ja": "Valleyview（東側、谷沿い）"
+ },
+ "ws": {
+  "zh": "Westsyde（最北端，沿北汤普森河）",
+  "en": "Westsyde (far north, along the North Thompson River)",
+  "fr": "Westsyde (extrême nord, le long de la rivière North Thompson)",
+  "es": "Westsyde (extremo norte, junto al río North Thompson)",
+  "ko": "Westsyde (최북단, 노스톰슨강 변)",
+  "ja": "Westsyde（最北部、ノース・トンプソン川沿い）"
+ },
+ "ot": {
+  "zh": "其他/郊区（外围农村地带）",
+  "en": "Other/Suburbs (outlying rural areas)",
+  "fr": "Autres/Banlieue (zones rurales périphériques)",
+  "es": "Otros/Suburbios (zonas rurales periféricas)",
+  "ko": "기타/교외 (외곽 농촌 지역)",
+  "ja": "その他/郊外（周辺の農村地帯）"
+ }
+}

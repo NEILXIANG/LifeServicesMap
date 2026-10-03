@@ -11,14 +11,14 @@ from collections import Counter
 
 # Relative to this file, so it runs from any working directory and on any machine.
 def _project_root(p):
-    """向上找到项目根（放着 src/data-kamloops.js 的那一层），
+    """向上找到项目根（放着 app/engine/parts.txt 的那一层），
     这样脚本放在 scripts/ 或 tests/ 里也能正确定位，不必待在根目录。"""
     import os as _os
     for _ in range(6):
-        if _os.path.exists(_os.path.join(p, 'src', 'data-kamloops.js')):
+        if _os.path.exists(_os.path.join(p, 'app', 'engine', 'parts.txt')):
             return p
         p = _os.path.dirname(p)
-    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+    raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 
@@ -46,7 +46,7 @@ PATH = find_built(HERE, sys.argv[1] if len(sys.argv) > 1 else None)
 if len(sys.argv) <= 1:
     _built_t = os.path.getmtime(PATH)
     sys.path.insert(0, HERE); import kamdata as _kd
-    for _src, _t in (('src/data-kamloops.js', os.path.getmtime(os.path.join(HERE, 'src/data-kamloops.js'))),
+    for _src, _t in (('cities/kamloops/', _kd.data_mtime()),
                      ('app/engine/', _kd.engine_mtime())):
         if _t > _built_t + 1:
             sys.exit('✗ %s 比构建产物 %s 新——先跑 python3 build.py 再校验，'
@@ -796,6 +796,53 @@ else:
         if n:
             where = [c[:70] for c in copy_strings if lit in c][:2]
             fail('%d literal %r in translated copy — should be %s (e.g. %s)' % (n, lit, ph, where))
+
+# ------------------------------------------------- 15b. records match schemas/*.schema.json
+# 2026-10-03 (multi-city phase 2): the shape of each place record, checked against
+# schemas/place.schema.json with a small stdlib interpreter (type / required / enum /
+# pattern / additionalProperties / items) so validate.py still needs nothing but Python.
+def _schema_errs(v, sch, where):
+    T = {'object': dict, 'array': list, 'string': str, 'integer': int}
+    out = []
+    t = sch.get('type')
+    if t == 'number':
+        ok = isinstance(v, (int, float)) and not isinstance(v, bool)
+    elif t:
+        ok = isinstance(v, T[t]) and not isinstance(v, bool)
+    else:
+        ok = True
+    if not ok:
+        return ['%s: expected %s, got %s' % (where, t, type(v).__name__)]
+    if 'enum' in sch and v not in sch['enum']:
+        out.append('%s: %r not one of %s' % (where, v, sch['enum']))
+    if 'pattern' in sch and not re.search(sch['pattern'], v):
+        out.append('%s: %r does not match %s' % (where, v, sch['pattern']))
+    if 'minLength' in sch and len(v) < sch['minLength']:
+        out.append('%s: empty' % where)
+    if isinstance(v, dict):
+        for k in sch.get('required', []):
+            if k not in v:
+                out.append('%s: missing "%s"' % (where, k))
+        props = sch.get('properties', {})
+        for k, sub in v.items():
+            if k in props:
+                out += _schema_errs(sub, props[k], '%s.%s' % (where, k))
+            elif sch.get('additionalProperties') is False:
+                out.append('%s: unknown field "%s" (add it to the schema if it is real)' % (where, k))
+    if isinstance(v, list) and 'items' in sch:
+        for i, x in enumerate(v):
+            out += _schema_errs(x, sch['items'], '%s[%d]' % (where, i))
+    return out
+
+sys.path.insert(0, HERE); import kamdata as _kd
+_place_schema = json.load(open(os.path.join(HERE, 'schemas', 'place.schema.json'), encoding='utf-8'))
+_serr = []
+for _p in _kd.load('P'):
+    _serr += _schema_errs(_p, _place_schema, 'place %s' % _p.get('id', '?'))
+for _e in _serr[:20]:
+    fail('schema: ' + _e)
+if len(_serr) > 20:
+    fail('schema: …and %d more' % (len(_serr) - 20))
 
 # ------------------------------------------------- 16. the split stays buildable
 import os as _os
