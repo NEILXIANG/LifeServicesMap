@@ -14,7 +14,7 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 ```
 
 首次准备：`npm install`（锁定版本的 wrangler）；
-`python3 -m venv .venv && .venv/bin/pip install playwright && .venv/bin/python -m playwright install chromium`。
+`python3 -m venv .venv && .venv/bin/pip install playwright pypdf && .venv/bin/python -m playwright install chromium`。
 
 ## 结构
 

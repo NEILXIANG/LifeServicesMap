@@ -17,7 +17,11 @@ async def main():
         pg = await ctx.new_page()
         errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))
         await pg.goto(URL); await pg.wait_for_timeout(1500)
-        check('DATA_VERSION is 2026.09.24b and rides on every event', await pg.evaluate("()=>DATA_VERSION==='2026.09.24b'&&_evBuf.every(e=>e.v===DATA_VERSION)"))
+        # 2026-10-03: compare with the version in src/engine.html instead of a literal,
+        # so every legitimate version bump no longer breaks this check.
+        import re as _re
+        _ver = _re.search(r"DATA_VERSION='([^']+)'", open(os.path.join(os.path.dirname(_r), 'src', 'engine.html'), encoding='utf-8').read()).group(1)
+        check('DATA_VERSION matches src/engine.html (%s) and rides on every event' % _ver, await pg.evaluate("v=>DATA_VERSION===v&&_evBuf.every(e=>e.v===DATA_VERSION)", _ver))
         for l, q in (('en', 'walk in clinic'), ('en', 'Walk-in clinic'), ('fr', 'clinique sans rendez-vous'), ('es', 'clínica sin cita'),
                      ('zh', '免预约诊所'), ('ko', '워크인 클리닉'), ('ja', 'ウォークインクリニック')):
             r = await pg.evaluate("([l,q])=>{setLang(l);searchInputEl.value=q;runSearch();return {n:lastVisible,hits:P.filter(p=>matchScore(p,q.toLowerCase())>0).map(p=>p.n)}}", [l, q])

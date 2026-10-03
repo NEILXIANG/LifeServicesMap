@@ -10,7 +10,8 @@ The single-file output is deliberate: no server, no build step for the reader, a
 anyone can keep their own copy. The split exists so that an engine improvement
 reaches every city at once instead of being re-applied to each one by hand.
 """
-import argparse, os, re, sys, datetime
+import argparse, os, re, sys, datetime, json
+from html import escape as html_escape
 
 def _project_root(p):
     """向上找到项目根（放着 src/data-kamloops.js 的那一层），
@@ -24,6 +25,7 @@ def _project_root(p):
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(HERE, 'src')
 MARKER = '/*__CITY_DATA__*/'
+META_MARKER = '/*__CITY_META__*/'
 
 
 def build(city, out_path=None, inline_libs=True, sync_public=True):
@@ -39,6 +41,27 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     if MARKER not in engine:
         sys.exit('engine.html has lost its %s marker' % MARKER)
     html = engine.replace(MARKER, data, 1)
+
+    # 2026-10-03 (multi-city phase 1): build-time city settings — page title,
+    # description, site URL, localStorage prefix, search stopwords.
+    meta_path = os.path.join(HERE, 'cities', city, 'city.json')
+    if not os.path.exists(meta_path):
+        sys.exit('missing %s' % meta_path)
+    meta = json.load(open(meta_path, encoding='utf-8'))
+    meta.pop('_comment', None)
+    for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
+        if k not in meta:
+            sys.exit('%s: missing "%s"' % (meta_path, k))
+    if META_MARKER not in html:
+        sys.exit('engine.html has lost its %s marker' % META_MARKER)
+    html = html.replace(META_MARKER, json.dumps(meta, ensure_ascii=False), 1)
+    for ph, val in (('{{CITY_TITLE}}', meta['title']),
+                    ('{{CITY_DESC}}', meta['description']),
+                    ('{{CITY_SITE_URL}}', meta['siteUrl'])):
+        html = html.replace(ph, html_escape(val, quote=True))
+    left = re.findall(r'\{\{CITY_[A-Z_]+\}\}', html)
+    if left:
+        sys.exit('unfilled placeholders: %s' % sorted(set(left)))
 
     if inline_libs:
         html = inline_dependencies(html)

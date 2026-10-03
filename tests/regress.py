@@ -1754,7 +1754,13 @@ async def main():
         try: ptxt=subprocess.run(['pdftotext',pdfp,'-'],capture_output=True,text=True,timeout=30).stdout
         except Exception: ptxt=None
         if ptxt is None:
-            print('  SKIP  72 PDF text check — pdftotext not installed (brew install poppler)')
+            # no poppler (Homebrew has no bottle for some Macs): read the PDF with pypdf
+            try:
+                import pypdf
+                ptxt='\n'.join((pg_.extract_text() or '') for pg_ in pypdf.PdfReader(pdfp).pages)
+            except Exception: ptxt=None
+        if ptxt is None:
+            print('  SKIP  72 PDF text check — neither pdftotext nor pypdf available (.venv/bin/pip install pypdf)')
             prt['pdfHasCard']=prt['pdfNoChrome']=True
         else:
             prt['pdfHasCard']=('Service BC' in ptxt) and ('455 Columbia' in ptxt)

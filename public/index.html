@@ -2749,6 +2749,10 @@ UI.ko.guideCA2=`<h3>☎️ 주요 연락처 한눈에</h3>
 <p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">これは公開情報に基づく一般的な出発点のまとめです——制度は変わることがあるため、必ず公式サイトまたは電話で最新の内容をご確認ください。</p>
 
 `;
+// 构建期城市配置（cities/<city>/city.json），由 build.py 注入。SP 是 localStorage 键前缀：
+// Kamloops 保持 'kamloops'，现有用户的收藏、语言、任务进度不受影响。
+const CITY_META={"id": "kamloops", "title": "Kamloops Life Guide", "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.", "siteUrl": "https://kamloops-lifemap.neilxiang.workers.dev/", "storagePrefix": "kamloops", "searchStopwords": ["kamloops", "bc"]};
+const SP=CITY_META.storagePrefix;
 // ---------------------------------------------------------------------------
 // Kamloops city data.
 //
@@ -3818,7 +3822,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.24b';
+const DATA_VERSION='2026.10.03a';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3891,14 +3895,14 @@ function tpl(str,l){
 // self-efficacy is the whole reason this exists: a list of eleven official
 // errands is daunting, and the single cheapest way to make it feel finishable
 // is to let someone see that three of them are already behind them.
-const _TASK_DONE_KEY='kamloopsTasksDone';
+const _TASK_DONE_KEY=SP+'TasksDone';
 let taskDone=new Set();
 try{const raw=JSON.parse(localStorage.getItem(_TASK_DONE_KEY)||'[]');
     if(Array.isArray(raw))taskDone=new Set(raw.filter(x=>typeof x==='string'));}catch(e){}
 function saveTaskDone(){try{localStorage.setItem(_TASK_DONE_KEY,JSON.stringify([...taskDone]));}catch(e){}try{updateGuideProgress();}catch(e){}}
 // 2026-09-13 (item 4): steps are ticked one at a time; ticking the last one
 // marks the card done, un-ticking any step un-marks it. Same device-only rule.
-const _STEP_KEY='kamloopsSteps';
+const _STEP_KEY=SP+'Steps';
 let stepDone={};
 try{const raw=JSON.parse(localStorage.getItem(_STEP_KEY)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))stepDone=raw;}catch(e){}
 // the landing strip counts ticked steps as "started" (updateGuideProgress), so
@@ -4389,11 +4393,11 @@ function buildGuideToc(){
 // then Y" without ever knowing who they are. No fingerprinting, no IP
 // collection — the Worker echoes nothing back. (The two third parties, the
 // tile server and the Cloudflare visit counter, are named in the privacy note.)
-const _SID_KEY='kamloopsSid';
+const _SID_KEY=SP+'Sid';
 // 2026-09-11: the id is rotated after 90 days, so a browser can never be
 // followed for longer than that even in principle. The "returning" share dips
 // on the day an id turns over; that is the price and it is worth paying.
-const _SID_AT_KEY='kamloopsSidAt',SID_MAX_AGE_MS=90*24*3600*1000;
+const _SID_AT_KEY=SP+'SidAt',SID_MAX_AGE_MS=90*24*3600*1000;
 function getSid(){
   try{
     let sid=localStorage.getItem(_SID_KEY);
@@ -4420,7 +4424,7 @@ const _CRISIS_RE=/\b(suicid\w*|kill my ?self|kill me|want to die|self[- ]?harm\w
 function isCrisisQuery(q){return !!q&&_CRISIS_RE.test(String(q));}
 const _evBuf=[];
 const _EV_MAX=1000;
-const _EV_KEY='kamloopsEvents';
+const _EV_KEY=SP+'Events';
 // True when the maintainer opened ?debug=1. Every event from such a page is
 // tagged env:'dev' server-side so it can be excluded from real-user analysis —
 // see trackEvent(). Evaluated once, not per call: location.search never changes.
@@ -4606,7 +4610,7 @@ function buildDebugPanel(){
     flushEvents();
     const blob=new Blob([JSON.stringify({v:1,exported:new Date().toISOString(),events:_evBuf},null,2)],{type:'application/json'});
     const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download='kamloops-events-'+Date.now()+'.json';a.click();
+    const a=document.createElement('a');a.href=url;a.download=SP+'-events-'+Date.now()+'.json';a.click();
     setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
   document.getElementById('dbgClear').onclick=()=>{
@@ -4819,7 +4823,7 @@ tiles.addTo(map);
 // closure alone: it centres the map and draws one temporary dot, and is never
 // passed to trackEvent, never written to the URL, never logged anywhere.
 let geoExplained=false;
-try{geoExplained=localStorage.getItem('kamloopsGeoExplained')==='1';}catch(e){}
+try{geoExplained=localStorage.getItem(SP+'GeoExplained')==='1';}catch(e){}
 let geoMarker=null,geoAccCircle=null;
 // 2026-09-13 (items 10A / 11): where the reader is (only while the page is
 // open, never stored), and metres between two points
@@ -4901,7 +4905,7 @@ function showGeoExplain(){
   cancel.textContent=u.geoExplainCancel;
   ok.onclick=()=>{
     geoExplained=true;
-    try{localStorage.setItem('kamloopsGeoExplained','1');}catch(e){}
+    try{localStorage.setItem(SP+'GeoExplained','1');}catch(e){}
     geoNoteEl.hidden=true;
     runGeolocate();
   };
@@ -5012,7 +5016,7 @@ let selPresets=new Set();
 let searchTerm='';
 let favorites=new Set(),favMigrated=false;
 try{
-  const raw=JSON.parse(localStorage.getItem('kamloopsFavorites')||'[]');
+  const raw=JSON.parse(localStorage.getItem(SP+'Favorites')||'[]');
   // Older versions stored place NAMES. Names change when data is corrected, which
   // silently orphaned saved entries, so storage moved to a stable per-place id and
   // anything still held under an old name is translated across once.
@@ -5029,7 +5033,7 @@ if(favMigrated)saveFavorites();
   favorites=new Set([...favorites].filter(id=>live.has(id)));
   if(favorites.size!==before)saveFavorites();
 })();
-function saveFavorites(){try{localStorage.setItem('kamloopsFavorites',JSON.stringify([...favorites]));}catch(e){}}
+function saveFavorites(){try{localStorage.setItem(SP+'Favorites',JSON.stringify([...favorites]));}catch(e){}}
 const toastEl=document.getElementById('toast');
 let toastTimer=null;
 // opts.action / opts.onAction: an Undo-style button inside the toast (it then
@@ -5809,7 +5813,7 @@ let _lastFitKey='';
 // Exact-match count of the last apply() and whether the map is showing closest
 // matches instead — logSearch reports the gap from the exact count.
 let _exactN=0,_closest=false;
-const _CLOSEST_STOP=/^(near|nearby|me|open|now|today|best|good|cheap|store|shop|place|places|kamloops|bc|please)$/;
+const _CLOSEST_STOP=new RegExp('^(near|nearby|me|open|now|today|best|good|cheap|store|shop|place|places|'+CITY_META.searchStopwords.join('|')+'|please)$');
 function _closestWords(q){
   q=String(q||'').toLowerCase();
   if(/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q))return [];   // CJK has no spaces to split on
@@ -6211,7 +6215,7 @@ function updateThemeQuickpicks(){
 //   third visit or later        → the newcomer set drops behind the themes
 // The guide is always first, "More" always last, and rules never hide a chip
 // the reader has already switched on.
-const _VISITS_KEY='kamloopsVisits';
+const _VISITS_KEY=SP+'Visits';
 function visitCount(){try{return parseInt(localStorage.getItem(_VISITS_KEY)||'0',10)||0;}catch(e){return 0;}}
 function bumpVisitCount(){try{localStorage.setItem(_VISITS_KEY,String(Math.min(visitCount()+1,999)));}catch(e){}}
 // read before writeURLState() ever rewrites the address bar (urlWriteBlocked
@@ -6681,7 +6685,7 @@ function renderHelpSheet(){
   };
   cl.onclick=()=>{
     if(!_clearArmed){_clearArmed=true;cl.classList.add('armed');cl.textContent=u.helpClearConfirm;return;}
-    try{Object.keys(localStorage).filter(k=>/^kamloops/.test(k)).forEach(k=>localStorage.removeItem(k));}catch(e){}
+    try{Object.keys(localStorage).filter(k=>k.startsWith(SP)).forEach(k=>localStorage.removeItem(k));}catch(e){}
     try{sessionStorage.clear();}catch(e){}
     location.replace(location.pathname);
   };
@@ -6747,7 +6751,7 @@ backdrop.addEventListener('keydown',e=>trapTab(e,backdrop));
 // 重新弹一次说明。键名带 'kamloops' 前缀以防和其他站点冲突，try/catch 包裹
 // 是因为有些隐身模式/隐私浏览器会拒绝写入（同一规则也用在 favorites 上）。
 let hintDismissed=false;
-try{hintDismissed=localStorage.getItem('kamloopsHintDismissed')==='1';}catch(e){}
+try{hintDismissed=localStorage.getItem(SP+'HintDismissed')==='1';}catch(e){}
 let panelMode='area';
 let selectedRoute=null;
 const busLayer=L.layerGroup().addTo(map);
@@ -7127,7 +7131,7 @@ function dismissHint(){
   if(hintDismissed)return;
   hintDismissed=true;
   document.getElementById('fhint').textContent='';
-  try{localStorage.setItem('kamloopsHintDismissed','1');}catch(e){}
+  try{localStorage.setItem(SP+'HintDismissed','1');}catch(e){}
 }
 // P0-C: the only thing that ever clears the hint is hintDismissed — TIGHT only
 // picks which of the two translations shows, never whether one does. Called from
@@ -7744,7 +7748,7 @@ function trapTab(e,back){
 }
 // First-use card. One localStorage key, one dismissal, never again in this
 // browser. Nothing about it is sent anywhere.
-const _FU_KEY='kamloopsFirstUseSeen';
+const _FU_KEY=SP+'FirstUseSeen';
 // The card goes away on the first thing the reader does — a search, a filter,
 // a route, an opened place — as well as on its own ✕. It sat on top of place
 // popups otherwise, hiding the name and the star of the very place just tapped.
@@ -7761,7 +7765,7 @@ function activeSeason(){
 function seasonKey(x){
   const iso=cityISODate(),y=parseInt(iso.slice(0,4),10),md=iso.slice(5);
   // a season that wraps the new year belongs to the year it started in
-  return 'kamloopsSeason_'+x.id+'_'+(x.from>x.to&&md<=x.to?y-1:y);
+  return SP+'Season_'+x.id+'_'+(x.from>x.to&&md<=x.to?y-1:y);
 }
 let _seasonClosedMem={},_seasonShown={};
 function renderSeason(){
@@ -7893,7 +7897,7 @@ function renderFirstUse(){
 // A link straight to one card — what "I'll send you the steps for MSP" needs.
 // Arrival date: asked once, kept in this browser only, never sent. It turns
 // "90 days" into an actual date, and lets the list be sorted by what is due.
-const _ARRIVE_KEY='kamloopsArrived';
+const _ARRIVE_KEY=SP+'Arrived';
 let _arriveMem=null;   // storage may be blocked (private mode): the date still works for this sitting
 // 2026-09-13 audit: typing a date into the field (rather than picking one)
 // fires change with a partial year — "0002-09-01", "0020-09-01", "0202-09-01"
@@ -8160,7 +8164,7 @@ setTimeout(syncPanPad,0);
 // who switched to 中文 landed back on the browser guess every single visit.
 // Precedence is: ?lang= in the link  >  what you picked last time  >  browser
 // language  >  English.
-const LANG_KEY='kamloopsLang';
+const LANG_KEY=SP+'Lang';
 function getStoredLang(){
   try{const v=localStorage.getItem(LANG_KEY);return owns(UI,v)?v:null;}catch(e){return null;}
 }

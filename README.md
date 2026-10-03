@@ -43,7 +43,7 @@ Edit `src/`, never the built HTML — a rebuild overwrites it.
 
 ```sh
 python3 -m venv .venv
-.venv/bin/pip install playwright
+.venv/bin/pip install playwright pypdf
 .venv/bin/python -m playwright install chromium
 ./scripts/check-all.sh
 ```

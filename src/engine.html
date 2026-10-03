@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kamloops Life Guide</title>
-<meta name="description" id="metaDesc" content="What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.">
+<title>{{CITY_TITLE}}</title>
+<meta name="description" id="metaDesc" content="{{CITY_DESC}}">
 <meta property="og:type" content="website">
-<meta property="og:title" id="ogTitle" content="Kamloops Life Guide">
-<meta property="og:description" id="ogDesc" content="What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.">
-<meta property="og:url" content="https://kamloops-lifemap.neilxiang.workers.dev/">
-<meta property="og:image" content="https://kamloops-lifemap.neilxiang.workers.dev/icon-512.png">
+<meta property="og:title" id="ogTitle" content="{{CITY_TITLE}}">
+<meta property="og:description" id="ogDesc" content="{{CITY_DESC}}">
+<meta property="og:url" content="{{CITY_SITE_URL}}">
+<meta property="og:image" content="{{CITY_SITE_URL}}icon-512.png">
 <meta property="og:image:width" content="512">
 <meta property="og:image:height" content="512">
 <meta name="twitter:card" content="summary">
@@ -2740,6 +2740,10 @@ UI.ko.guideCA2=`<h3>☎️ 주요 연락처 한눈에</h3>
 <p style="margin-top:14px;color:var(--sub-ink);font-size:11.5px;">これは公開情報に基づく一般的な出発点のまとめです——制度は変わることがあるため、必ず公式サイトまたは電話で最新の内容をご確認ください。</p>
 
 `;
+// 构建期城市配置（cities/<city>/city.json），由 build.py 注入。SP 是 localStorage 键前缀：
+// Kamloops 保持 'kamloops'，现有用户的收藏、语言、任务进度不受影响。
+const CITY_META=/*__CITY_META__*/;
+const SP=CITY_META.storagePrefix;
 /*__CITY_DATA__*/
 const CI={"school":{"zh":"中学","en":"High Schools","fr":"Écoles sec.","es":"Secundarias","ko":"중·고등학교","ja":"中学・高校"},"elem":{"zh":"小学","en":"Elementary","fr":"Écoles prim.","es":"Primarias","ko":"초등학교","ja":"小学校"},"hospital":{"zh":"医院诊所","en":"Medical","fr":"Médical","es":"Médico","ko":"병원/의료","ja":"病院・医療"},"dental":{"zh":"牙科","en":"Dental","fr":"Dentaire","es":"Dental","ko":"치과","ja":"歯科"},"vet":{"zh":"宠物医院","en":"Vet","fr":"Vétérinaire","es":"Veterinaria","ko":"동물병원","ja":"動物病院"},"pharmacy":{"zh":"药房","en":"Pharmacy","fr":"Pharmacie","es":"Farmacia","ko":"약국","ja":"薬局"},"police":{"zh":"警局","en":"Police","fr":"Police","es":"Policía","ko":"경찰서","ja":"警察署"},"pool":{"zh":"游泳馆","en":"Pools","fr":"Piscines","es":"Piscinas","ko":"수영장","ja":"プール"},"splash":{"zh":"戏水乐园","en":"Splash Park","fr":"Jeux d'eau","es":"Juegos de agua","ko":"물놀이장","ja":"水遊び場"},"gym":{"zh":"健身房","en":"Gyms","fr":"Salles de sport","es":"Gimnasios","ko":"헬스장","ja":"ジム"},"rink":{"zh":"冰场/体育馆","en":"Rinks/Arena","fr":"Patinoires/Aréna","es":"Pistas de hielo/Estadio","ko":"스케이트장/경기장","ja":"スケート場・アリーナ"},"park":{"zh":"公园操场","en":"Parks","fr":"Parcs","es":"Parques","ko":"공원","ja":"公園"},"dogpark":{"zh":"狗公园","en":"Dog Parks","fr":"Parcs à chiens","es":"Parques para perros","ko":"반려견 공원","ja":"ドッグパーク"},"beach":{"zh":"沙滩/湖泊","en":"Beaches","fr":"Plages","es":"Playas","ko":"해변/호수","ja":"ビーチ・湖"},"trail":{"zh":"自然步道","en":"Trails","fr":"Sentiers","es":"Senderos","ko":"자연 트레일","ja":"自然歩道"},"library":{"zh":"图书馆","en":"Libraries","fr":"Bibliothèques","es":"Bibliotecas","ko":"도서관","ja":"図書館"},"museum":{"zh":"博物馆","en":"Museums","fr":"Musées","es":"Museos","ko":"박물관","ja":"博物館"},"cinema":{"zh":"电影院","en":"Cinemas","fr":"Cinémas","es":"Cines","ko":"영화관","ja":"映画館"},"grocery":{"zh":"超市","en":"Groceries","fr":"Épiceries","es":"Supermercados","ko":"슈퍼마켓","ja":"スーパー"},"asian":{"zh":"亚洲超市","en":"Asian Market","fr":"Épicerie asiat.","es":"Mercado asiático","ko":"아시안 마트","ja":"アジア系マーケット"},"restaurant":{"zh":"餐馆","en":"Restaurants","fr":"Restaurants","es":"Restaurantes","ko":"음식점","ja":"レストラン"},"cafe":{"zh":"咖啡店","en":"Cafés","fr":"Cafés","es":"Cafeterías","ko":"카페","ja":"カフェ"},"secondhand":{"zh":"二手店","en":"Thrift Stores","fr":"Magasins d'occasion","es":"Tiendas de segunda mano","ko":"중고매장","ja":"リサイクルショップ"},"hardware":{"zh":"五金店","en":"Hardware","fr":"Quincaillerie","es":"Ferretería","ko":"철물점","ja":"金物店"},"mall":{"zh":"商场","en":"Malls","fr":"Centres comm.","es":"Centros comerciales","ko":"쇼핑몰","ja":"ショッピングモール"},"transit":{"zh":"公交","en":"Transit","fr":"Transport en commun","es":"Transporte público","ko":"대중교통","ja":"公共交通"},"bank":{"zh":"银行","en":"Banks","fr":"Banques","es":"Bancos","ko":"은행","ja":"銀行"},"post":{"zh":"邮局","en":"Post Office","fr":"Bureau de poste","es":"Correos","ko":"우체국","ja":"郵便局"},"conv":{"zh":"便利店","en":"Convenience","fr":"Dépanneurs","es":"Tiendas de conveniencia","ko":"편의점","ja":"コンビニ"},"liquor":{"zh":"酒类专卖","en":"Liquor Stores","fr":"Magasins d'alcool","es":"Licorerías","ko":"주류 판매점","ja":"酒類販売店"},"gov":{"zh":"政务移民","en":"Gov/Immigration","fr":"Gouv/Immigration","es":"Gobierno/Inmigración","ko":"정부/이민","ja":"行政・移民"},"laundry":{"zh":"洗衣店","en":"Laundry","fr":"Buanderie","es":"Lavandería","ko":"빨래방","ja":"コインランドリー"},"barber":{"zh":"理发店","en":"Barbers","fr":"Coiffeurs","es":"Barberías","ko":"이발소/미용실","ja":"理容・美容室"},"gas":{"zh":"加油站","en":"Gas Stations","fr":"Stations-service","es":"Gasolineras","ko":"주유소","ja":"ガソリンスタンド"},"apt":{"zh":"公寓租房","en":"Apartments","fr":"Appartements","es":"Apartamentos","ko":"아파트 임대","ja":"賃貸アパート"},"schoolbus":{"zh":"校车信息","en":"School Bus","fr":"Autobus scolaire","es":"Autobús escolar","ko":"스쿨버스","ja":"スクールバス"},"religious":{"zh":"宗教场所","en":"Religious Sites","fr":"Lieux de culte","es":"Lugares de culto","ko":"종교시설","ja":"宗教施設"},"commctr":{"zh":"社区中心","en":"Community Centre","fr":"Centre communautaire","es":"Centro comunitario","ko":"커뮤니티센터","ja":"コミュニティセンター"},"taxi":{"zh":"出租车/网约车","en":"Taxi & Rideshare","fr":"Taxi et covoiturage","es":"Taxi y viajes compartidos","ko":"택시/차량공유","ja":"タクシー・配車サービス"},"driving":{"zh":"驾校","en":"Driving School","fr":"Auto-école","es":"Autoescuela","ko":"운전학원","ja":"自動車教習所"},"usedcar":{"zh":"二手车行","en":"Used Cars","fr":"Voitures d'occasion","es":"Autos usados","ko":"중고차","ja":"中古車"},"autorepair":{"zh":"汽车维修","en":"Auto Repair","fr":"Réparation auto","es":"Reparación de autos","ko":"자동차 정비","ja":"自動車修理"},"daycare":{"zh":"日托/幼儿园","en":"Daycare","fr":"Garderie","es":"Guardería","ko":"어린이집","ja":"保育園"},"tutor":{"zh":"课后补习","en":"Tutoring","fr":"Tutorat","es":"Tutoría","ko":"방과후 교습","ja":"学習塾"},"playcenter":{"zh":"室内儿童乐园","en":"Indoor Play","fr":"Aire de jeux intérieure","es":"Juegos infantiles bajo techo","ko":"실내 놀이터","ja":"室内遊び場"},"legal":{"zh":"法律援助","en":"Legal Aid","fr":"Aide juridique","es":"Ayuda legal","ko":"법률 지원","ja":"法律扶助"},"propmgmt":{"zh":"租房中介","en":"Rental agents","fr":"Agences loc.","es":"Inmobiliarias","ko":"임대 관리","ja":"賃貸管理会社"},"foodbank":{"zh":"食物银行","en":"Food Bank","fr":"Banque alimentaire","es":"Banco de alimentos","ko":"푸드뱅크","ja":"フードバンク"},"heritage":{"zh":"历史建筑","en":"Heritage Sites","fr":"Sites patrimoniaux","es":"Sitios patrimoniales","ko":"역사 건축물","ja":"史跡・歴史的建造物"},"indigenous":{"zh":"原住民服务","en":"Indigenous Services","fr":"Services autochtones","es":"Servicios indígenas","ko":"원주민 서비스","ja":"先住民サービス"},"support":{"zh":"援助与支持","en":"Crisis & Outreach Support","fr":"Aide et soutien","es":"Ayuda y apoyo","ko":"위기·아웃리치 지원","ja":"支援・アウトリーチ"}};
 const CO={"school":"#b3552f","elem":"#cd7f32","hospital":"#c0392b","dental":"#e17055","vet":"#a0522d","pharmacy":"#d35400","police":"#2c3e6b","pool":"#1a8fa3","splash":"#3aa9c9","gym":"#c73e6b","rink":"#4a6fa5","park":"#3a9b5c","dogpark":"#7cb342","beach":"#00acc1","trail":"#558b2f","library":"#8a5a9e","museum":"#7d5a3c","cinema":"#9b2f6b","grocery":"#b88a1c","asian":"#b5341f","restaurant":"#e07b39","cafe":"#9c6b3f","secondhand":"#5a7a3a","hardware":"#5d4e37","mall":"#6b5b95","transit":"#2f6b4f","bank":"#34495e","post":"#d64545","conv":"#3d8b7d","liquor":"#a83254","gov":"#16697a","laundry":"#4c8577","barber":"#b5651d","gas":"#7f8c8d","apt":"#8e5a3f","schoolbus":"#c9a227","religious":"#6a4c93","commctr":"#8d6e3a","taxi":"#f9a825","driving":"#00838f","usedcar":"#6d4c41","autorepair":"#546e7a","daycare":"#d81b60","tutor":"#3949ab","playcenter":"#fb8c00","legal":"#455a64","propmgmt":"#6d7f8c","foodbank":"#4e7a27","heritage":"#7b6220","indigenous":"#8c5a2b","support":"#7d3c98"};
@@ -3001,7 +3005,7 @@ const GN={"edu":{"zh":"🎓教育","en":"🎓Education","fr":"🎓Éducation","e
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.09.24b';
+const DATA_VERSION='2026.10.03a';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -3074,14 +3078,14 @@ function tpl(str,l){
 // self-efficacy is the whole reason this exists: a list of eleven official
 // errands is daunting, and the single cheapest way to make it feel finishable
 // is to let someone see that three of them are already behind them.
-const _TASK_DONE_KEY='kamloopsTasksDone';
+const _TASK_DONE_KEY=SP+'TasksDone';
 let taskDone=new Set();
 try{const raw=JSON.parse(localStorage.getItem(_TASK_DONE_KEY)||'[]');
     if(Array.isArray(raw))taskDone=new Set(raw.filter(x=>typeof x==='string'));}catch(e){}
 function saveTaskDone(){try{localStorage.setItem(_TASK_DONE_KEY,JSON.stringify([...taskDone]));}catch(e){}try{updateGuideProgress();}catch(e){}}
 // 2026-09-13 (item 4): steps are ticked one at a time; ticking the last one
 // marks the card done, un-ticking any step un-marks it. Same device-only rule.
-const _STEP_KEY='kamloopsSteps';
+const _STEP_KEY=SP+'Steps';
 let stepDone={};
 try{const raw=JSON.parse(localStorage.getItem(_STEP_KEY)||'{}');if(raw&&typeof raw==='object'&&!Array.isArray(raw))stepDone=raw;}catch(e){}
 // the landing strip counts ticked steps as "started" (updateGuideProgress), so
@@ -3572,11 +3576,11 @@ function buildGuideToc(){
 // then Y" without ever knowing who they are. No fingerprinting, no IP
 // collection — the Worker echoes nothing back. (The two third parties, the
 // tile server and the Cloudflare visit counter, are named in the privacy note.)
-const _SID_KEY='kamloopsSid';
+const _SID_KEY=SP+'Sid';
 // 2026-09-11: the id is rotated after 90 days, so a browser can never be
 // followed for longer than that even in principle. The "returning" share dips
 // on the day an id turns over; that is the price and it is worth paying.
-const _SID_AT_KEY='kamloopsSidAt',SID_MAX_AGE_MS=90*24*3600*1000;
+const _SID_AT_KEY=SP+'SidAt',SID_MAX_AGE_MS=90*24*3600*1000;
 function getSid(){
   try{
     let sid=localStorage.getItem(_SID_KEY);
@@ -3603,7 +3607,7 @@ const _CRISIS_RE=/\b(suicid\w*|kill my ?self|kill me|want to die|self[- ]?harm\w
 function isCrisisQuery(q){return !!q&&_CRISIS_RE.test(String(q));}
 const _evBuf=[];
 const _EV_MAX=1000;
-const _EV_KEY='kamloopsEvents';
+const _EV_KEY=SP+'Events';
 // True when the maintainer opened ?debug=1. Every event from such a page is
 // tagged env:'dev' server-side so it can be excluded from real-user analysis —
 // see trackEvent(). Evaluated once, not per call: location.search never changes.
@@ -3789,7 +3793,7 @@ function buildDebugPanel(){
     flushEvents();
     const blob=new Blob([JSON.stringify({v:1,exported:new Date().toISOString(),events:_evBuf},null,2)],{type:'application/json'});
     const url=URL.createObjectURL(blob);
-    const a=document.createElement('a');a.href=url;a.download='kamloops-events-'+Date.now()+'.json';a.click();
+    const a=document.createElement('a');a.href=url;a.download=SP+'-events-'+Date.now()+'.json';a.click();
     setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
   document.getElementById('dbgClear').onclick=()=>{
@@ -4002,7 +4006,7 @@ tiles.addTo(map);
 // closure alone: it centres the map and draws one temporary dot, and is never
 // passed to trackEvent, never written to the URL, never logged anywhere.
 let geoExplained=false;
-try{geoExplained=localStorage.getItem('kamloopsGeoExplained')==='1';}catch(e){}
+try{geoExplained=localStorage.getItem(SP+'GeoExplained')==='1';}catch(e){}
 let geoMarker=null,geoAccCircle=null;
 // 2026-09-13 (items 10A / 11): where the reader is (only while the page is
 // open, never stored), and metres between two points
@@ -4084,7 +4088,7 @@ function showGeoExplain(){
   cancel.textContent=u.geoExplainCancel;
   ok.onclick=()=>{
     geoExplained=true;
-    try{localStorage.setItem('kamloopsGeoExplained','1');}catch(e){}
+    try{localStorage.setItem(SP+'GeoExplained','1');}catch(e){}
     geoNoteEl.hidden=true;
     runGeolocate();
   };
@@ -4195,7 +4199,7 @@ let selPresets=new Set();
 let searchTerm='';
 let favorites=new Set(),favMigrated=false;
 try{
-  const raw=JSON.parse(localStorage.getItem('kamloopsFavorites')||'[]');
+  const raw=JSON.parse(localStorage.getItem(SP+'Favorites')||'[]');
   // Older versions stored place NAMES. Names change when data is corrected, which
   // silently orphaned saved entries, so storage moved to a stable per-place id and
   // anything still held under an old name is translated across once.
@@ -4212,7 +4216,7 @@ if(favMigrated)saveFavorites();
   favorites=new Set([...favorites].filter(id=>live.has(id)));
   if(favorites.size!==before)saveFavorites();
 })();
-function saveFavorites(){try{localStorage.setItem('kamloopsFavorites',JSON.stringify([...favorites]));}catch(e){}}
+function saveFavorites(){try{localStorage.setItem(SP+'Favorites',JSON.stringify([...favorites]));}catch(e){}}
 const toastEl=document.getElementById('toast');
 let toastTimer=null;
 // opts.action / opts.onAction: an Undo-style button inside the toast (it then
@@ -4992,7 +4996,7 @@ let _lastFitKey='';
 // Exact-match count of the last apply() and whether the map is showing closest
 // matches instead — logSearch reports the gap from the exact count.
 let _exactN=0,_closest=false;
-const _CLOSEST_STOP=/^(near|nearby|me|open|now|today|best|good|cheap|store|shop|place|places|kamloops|bc|please)$/;
+const _CLOSEST_STOP=new RegExp('^(near|nearby|me|open|now|today|best|good|cheap|store|shop|place|places|'+CITY_META.searchStopwords.join('|')+'|please)$');
 function _closestWords(q){
   q=String(q||'').toLowerCase();
   if(/[\u3400-\u9fff\uac00-\ud7af\u3040-\u30ff]/.test(q))return [];   // CJK has no spaces to split on
@@ -5394,7 +5398,7 @@ function updateThemeQuickpicks(){
 //   third visit or later        → the newcomer set drops behind the themes
 // The guide is always first, "More" always last, and rules never hide a chip
 // the reader has already switched on.
-const _VISITS_KEY='kamloopsVisits';
+const _VISITS_KEY=SP+'Visits';
 function visitCount(){try{return parseInt(localStorage.getItem(_VISITS_KEY)||'0',10)||0;}catch(e){return 0;}}
 function bumpVisitCount(){try{localStorage.setItem(_VISITS_KEY,String(Math.min(visitCount()+1,999)));}catch(e){}}
 // read before writeURLState() ever rewrites the address bar (urlWriteBlocked
@@ -5864,7 +5868,7 @@ function renderHelpSheet(){
   };
   cl.onclick=()=>{
     if(!_clearArmed){_clearArmed=true;cl.classList.add('armed');cl.textContent=u.helpClearConfirm;return;}
-    try{Object.keys(localStorage).filter(k=>/^kamloops/.test(k)).forEach(k=>localStorage.removeItem(k));}catch(e){}
+    try{Object.keys(localStorage).filter(k=>k.startsWith(SP)).forEach(k=>localStorage.removeItem(k));}catch(e){}
     try{sessionStorage.clear();}catch(e){}
     location.replace(location.pathname);
   };
@@ -5930,7 +5934,7 @@ backdrop.addEventListener('keydown',e=>trapTab(e,backdrop));
 // 重新弹一次说明。键名带 'kamloops' 前缀以防和其他站点冲突，try/catch 包裹
 // 是因为有些隐身模式/隐私浏览器会拒绝写入（同一规则也用在 favorites 上）。
 let hintDismissed=false;
-try{hintDismissed=localStorage.getItem('kamloopsHintDismissed')==='1';}catch(e){}
+try{hintDismissed=localStorage.getItem(SP+'HintDismissed')==='1';}catch(e){}
 let panelMode='area';
 let selectedRoute=null;
 const busLayer=L.layerGroup().addTo(map);
@@ -6310,7 +6314,7 @@ function dismissHint(){
   if(hintDismissed)return;
   hintDismissed=true;
   document.getElementById('fhint').textContent='';
-  try{localStorage.setItem('kamloopsHintDismissed','1');}catch(e){}
+  try{localStorage.setItem(SP+'HintDismissed','1');}catch(e){}
 }
 // P0-C: the only thing that ever clears the hint is hintDismissed — TIGHT only
 // picks which of the two translations shows, never whether one does. Called from
@@ -6927,7 +6931,7 @@ function trapTab(e,back){
 }
 // First-use card. One localStorage key, one dismissal, never again in this
 // browser. Nothing about it is sent anywhere.
-const _FU_KEY='kamloopsFirstUseSeen';
+const _FU_KEY=SP+'FirstUseSeen';
 // The card goes away on the first thing the reader does — a search, a filter,
 // a route, an opened place — as well as on its own ✕. It sat on top of place
 // popups otherwise, hiding the name and the star of the very place just tapped.
@@ -6944,7 +6948,7 @@ function activeSeason(){
 function seasonKey(x){
   const iso=cityISODate(),y=parseInt(iso.slice(0,4),10),md=iso.slice(5);
   // a season that wraps the new year belongs to the year it started in
-  return 'kamloopsSeason_'+x.id+'_'+(x.from>x.to&&md<=x.to?y-1:y);
+  return SP+'Season_'+x.id+'_'+(x.from>x.to&&md<=x.to?y-1:y);
 }
 let _seasonClosedMem={},_seasonShown={};
 function renderSeason(){
@@ -7076,7 +7080,7 @@ function renderFirstUse(){
 // A link straight to one card — what "I'll send you the steps for MSP" needs.
 // Arrival date: asked once, kept in this browser only, never sent. It turns
 // "90 days" into an actual date, and lets the list be sorted by what is due.
-const _ARRIVE_KEY='kamloopsArrived';
+const _ARRIVE_KEY=SP+'Arrived';
 let _arriveMem=null;   // storage may be blocked (private mode): the date still works for this sitting
 // 2026-09-13 audit: typing a date into the field (rather than picking one)
 // fires change with a partial year — "0002-09-01", "0020-09-01", "0202-09-01"
@@ -7343,7 +7347,7 @@ setTimeout(syncPanPad,0);
 // who switched to 中文 landed back on the browser guess every single visit.
 // Precedence is: ?lang= in the link  >  what you picked last time  >  browser
 // language  >  English.
-const LANG_KEY='kamloopsLang';
+const LANG_KEY=SP+'Lang';
 function getStoredLang(){
   try{const v=localStorage.getItem(LANG_KEY);return owns(UI,v)?v:null;}catch(e){return null;}
 }
