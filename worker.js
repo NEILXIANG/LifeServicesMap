@@ -27,7 +27,7 @@
 // talk to, that it cannot be framed, and that plugins/base tags are refused.
 const RATE_LIMIT = 300;            // events per IP per minute (a library's NAT is one IP)
 // 瓦片服务商。这份名单必须同时出现在 img-src 和 connect-src 里：
-// 瓦片本身是 <img>（img-src），但 engine.html 的 probePrimaryTiles() 还会用
+// 瓦片本身是 <img>（img-src），但 引擎（app/engine/）的 probePrimaryTiles() 还会用
 // fetch() 真正取一张瓦片、读它的 HTTP 状态码——因为"key 失效 / 配额用尽"这类
 // 响应会正常返回一张写着错误的图片，tileerror 永远不触发，只能看状态码。
 // 少了 connect-src，那次 fetch 被 CSP 挡下、被 .catch(()=>{}) 吞掉，
@@ -135,7 +135,7 @@ async function handleEvent(request, env, url) {
   const t = String(body.t || '').slice(0, 64);
   if (!t || !/^[a-z0-9_]+$/.test(t)) return badRequest('bad type');
 
-  // sid is a client-generated random string (see getSid() in engine.html), which
+  // sid is a client-generated random string (see getSid() in the engine (app/engine/)), which
   // emits and re-validates /^[a-z0-9]{12,32}$/ — plus the literal 'anon' when
   // storage is unavailable. 2026-09-08 audit: this used to accept any string up
   // to 64 chars, so a junk or hand-crafted POST landed in the same session

@@ -19,7 +19,7 @@ RADII = {'6', '10', '14', '999'}
 def static_checks():
     # the app's own stylesheet, not the vendor CSS (Leaflet and markercluster are
     # inlined into the build and carry their own sizes and radii)
-    src = open(os.path.join(ROOT, 'src', 'engine.html'), encoding='utf-8').read()
+    sys.path.insert(0, ROOT); import kamdata; src = kamdata.engine_text()
     css = src[:src.index('</style>')]
     sizes = sorted(set(re.findall(r'font-size:([\d.]+)px', css)), key=float)
     check('every font-size in the stylesheet is on the 7-step scale',

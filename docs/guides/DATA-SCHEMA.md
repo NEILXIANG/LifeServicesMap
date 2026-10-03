@@ -1,7 +1,7 @@
 # Data schema
 
 Everything city-specific lives in one file: `src/data-<city>.js`. The engine
-(`src/engine.html`) contains no facts about any particular city. To build a new
+(`app/engine/`) contains no facts about any particular city. To build a new
 city you copy that one data file, replace its contents, and run `build.py`.
 
 Run `python3 validate.py` after every edit. It checks most of what follows

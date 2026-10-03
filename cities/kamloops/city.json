@@ -1,5 +1,5 @@
 {
-  "_comment": "构建期城市配置（阶段 1，2026-10-03）。build.py 用它填 engine.html 里的 {{CITY_*}} 占位符，并注入 CITY_META。运行期的城市数据仍在 src/data-kamloops.js。",
+  "_comment": "构建期城市配置（阶段 1，2026-10-03）。build.py 用它填 引擎（app/engine/）里的 {{CITY_*}} 占位符，并注入 CITY_META。运行期的城市数据仍在 src/data-kamloops.js。",
   "id": "kamloops",
   "title": "Kamloops Life Guide",
   "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.",

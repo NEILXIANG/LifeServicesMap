@@ -123,7 +123,7 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
   # 4. 敏感路径应全 404
   PATHS=(
     "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
+    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "scripts/validate.py"
     "package-lock.json" "README.md" "wrangler.toml" "worker.js"
   )
   FAIL=0
@@ -207,7 +207,7 @@ if curl -s -o "$LIVE_TMP" -w '' "${DEPLOY_URL}/" 2>/dev/null && [[ -s "$LIVE_TMP
   LOCAL_MD5=$({ md5 -q "$INDEX_FILE" 2>/dev/null || md5sum "$INDEX_FILE" | cut -d" " -f1; })
   rm -f "$LIVE_TMP"
   if [[ "$LIVE_MD5" != "$LOCAL_MD5" && -n "$LIVE_VER" && "$LIVE_VER" == "$LOCAL_VER" ]]; then
-    fail "页面内容变了，但版本号仍是 ${LOCAL_VER}（和线上相同）— 先改 src/engine.html 里的 DATA_VERSION"
+    fail "页面内容变了，但版本号仍是 ${LOCAL_VER}（和线上相同）— 先改 app/engine/js/20-versions-templates-tasks.js 里的 DATA_VERSION"
   fi
   ok "线上    ${LIVE_VER:-未知}  →  本次 ${LOCAL_VER}"
 else
@@ -301,7 +301,7 @@ BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: appl
 # 敏感路径全 404
 PATHS=(
   "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
+  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "scripts/validate.py"
   "package-lock.json" "README.md" "wrangler.toml" "worker.js"
 )
 LEAKED=0

@@ -18,7 +18,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-# 字段含义速查表（供维护者参考）。2026-09-22 按 engine.html 里实际发出的事件重写：
+# 字段含义速查表（供维护者参考）。2026-09-22 按引擎（app/engine/）里实际发出的事件重写：
 # 原表里的 marker_cta / clear_filter / all_areas / lang_switch 从未被发出过，
 # 而 cta_click、task_*、help_open、season_* 等真实事件都没有列出。
 # 有意不记录：拨了哪个号码（办事卡里的电话只记是哪张卡，task_call）、"求助"面板里点了什么、

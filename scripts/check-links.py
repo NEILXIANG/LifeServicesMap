@@ -142,8 +142,8 @@ def all_links():
         add(p.get('w'), 'place', p['id'], 'place "%s" (%s) at %s' % (p['n'], p['c'], p.get('a')))
     for t in T:
         add(t.get('src'), 'task', t['id'], 'task card "%s"' % t['t']['en'])
-    for f in ('src/engine.html', 'src/data-kamloops.js'):
-        txt = open(os.path.join(HERE, f), encoding='utf-8').read()
+    for f in ('app/engine/', 'src/data-kamloops.js'):
+        txt = kamdata.engine_text() if f == 'app/engine/' else open(os.path.join(HERE, f), encoding='utf-8').read()
         for u in re.findall(r'href=\\?"(https?://[^"\\]+)', txt) + re.findall(r"(?:u|src|w):'(https?://[^']+)'", txt):
             if "'+" in u or any(h in u for h in ('maptiler', 'arcgisonline', 'openstreetmap.org/copyright', 'esri.com', 'cdnjs.', 'google.com/maps')):
                 continue

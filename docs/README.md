@@ -102,7 +102,7 @@ sys.path.insert(0, _r)
 import kamdata
 
 P = kamdata.load('P')                  # 也可以 'TASKS' / 'BR' / 'RI'
-CI = kamdata.load('CI', engine=True)   # CI 在 src/engine.html 里
+CI = kamdata.load('CI', engine=True)   # CI 在 app/engine/ 里
 kamdata.save('P', P)                   # 只替换那一段，排版保持一条记录一行
 kamdata.today()                        # Kamloops 当地日期（不看构建机器时区）
 ```

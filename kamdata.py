@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""kamdata.py — 一个地方读写 src/data-kamloops.js，别的脚本都从这里取。
+r"""kamdata.py — 一个地方读写 src/data-kamloops.js，别的脚本都从这里取。
 
 为什么存在：在这之前，九个脚本各写了一遍
 `json.loads(re.search(r'const P=(\[.*?\]);', ...))`，其中四个还会把结果写回去，
@@ -21,7 +21,7 @@
     P = kamdata.load('P')                 # 地点
     TASKS = kamdata.load('TASKS')         # 办事卡
     BR = kamdata.load('BR')               # 公交线
-    CI = kamdata.load('CI', engine=True)  # 分类（在 engine.html 里）
+    CI = kamdata.load('CI', engine=True)  # 分类（在引擎 app/engine/ 里）
     kamdata.save('P', P)                  # 原地写回，只替换那一段
 """
 import datetime, json, os, re
@@ -49,10 +49,25 @@ def root(start=None):
 
 ROOT = root()
 DATA = os.path.join(ROOT, 'src', 'data-kamloops.js')
-ENGINE = os.path.join(ROOT, 'src', 'engine.html')
+ENGINE_DIR = os.path.join(ROOT, 'app', 'engine')
+
+def engine_parts():
+    """引擎各部分的路径，按拼接顺序（app/engine/parts.txt）。2026-10-03 起
+    src/engine.html 拆成了这些文件；拼起来就是原来那个完整的 HTML。"""
+    lst = os.path.join(ENGINE_DIR, 'parts.txt')
+    names = [l.strip() for l in open(lst, encoding='utf-8')
+             if l.strip() and not l.lstrip().startswith('#')]
+    return [os.path.join(ENGINE_DIR, n) for n in names]
+
+def engine_text():
+    """完整的引擎 HTML（各部分按顺序拼接）。"""
+    return ''.join(open(p, encoding='utf-8').read() for p in engine_parts())
+
+def engine_mtime():
+    return max(os.path.getmtime(p) for p in engine_parts() + [os.path.join(ENGINE_DIR, 'parts.txt')])
 
 def _src(engine=False):
-    return open(ENGINE if engine else DATA, encoding='utf-8').read()
+    return engine_text() if engine else open(DATA, encoding='utf-8').read()
 
 def _span(text, name):
     """返回 const <name>= 后面那个 JSON 字面量的 (start, end)。
@@ -110,7 +125,15 @@ def save(name, value, engine=False):
     排版跟着原来的来：P 本来是一条记录一行（`},\n{`），
     如果统统压成一行，改一个字段的 diff 会变成整个 45 万字符的行，没法看。
     """
-    path = ENGINE if engine else DATA
+    if engine:
+        # the constant lives in exactly one engine part; find it and edit only that file
+        hits = [p for p in engine_parts()
+                if re.search(r'const\s+%s\s*=' % re.escape(name), open(p, encoding='utf-8').read())]
+        if len(hits) != 1:
+            raise SystemExit('const %s 在引擎里出现在 %d 个文件中' % (name, len(hits)))
+        path = hits[0]
+    else:
+        path = DATA
     text = open(path, encoding='utf-8').read()
     a, b = _span(text, name)
     one_per_line = '},\n{' in text[a:b]

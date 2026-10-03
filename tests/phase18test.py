@@ -21,7 +21,7 @@ def script_ok(lang, t):
     if lang == 'ja': return bool(KANA.search(t) or HAN.search(t)) and not HANG.search(t)
 
 async def main():
-    src = open(os.path.join(ROOT, 'src', 'engine.html'), encoding='utf-8').read()
+    sys.path.insert(0, ROOT); import kamdata; src = kamdata.engine_text()
     check('the app script has no Unicode property escape (ES2017 floor)', '\\p{' not in src[src.find('<script>', src.find('</style>')):])
     data = open(os.path.join(ROOT, 'src', 'data-kamloops.js'), encoding='utf-8').read()
     es = data[data.index('UI.es.guideCity'):data.index('UI.ko.guideCity')]

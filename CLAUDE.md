@@ -18,7 +18,7 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 
 ## 结构
 
-- `src/engine.html` — 引擎（HTML+CSS+JS 单文件，约 7400 行）。`src/data-kamloops.js` — 城市数据。
+- `app/engine/` — 引擎，按 `parts.txt` 顺序拼成一个 HTML：`head.html`、`styles.css`、`body.html`、`js/*.js`（按功能分 18 个文件）。`src/data-kamloops.js` — 城市数据。
 - `build.py` 把引擎、数据、`vendor/` 的 Leaflet 合成一个文件。**只改 `src/`，不要手改构建产物。**
 - `scripts/` 校验、链接检查、开放数据导出、统计分析；`tests/` 浏览器测试（Playwright）。
 - `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头。
@@ -26,7 +26,7 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 
 ## 规则
 
-- 页面内容一变，`src/engine.html` 里的 `DATA_VERSION` 必须改（`deploy.sh` 会拦）。
+- 页面内容一变，`app/engine/js/20-versions-templates-tasks.js` 里的 `DATA_VERSION` 必须改（`deploy.sh` 会拦）。
   `public/sw.js` 里 STATIC_ASSETS 有变化时要改 `CACHE`。
 - 六种语言（zh/en/fr/es/ko/ja）"要么全译、要么不译"，`validate.py` 会检查。
 - 数据记录要有来源分级 `src`（official/own/第三方）和核实月份 `v`，见 `docs/guides/DATA-SCHEMA.md`。

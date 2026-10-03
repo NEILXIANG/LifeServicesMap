@@ -45,9 +45,10 @@ PATH = find_built(HERE, sys.argv[1] if len(sys.argv) > 1 else None)
 # （维护中真的发生过：加了 4 个地点、连续三次显示通过，重建后才报出主题顺序错误。）
 if len(sys.argv) <= 1:
     _built_t = os.path.getmtime(PATH)
-    for _src in ('src/data-kamloops.js', 'src/engine.html'):
-        _sp = os.path.join(HERE, _src)
-        if os.path.exists(_sp) and os.path.getmtime(_sp) > _built_t + 1:
+    sys.path.insert(0, HERE); import kamdata as _kd
+    for _src, _t in (('src/data-kamloops.js', os.path.getmtime(os.path.join(HERE, 'src/data-kamloops.js'))),
+                     ('app/engine/', _kd.engine_mtime())):
+        if _t > _built_t + 1:
             sys.exit('✗ %s 比构建产物 %s 新——先跑 python3 build.py 再校验，'
                      '否则校验的是旧版本' % (_src, os.path.relpath(PATH, HERE)))
 FAIL = []
@@ -798,10 +799,11 @@ else:
 
 # ------------------------------------------------- 16. the split stays buildable
 import os as _os
-if _os.path.exists('src/engine.html'):
-    eng = open('src/engine.html', encoding='utf-8').read()
+if _os.path.exists(_os.path.join(HERE, 'app', 'engine', 'parts.txt')):
+    sys.path.insert(0, HERE); import kamdata as _kd
+    eng = _kd.engine_text()
     if '/*__CITY_DATA__*/' not in eng:
-        fail('src/engine.html has lost its data marker — build.py cannot fill it')
+        fail('the engine (app/engine/) has lost its data marker — build.py cannot fill it')
     for v in ('const P=', 'const BR=', 'const CITY=', 'const RI=', 'const TASKS='):
         if v in eng:
             fail('city data %r leaked back into the engine' % v)

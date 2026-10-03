@@ -1,0 +1,1193 @@
+  :root{--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans","Helvetica Neue",Arial,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Apple SD Gothic Neo","Malgun Gothic","Noto Sans CJK SC",sans-serif;
+         --ink:#1c1c1e;--sub-ink:#6e6e73;--paper:#f2f2f7;--card:#ffffff;--line:#d1d1d6;--accent:#0b6be0;--accent-text:#0a5fc9;--sage:#188038;}
+  /* 2026-09-11: Apple system palette — label/secondary-label greys, the grouped
+     background, hairline separators; the blue is Apple's family but darkened
+     to 5.0:1 on white so white-on-blue text keeps AA. */
+  /* Dark mode was added on 2026-09-05 and removed again on 2026-09-07 at the
+     owner's request: this page is one light surface with a light OSM basemap
+     inside it, and re-skinning only the chrome we own left the map itself
+     bright white in the middle of a dark frame. Declaring the page light-only
+     also stops browsers and in-app webviews (WeChat's especially) from applying
+     their own automatic dark transform, which is what produces unreadable
+     light-on-light text. If dark mode is ever wanted again it has to cover the
+     tile layer too, not just the panels. */
+  :root{color-scheme:light;}
+  *{box-sizing:border-box;-webkit-font-smoothing:antialiased;}
+  /* every interactive control is a real <button> for keyboard access; these rules
+     strip the browser's default button chrome so the visual design is unchanged */
+  .lang-btn,.preset-chip,.reg-btn,.cat-btn,.cat-group-label,.bus-item,.af-clear,
+  .af-chip .x,.rt-name,.rt-remove,.panel-close,.search-clear{
+    font-family:inherit;font-size:inherit;color:inherit;text-align:inherit;-webkit-appearance:none;appearance:none;}
+  .cat-group-label,.bus-item,.reg-btn,.cat-btn,.preset-chip{width:auto;}
+  .af-chip .x,.rt-remove,.search-clear,.panel-close,.af-clear,.rt-name,.grp-check,.grp-expand,.fav-star{background:none;border:none;}
+  /* type=search draws its own clear button; the page supplies one, so hide the native one */
+  input[type=search]::-webkit-search-cancel-button,
+  input[type=search]::-webkit-search-decoration{-webkit-appearance:none;appearance:none;display:none;}
+  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--font);}
+  header{padding:26px 20px 4px;position:relative;}
+  h1{font-family:var(--font);font-size:clamp(20px,3vw,27px);margin:0 0 5px;font-weight:500;letter-spacing:0;padding-right:265px;}
+  /* P2-H: the visible first-run hint now carries the "how to use this" guidance
+     (see .fhint below), so this line would only repeat it at the cost of the
+     vertical space P0-B works to win back. It stays out of sighted layout but,
+     unlike display:none, is not pulled from the accessibility tree either — the
+     h1's aria-describedby (below, in the body) still reaches it, so a screen
+     reader gets a one-line description of what the map covers that a sighted
+     reader gets some other way (the title, the hint, the categories on screen). */
+  /* 2026-09-10: visible again. The reasoning above held while this line only
+     repeated what the map covered. It now carries the one sentence a first-time
+     reader needs — what this thing does for them — and the title alone
+     ("Life Guide") cannot say it. One muted line; on a phone it is the cheapest
+     vertical space on the page. */
+  .sub{margin:3px 0 0;font-size:12.5px;line-height:1.4;color:var(--sub-ink);max-width:760px;text-wrap:balance;}
+  .lang-sw{position:absolute;top:24px;right:20px;display:flex;gap:2px;background:#e9e9eb;border-radius:10px;padding:2px;}
+  .lang-menu{display:flex;gap:2px;}
+  /* the line-icon set (item 15): sized to the text it sits beside */
+  .ic{width:1.15em;height:1.15em;vertical-align:-.22em;flex:0 0 auto;display:inline-block;}
+  .hl-ic .ic{width:15px;height:15px;vertical-align:-3px;}
+  .hl-ic+.hl-tx{margin-left:4px;}
+  .fbicon .ic{width:15px;height:15px;vertical-align:-3px;}
+  .sec-label .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2px;color:currentColor;}
+  .preset-chip .ic{width:14px;height:14px;margin-right:4px;vertical-align:-2.5px;}
+  .theme-btn .ic,.pv-themes .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .pact-btn .ic{width:13px;height:13px;}
+  .search-ic .ic{width:16px;height:16px;color:var(--sub-ink);display:block;}
+  .task-ic .ic{width:22px;height:22px;color:var(--accent-text);}
+  .task-ic-lg .ic{width:26px;height:26px;color:var(--accent-text);vertical-align:-5px;}
+  .ss-ic .ic{width:18px;height:18px;color:var(--accent-text);}
+  .hl-lead .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .theme-btn .icon .ic{width:13px;height:13px;display:block;}
+  .panel-title .ic,.fhint .ic{width:14px;height:14px;vertical-align:-2px;margin-right:4px;}
+  .pv-near .ic{width:13px;height:13px;vertical-align:-2px;margin-right:2px;}
+  .empty-btn .ic{width:15px;height:15px;vertical-align:-3px;margin-right:4px;}
+  .lang-menu-btn{display:none;align-items:center;gap:5px;padding:6px 10px;border-radius:10px;border:1px solid var(--line);background:var(--card);font:inherit;font-size:12.5px;font-weight:600;color:var(--ink);cursor:pointer;min-height:36px;white-space:nowrap;}
+  @media(pointer:coarse){.lang-menu-btn{min-height:44px;min-width:44px;}}
+  .lang-menu-btn .lm-ch{font-size:10px;color:var(--sub-ink);}
+  .lang-menu-btn .lm-ic{font-size:12.5px;}
+  .lang-btn{padding:5px 12px;border-radius:6px;border:none;background:transparent;font-size:11.5px;cursor:pointer;font-weight:590;color:#48484a;white-space:nowrap;transition:all .15s cubic-bezier(.4,0,.2,1);}
+  .lang-btn.active{background:var(--card);color:var(--ink);font-weight:700;box-shadow:0 1px 3px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04);}
+  .header-links{position:absolute;top:60px;right:20px;display:flex;align-items:center;gap:14px;}
+  /* 2026-09-13 visual audit: between phone and wide desktop the title and tagline
+     ran under the right-hand controls; on a touch tablet the 44px controls
+     collided with each other */
+  /* 2026-09-21: 420, not 370 — the header row gained the Help button */
+  @media(min-width:601px) and (max-width:1100px){h1{padding-right:420px;}.sub{padding-right:420px;}}
+  /* keep-all stops the Korean/Japanese title breaking inside a word ("가이/드",
+     "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
+     wraps at spaces as before */
+  h1{word-break:keep-all;}
+  @media(min-width:601px) and (pointer:coarse){.lang-sw{top:18px;}.header-links{top:76px;}}
+  @media(max-width:360px){.lang-menu-btn{padding:6px 8px;}.lang-menu-btn .lm-ic{display:none;}}
+  .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
+  .note-toggle{position:relative;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
+  .feedback-link:hover,.note-toggle:hover{text-decoration:underline;}
+  /* 2026-09-10 — the guide is the product; the map is one of its tools. Until
+     now this button was styled exactly like Share and Feedback, which told a
+     first-time reader it was a utility. It is now the one filled control in
+     the header: same accent as the filter buttons below, so the eye reads it
+     as "the thing to press", and the label is the question the reader came
+     with rather than the name of a document. */
+  #guideToggle{background:var(--accent);color:#fff;border-radius:999px;padding:7px 13px;font-weight:700;
+    box-shadow:0 1px 2px rgba(26,115,232,.3);}
+  #guideToggle:hover{text-decoration:none;filter:brightness(1.06);}
+  #guideToggle .hl-ic{margin-right:2px;}
+  /* #noteToggle carries a static `hidden` attribute (2026-09-08). Without this,
+     the coarse-pointer media query below sets .note-toggle{display:inline-flex},
+     an author rule that wins over the UA's [hidden]{display:none} regardless of
+     specificity — so the button would silently reappear, full-size, on every
+     touch device. Same trap validate.py's "[hidden] traps" check looks for. */
+  #noteToggle[hidden]{display:none;}
+
+  .sec-label{padding:2px 0 7px;font-family:var(--font);font-size:11.5px;font-weight:600;color:var(--sage);letter-spacing:.2px;}
+  /* unified filter toolbar — identical on every breakpoint */
+  .ftoolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;row-gap:6px;padding:12px 20px 0;}
+  /* 2026-09-10 (fresh scan, §2): the four filter pills were the most saturated
+     thing on the first screen, so the page *looked* like a map tool however
+     much the copy said "guide". They are outlined now; the one filled control
+     in this band is the guide chip below. Same geometry, same targets. */
+  .filter-btn{background:var(--card);color:var(--accent-text);border:1px solid color-mix(in srgb,var(--accent) 40%,var(--line));border-radius:999px;padding:8px 11px 8px 13px;font-size:12.5px;font-weight:600;display:flex;align-items:center;gap:7px;cursor:pointer;white-space:nowrap;transition:background .15s cubic-bezier(.4,0,.2,1);}
+  .filter-btn:hover{background:color-mix(in srgb,var(--accent) 8%,var(--card));}
+  .filter-btn.open{background:color-mix(in srgb,var(--accent) 12%,var(--card));}
+  .filter-btn svg{flex:0 0 auto;display:block;}
+  .filter-btn .chev{font-size:10px;transition:transform .18s;opacity:.9;}
+  .filter-btn.open .chev{transform:rotate(180deg);}
+  .filter-btn .badge{background:var(--accent);color:#fff;border-radius:999px;font-size:10px;padding:1px 6px;font-weight:800;}
+  .status{font-size:12.5px;color:var(--ink);font-weight:590;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:4px 2px;}
+  .fbicon{font-size:11.5px;line-height:1;}
+  .reset-btn{font-size:11.5px;color:var(--accent-text);font-weight:700;background:none;border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:14px;cursor:pointer;padding:6px 12px;white-space:nowrap;display:flex;align-items:center;gap:4px;}
+  .reset-btn[hidden]{display:none;}
+  .reset-btn:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  /* A bare "·" explained only by a hover title was invisible on touch, which is
+     most of this app's traffic — the word itself is now the visible cue, sourced
+     from a data attribute JS sets per language, at full opacity so it stays AA. */
+  .preset-chip.adjusted::after{content:attr(data-adj-label);margin-left:5px;font-weight:700;}
+  /* the touch block below gives chips display:inline-flex, which would beat the
+     UA's [hidden]; the seasonal chip must stay gone when it is hidden */
+  .preset-chip[hidden]{display:none;}
+  .qp-row{padding:11px 20px 0;position:relative;}
+  .qp-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-bottom:7px;}
+  .qp-head .sec-label{padding-bottom:0;}
+  /* A plain transparent-to-paper fade reads as scrollable only if you already know
+     to look for it — against an off-white background it is nearly invisible (a
+     first-time user testing this could barely see it even zoomed in). It is now
+     opacity-gated by .has-more, which JS sets only while there is genuinely more to
+     scroll to (so it never lingers once the row is scrolled to its end, or shows at
+     all when every chip already fits), and paired with a small chevron so the cue
+     doesn't depend on noticing a soft edge. */
+  .qp-row::after{content:'';position:absolute;right:0;top:29px;bottom:2px;width:40px;
+    background:linear-gradient(to right,transparent,var(--paper) 65%);
+    pointer-events:none;opacity:0;transition:opacity .2s;}
+  .qp-row.has-more::after{opacity:1;}
+  .qp-row::before{content:'\203a';position:absolute;right:7px;top:29px;bottom:2px;
+    display:flex;align-items:center;font-size:17px;font-weight:800;color:var(--sub-ink);
+    pointer-events:none;opacity:0;transition:opacity .2s;z-index:1;}
+  .qp-row.has-more::before{opacity:.85;}
+  /* 2026-09-10: the card floats over the map instead of sitting above it.
+     Above it, it cost 190px of a phone's screen and the map fell to 15% of the
+     viewport (round-7 check 47); floating, the map keeps its size and the card
+     goes away with one tap. Phones: top of the map (the bottom is below the fold), three doors in a row.
+     Wide screens: top-right corner, one line per door, clear of the zoom control. */
+  .firstuse{position:absolute;z-index:850;left:12px;right:12px;top:10px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.9);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.12);}
+  .firstuse[hidden]{display:none;}
+  /* 2026-09-22: the seasonal reminder sits where the first-use card sits, and
+     only when that card is gone — never two cards stacked over the map */
+  .season-note{position:absolute;z-index:840;left:12px;right:12px;top:10px;padding:8px 44px 8px 12px;border-radius:14px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.08);box-shadow:0 4px 16px rgba(0,0,0,.08);font-size:12.5px;line-height:1.45;color:var(--ink);}
+  .season-note[hidden]{display:none;}
+  .season-note .sn-ic .ic{width:15px;height:15px;vertical-align:-3px;margin-right:4px;}
+  .season-note .sn-links{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:3px;}
+  .season-note .sn-links a{color:var(--accent-text);font-weight:600;text-decoration:none;}
+  .season-note .sn-x{position:absolute;top:0;right:0;background:none;border:none;font-size:14px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
+  @media(min-width:700px){.season-note{left:auto;right:16px;top:16px;width:min(380px,calc(100% - 32px));}}
+  .firstuse .fu-h{font-size:12.5px;font-weight:700;margin:0 28px 2px 0;}
+  .firstuse .fu-safe{font-size:11.5px;color:var(--sub-ink);margin:0 28px 7px 0;}
+  /* the flyer card's rows are full-width buttons; the 44px ✕ target in the corner
+     reached down into the first one (a tap at its top-right corner dismissed the
+     card instead of opening MSP). A heading as tall as the ✕ keeps them apart. */
+  .firstuse.flyer .fu-h{min-height:36px;display:flex;align-items:center;}
+  @media(max-height:700px){.firstuse .fu-safe{display:none;}}
+  .firstuse .fu-x{position:absolute;top:2px;right:2px;background:none;border:none;font-size:14px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
+  .fu-rows{display:flex;flex-wrap:wrap;gap:6px;}
+  .fu-row span,.fu-hl{display:none;}
+  @media(min-width:700px){.firstuse{left:auto;right:16px;top:16px;width:min(380px,calc(100% - 32px));}
+    .fu-rows{display:grid;grid-template-columns:1fr;gap:6px;}
+    .fu-row span{display:block;flex:1 1 auto;}.fu-hl{display:inline;}.fu-hs{display:none;}}
+  .fu-row{display:flex;align-items:center;gap:8px;font-size:12.5px;line-height:1.4;}
+  .fu-row button{flex:0 0 auto;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:5px 11px;font-weight:600;font-size:11.5px;line-height:1;font-family:inherit;cursor:pointer;min-height:32px;min-width:64px;}
+  @media(pointer:coarse){.fu-row button{min-height:44px;min-width:72px;}}
+  .hotlines{margin:8px 0 4px;padding:9px 11px;border-radius:10px;background:#fff4f4;border:1px solid #f3c9c9;font-size:12.5px;line-height:1.55;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:center;}
+  .hotlines.compact{margin:0 0 10px;font-size:11.5px;}
+  .af-note{flex:0 0 100%;}
+  .af-holiday{margin:4px 0 0;font-size:12.5px;font-weight:600;color:#8a4b00;}
+  .pv-open.hol{background:#fff2e0;color:#8a4a00;}
+  .hotlines .hl-lead{font-weight:700;color:#8a1c1c;flex:0 0 100%;}
+  .hotlines .hl-line{white-space:normal;color:var(--ink);text-decoration:none;}
+  .hotlines .hl-line b{white-space:nowrap;}   /* the line may wrap, the number never does */
+  .hotlines .hl-line b{color:#a11;}
+  .help-btn .hl-ic,.help-btn{color:#a11;}
+  .crisis-block{margin:0 0 8px;}
+  .crisis-lead{margin:0 0 4px;font-weight:700;color:#8a1c1c;line-height:1.5;}
+  .crisis-more,.help-note{margin:6px 0 0;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
+  .help-local,.help-info{margin:8px 0 0;font-size:12.5px;line-height:1.6;}
+  .help-local a,.help-info a{color:#a11;text-decoration:none;}
+  .help-lead{margin:0 0 6px;font-size:14px;line-height:1.6;font-weight:600;}
+  .help-actions{margin:16px 0 0;padding-top:12px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:6px;}
+  .help-exit,.help-clear{font:inherit;font-size:14px;font-weight:700;border-radius:10px;padding:10px 14px;min-height:44px;cursor:pointer;text-align:center;}
+  .help-exit{background:#8a1c1c;color:#fff;border:none;}
+  .help-clear{background:none;color:var(--ink);border:1px solid var(--line);margin-top:8px;}
+  .help-clear.armed{border-color:#a11;color:#a11;}
+  .fhint{padding:5px 20px 0;font-size:11.5px;color:var(--sub-ink);}
+  /* 2026-09-10: the reason to come back — ticks and the next deadline — lived
+     only inside the guide modal. One line on the landing screen carries it. */
+  .guide-progress{display:flex;align-items:center;gap:10px;margin:8px 20px 0;padding:8px 12px;border-radius:10px;background:color-mix(in srgb,var(--accent) 7%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);font:inherit;font-size:12.5px;color:var(--ink);cursor:pointer;text-align:left;width:calc(100% - 40px);box-sizing:border-box;}
+  .guide-progress[hidden]{display:none;}
+  .guide-progress .gp-bar{flex:0 0 72px;height:6px;border-radius:6px;background:color-mix(in srgb,var(--accent) 18%,transparent);overflow:hidden;}
+  .guide-progress .gp-bar span{display:block;height:100%;background:var(--accent);}
+  /* 2026-09-13 audit: nowrap on the deadline made the flex row give the count
+     one character per line (8 lines tall in Chinese) and pushed the date — the
+     reason the strip exists — off the right edge on every phone. Let the row
+     wrap: the count keeps its width, the deadline drops to a second line. */
+  .guide-progress{flex-wrap:wrap;}
+  .guide-progress .gp-cnt{white-space:nowrap;}
+  .guide-progress .gp-dl{margin-left:auto;font-weight:600;color:var(--accent-text);min-width:0;}
+  .guide-progress .gp-dl.soon{color:#b3261e;}
+  @media(max-width:600px){.guide-progress{margin:6px 12px 0;width:calc(100% - 24px);font-size:11.5px;}}
+  .active-filters{display:flex;flex-wrap:wrap;gap:6px;padding:9px 20px 0;}
+  .active-filters[hidden],.fhint[hidden]{display:none;}
+  .active-filters:empty{display:none;}
+  .fhint:empty{display:none;}
+  .af-chip{display:flex;align-items:center;gap:6px;padding:5px 8px 5px 12px;border-radius:14px;background:color-mix(in srgb,var(--accent) 9%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);color:var(--accent-text);font-size:11.5px;font-weight:600;}
+  .af-chip.af-route{background:color-mix(in srgb,var(--accent) 16%,var(--card));}
+  .af-chip .x{width:28px;height:28px;margin:-6px -4px -6px -2px;border-radius:50%;background:color-mix(in srgb,var(--accent) 16%,transparent);display:flex;align-items:center;justify-content:center;font-size:11.5px;cursor:pointer;line-height:1;}
+  @media(pointer:coarse){.af-chip .x{width:36px;height:36px;margin:-8px -8px -8px -2px;}}
+  .af-chip .x:hover{background:var(--accent);color:#fff;}
+  .af-clear{font-size:11.5px;color:var(--sub-ink);text-decoration:underline;cursor:pointer;padding:5px 2px;}
+  /* region row — horizontal scroll, same component on all breakpoints */
+  .reg-row{display:flex;flex-wrap:wrap;gap:6px;padding:0 0 12px;}
+  /* 2026-09-24: an area's name plus its description is wider than a phone in four
+     of the six languages — let the label wrap inside its pill instead of running
+     off the screen (the rule below keeps nowrap for everything that fits). */
+  .reg-row .reg-btn{white-space:normal;max-width:100%;text-align:left;line-height:1.35;}
+  .reg-btn{flex:0 0 auto;padding:7px 14px;border-radius:999px;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);background:color-mix(in srgb,var(--accent) 7%,var(--card));font-size:12.5px;cursor:pointer;font-weight:590;color:var(--accent-text);user-select:none;white-space:nowrap;transition:all .15s;}
+  .reg-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  /* panel sections — one visual system shared by quick-picks / area / category */
+  .psec{padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid var(--line);}
+  .psec:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  /* Area and Bus Routes are both flat, single-purpose lists; Favorites' only
+     wrinkle (export/import) explains itself inline. Category is the one panel with
+     real hidden structure — collapsed groups, a group checkbox that means "all of
+     these", a partial-selection state — so it's the one panel that gets an
+     upfront line explaining the two gestures, rather than making every panel
+     carry a hint most of them don't need. */
+  .cat-panel-hint{margin:0 0 10px;font-size:11.5px;line-height:1.55;color:var(--sub-ink);}
+  .cat-utils-inline{display:flex;justify-content:flex-end;margin-bottom:8px;}
+  .cat-utils{font-size:11.5px;color:var(--sub-ink);display:flex;gap:6px;align-items:center;}
+  .cat-util-btn{cursor:pointer;font-weight:700;color:var(--accent-text);background:none;border:none;font-family:inherit;font-size:inherit;padding:0;}
+  /* quick picks */
+  .preset-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-top:4px;padding-bottom:4px;margin:-4px -20px -2px;padding-left:20px;padding-right:34px;}
+  .preset-row::-webkit-scrollbar{display:none;}
+  /* 2026-09-11: a flick lands on a whole chip, never half of one (proximity, so a
+     long flick still runs free). The fade + chevron say "more to the right". */
+  .preset-row{scroll-snap-type:x proximity;scroll-padding-left:20px;}
+  .preset-row>.preset-chip{scroll-snap-align:start;}
+  /* the door to the rest: quieter than a filter chip, its › is part of the label */
+  .preset-chip.qp-more{background:transparent;border-style:dashed;color:var(--accent-text);}
+  .preset-chip.qp-more:hover{background:var(--card);border-style:solid;}
+  /* the seven category sets, now a wrapped block at the top of the Category sheet */
+  .preset-grid{display:flex;flex-wrap:wrap;gap:6px;}
+  .preset-chip{flex:0 0 auto;white-space:nowrap;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-size:11.5px;font-weight:600;color:var(--ink);cursor:pointer;transition:all .15s;}
+  .preset-chip:hover{background:#f1f3f4;border-color:color-mix(in srgb,var(--sage) 35%,var(--line));}
+  .preset-chip.active{background:color-mix(in srgb,var(--accent) 14%,var(--card));border-color:color-mix(in srgb,var(--accent) 55%,var(--line));color:var(--accent-text);}
+  .preset-chip.qp-guide{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:700;box-shadow:0 1px 2px rgba(26,115,232,.3);}
+  .preset-chip.qp-guide:hover{background:var(--accent);filter:brightness(1.06);border-color:var(--accent);}
+  /* category accordion */
+  .cat-wrap{display:flex;flex-direction:column;gap:7px;}
+  .cat-group{border:1px solid var(--line);border-radius:10px;background:var(--card);overflow:hidden;}
+  .cat-group-label{display:flex;align-items:center;gap:8px;padding:10px 12px;margin:0;font-family:var(--font);font-size:11.5px;font-weight:600;color:var(--ink);letter-spacing:.1px;cursor:pointer;user-select:none;}
+  .grp-expand{flex:1;min-width:0;min-height:36px;display:flex;align-items:center;gap:8px;background:none;border:none;padding:0;cursor:pointer;font:inherit;color:inherit;text-align:left;}
+  .cat-group-label .grp-name{flex:1;min-width:0;}
+  .cat-group-label .grp-count{font-size:10px;font-weight:700;color:var(--accent-text);white-space:nowrap;}
+  .grp-check{width:22px;height:22px;padding:0;background:none;border-radius:6px;border:1.5px solid color-mix(in srgb,var(--sub-ink) 60%,var(--line));display:flex;align-items:center;justify-content:center;font-size:10px;line-height:1;flex:0 0 auto;color:#fff;cursor:pointer;font-weight:800;}
+  .grp-check.all{background:var(--sage);border-color:var(--sage);}
+  .grp-check.none{background:transparent;}
+  .grp-check.partial{background:color-mix(in srgb,var(--sage) 55%,var(--card));border-color:var(--sage);color:var(--ink);}
+  .cat-group-label .car{font-size:10px;color:var(--sub-ink);transition:transform .15s;flex:0 0 auto;}
+  .cat-group.open .cat-group-label .car{transform:rotate(90deg);}
+  .cat-grid{display:none;flex-wrap:wrap;gap:5px;padding:0 10px 10px;}
+  .cat-group.open .cat-grid{display:flex;}
+  .cat-btn{flex:0 0 auto;display:flex;flex-direction:row;align-items:center;gap:3px;padding:6px 11px;border-radius:999px;border:1px solid color-mix(in srgb,var(--bc) 28%,transparent);background:color-mix(in srgb,var(--bc) 10%,var(--card));cursor:pointer;user-select:none;transition:all .13s;font-size:11.5px;font-weight:600;color:var(--bc);white-space:nowrap;min-height:32px;}
+  .cat-btn .icon{font-size:12.5px;line-height:1;}
+  .cat-btn.active{background:var(--bc);border-color:var(--bc);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.10);}
+  .cat-btn .cnt{font-size:10px;font-weight:500;color:var(--sub-ink);}
+  .cat-btn.active .cnt{color:#fff;}
+  /* Zero in the selected area(s) — kept in the list (see renderCats) rather than
+     removed, so it reads as "none here" instead of "not tracked". Colour, not
+     opacity, does the muting so the text itself never drops below AA contrast. */
+  .cat-btn.zero{background:var(--card);border-color:var(--line);color:var(--sub-ink);cursor:help;}
+  .cat-btn.zero .icon{filter:grayscale(1);}
+  /* 2026-09-22: a selected category while a search runs — kept, but visibly on hold */
+  .cat-btn.active.paused{opacity:.55;}
+  .cat-paused-note{margin:0 0 10px;font-size:11.5px;font-weight:600;color:var(--accent-text);}
+  .af-chip.af-paused{opacity:.72;border-style:dashed;}
+  /* Themes are a second axis, not more categories, so they get their own block at
+     the top of this panel and a visual language of their own: a pill rather than a
+     square chip, one neutral accent colour rather than 47 category colours. Both
+     axes narrow the same map and combine with AND, which the hint text says out
+     loud — a reader who ticks "Kids & Family" and "Parks" should not be surprised
+     to see fewer pins than either alone. */
+  .theme-sec{padding-bottom:15px;margin-bottom:15px;border-bottom:1px solid var(--line);}
+  .theme-row{display:flex;flex-wrap:wrap;gap:6px;}
+  .theme-btn{flex:0 0 auto;display:flex;align-items:center;gap:4px;padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--card);cursor:pointer;font:inherit;font-size:11.5px;font-weight:600;color:var(--ink);white-space:nowrap;min-height:32px;transition:all .13s;}
+  .theme-btn .icon{font-size:12.5px;line-height:1;}
+  .theme-btn .cnt{font-size:10px;font-weight:500;color:var(--sub-ink);}
+  .theme-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;box-shadow:0 1px 3px rgba(0,0,0,.10);}
+  .theme-btn.active .cnt{color:#fff;}
+  .theme-btn.zero{background:var(--card);border-color:var(--line);color:var(--sub-ink);cursor:help;}
+  .theme-btn.zero .icon{filter:grayscale(1);}
+  /* Same pill, read-only, inside a place popup — this is where most people will
+     first learn the axis exists, so it has to look like the filter it maps to. */
+  .pv-themes{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 2px;}
+  .pv-near{display:flex;flex-direction:column;gap:3px;margin:7px 0 2px;font-size:11.5px;line-height:1.5;color:var(--ink);}
+  .pv-near .pv-dist{color:var(--accent-text);font-weight:600;}
+  .pv-route{display:inline-block;min-width:26px;padding:1px 7px;border-radius:999px;border:2px solid var(--rc);color:var(--ink);background:var(--card);font:inherit;font-size:11.5px;font-weight:700;line-height:1.3;cursor:pointer;vertical-align:baseline;}
+  .pv-route:hover{background:var(--paper);}
+  @media(pointer:coarse){.pv-route{min-height:32px;min-width:32px;padding:4px 8px;}}
+  /* 2026-09-10 — the guide reaches the map ("where do I go" → pin) but the
+     map never reached the guide. A reader who opens Service Canada's popup
+     sees an address and hours and nothing about the thing they came to do
+     there. This line is the guide handed over at the moment it is needed. */
+  .pv-task{margin:8px 0 2px;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--accent) 9%,var(--card));
+    border:1px solid color-mix(in srgb,var(--accent) 22%,transparent);font-size:11.5px;line-height:1.45;}
+  .pv-task b{display:block;font-size:11.5px;font-weight:700;letter-spacing:.02em;color:var(--accent-text);margin-bottom:2px;}
+  /* secondary, not solid: the popup's one filled blue button is "Directions". */
+  .pv-task-go{display:inline-block;margin-top:3px;background:var(--card);color:var(--accent-text);
+    border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:999px;
+    padding:6px 11px;font-weight:700;font-size:11.5px;line-height:1;font-family:inherit;cursor:pointer;min-height:30px;}
+  .pv-task-go:hover{background:color-mix(in srgb,var(--accent) 8%,var(--card));}
+  .pv-open{display:inline-block;margin:0 6px 2px 0;padding:1px 7px;border-radius:999px;font-size:11.5px;font-weight:700;vertical-align:1px;}
+  /* 2026-09-24: "closed" was two hardcoded Material greys inside an Apple
+     palette — it uses the page's own tokens now. "Open" and the holiday pill
+     move to the Apple green/orange family. Contrast 5.55:1, 4.54:1, 6.22:1. */
+  .pv-open.on{background:#e6f7ec;color:#12703a;}
+  .pv-open.off{background:var(--paper);color:var(--sub-ink);}
+  .pv-approx{margin:4px 0 2px;font-size:10px;line-height:1.5;color:var(--sub-ink);}
+  /* 2026-09-24 — one chip vocabulary for the place popup. Three roles, one
+     size, one radius, one height; only the fill differs.
+       .pchip-id    the category — a tint of its own colour, with its icon
+       .pchip-meta  region, qualifier, theme — quiet, bordered, grey
+       .pchip-pick  the editor's pick, the one warm exception
+     .pv-open (state) keeps its own rule below; it is the only chip allowed a
+     semantic colour, because "open now" is the only thing worth a colour. */
+  .pchip{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;
+    padding:0 9px;border-radius:999px;line-height:1;min-height:21px;margin:0 4px 4px 0;max-width:100%;}
+  .pchip .ic{width:12px;height:12px;flex:none;}
+  .pchip-ic{font-size:11.5px;line-height:1;}
+  .pchip-id{background:color-mix(in srgb,var(--cc) 11%,var(--card));color:var(--ci);
+    border:1px solid color-mix(in srgb,var(--cc) 26%,transparent);}
+  .pchip-meta{background:var(--paper);border:1px solid var(--line);color:var(--sub-ink);}
+  .pchip-pick{background:#fdf3d8;border:1px solid #f0dda6;color:#6b4e00;}
+  .pchip-meta.pv-cut{overflow:hidden;}
+  .pchip-meta.pv-cut>span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .pv-theme{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:0 9px;min-height:21px;line-height:1;border-radius:999px;background:var(--paper);border:1px solid var(--line);color:var(--sub-ink);}
+  .pv-theme .ic{width:12px;height:12px;flex:none;}
+  #map{height:64vh;height:64dvh;min-height:400px;width:calc(100% - 40px);margin:14px 20px 0;border-radius:14px;border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 3px rgba(0,0,0,.08);}
+  /* Leaflet's control container is z-index:1000 and lives outside the map's pane
+     stack, so at 1000 it tied with the overlay and DOM order decided — the zoom
+     buttons and the attribution link stayed clickable through an open modal.
+     1200 clears every Leaflet layer (max 1000). */
+  /* filter panel shell — content identical, only container adapts by breakpoint */
+  .backdrop{position:fixed;top:0;right:0;bottom:0;left:0;background:rgba(32,33,36,.4);display:none;z-index:1200;pointer-events:none;}
+  .backdrop.open{display:flex;}
+  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}
+  @media(max-width:900px){.backdrop.open{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);}}
+  .panel{background:var(--card);display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);pointer-events:auto;}
+  /* The grab area is 22px tall so a thumb can find it; only the 4px bar shows. */
+  .panel-grab{padding:9px 0 9px;flex:0 0 auto;cursor:grab;touch-action:none;display:flex;justify-content:center;}
+  .panel-grab:active{cursor:grabbing;}
+  /* A little darker than the border colour it used to share, since a plain
+     var(--line) bar reads as decorative trim rather than a handle to grab. */
+  .panel-handle{width:36px;height:4px;background:color-mix(in srgb,var(--sub-ink) 45%,var(--line));border-radius:999px;flex:0 0 auto;}
+  .panel.dragging{transition:none;}
+  /* A brief nudge the first time a sheet opens on a touch-sized screen, so the
+     handle's draggability is felt once rather than relying on a static bar to be
+     read as an affordance. prefers-reduced-motion already disables all animation
+     globally, so this backs off automatically for anyone who asked for that. */
+  @keyframes panelGrabHint{0%,100%{transform:translateY(0);}35%{transform:translateY(5px);}60%{transform:translateY(-1px);}}
+  .panel-grab.hint .panel-handle{animation:panelGrabHint .9s ease-in-out;background:var(--sub-ink);}
+  .panel-head{display:flex;align-items:center;justify-content:space-between;padding:8px 18px 10px;border-bottom:1px solid var(--line);flex:0 0 auto;}
+  .panel-title{font-family:var(--font);font-weight:500;font-size:14px;}
+  .panel-close{font-size:17px;color:var(--sub-ink);cursor:pointer;line-height:1;padding:4px;background:none;border:none;font-family:inherit;}
+  .panel-body{overflow-y:auto;padding:14px 18px 6px;flex:1 1 auto;}
+  .apply-bar{padding:12px 18px calc(12px + env(safe-area-inset-bottom));border-top:1px solid var(--line);flex:0 0 auto;}
+  .apply-btn{width:100%;background:var(--accent);color:#fff;border:none;border-radius:14px;padding:13px;font-size:14px;font-weight:700;cursor:pointer;}
+  @media(max-width:900px){
+    .backdrop{align-items:flex-end;}
+    .backdrop.open{pointer-events:auto;}
+    .panel{width:100%;max-height:80vh;max-height:80dvh;border-radius:14px 16px 0 0;
+      transition:transform .22s cubic-bezier(.2,.8,.3,1);}
+  }
+  @media(min-width:901px){
+    .backdrop{background:transparent;align-items:flex-start;justify-content:flex-start;}
+    .panel{position:absolute;top:132px;left:20px;width:460px;max-height:min(72vh,640px);border-radius:14px;border:1px solid var(--line);}
+    .panel-grab{display:none;}
+  }
+  .footer{padding:14px 20px 28px;font-size:11.5px;color:var(--sub-ink);line-height:1.75;max-width:860px;}
+  .footer a{color:var(--accent-text);}
+  /* 911/8-1-1/RCMP used to run visually indistinguishable from the routine
+     school-catchment and transit links above it — the one line here someone
+     might need in a hurry now stands out, in its own tinted line rather than
+     blended into the source citations. */
+  .footer-emergency{display:inline-block;margin-top:4px;padding:3px 9px;border-radius:6px;
+    background:#fdecea;color:#a02622;font-weight:700;}
+  .footer-emergency b{color:inherit;}
+  .footer-emergency a{color:inherit;text-decoration:none;}
+  .footer-emergency a:hover b{text-decoration:underline;}
+  .footer-privacy{font-size:11.5px;display:inline-block;margin-top:4px;color:var(--sub-ink);}
+  /* 2026-09-08 audit: hiding the header's Data Notes button (2026-09-08, at the
+     owner's request) also removed the only way to open #noteBackdrop — and that
+     modal is where the full privacy disclosure and the "not official, no
+     guarantee, at your own risk" disclaimer live. The footer kept a one-line
+     summary of the privacy text with nothing to open. This is that missing
+     opener: it sits with the privacy line where such text is normally looked
+     for, and reads as "privacy details", not as the paused feature. */
+  .footer-note-btn{font:inherit;font-size:11.5px;font-weight:700;color:var(--accent-text);
+    background:none;border:none;padding:0 0 0 4px;margin:0;cursor:pointer;text-decoration:underline;}
+  .footer-note-btn:hover{text-decoration:none;}
+  .leaflet-popup-content-wrapper{border-radius:14px;background:var(--card);box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);}
+  .leaflet-popup-content{font-size:12.5px;line-height:1.55;min-width:0;width:min(305px,calc(100vw - 72px));margin:11px 13px;color:var(--ink);}
+  /* 2026-09-10 (simulated-user pass): the route bar used to sit between the
+     status line and the chip row, so on a phone it scrolled away the moment the
+     reader looked at the map — leaving a greyed-out pin field with no visible way
+     back. It now floats inside the map, so the ✕ is on screen whenever the route
+     is, and the label-placement pass treats it as an obstacle. */
+  .bus-indicator{display:none;position:absolute;z-index:850;top:10px;left:12px;right:12px;align-items:center;gap:8px;padding:8px 12px;border-radius:14px;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(180%) blur(14px);backdrop-filter:saturate(180%) blur(14px);border:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.12);font-size:12.5px;font-weight:600;color:var(--ink);}
+  /* the zoom control is only hidden at <=600px, so the bar has to clear it from
+     601px up, not just on the 901px+ layout (2026-09-13 audit: at 601-900 the
+     +/- buttons were drawn over the start of the route name) */
+  @media(min-width:601px){.bus-indicator{left:56px;}}
+  @media(min-width:901px){.bus-indicator{right:auto;max-width:560px;}}
+  .bus-indicator.show{display:flex;}
+  .bus-indicator[hidden]{display:none;}
+  .bus-indicator .x{cursor:pointer;color:var(--sub-ink);font-weight:700;margin-left:auto;padding:0 6px;min-width:36px;min-height:32px;background:none;border:none;font-size:14px;border-radius:10px;}
+  .bus-indicator .x:hover{background:color-mix(in srgb,var(--accent) 14%,transparent);border:none;}
+  .bus-indicator .bi-hint{font-weight:500;color:var(--sub-ink);font-size:11.5px;}
+  @media(max-width:600px){.bus-indicator .bi-hint{display:none;}}
+  .bus-list{display:flex;flex-direction:column;gap:6px;}
+  .bus-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--line);background:var(--card);cursor:pointer;transition:all .15s;}
+  .bus-item:hover{background:#f1f3f4;}
+  .bus-item.active{background:color-mix(in srgb,var(--accent) 10%,var(--card));border-color:var(--accent);}
+  .bus-item .dot{width:14px;height:14px;border-radius:50%;flex:0 0 auto;}
+  .bus-item .rt-num{font-weight:700;font-size:12.5px;min-width:22px;}
+  .bus-item .rt-name{flex:1;min-width:0;font-size:12.5px;color:var(--sub-ink);}
+  .bus-item .rt-count{font-size:10px;color:var(--accent-text);font-weight:700;white-space:nowrap;}
+  .fav-empty{color:var(--sub-ink);font-size:12.5px;padding:20px 4px;text-align:center;line-height:1.7;}
+  .fav-tag{color:var(--sub-ink);font-size:11.5px;}
+  .fav-item .rt-remove{font-size:12.5px;color:var(--sub-ink);cursor:pointer;padding:2px 4px;flex:0 0 auto;min-width:32px;min-height:32px;}
+  /* 2026-09-13 audit: the row looks 44px tall but the name button inside it was
+     16px — most of the row did nothing on a phone. Negative margins let the
+     button take the row's own padding, so the whole row height is the target. */
+  .fav-item .rt-name{text-align:left;cursor:pointer;align-self:stretch;display:flex;align-items:center;flex-wrap:wrap;gap:2px 6px;margin:-10px 0;padding:10px 0;}
+  .fav-item .rt-remove:hover{color:#c0392b;}
+  .search-bar{display:flex;align-items:center;gap:8px;margin:12px 20px 0;padding:9px 14px;background:var(--card);border:1px solid var(--line);border-radius:14px;max-width:420px;}
+  .search-bar:focus-within{background:var(--card);border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent);}
+  .search-bar input{border:none;outline:none;flex:1;font-size:12.5px;font-family:inherit;color:var(--ink);background:transparent;min-width:0;}
+  .search-ic{font-size:12.5px;opacity:.6;flex:0 0 auto;}
+  .search-clear{cursor:pointer;color:var(--sub-ink);font-size:11.5px;padding:2px 4px;flex:0 0 auto;}
+  .search-clear:hover{opacity:1;}
+  /* 2026-09-08 audit: JS toggles this button with .hidden, but the coarse-pointer
+     block below sets .search-clear{display:inline-flex} — an author rule, which
+     beats the UA's [hidden]{display:none} no matter the specificity. So on every
+     touch device the ✕ sat in the search bar permanently, at a full 44px, with an
+     empty box and nothing to clear. Same trap as #noteToggle's. */
+  .search-clear[hidden]{display:none;}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){.search-bar{margin:10px 10px 0;max-width:none;}}
+  .search-suggest{position:absolute;left:20px;width:min(420px,calc(100% - 40px));background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);padding:4px;display:flex;flex-direction:column;z-index:1100;}
+  .search-suggest[hidden]{display:none;}
+  .search-suggest .ss-h{font-size:10px;letter-spacing:.04em;text-transform:uppercase;color:var(--sub-ink);padding:6px 10px 2px;font-weight:600;}
+  .search-suggest button{display:flex;align-items:center;gap:9px;width:100%;text-align:left;background:none;border:none;border-radius:10px;padding:9px 10px;font:inherit;font-size:12.5px;color:var(--ink);cursor:pointer;min-height:40px;}
+  .search-suggest button:hover,.search-suggest button:focus-visible{background:var(--paper);outline:none;}
+  .search-suggest .ss-ic{flex:0 0 auto;width:22px;text-align:center;}
+  .search-suggest .ss-k{margin-left:auto;font-size:10px;color:var(--sub-ink);white-space:nowrap;}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){.search-suggest{left:12px;width:calc(100% - 24px);}}
+  /* the first-use card is one line now that the search box carries the doors */
+  .firstuse.slim{padding:8px 44px 8px 12px;}
+  .firstuse.slim .fu-safe{display:block;margin:0;font-size:11.5px;line-height:1.4;}
+  .firstuse.flyer .fu-h{margin-bottom:6px;}
+  .firstuse.flyer .fu-rows{display:flex;flex-direction:column;gap:6px;}
+  .firstuse.flyer .fu-row{width:100%;}
+  .firstuse.flyer .fu-row button{flex:1 1 auto;width:100%;max-width:100%;white-space:normal;text-align:left;line-height:1.3;padding:7px 11px;}
+  .fu-row button .ic{margin-right:5px;}
+  .firstuse.flyer .fu-row span{display:none;}
+  /* 2026-09-24: was the ☆ / ★ characters — thin, amber, and the only glyph in a
+     popup otherwise built from 1.8px line icons. Same icon, filled when on. */
+  .fav-star{background:none;border:none;cursor:pointer;font-size:17px;line-height:1;padding:0 0 0 6px;vertical-align:middle;color:#8a5a00;}
+  .fav-star .ic{width:17px;height:17px;display:block;}
+  .fav-star.active{color:#a66300;}
+  .fav-star.active .ic{fill:currentColor;}
+  .fav-star:hover{transform:scale(1.15);}
+  #guideBackdrop,#noteBackdrop,#shareBackdrop,#helpBackdrop{align-items:center!important;justify-content:center!important;background:rgba(32,33,36,.5);pointer-events:none;}
+  #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{pointer-events:auto;}
+  .guide-modal{background:var(--card);display:flex;flex-direction:column;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);border-radius:14px;width:600px;max-width:92vw;max-height:82vh;margin:auto;pointer-events:auto;}
+  .sheet-grab{display:none;padding:8px 0 4px;flex:0 0 auto;cursor:grab;touch-action:none;justify-content:center;}
+  /* 2026-09-11 (interaction pass, Apple-style): on a phone the guide, the data
+     note and the share dialog are sheets — they rise from the bottom, carry a
+     handle, and go away with a downward swipe, a tap outside, ✕, Escape or the
+     system Back gesture. A centred dialog is a desktop idiom. */
+  @keyframes sheetUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+  @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+  @media(max-width:900px){
+    #guideBackdrop,#noteBackdrop,#shareBackdrop,#helpBackdrop{align-items:flex-end!important;justify-content:stretch!important;}
+    #guideBackdrop.open,#noteBackdrop.open,#shareBackdrop.open,#helpBackdrop.open{animation:fadeIn .2s ease-out;}
+    .guide-modal{width:100%;max-width:none;margin:0;border-radius:14px 16px 0 0;max-height:92vh;max-height:92dvh;
+      padding-bottom:env(safe-area-inset-bottom);}
+    .backdrop.open .guide-modal{animation:sheetUp .28s cubic-bezier(.2,.8,.3,1);}
+    .guide-modal.dragging{animation:none;transition:none;}
+    .guide-modal.settling{transition:transform .2s cubic-bezier(.2,.8,.3,1);}
+    .sheet-grab{display:flex;}
+    /* touch-action:none, as on .sheet-grab: attachSheetDrag listens on the head
+       too, but without it the browser claimed the swipe (pointercancel) and the
+       sheet snapped back — only the thin handle ever dismissed (2026-09-13) */
+    .guide-head{padding-top:6px;touch-action:none;}
+  }
+  /* Press feedback: a control that is being pressed gives a little. Scoped to
+     the app's own buttons, never to map markers. */
+  .preset-chip:active,.filter-btn:active,.reg-btn:active,.theme-btn:active,.cat-btn:active,.task-card:active,
+  .bus-item:active,.empty-btn:active,.apply-btn:active,#guideToggle:active,.task-tool:active,.pact-btn:active,.lang-btn:active{transform:scale(.97);}
+  .preset-chip,.filter-btn,.reg-btn,.theme-btn,.cat-btn,.task-card,.bus-item,.empty-btn,.apply-btn,#guideToggle,.task-tool,.pact-btn{transition-property:background,border-color,color,transform,filter;transition-duration:.13s;}
+  .guide-head{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line);flex:0 0 auto;}
+  .guide-body{overflow-y:auto;padding:16px 22px 26px;flex:1 1 auto;font-size:12.5px;line-height:1.75;color:var(--ink);}
+  .guide-body h3{font-size:14px;margin:20px 0 8px;font-family:var(--font);}
+  .guide-body h3:first-child{margin-top:0;}
+  .guide-body p{margin:0 0 8px;}
+  .guide-body ul{margin:0 0 8px;padding-left:20px;}
+  .guide-body li{margin:4px 0;}
+  .guide-body a{color:var(--accent-text);}
+  /* The guide runs to twenty-odd sections now. Without an index a reader looking
+     for one answer ("who do I call about unpaid wages?") has to scroll the whole
+     thing, which is exactly the failure the guide exists to prevent. The index is
+     generated from the headings at render time, so adding a section to any tier
+     puts it in the index automatically and in every language. */
+  .guide-toc{margin:0 0 18px;padding:12px 14px;background:var(--paper);border:1px solid var(--line);border-radius:10px;}
+  .guide-toc-h{font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--sub-ink);margin:0 0 8px;}
+  .guide-toc-list{display:flex;flex-wrap:wrap;gap:6px;}
+  .guide-toc-btn{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font:inherit;font-size:11.5px;line-height:1.3;color:var(--ink);cursor:pointer;text-align:left;}
+  .guide-toc-btn:hover{background:#e8f0fe;border-color:var(--accent);}
+  .guide-body h3:target,.guide-body h3.gs-flash{background:#e8f0fe;border-radius:6px;padding:2px 6px;margin-left:-6px;}
+  .leaflet-tooltip.stop-label{background:rgba(255,255,255,.92);border:1px solid rgba(0,0,0,.12);border-radius:6px;padding:1px 5px;font-size:10px;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(0,0,0,.15);white-space:nowrap;}
+  @media(pointer:coarse){.leaflet-tooltip.stop-label{font-size:11.5px;padding:2px 6px;}}
+  .leaflet-tooltip.stop-label::before{display:none;}
+  /* P1-F — a handful of persistent place-name labels, so someone with no mental
+     map of this city yet gets a few real names to anchor on instead of only
+     anonymous cluster-count bubbles. Bolder and accent-tinted so a reader can
+     tell "this is a landmark" from "this is a bus stop" at a glance; pointer-
+     events stay off so the label itself never intercepts a map drag or click. */
+  .leaflet-tooltip.landmark-label{background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:6px;padding:2px 7px;font-size:10px;font-weight:700;color:var(--accent-text);box-shadow:0 1px 3px rgba(0,0,0,.18);white-space:nowrap;pointer-events:none;}
+  .leaflet-tooltip.landmark-label::before{display:none;}
+  .leaflet-tooltip.landmark-label .lm-g{display:block;font-size:10px;font-weight:600;color:var(--sub-ink);margin-top:1px;}
+  .pt{font-family:var(--font);font-size:14px;font-weight:700;letter-spacing:-.15px;margin:2px 0 5px;}
+  .ptags{margin:0 0 7px;}
+  .tag{display:inline-block;font-size:10px;font-weight:600;padding:2px 8px;border-radius:6px;margin:0 3px 5px 0;color:#fff;}
+  .pr{margin:4px 0;}
+  /* phone / email / hours share one two-column grid, so the values line up on a
+     single axis and a wrapped opening-hours string no longer slides back under
+     its own label. */
+  .pkv{display:grid;grid-template-columns:auto 1fr;gap:4px 9px;margin:6px 0 2px;align-items:baseline;}
+  .pl{color:var(--sub-ink);white-space:nowrap;}
+  .pq{color:var(--sub-ink);font-size:11.5px;}
+  .pv{font-size:11.5px;color:var(--sub-ink);margin-top:9px;padding-top:8px;border-top:1px solid var(--line);}
+  .licence-line{color:var(--sub-ink);}
+  .pv-report{color:var(--accent-text);text-decoration:none;white-space:nowrap;}
+  .pv-report:hover{text-decoration:underline;}
+  /* marker clustering — CSS inlined rather than pulled from a second CDN file */
+  .leaflet-cluster-anim .leaflet-marker-icon,.leaflet-cluster-anim .leaflet-marker-shadow{transition:transform .3s ease-out,opacity .3s ease-in;}
+  .leaflet-cluster-spider-leg{transition:stroke-dashoffset .3s ease-out,stroke-opacity .3s ease-in;}
+  /* 2026-09-10 — a selected bus route used to be drawn on top of the full,
+     undimmed place layer: 60-130 pins and up to 36 cluster bubbles, all at full
+     strength. Measured on a phone, route 17's 60 stop names came out as 2, and
+     both of those still sat on top of something. The avoidance algorithm was
+     not the problem; it was looking for space in a picture that had none. While
+     a route is selected the places step back to being context — still there, so
+     "what is along this line" is still answerable, but no longer competing —
+     and the cluster bubbles go away entirely, because a bubble saying "60" tells
+     a reader nothing at all about the line they just tapped. */
+  /* Route mode: places are context, not content. 279 un-clustered pins at 30%
+     read as "pin soup" and hid the line downtown; fainter and smaller they sit
+     behind it. The line itself now draws in a pane above the markers. */
+  .route-focus .kpin{opacity:.72;}
+  .route-focus .kpin .kpin-dot{box-shadow:none;transform:scale(.86);}
+  /* clusters collapse to quiet grey dots while a route is shown */
+  .route-focus .kcluster{transform:scale(.42);background:#8e8e93!important;color:transparent;box-shadow:none;border-width:4px;}
+  .route-focus .leaflet-tooltip.landmark-label{display:none!important;}
+  .stop-casing{pointer-events:none;}
+  /* the place pin: the cluster bubble's ring and shadow at 30px, with the
+     category colour outside and the glyph on a white face inside */
+  .kpin-dot{width:30px;height:30px;border-radius:999px;border:2.5px solid #fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 3px rgba(60,64,67,.4),0 3px 8px rgba(60,64,67,.25);}
+  .kpin-dot>span{width:20px;height:20px;border-radius:999px;background:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:14px;line-height:1;}
+  .kcluster{background:var(--accent);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-family:var(--font);font-weight:600;border:2.5px solid #fff;cursor:pointer;
+    box-shadow:0 1px 3px rgba(60,64,67,.4),0 3px 8px rgba(60,64,67,.25);}
+  .kcluster.s{width:34px;height:34px;font-size:12.5px;}
+  .kcluster.m{width:42px;height:42px;font-size:14px;background:#1558b0;}
+  .kcluster.l{width:50px;height:50px;font-size:14px;background:#0d47a1;}
+  /* Search used to bypass the Area/Category filters entirely, which is why this
+     state used to dim them here — a tap did nothing visible, so dimming was the
+     honest signal. Search now narrows within whatever is filtered instead, so
+     Area/Category and Quick Picks stay fully live (and undimmed) while searching. */
+  .search-note{padding:6px 20px 0;font-size:11.5px;color:var(--accent-text);font-weight:600;}
+  .search-note:empty{display:none;}
+  .empty-state{margin:14px 20px 0;padding:18px 20px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;font-size:12.5px;color:var(--sub-ink);line-height:1.7;text-align:center;}
+  .empty-state[hidden]{display:none;}
+  /* 2026-09-22: the answer box for health searches, the closest-match note, and
+     the task card that leads an empty result */
+  .search-help{margin:10px 20px 0;padding:14px 16px;background:var(--card);border:1px solid var(--line);
+    border-radius:10px;font-size:12.5px;color:var(--ink);line-height:1.55;text-align:left;}
+  .search-help[hidden]{display:none;}
+  .sh-title{margin:0 0 6px;font-weight:700;font-size:14px;}
+  .sh-note{margin:0 0 8px;color:var(--sub-ink);}
+  .sh-list{margin:0;padding-left:18px;}
+  .sh-list li{margin:4px 0;}
+  .sh-status{font-weight:700;}
+  .sh-status.open{color:var(--sage);}
+  .sh-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .sh-btn{font-family:inherit;font-size:12.5px;font-weight:600;border-radius:10px;padding:7px 12px;cursor:pointer;
+    background:var(--card);color:var(--accent-text);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);}
+  .sh-btn.primary{background:var(--accent);color:#fff;border-color:transparent;}
+  .sh-card{text-align:left;margin:0 0 12px;padding:12px 14px;border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+    border-radius:10px;background:color-mix(in srgb,var(--accent) 6%,var(--card));color:var(--ink);}
+  .sh-card .sh-lead{margin:0 0 2px;font-size:11.5px;font-weight:600;color:var(--accent-text);}
+  .sh-card .sh-card-t{margin:0 0 4px;font-weight:700;font-size:14px;}
+  .sh-card .sh-card-why{margin:0 0 8px;font-size:12.5px;color:var(--sub-ink);}
+  .sh-card .sh-card-t .ic{width:16px;height:16px;vertical-align:-3px;margin-right:4px;}
+  /* Pinch-zoom covers this on a phone, and 44px of permanent chrome over the map
+     corner costs more there than the buttons are worth. */
+  @media(max-width:600px){.leaflet-control-zoom{display:none;}}
+  /* 2026-09-24: this used to be a filled badge — the most decorated element in
+     the popup on its least important line. The four source kinds still differ by
+     colour, but the colour is now a 6px dot and the text is the same grey as the
+     rest of the row. */
+  .pv-src{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;
+    font-weight:600;color:var(--sub-ink);cursor:help;}
+  .pv-src::before{content:'';width:6px;height:6px;border-radius:999px;background:#4b5b6b;flex:none;}
+  .pv-verified{cursor:help;}
+  .pv-src.src-official::before{background:#1e6b38;}
+  .pv-src.src-own::before{background:#7a5c00;}
+  .pv-src.src-opendata::before{background:#1d4e8f;}
+  .pv-src.src-stub::before{background:#8c2f22;}
+  /* Share sheet (2026-09-07). The button used to copy the link and nothing else;
+     it now opens this, because "share" means a different app to a Kamloops
+     resident from Delhi, Osaka, Seoul or Lyon. navigator.share is offered first
+     wherever it exists — the OS sheet lists the apps the reader actually has
+     installed, which is the only way to reach WeChat, KakaoTalk or TikTok, none
+     of which expose a share-a-link URL. */
+  .share-lead{margin:0 0 14px;font-size:12.5px;color:var(--sub-ink);line-height:1.65;}
+  .share-native{display:block;width:100%;margin:0 0 14px;padding:13px 16px;border:none;
+    border-radius:10px;background:var(--accent);color:#fff;font-family:inherit;
+    font-size:14px;font-weight:600;cursor:pointer;min-height:44px;}
+  .share-native:hover{background:var(--accent-text);}
+  /* 2026-09-08 audit: renderShareSheet() hides this with .hidden wherever
+     navigator.share does not exist — which is most desktop browsers. The
+     display:block above is an author rule and beat [hidden], so the biggest,
+     bluest button in the sheet rendered anyway and did nothing at all when
+     clicked (its handler returns early without navigator.share). */
+  .share-native[hidden]{display:none;}
+  .share-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:9px;}
+  .share-item{display:flex;align-items:center;gap:9px;padding:11px 13px;min-height:44px;
+    border:1px solid var(--line);border-radius:10px;background:var(--card);
+    font-family:inherit;font-size:12.5px;font-weight:600;color:var(--ink);
+    text-align:left;text-decoration:none;cursor:pointer;}
+  .share-item:hover{border-color:var(--accent);color:var(--accent-text);}
+  .share-item .si{font-size:17px;line-height:1;flex:0 0 auto;}
+  .share-note{margin:15px 0 0;font-size:11.5px;color:var(--sub-ink);line-height:1.7;}
+  .fav-io{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+  .fav-io-note{margin:0 0 9px;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
+  .fav-io-row{display:flex;gap:8px;flex-wrap:wrap;}
+  .fav-io-btn{font-size:11.5px;font-weight:600;color:var(--accent-text);background:var(--card);
+    border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-radius:14px;
+    padding:7px 14px;cursor:pointer;}
+  .fav-io-btn:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  .fav-io-box{width:100%;margin-top:9px;padding:8px 10px;font-size:11.5px;line-height:1.5;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink);
+    background:var(--card);border:1px solid var(--line);border-radius:10px;resize:vertical;}
+  .fav-io-msg{margin:8px 0 0;font-size:11.5px;color:var(--sage);min-height:1em;}
+  /* Leaflet adds this class when maxHeight kicks in; keep the scroll inside it. */
+  .leaflet-popup-scrolled{overscroll-behavior:contain;border-bottom:none;}
+  .privacy-note{margin:14px 0 0;padding-top:12px;border-top:1px solid var(--line);}
+  /* 2026-09-09: the privacy statement used to be one 400-word paragraph. It was
+     accurate and nobody read it, which is the same as not disclosing. Three
+     plain lines carry the answers people actually want; the full text is one tap
+     below, unchanged. */
+  .pv-h{font-size:14px;font-weight:700;margin:0 0 8px;}
+  .pv-sum{list-style:none;margin:0 0 10px;padding:0;display:grid;gap:7px;}
+  .pv-sum li{font-size:12.5px;line-height:1.6;padding-left:20px;position:relative;}
+  .pv-sum li::before{content:'—';position:absolute;left:2px;opacity:.5;}
+  .pv-sum b{font-weight:700;}
+  .pv-more{background:none;border:1px solid var(--line);border-radius:14px;
+    padding:5px 12px;font-size:11.5px;color:var(--accent-text);cursor:pointer;
+    font-family:inherit;min-height:32px;}
+  .pv-more:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  .pv-full{margin-top:10px;font-size:11.5px;line-height:1.75;opacity:.9;}
+  /* [hidden] is a user-agent rule, so the author `display` above would beat it
+     and the full text would never collapse. Same trap as the four the audit
+     found; validate.py check 14 fails the build without this line. */
+  .pv-full[hidden]{display:none;}
+  .offline-note{position:absolute;left:12px;right:12px;bottom:var(--note-lift,56px);z-index:900;
+    padding:8px 32px 8px 12px;background:#fef7e0;border:1px solid #fde293;
+    border-radius:10px;font-size:11.5px;color:#7a5c00;line-height:1.55;
+    box-shadow:0 2px 10px rgba(0,0,0,.14);}
+  .offline-note[hidden]{display:none;}
+  .offline-x{position:absolute;top:3px;right:4px;padding:4px 6px;background:none;border:none;
+    color:#7a5c00;font-size:14px;line-height:1;cursor:pointer;border-radius:6px;}
+  .offline-x:hover{background:#fdecc0;border:none;}
+  /* left:56px keeps it clear of Leaflet's zoom control, which sits above it. */
+  @media(min-width:901px){.offline-note{left:auto;right:16px;bottom:var(--note-lift,64px);max-width:340px;}}
+  /* The full note reads fine once, but it sat over the map's busiest spot
+     indefinitely — on a short phone it blanketed the markers a reader most wants to
+     tap. After a few seconds it shrinks to a small badge in the emptiest corner
+     (bottom-left: the zoom control owns top-left, the attribution owns bottom-right)
+     and stays reachable — the message is one tap away, not gone. Two-class
+     specificity (.offline-note.compact) beats the plain .offline-note rules above
+     and the >=901px override, so this wins at every width without touching them. */
+  .offline-note.compact{left:12px;right:auto;top:auto;bottom:12px;
+    width:38px;height:38px;padding:0;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;max-width:none;}
+  .offline-note.compact:hover{background:#fdecc0;}
+  .offline-note.compact::before{content:'';width:16px;height:16px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 3l18 18'/%3E%3Cpath d='M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3'/%3E%3Cpath d='M12 18h.01'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.8' stroke-linecap='round'%3E%3Cpath d='M3 3l18 18'/%3E%3Cpath d='M5 10a12 12 0 016-3.5M9 13.5a7 7 0 013-1.5M16.5 12.8A7 7 0 0119 13.5M13 7a12 12 0 016 3'/%3E%3Cpath d='M12 18h.01'/%3E%3C/svg%3E") center/contain no-repeat;}
+  .offline-note .ic{width:15px;height:15px;vertical-align:-3px;margin-right:3px;}
+  .panel-title .ic{width:15px;height:15px;}
+  .bus-indicator .ic,.af-route .ic{width:13px;height:13px;vertical-align:-2px;margin-right:3px;}
+  .reset-btn .ic{width:13px;height:13px;vertical-align:-2px;}
+  .offline-note.compact #offlineText,.offline-note.compact .offline-x{
+    position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  /* P0-A — the "Near me" control. Bottom-right stacks it above Leaflet's own
+     attribution strip the way most map UIs place a locate button, and that
+     corner is otherwise empty (the zoom control is top-left, the offline note
+     lives along the top edge). It never claims header space, so it costs P0-B
+     nothing. */
+  .geo-ctrl{margin:0 10px 10px 0!important;}
+  .geo-btn{display:flex;align-items:center;gap:6px;background:var(--card);border:none;
+    border-radius:999px;padding:8px 12px;font-family:inherit;font-size:11.5px;font-weight:600;
+    color:var(--accent-text);cursor:pointer;line-height:1;
+    box-shadow:0 1px 3px rgba(0,0,0,.10);}
+  .geo-btn:hover{filter:brightness(.96);}
+  .geo-btn svg{flex:0 0 auto;display:block;}
+  .geo-btn.loading svg{animation:geo-spin 1s linear infinite;}
+  @keyframes geo-spin{to{transform:rotate(360deg);}}
+  @media(max-width:600px){.geo-btn-tx{display:none;}.geo-btn{padding:10px;border-radius:50%;}}
+  /* The "you are here" marker: a solid dot plus an expanding, fading ring, so a
+     first-time tap on Near Me reads unambiguously as "this pin is me" rather
+     than one more place marker among 260-odd others. The permanent tooltip
+     says the same thing in words for anyone still unsure. Leaflet's default
+     div-icon box (white fill, grey border) is reset off since this icon draws
+     its own shape. */
+  .geo-here-icon{background:transparent!important;border:none!important;}
+  .geo-here{position:relative;width:22px;height:22px;}
+  .geo-here-dot{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;
+    border-radius:50%;background:var(--accent);border:2.5px solid #fff;
+    box-shadow:0 1px 3px rgba(0,0,0,.45);}
+  .geo-here-pulse{position:absolute;top:50%;left:50%;width:14px;height:14px;margin:-7px 0 0 -7px;
+    border-radius:50%;background:var(--accent);opacity:.55;
+    animation:geo-pulse 1.8s cubic-bezier(0,0,.3,1) infinite;}
+  @keyframes geo-pulse{0%{transform:scale(1);opacity:.55;}100%{transform:scale(3);opacity:0;}}
+  @media(prefers-reduced-motion:reduce){.geo-here-pulse{animation:none;opacity:.22;}}
+  .geo-here-tip.leaflet-tooltip{background:var(--ink);color:#fff;font-weight:600;font-size:11.5px;
+    padding:3px 8px;border:none;box-shadow:0 1px 3px rgba(0,0,0,.35);}
+  .geo-here-tip.leaflet-tooltip-top::before{border-top-color:var(--ink);}
+  /* The explanation banner (first tap only) and the plain-language error messages
+     (denied/unavailable/timeout/unsupported) share this box, distinguished only by
+     .err — an amber tone matching .offline-note's own "something didn't work"
+     colour, so the page has one visual vocabulary for that state, not two. */
+  .geo-note{position:absolute;left:12px;right:12px;bottom:var(--note-lift,56px);z-index:901;
+    background:var(--card);border:1px solid var(--line);border-radius:10px;
+    padding:12px 14px;font-size:11.5px;line-height:1.5;color:var(--ink);
+    box-shadow:0 2px 10px rgba(0,0,0,.16);}
+  @media(min-width:901px){.geo-note{left:auto;right:16px;max-width:300px;bottom:var(--note-lift,60px);}}
+  .geo-note[hidden]{display:none;}
+  .geo-note p{margin:0 0 10px;}
+  .geo-note.err{border-color:#fde293;background:#fef7e0;color:#7a5c00;}
+  .geo-note-act{display:flex;gap:8px;justify-content:flex-end;}
+  .geo-note-btn{font-family:inherit;font-size:11.5px;font-weight:600;padding:7px 12px;border-radius:14px;
+    border:1px solid var(--line);background:var(--paper);color:var(--sub-ink);cursor:pointer;}
+  .geo-note-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
+  /* Tapping the star to favourite a place changed only a 16px glyph's colour —
+     easy to miss, which invited a second tap that silently undid the first. This
+     is the one, short, unmissable confirmation for that action (and only that
+     action: it is not a general notification system). Fixed to the viewport so it
+     reads the same whether the popup is at the top or bottom of the screen, and
+     pointer-events:none so it never blocks the tap that follows it. */
+  .toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translate(-50%,8px);z-index:1300;
+    background:#202124;color:#fff;font-size:12.5px;font-weight:600;
+    padding:9px 16px;border-radius:999px;box-shadow:0 2px 10px rgba(0,0,0,.25);
+    pointer-events:none;opacity:0;transition:opacity .18s,transform .18s;
+    max-width:calc(100vw - 40px);text-align:center;}
+  .toast[hidden]{display:none;}
+  .toast.show{pointer-events:auto;}
+  .toast .toast-act{margin-left:12px;background:none;border:none;color:#8ab4f8;font:inherit;font-weight:700;cursor:pointer;padding:6px 4px;min-height:32px;}
+  .toast.show{opacity:1;transform:translate(-50%,0);}
+  .empty-state p{margin:0 0 10px;}
+  .empty-state p:last-child{margin-bottom:0;}
+  .empty-btn{font-family:inherit;font-size:12.5px;font-weight:600;color:#fff;background:var(--accent);
+    border:none;border-radius:999px;padding:8px 18px;cursor:pointer;}
+  .empty-btn:hover{filter:brightness(.94);}
+  .empty-btn.empty-guide{background:var(--card);color:var(--accent-text);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);margin-left:8px;}
+  .empty-state .empty-route{font-size:11.5px;color:var(--sub-ink);}
+  .task-none{font-size:12.5px;color:var(--sub-ink);margin:8px 0 14px;}
+  .task-dl-set{margin-left:6px;font-size:11.5px;}
+  .pv-themes .pv-rest{display:none;}
+  .pv-themes.all .pv-rest{display:contents;}
+  .pv-themes.all .pv-more-t{display:none;}
+  button.pv-more-t{cursor:pointer;font:inherit;font-size:inherit;background:color-mix(in srgb,var(--accent) 10%,var(--card));border:1px solid color-mix(in srgb,var(--accent) 25%,transparent);}
+  .bus-search{margin:0 0 8px;}
+  .rt-stop{display:block;font-size:11.5px;font-weight:500;color:var(--sub-ink);}
+  .bus-coverage{padding:10px 4px 2px;font-size:11.5px;color:var(--sub-ink);line-height:1.65;}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  /* Comfortable targets where a finger is the pointer. Scoped to coarse pointers so
+     the desktop toolbar keeps its tuned geometry, and expressed as min-height plus
+     centring rather than extra padding, which would reflow the rows. */
+  @media(pointer:coarse){
+    .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
+    .cat-btn,.bus-item,.note-toggle,.cat-util-btn,.af-chip,.geo-btn,.geo-note-btn{min-height:44px;}
+    .lang-btn,.filter-btn,.reset-btn,.preset-chip,.reg-btn,.cat-btn{
+      display:inline-flex;align-items:center;}
+    /* The language buttons were tall enough but only ~39px wide. Five at 44px plus
+       gaps is 232px, which still fits a 320px phone. */
+    .lang-btn{min-width:44px;justify-content:center;}
+    /* Below 600px these drop to icon-only (see the max-width:600px block), which
+       would otherwise shrink the tap target to just the emoji's own width — well
+       under the 44px floor. min-width plus centring keeps the target full-size
+       whether it holds an icon alone or an icon and a label. Same story for
+       .geo-btn, which drops its text at the same breakpoint. */
+    .header-links a,.note-toggle,.geo-btn{display:inline-flex;align-items:center;justify-content:center;min-width:44px;}
+    /* The footer's privacy opener is a real target too — regress round 46/47
+       caught it at well under the floor the moment it was added. */
+    .footer-note-btn{display:inline-flex;align-items:center;justify-content:center;
+      min-height:44px;min-width:44px;padding-left:6px;}
+    .panel-close,.search-clear,.offline-x,.fav-star{min-width:44px;min-height:44px;box-sizing:border-box;
+      display:inline-flex;align-items:center;justify-content:center;}
+    /* a fixed box: the ✕ used to grow the bar from 39 to 62px on the first keystroke */
+    .search-bar{padding-top:2px;padding-bottom:2px;min-height:48px;box-sizing:border-box;}
+    /* 2026-09-08: Near Me is the one map-corner control most people use with a
+       thumb, at arm's length, glancing rather than aiming — the shared 44px
+       floor above is a legal minimum, not a comfortable one. Bumped past every
+       other control here specifically for that reason, not as a general size
+       increase for icon buttons. */
+    .geo-btn{min-width:48px;min-height:48px;}
+    /* 2026-09-13 audit: with the 48px Near Me button (plus its 10px margin and
+       the attribution strip) the bottom-right corner is ~76px tall, so the two
+       notes anchored at bottom:56px slid under it — the offline note's ✕ was
+       covered on a Chinese phone (tapping it opened the location explainer)
+       and the explainer's own "Not now" button was half under the locate
+       control. The corner's height varies (48px button, a wrapped attribution
+       line), so placeMapNotes() measures it and sets --note-lift on the map;
+       the fallbacks below are the old fixed values. */
+    /* Leaflet's popup ✕ is 24px; on a 390px phone the popup fills the map, so
+       tapping beside it to close is not an option and the ✕ is the only exit. */
+    .leaflet-popup-close-button{width:40px!important;height:40px!important;
+      font-size:22px!important;line-height:40px!important;top:0!important;right:0!important;}
+    .rt-remove{min-width:40px;min-height:40px;}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *,*::before,*::after{
+      transition-duration:0.01ms !important;
+      animation-duration:0.01ms !important;
+      animation-iteration-count:1 !important;
+      scroll-behavior:auto !important;
+    }
+  }
+  /* WCAG 2.1 §2.4.1 Bypass Blocks: a keyboard-only escape hatch at the very top
+     of the DOM that becomes visible only while focused. It jumps focus straight
+     to the map area so the first Tab after activation lands in content rather
+     than re-traversing every header button. -9999px is the classic off-screen
+     trick; clamp() is cleaner but unreliable inside the <iframe>s some assistive
+     tech still uses. */
+  .skip-link{position:absolute;left:-9999px;top:8px;background:var(--accent);
+    color:#fff;padding:10px 14px;border-radius:6px;font-weight:600;font-size:12.5px;
+    z-index:99999;text-decoration:none;box-shadow:0 2px 6px rgba(0,0,0,.2);
+    /* 2026-09-07: was 104x39 on a phone — the one control still under the 44px
+       minimum. It is a real target the moment it takes focus, so give it the
+       same floor as every other control rather than exempting it. */
+    display:inline-flex;align-items:center;min-height:44px;box-sizing:border-box;}
+  .skip-link:focus,.skip-link:focus-visible{left:8px;outline:3px solid #fff;
+    outline-offset:2px;}
+  /* visually-hidden but still readable by assistive tech — the canonical "sr-only"
+     recipe (1px clip + absolute positioning + zero-size box, none of which is
+     display:none, which would actually hide the text from screen readers too). */
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  /* High-contrast users on Windows or macOS get a forced-colour border so the
+     geometry doesn't collapse to invisible. The UA supplies Highlight/ButtonText,
+     we add a transparent fallback for browsers that don't honour the query. */
+  @media (forced-colors: active){
+    .filter-btn,.reset-btn,.preset-chip,.lang-btn,.reg-btn,.cat-btn,.apply-btn,
+    .empty-btn,.skip-link,.panel-close,.search-clear,.offline-x,.fav-star{
+      border:2px solid ButtonText;
+    }
+    :focus-visible{outline:3px solid Highlight;}
+  }
+  /* ---- Life Guide task layer (2026-09-08) --------------------------------
+     The guide opens on problems rather than headings, so these are the two
+     states of that: a grid of problem cards, and one task opened in place.
+     Deliberately plain — this is read while someone is stressed and short of
+     time, so hierarchy and tap size matter more than decoration. */
+  .task-lead{margin:0 0 12px;font-size:12.5px;line-height:1.6;color:var(--ink);font-weight:600;}
+  .task-bucket{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    color:var(--sage);margin:14px 0 7px;}
+  .task-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+  @media(max-width:600px){.task-grid{grid-template-columns:1fr;}}
+  .task-card{display:flex;flex-direction:column;gap:4px;align-items:flex-start;text-align:left;position:relative;
+    padding:11px 30px 11px 13px;border:1px solid var(--line);border-radius:14px;background:var(--card);
+    cursor:pointer;font-family:inherit;transition:border-color .13s,background .13s;}
+  .task-card::after{content:'›';position:absolute;right:12px;top:50%;transform:translateY(-50%);font-size:22px;line-height:1;color:#c7c7cc;font-weight:400;}
+  .task-card:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 4%,var(--card));}
+  .task-ic{font-size:17px;line-height:1;}
+  .task-q{font-size:12.5px;font-weight:600;color:var(--ink);line-height:1.4;}
+  .task-t{font-size:11.5px;font-weight:600;color:var(--accent-text);line-height:1.35;}
+  .task-more{margin:16px 0 0;font-size:11.5px;color:var(--sub-ink);}
+  .task-back{background:none;border:none;font-family:inherit;font-size:11.5px;font-weight:600;
+    color:var(--accent-text);cursor:pointer;padding:4px 0;margin:0 0 8px;}
+  .task-back:hover{text-decoration:underline;}
+  .task-head{display:flex;gap:11px;align-items:flex-start;margin:0 0 14px;}
+  .task-ic-lg{font-size:26px;line-height:1;flex:0 0 auto;}
+  .task-head h4{margin:0 0 3px;font-size:14px;font-weight:600;font-family:var(--font);}
+  .task-head p{margin:0;font-size:12.5px;line-height:1.55;color:var(--sub-ink);}
+  .task-row{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;
+    border-top:1px solid var(--line);}
+  @media(max-width:600px){.task-row{grid-template-columns:1fr;gap:3px;}}
+  .task-lb{font-size:11.5px;font-weight:700;color:var(--sage);letter-spacing:.03em;padding-top:1px;}
+  .task-bd{font-size:12.5px;line-height:1.6;color:var(--ink);}
+  .task-bd a[href^="tel:"]{color:var(--accent-text);text-decoration:none;font-weight:600;}
+  .task-steps{margin:0;padding-left:0;list-style:none;counter-reset:step;}
+  .task-steps li{margin:0 0 6px;}
+  .task-step{counter-increment:step;display:flex;align-items:flex-start;gap:6px;}
+  .task-step::before{content:counter(step) '.';flex:0 0 auto;min-width:1.3em;text-align:right;padding-top:1px;}
+  .task-step label{flex:1 1 auto;min-width:0;}
+  .task-steps li:last-child{margin-bottom:0;}
+  .task-step label{display:flex;align-items:flex-start;gap:8px;cursor:pointer;}
+  .task-step input{flex:0 0 auto;width:18px;height:18px;margin:2px 0 0;accent-color:var(--accent);}
+  .task-step.on span{color:var(--sub-ink);text-decoration:line-through;text-decoration-color:color-mix(in srgb,var(--sub-ink) 50%,transparent);}
+  .task-due{font-size:10px;font-weight:600;line-height:15px;color:var(--sub-ink);background:var(--paper);border-radius:999px;padding:0 7px;}
+  .task-stepc{font-size:10px;font-weight:600;line-height:15px;color:var(--accent-text);background:color-mix(in srgb,var(--accent) 10%,var(--card));border-radius:999px;padding:0 7px;}
+  @media print{ .task-step.on span{text-decoration:none;color:inherit;} }
+  .task-place{font-size:12.5px;line-height:1.6;}
+  .task-hrs{color:var(--sub-ink);font-size:11.5px;}
+  .task-map{margin-top:7px;background:var(--accent);color:#fff;border:none;border-radius:14px;
+    padding:7px 14px;font-family:inherit;font-size:11.5px;font-weight:600;cursor:pointer;}
+  .task-map:hover{filter:brightness(.94);}
+  /* progress, deadlines, and the two closing loops (2026-09-08) */
+  .task-progress{display:flex;align-items:center;gap:9px;margin:0 0 13px;}
+  .task-bar{flex:1;height:6px;border-radius:999px;background:var(--line);overflow:hidden;}
+  .task-bar span{display:block;height:100%;background:var(--sage);border-radius:999px;}
+  .task-pc{font-size:11.5px;font-weight:700;color:var(--sage);white-space:nowrap;}
+  .task-top{display:flex;align-items:center;gap:6px;width:100%;}
+  .task-dl{font-size:10px;font-weight:800;letter-spacing:.04em;color:#a02622;
+    background:#fdecea;border-radius:999px;padding:2px 7px;white-space:nowrap;}
+  .task-done-b{font-size:10px;font-weight:800;color:#146c2e;
+    background:color-mix(in srgb,var(--sage) 12%,var(--card));border-radius:999px;
+    padding:2px 7px;margin-left:auto;white-space:nowrap;}
+  .task-card.is-done .task-q{color:var(--sub-ink);}
+  .task-say{font-size:12.5px;line-height:1.55;color:var(--ink);font-weight:600;
+    background:var(--paper);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
+    padding:8px 11px;}
+  .task-say-h{font-size:11.5px;color:var(--sub-ink);margin-top:5px;}
+  .task-say-g{font-size:11.5px;color:var(--sub-ink);margin-top:4px;}
+  .task-close{margin-top:14px;padding-top:12px;border-top:1px solid var(--line);}
+  .task-tick{font-family:inherit;font-size:12.5px;font-weight:700;cursor:pointer;
+    border:1px solid color-mix(in srgb,var(--sage) 40%,transparent);border-radius:999px;
+    padding:9px 16px;background:var(--card);color:var(--sage);}
+  .task-tick:hover{background:color-mix(in srgb,var(--sage) 8%,transparent);}
+  .task-tick.on{background:var(--sage);border-color:var(--sage);color:#fff;}
+  .task-stuck-exit{margin-top:8px;font-size:12.5px;line-height:1.5;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--accent) 8%,var(--card));}
+  .task-stuck-exit a{font-weight:700;white-space:nowrap;}
+  .task-tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px;}
+  .task-tool{background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-weight:600;font-size:11.5px;line-height:1;font-family:inherit;color:var(--accent-text);cursor:pointer;min-height:32px;}
+  @media(pointer:coarse){.task-tool,.theme-btn,.empty-btn,.guide-toc-btn,.toast .toast-act,button.pv-more-t{min-height:40px;}}
+  .task-tool:hover{background:color-mix(in srgb,var(--accent) 8%,transparent);}
+  .task-arrive{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin:0 0 12px;padding:9px 11px;border-radius:10px;background:color-mix(in srgb,var(--accent) 6%,var(--card));border:1px solid var(--line);font-size:12.5px;}
+  .task-arrive label{font-weight:700;}
+  .task-arrive input{font:inherit;padding:4px 6px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--ink);}
+  .task-arrive-h{flex:0 0 100%;font-size:11.5px;color:var(--sub-ink);}
+  .task-dl.soon{background:#fde8e8;color:#a11;}
+  .task-dl.past{background:#eee;color:#555;text-decoration:line-through;}
+  .task-alldone{margin:14px 0 4px;padding:12px 14px;border-radius:10px;background:#e6f4ea;color:#137333;font-size:12.5px;line-height:1.5;}
+  .task-search{width:100%;box-sizing:border-box;margin:0 0 10px;padding:9px 12px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:14px;background:var(--card);color:var(--ink);}
+  /* 2026-09-13: while a sheet is open the body is position:fixed (lockBodyScroll),
+     and a fixed body prints as a blank page on desktop — the card came out empty.
+     The body is put back to normal flow for the print, the paper is white, and the
+     modal is a plain block so it takes the page width. */
+  @media print{ body.print-task > *:not(#guideBackdrop){display:none!important;}
+    body.print-task{position:static!important;top:auto!important;left:auto!important;right:auto!important;width:auto!important;
+      height:auto!important;min-height:0!important;overflow:visible!important;background:#fff!important;display:block!important;}
+    body.print-task #guideBackdrop{position:static;background:none;display:block!important;animation:none;
+      -webkit-backdrop-filter:none;backdrop-filter:none;height:auto;}
+    body.print-task .guide-modal{display:block;box-shadow:none;max-height:none;width:auto;max-width:none;margin:0;border-radius:0;animation:none;transform:none!important;}
+    body.print-task .guide-body{overflow:visible;max-height:none;}
+    body.print-task .sheet-grab{display:none!important;}
+    html:has(body.print-task){background:#fff;}
+    body.print-task .task-tools,body.print-task .task-close,body.print-task #taskBack,body.print-task .guide-head button,
+    body.print-task .task-map,body.print-task .task-checked a,body.print-task .guide-toc,body.print-task #guideBody,body.print-task .task-dl-set{display:none!important;} }
+  .task-caveat{margin:10px 0 0;padding:7px 10px;border-left:3px solid var(--line);font-size:11.5px;line-height:1.5;color:var(--sub-ink);}
+  .task-fb{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:11px;
+    font-size:11.5px;color:var(--sub-ink);}
+  .task-fb-b{font-family:inherit;font-size:11.5px;font-weight:600;cursor:pointer;
+    border:1px solid var(--line);border-radius:14px;padding:6px 12px;
+    background:var(--card);color:var(--accent-text);}
+  .task-fb-b:hover{border-color:var(--accent);}
+  .task-thanks{font-size:11.5px;color:var(--sage);font-weight:600;}
+  .task-local{margin:9px 0 0;font-size:10px;line-height:1.5;color:var(--sub-ink);}
+  @media(pointer:coarse){.task-tick,.task-fb-b{min-height:44px;}}
+  .task-src{margin:12px 0 0;font-size:11.5px;}
+  .task-src a{color:var(--accent-text);}
+  .task-checked{color:var(--sub-ink);margin-top:4px;}
+  @media(pointer:coarse){.task-card,.task-map,.task-back{min-height:44px;}}
+  .pn{color:var(--sub-ink);margin-top:5px;font-size:11.5px;}
+  .pr a[href^="tel:"],.pkv a[href^="tel:"]{color:var(--accent-text);text-decoration:none;font-weight:600;}
+  /* popup action row — Directions / Call / Website as three same-size buttons,
+     mirroring Google Maps' own place-card action bar rather than mixed link styles */
+  /* 2026-09-24: sticky. Leaflet gives a tall popup its own scrollbox, and these
+     three buttons sat at the bottom of it — below the fold in every popup the
+     audit measured. Sticky keeps them in view without covering anything: the row
+     is still in flow, so the last line of content is never hidden behind it. */
+  .pact{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:wrap;
+    position:sticky;bottom:0;z-index:2;background:var(--card);padding:9px 0 1px;
+    /* a shadow rather than a rule: the provenance line directly above ends with a
+       hairline of its own, and two parallel rules 20px apart read as a glitch */
+    box-shadow:0 -9px 10px -8px rgba(0,0,0,.10);}
+  .pact-btn{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;font-weight:600;padding:6px 10px;border-radius:14px;text-decoration:none;white-space:nowrap;background:var(--card);color:var(--accent-text);border:1px solid var(--line);}
+  .pact-btn.primary{background:var(--accent);color:#fff;border-color:var(--accent);}
+  .pact-ic{font-size:11.5px;line-height:1;}
+  .leaflet-container .pact-btn{color:var(--accent-text);}
+  .leaflet-container .pact-btn.primary{color:#fff;}
+@media(max-width:600px),(max-height:500px) and (orientation:landscape) and (max-width:900px){
+    h1,.sub{padding-right:0;}
+    .sub{font-size:11.5px;flex:1 1 100%;order:4;margin:0;}
+    /* relative (for the menu below it), but the desktop rule's top/right offsets must not apply here */
+    .lang-sw{position:relative;top:auto;right:auto;display:inline-flex;margin:0;background:none;padding:0;}
+    .lang-menu-btn{display:inline-flex;}
+    .lang-menu{display:none;position:absolute;top:calc(100% + 6px);left:0;z-index:1100;flex-direction:column;gap:2px;min-width:150px;padding:4px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 8px 28px rgba(0,0,0,.14),0 1px 2px rgba(0,0,0,.06);}
+    .lang-sw.open .lang-menu{display:flex;}
+    .lang-menu .lang-btn{text-align:left;justify-content:flex-start;padding:9px 12px;border-radius:10px;font-size:14px;}
+    .lang-sw.open .lang-menu-btn{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 8%,var(--card));}
+    .lang-menu .lang-btn.active{background:color-mix(in srgb,var(--accent) 12%,var(--card));color:var(--accent-text);box-shadow:none;}
+    /* wrap, not clip — a 4th link (Share) here should never be able to run off
+       the edge of a narrow phone the way a fixed nowrap row could. */
+    .header-links{position:static;display:inline-flex;flex-wrap:wrap;margin:0 0 0 auto;gap:8px 12px;justify-content:flex-end;}
+    /* Four labelled links no longer fit one row on a phone once translated (French/
+       Spanish run long). Rather than let the row wrap to two lines — which costs the
+       map real vertical space — every link drops its text here and keeps only its
+       icon; each icon is still distinct (🔗📖💬ℹ️) and the full name survives for
+       screen readers via aria-label. */
+    .header-links .hl-tx{display:none;}
+    /* P1-D: 📖 is the one icon here worth a visible name even at this width — see
+       the guideToggleShort UI key's own comment. A ::after avoids touching the hl-tx
+       machinery the other three links still rely on to stay icon-only. */
+    #guideToggle::after{content:attr(data-short);font-size:11.5px;font-weight:700;margin-left:3px;color:#fff;}
+    #helpBtn::after{content:attr(data-short);font-size:11.5px;font-weight:700;margin-left:3px;color:#a11;}
+    /* language switcher and the three utility links share one compact band, and
+       the title drops below them instead of each taking a row of its own */
+    header{padding:10px 12px 2px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;}
+    h1{font-size:17px;flex:1 1 100%;order:3;margin:2px 0 0;}
+    .search-bar{margin:8px 12px 0;padding:1px 12px;min-height:48px;}   /* 1+44+1 inside a 1px border = 48 */
+    .ftoolbar{padding:6px 12px 0;}
+    .qp-row{padding:6px 12px 0;}
+    .active-filters{padding:7px 12px 0;}
+    .fhint{padding:3px 12px 0;font-size:10px;line-height:1.2;}
+    .search-note{padding:5px 12px 0;}
+    .empty-state{margin:10px 12px 0;padding:14px 16px;}
+    .search-help{margin:8px 12px 0;padding:12px 14px;}
+    /* whatever is left after the chrome, with a floor so it is never a sliver */
+    #map{height:auto;flex:1 1 auto;min-height:min(58vh,420px);min-height:min(58dvh,420px);width:calc(100% - 24px);margin:10px 12px 0;}
+    body{min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;}
+    /* flex items default to min-width:auto, which let the horizontally-scrolling
+       quick-picks row stretch the page instead of scrolling inside itself */
+    body>*{min-width:0;}
+    footer{flex:0 0 auto;}
+    /* the "Quick Picks" caption costs a whole row on a phone; fold it into the
+       scrolling row itself */
+    .qp-head{display:none;}
+    /* the bleed margins have to track .qp-row's padding or the row overflows */
+    .preset-row{gap:6px;margin:0 -12px;padding-left:12px;padding-right:26px;scroll-padding-left:12px;}
+    .preset-chip{padding:7px 11px;font-size:11.5px;}
+    .qp-row::after{right:0;top:2px;bottom:2px;width:30px;}
+    .qp-row::before{right:5px;top:2px;bottom:2px;font-size:14px;}
+  }
+  @media(max-width:480px){
+    .ftoolbar{flex-wrap:wrap;row-gap:6px;}
+    /* the count and Reset share the second row: Reset alone cost a third */
+    /* 2026-09-13 audit: flex-basis 0 let the count squeeze into the 16px left
+       beside the four pills ("2…", "全") instead of wrapping to the second row
+       this comment describes; an auto basis wraps it when it does not fit. */
+    .status{order:2;flex:1 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .reset-btn{order:3;margin-left:auto;}
+  }
+  /* 2026-09-10: four pills + Reset wrapped to two rows on every 390px phone in
+     every language (Favourites alone on row two, 50px lost). Below 430px the
+     chevrons go — the pills already read as buttons — and the padding tightens. */
+  /* 320px phones: the tagline costs the map its floor share; one line there. */
+  @media(max-width:340px){.sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block;}}
+  @media(max-width:430px){.ftoolbar{gap:4px;}.filter-btn{padding:8px 7px;font-size:11.5px;gap:3px;}.filter-btn .chev{display:none;}.reset-btn{padding:6px 8px;}}
+  /* Short screens: the chrome above the map adds up. On a 320x568 phone the header,
+     search bar, toolbar (three rows once French wraps), quick picks and the hint left
+     the map starting at 387px — below the middle of the viewport. Raising the touch
+     targets to 44px made that worse, so the vertical rhythm is tightened here to pay
+     for it.
+     P0-C: this used to also drop the first-run hint outright, on the theory that
+     anyone on a screen this small had already gotten the point — but screen height
+     tracks a device's age and price, not the reader's familiarity with the page, so
+     that rule silently penalised exactly the people least likely to already know
+     how this works. The hint now only ever disappears because hintDismissed says
+     so (see refreshHint()); on a screen this tight it shows the hintShort key instead of
+     the longer default, which is what actually earns back the space this block is
+     tightening everything else for.
+     Targets stay at 44px: shrinking them back is not an acceptable trade. */
+  /* 2026-09-13: a phone held sideways (844x390) has 390px of height and got the
+     full portrait stack — the map began ~320px down, 70px visible. The tagline
+     and label rows go, the rhythm tightens, and the map takes what is left. */
+  @media(max-height:500px) and (orientation:landscape) and (max-width:900px){
+    .sub{display:none;}
+    header{padding-top:4px;padding-bottom:0;gap:4px 10px;}
+    /* the title shares the controls' row: language · title · links */
+    h1{font-size:14px;margin:0;flex:1 1 auto;order:0;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .lang-sw{order:-1;}.header-links{order:1;}
+    .fhint{display:none;}
+    .qp-row{padding-top:3px;}
+    .preset-chip{padding:6px 10px;}
+    .search-bar{margin-top:4px;}
+    .ftoolbar{padding-top:5px;row-gap:4px;}
+    .qp-row{padding-top:4px;}
+    .qp-head{display:none;}
+    .status{order:2;flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .reset-btn{order:3;margin-left:0;}
+    #map{margin-top:5px;min-height:min(72vh,420px);min-height:min(72dvh,420px);}
+  }
+  @media(max-height:680px) and (max-width:600px){
+    header{padding-top:6px;padding-bottom:0;gap:6px 10px;}
+    h1{font-size:14px;margin-top:0;}
+    .search-bar{margin-top:6px;}
+    .ftoolbar{padding-top:8px;row-gap:5px;}
+    .qp-row{padding-top:5px;}
+    /* The count shared a row with nothing else and cost a whole line. Let it sit
+       beside Reset and truncate rather than wrap — the Area button already shows
+       which regions are on, so the tail of this sentence is the least useful pixel
+       on the screen. */
+    .status{order:2;flex:0 1 auto;min-width:0;white-space:nowrap;overflow:hidden;
+      text-overflow:ellipsis;}
+    .reset-btn{order:3;margin-left:0;}
+    #map{margin-top:6px;}
+    /* Touch targets step down from 44px to 36px here — still half again WCAG 2.5.8's
+       24px floor. On a 320x568 screen, honouring Apple's 44pt across four rows of
+       chrome pushed the map to 409px, leaving a quarter of the viewport for the thing
+       the page exists to show. That is the guideline working against its own purpose. */
+    @media(pointer:coarse){
+      .lang-btn,.header-links a,.filter-btn,.reset-btn,.preset-chip,.reg-btn,
+      .cat-btn,.note-toggle,.cat-util-btn,.af-chip{min-height:36px;}
+      .lang-btn{min-width:36px;}
+      .lang-menu-btn{min-height:36px;min-width:36px;}
+      .panel-close,.offline-x,.fav-star{min-width:40px;min-height:40px;}
+      .footer-note-btn{min-height:36px;min-width:36px;}
+      .search-clear{min-width:36px;min-height:36px;}
+      .search-bar{padding-top:3px;padding-bottom:3px;}
+    }
+  }
+
+  /* 2026-09-11: color-mix() is unsupported on iOS 15–16.1 and Chrome < 111,
+     where the whole declaration is dropped and chips lose their fills and
+     borders. These are the same colours, pre-mixed, applied only there.
+     Generated from the rules above — regenerate rather than hand-edit. */
+  @supports not (background: color-mix(in srgb, red 50%, blue)){
+  .filter-btn{border:1px solid #82a8da;}
+  .filter-btn:hover{background:#ebf3fd;}
+  .filter-btn.open{background:#e2edfb;}
+  .reset-btn{border:1px solid rgba(11,107,224,0.30);}
+  .reset-btn:hover{background:rgba(11,107,224,0.08);}
+  .guide-progress{background:#eef5fd;border:1px solid rgba(11,107,224,0.22);}
+  .guide-progress .gp-bar{background:rgba(11,107,224,0.18);}
+  .af-chip{background:#e9f2fc;border:1px solid rgba(11,107,224,0.22);}
+  .af-chip.af-route{background:#d8e7fa;}
+  .af-chip .x{background:rgba(11,107,224,0.16);}
+  .reg-btn{border:1px solid rgba(11,107,224,0.25);background:#eef5fd;}
+  .preset-chip:hover{border-color:#90b59f;}
+  .preset-chip.active{background:#ddeafb;border-color:#6499dc;}
+  .grp-check{border:1.5px solid #96969b;}
+  .grp-check.partial{background:#80b992;}
+  .pv-task{background:#e9f2fc;border:1px solid rgba(11,107,224,0.22);}
+  .panel-handle{background:#a4a4a9;}
+  .bus-indicator .x:hover{background:rgba(11,107,224,0.14);}
+  .bus-item.active{background:#e7f0fc;}
+  .search-bar:focus-within{box-shadow:0 0 0 3px rgba(11,107,224,0.18);}
+  .leaflet-tooltip.landmark-label{border:1px solid rgba(11,107,224,0.30);}
+  .fav-io-btn{border:1px solid rgba(11,107,224,0.30);}
+  .fav-io-btn:hover{background:rgba(11,107,224,0.08);}
+  .pv-more:hover{background:rgba(11,107,224,0.08);}
+  .empty-btn.empty-guide{border:1px solid rgba(11,107,224,0.35);}
+  button.pv-more-t{background:#e7f0fc;border:1px solid rgba(11,107,224,0.25);}
+  .task-card:hover{background:#f5f9fe;}
+  .task-done-b{background:#e3f0e7;}
+  .task-tick{border:1px solid rgba(24,128,56,0.40);}
+  .task-tick:hover{background:rgba(24,128,56,0.08);}
+  .task-stuck-exit{background:#ebf3fd;}
+  .task-tool:hover{background:rgba(11,107,224,0.08);}
+  .task-arrive{background:#f0f6fd;}
+  .cat-btn{border:1px solid currentColor;background:var(--card);}
+  }

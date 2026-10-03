@@ -24,22 +24,24 @@ def _project_root(p):
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(HERE, 'src')
+sys.path.insert(0, HERE)
+import kamdata
 MARKER = '/*__CITY_DATA__*/'
 META_MARKER = '/*__CITY_META__*/'
 
 
 def build(city, out_path=None, inline_libs=True, sync_public=True):
-    engine_path = os.path.join(SRC, 'engine.html')
     data_path = os.path.join(SRC, 'data-%s.js' % city)
-    for p in (engine_path, data_path):
-        if not os.path.exists(p):
-            sys.exit('missing %s' % p)
+    if not os.path.exists(data_path):
+        sys.exit('missing %s' % data_path)
 
-    engine = open(engine_path, encoding='utf-8').read()
+    # 2026-10-03 (multi-city phase 2): the engine is split into app/engine/*,
+    # concatenated in the order of app/engine/parts.txt.
+    engine = kamdata.engine_text()
     data = open(data_path, encoding='utf-8').read()
 
     if MARKER not in engine:
-        sys.exit('engine.html has lost its %s marker' % MARKER)
+        sys.exit('the engine (app/engine/) has lost its %s marker' % MARKER)
     html = engine.replace(MARKER, data, 1)
 
     # 2026-10-03 (multi-city phase 1): build-time city settings — page title,
@@ -53,7 +55,7 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
         if k not in meta:
             sys.exit('%s: missing "%s"' % (meta_path, k))
     if META_MARKER not in html:
-        sys.exit('engine.html has lost its %s marker' % META_MARKER)
+        sys.exit('the engine (app/engine/) has lost its %s marker' % META_MARKER)
     html = html.replace(META_MARKER, json.dumps(meta, ensure_ascii=False), 1)
     for ph, val in (('{{CITY_TITLE}}', meta['title']),
                     ('{{CITY_DESC}}', meta['description']),

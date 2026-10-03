@@ -6,4 +6,4 @@ build.py 把这些库内联进产物，地图在没有网络时也能显示。�
 - leaflet-1.9.4/leaflet.css, leaflet.js ← cdnjs leaflet/1.9.4/leaflet.min.{css,js}
 - leaflet.markercluster-1.5.3/leaflet.markercluster.js ← cdnjs leaflet.markercluster/1.5.3/leaflet.markercluster.min.js
 
-升级版本：换文件、改目录名，同时改 build.py 和 src/engine.html 里的 CDN 地址。
+升级版本：换文件、改目录名，同时改 build.py 和 app/engine/ 里的 CDN 地址。
