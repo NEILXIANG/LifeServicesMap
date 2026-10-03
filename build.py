@@ -84,11 +84,11 @@ def inline_dependencies(html):
     """
     libs = [
         ('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css',
-         'node_modules/leaflet/dist/leaflet.css', 'css'),
+         'vendor/leaflet-1.9.4/leaflet.css', 'css'),
         ('https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js',
-         'node_modules/leaflet/dist/leaflet.js', 'js'),
+         'vendor/leaflet-1.9.4/leaflet.js', 'js'),
         ('https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js',
-         'node_modules/leaflet.markercluster/dist/leaflet.markercluster.js', 'js'),
+         'vendor/leaflet.markercluster-1.5.3/leaflet.markercluster.js', 'js'),
     ]
     for url, local, kind in libs:
         path = os.path.join(HERE, local)

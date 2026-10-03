@@ -94,7 +94,9 @@ async def main():
         # ---- season_shown: once per page load
         # fresh page load: nothing about the season has been rendered yet
         await pg.reload(); await pg.wait_for_timeout(1300)
-        await pg.evaluate("()=>{_iso='2026-09-22';_isoAt=Date.now()+1e9;localStorage.removeItem('kamloopsSeason_wildfire_2026');localStorage.setItem('kamloopsFirstUseSeen','1');document.getElementById('firstUse').hidden=true;renderSeason();renderSeason();setLang('fr');setLang('en');}")
+        # 2026-10-03: the load itself renders the season for the real date (from October
+        # that adds 'winter'); drop those events so only the pinned date is measured.
+        await pg.evaluate("()=>{_evBuf.length=0;_iso='2026-09-22';_isoAt=Date.now()+1e9;localStorage.removeItem('kamloopsSeason_wildfire_2026');localStorage.setItem('kamloopsFirstUseSeen','1');document.getElementById('firstUse').hidden=true;renderSeason();renderSeason();setLang('fr');setLang('en');}")
         e = await ev('season_shown')
         check('season_shown is sent once, not on every re-render', e == [{'id': 'wildfire'}], e)
 

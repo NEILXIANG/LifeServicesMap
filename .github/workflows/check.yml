@@ -1,0 +1,21 @@
+# 每次推送 / PR：构建 + 静态校验 + 构建产物与入库的 public/index.html 一致性。
+# 浏览器测试（tests/）耗时较长，阶段 3 整理完后再接入。
+name: check
+on:
+  push:
+  pull_request:
+jobs:
+  build-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.12' }
+      - uses: actions/setup-node@v4   # validate.py 用 node --check 检查脚本语法
+        with: { node-version: '22' }
+      - name: Build
+        run: python3 build.py --city kamloops
+      - name: Validate
+        run: python3 scripts/validate.py build/kamloops.html
+      - name: public/index.html 必须与构建结果一致
+        run: git diff --exit-code --stat public/index.html

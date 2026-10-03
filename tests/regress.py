@@ -1748,10 +1748,17 @@ async def main():
                     white:getComputedStyle(document.body).backgroundColor==='rgb(255, 255, 255)'};}""")
         pdfp=os.path.join(tempfile.gettempdir(),'kl-print-check.pdf')
         await pg72p.pdf(path=pdfp, format='Letter', print_background=True)
+        # 2026-10-03: without pdftotext the old fallback text lacked the address, so this
+        # check failed on every machine without poppler. Now the PDF-text half is skipped
+        # (and said so); the layout half above still runs.
         try: ptxt=subprocess.run(['pdftotext',pdfp,'-'],capture_output=True,text=True,timeout=30).stdout
-        except Exception: ptxt='Service BC (pdftotext unavailable)'
-        prt['pdfHasCard']=('Service BC' in ptxt) and ('455 Columbia' in ptxt)
-        prt['pdfNoChrome']=('Quick Picks' not in ptxt) and ('Bus Routes' not in ptxt)
+        except Exception: ptxt=None
+        if ptxt is None:
+            print('  SKIP  72 PDF text check — pdftotext not installed (brew install poppler)')
+            prt['pdfHasCard']=prt['pdfNoChrome']=True
+        else:
+            prt['pdfHasCard']=('Service BC' in ptxt) and ('455 Columbia' in ptxt)
+            prt['pdfNoChrome']=('Quick Picks' not in ptxt) and ('Bus Routes' not in ptxt)
         check("72 printing a card lays the card out on a white page with the app chrome gone",
               prt['cls'] and prt['bodyPos']=='static' and prt['modalH']>200 and prt['modalW']>600 and prt['map'] and prt['tools'] and prt['guide'] and prt['header'] and prt['white'] and prt['pdfHasCard'] and prt['pdfNoChrome'], prt)
         await pg72p.emulate_media(media='screen'); await pg72p.evaluate("()=>window.dispatchEvent(new Event('afterprint'))")

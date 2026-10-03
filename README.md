@@ -5,51 +5,61 @@ Everything except the map background works with no network at all.
 
 ## Files
 
-| File | What it is |
+| Path | What it is |
 |---|---|
-| `kamloops.html` | **The deliverable.** Built — do not hand-edit. |
-| `src/engine.html` | The reusable engine. No city facts in it. |
+| `build/kamloops.html` | **The deliverable.** Built — do not hand-edit. `public/index.html` is a byte-identical copy that Cloudflare serves. |
+| `src/engine.html` | The reusable engine. No city facts in it (work in progress — see the multi-city plan). |
 | `src/data-kamloops.js` | Everything specific to Kamloops. |
-| `build.py` | Merges the two into `kamloops.html`. |
-| `validate.py` | Static invariants. Run after every edit. |
-| `regress.py` | 114 browser checks. Needs Playwright. |
-| `export-open.py` | Writes out the freely-licensable subset of the data. |
-| `check-links.py` | Checks the 150 external websites still resolve (needs a network). |
+| `build.py` | Merges the two (plus `vendor/` libraries) into one self-contained HTML file. |
+| `vendor/` | Leaflet and MarkerCluster, inlined so the map works offline. |
+| `scripts/check-all.sh` | Build + every check in one command. |
+| `scripts/validate.py` | Static invariants. Run after every edit. |
+| `tests/regress.py`, `tests/phase*test.py` | Browser checks. Need Playwright. |
+| `scripts/export-open.py` | Writes out the freely-licensable subset of the data. |
+| `scripts/check-links.py` | Checks the external websites still resolve (needs a network). |
+| `scripts/monthly-quality-check.sh` | Stale POIs plus the link check. |
+| `scripts/analytics/` | Export and analyse visit events from Cloudflare Analytics Engine. |
+| `deploy.sh`, `worker.js`, `wrangler.toml` | Deployment (Cloudflare Workers). |
 | `docs/guides/DATA-SCHEMA.md` | The data format, and how to add a city. |
-| `CHANGELOG.md` | What changed, and when. Maintained here — the page itself no longer shows a change log. |
-| `tools/` | `monthly-quality-check.sh` — stale POIs plus the link check. |
-| `docs/archive/` | Point-in-time analyses, superseded handbooks and one-off checklists. Not current state — see its README. |
+| `docs/plans/` | Current plans, including the multi-city plan and its decision log. |
+| `CHANGELOG.md` | What changed, and when. |
+| `docs/archive/` | Point-in-time analyses and superseded handbooks. Not current state. |
+
+Outreach material and finished PDFs live outside the repository, in
+`../Guide to Life in Canada - ops/` (decision D4, 2026-10-03).
 
 ## Everyday use
 
 ```sh
-python3 build.py --out "Kamloops生活服务地图.html"   # rebuild from src/
-python3 validate.py                                # ~150 static checks, a second
+python3 build.py                       # -> build/kamloops.html (+ public/index.html)
+python3 scripts/validate.py            # ~150 static checks, a second
+./scripts/check-all.sh --quick         # both of the above
+./scripts/check-all.sh                 # plus every browser test
 ```
 
 Edit `src/`, never the built HTML — a rebuild overwrites it.
 
-`validate.py` and `regress.py` take the built file as an optional argument; with no
-argument they use `kamloops.html`, or the only `.html` sitting beside them, so the
-renamed copy in this folder works either way.
-
-## Running the browser tests (optional)
-
-`validate.py` needs nothing but Python. `regress.py` additionally needs a browser:
+## Running the browser tests
 
 ```sh
-pip3 install playwright
-python3 -m playwright install chromium
-python3 regress.py
+python3 -m venv .venv
+.venv/bin/pip install playwright
+.venv/bin/python -m playwright install chromium
+./scripts/check-all.sh
 ```
 
-It regenerates its own fixtures from `kamloops.html`, so build first. It takes
-about five minutes and prints one line per check.
+## Deploying
+
+```sh
+npm install        # once: installs the pinned wrangler into node_modules/
+./deploy.sh        # build -> validate -> deploy -> live probes
+./deploy.sh --verify-only
+```
 
 ## Which part of the data can you give away?
 
 ```sh
-python3 export-open.py --csv
+python3 scripts/export-open.py --csv
 ```
 
 Writes `open-subset.json` (and `.csv`) containing only records whose `src` is

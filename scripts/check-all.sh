@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# check-all.sh — 构建 + 全部检查，一条命令。多城市改造期间每一步都用它对照基线。
+#
+#   ./scripts/check-all.sh            # 构建 + validate + 全部浏览器测试
+#   ./scripts/check-all.sh --quick    # 只构建 + validate（不需要 Playwright）
+#
+# 浏览器测试需要 Playwright。优先用项目内的 .venv（见 CLAUDE.md），没有就用系统 python3。
+# 输出：每个测试一行 PASS/FAIL 汇总；任何一项失败，退出码非 0。
+set -uo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+PY=python3
+[[ -x "$ROOT/.venv/bin/python" ]] && PY="$ROOT/.venv/bin/python"
+QUICK=0; [[ "${1:-}" == "--quick" ]] && QUICK=1
+LOGDIR="$(mktemp -d -t check-all.XXXXXX)"
+FAILED=()
+
+run() {  # run <名字> <命令...>
+  local name="$1"; shift
+  if "$@" >"$LOGDIR/$name.log" 2>&1; then
+    printf '  PASS  %s\n' "$name"
+  else
+    printf '  FAIL  %s   (日志：%s)\n' "$name" "$LOGDIR/$name.log"
+    FAILED+=("$name")
+  fi
+}
+
+echo "▸ 构建"
+python3 build.py --city kamloops >"$LOGDIR/build.log" 2>&1 || { cat "$LOGDIR/build.log"; exit 1; }
+echo "  md5  $(md5 -q build/kamloops.html 2>/dev/null || md5sum build/kamloops.html | cut -d' ' -f1)"
+echo "  $(grep -oE "DATA_VERSION='[^']+'" build/kamloops.html | head -1)"
+
+echo "▸ 静态校验"
+run validate python3 scripts/validate.py build/kamloops.html
+
+if [[ $QUICK -eq 0 ]]; then
+  if ! "$PY" -c 'import playwright' 2>/dev/null; then
+    echo "✗ 没有 Playwright，跑不了浏览器测试（见 CLAUDE.md 的安装步骤，或加 --quick）"; exit 1
+  fi
+  echo "▸ 浏览器测试（$PY）"
+  run regress "$PY" tests/regress.py build/kamloops.html
+  for t in tests/phase*test.py tests/audit*.py tests/soci2.py tests/tasktest.py; do
+    [[ -f "$t" ]] || continue
+    run "$(basename "$t" .py)" "$PY" "$t"
+  done
+fi
+
+echo
+if [[ ${#FAILED[@]} -eq 0 ]]; then
+  echo "✓ 全部通过"
+else
+  echo "✗ ${#FAILED[@]} 项失败：${FAILED[*]}"
+  exit 1
+fi

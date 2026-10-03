@@ -66,23 +66,20 @@ done
 now_ms() {
   python3 -c 'import time;print(int(time.time()*1000))'
 }
-# Wrangler lives in the managed Node workspace so it never pollutes the global
-# node_modules and never has to be re-downloaded. If it is missing (first run
-# after a fresh clone) we fall back to `npx -y wrangler`, which downloads it
-# into the npm cache transparently.
-WRANGLER_BIN="/Users/neilxiang/.workbuddy/binaries/node/workspace/node_modules/.bin/wrangler"
-if [[ -x "$WRANGLER_BIN" ]]; then
-  WRANGLER_CMD() { "$WRANGLER_BIN" "$@"; }
+# Wrangler 版本锁在 package.json 里（2026-10-03 起），`npm install` 装到本项目的
+# node_modules/。查找顺序：项目内 → PATH 上的 wrangler → npx 临时下载。
+# 不再写死任何本机路径，换电脑、换人都能直接跑。
+LOCAL_WRANGLER="${PROJECT_ROOT}/node_modules/.bin/wrangler"
+if [[ -x "$LOCAL_WRANGLER" ]]; then
+  WRANGLER_CMD() { "$LOCAL_WRANGLER" "$@"; }
+elif command -v wrangler >/dev/null 2>&1; then
+  warn "项目内没有 wrangler（先跑 npm install），改用 PATH 上的 $(command -v wrangler)"
+  WRANGLER_CMD() { wrangler "$@"; }
+elif command -v npx >/dev/null 2>&1; then
+  warn "项目内没有 wrangler（先跑 npm install），将通过 npx 下载（约 30s）"
+  WRANGLER_CMD() { npx -y wrangler "$@"; }
 else
-  warn "本地 wrangler 不在 ${WRANGLER_BIN}，将通过 npx 下载（约 30s）"
-  # npx 也按「先用固定路径、找不到就走 PATH」来解析：Node 升级或换机器后
-  # 版本号目录会变，写死路径会让兜底本身失效。
-  NPX_BIN="/Users/neilxiang/.workbuddy/binaries/node/versions/22.22.2-2/bin/npx"
-  [[ -x "$NPX_BIN" ]] || NPX_BIN="$(command -v npx || true)"
-  if [[ -z "$NPX_BIN" ]]; then
-    fail "既找不到 wrangler，也找不到 npx；请先装 Node，或把 wrangler 放回 ${WRANGLER_BIN}"
-  fi
-  WRANGLER_CMD() { "$NPX_BIN" -y wrangler "$@"; }
+  fail "找不到 wrangler 也找不到 npx；请先装 Node，然后在项目目录跑 npm install"
 fi
 
 # ---- verify-only / login-only 快捷路径 -------------------------------------

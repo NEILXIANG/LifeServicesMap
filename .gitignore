@@ -67,3 +67,4 @@ __pycache__/
 /docs/outreach/
 /docs/public/
 /Claude outputs/
+.venv/
