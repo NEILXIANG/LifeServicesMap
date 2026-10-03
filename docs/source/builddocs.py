@@ -13,7 +13,7 @@ builddocs.py — 从 content/*.txt 重新生成 docs/for-the-city 下的说明�
     python3 docs/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
     python3 docs/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
 
-输出目录：docs/public/YYYY-MM-DD，同一天的第二批自动变成 …-DDb、…-DDc，
+输出目录：<运营资料目录>/public/YYYY-MM-DD（默认是仓库同级的 "<仓库名> - ops"），同一天的第二批自动变成 …-DDb、…-DDc，
 从不覆盖已有目录。
 
 依赖：playwright（仅 PDF 步骤需要）。没有它时用 --html-only，再自己在浏览器里打印。
@@ -32,7 +32,11 @@ ROOT = kamdata.ROOT
 CONTENT = os.path.join(HERE, 'content')
 ASSETS = os.path.join(HERE, 'assets')
 BUILDDIR = os.path.join(HERE, '_build')      # 中间产物 HTML，不进对外目录
-PUBDIR = os.path.join(ROOT, 'docs', 'public')
+# 2026-10-03（决策 D4）：对外成品移出代码仓库，放到同级的运营资料目录。
+# 可用环境变量 LIFEGUIDE_OPS 指向别处（比如 iCloud 里的文件夹）。
+OPS_DIR = os.environ.get('LIFEGUIDE_OPS') or os.path.join(
+    os.path.dirname(ROOT), os.path.basename(ROOT) + ' - ops')
+PUBDIR = os.path.join(OPS_DIR, 'public')
 
 def today():
     return kamdata.today().isoformat()     # 按 Kamloops 当地日期，见 kamdata.today

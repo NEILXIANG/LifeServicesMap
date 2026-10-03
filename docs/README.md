@@ -1,5 +1,10 @@
 # 文档总索引
 
+> **2026-10-03 起（决策 D4）：** `public/`（对外成品 PDF）和 `outreach/`（外联名单、邮件、素材），
+> 以及根目录的 `outreach-emails-docx/`，已移到仓库外的同级目录 `../Guide to Life in Canada - ops/`。
+> 下文提到的 `public/`、`outreach/` 都指那个目录。`builddocs.py` 默认输出到那里，
+> 也可用环境变量 `LIFEGUIDE_OPS` 指定别的位置。见 `docs/plans/2026-10-03-多城市工程化计划.md`。
+
 这个项目的文档过去散在六个地方（根目录、archive/、data/、Claude outputs/、docs/、facebook-推广/），
 共 50 多份，找一份要翻半天。2026-09-16 统一收拢到 `docs/` 下，规则如下。
 

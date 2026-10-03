@@ -60,6 +60,10 @@ flyers/mapart-preview.svg
 /data/check-links-*.json
 /data/check-links-*.log
 __pycache__/
-/docs/public/2026-09-14/
-/docs/public/2026-09-16/
-/docs/outreach/attachments/
+
+# 2026-10-03（决策 D4）：运营资料移出仓库，放在同级目录 "../Guide to Life in Canada - ops/"。
+# 这里再排除一次，防止误放回来被提交（外联邮件含联系人姓名和邮箱）。
+/outreach-emails-docx/
+/docs/outreach/
+/docs/public/
+/Claude outputs/
