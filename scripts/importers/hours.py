@@ -35,7 +35,7 @@ def _minutes(m):
 def _days(txt):
     """'Monday to Friday' / 'Mon-Fri' / 'Mon, Wed & Fri' / 'Daily' / 'Weekdays' -> sorted day list."""
     t = txt.lower().strip(' :,;')
-    if re.fullmatch(r'(daily|every day|7 days a week|seven days a week|open daily|all week)', t): return list(range(1, 8))
+    if re.fullmatch(r'(daily|every ?day|everyday|7 days a week|seven days a week|open daily|all week|monday to sunday)', t): return list(range(1, 8))
     if re.fullmatch(r'weekdays?', t): return [1, 2, 3, 4, 5]
     if re.fullmatch(r'weekends?', t): return [6, 7]
     m = re.fullmatch(DAY_RE + r'\s*(?:-|–|—|to|through|thru)\s*' + DAY_RE, t)
@@ -61,14 +61,16 @@ def _ranges(days):
 def parse_hours(text):
     if not text: return None
     t = re.sub(r'\s+', ' ', text).strip()
-    t = re.sub(r'^(store|clinic|office|opening|open|regular|hours of operation|hours)\s*hours?\s*:?\s*', '', t, flags=re.I)
+    t = re.sub(r'^(store|clinic|office|opening|open|regular|operating|hours of operation|hours)\s*hours?\s*:?\s*', '', t, flags=re.I)
     # open around the clock (shelters, some pharmacies): the engine's own 24-hour flag
-    if re.fullmatch(r'(?:open\s+)?(?:24/7|24 hours(?: a day)?,? 7 days a week|7 days a week,? 24 hours a day|24 hours,? daily)[.;]?(?:\s.*)?', t, re.I) \
+    if re.fullmatch(r'(?:[A-Za-z ]{0,30}hours\s*:\s*)?(?:open\s+)?(?:24/7|24 hours(?: a day)?,? 7 days a week|7 days a week,? 24 hours a day|24 hours,? daily|daily:? 24 hours)[.;]?(?:\s.*)?', t, re.I) \
             and not re.search(r'except|closed|season', t, re.I):
         return {'a': 1}
     # "(closed statutory holidays)", "excluding statutory holidays": holidays are the engine's job
     t = re.sub(r'\(?[,;]?\s*(?:closed|excluding|except)\s+(?:on\s+)?(?:all\s+)?stat(?:utory)?\s+holidays\)?', '', t, flags=re.I)
     t = re.sub(r'\s*PT\b|\s*Pacific Time', '', t)
+    t = re.sub(r',?\s*(?:including|incl\.?)\s+(?:on\s+)?(?:all\s+)?stat(?:utory)?\s+holidays', '', t, flags=re.I)
+    t = re.sub(r'\bfrom\s+(?=\d)', '', t, flags=re.I)
     appt = bool(re.search(r'appointment', t, re.I))
     # statutory holidays are the engine's job (CITY.holidays -> "unknown"), so "Sunday & Holidays" is just Sunday
     t = re.sub(r'\s*(?:&|and|/)\s*(?:stat(?:utory)?\s+)?holidays?\b', '', t, flags=re.I)
@@ -78,7 +80,11 @@ def parse_hours(text):
     # a sentence break, but not the dot of "A.M. To"
     segs = [s.strip(' .') for s in re.split(r';|(?<![aApP]\.[mM])\.\s+(?=[A-Z])|\n', t) if s.strip(' .')]
     rows, seen = [], set()
+    DAYSTART = r'(?=(?:mon|tue|wed|thu|fri|sat|sun|daily|every ?day|weekday|weekend|7 days))'
     for seg in segs:
+        lab = re.match(r'^([A-Za-z][A-Za-z &/]{2,40}?)\s*:\s*' + DAYSTART, seg, re.I)
+        if lab and not re.fullmatch(DAY_RE + r'(?:\s*(?:-|–|to|&|and|,)\s*' + DAY_RE + r')*', lab.group(1).strip(), re.I):
+            seg = seg[lab.end():]
         if re.search(r'\bclosed\b', seg, re.I) and not re.search(r'\d', seg):
             continue                                   # "Sunday: Closed" — absent days are closed anyway
         # time first, days after: "8:30am - 4:30pm Monday to Friday" -> days first
@@ -169,6 +175,15 @@ if __name__ == '__main__':
      'Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.': None,
      'Mon – Fri, 8:30am – 12:00pm & 1:00pm – 4:30pm': {'r': [[1, 5, 510, 720, 0], [1, 5, 780, 990, 0]]},
      'Monday - Friday 8:30 am - 4:30 pm (closed statutory holidays).': {'r': [[1, 5, 510, 990, 0]]},
+     'Store and Pharmacy: Monday to Sunday 8:00 AM - 10:00 PM': {'r': [[1, 7, 480, 1320, 0]]},
+     'Monday to Sunday: 9:30 a.m. to 8:30 p.m. including statutory holidays.': {'r': [[1, 7, 570, 1230, 0]]},
+     'Monday to Friday from 8:30 am to 4:00 pm': {'r': [[1, 5, 510, 960, 0]]},
+     'General services: Monday to Friday 9:00 am to 4:30 pm': {'r': [[1, 5, 540, 990, 0]]},
+     'Everyday 7AM to 10PM': {'r': [[1, 7, 420, 1320, 0]]},
+     'Operating Hours: 7 days a week, 24 hours a day.': {'a': 1},
+     'Emergency Hours: Daily: 24 hours. Visiting Hours: Daily: 24 hours': {'a': 1},
+     'Shopping: Mon – Sat, 10 AM – 5 PM; Sunday Closed': {'r': [[1, 6, 600, 1020, 0]]},
+     'Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm': None,
     }
     svc = {
      "Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m. (with Children's Liturgy), 7:00 p.m.; Weekdays (Mon-Fri): 8:30 a.m.":

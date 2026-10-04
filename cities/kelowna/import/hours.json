@@ -1,1 +1,534 @@
-{}
+{
+ "0259da40": {
+  "fetched": "2026-10-04",
+  "hours_text": "Shop hours: Monday 10:00am - 5:00pm; Tuesday 10:00am - 5:00pm; Wednesday 10:00am - 5:00pm; Thursday 10:00am - 5:00pm; Friday 10:00am - 5:00pm; Saturday 10:00am - 5:00pm; Sunday Closed",
+  "notes": "Donation hours: Monday - Saturday 10:00am- 3:30pm; Sunday Closed. Holiday closures listed on page: March 29, March 31, April 1 (Easter-period dates, possibly from a past year).",
+  "services_text": null,
+  "source_url": "https://mccthrift.com/kelowna-mcc-thrift-shop"
+ },
+ "0324a6a4": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Monday: 'Closed - Church is Open' (no Mass). Korean Catholic Community time is from https://spxbc.com/our-history/ (parish groups list); this DIFFERS from our file ('each Saturday at 11:00 a.m., Rev. Fr. Mulvihill Room') - use the current site text.",
+  "services_text": "Saturday: 4:00 pm; Sunday: 8:30 am, 11:30 am & 6:00 pm; Tuesday through Friday: Rosary 8:30, Mass 9:00 am; Adoration/ Benediction: Every Friday 9:35 am to 10:00 am; Confession: Saturdays at 3:00 pm or by appointment. Korean Catholic Community: Every third Sunday of the month at 12:30 pm in the Fr. Martin Room.",
+  "source_url": "https://spxbc.com/"
+ },
+ "042ee9a9": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Services are on 'scheduled' Saturdays/Sundays only (see parish calendar), not every week. 'Please note, the office is open by appointment only.' Light lunch in the Parish Hall after each Sunday Divine Liturgy (not July/August).",
+  "services_text": "5:30 PM Vespers on scheduled Saturdays; 9:30 AM Divine Liturgy on scheduled Sundays; 9:30 AM Divine Liturgy on scheduled Feast Days or Weekdays; Confession from 9:00-9:30 AM before all Liturgies, after Vespers or by appointment",
+  "source_url": "https://www.stspeterandpaulkelowna.com/calendar"
+ },
+ "0b69860a": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store Hours: Monday to Saturday: 9:30 AM – 5:00 PM",
+  "notes": "Donation Centre Hours: Monday to Saturday: 9:30 AM – 4:00 PM. Sunday not listed (closed). Phone 778-755-4346 ext 204.",
+  "services_text": null,
+  "source_url": "https://www.habitatforhumanityokanagan.ca/restore/"
+ },
+ "124180e9": {
+  "fetched": "2026-10-04",
+  "hours_text": "PUBLIC HOURS: Thursday – Saturday 12:00am – 5:00pm; Sunday – Wednesday Closed",
+  "notes": "Copied verbatim; '12:00am' is almost certainly a typo on the museum's page for 12:00pm (noon). Admission by donation.",
+  "services_text": null,
+  "source_url": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ "19a2e8f6": {
+  "fetched": "2026-10-04",
+  "hours_text": "Thursday Morning Tax Clinic runs from 9am to 12noon each Thursday",
+  "notes": "Text taken from a search-engine quote of the church's own Thursday Tax Clinic page, which now returns 404 (could not re-open it). Season/date range not confirmed from the church site (our file has 2026-09-24 to 2026-12-17, likely from the CRA clinic list). If the clinic is full for the day a sign is placed on the door before noon; enter from the parking lot behind the church. Church office: 'Mon - Thurs 9am - 12noon'.",
+  "services_text": null,
+  "source_url": "https://centralokanaganunitedchurch.com/thursday-tax-clinic/"
+ },
+ "1ceef85e": {
+  "fetched": "2026-10-04",
+  "hours_text": "Office Hours: Monday - Friday 8:30 am - 4:30 pm",
+  "notes": "KCR office hours (applies to all KCR locations incl. Immigrant Services at 618 & 654 Bernard Ave). Closed on Stat Holidays. Holiday closure listed: Dec 25 - Jan 1 (reopening Jan 2). Programme pages (Job Club, conversation circles, youth) have their own schedules.",
+  "services_text": null,
+  "source_url": "https://kcr.ca/about-us/contact-us/"
+ },
+ "264e4d24": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m.",
+  "notes": "Closed on weekends and all statutory holidays. Childhood immunizations and early childhood health assessments: every second and fourth Wednesday from 8:30 a.m. to 6:15 p.m. Mainly by appointment; some drop-in availability depending on need and staffing.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/rutland-health-centre"
+ },
+ "2aa81ec9": {
+  "fetched": "2026-10-04",
+  "hours_text": "Operating Hours: 7 days a week, 24 hours a day.",
+  "notes": "Registration: 'In person registration takes place at 10am, 4pm, and 9pm and is on a first come, first serve basis.' Info: 778-212-1401.",
+  "services_text": null,
+  "source_url": "https://turningpoints.ngo/continuum-of-care/shelter"
+ },
+ "3143e19f": {
+  "fetched": "2026-10-04",
+  "hours_text": "General services: Monday to Friday 8:00 am to 4:30 pm",
+  "notes": "Front-counter hours. Call 911 for emergencies at any time.",
+  "services_text": null,
+  "source_url": "https://rcmp.ca/en/bc/west-kelowna/contact"
+ },
+ "33c1c94c": {
+  "fetched": "2026-10-04",
+  "hours_text": "Hours: Everyday 8AM - 9PM",
+  "notes": "",
+  "services_text": null,
+  "source_url": "https://www.kelownasunshinemarket.ca/"
+ },
+ "35324abd": {
+  "fetched": "2026-10-04",
+  "hours_text": "Services are available Monday-Friday, 9:00 am – 3:00 pm.",
+  "notes": "'Please check our Calendar for drop-in times and group activities, or, call, text or email for more information.'",
+  "services_text": null,
+  "source_url": "https://cofh.ca/"
+ },
+ "36cfbf1f": {
+  "fetched": "2026-10-04",
+  "hours_text": "Classes are on: Monday, Tuesday, Wednesday 9am to 11:30am (No class on statutory holidays)",
+  "notes": "Class schedule (this listing is the ESL programme). Fall semester 2026: September 14 – December 9, 2026 (page says 'CLASS IS FULL'; waitlist via esl@evangelkelowna.com). Christmas break December 10 – January 3, 2027; 2027 semester January 4 – May 19, 2027; spring break March 15 – 25, 2027; summer break June to August. Church footer: 'Facility Hours M-F 7am-9pm | Sat-sun 7am-3pm | Office hours m-th 9:30am-2:30pm'; Sunday services begin at 10am.",
+  "services_text": null,
+  "source_url": "https://evangelkelowna.com/esl"
+ },
+ "37ef188e": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 9:30 a.m. to 8:30 p.m. including statutory holidays.",
+  "notes": "Open seven days a week, including statutory holidays; no appointment needed for urgent care.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-urgent-primary-care-centre"
+ },
+ "380f9d36": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Home page: 'Sunday services are primarily conducted in Cantonese with simultaneous Mandarin translation.' No office hours published.",
+  "services_text": "主日崇拜 Sunday Worship — 日期：逢星期日；時間：10:30 am；地點：教會禮堂 (Cantonese with simultaneous Mandarin translation; also live-streamed). 兒童崇拜 Children Worship: 逢星期日 10:30 am. 祈禱會 Prayer meeting: 逢星期三 7:30pm, online (Teams).",
+  "source_url": "https://ocbckelowna.org/worship-%e5%b4%87%e6%8b%9c%e8%81%9a%e6%9c%83/"
+ },
+ "39ad28d7": {
+  "fetched": "2026-10-04",
+  "hours_text": "Everyday 7AM to 10PM",
+  "notes": "Store Holiday Hours: Thanksgiving 7 AM - 10 PM; Remembrance Day 7 AM - 10 PM. No in-store pharmacy listed on the page.",
+  "services_text": null,
+  "source_url": "https://www.saveonfoods.com/store-information/rutland/2229"
+ },
+ "441f21f5": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Parish Office Hours: Tuesday - Friday: 9:00 AM - 2:00 PM.",
+  "services_text": "Daily Mass: Monday - Friday: 8:30 AM; Saturday (Sunday Mass): 5:00 PM; Sunday: 8:30 AM, 10:30 AM, 7:00 PM. Confession: Saturday 4:30PM - 4:45PM; Tuesday and Friday 9:00AM - 9:30 AM; or by appointment",
+  "source_url": "https://stcharlesgarnier.ca/"
+ },
+ "472381f1": {
+  "fetched": "2026-10-04",
+  "hours_text": "Tues–Sat: 10am – 7pm; Closed Sunday & Monday",
+  "notes": "",
+  "services_text": null,
+  "source_url": "https://www.thehalalbutcher.co/"
+ },
+ "475fe1ed": {
+  "fetched": "2026-10-04",
+  "hours_text": "Box Office Hours: Monday to Friday: 10 a.m. – 3 p.m. and 2 hours before show times; Weekends and Holidays: 3 hours before show times until 1 hour after show ends",
+  "notes": "These are box-office hours (the theatre itself is open for performances only). Weekend/holiday box office opens only on show days. Box Office 250-469-8940.",
+  "services_text": null,
+  "source_url": "https://theatre.kelowna.ca/contact-us"
+ },
+ "4a5a9b7f": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday 8:30am - 4:00pm; Tuesday 8:30am - 4:00pm; Wednesday 8:30am - 4:00pm; Thursday 8:30am - 4:00pm; Friday 8:30am - 4:00pm; Saturday Closed; Sunday Closed",
+  "notes": "Hours are listed under the heading 'Family Medicine' on the clinic page; the page does not separately state walk-in hours.",
+  "services_text": null,
+  "source_url": "https://evolvealliedhealth.ca/clinics/kelowna-glenmore/"
+ },
+ "4b6fe2e7": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday from 8:30 am to 4:00 pm",
+  "notes": "Upcoming holiday closure listed: Thanksgiving Day, Monday, October 12, 2026. Closed federal statutory holidays.",
+  "services_text": null,
+  "source_url": "https://offices.service.canada.ca/en/Office/5987"
+ },
+ "4ba7d402": {
+  "fetched": "2026-10-04",
+  "hours_text": "8:00 am to 6:00 pm Monday to Thursday; 9:00 am to 4:00 pm Friday; Statutory Holidays - Closed",
+  "notes": "Closed statutory holidays.",
+  "services_text": null,
+  "source_url": "https://www.workbc.ca/workbc-centres/workbc-centre-west-kelowna"
+ },
+ "4c522cc8": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 10:00 am - 6:00 pm; Tuesday: 10:00 am - 6:00 pm; Wednesday: 10:00 am - 8:00 pm; Thursday: 10:00 am - 6:00 pm; Friday: 10:00 am - 6:00 pm; Saturday: 10:00 am - 5:00 pm; Sunday: Closed",
+  "notes": "The book drop is always open.",
+  "services_text": null,
+  "source_url": "https://www.orl.bc.ca/library/west-kelowna"
+ },
+ "4d296ae3": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store and Pharmacy: Monday to Sunday 8:00 AM - 10:00 PM",
+  "notes": "Each day listed as '8:00 AM - 10:00 PM' under 'Store and Pharmacy'. Has a Canada Post office ('Post office hours may vary').",
+  "services_text": null,
+  "source_url": "https://www.shoppersdrugmart.ca/en/stores/2217-shoppers-drug-mart-rutland-plaza-33/"
+ },
+ "5b4fbf06": {
+  "fetched": "2026-10-04",
+  "hours_text": "By Appointment Only: Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments: Fridays 9:00AM – 3:00 PM",
+  "notes": "Kelowna distribution hours, by appointment only. Closed during BC Statutory Holidays.",
+  "services_text": null,
+  "source_url": "https://cofoodbank.com/get-food/"
+ },
+ "6644e12d": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday 9 am to 4 pm. Lunchtime closure: 12:30 to 1:30 pm",
+  "notes": "'The Student Health Clinic is open year-round.' By appointment only, with some same-day appointments (call 250-807-9270). For UBC Okanagan students.",
+  "services_text": null,
+  "source_url": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
+ },
+ "684b15c1": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 9 AM to 3 PM; Tuesday: 12:30 PM to 3 PM; Wednesday: 9 AM to 3 PM; Thursday: 9 AM to 3 PM; Friday: 9 AM to 3 PM; Saturday & Sunday: Closed",
+  "notes": "Closed statutory holidays and holiday weekends. DISCREPANCY on the same site: the Location & Hours page (https://www.kelownasalvationarmy.ca/location-hours/) gives Rutland Community Services as 'Monday 9 AM – 12 PM & 1 – 3 PM; Tuesday 1 PM – 3 PM; Wednesday–Friday 9 AM – 12 PM & 1 – 3 PM' (i.e. with a 12–1 lunch closure). Call 250-765-3450 to confirm.",
+  "services_text": null,
+  "source_url": "https://www.kelownasalvationarmy.ca/community-assistance/"
+ },
+ "6888f5cf": {
+  "fetched": "2026-10-04",
+  "hours_text": "8:00 am to 6:00 pm Monday to Thursday; 9:00 am to 4:00 pm Friday; Statutory Holidays - Closed",
+  "notes": "Closed statutory holidays. Page also says: 'Due to the current wildfire situation hours of operation may be impacted. Please call or email us before visiting.'",
+  "services_text": null,
+  "source_url": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna"
+ },
+ "6ae407aa": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store and Pharmacy: Monday to Sunday 8:00 AM - 10:00 PM",
+  "notes": "Pharmacy Care Clinic: Monday noon - 6:00 PM; Tuesday noon - 6:00 PM; Wednesday noon - 6:00 PM; Thursday 10:00 AM - 6:00 PM; Friday noon - 6:00 PM; Saturday 10:00 AM - 6:00 PM; Sunday Closed. Store has a Canada Post office ('Post office hours may vary').",
+  "services_text": null,
+  "source_url": "https://www.shoppersdrugmart.ca/en/stores/2132-shoppers-drug-mart-the-ponds/"
+ },
+ "6c9df47c": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 10:00 am - 5:00 pm; Tuesday: 10:00 am - 8:00 pm; Wednesday: 10:00 am - 8:00 pm; Thursday: 10:00 am - 8:00 pm; Friday: 10:00 am - 5:00 pm; Saturday: 10:00 am - 5:00 pm; Sunday: 11:00 am - 3:00 pm",
+  "notes": "The book drop is always open, except during Easter and Christmas holiday closures.",
+  "services_text": null,
+  "source_url": "https://www.orl.bc.ca/library/kelowna-mission"
+ },
+ "6eb4c93f": {
+  "fetched": "2026-10-04",
+  "hours_text": "Operating hours: 7 days a week, 24 hours a day.",
+  "notes": "Registration: 'In-person registration takes place between 2 pm and 4 pm Monday to Friday at 2515 Bartley Court.' First-come, first-serve.",
+  "services_text": null,
+  "source_url": "https://turningpoints.ngo/continuum-of-care/shelter"
+ },
+ "74718a21": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 10:00 am - 8:00 pm; Tuesday: 10:00 am - 8:00 pm; Wednesday: 10:00 am - 8:00 pm; Thursday: 10:00 am - 8:00 pm; Friday: 10:00 am - 5:30 pm; Saturday: 10:00 am - 5:00 pm; Sunday: 11:00 am - 4:00 pm",
+  "notes": "The book drop is always open.",
+  "services_text": null,
+  "source_url": "https://www.orl.bc.ca/library/kelowna-downtown"
+ },
+ "760d0b10": {
+  "fetched": "2026-10-04",
+  "hours_text": "Hours for in-person services: Monday Virtual services only; Tuesday 8:00 AM – 5:20 PM; Wednesday 8:00 AM – 5:20 PM; Thursday 8:00 AM – 5:20 PM; Friday Closed; Saturday Closed; Sunday Closed",
+  "notes": "Hours for virtual services: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday Closed. 'Hours are subject to change. If you do not have an appointment, it is recommended that you call the Kelowna Family Justice Centre before you drop in.' Phone 250-712-3636.",
+  "services_text": null,
+  "source_url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-services-division/family-justice-centres/locations/kelowna"
+ },
+ "7f387a81": {
+  "fetched": "2026-10-04",
+  "hours_text": "Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.",
+  "notes": "Closed statutory holidays.",
+  "services_text": null,
+  "source_url": "https://syilx.org/contact/"
+ },
+ "8039f01c": {
+  "fetched": "2026-10-04",
+  "hours_text": "Building Hours: Monday to Friday: 9 AM - 9 PM; Saturday and Sunday: 10 AM - 9 PM; Holidays: 10 AM - 9 PM",
+  "notes": "RCA Reception: Mon. - Fri.: 9 AM - 5 PM. Box Office: Phone Mon.- Sat. 10 AM - 3 PM; in-person at RCA Mon.- Fri. 1 PM - 4 PM, and open 90 minutes before show time. Reception/box office CLOSED Sep. 30 and Oct. 12 (2026 holidays).",
+  "services_text": null,
+  "source_url": "https://www.rotarycentreforthearts.com/"
+ },
+ "83ec9d28": {
+  "fetched": "2026-10-04",
+  "hours_text": "Emergency Hours: Daily: 24 hours. Visiting Hours: Daily: 24 hours",
+  "notes": "After 8 p.m. all family members and patient support visitors are requested to use the main Centennial Building entrance (open 24/7) and sign in with Security.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-general-hospital"
+ },
+ "865f5856": {
+  "fetched": "2026-10-04",
+  "hours_text": "General services: Monday to Friday 8:00 am to 5:30 pm. Fingerprint services: Monday to Friday 9:30 am to 4:45 pm",
+  "notes": "Front-counter hours of the Kelowna Main Detachment. Call 911 for emergencies at any time.",
+  "services_text": null,
+  "source_url": "https://rcmp.ca/en/bc/kelowna/contact"
+ },
+ "88c81bb2": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store Hours: Monday to Saturday: 9:30 AM – 5:00 PM",
+  "notes": "Donation Centre Hours: Monday to Saturday: 9:30 AM – 4:00 PM. Sunday not listed (closed). Phone 778-755-4346 ext 301.",
+  "services_text": null,
+  "source_url": "https://www.habitatforhumanityokanagan.ca/restore/"
+ },
+ "8adfdff2": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday 8:30 – 17:30; Saturday 9:30 – 17:30; Sunday closed",
+  "notes": "Taken from Canada Post's own Find-a-Post-Office data service (outlet 105935 'TOWNE CENTRE PO', 19-565 Bernard Ave; fields open/close per day; Sunday fields empty) because the FPO page did not render in the browser. Dealer outlet inside Towne Centre Card Shop; times are listed as continuous (no lunch break).",
+  "services_text": null,
+  "source_url": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=105935&detail=true"
+ },
+ "8ea416a5": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 9:30 a.m. to 8:30 p.m.",
+  "notes": "Urgent care is walk-in only. Open on holidays (page FAQ: 'Is the clinic open on holidays? Yes.').",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/rutland-urgent-and-primary-care-centre"
+ },
+ "8ea5b030": {
+  "fetched": "2026-10-04",
+  "hours_text": "Session 1: Every Friday From 9Am till Noon, Starting March 6th till April 24th. Session 2 (*by appointment only): First Friday of each month From 9Am till Noon, Starting May 1st till December 4th",
+  "notes": "2026 schedule. Walk-ins welcome for Session 1 only (appointments take priority); book by email taxclinic@rotaryogopogo.org. Location: St. Michael's Cathedral, corner of Richter Street and Sutherland Avenue.",
+  "services_text": null,
+  "source_url": "https://rotaryogopogo.org/page/tax-clinic-1"
+ },
+ "8ef01232": {
+  "fetched": "2026-10-04",
+  "hours_text": "Mon to Thu: 9 am to 12 pm and 1 pm to 4 pm; Fri: 9 am to 12 pm",
+  "notes": "Legal Aid BC's listing for Kelowna (local agent Michael Newcombe, Barrister & Solicitor, Kelowna Law Courts, 228-1355 Water St). Closed 12-1 pm lunch Mon-Thu.",
+  "services_text": null,
+  "source_url": "https://legalaid.bc.ca/services/legal-aid-locations"
+ },
+ "8ffe8733": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday : 9 a.m. to 4 p.m.",
+  "notes": "Health-care providers are available 24 hours a day, seven days a week for deliveries and emergencies.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/central-okanagan-maternity-clinic"
+ },
+ "9080e12c": {
+  "fetched": "2026-10-04",
+  "hours_text": "Walk-in appointments are available on Tuesdays and Thursdays (Sept. to June) between 10:00 am and 3:00 pm",
+  "notes": "Location ASC 167. Seasonal: September to June only. Clinic closes for all University holidays and reading weeks (Nov & Feb). Virtual appointments by advance booking only.",
+  "services_text": null,
+  "source_url": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/"
+ },
+ "939b7edc": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday 08:00 - 15:00; Tuesday 08:00 - 15:00; Wednesday 08:00 - 15:00; Thursday 08:00 - 15:00; Friday 08:00 - 15:00",
+  "notes": "Walk-in: 'No appointment required but it is recommended that you line up before 8 am to be seen by the doctor.' Source is HealthLink BC (BC government health-services directory); the clinic appears to have no website of its own. Weekends not listed (closed).",
+  "services_text": null,
+  "source_url": "https://www.healthlinkbc.ca/clinic/orchard-medical-centre"
+ },
+ "9603af74": {
+  "fetched": "2026-10-04",
+  "hours_text": "Shopping: Mon – Sat, 10 AM – 5 PM; Sunday Closed",
+  "notes": "Donations: Tue – Sat, 10 AM – 2 PM. Closed statutory holidays and holiday weekends. Thrift store phone (778) 478-7000.",
+  "services_text": null,
+  "source_url": "https://www.kelownasalvationarmy.ca/location-hours/"
+ },
+ "974a56f4": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Parish Office Hours: Tuesday - Friday: 9:00 AM - 3:00 PM.",
+  "services_text": "SUNDAYS: 9:00am – Divine Liturgy (English); SUNDAYS: 11:00am – Divine Liturgy (Ukrainian); DAILY (Tue-Fri): 9:30 am – Divine Liturgy (Eng/Ukr); SATURDAYS: 7:00 pm – Great Vespers",
+  "source_url": "https://kelowna.nweparchy.ca/"
+ },
+ "9778de6e": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 10:00 am - 5:00 pm; Tuesday: 10:00 am - 8:00 pm; Wednesday: 10:00 am - 8:00 pm; Thursday: 10:00 am - 5:00 pm; Friday: 10:00 am - 5:00 pm; Saturday: 10:00 am - 5:00 pm; Sunday: Closed",
+  "notes": "Book drop is closed during holidays.",
+  "services_text": null,
+  "source_url": "https://www.orl.bc.ca/library/kelowna-rutland"
+ },
+ "9834d147": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday 9 am to 4:30 pm",
+  "notes": "Closed on B.C. statutory holidays (Service BC). This office does not offer income assistance or ICBC driver licensing. Source is the Service BC locations & hours list (www2.gov.bc.ca/servicebc/kelowna redirects there).",
+  "services_text": null,
+  "source_url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc"
+ },
+ "9c4a407d": {
+  "fetched": "2026-10-04",
+  "hours_text": "Everyday 7AM to 10PM",
+  "notes": "Pharmacy: Weekdays 8 AM - 8 PM; Saturday 8 AM - 8 PM; Sunday 10 AM - 6 PM; Holidays 10 AM - 6 PM (phone 250-860-6646). Store Holiday Hours: Thanksgiving 7 AM - 10 PM; Remembrance Day 7 AM - 10 PM.",
+  "services_text": null,
+  "source_url": "https://www.saveonfoods.com/store-information/lakeshore-centre/932"
+ },
+ "9f3e043b": {
+  "fetched": "2026-10-04",
+  "hours_text": "Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm",
+  "notes": "Seasonal: in July & August weekday closing is 9pm. 'Closed Christmas and Boxing Day, modified holiday hours.'",
+  "services_text": null,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-recreation-centre-0"
+ },
+ "a49d7f91": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Diocese page does NOT give a time for the Filipino Mass (our file says 5:00 p.m. - not confirmed). Parish's own site (http://www.corpuschristikelowna.com) matches the regular times and does not mention the Filipino Mass. Friday Masses are at care facilities only. Parish office: Tuesday - Friday 8:30 a.m. - 2:30 p.m.",
+  "services_text": "Saturday 4:30 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Sunday Filipino Mass: First Sunday of the Month; Sunday Vietnamese Mass: TBA; Vietnamese Rosary: First Sunday of the Month after the 11:00 a.m. Mass; Tuesday 3:00 p.m.; Wednesday 9:00 a.m.; Thursday 9:00 a.m. Reconciliation/Confession: Saturday 12:00 - 1:00 p.m.",
+  "source_url": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069739&type=d&pREC_ID=1358566"
+ },
+ "a55b7531": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday - Friday: 8am - 4:30pm",
+  "notes": "Interior Crisis Line Network (24 hours): 1-888-353-2273.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use"
+ },
+ "b2079547": {
+  "fetched": "2026-10-04",
+  "hours_text": "Regular Facility Hours: Monday–Friday 5:30 a.m.–9:00 p.m.; Saturday & Sunday 8:00 a.m.–8:00 p.m.; Stat Holidays* 9:00 a.m.–5:00 p.m.",
+  "notes": "Source is the YMCA of Southern Interior BC, which operates the City-owned facility (the kelowna.ca page has no hours). Stat holidays 9:00 a.m.–5:00 p.m.; programs (classes, child minding, swim lessons etc.) do not run on statutory holidays. Pool times are on a separate pool schedule.",
+  "services_text": null,
+  "source_url": "https://www.ymcasibc.ca/Locations/H2O/Hours-Schedules"
+ },
+ "b3551a68": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store and Pharmacy: Monday to Sunday 8:00 AM - 10:00 PM",
+  "notes": "Each day listed as '8:00 AM - 10:00 PM' under 'Store and Pharmacy'. Has a Canada Post office ('Post office hours may vary').",
+  "services_text": null,
+  "source_url": "https://www.shoppersdrugmart.ca/en/stores/2216-shoppers-drug-mart-west-kelowna/"
+ },
+ "b632d5d0": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store and Pharmacy: Monday to Sunday 8:00 AM - 10:00 PM",
+  "notes": "Page lists each day (Saturday–Friday) as '8:00 AM - 10:00 PM' under 'Store and Pharmacy' (pharmacy same hours). Store has a Canada Post office: 'Post office hours may vary.'",
+  "services_text": null,
+  "source_url": "https://www.shoppersdrugmart.ca/en/stores/225-shoppers-drug-mart-orchard-park-s-c/"
+ },
+ "bc8be723": {
+  "fetched": "2026-10-04",
+  "hours_text": "Shopping: Mon – Sat, 10 AM – 5 PM; Sunday Closed",
+  "notes": "Donations: Tue – Sat, 10 AM – 2 PM. Closed statutory holidays and holiday weekends. Thrift store phone (778) 484-9791.",
+  "services_text": null,
+  "source_url": "https://www.kelownasalvationarmy.ca/location-hours/"
+ },
+ "bd10da91": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Daily prayer times; no separate public opening hours published other than doors closing by 8 PM.",
+  "services_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Weekly Program on every Sunday: Sukhmaini Sahib Path and Kirtan Sewa",
+  "source_url": "https://www.kelownasikhtemple.ca/"
+ },
+ "bed59267": {
+  "fetched": "2026-10-04",
+  "hours_text": "General services: Monday to Friday 9:00 am to 4:30 pm",
+  "notes": "Rutland Community Police Office. Service language(s) provided: English only.",
+  "services_text": null,
+  "source_url": "https://rcmp.ca/en/bc/kelowna/contact"
+ },
+ "c7876aa2": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 8:30 am – 4:30 pm; Tuesday: 8:30 am – 5:30 pm; Wednesday: 8:30 am – 4:30 pm; Thursday: 8:30 am – 5:30 pm; Friday: 8:30 am – 4:30 pm",
+  "notes": "After hours appointments are available. Closed between 12:00 pm and 1:00 pm for lunch. Weekends not listed (closed).",
+  "services_text": null,
+  "source_url": "https://connectcounsellingandtherapy.com/pages/contact"
+ },
+ "cba7e8e1": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday, Tuesday, Wednesday, Friday: 9:00am – 5:00pm; Thursday: 9:00am – 7:00pm",
+  "notes": "Kelowna opening hours. Drop-In Hours (Kelowna): Monday, Tuesday, Wednesday, Friday: 10:00am-5:00pm; Thursday: 10:00am-7:00pm. Separate satellite drop-in: West Kelowna (CYMH office, 15-2484 Main St) Monday & Friday 9:00am-4:00pm; Lake Country Thursday 3:00pm-7:00pm.",
+  "services_text": null,
+  "source_url": "https://foundrybc.ca/centre/kelowna/"
+ },
+ "cc5fe981": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Holiday variation: long-weekend Mondays and stat holidays Rosary 8:30 am / Mass 9:00 am. Confession outside those times by appointment (office 250-762-3910).",
+  "services_text": "Sunday: Rosary 8:30 am, Mass: 9:00 am, 11:00 am & 5:00 pm. Saturday: Rosary 8:30 am, Mass: 9:00 am & 5:00 pm (Vigil for Sunday). Monday - Friday: 7:30 am Rosary, Mass: 8:00 am. Long weekend Monday & Stat holidays: Rosary 8:30 am, Mass 9:00 am. Wednesday: Rosary 4:30 pm - Mass 5:00 pm, Novena to Our Lady of Perpetual Help to follow. First Friday Devotions: Benediction/Adoration 3:00 pm, Mass 4:00 pm. Sacrament of Reconciliation: Saturday 10:00- 11:00 am, 3:45 - 4:45 pm",
+  "source_url": "https://www.icckelowna.ca/"
+ },
+ "cf723f3f": {
+  "fetched": "2026-10-04",
+  "hours_text": "WINTER HOURS: Tuesday, Wednesday, & Saturday 10:00am to 5:00pm. SUMMER HOURS (VICTORIA DAY TO LABOUR DAY): Tuesday - Saturday 12:00pm – 5:00pm; Sunday, & Monday Closed",
+  "notes": "Seasonal: summer hours run Victoria Day to Labour Day; winter hours otherwise (in effect now, October). Winter: days not listed (Sun, Mon, Thu, Fri) are closed.",
+  "services_text": null,
+  "source_url": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ "d2ff477f": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday 8am to 2:30pm, closed on Saturday and Sundays.",
+  "notes": "Operated with the Parkinson Senior Society (programs for ages 50+).",
+  "services_text": null,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-activity-centre"
+ },
+ "d42d42dc": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Place of worship: daily prayer times given; no separate public opening hours published other than 'Door Closed By 8 PM'.",
+  "services_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Weekly Program on every Sunday: Sukhmaini Sahib Path and Kirtan Sewa",
+  "source_url": "https://www.kelownasikhtemple.ca/"
+ },
+ "d9cab6e5": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday : 11:30 a.m. to 8:30 p.m., including statutory holidays.",
+  "notes": "No appointments needed for urgent care. Open statutory holidays 11:30 a.m. to 8:30 p.m.",
+  "services_text": null,
+  "source_url": "https://www.interiorhealth.ca/locations/west-kelowna-urgent-and-primary-care-centre"
+ },
+ "daf09eae": {
+  "fetched": "2026-10-04",
+  "hours_text": "By Appointment Only: Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM",
+  "notes": "West Kelowna distribution hours, by appointment only. Closed during BC Statutory Holidays. Matches hours on file.",
+  "services_text": null,
+  "source_url": "https://cofoodbank.com/get-food/"
+ },
+ "db95c7db": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Prayer times change through the year; the branch page shows that day's times and a 'Download Salat Times' timetable. No public opening hours published. Phone (250) 979-1370.",
+  "services_text": "Jummah 1:30:00 PM. Daily salat (iqamah) times shown for Saturday, October 3, 2026: Fajr 6:15 AM; Dhuhr 1:30 PM; Asr 4:45 PM; Maghrib 6:39 PM; Isha 8:15 PM",
+  "source_url": "http://org.thebcma.com/kelowna"
+ },
+ "dc2a5fe4": {
+  "fetched": "2026-10-04",
+  "hours_text": "Office Hours: Monday - Friday 8:30 am - 4:30 pm",
+  "notes": "KCR office hours for all locations (Employment Services at 620 Leon Ave, 1st floor). Closed on Stat Holidays; closed Dec 25 - Jan 1.",
+  "services_text": null,
+  "source_url": "https://kcr.ca/about-us/contact-us/"
+ },
+ "dff6dbc7": {
+  "fetched": "2026-10-04",
+  "hours_text": "Weight Rooms & Facility Hours: Monday - Friday: 6 a.m. - 9 p.m.; Saturday/Sunday: 9 a.m. - 4 p.m.",
+  "notes": "Public Swim: Monday - Thursday: 1 - 3 p.m. and 6:30 - 8 p.m.; Friday: 1 - 3 p.m. and 6:30 - 9 p.m.; Saturday/Sunday: 1 - 4 p.m. Weight room closed for fitness classes Monday/Thursday 9 - 9:45 a.m., Wednesday 12:15 - 1 p.m. Holiday hours: see the Recreation Guide. Operator changes to YMCA Southern Interior BC from Jan 1, 2027; page says no decisions yet on hours.",
+  "services_text": null,
+  "source_url": "https://www.westkelownacity.ca/en/parks-recreation-and-culture/johnson-bentley-aquatic-centre.aspx"
+ },
+ "e1085641": {
+  "fetched": "2026-10-04",
+  "hours_text": "Everyday 7AM to 10PM",
+  "notes": "Pharmacy: Weekdays 8 AM - 8 PM; Saturday 10 AM - 6 PM; Sunday 10 AM - 6 PM; Holidays 10 AM - 6 PM (phone 250-768-2323). Store Holiday Hours: Thanksgiving 7 AM - 10 PM; Remembrance Day 7 AM - 10 PM.",
+  "services_text": null,
+  "source_url": "https://www.saveonfoods.com/store-information/westbank/956"
+ },
+ "e82c5663": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday 09:00 - 17:00; Tuesday 09:00 - 17:00; Wednesday 09:00 - 17:00; Thursday 09:00 - 17:00; Friday 09:00 - 17:00; Saturday 10:00 - 16:00",
+  "notes": "Source is HealthLink BC (BC government directory). The clinic's own Primacy site (lakeshore.primacyclinics.ca) no longer resolves and primacy.ca has no hours. Sunday not listed. Statutory-holiday hours in our file (10:00-16:00) are not on the HealthLink page; could not re-verify from an official source.",
+  "services_text": null,
+  "source_url": "https://www.healthlinkbc.ca/clinic/lakeshore-medical-centre"
+ },
+ "ea2b90f1": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Holiday Mondays: Mass at 9:00 a.m. Parish site (http://www.ololwestkelowna.com) confirms weekend Masses 'Saturday @ 5PM; Sunday @ 9AM and 11AM (11AM Mass is Livestreamed)' and points to its calendar for daily Masses.",
+  "services_text": "Saturday 5:00 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Monday 7:45 a.m. (9:00 a.m. Holiday Mondays); Tuesday 9:00 a.m., First Tuesday 9:00 a.m. and 7:00 p.m. (*September - June); Wednesday 9:00 a.m.; Thursday 9:00 a.m.; Friday 9:00 a.m., Eucharistic Adoration after Mass until 10:30 a.m.; First Fridays: 9:00 a.m. and 4:00 p.m. Reconciliation/Confession: Saturday 4:00-4:30 p.m.; Sunday 8:00-8:30 a.m. and 10:00-10:30 a.m.; First Friday 9:30-10:30 a.m. or by appointment",
+  "source_url": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069758&type=d&pREC_ID=1358584"
+ },
+ "ebae0c1a": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday 09:00 - 16:00; Tuesday 09:00 - 16:00; Wednesday 09:00 - 16:00; Thursday 09:00 - 16:00; Friday 09:00 - 13:00",
+  "notes": "Walk-in. HealthLink BC page: 'It is recommended that you call before going to the clinic to confirm hours and availability.' Source is HealthLink BC (BC government directory), not the clinic's own site. Weekends not listed.",
+  "services_text": null,
+  "source_url": "https://www.healthlinkbc.ca/clinic/md-medical-centre"
+ },
+ "f2933ab1": {
+  "fetched": "2026-10-04",
+  "hours_text": "Drop off: 9:00am –12:00pm, 1:00pm- 4:00pm, Monday – Friday.",
+  "notes": "Seasonal: 'Dates: March to June; September to December each year (in-person appointments are available in March and April only)'. Closed for holidays from Dec 15; closed July-Aug. Drop-off turnaround 4 to 8 weeks. In-person appointments: book via receptionist (March/April only).",
+  "services_text": null,
+  "source_url": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/"
+ },
+ "f4c238b9": {
+  "fetched": "2026-10-04",
+  "hours_text": "Store Hours 9:00 AM - 9:00 PM",
+  "notes": "Fruiticana store finder lists one daily range for the Kelowna store (#160-2463 Highway 97 North); days not broken out.",
+  "services_text": null,
+  "source_url": "https://www.fruiticana.com/storefinder?city=Kelowna"
+ }
+}
