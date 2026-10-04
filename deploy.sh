@@ -78,6 +78,9 @@ WRANGLER_ENV="$(read_city deploy.wranglerEnv)"
 WORKER_NAME="$(read_city deploy.worker)"
 [[ -n "$DEPLOY_URL" && -n "$ASSETS_DIR" && -n "$WORKER_NAME" ]] || fail "${CITY_JSON} 缺 siteUrl 或 deploy.assetsDir / deploy.worker"
 INDEX_FILE="${PROJECT_ROOT}/${ASSETS_DIR}/index.html"
+if [[ "$(read_city status)" == "draft" ]]; then
+  fail "${CITY} 还是草稿（city.json \"status\": \"draft\"）——审核完成、去掉 draft 后才能部署"
+fi
 ENV_ARGS=()
 if [[ -n "$WRANGLER_ENV" ]]; then
   grep -q "^\[env\.${WRANGLER_ENV}\]" "${PROJECT_ROOT}/wrangler.toml" \

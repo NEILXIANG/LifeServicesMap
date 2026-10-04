@@ -76,6 +76,7 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     meta = json.load(open(meta_path, encoding='utf-8'))
     meta.pop('_comment', None)
     meta.pop('validate', None)      # validate.py's settings; the page never needs them
+    meta.pop('status', None)        # "draft" gates validate.py and deploy.sh, not the page
     deploy = meta.pop('deploy', None)  # deploy settings; used below, not shipped in the page
     for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
         if k not in meta:

@@ -33,6 +33,10 @@ if '--city' in _args:
     del _args[_i:_i + 2]
 CITY_ID = _kd.CITY
 CITY_META = _kd.city_meta()
+# 2026-10-03: a city still being compiled is "status": "draft" in city.json. Rules
+# that judge launch readiness (rather than correctness) only warn for a draft;
+# deploy.sh refuses to deploy a draft at all, so nothing half-done reaches readers.
+DRAFT = CITY_META.get('status') == 'draft'
 
 def find_built(here, argv_path=None):
     """The built file: build/<city>.html; readers often rename their copy,
@@ -493,7 +497,7 @@ for i, p in enumerate(P):
         else: _theme_n[k] += 1
 _empty = [k for k in TORDER if not _theme_n[k]]
 if _empty:
-    fail('theme(s) with no places at all — a chip that can only ever show (0): %s'
+    (warn if DRAFT else fail)('theme(s) with no places at all — a chip that can only ever show (0): %s'
          % ', '.join(_empty))
 _thin_t = [k for k in TORDER if 0 < _theme_n[k] <= 5]
 if _thin_t:

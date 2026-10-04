@@ -1,0 +1,994 @@
+[
+ {
+  "n": "KCR Community Resources – Immigrant Services",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8864491,
+  "lng": -119.4897088,
+  "a": "618 Bernard Ave",
+  "p": "250-763-8008",
+  "note": {
+   "zh": "基隆拿主要的免费移民安置机构，服务永久居民和难民（BC NSP 项目也服务工签持有人、国际学生和新入籍公民）；致电 250-763-8008 转 1。",
+   "en": "Kelowna's main free settlement agency for permanent residents and refugees (BC NSP also serves work-permit holders, international students and new citizens); call 250-763-8008 ext. 1."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "free",
+   "multi"
+  ],
+  "id": "1ceef85e",
+  "w": "https://kcr.ca/immigrant-services/"
+ },
+ {
+  "n": "Service BC Centre – Kelowna",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.886504,
+  "lng": -119.4940211,
+  "a": "305-478 Bernard Ave",
+  "p": "250-861-7500",
+  "note": {
+   "zh": "省政府服务窗口——办理 BC 服务卡/MSP 医保、收入援助等省政府业务；周一至周五 9:00–16:30。",
+   "en": "Provincial services in person — BC Services Card/MSP, income assistance and other BC government help; open Mon–Fri 9:00–4:30."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "9834d147",
+  "w": "https://www2.gov.bc.ca/servicebc/kelowna"
+ },
+ {
+  "n": "Kelowna Service Canada Centre and Passport Services",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8870905,
+  "lng": -119.4942596,
+  "a": "106-471 Queensway",
+  "p": "800-622-6232",
+  "note": {
+   "zh": "联邦政府服务窗口——办理社会保险号（SIN）、护照、就业保险、CPP/OAS 养老金；请携带移民身份文件；周一至周五 8:30–16:00。",
+   "en": "Federal services in person — Social Insurance Number (SIN), passports, EI, CPP/OAS; bring your immigration documents; open Mon–Fri 8:30–4:00."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "4b6fe2e7",
+  "w": "https://offices.service.canada.ca/en/Office/5987"
+ },
+ {
+  "n": "ICBC Kelowna Driver Licensing",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8776304,
+  "lng": -119.4604107,
+  "a": "1720 Springfield Rd",
+  "p": "800-950-1498",
+  "note": {
+   "zh": "换领外国驾照、参加笔试/路考、办理 BC 身份证；请在网上预约，并携带原驾照和移民身份文件。",
+   "en": "Exchange your foreign driver's licence, take knowledge/road tests and get a BC ID; book an appointment online and bring your licence and immigration documents."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "4fa28ce2",
+  "w": "https://www.icbc.com/locators/driver-licensing-office"
+ },
+ {
+  "n": "ICBC West Kelowna Driver Licensing (by appointment only)",
+  "c": "gov",
+  "g": "wk",
+  "lat": 49.827819,
+  "lng": -119.6240286,
+  "a": "201-3731 Old Okanagan Hwy",
+  "p": "800-950-1498",
+  "note": {
+   "zh": "位于西基隆拿市政厅二楼的驾照办理处——驾照更新、笔试及 4/5/7 级路考，仅限预约。",
+   "en": "Driver licensing on the 2nd floor of West Kelowna City Hall — licence renewals, knowledge tests and Class 4/5/7 road tests, by appointment only."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "763a5965",
+  "w": "https://www.icbc.com/locators/driver-licensing-office",
+  "sameComplex": [
+   "4c522cc8"
+  ]
+ },
+ {
+  "n": "WorkBC Centre – Kelowna",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8821488,
+  "lng": -119.476772,
+  "a": "107-1835 Gordon Dr",
+  "p": "778-738-0225",
+  "note": {
+   "zh": "免费求职帮助、就业辅导和培训资助；周一至周四 8:00–18:00，周五 9:00–16:00。",
+   "en": "Free job-search help, employment counselling and training funding for job seekers; open Mon–Thu 8–6, Fri 9–4."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "6888f5cf",
+  "w": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna"
+ },
+ {
+  "n": "WorkBC Centre – West Kelowna",
+  "c": "gov",
+  "g": "wk",
+  "lat": 49.8361663,
+  "lng": -119.6165662,
+  "a": "111-3011 Louie Dr",
+  "p": "778-741-0155",
+  "note": {
+   "zh": "为西基隆拿居民提供免费求职和就业服务；周一至周四 8:00–18:00，周五 9:00–16:00。",
+   "en": "Free job-search help and employment services for West Kelowna residents; open Mon–Thu 8–6, Fri 9–4."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "4ba7d402",
+  "w": "https://www.workbc.ca/workbc-centres/workbc-centre-west-kelowna"
+ },
+ {
+  "n": "Legal Aid BC – Kelowna (Kelowna Law Courts)",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.890535,
+  "lng": -119.4960984,
+  "a": "228-1355 Water St",
+  "p": "250-763-8613",
+  "note": {
+   "zh": "低收入人士可在此申请免费法律援助（家庭法、刑事及部分移民案件）；周一至周四 9:00–12:00、13:00–16:00，周五 9:00–12:00。",
+   "en": "Apply for free legal aid (family, criminal, some immigration matters) if you have a low income; open Mon–Thu 9–12 & 1–4, Fri 9–12."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "8ef01232",
+  "w": "https://legalaid.bc.ca/services/legal-aid-locations"
+ },
+ {
+  "n": "Okanagan Thompson Legal Clinic – Kelowna",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.8845803,
+  "lng": -119.4921506,
+  "a": "304-554 Leon Ave",
+  "p": "236-425-9120",
+  "note": {
+   "zh": "免费法律咨询和代理，涉及租房、收入/残疾援助、就业保险、劳动、家庭法等法律援助不覆盖的问题。",
+   "en": "Free legal advice and representation on tenancy, income/disability assistance, EI, employment, family law and other issues that legal aid doesn't cover."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "b4e0069b",
+  "w": "https://www.bclegalclinic.com/contact"
+ },
+ {
+  "n": "Central Okanagan Food Bank – Kelowna",
+  "c": "foodbank",
+  "g": "dt",
+  "lat": 49.8835858,
+  "lng": -119.4346914,
+  "a": "2310 Enterprise Way",
+  "p": "250-763-7161",
+  "note": {
+   "zh": "免费领取食物，需预约；请先在网上登记，并携带每位成人的带照片证件、每个孩子的身份证明以及基隆拿/西基隆拿的住址证明。",
+   "en": "Free food by appointment; register online first and bring photo ID for each adult, ID for each child and proof of a Kelowna/West Kelowna address."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "5b4fbf06",
+  "w": "https://cofoodbank.com/get-food/"
+ },
+ {
+  "n": "Kelowna RCMP Detachment",
+  "c": "police",
+  "g": "dt",
+  "lat": 49.8940523,
+  "lng": -119.4894089,
+  "a": "1190 Richter St",
+  "p": "250-762-3300",
+  "note": {
+   "zh": "警察非紧急电话及前台（周一至周五 8:00–17:30），可报案、办理无犯罪记录证明和指纹；紧急情况请拨 911。",
+   "en": "Police non-emergency line and front counter (Mon–Fri 8–5:30) for reports, criminal record checks and fingerprinting; call 911 for emergencies."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "865f5856",
+  "w": "https://rcmp.ca/en/bc/kelowna/contact"
+ },
+ {
+  "n": "Kelowna RCMP – Rutland Community Police Office",
+  "c": "police",
+  "g": "rt",
+  "lat": 49.8919852,
+  "lng": -119.38769,
+  "a": "115 McIntosh Rd",
+  "p": "250-765-6355",
+  "note": {
+   "zh": "位于拉特兰的社区警务站，可咨询、投诉和报案（周一至周五 9:00–16:30）；非紧急用途。",
+   "en": "Neighbourhood police office in Rutland for general information, complaints and crime reports (Mon–Fri 9–4:30); not for emergencies."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "bed59267",
+  "w": "https://rcmp.ca/en/bc/kelowna/contact"
+ },
+ {
+  "n": "West Kelowna RCMP Detachment",
+  "c": "police",
+  "g": "wk",
+  "lat": 49.8291977,
+  "lng": -119.6238492,
+  "a": "2390 Dobbin Rd",
+  "p": "250-768-2880",
+  "note": {
+   "zh": "西基隆拿警察非紧急电话及前台（周一至周五 8:00–16:30），可办理无犯罪记录证明；紧急情况请拨 911。",
+   "en": "Police non-emergency line and front counter for West Kelowna (Mon–Fri 8–4:30), including criminal record checks; call 911 for emergencies."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "3143e19f",
+  "w": "https://rcmp.ca/en/bc/west-kelowna/contact"
+ },
+ {
+  "n": "Kelowna General Hospital",
+  "c": "hospital",
+  "g": "pm",
+  "lat": 49.874053,
+  "lng": -119.493269,
+  "a": "2268 Pandosy Street",
+  "p": "250-862-4000",
+  "note": {
+   "zh": "24小时急诊科；危及生命的紧急情况请拨打 9-1-1。",
+   "en": "24-hour emergency department; call 9-1-1 for life-threatening emergencies."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "KGH",
+   "emergency",
+   "ER",
+   "hospital",
+   "急诊",
+   "医院"
+  ],
+  "id": "83ec9d28",
+  "w": "https://www.interiorhealth.ca/locations/kelowna-general-hospital"
+ },
+ {
+  "n": "Rutland Urgent and Primary Care Centre (UPCC)",
+  "c": "hospital",
+  "g": "rt",
+  "lat": 49.889686,
+  "lng": -119.388037,
+  "a": "150 Highway 33 West",
+  "p": "250-491-1100",
+  "note": {
+   "zh": "位于 Rutland 的免预约紧急门诊，无需预约。",
+   "en": "Walk-in urgent care in Rutland; no appointment needed."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "UPCC",
+   "urgent care",
+   "walk-in",
+   "Rutland",
+   "紧急门诊",
+   "免预约"
+  ],
+  "id": "8ea416a5",
+  "w": "https://www.interiorhealth.ca/locations/rutland-urgent-and-primary-care-centre"
+ },
+ {
+  "n": "West Kelowna Urgent and Primary Care Centre (UPCC)",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.830703,
+  "lng": -119.630184,
+  "a": "2484 Main Street",
+  "p": "250-469-6010",
+  "note": {
+   "zh": "西基隆拿的免预约紧急门诊；没有家庭医生也可以就诊。",
+   "en": "Walk-in urgent care in West Kelowna; can be used without a family doctor."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "UPCC",
+   "urgent care",
+   "walk-in",
+   "West Kelowna",
+   "Westbank",
+   "紧急门诊",
+   "西基隆拿"
+  ],
+  "id": "d9cab6e5",
+  "w": "https://www.interiorhealth.ca/locations/west-kelowna-urgent-and-primary-care-centre"
+ },
+ {
+  "n": "Orchard Medical Centre",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.877483,
+  "lng": -119.44354,
+  "a": "104-1990 Cooper Road",
+  "p": "250-861-3235",
+  "note": {
+   "zh": "免预约诊所；名额有限，建议早到排队。",
+   "en": "Walk-in clinic, no appointment needed; arrive early because it fills up."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "Orchard Park",
+   "免预约诊所"
+  ],
+  "id": "939b7edc",
+  "w": "https://www.healthlinkbc.ca/clinic/orchard-medical-centre"
+ },
+ {
+  "n": "Evolve Allied Health - Kelowna Glenmore (Hillside) Walk-in Clinic",
+  "c": "hospital",
+  "g": "gm",
+  "lat": 49.9013062,
+  "lng": -119.4528932,
+  "a": "114-1920 Summit Drive",
+  "p": "250-763-6322",
+  "note": {
+   "zh": "工作日免预约诊所；也可致电预约当天的电话问诊。",
+   "en": "Weekday walk-in clinic; you can also call to book a same-day phone appointment."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "Hillside",
+   "Glenmore",
+   "Dilworth",
+   "免预约诊所"
+  ],
+  "id": "4a5a9b7f",
+  "w": "https://evolvealliedhealth.ca/clinics/kelowna-glenmore/"
+ },
+ {
+  "n": "MD Medical Centre",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.835642,
+  "lng": -119.621306,
+  "a": "3020 Louie Drive",
+  "p": "250-768-9959",
+  "note": {
+   "zh": "西基隆拿的免预约诊所，无需预约。",
+   "en": "Walk-in clinic in West Kelowna, no appointment needed."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "West Kelowna",
+   "Superstore",
+   "免预约诊所"
+  ],
+  "id": "ebae0c1a",
+  "w": "https://www.healthlinkbc.ca/clinic/md-medical-centre"
+ },
+ {
+  "n": "Kelowna Mental Health & Substance Use",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.888651,
+  "lng": -119.493259,
+  "a": "505 Doyle Avenue",
+  "p": "250-469-7070",
+  "note": {
+   "zh": "Interior Health 心理健康与成瘾服务中心；无需医生转介，可拨打 310-MHSU（6478）联系。",
+   "en": "Interior Health mental health and substance use centre; no doctor referral needed - call 310-MHSU (6478) to connect."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "mental health",
+   "MHSU",
+   "addiction",
+   "substance use",
+   "心理健康",
+   "成瘾"
+  ],
+  "id": "a55b7531",
+  "w": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use"
+ },
+ {
+  "n": "Shoppers Drug Mart Orchard Park S.C.",
+  "c": "pharmacy",
+  "g": "dt",
+  "lat": 49.879363,
+  "lng": -119.439476,
+  "a": "2271 Harvey Avenue",
+  "p": "250-860-3764",
+  "note": {
+   "zh": "药房每天营业至晚上10点。",
+   "en": "Pharmacy open until 10 p.m. every day."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "drugstore",
+   "Shoppers",
+   "Orchard Park",
+   "药房",
+   "药店"
+  ],
+  "id": "b632d5d0",
+  "w": "https://www.shoppersdrugmart.ca/en/stores/225-shoppers-drug-mart-orchard-park-s-c/"
+ },
+ {
+  "n": "Shoppers Drug Mart Rutland Plaza 33",
+  "c": "pharmacy",
+  "g": "rt",
+  "lat": 49.888477,
+  "lng": -119.390274,
+  "a": "301 Highway 33 West",
+  "p": "250-765-4156",
+  "note": {
+   "zh": "Rutland 区药房，每天营业至晚上10点。",
+   "en": "Pharmacy in Rutland open until 10 p.m. every day."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "drugstore",
+   "Shoppers",
+   "Rutland",
+   "药房",
+   "药店"
+  ],
+  "id": "4d296ae3",
+  "w": "https://www.shoppersdrugmart.ca/store-locator/store/2217?lang=en",
+  "sameComplex": [
+   "9778de6e"
+  ]
+ },
+ {
+  "n": "Shoppers Drug Mart West Kelowna",
+  "c": "pharmacy",
+  "g": "wk",
+  "lat": 49.826616,
+  "lng": -119.629274,
+  "a": "2475 Dobbin Road",
+  "p": "250-707-0891",
+  "note": {
+   "zh": "西基隆拿药房，每天营业至晚上10点。",
+   "en": "Pharmacy in West Kelowna open until 10 p.m. every day."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "drugstore",
+   "Shoppers",
+   "West Kelowna",
+   "Westbank",
+   "药房",
+   "药店"
+  ],
+  "id": "b3551a68",
+  "w": "https://www.shoppersdrugmart.ca/store-locator/store/2216?lang=en"
+ },
+ {
+  "n": "KGM Community Dental (Kelowna's Gospel Mission)",
+  "c": "dental",
+  "g": "dt",
+  "lat": 49.884389,
+  "lng": -119.497999,
+  "a": "251 Leon Avenue",
+  "p": "250-763-3737",
+  "note": {
+   "zh": "为低收入或领取救济者提供的低价牙科服务；不做牙冠、牙桥或假牙。",
+   "en": "Low-cost dental care for people on low income or income assistance; no crowns, bridges or dentures."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "dental",
+   "dentist",
+   "low cost",
+   "牙科",
+   "牙医",
+   "低价"
+  ],
+  "id": "6046fa00",
+  "w": "https://kelownagospelmission.ca/dental-clinic/"
+ },
+ {
+  "n": "Okanagan Regional Library – Kelowna Downtown",
+  "c": "library",
+  "g": "dt",
+  "lat": 49.889593,
+  "lng": -119.4941241,
+  "a": "1380 Ellis St",
+  "p": "250-762-2800",
+  "note": {
+   "zh": "基洛纳最大的奥卡纳根区域图书馆分馆；居民可免费办理借书证，借阅图书、电子书并使用电脑和 Wi-Fi。",
+   "en": "The largest ORL branch in Kelowna; a library card is free for residents and gives access to books, e-books, computers and Wi-Fi."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "indoor"
+  ],
+  "id": "74718a21",
+  "w": "https://www.orl.bc.ca/library/kelowna-downtown"
+ },
+ {
+  "n": "Okanagan Regional Library – Kelowna Mission",
+  "c": "library",
+  "g": "pm",
+  "lat": 49.8360695,
+  "lng": -119.4802409,
+  "a": "4105 Gordon Dr",
+  "p": "250-764-2254",
+  "note": {
+   "zh": "位于 Mission 区、紧邻 H2O 中心的图书馆分馆，停车免费。",
+   "en": "Library branch in the Mission next to H2O; parking is free."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "indoor"
+  ],
+  "id": "6c9df47c",
+  "w": "https://www.orl.bc.ca/library/kelowna-mission"
+ },
+ {
+  "n": "Okanagan Regional Library – Kelowna Rutland",
+  "c": "library",
+  "g": "rt",
+  "lat": 49.8884765,
+  "lng": -119.3902735,
+  "a": "#20-301 Hwy 33 W",
+  "p": "250-765-8165",
+  "note": {
+   "zh": "Rutland 区的图书馆分馆，位于 33 号公路旁的商业广场内，靠近 Rutland 公交换乘站。",
+   "en": "Rutland's library branch, in a shopping plaza on Highway 33 near the Rutland transit exchange."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "indoor"
+  ],
+  "id": "9778de6e",
+  "w": "https://www.orl.bc.ca/library/kelowna-rutland",
+  "sameComplex": [
+   "4d296ae3"
+  ]
+ },
+ {
+  "n": "Okanagan Regional Library – West Kelowna",
+  "c": "library",
+  "g": "wk",
+  "lat": 49.827819,
+  "lng": -119.6240286,
+  "a": "3731 Old Okanagan Hwy",
+  "p": "250-768-4369",
+  "note": {
+   "zh": "西基洛纳图书馆分馆，可在市政厅停车场免费停车，周日闭馆。",
+   "en": "West Kelowna's library branch; free parking in the City Hall lot. Closed Sundays."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "indoor"
+  ],
+  "id": "4c522cc8",
+  "w": "https://www.orl.bc.ca/library/west-kelowna",
+  "sameComplex": [
+   "763a5965"
+  ]
+ },
+ {
+  "n": "Central Okanagan Public Schools (SD23) – School Board Office",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.875782,
+  "lng": -119.3984739,
+  "a": "1040 Hollywood Rd S",
+  "p": "250-860-8888",
+  "note": {
+   "zh": "基洛纳和西基洛纳公立学校的学区总部；入学登记和学区划分问题可从这里开始咨询。",
+   "en": "School district head office for Kelowna and West Kelowna public schools; start here for registration and catchment questions."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "e3325185",
+  "w": "https://www.sd23.bc.ca/"
+ },
+ {
+  "n": "École Kelowna Secondary",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.864649,
+  "lng": -119.4781488,
+  "a": "1079 Raymer Ave",
+  "p": "250-870-5105",
+  "note": {
+   "zh": "公立高中，10–12 年级（校名中的 École 表示提供法语沉浸课程）。",
+   "en": "Public secondary school for grades 10–12 (École = offers French Immersion)."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "001a5909",
+  "w": "https://kss.sd23.bc.ca/"
+ },
+ {
+  "n": "Rutland Senior Secondary",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.8972008,
+  "lng": -119.3866449,
+  "a": "705 Rutland Rd N",
+  "p": "250-870-5110",
+  "note": {
+   "zh": "服务 Rutland 区的公立高中（9–12 年级）。",
+   "en": "Public secondary school (grades 9–12) serving Rutland."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "70841b64",
+  "w": "https://rss.sd23.bc.ca/"
+ },
+ {
+  "n": "École Okanagan Mission Secondary",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8176217,
+  "lng": -119.4832956,
+  "a": "4544 Gordon Dr",
+  "p": "250-870-5108",
+  "note": {
+   "zh": "服务 Mission 区的公立高中（9–12 年级）。",
+   "en": "Public secondary school (grades 9–12) serving the Mission area."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "af967d54",
+  "w": "https://okm.sd23.bc.ca/"
+ },
+ {
+  "n": "Mount Boucherie Senior Secondary",
+  "c": "school",
+  "g": "wk",
+  "lat": 49.8581845,
+  "lng": -119.5842648,
+  "a": "2751 Cameron Rd",
+  "p": "250-870-5101",
+  "note": {
+   "zh": "位于西基洛纳的公立高中（9–12 年级），属于第 23 学区。",
+   "en": "Public secondary school (grades 9–12) in West Kelowna, part of SD23."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "e3949626",
+  "w": "https://mbs.sd23.bc.ca/"
+ },
+ {
+  "n": "UBC Okanagan (University of British Columbia, Okanagan campus)",
+  "c": "school",
+  "g": "nk",
+  "lat": 49.9372585,
+  "lng": -119.3943984,
+  "a": "3333 University Way",
+  "p": "250-807-8000",
+  "note": {
+   "zh": "UBC 大学奥卡纳根校区，位于基洛纳北部、机场附近，市中心和 Rutland 有频繁公交直达。",
+   "en": "UBC's Okanagan campus in north Kelowna near the airport, with frequent buses from downtown and Rutland."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "6af1cc50",
+  "w": "https://ok.ubc.ca/",
+  "t": [
+   "student"
+  ]
+ },
+ {
+  "n": "Okanagan College – Kelowna Campus",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8618222,
+  "lng": -119.4812483,
+  "a": "1000 KLO Rd",
+  "p": "250-762-5445",
+  "note": {
+   "zh": "奥卡纳根学院主校区，提供文凭、技工、大学转学分及英语语言课程。",
+   "en": "Okanagan College's main campus, offering diplomas, trades, university transfer and English language programs."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "precision": "low",
+  "id": "98071a20",
+  "w": "https://www.okanagancollege.ca/campuses/kelowna-campus",
+  "t": [
+   "student"
+  ]
+ },
+ {
+  "n": "Queensway Exchange",
+  "c": "transit",
+  "g": "dt",
+  "lat": 49.8873244,
+  "lng": -119.4949632,
+  "a": "Queensway, downtown Kelowna",
+  "note": {
+   "zh": "基洛纳市中心的主要公交换乘站，包括 97 路快速公交在内的多条线路在此交汇。",
+   "en": "Downtown Kelowna's main bus exchange, where many routes including RapidBus 97 meet."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "98f81277",
+  "w": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
+ },
+ {
+  "n": "Orchard Park Exchange",
+  "c": "transit",
+  "g": "dt",
+  "lat": 49.8803826,
+  "lng": -119.4425842,
+  "a": "Cooper Rd at Hwy 97 (Harvey Ave), by Orchard Park mall",
+  "note": {
+   "zh": "位于 Orchard Park 购物中心旁的 Midtown 繁忙公交换乘站，可前往 UBCO、Rutland 和市中心。",
+   "en": "Busy Midtown bus exchange at Orchard Park shopping centre, connecting to UBCO, Rutland and downtown."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "9e9403c9",
+  "w": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
+ },
+ {
+  "n": "Rutland Exchange",
+  "c": "transit",
+  "g": "rt",
+  "lat": 49.8905832,
+  "lng": -119.3920411,
+  "a": "Shepherd Rd between Asher Rd and Roxby Rd",
+  "note": {
+   "zh": "Rutland 区的公交换乘站，近期完成升级，可前往 UBCO、Orchard Park 和市中心。",
+   "en": "Rutland's bus exchange, recently upgraded, with links to UBCO, Orchard Park and downtown."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "3040279c",
+  "w": "https://www.bctransit.com/improvements-to-the-rutland-transit-exchange-complete-2026-02-19/"
+ },
+ {
+  "n": "UBCO Exchange",
+  "c": "transit",
+  "g": "nk",
+  "lat": 49.9395958,
+  "lng": -119.3948208,
+  "a": "Transit Way / Alumni Ave, UBC Okanagan campus",
+  "note": {
+   "zh": "位于 UBC 奥卡纳根校区内的公交换乘站，有 97 路快速公交等线路。",
+   "en": "Bus exchange on the UBC Okanagan campus, served by RapidBus 97 and other routes."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "50c26906",
+  "w": "https://www.bctransit.com/new-ubc-okanagan-transit-exchange-improves-the-customer-experience/"
+ },
+ {
+  "n": "Okanagan College Exchange",
+  "c": "transit",
+  "g": "pm",
+  "lat": 49.861347,
+  "lng": -119.479333,
+  "a": "K.L.O. Rd (north side) at Okanagan College",
+  "note": {
+   "zh": "位于奥卡纳根学院基洛纳校区的公交换乘站；2026 年扩建期间设有临时换乘点。",
+   "en": "Bus exchange at Okanagan College's Kelowna campus; under expansion in 2026 with a temporary exchange during construction."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "precision": "low",
+  "id": "83d3651f",
+  "w": "https://www.kelowna.ca/our-community/planning-projects/capital-projects/klo-ok-college-transit-exchange-expansion"
+ },
+ {
+  "n": "Towne Centre Card Shop (Canada Post outlet)",
+  "c": "post",
+  "g": "dt",
+  "lat": 49.8858482,
+  "lng": -119.4912953,
+  "a": "19-565 Bernard Ave",
+  "note": {
+   "zh": "位于市中心 Bernard 大道一家贺卡店内的邮局柜台，周一至周六营业。",
+   "en": "Downtown post office counter inside a card shop on Bernard Avenue; open Mon–Sat."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "8adfdff2",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=105935&detail=true"
+ },
+ {
+  "n": "Parkinson Recreation Centre",
+  "c": "commctr",
+  "g": "dt",
+  "lat": 49.8832247,
+  "lng": -119.4575531,
+  "a": "1800 Parkinson Way",
+  "p": "250-469-8800",
+  "note": {
+   "zh": "市政府主要的康乐中心，设有泳池、体育馆和健身课程，可单次入场或办会员。",
+   "en": "The City's main recreation centre with a pool, gym and fitness programs; drop-in and memberships available."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "9f3e043b",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-recreation-centre-0"
+ },
+ {
+  "n": "H2O Adventure + Fitness Centre",
+  "c": "commctr",
+  "g": "pm",
+  "lat": 49.837889,
+  "lng": -119.4810836,
+  "a": "4075 Gordon Dr",
+  "p": "250-491-9622",
+  "note": {
+   "zh": "位于 Mission 区的市属水上及健身中心，由 YMCA 运营，设有适合各年龄段的滑道和泳池。",
+   "en": "City-owned aquatic and fitness centre in the Mission, operated by the YMCA, with waterslides and pools for all ages."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "id": "b2079547",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/h2o-adventure-fitness-centre",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ]
+ },
+ {
+  "n": "City Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8837019,
+  "lng": -119.5024246,
+  "a": "1600 Abbott St",
+  "note": {
+   "zh": "市中心大型湖滨公园，有沙滩、夏季儿童水上乐园、游乐场、球场和无绳遛狗区。",
+   "en": "Large downtown lakefront park with a sandy beach, summer waterpark, playground, sports courts and an off-leash dog run."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "precision": "low",
+  "id": "2a35ed8d",
+  "w": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/city-park"
+ },
+ {
+  "n": "Mission Creek Regional Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8724612,
+  "lng": -119.4003129,
+  "a": "2363 Springfield Rd",
+  "note": {
+   "zh": "沿溪而建的大型公园，有步道；狗必须拴绳。",
+   "en": "Large creekside park with walking trails; dogs must be on leash."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "precision": "low",
+  "id": "de97ee05",
+  "w": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/mission-creek-regional-park"
+ },
+ {
+  "n": "Sunshine Market",
+  "c": "asian",
+  "g": "pm",
+  "lat": 49.8176421,
+  "lng": -119.4946681,
+  "a": "#5-4600 Lakeshore Rd",
+  "p": "250-706-7796",
+  "note": {
+   "zh": "位于下 Mission 区的杂货店，自称拥有基洛纳最齐全的印度食品。",
+   "en": "Grocery store in the Lower Mission that says it has the largest selection of Indian groceries in Kelowna."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "precision": "low",
+  "id": "33c1c94c",
+  "w": "https://www.kelownasunshinemarket.ca/"
+ }
+]

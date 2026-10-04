@@ -1,0 +1,25 @@
+{
+  "_comment": "Build-time settings for Kelowna. See docs/guides/DATA-SCHEMA.md.",
+  "id": "kelowna",
+  "status": "draft",
+  "title": "Kelowna Life Guide",
+  "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kelowna. Free, no sign-up, six languages.",
+  "siteUrl": "https://kelowna-lifemap.neilxiang.workers.dev/",
+  "storagePrefix": "kelowna",
+  "searchStopwords": [
+    "kelowna",
+    "bc"
+  ],
+  "validate": {
+    "minPlaces": 0
+  },
+  "deploy": {
+    "worker": "kelowna-lifemap",
+    "wranglerEnv": "kelowna",
+    "assetsDir": "deploy/kelowna",
+    "basePath": "/",
+    "swCache": "kelowna-lifemap-v1.0.0",
+    "pwaLabel": "Kelowna Life Guide",
+    "pwaDescription": "What to do, where to go, what to bring — step by step — with a map of verified places across Kelowna. Free, no sign-up."
+  }
+}

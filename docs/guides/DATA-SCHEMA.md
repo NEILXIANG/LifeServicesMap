@@ -13,7 +13,7 @@ mechanically, so a mistake here is usually caught before it reaches anyone.
 
 | File | Holds | Edit by hand? |
 |---|---|---|
-| `city.json` | Build-time settings: page title, description, site URL, `storagePrefix` (localStorage key prefix — never change it for a live city), search stopwords | yes |
+| `city.json` | `"status": "draft"` while a city is being compiled (launch-readiness rules only warn; `deploy.sh` refuses it — delete the line to go live). Build-time settings: page title, description, site URL, `storagePrefix` (localStorage key prefix — never change it for a live city), search stopwords | yes |
 | `data.js` | The hand-written part: `CITY`, `LANDMARK_GLOSS`, `FAV_MIGRATE`, with comments. The big blocks are pulled in by `/*@json file*/` and `/*@text file*/` directives | yes |
 | `places.json` | `P` — checked against `schemas/place.schema.json` | yes, or via `kamdata.save('P', …)` |
 | `regions.json` `bus-routes.json` `tasks.json` `quarantine.json` `landmarks.json` | `RI`, `BR`, `TASKS`, `QUARANTINE`, `LANDMARKS` | yes |

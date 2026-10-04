@@ -1,0 +1,50 @@
+{
+ "dt": {
+  "zh": "Downtown/市中心（含 North End、Capri-Landmark）",
+  "en": "Downtown (incl. North End, Capri-Landmark)",
+  "fr": "Centre-ville (avec North End, Capri-Landmark)",
+  "es": "Centro (incl. North End, Capri-Landmark)",
+  "ko": "다운타운 (North End, Capri-Landmark 포함)",
+  "ja": "ダウンタウン（North End・Capri-Landmark を含む）"
+ },
+ "pm": {
+  "zh": "Pandosy 与 Mission（市中心以南，Kelowna 总医院一带）",
+  "en": "Pandosy & the Mission (south of Downtown, by the hospital)",
+  "fr": "Pandosy et Mission (au sud du centre, près de l’hôpital)",
+  "es": "Pandosy y Mission (al sur del centro, junto al hospital)",
+  "ko": "Pandosy·Mission (다운타운 남쪽, 종합병원 일대)",
+  "ja": "Pandosy・Mission（ダウンタウンの南、総合病院のあたり）"
+ },
+ "rt": {
+  "zh": "Rutland（东边）",
+  "en": "Rutland (east)",
+  "fr": "Rutland (est)",
+  "es": "Rutland (este)",
+  "ko": "Rutland (동쪽)",
+  "ja": "Rutland（東部）"
+ },
+ "gm": {
+  "zh": "Glenmore 与 Dilworth（市中心以北）",
+  "en": "Glenmore & Dilworth (north of Downtown)",
+  "fr": "Glenmore et Dilworth (au nord du centre)",
+  "es": "Glenmore y Dilworth (al norte del centro)",
+  "ko": "Glenmore·Dilworth (다운타운 북쪽)",
+  "ja": "Glenmore・Dilworth（ダウンタウンの北）"
+ },
+ "nk": {
+  "zh": "北 Kelowna（机场、UBC Okanagan 一带）",
+  "en": "North Kelowna (airport, UBC Okanagan)",
+  "fr": "Kelowna Nord (aéroport, UBC Okanagan)",
+  "es": "Kelowna Norte (aeropuerto, UBC Okanagan)",
+  "ko": "북부 Kelowna (공항·UBC Okanagan)",
+  "ja": "北 Kelowna（空港・UBC Okanagan）"
+ },
+ "wk": {
+  "zh": "West Kelowna（湖对岸，含 Westbank）",
+  "en": "West Kelowna (across the lake, incl. Westbank)",
+  "fr": "West Kelowna (de l’autre côté du lac, avec Westbank)",
+  "es": "West Kelowna (al otro lado del lago, incl. Westbank)",
+  "ko": "West Kelowna (호수 건너편, Westbank 포함)",
+  "ja": "West Kelowna（湖の向こう側、Westbank を含む）"
+ }
+}

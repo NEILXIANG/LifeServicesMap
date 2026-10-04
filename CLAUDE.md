@@ -13,6 +13,7 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 ./deploy.sh --verify-only            # 只跑线上探针
 ./deploy.sh --city <id> --dry-run    # 看某座城市的部署设置（网址、Worker、目录），不部署
 python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城市骨架（TODO 未清完 validate 不通过）
+# city.json 里 "status": "draft" 的城市不能部署；Kelowna 目前是草稿，审核清单在 docs/reports/
 ```
 
 首次准备：`npm install`（锁定版本的 wrangler）；

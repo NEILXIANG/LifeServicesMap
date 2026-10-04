@@ -76,6 +76,7 @@ def main():
         'siteUrl': 'https://%s.neilxiang.workers.dev/' % worker,
         'storagePrefix': a.id,
         'searchStopwords': [a.id, 'bc'],
+        'status': 'draft',            # remove when the city is reviewed and ready to launch
         'validate': {'minPlaces': 0},
         'deploy': {
             'worker': worker, 'wranglerEnv': a.id, 'assetsDir': 'deploy/%s' % a.id, 'basePath': '/',
