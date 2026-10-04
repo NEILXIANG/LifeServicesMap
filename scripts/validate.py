@@ -828,8 +828,10 @@ else:
     copy_strings = []
     for lang in LANGS:
         copy_strings += [v for v in UI[lang].values() if isinstance(v, str)]
-    copy_strings += re.findall(r"UI\.(?:zh|en|fr|es|ko)\.[A-Za-z0-9_]+=`(.*?)\n`;", script, re.S)
-    copy_strings += re.findall(r"UI\.(?:zh|en|fr|es|ko)\.[A-Za-z0-9_]+='((?:[^'\\]|\\.)*)';", script)
+    # 2026-10-03: built from LANGS (Japanese had been left out of this check)
+    _lalt = '|'.join(LANGS)
+    copy_strings += re.findall(r"UI\.(?:%s)\.[A-Za-z0-9_]+=`(.*?)\n`;" % _lalt, script, re.S)
+    copy_strings += re.findall(r"UI\.(?:%s)\.[A-Za-z0-9_]+='((?:[^'\\]|\\.)*)';" % _lalt, script)
     blob = '\n'.join(copy_strings)
     checks = [(cityname, '{CITY}')] if cityname else []
     checks += [(lit, ph) for lit, ph in ((CITYOBJ.get('transit', {}).get('name'), '{TRANSIT}'),
@@ -886,6 +888,16 @@ for _e in _serr[:20]:
     fail('schema: ' + _e)
 if len(_serr) > 20:
     fail('schema: …and %d more' % (len(_serr) - 20))
+
+# ------------------------------------------------- 15c. open data carries its attribution
+# 2026-10-03: a city that uses government open data must say so, with the licence, in its
+# own data.js (UI.<lang>.licenceData). Licences such as the Open Government Licence – BC and
+# the BC Transit open data terms require attribution; the engine no longer carries any.
+if any(p.get('src') == 'opendata' for p in P) or len(BR):
+    for lang in LANGS:
+        _ld = re.search(r"UI\.%s\.licenceData='([^']*)'" % lang, html)
+        if not _ld:
+            fail('%s: the city uses open data but has no licenceData attribution in data.js' % lang)
 
 # ------------------------------------------------- 16. the split stays buildable
 import os as _os

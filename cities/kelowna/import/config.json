@@ -127,5 +127,35 @@
   "district": "023",
   "districtShort": "SD23",
   "sites": "sd23-sites.json"
+ },
+ "arcgis_parks": {
+  "url": "https://geoportal.kelowna.ca/arcgis/rest/services/ArcGISOnline/OpenData_Planning_and_other/MapServer/14",
+  "licence": "Open Government Licence – City of Kelowna",
+  "locality": "Kelowna",
+  "fields": {
+   "name": "LOCATIONDESC",
+   "address": "NOTE9",
+   "class": "STATUS_CLASS",
+   "dogs": "DOG_STATUS_DESC",
+   "hectares": "NOTE1"
+  },
+  "classes": {
+   "DEVELOPED CITY WIDE": 0,
+   "DEVELOPED COMMUNITY": 0,
+   "DEVELOPED RECREATION": 0,
+   "DEVELOPED REGIONAL": 0,
+   "DEVELOPED PROVINCIAL": 0,
+   "DEVELOPED NATURAL AREA": 5,
+   "DEVELOPED NEIGHBOURHOOD": 5
+  },
+  "beach": "beach park$",
+  "offLeash": [
+   "Off leash"
+  ],
+  "offLeashArea": [
+   "On leash and off leash area"
+  ],
+  "_note": "City of Kelowna only — West Kelowna, Lake Country and Peachland publish their own park data (not yet imported).",
+  "excludeName": "cemetery|detention pond"
  }
 }

@@ -617,7 +617,10 @@
    "indoor"
   ],
   "id": "6c9df47c",
-  "w": "https://www.orl.bc.ca/library/kelowna-mission"
+  "w": "https://www.orl.bc.ca/library/kelowna-mission",
+  "sameComplex": [
+   "b18e9129"
+  ]
  },
  {
   "n": "Okanagan Regional Library – Kelowna Rutland",
@@ -926,7 +929,10 @@
   "src": "stub-pending-verify",
   "v": "2026-10",
   "id": "9f3e043b",
-  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-recreation-centre-0"
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-recreation-centre-0",
+  "sameComplex": [
+   "8fa7bb62"
+  ]
  },
  {
   "n": "H2O Adventure + Fitness Centre",
@@ -2800,7 +2806,10 @@
   "t": [
    "family"
   ],
-  "id": "168219cd"
+  "id": "168219cd",
+  "sameComplex": [
+   "56ed406a"
+  ]
  },
  {
   "n": "Glenmore Little Bears Early Years Centre",
@@ -5492,5 +5501,1362 @@
    "life"
   ],
   "id": "a13a4fa3"
+ },
+ {
+  "n": "Anchor Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.883916,
+  "lng": -119.4932051,
+  "a": "1691 Ellis St",
+  "note": {
+   "zh": "公园，狗须牵绳（市政府开放数据）。",
+   "en": "Park, dogs on leash (City open data).",
+   "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "2f146c68"
+ },
+ {
+  "n": "Ben Lee Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8939312,
+  "lng": -119.4039278,
+  "a": "900 Houghton Rd",
+  "note": {
+   "zh": "公园，约 7 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 7 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "6cdb3bf7"
+ },
+ {
+  "n": "Bertram Creek Regional Park",
+  "c": "park",
+  "g": "wk",
+  "lat": 49.7853221,
+  "lng": -119.559066,
+  "a": "5680 Lakeshore Rd",
+  "note": {
+   "zh": "区域公园，约 17 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Regional park, about 17 ha, no dogs (City open data).",
+   "fr": "Parc régional, environ 17 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 17 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 17헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "広域公園，約17ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "a4c49da5"
+ },
+ {
+  "n": "Blair Pond Park",
+  "c": "park",
+  "g": "gm",
+  "lat": 49.9173853,
+  "lng": -119.4666445,
+  "a": "333 Clifton Rd",
+  "note": {
+   "zh": "公园，约 3 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 3 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 3 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 3 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 3헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約3ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "a40c12f8"
+ },
+ {
+  "n": "Bluebird Beach Park",
+  "c": "beach",
+  "g": "pm",
+  "lat": 49.8385413,
+  "lng": -119.489006,
+  "a": "4020 Lakeshore Rd",
+  "note": {
+   "zh": "湖滩公园（Okanagan 湖），禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
+   "en": "Lake beach park (Okanagan Lake), no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
+   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "90e79725"
+ },
+ {
+  "n": "Cedar Creek Park",
+  "c": "dogpark",
+  "g": "pm",
+  "lat": 49.7972824,
+  "lng": -119.5318355,
+  "a": "5200 Lakeshore Rd",
+  "note": {
+   "zh": "狗狗可不牵绳的遛狗区，约 7 公顷（市政府开放数据）。",
+   "en": "Off-leash dog area, about 7 ha (City open data).",
+   "fr": "Aire canine sans laisse, environ 7 ha (données ouvertes de la Ville).",
+   "es": "Zona para perros sin correa, unas 7 ha (datos abiertos de la Ciudad).",
+   "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 7헥타르(시 공개 데이터).",
+   "ja": "リードなしで犬を遊ばせられるエリア，約7ヘクタール（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "ba1606b1"
+ },
+ {
+  "n": "Canyon Falls Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8035926,
+  "lng": -119.4528258,
+  "a": "1856 Canyon Falls Ct",
+  "note": {
+   "zh": "自然保护区（步道为主），约 10 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 10 ha, dogs on leash (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 10 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 10 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 10헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約10ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "cfe95326"
+ },
+ {
+  "n": "Central Okanagan Sailing Association",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8317277,
+  "lng": -119.4899911,
+  "a": "4220 Hobson Rd",
+  "note": {
+   "zh": "公园，禁止带狗（市政府开放数据）。",
+   "en": "Park, no dogs (City open data).",
+   "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "2efbbe4b"
+ },
+ {
+  "n": "Cook Road Boat Launch",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8448435,
+  "lng": -119.4880795,
+  "a": "3786 Lakeshore Rd",
+  "note": {
+   "zh": "公园，约 2 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 2 ha, no dogs (City open data).",
+   "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "b574dd3f"
+ },
+ {
+  "n": "Dilworth Mountain Park",
+  "c": "trail",
+  "g": "gm",
+  "lat": 49.901895,
+  "lng": -119.433134,
+  "a": "Various - Dilworth Mountain",
+  "note": {
+   "zh": "自然保护区（步道为主），约 128 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 128 ha, dogs on leash (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 128 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 128 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 128헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約128ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "60080104"
+ },
+ {
+  "n": "East Kelowna Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8611452,
+  "lng": -119.4230365,
+  "a": "2741 East Kelowna Rd",
+  "note": {
+   "zh": "公园，约 3 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 3 ha, no dogs (City open data).",
+   "fr": "Parc, environ 3 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 3 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 3헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約3ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "9dfe6c28"
+ },
+ {
+  "n": "Edith Gay Park",
+  "c": "park",
+  "g": "nk",
+  "lat": 49.9083654,
+  "lng": -119.3826162,
+  "a": "305 Moyer Rd",
+  "note": {
+   "zh": "公园，约 4 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 4 ha, no dogs (City open data).",
+   "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "7f31bd48"
+ },
+ {
+  "n": "Ellison Dog Park",
+  "c": "dogpark",
+  "g": "nk",
+  "lat": 49.9555358,
+  "lng": -119.3710323,
+  "a": "4720 Old Vernon Rd",
+  "note": {
+   "zh": "狗狗可不牵绳的遛狗区，约 7 公顷（市政府开放数据）。",
+   "en": "Off-leash dog area, about 7 ha (City open data).",
+   "fr": "Aire canine sans laisse, environ 7 ha (données ouvertes de la Ville).",
+   "es": "Zona para perros sin correa, unas 7 ha (datos abiertos de la Ciudad).",
+   "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 7헥타르(시 공개 데이터).",
+   "ja": "リードなしで犬を遊ばせられるエリア，約7ヘクタール（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "sameComplex": [
+   "695b8c20"
+  ],
+  "id": "ed41647a"
+ },
+ {
+  "n": "Glenmore Recreation Park",
+  "c": "dogpark",
+  "g": "gm",
+  "lat": 49.9177313,
+  "lng": -119.4329389,
+  "a": "289 Valley Road",
+  "note": {
+   "zh": "狗狗可不牵绳的遛狗区，约 11 公顷（市政府开放数据）。",
+   "en": "Off-leash dog area, about 11 ha (City open data).",
+   "fr": "Aire canine sans laisse, environ 11 ha (données ouvertes de la Ville).",
+   "es": "Zona para perros sin correa, unas 11 ha (datos abiertos de la Ciudad).",
+   "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 11헥타르(시 공개 데이터).",
+   "ja": "リードなしで犬を遊ばせられるエリア，約11ヘクタール（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "64da672b"
+ },
+ {
+  "n": "Guisachan Heritage Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8709138,
+  "lng": -119.4771804,
+  "a": "1060 Cameron Ave",
+  "note": {
+   "zh": "公园，约 1 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 1 ha, no dogs (City open data).",
+   "fr": "Parc, environ 1 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 1 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 1헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "78649786"
+ },
+ {
+  "n": "Boyce-Gyro Beach Park",
+  "c": "beach",
+  "g": "pm",
+  "lat": 49.8555301,
+  "lng": -119.4914702,
+  "a": "3400 Lakeshore Rd",
+  "note": {
+   "zh": "湖滩公园（Okanagan 湖），约 4 公顷（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
+   "en": "Lake beach park (Okanagan Lake), about 4 ha (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
+   "fr": "Parc-plage (lac Okanagan), environ 4 ha (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), unas 4 ha (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 4헥타르(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約4ヘクタール（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "46a39021"
+ },
+ {
+  "n": "High Noon Park",
+  "c": "park",
+  "g": "nk",
+  "lat": 49.9555358,
+  "lng": -119.3710323,
+  "a": "4720 Old Vernon Rd",
+  "note": {
+   "zh": "公园，约 7 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 7 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "sameComplex": [
+   "ed41647a"
+  ],
+  "id": "695b8c20"
+ },
+ {
+  "n": "Kasugai Gardens",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8879683,
+  "lng": -119.4958968,
+  "a": "1435 Water St",
+  "note": {
+   "zh": "公园，禁止带狗（市政府开放数据）。",
+   "en": "Park, no dogs (City open data).",
+   "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "cf476268"
+ },
+ {
+  "n": "Kerry Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8868209,
+  "lng": -119.4986173,
+  "a": "1480 Mill St",
+  "note": {
+   "zh": "公园，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Park, has an off-leash dog area (City open data).",
+   "fr": "Parc, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Parque, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "公園，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "c550050a"
+ },
+ {
+  "n": "Kinsmen Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8680177,
+  "lng": -119.4953879,
+  "a": "2600 Abbott St",
+  "note": {
+   "zh": "公园，约 2 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 2 ha, no dogs (City open data).",
+   "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "38a1082d"
+ },
+ {
+  "n": "KLO Creek Regional Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8314647,
+  "lng": -119.3677828,
+  "a": "4800 McCulloch Road",
+  "note": {
+   "zh": "区域公园，约 17 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Regional park, about 17 ha, dogs on leash (City open data).",
+   "fr": "Parc régional, environ 17 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 17 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 17헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "広域公園，約17ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "4ce2421f"
+ },
+ {
+  "n": "KLO Sports Field",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8623679,
+  "lng": -119.4671596,
+  "a": "1456 KLO Rd",
+  "note": {
+   "zh": "公园，约 2 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 2 ha, no dogs (City open data).",
+   "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "a603a1bc"
+ },
+ {
+  "n": "Knowles Heritage Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.886087,
+  "lng": -119.4834224,
+  "a": "865 Bernard Ave",
+  "note": {
+   "zh": "公园，狗须牵绳（市政府开放数据）。",
+   "en": "Park, dogs on leash (City open data).",
+   "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "2debebd9"
+ },
+ {
+  "n": "Knox Mountain Park",
+  "c": "trail",
+  "g": "dt",
+  "lat": 49.9084423,
+  "lng": -119.4930743,
+  "a": "450 Knox Mountain Dr",
+  "note": {
+   "zh": "自然保护区（步道为主），约 367 公顷，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 367 ha, has an off-leash dog area (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 367 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 367 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 367헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約367ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "4c9125ae"
+ },
+ {
+  "n": "Kuipers' Peak Mountain Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.797456,
+  "lng": -119.4804801,
+  "a": "792 Kuipers Cr",
+  "note": {
+   "zh": "公园，约 11 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 11 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 11 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 11 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 11헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約11ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "273bd5a2"
+ },
+ {
+  "n": "Lebanon Creek Greenway",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.785428,
+  "lng": -119.522182,
+  "a": "5554 Mountainside Dr",
+  "note": {
+   "zh": "区域公园，约 37 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Regional park, about 37 ha, dogs on leash (City open data).",
+   "fr": "Parc régional, environ 37 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 37 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 37헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "広域公園，約37ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "0da3d13b"
+ },
+ {
+  "n": "Lombardy Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8913175,
+  "lng": -119.4690925,
+  "a": "1320 Wilson Ave",
+  "note": {
+   "zh": "公园，约 4 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 4 ha, no dogs (City open data).",
+   "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "f96a30fe"
+ },
+ {
+  "n": "Mission Creek Greenway",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.856176,
+  "lng": -119.450318,
+  "a": "Various",
+  "note": {
+   "zh": "区域公园，约 32 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Regional park, about 32 ha, dogs on leash (City open data).",
+   "fr": "Parc régional, environ 32 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 32 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 32헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "広域公園，約32ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "57441bfb"
+ },
+ {
+  "n": "Mission Ridge Park",
+  "c": "trail",
+  "g": "pm",
+  "lat": 49.8159993,
+  "lng": -119.4725192,
+  "a": "900 Bullock Rd",
+  "note": {
+   "zh": "自然保护区（步道为主），约 22 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 22 ha, dogs on leash (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 22 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 22 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 22헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約22ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "5db2b475"
+ },
+ {
+  "n": "McKinley Mountain Park",
+  "c": "park",
+  "g": "gm",
+  "lat": 49.978186,
+  "lng": -119.4442261,
+  "a": "1798 Shayler Pl",
+  "note": {
+   "zh": "自然保护区（步道为主），约 17 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 17 ha, dogs on leash (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 17 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 17 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 17헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約17ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "f2773ea0"
+ },
+ {
+  "n": "Mission Recreation Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.835737,
+  "lng": -119.4803059,
+  "a": "4105 Gordon Dr",
+  "note": {
+   "zh": "公园，约 47 公顷，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Park, about 47 ha, has an off-leash dog area (City open data).",
+   "fr": "Parc, environ 47 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Parque, unas 47 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 47헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "公園，約47ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "sameComplex": [
+   "6c9df47c"
+  ],
+  "id": "b18e9129"
+ },
+ {
+  "n": "Mountainside Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.7902282,
+  "lng": -119.5149454,
+  "a": "5437 Chute Lake Rd",
+  "note": {
+   "zh": "公园，约 8 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 8 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 8 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 8 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 8헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約8ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "3d20e88e"
+ },
+ {
+  "n": "Mission Creek Mountain Bike Skills Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8661596,
+  "lng": -119.3906215,
+  "a": "1960 Hollywood Road",
+  "note": {
+   "zh": "公园，约 4 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 4 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 4 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 4 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 4헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約4ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "ba61ad40"
+ },
+ {
+  "n": "Munson Pond Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8642653,
+  "lng": -119.4631033,
+  "a": "2855 Burtch Rd",
+  "note": {
+   "zh": "公园，约 10 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 10 ha, no dogs (City open data).",
+   "fr": "Parc, environ 10 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 10 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 10헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約10ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "22170c5d"
+ },
+ {
+  "n": "Myra Bellevue Provincial Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.812488,
+  "lng": -119.437531,
+  "a": "(E of) Sallows Rd",
+  "note": {
+   "zh": "省立公园，约 114 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Provincial park, about 114 ha, dogs on leash (City open data).",
+   "fr": "Parc provincial, environ 114 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque provincial, unas 114 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "주립공원, 약 114헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "州立公園，約114ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "b430d1da"
+ },
+ {
+  "n": "North Glenmore Dog Park",
+  "c": "dogpark",
+  "g": "gm",
+  "lat": 49.9605362,
+  "lng": -119.4242614,
+  "a": "2150 Glenmore Rd N",
+  "note": {
+   "zh": "狗狗可不牵绳的遛狗区，约 5 公顷（市政府开放数据）。",
+   "en": "Off-leash dog area, about 5 ha (City open data).",
+   "fr": "Aire canine sans laisse, environ 5 ha (données ouvertes de la Ville).",
+   "es": "Zona para perros sin correa, unas 5 ha (datos abiertos de la Ciudad).",
+   "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 5헥타르(시 공개 데이터).",
+   "ja": "リードなしで犬を遊ばせられるエリア，約5ヘクタール（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "325ba4d2"
+ },
+ {
+  "n": "Okanagan Mountain Park",
+  "c": "park",
+  "g": "wk",
+  "lat": 49.7816346,
+  "lng": -119.5802846,
+  "a": "5902 Lakeshore Rd",
+  "note": {
+   "zh": "省立公园，约 82 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Provincial park, about 82 ha, dogs on leash (City open data).",
+   "fr": "Parc provincial, environ 82 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque provincial, unas 82 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "주립공원, 약 82헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "州立公園，約82ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "331feba7"
+ },
+ {
+  "n": "Ponds Community Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8051127,
+  "lng": -119.468983,
+  "a": "1213 Frost Road",
+  "note": {
+   "zh": "公园，约 7 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 7 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "7f81acdf"
+ },
+ {
+  "n": "Parkinson Recreation Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8831701,
+  "lng": -119.4584945,
+  "a": "1800 Parkinson Way",
+  "note": {
+   "zh": "公园，约 19 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 19 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 19 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 19 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 19헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約19ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "sameComplex": [
+   "9f3e043b"
+  ],
+  "id": "8fa7bb62"
+ },
+ {
+  "n": "Quilchena Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.7935534,
+  "lng": -119.5192285,
+  "a": "347 Quilchena Dr",
+  "note": {
+   "zh": "公园，约 3 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 3 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 3 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 3 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 3헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約3ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "a8f8d541"
+ },
+ {
+  "n": "Rutland Centennial Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8914544,
+  "lng": -119.3883539,
+  "a": "250 Rutland Rd N",
+  "note": {
+   "zh": "公园，约 2 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 2 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 2 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 2 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 2헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約2ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "ec2cf004"
+ },
+ {
+  "n": "Recreation Avenue Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8965096,
+  "lng": -119.4919397,
+  "a": "552 Gaston Ave",
+  "note": {
+   "zh": "公园，约 4 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 4 ha, no dogs (City open data).",
+   "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "6bbf6840"
+ },
+ {
+  "n": "Robert's Lake Regional Park",
+  "c": "park",
+  "g": "nk",
+  "lat": 49.9354329,
+  "lng": -119.4124127,
+  "a": "956 Curtis Rd",
+  "note": {
+   "zh": "区域公园，约 2 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Regional park, about 2 ha, no dogs (City open data).",
+   "fr": "Parc régional, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "広域公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "eca3e968"
+ },
+ {
+  "n": "Rotary Beach Park",
+  "c": "beach",
+  "g": "pm",
+  "lat": 49.8492242,
+  "lng": -119.487036,
+  "a": "3726 Lakeshore Rd",
+  "note": {
+   "zh": "湖滩公园（Okanagan 湖），约 2 公顷，禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
+   "en": "Lake beach park (Okanagan Lake), about 2 ha, no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
+   "fr": "Parc-plage (lac Okanagan), environ 2 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), unas 2 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 2헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "f241d5cb"
+ },
+ {
+  "n": "Rotary Marsh Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8967247,
+  "lng": -119.4993438,
+  "a": "1050 Sunset Dr",
+  "note": {
+   "zh": "公园，约 3 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Park, about 3 ha, no dogs (City open data).",
+   "fr": "Parc, environ 3 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, unas 3 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 3헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，約3ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "67903a51"
+ },
+ {
+  "n": "Rowcliffe Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.881564,
+  "lng": -119.489783,
+  "a": "536 Rowcliffe Ave",
+  "note": {
+   "zh": "公园，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Park, has an off-leash dog area (City open data).",
+   "fr": "Parc, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Parque, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "公園，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "88e94668"
+ },
+ {
+  "n": "Roxby Square",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8899981,
+  "lng": -119.390256,
+  "a": "250 Highway 33 W",
+  "note": {
+   "zh": "公园，狗须牵绳（市政府开放数据）。",
+   "en": "Park, dogs on leash (City open data).",
+   "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "e9d4af07"
+ },
+ {
+  "n": "Rutland Recreation Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.8970378,
+  "lng": -119.3813804,
+  "a": "645 Dodd Rd",
+  "note": {
+   "zh": "公园，约 15 公顷，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Park, about 15 ha, has an off-leash dog area (City open data).",
+   "fr": "Parc, environ 15 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Parque, unas 15 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 15헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "公園，約15ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "d28b9905"
+ },
+ {
+  "n": "Sarsons Beach Park",
+  "c": "beach",
+  "g": "pm",
+  "lat": 49.8264222,
+  "lng": -119.4983939,
+  "a": "4398 Hobson Rd",
+  "note": {
+   "zh": "湖滩公园（Okanagan 湖），约 1 公顷，禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
+   "en": "Lake beach park (Okanagan Lake), about 1 ha, no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
+   "fr": "Parc-plage (lac Okanagan), environ 1 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), unas 1 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 1헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "534cf166"
+ },
+ {
+  "n": "Scenic Canyon Regional Park",
+  "c": "park",
+  "g": "rt",
+  "lat": 49.850483,
+  "lng": -119.376322,
+  "a": "3801 Field Rd",
+  "note": {
+   "zh": "区域公园，约 245 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Regional park, about 245 ha, dogs on leash (City open data).",
+   "fr": "Parc régional, environ 245 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 245 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 245헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "広域公園，約245ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "0980a35e"
+ },
+ {
+  "n": "South Kelowna Centennial Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8358906,
+  "lng": -119.4216344,
+  "a": "4194 Spiers Rd",
+  "note": {
+   "zh": "公园，约 4 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 4 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 4 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 4 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 4헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約4ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "7b944d41"
+ },
+ {
+  "n": "Strathcona Beach Park",
+  "c": "beach",
+  "g": "pm",
+  "lat": 49.8732468,
+  "lng": -119.4976736,
+  "a": "2290 Abbott St",
+  "note": {
+   "zh": "湖滩公园（Okanagan 湖），禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
+   "en": "Lake beach park (Okanagan Lake), no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
+   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "id": "cf38153c"
+ },
+ {
+  "n": "Stuart Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8883754,
+  "lng": -119.4971242,
+  "a": "1430 Water St",
+  "note": {
+   "zh": "公园，约 1 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 1 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 1 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 1 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 1헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約1ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "8ca727fd"
+ },
+ {
+  "n": "Sutherland Bay Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.9023398,
+  "lng": -119.4937074,
+  "a": "700 Ellis St",
+  "note": {
+   "zh": "公园，约 2 公顷，设有不牵绳的遛狗区（市政府开放数据）。",
+   "en": "Park, about 2 ha, has an off-leash dog area (City open data).",
+   "fr": "Parc, environ 2 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
+   "es": "Parque, unas 2 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 2헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
+   "ja": "公園，約2ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "085df09c"
+ },
+ {
+  "n": "Thomson Marsh Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8336205,
+  "lng": -119.4788913,
+  "a": "4125 Gordon Dr",
+  "note": {
+   "zh": "自然保护区（步道为主），约 10 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Natural area (mostly trails), about 10 ha, no dogs (City open data).",
+   "fr": "Aire naturelle (surtout des sentiers), environ 10 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Área natural (sobre todo senderos), unas 10 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "자연 보호 구역(주로 산책로), 약 10헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "自然エリア（主に遊歩道），約10ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "id": "23751da1"
+ },
+ {
+  "n": "Waterfront Park",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8933963,
+  "lng": -119.496674,
+  "a": "1200 Water St",
+  "note": {
+   "zh": "公园，约 7 公顷，狗须牵绳（市政府开放数据）。",
+   "en": "Park, about 7 ha, dogs on leash (City open data).",
+   "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
+   "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
+   "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
+   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "8e5a3d5b"
+ },
+ {
+  "n": "Woodhaven Regional Park",
+  "c": "park",
+  "g": "pm",
+  "lat": 49.8112733,
+  "lng": -119.4711157,
+  "a": "4711 Raymer Rd",
+  "note": {
+   "zh": "区域公园，约 9 公顷，禁止带狗（市政府开放数据）。",
+   "en": "Regional park, about 9 ha, no dogs (City open data).",
+   "fr": "Parc régional, environ 9 ha, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque regional, unas 9 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "광역 공원, 약 9헥타르, 개 출입 금지(시 공개 데이터).",
+   "ja": "広域公園，約9ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "scenic",
+   "free"
+  ],
+  "sameComplex": [
+   "168219cd"
+  ],
+  "id": "56ed406a"
+ },
+ {
+  "n": "Water Street Boat Launch",
+  "c": "park",
+  "g": "dt",
+  "lat": 49.8909916,
+  "lng": -119.4989032,
+  "a": "1354 Water St",
+  "note": {
+   "zh": "公园，禁止带狗（市政府开放数据）。",
+   "en": "Park, no dogs (City open data).",
+   "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
+   "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
+   "ko": "공원, 개 출입 금지(시 공개 데이터).",
+   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "0632c4ba"
  }
 ]

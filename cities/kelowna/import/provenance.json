@@ -49,20 +49,40 @@
   "key": "4003",
   "source": "bc-childcare-map"
  },
+ "0632c4ba": {
+  "imported": "2026-10-03",
+  "key": "Water Street Boat Launch",
+  "source": "arcgis-parks"
+ },
  "082d0de9": {
   "imported": "2026-10-03",
   "key": "09323027",
   "source": "bc-k12-schools"
+ },
+ "085df09c": {
+  "imported": "2026-10-03",
+  "key": "Sutherland Bay Park",
+  "source": "arcgis-parks"
  },
  "090080fe": {
   "imported": "2026-10-03",
   "key": "4699",
   "source": "bc-childcare-map"
  },
+ "0980a35e": {
+  "imported": "2026-10-03",
+  "key": "Scenic Canyon Regional Park",
+  "source": "arcgis-parks"
+ },
  "0a811768": {
   "imported": "2026-10-03",
   "key": "02323048",
   "source": "bc-k12-schools"
+ },
+ "0da3d13b": {
+  "imported": "2026-10-03",
+  "key": "Lebanon Creek Greenway",
+  "source": "arcgis-parks"
  },
  "0e60f1cd": {
   "imported": "2026-10-03",
@@ -154,10 +174,20 @@
   "key": "02323070",
   "source": "bc-k12-schools"
  },
+ "22170c5d": {
+  "imported": "2026-10-03",
+  "key": "Munson Pond Park",
+  "source": "arcgis-parks"
+ },
  "2237355e": {
   "imported": "2026-10-03",
   "key": "02396609",
   "source": "bc-k12-schools"
+ },
+ "23751da1": {
+  "imported": "2026-10-03",
+  "key": "Thomson Marsh Park",
+  "source": "arcgis-parks"
  },
  "23d92c23": {
   "imported": "2026-10-03",
@@ -179,6 +209,11 @@
   "key": "26",
   "source": "bc-childcare-map"
  },
+ "273bd5a2": {
+  "imported": "2026-10-03",
+  "key": "Kuipers' Peak Mountain Park",
+  "source": "arcgis-parks"
+ },
  "2948b4b9": {
   "imported": "2026-10-03",
   "key": "3891",
@@ -199,10 +234,25 @@
   "key": "5033",
   "source": "bc-childcare-map"
  },
+ "2debebd9": {
+  "imported": "2026-10-03",
+  "key": "Knowles Heritage Park",
+  "source": "arcgis-parks"
+ },
  "2e4801f4": {
   "imported": "2026-10-03",
   "key": "3590",
   "source": "bc-childcare-map"
+ },
+ "2efbbe4b": {
+  "imported": "2026-10-03",
+  "key": "Central Okanagan Sailing Association",
+  "source": "arcgis-parks"
+ },
+ "2f146c68": {
+  "imported": "2026-10-03",
+  "key": "Anchor Park",
+  "source": "arcgis-parks"
  },
  "2fe62eba": {
   "imported": "2026-10-03",
@@ -219,10 +269,20 @@
   "key": "327",
   "source": "bc-childcare-map"
  },
+ "325ba4d2": {
+  "imported": "2026-10-03",
+  "key": "North Glenmore Dog Park",
+  "source": "arcgis-parks"
+ },
  "32e215df": {
   "imported": "2026-10-03",
   "key": "3169",
   "source": "bc-childcare-map"
+ },
+ "331feba7": {
+  "imported": "2026-10-03",
+  "key": "Okanagan Mountain Park",
+  "source": "arcgis-parks"
  },
  "3379f1cd": {
   "imported": "2026-10-03",
@@ -259,6 +319,11 @@
   "key": "4992",
   "source": "bc-childcare-map"
  },
+ "38a1082d": {
+  "imported": "2026-10-03",
+  "key": "Kinsmen Park",
+  "source": "arcgis-parks"
+ },
  "3b262d43": {
   "imported": "2026-10-03",
   "key": "02396479",
@@ -273,6 +338,11 @@
   "imported": "2026-10-03",
   "key": "4312",
   "source": "bc-childcare-map"
+ },
+ "3d20e88e": {
+  "imported": "2026-10-03",
+  "key": "Mountainside Park",
+  "source": "arcgis-parks"
  },
  "3d48183e": {
   "imported": "2026-10-03",
@@ -299,6 +369,11 @@
   "key": "3665",
   "source": "bc-childcare-map"
  },
+ "46a39021": {
+  "imported": "2026-10-03",
+  "key": "Boyce-Gyro Beach Park",
+  "source": "arcgis-parks"
+ },
  "48fbd878": {
   "imported": "2026-10-03",
   "key": "1133",
@@ -313,6 +388,16 @@
   "imported": "2026-10-03",
   "key": "640",
   "source": "bc-childcare-map"
+ },
+ "4c9125ae": {
+  "imported": "2026-10-03",
+  "key": "Knox Mountain Park",
+  "source": "arcgis-parks"
+ },
+ "4ce2421f": {
+  "imported": "2026-10-03",
+  "key": "KLO Creek Regional Park",
+  "source": "arcgis-parks"
  },
  "4de76ebd": {
   "imported": "2026-10-03",
@@ -334,10 +419,25 @@
   "key": "2211",
   "source": "bc-childcare-map"
  },
+ "534cf166": {
+  "imported": "2026-10-03",
+  "key": "Sarsons Beach Park",
+  "source": "arcgis-parks"
+ },
  "55108daf": {
   "imported": "2026-10-03",
   "key": "5349",
   "source": "bc-childcare-map"
+ },
+ "56ed406a": {
+  "imported": "2026-10-03",
+  "key": "Woodhaven Regional Park",
+  "source": "arcgis-parks"
+ },
+ "57441bfb": {
+  "imported": "2026-10-03",
+  "key": "Mission Creek Greenway",
+  "source": "arcgis-parks"
  },
  "582fe3e2": {
   "imported": "2026-10-03",
@@ -364,6 +464,11 @@
   "key": "3143",
   "source": "bc-childcare-map"
  },
+ "5db2b475": {
+  "imported": "2026-10-03",
+  "key": "Mission Ridge Park",
+  "source": "arcgis-parks"
+ },
  "5f3a2c44": {
   "imported": "2026-10-03",
   "key": "325",
@@ -378,6 +483,11 @@
   "imported": "2026-10-03",
   "key": "2785",
   "source": "bc-childcare-map"
+ },
+ "60080104": {
+  "imported": "2026-10-03",
+  "key": "Dilworth Mountain Park",
+  "source": "arcgis-parks"
  },
  "605847c8": {
   "imported": "2026-10-03",
@@ -394,6 +504,11 @@
   "key": "5289",
   "source": "bc-childcare-map"
  },
+ "64da672b": {
+  "imported": "2026-10-03",
+  "key": "Glenmore Recreation Park",
+  "source": "arcgis-parks"
+ },
  "6522ad17": {
   "imported": "2026-10-03",
   "key": "02396360",
@@ -409,10 +524,30 @@
   "key": "4210",
   "source": "bc-childcare-map"
  },
+ "67903a51": {
+  "imported": "2026-10-03",
+  "key": "Rotary Marsh Park",
+  "source": "arcgis-parks"
+ },
+ "695b8c20": {
+  "imported": "2026-10-03",
+  "key": "High Noon Park",
+  "source": "arcgis-parks"
+ },
  "6a265fd9": {
   "imported": "2026-10-03",
   "key": "611",
   "source": "bc-childcare-map"
+ },
+ "6bbf6840": {
+  "imported": "2026-10-03",
+  "key": "Recreation Avenue Park",
+  "source": "arcgis-parks"
+ },
+ "6cdb3bf7": {
+  "imported": "2026-10-03",
+  "key": "Ben Lee Park",
+  "source": "arcgis-parks"
  },
  "6f151299": {
   "imported": "2026-10-03",
@@ -434,6 +569,16 @@
   "key": "4607",
   "source": "bc-childcare-map"
  },
+ "78649786": {
+  "imported": "2026-10-03",
+  "key": "Guisachan Heritage Park",
+  "source": "arcgis-parks"
+ },
+ "7b944d41": {
+  "imported": "2026-10-03",
+  "key": "South Kelowna Centennial Park",
+  "source": "arcgis-parks"
+ },
  "7ca795bf": {
   "imported": "2026-10-03",
   "key": "3678",
@@ -443,6 +588,16 @@
   "imported": "2026-10-03",
   "key": "1371",
   "source": "bc-childcare-map"
+ },
+ "7f31bd48": {
+  "imported": "2026-10-03",
+  "key": "Edith Gay Park",
+  "source": "arcgis-parks"
+ },
+ "7f81acdf": {
+  "imported": "2026-10-03",
+  "key": "Ponds Community Park",
+  "source": "arcgis-parks"
  },
  "7fc3bca4": {
   "imported": "2026-10-03",
@@ -474,6 +629,11 @@
   "key": "4388",
   "source": "bc-childcare-map"
  },
+ "88e94668": {
+  "imported": "2026-10-03",
+  "key": "Rowcliffe Park",
+  "source": "arcgis-parks"
+ },
  "898bef63": {
   "imported": "2026-10-03",
   "key": "1407",
@@ -484,10 +644,25 @@
   "key": "5645",
   "source": "bc-childcare-map"
  },
+ "8ca727fd": {
+  "imported": "2026-10-03",
+  "key": "Stuart Park",
+  "source": "arcgis-parks"
+ },
  "8d4ed10e": {
   "imported": "2026-10-03",
   "key": "5846",
   "source": "bc-childcare-map"
+ },
+ "8e5a3d5b": {
+  "imported": "2026-10-03",
+  "key": "Waterfront Park",
+  "source": "arcgis-parks"
+ },
+ "8fa7bb62": {
+  "imported": "2026-10-03",
+  "key": "Parkinson Recreation Park",
+  "source": "arcgis-parks"
  },
  "909afc43": {
   "imported": "2026-10-03",
@@ -498,6 +673,11 @@
   "imported": "2026-10-03",
   "key": "957",
   "source": "bc-childcare-map"
+ },
+ "90e79725": {
+  "imported": "2026-10-03",
+  "key": "Bluebird Beach Park",
+  "source": "arcgis-parks"
  },
  "942d4c4f": {
   "imported": "2026-10-03",
@@ -544,6 +724,11 @@
   "key": "4814",
   "source": "bc-childcare-map"
  },
+ "9dfe6c28": {
+  "imported": "2026-10-03",
+  "key": "East Kelowna Park",
+  "source": "arcgis-parks"
+ },
  "9f46d604": {
   "imported": "2026-10-03",
   "key": "02323056",
@@ -578,6 +763,26 @@
   "imported": "2026-10-03",
   "key": "2836",
   "source": "bc-childcare-map"
+ },
+ "a40c12f8": {
+  "imported": "2026-10-03",
+  "key": "Blair Pond Park",
+  "source": "arcgis-parks"
+ },
+ "a4c49da5": {
+  "imported": "2026-10-03",
+  "key": "Bertram Creek Regional Park",
+  "source": "arcgis-parks"
+ },
+ "a603a1bc": {
+  "imported": "2026-10-03",
+  "key": "KLO Sports Field",
+  "source": "arcgis-parks"
+ },
+ "a8f8d541": {
+  "imported": "2026-10-03",
+  "key": "Quilchena Park",
+  "source": "arcgis-parks"
  },
  "a904d6b8": {
   "imported": "2026-10-03",
@@ -629,6 +834,21 @@
   "key": "3894",
   "source": "bc-childcare-map"
  },
+ "b18e9129": {
+  "imported": "2026-10-03",
+  "key": "Mission Recreation Park",
+  "source": "arcgis-parks"
+ },
+ "b430d1da": {
+  "imported": "2026-10-03",
+  "key": "Myra Bellevue Provincial Park",
+  "source": "arcgis-parks"
+ },
+ "b574dd3f": {
+  "imported": "2026-10-03",
+  "key": "Cook Road Boat Launch",
+  "source": "arcgis-parks"
+ },
  "b60b4067": {
   "imported": "2026-10-03",
   "key": "02323055",
@@ -654,10 +874,20 @@
   "key": "1842",
   "source": "bc-childcare-map"
  },
+ "ba1606b1": {
+  "imported": "2026-10-03",
+  "key": "Cedar Creek Park",
+  "source": "arcgis-parks"
+ },
  "ba40a908": {
   "imported": "2026-10-03",
   "key": "1113",
   "source": "bc-childcare-map"
+ },
+ "ba61ad40": {
+  "imported": "2026-10-03",
+  "key": "Mission Creek Mountain Bike Skills Park",
+  "source": "arcgis-parks"
  },
  "bb65beb4": {
   "imported": "2026-10-03",
@@ -709,6 +939,11 @@
   "key": "575",
   "source": "bc-childcare-map"
  },
+ "c550050a": {
+  "imported": "2026-10-03",
+  "key": "Kerry Park",
+  "source": "arcgis-parks"
+ },
  "c6c313dd": {
   "imported": "2026-10-03",
   "key": "02397006",
@@ -739,10 +974,25 @@
   "key": "3023",
   "source": "bc-childcare-map"
  },
+ "cf38153c": {
+  "imported": "2026-10-03",
+  "key": "Strathcona Beach Park",
+  "source": "arcgis-parks"
+ },
+ "cf476268": {
+  "imported": "2026-10-03",
+  "key": "Kasugai Gardens",
+  "source": "arcgis-parks"
+ },
  "cfc41d83": {
   "imported": "2026-10-03",
   "key": "4057",
   "source": "bc-childcare-map"
+ },
+ "cfe95326": {
+  "imported": "2026-10-03",
+  "key": "Canyon Falls Park",
+  "source": "arcgis-parks"
  },
  "d04ce332": {
   "imported": "2026-10-03",
@@ -758,6 +1008,11 @@
   "imported": "2026-10-03",
   "key": "787",
   "source": "bc-childcare-map"
+ },
+ "d28b9905": {
+  "imported": "2026-10-03",
+  "key": "Rutland Recreation Park",
+  "source": "arcgis-parks"
  },
  "d41ad5ee": {
   "imported": "2026-10-03",
@@ -844,6 +1099,11 @@
   "key": "4313",
   "source": "bc-childcare-map"
  },
+ "e9d4af07": {
+  "imported": "2026-10-03",
+  "key": "Roxby Square",
+  "source": "arcgis-parks"
+ },
  "eb1b98e2": {
   "imported": "2026-10-03",
   "key": "4577",
@@ -858,6 +1118,21 @@
   "imported": "2026-10-03",
   "key": "251",
   "source": "bc-childcare-map"
+ },
+ "ec2cf004": {
+  "imported": "2026-10-03",
+  "key": "Rutland Centennial Park",
+  "source": "arcgis-parks"
+ },
+ "eca3e968": {
+  "imported": "2026-10-03",
+  "key": "Robert's Lake Regional Park",
+  "source": "arcgis-parks"
+ },
+ "ed41647a": {
+  "imported": "2026-10-03",
+  "key": "Ellison Dog Park",
+  "source": "arcgis-parks"
  },
  "ee7dcf47": {
   "imported": "2026-10-03",
@@ -889,6 +1164,16 @@
   "key": "02323038",
   "source": "bc-k12-schools"
  },
+ "f241d5cb": {
+  "imported": "2026-10-03",
+  "key": "Rotary Beach Park",
+  "source": "arcgis-parks"
+ },
+ "f2773ea0": {
+  "imported": "2026-10-03",
+  "key": "McKinley Mountain Park",
+  "source": "arcgis-parks"
+ },
  "f29667c6": {
   "imported": "2026-10-03",
   "key": "5619",
@@ -903,6 +1188,11 @@
   "imported": "2026-10-03",
   "key": "2471",
   "source": "bc-childcare-map"
+ },
+ "f96a30fe": {
+  "imported": "2026-10-03",
+  "key": "Lombardy Park",
+  "source": "arcgis-parks"
  },
  "f98efbcc": {
   "imported": "2026-10-03",

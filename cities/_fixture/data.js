@@ -188,6 +188,14 @@ UI.fr.busCoverage='{CITY}: 1 route ({TRANSIT}).';
 UI.es.busCoverage='{CITY}: 1 route ({TRANSIT}).';
 UI.ko.busCoverage='{CITY}: 1 route ({TRANSIT}).';
 UI.ja.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+// Data attribution shown under Licence & attribution (moved out of the engine 2026-10-03:
+// which open data a city uses, and under which licence, is a fact about the city).
+UI.zh.licenceData='<p><b>省政府开放数据：</b>本页面的部分地点（持牌托儿机构、K–12 学校的位置）来自 BC 省政府公开数据，依 <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> 使用。</p>';
+UI.en.licenceData='<p><b>Provincial open data:</b> some places on this page — licensed child care centres and K–12 school locations — contain information licensed under the <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>.</p>';
+UI.fr.licenceData='<p><b>Données ouvertes provinciales :</b> certains lieux de cette page — garderies autorisées et emplacements des écoles de la maternelle à la 12e année — contiennent de l’information visée par l’<a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>.</p>';
+UI.es.licenceData='<p><b>Datos abiertos provinciales:</b> algunos lugares de esta página — guarderías con licencia y ubicaciones de escuelas de K a 12 — contienen información bajo la <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>.</p>';
+UI.ko.licenceData='<p><b>주 정부 공개 데이터:</b> 이 페이지의 일부 장소(허가받은 어린이집, K–12 학교 위치)에는 <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>에 따라 제공되는 정보가 포함되어 있습니다.</p>';
+UI.ja.licenceData='<p><b>州政府のオープンデータ：</b>このページの一部の場所（認可保育施設、K–12学校の位置）には、<a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> に基づく情報が含まれています。</p>';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

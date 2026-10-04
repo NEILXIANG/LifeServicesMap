@@ -86,7 +86,7 @@ function setLang(l){
   // and another province swaps only guideProv. GUIDE_ORDER keeps the reading order
   // sensible while the tiers stay separable.
   document.getElementById('guideBody').innerHTML=
-    GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l);
+    GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l)+(tpl(u.licenceData,l)||'');
   buildGuideToc();
   // Keep the task layer in the reader's language too — and keep them on the
   // task they were reading rather than bouncing them back to the list.

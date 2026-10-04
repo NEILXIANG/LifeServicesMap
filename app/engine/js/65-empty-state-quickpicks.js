@@ -145,7 +145,10 @@ function renderSearchHelp(){
 }
 const PRESETS={
   daily:['grocery','asian','hospital','pharmacy','bank','transit','gas','laundry','post','conv'],
-  newcomer:['gov','foodbank','bank','post','secondhand','apt','propmgmt','hardware','transit','schoolbus','hospital','asian','driving','religious','commctr','legal'],
+  // 2026-10-03: + library — free Wi-Fi, computers, printing and English conversation circles are
+  // used by almost everyone who has just arrived (child care stays under Kids: 100+ centres would
+  // bury what a single person or a student needs).
+  newcomer:['gov','foodbank','bank','post','secondhand','apt','propmgmt','hardware','transit','schoolbus','hospital','asian','driving','religious','commctr','legal','library'],
   kids:['park','splash','pool','library','museum','cinema','rink','beach','elem','school','schoolbus','daycare','playcenter','tutor'],
   sports:['gym','pool','rink','park','trail','beach','dogpark'],
   edu:['school','elem','schoolbus','library','tutor'],

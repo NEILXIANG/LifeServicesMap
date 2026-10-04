@@ -39,7 +39,7 @@ async def main():
 
         # ---- the source label
         for l in LANGS:
-            t = await pg.evaluate("l=>[UI[l].srcOpenData,UI[l].srcOpenDataTip,UI[l].licenceNote]", l)
+            t = await pg.evaluate("l=>[UI[l].srcOpenData,UI[l].srcOpenDataTip,(UI[l].licenceNote||'')+(UI[l].licenceData||'')]", l)   # 2026-10-03: attribution moved to the city's licenceData
             check('%s: the provincial label, its tip, and the Open Government Licence attribution' % l,
                   t[0] and len(t[1]) > 20 and 'open-government-licence-bc' in t[2], (t[0], t[1][:30]))
         r = await pg.evaluate("""()=>{setLang('en');const p=P.find(x=>x.src==='opendata');
