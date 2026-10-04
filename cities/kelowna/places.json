@@ -224,7 +224,8 @@
   "id": "6888f5cf",
   "w": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna",
   "sameComplex": [
-   "036d741a"
+   "036d741a",
+   "1777ee71"
   ],
   "h": {
    "r": [
@@ -726,7 +727,10 @@
      0
     ]
    ]
-  }
+  },
+  "sameComplex": [
+   "a5ed2320"
+  ]
  },
  {
   "n": "MD Medical Centre",
@@ -872,7 +876,8 @@
   "id": "b632d5d0",
   "w": "https://www.shoppersdrugmart.ca/en/stores/225-shoppers-drug-mart-orchard-park-s-c/",
   "sameComplex": [
-   "3eb6e94d"
+   "3eb6e94d",
+   "6032b4d6"
   ],
   "h": {
    "r": [
@@ -8694,7 +8699,8 @@
   "id": "164b9d95",
   "w": "https://www.lakepointmedical.ca/",
   "sameComplex": [
-   "53dfad06"
+   "53dfad06",
+   "05520fc8"
   ]
  },
  {
@@ -8929,7 +8935,8 @@
   "id": "5b55bc09",
   "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2267/pharmacy",
   "sameComplex": [
-   "ae8338ed"
+   "ae8338ed",
+   "68b9dda4"
   ]
  },
  {
@@ -10352,7 +10359,8 @@
    "r"
   ],
   "sameComplex": [
-   "164b9d95"
+   "164b9d95",
+   "05520fc8"
   ],
   "id": "53dfad06",
   "w": "https://www.sncewips.com/"
@@ -11479,7 +11487,8 @@
    " "
   ],
   "sameComplex": [
-   "6888f5cf"
+   "6888f5cf",
+   "1777ee71"
   ],
   "id": "036d741a",
   "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
@@ -11572,7 +11581,8 @@
    " "
   ],
   "sameComplex": [
-   "b632d5d0"
+   "b632d5d0",
+   "6032b4d6"
   ],
   "id": "3eb6e94d",
   "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
@@ -11760,7 +11770,8 @@
    " "
   ],
   "sameComplex": [
-   "5b55bc09"
+   "5b55bc09",
+   "68b9dda4"
   ],
   "id": "ae8338ed",
   "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
@@ -11940,7 +11951,10 @@
    " "
   ],
   "id": "756e406f",
-  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+  "sameComplex": [
+   "13a6333d"
+  ]
  },
  {
   "n": "Canada Post — West Kelowna (Shoppers Drug Mart)",
@@ -12546,7 +12560,10 @@
    "S"
   ],
   "id": "f4c238b9",
-  "w": "https://www.fruiticana.com/storefinder?city=Kelowna"
+  "w": "https://www.fruiticana.com/storefinder?city=Kelowna",
+  "sameComplex": [
+   "c89e4405"
+  ]
  },
  {
   "n": "Sabzi Mandi Supermarket (Rutland)",
@@ -13828,5 +13845,1331 @@
     ]
    ]
   }
+ },
+ {
+  "n": "Orchard Park Shopping Centre",
+  "c": "mall",
+  "g": "dt",
+  "lat": 49.8793159,
+  "lng": -119.4401586,
+  "a": "2271 Harvey Ave",
+  "p": "250-762-2838",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     600,
+     1080,
+     0
+    ],
+    [
+     2,
+     2,
+     600,
+     1080,
+     0
+    ],
+    [
+     3,
+     3,
+     600,
+     1080,
+     0
+    ],
+    [
+     4,
+     4,
+     600,
+     1200,
+     0
+    ],
+    [
+     5,
+     5,
+     600,
+     1200,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1080,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Kelowna 最大的室内购物中心，位于 Harvey 大道（97 号公路）旁，约有 170 家商店和服务。各店营业时间可能不同，节假日时间以商场公布为准。",
+   "en": "Kelowna's largest indoor mall, on Harvey Avenue (Highway 97), with about 170 stores and services. Stores keep their own hours and the mall publishes special holiday hours."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "O",
+   "r",
+   "c",
+   "h",
+   "a",
+   "r",
+   "d",
+   " ",
+   "P",
+   "a",
+   "r",
+   "k"
+  ],
+  "sameComplex": [
+   "b632d5d0",
+   "3eb6e94d"
+  ],
+  "id": "6032b4d6",
+  "w": "https://orchardparkshopping.com/"
+ },
+ {
+  "n": "Mission Park Shopping Centre",
+  "c": "mall",
+  "g": "pm",
+  "lat": 49.8600475,
+  "lng": -119.4893878,
+  "a": "3155 Lakeshore Rd",
+  "note": {
+   "zh": "位于 Lakeshore 路与 KLO 路口的露天购物中心，South Pandosy 公交换乘站就在这里。每次可免费停车最多 3 小时。",
+   "en": "Open-air shopping centre at Lakeshore Road and KLO Road, home to the South Pandosy bus exchange. Free parking for up to 3 hours per visit."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "M",
+   "i",
+   "s",
+   "s",
+   "i",
+   "o",
+   "n",
+   " ",
+   "P",
+   "a",
+   "r",
+   "k"
+  ],
+  "sameComplex": [
+   "756e406f"
+  ],
+  "id": "13a6333d",
+  "w": "https://missionparkshopping.ca/"
+ },
+ {
+  "n": "Capri Centre Mall",
+  "c": "mall",
+  "g": "dt",
+  "lat": 49.8816284,
+  "lng": -119.4757465,
+  "a": "1835 Gordon Dr",
+  "note": {
+   "zh": "Kelowna 最早的购物中心，位于 Gordon 大道与 Harvey 大道交界，为室内商场，有美食广场、银行、诊所和牙科，以及 Capri 邮局网点。",
+   "en": "Kelowna's first shopping mall, at Gordon Drive and Harvey Avenue, an enclosed mall with a food court, a bank, medical and dental offices, and the Capri Canada Post outlet."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "C",
+   "a",
+   "p",
+   "r",
+   "i",
+   " ",
+   "C",
+   "e",
+   "n",
+   "t",
+   "r",
+   "e"
+  ],
+  "sameComplex": [
+   "6888f5cf",
+   "036d741a"
+  ],
+  "id": "1777ee71",
+  "w": "https://www.prospero.ca/properties/capri-centre/"
+ },
+ {
+  "n": "Save-On-Foods Glenmore",
+  "c": "grocery",
+  "g": "gm",
+  "lat": 49.9155126,
+  "lng": -119.4412563,
+  "a": "#115 - 1972 Kane Rd",
+  "p": "250-860-2946",
+  "note": {
+   "zh": "位于 Glenmore 区 Kane 路与 Drysdale 大道交界 Brandt's Creek Crossing 的大型超市，附设药房，每天营业。",
+   "en": "Large supermarket with a pharmacy in Brandt's Creek Crossing at Kane Road and Drysdale Boulevard, Glenmore, open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "v",
+   "e",
+   "-",
+   "O",
+   "n",
+   "-",
+   "F",
+   "o",
+   "o",
+   "d"
+  ],
+  "sameComplex": [
+   "5b55bc09",
+   "ae8338ed"
+  ],
+  "id": "68b9dda4",
+  "w": "https://www.saveonfoods.com/store-information/glenmore/2224"
+ },
+ {
+  "n": "IGA Kelowna (Kane Road, Glenmore)",
+  "c": "grocery",
+  "g": "gm",
+  "lat": 49.9161371,
+  "lng": -119.4432358,
+  "a": "1940 Kane Rd",
+  "p": "250-868-3009",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     480,
+     1320,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Kane 路与 Glenmore 路口的社区超市，每天营业。",
+   "en": "Neighbourhood supermarket at the corner of Kane Road and Glenmore Road, open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "I",
+   "G",
+   "A",
+   " ",
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " "
+  ],
+  "sameComplex": [
+   "a7994d33"
+  ],
+  "id": "7738557e",
+  "w": "https://www.igastoresbc.com/find-a-store/kelowna-iga"
+ },
+ {
+  "n": "Dyck's Pharmacists IDA (Glenmore)",
+  "c": "pharmacy",
+  "g": "gm",
+  "lat": 49.901555,
+  "lng": -119.4533555,
+  "a": "#116 - 1920 Summit Dr",
+  "p": "250-762-4411",
+  "note": {
+   "zh": "位于 Summit 大道与 Glenmore 路口的综合药房，紧邻 Hillside 诊所。提供疫苗接种、旅行门诊和免费送药上门。",
+   "en": "Full-service pharmacy at Summit Drive and Glenmore Road, next to Hillside Medical Clinic. Offers immunizations, a travel clinic and free prescription delivery."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "D",
+   "y",
+   "c",
+   "k",
+   "'",
+   "s",
+   " ",
+   "P",
+   "h",
+   "a",
+   "r",
+   "m"
+  ],
+  "sameComplex": [
+   "4a5a9b7f"
+  ],
+  "id": "a5ed2320",
+  "w": "https://www.dyckspharmacists.com/ida-glenmore/"
+ },
+ {
+  "n": "Pharmasave Glenmore Kelowna",
+  "c": "pharmacy",
+  "g": "gm",
+  "lat": 49.9145524,
+  "lng": -119.4460224,
+  "a": "105 - 437 Glenmore Rd",
+  "p": "250-861-4443",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     1050,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     840,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Glenmore 区 Glenmore 路上的本地药房，周日不营业。",
+   "en": "Locally owned pharmacy on Glenmore Road in the Glenmore area. Closed on Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "P",
+   "h",
+   "a",
+   "r",
+   "m",
+   "a",
+   "s",
+   "a",
+   "v",
+   "e",
+   " ",
+   "G"
+  ],
+  "id": "3b959121",
+  "w": "https://pharmasave.com/store/kelowna-glenmore/"
+ },
+ {
+  "n": "Central Valley Veterinary Hospital",
+  "c": "vet",
+  "g": "gm",
+  "lat": 49.9161371,
+  "lng": -119.4432358,
+  "a": "124-1940 Kane Rd",
+  "p": "250-762-7181",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     480,
+     1050,
+     0
+    ],
+    [
+     2,
+     2,
+     480,
+     1140,
+     0
+    ],
+    [
+     3,
+     3,
+     480,
+     1050,
+     0
+    ],
+    [
+     4,
+     4,
+     480,
+     1140,
+     0
+    ],
+    [
+     5,
+     5,
+     480,
+     1050,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Kane 路与 Glenmore 路口 IGA 商业区的宠物医院，周二、周四开到晚上。下班后的急诊请去 Fairfield 动物医院。",
+   "en": "Veterinary hospital for pets in the IGA plaza at Kane Road and Glenmore Road, open late on Tuesdays and Thursdays. After hours the clinic sends emergencies to Fairfield Animal Hospital."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "C",
+   "e",
+   "n",
+   "t",
+   "r",
+   "a",
+   "l",
+   " ",
+   "V",
+   "a",
+   "l",
+   "l"
+  ],
+  "sameComplex": [
+   "7738557e"
+  ],
+  "id": "a7994d33",
+  "w": "https://www.centralvalleyvet.com/"
+ },
+ {
+  "n": "Okanagan Veterinary Hospital",
+  "c": "vet",
+  "g": "nk",
+  "lat": 49.9178507,
+  "lng": -119.3931114,
+  "a": "3355 Sexsmith Rd",
+  "p": "250-765-5132",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     1050,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于北 Kelowna Sexsmith 路的宠物医院，周六营业，接收新客户。下班后的急诊转往 Fairfield 动物医院。",
+   "en": "Veterinary hospital on Sexsmith Road in North Kelowna, open Saturdays and welcoming new clients. After hours it refers emergencies to Fairfield Animal Hospital."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "V",
+   "e",
+   "t"
+  ],
+  "id": "7e3d2405",
+  "w": "https://www.okanaganveterinaryhospital.com/"
+ },
+ {
+  "n": "Fairfield Animal Hospital (24-hour emergency vet)",
+  "c": "vet",
+  "g": "dt",
+  "lat": 49.8776325,
+  "lng": -119.4577098,
+  "a": "1-1987 Kirschner Rd",
+  "p": "250-860-6550",
+  "note": {
+   "zh": "奥卡纳根谷唯一的 24 小时宠物急诊医院，节假日照常有人值班。不需要其他诊所转介。",
+   "en": "The only 24-hour emergency veterinary hospital in the Okanagan Valley, staffed every day including holidays. You do not need a referral from another clinic."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "F",
+   "a",
+   "i",
+   "r",
+   "f",
+   "i",
+   "e",
+   "l",
+   "d",
+   " ",
+   "A",
+   "n"
+  ],
+  "id": "22d68943",
+  "w": "https://www.fairfieldanimalhospital.ca/"
+ },
+ {
+  "n": "Spin City Laundromat",
+  "c": "laundry",
+  "g": "pm",
+  "lat": 49.8617421,
+  "lng": -119.4888808,
+  "a": "#10-605 KLO Rd",
+  "p": "250-860-7003",
+  "note": {
+   "zh": "位于 Mission Park 购物中心的自助洗衣店，步行可到 Okanagan College Kelowna 校区。最后一次洗衣须在关门前至少 1 小时开始。",
+   "en": "Self-serve laundromat in Mission Park shopping centre, a short walk from Okanagan College's Kelowna campus. Start your last wash at least one hour before closing."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "S",
+   "p",
+   "i",
+   "n",
+   " ",
+   "C",
+   "i",
+   "t",
+   "y",
+   " ",
+   "L",
+   "a"
+  ],
+  "id": "4ef71f53",
+  "w": "https://www.spincitylaundromat.ca/"
+ },
+ {
+  "n": "The Laundry Room Kelowna",
+  "c": "laundry",
+  "g": "pm",
+  "lat": 49.8666339,
+  "lng": -119.4915628,
+  "a": "2660 Pandosy St",
+  "p": "250-763-9992",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     990,
+     0
+    ],
+    [
+     6,
+     7,
+     600,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Pandosy 街的自助洗衣店，有大容量洗衣机和烘干机，可刷卡或投币，店内有工作人员。也提供代洗代叠服务。",
+   "en": "Self-serve laundromat on Pandosy Street with large washers and dryers, paid by card or coin, with staff on hand. Also offers drop-off wash and fold."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "T",
+   "h",
+   "e",
+   " ",
+   "L",
+   "a",
+   "u",
+   "n",
+   "d",
+   "r",
+   "y",
+   " "
+  ],
+  "id": "e158b024",
+  "w": "https://laundryroomkelowna.com/"
+ },
+ {
+  "n": "WashWerk (Kelowna Crossing Laundry)",
+  "c": "laundry",
+  "g": "dt",
+  "lat": 49.8870059,
+  "lng": -119.4219213,
+  "a": "#150-2463 Highway 97 N",
+  "p": "250-860-1223",
+  "note": {
+   "zh": "位于 97 号公路 Kelowna Crossing 商业区的投币洗衣店，有可洗被褥的大型洗衣机，可付现金或信用卡。也提供代洗代叠服务。",
+   "en": "Coin laundromat in the Kelowna Crossing plaza on Highway 97 with large machines for bedding, paid by cash or credit card. Also offers wash and fold."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "W",
+   "a",
+   "s",
+   "h",
+   "W",
+   "e",
+   "r",
+   "k",
+   " ",
+   "K",
+   "e",
+   "l"
+  ],
+  "sameComplex": [
+   "f4c238b9"
+  ],
+  "id": "c89e4405",
+  "w": "https://washwerk.ca/"
+ },
+ {
+  "n": "The Clothes Pin Laundromat & Drycleaners",
+  "c": "laundry",
+  "g": "wk",
+  "lat": 49.8321849,
+  "lng": -119.6220193,
+  "a": "#112-2330 Highway 97 S",
+  "p": "250-707-0059",
+  "note": {
+   "zh": "位于 97 号公路 Westbank 购物中心内的洗衣店兼干洗店。营业时间请先致电确认。",
+   "en": "Laundromat and dry cleaner in the Westbank Shopping Centre on Highway 97. Call ahead for hours."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "C",
+   "l",
+   "o",
+   "t",
+   "h",
+   "e",
+   "s",
+   " ",
+   "P",
+   "i",
+   "n",
+   " "
+  ],
+  "id": "95492d7b",
+  "w": "https://misstulipsgreendrycleaner.com/"
+ },
+ {
+  "n": "All Weather Driving School",
+  "c": "driving",
+  "g": "dt",
+  "lat": 49.8783035,
+  "lng": -119.4529335,
+  "a": "1931 Kent Rd",
+  "p": "250-763-6562",
+  "note": {
+   "zh": "列入 ICBC 认可的新手驾照（GLP）课程名单的驾校，教汽车（自动挡和手动挡）和摩托车。完成 ICBC 认可的 GLP 课程，可以缩短持有 N 牌的时间。",
+   "en": "Driving school on ICBC's list of approved Graduated Licensing Program (GLP) courses, teaching car (automatic and standard) and motorcycle. Finishing an ICBC-approved GLP course can shorten the time you hold an N licence."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "A",
+   "l",
+   "l",
+   " ",
+   "W",
+   "e",
+   "a",
+   "t",
+   "h",
+   "e",
+   "r",
+   " "
+  ],
+  "id": "639305f2",
+  "w": "https://allweatherdrivingschool.com/"
+ },
+ {
+  "n": "Young Drivers of Canada – Kelowna",
+  "c": "driving",
+  "g": "dt",
+  "lat": 49.8838934,
+  "lng": -119.4975255,
+  "a": "201-1680 Water St",
+  "p": "250-868-1268",
+  "note": {
+   "zh": "市中心的驾校，列入 ICBC 认可的 GLP 课程名单，有成人 GLP 课程和路考准备套餐。上路课每车只有一名学员。",
+   "en": "Downtown driving school on ICBC's list of approved GLP courses, including an adult GLP course and road test preparation packages. Lessons are one student per car."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "Y",
+   "o",
+   "u",
+   "n",
+   "g",
+   " ",
+   "D",
+   "r",
+   "i",
+   "v",
+   "e",
+   "r"
+  ],
+  "id": "4014ca5a",
+  "w": "https://yd.com/locations/bc/kelowna"
+ },
+ {
+  "n": "Landmark Cinemas Kelowna Grand 10",
+  "c": "cinema",
+  "g": "rt",
+  "lat": 49.9025109,
+  "lng": -119.4055804,
+  "a": "110-948 McCurdy Rd",
+  "p": "778-731-1245",
+  "note": {
+   "zh": "位于 McCurdy 路的 10 厅电影院，周一为长者优惠日。有时也放映其他语言的电影，例如带英文字幕的印地语片。",
+   "en": "Ten-screen cinema on McCurdy Road with a seniors' discount day on Mondays. Some weeks it also shows films in other languages, such as Hindi with English subtitles."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "L",
+   "a",
+   "n",
+   "d",
+   "m",
+   "a",
+   "r",
+   "k",
+   " ",
+   "C",
+   "i",
+   "n"
+  ],
+  "sameComplex": [
+   "54a572db"
+  ],
+  "id": "536fa555",
+  "w": "https://www.landmarkcinemas.com/showtimes/kelowna-grand-10"
+ },
+ {
+  "n": "Cineplex Cinemas Orchard Plaza",
+  "c": "cinema",
+  "g": "dt",
+  "lat": 49.8795135,
+  "lng": -119.4457046,
+  "a": "160-1876 Cooper Rd",
+  "p": "250-860-1611",
+  "note": {
+   "zh": "位于 Cooper 路 Orchard Plaza 的 5 厅电影院，靠近 Orchard Park 购物中心。场次请上网查询。",
+   "en": "Five-screen cinema in Orchard Plaza on Cooper Road, near Orchard Park mall. Check showtimes online."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "C",
+   "i",
+   "n",
+   "e",
+   "p",
+   "l",
+   "e",
+   "x",
+   " ",
+   "O",
+   "r",
+   "c"
+  ],
+  "id": "083c626a",
+  "w": "https://www.cineplex.com/theatre/cineplex-cinemas-orchard-plaza"
+ },
+ {
+  "n": "Play Area Kelowna (indoor playground)",
+  "c": "playcenter",
+  "g": "dt",
+  "lat": 49.8887963,
+  "lng": -119.4306624,
+  "a": "#128-2540 Enterprise Way",
+  "p": "778-478-8888",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     1050,
+     0
+    ],
+    [
+     6,
+     7,
+     570,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Enterprise Way 的室内儿童游乐场，适合 10 岁及以下儿童，可买日票随到随玩，也办营地和生日会。家长须陪同看护。",
+   "en": "Indoor playground for young children on Enterprise Way, with drop-in day passes, camps and birthday parties. Parents stay and supervise."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "P",
+   "l",
+   "a",
+   "y",
+   " ",
+   "A",
+   "r",
+   "e",
+   "a",
+   " ",
+   "K",
+   "e"
+  ],
+  "id": "b117dbd0",
+  "w": "https://playarea.ca/"
+ },
+ {
+  "n": "Energyplex",
+  "c": "playcenter",
+  "g": "rt",
+  "lat": 49.9025109,
+  "lng": -119.4055804,
+  "a": "#130-948 McCurdy Rd",
+  "p": "250-765-4486",
+  "note": {
+   "zh": "位于 Landmark 电影院旁的大型室内娱乐中心，老少皆宜，有儿童区、游戏厅、激光枪战和攀岩墙。周一休息，营业时间每月不同。",
+   "en": "Large indoor entertainment centre for all ages next to Landmark Cinemas, with a Kids Zone, arcade, laser tag and a climbing wall. Closed on Mondays; hours change by month."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "E",
+   "n",
+   "e",
+   "r",
+   "g",
+   "y",
+   "p",
+   "l",
+   "e",
+   "x",
+   " ",
+   "i"
+  ],
+  "sameComplex": [
+   "536fa555"
+  ],
+  "id": "54a572db",
+  "w": "https://www.energyplex.ca/"
+ },
+ {
+  "n": "Wild Kidz",
+  "c": "playcenter",
+  "g": "wk",
+  "lat": 49.8360361,
+  "lng": -119.623491,
+  "a": "#105-2374 Bering Rd",
+  "p": "250-886-4542",
+  "note": {
+   "zh": "位于 Westbank 的室内游乐场，有幼儿软体游戏区和适合 12 岁以下儿童的游乐设施。无需预约，在前台买日票即可。",
+   "en": "Indoor play centre in Westbank with soft play for toddlers and play structures for children up to 12. No reservation needed; buy a day pass at the front desk."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "W",
+   "i",
+   "l",
+   "d",
+   " ",
+   "K",
+   "i",
+   "d",
+   "z",
+   " ",
+   "i",
+   "n"
+  ],
+  "id": "d1d57885",
+  "w": "https://wildkidz.ca/"
+ },
+ {
+  "n": "FunSpace Kids",
+  "c": "playcenter",
+  "g": "wk",
+  "lat": 49.8448894,
+  "lng": -119.6015143,
+  "a": "Unit 109-3310 Carrington Rd",
+  "p": "236-878-8648",
+  "note": {
+   "zh": "位于 West Kelowna Carrington 路的室内游乐场，适合 1 至 12 岁儿童，幼儿区和大童区分开。每张票只限一次入场，离场不能再进。",
+   "en": "Indoor playground on Carrington Road in West Kelowna for children aged 1 to 12, with separate toddler and big-kid zones. Each pass is for one visit with no re-entry."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "F",
+   "u",
+   "n",
+   "S",
+   "p",
+   "a",
+   "c",
+   "e",
+   " ",
+   "K",
+   "i",
+   "d"
+  ],
+  "id": "f0be0178",
+  "w": "https://funspacekids.com/"
+ },
+ {
+  "n": "UBC Okanagan Student Housing – Main Office & Front Desk (Nechako Residence)",
+  "c": "apt",
+  "g": "nk",
+  "lat": 49.9417089,
+  "lng": -119.3962414,
+  "a": "1255 International Mews",
+  "p": "250-807-8050",
+  "note": {
+   "zh": "UBC Okanagan 校内学生宿舍办公室，设在 Nechako 宿舍楼，前台 24 小时开放。晚 8 点至早 7 点，非住宿人员需按入口对讲机联系前台。",
+   "en": "UBC Okanagan's on-campus residence office in Nechako Residence; the front desk is open 24 hours. Between 8 p.m. and 7 a.m. non-residents use the entrance intercom to reach the desk."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "student"
+  ],
+  "alias": [
+   "U",
+   "B",
+   "C",
+   " ",
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n"
+  ],
+  "id": "8fbf7c34",
+  "w": "https://okanagan.housing.ubc.ca/"
+ },
+ {
+  "n": "Okanagan College Campus Housing – Kelowna",
+  "c": "apt",
+  "g": "pm",
+  "lat": 49.8613123,
+  "lng": -119.48425,
+  "a": "880 KLO Rd",
+  "p": "250-862-5422",
+  "note": {
+   "zh": "Okanagan College Kelowna 校区的公寓式学生宿舍（Home for School 和 Skaha Place），住房办公室在 KLO 路 880 号。须为 Okanagan College 全日制学生，全年开放。",
+   "en": "Okanagan College's apartment-style student residences on the Kelowna campus, Home for School and Skaha Place, with the housing office at 880 KLO Road. You must be a full-time Okanagan College student; housing runs year round."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "student"
+  ],
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "C",
+   "o",
+   "l"
+  ],
+  "id": "d94b8fff",
+  "w": "https://www.okanagancollege.ca/housing/campus-housing-in-kelowna"
+ },
+ {
+  "n": "VEDA Student Living (Academy Way, near UBCO)",
+  "c": "propmgmt",
+  "g": "nk",
+  "lat": 49.9338389,
+  "lng": -119.4025996,
+  "a": "842 Academy Way",
+  "p": "250-469-3063",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "私人经营的学生公寓，在 Academy Way 有 4 栋楼，均为带家具的单人开间，步行约 5–10 分钟到 UBC Okanagan。房租含水电和网络，最短租期 12 个月。",
+   "en": "Privately run student housing of furnished single-occupancy studios in four buildings on Academy Way, about a 5–10 minute walk from UBC Okanagan. Rent includes utilities and internet; the minimum lease is 12 months."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "student"
+  ],
+  "alias": [
+   "V",
+   "E",
+   "D",
+   "A",
+   " ",
+   "L",
+   "i",
+   "v",
+   "i",
+   "n",
+   "g",
+   " "
+  ],
+  "id": "30dee110",
+  "w": "https://vedaliving.ca/"
+ },
+ {
+  "n": "The Ivy Apartments (Ivy Walk & Ivy Hall, Mission Group)",
+  "c": "propmgmt",
+  "g": "nk",
+  "lat": 49.9317668,
+  "lng": -119.3993886,
+  "a": "755 Academy Way",
+  "p": "250-801-1899",
+  "note": {
+   "zh": "位于 UBC Okanagan 附近 Academy Way 的两栋纯出租公寓楼，有带家具或不带家具的开间、一居室和两居室，楼内有物业经理。最短租期一年。",
+   "en": "Two rental-only apartment buildings on Academy Way near UBC Okanagan, with furnished or unfurnished studio, one- and two-bedroom suites and an on-site community manager. Minimum lease is one year."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "I",
+   "v",
+   "y",
+   " ",
+   "W",
+   "a",
+   "l",
+   "k",
+   " ",
+   "I",
+   "v",
+   "y"
+  ],
+  "id": "4d9d15c0",
+  "w": "https://www.missiongroup.ca/rent/ivy-hall-ivy-walk/"
+ },
+ {
+  "n": "Glenmore Central apartments (Realstar)",
+  "c": "propmgmt",
+  "g": "gm",
+  "lat": 49.9031983,
+  "lng": -119.4524486,
+  "a": "724 Valley Rd",
+  "p": "778-946-0155",
+  "note": {
+   "zh": "位于 Glenmore 区 Summit 大道与 Valley 路口的专门出租公寓，有开间到三居室，全楼禁烟，靠近公交。楼内有物业管理团队。",
+   "en": "Purpose-built rental apartments at Summit Drive and Valley Road in Glenmore, from bachelor to three-bedroom suites, smoke-free and close to transit. On-site management team."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "G",
+   "l",
+   "e",
+   "n",
+   "m",
+   "o",
+   "r",
+   "e",
+   " ",
+   "C",
+   "e",
+   "n"
+  ],
+  "id": "0ee119c8",
+  "w": "https://www.realstar.ca/apartments/bc/kelowna/glenmore-central/"
+ },
+ {
+  "n": "Lindgren Manor apartments (Broadstreet Properties)",
+  "c": "propmgmt",
+  "g": "gm",
+  "lat": 49.9139384,
+  "lng": -119.4419581,
+  "a": "420 Valley Rd",
+  "p": "866-736-8515",
+  "note": {
+   "zh": "位于 Glenmore 区 Valley 路的出租公寓，有一至三居室，可养宠物，楼内设租赁办公室。可在网上申请或预约看房。",
+   "en": "Rental apartments on Valley Road in Glenmore with one- to three-bedroom suites, pet friendly, with an on-site leasing office. You can apply online or book a viewing."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "L",
+   "i",
+   "n",
+   "d",
+   "g",
+   "r",
+   "e",
+   "n",
+   " ",
+   "M",
+   "a",
+   "n"
+  ],
+  "id": "0482ea5b",
+  "w": "https://www.broadstreet.ca/residential/lindgren-manor"
+ },
+ {
+  "n": "TRIO apartments (Centurion)",
+  "c": "propmgmt",
+  "g": "gm",
+  "lat": 49.9160496,
+  "lng": -119.4410252,
+  "a": "333 Drysdale Blvd",
+  "p": "833-390-1818",
+  "note": {
+   "zh": "位于 Glenmore 区 Drysdale 大道的 3 栋较新出租公寓，紧邻 Brandt's Creek Crossing 商业区，有开间、一居室和两居室，可养宠物。",
+   "en": "Three newer rental apartment buildings on Drysdale Boulevard in Glenmore, next to the Brandt's Creek Crossing shops, with studio, one- and two-bedroom suites. Pet friendly."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "T",
+   "R",
+   "I",
+   "O",
+   " ",
+   "a",
+   "p",
+   "a",
+   "r",
+   "t",
+   "m",
+   "e"
+  ],
+  "id": "deead411",
+  "w": "https://www.cpliving.com/apartments/trio"
+ },
+ {
+  "n": "Associated Property Management (APM) – Kelowna head office",
+  "c": "propmgmt",
+  "g": "dt",
+  "lat": 49.8878443,
+  "lng": -119.491541,
+  "a": "#1-1441 St. Paul St",
+  "p": "250-712-0025",
+  "note": {
+   "zh": "Kelowna 的物业管理公司，在官网公布可出租的房屋和公寓。在 Harvey 大道另有一个办公室。",
+   "en": "Kelowna property management company that posts its available rental homes and apartments on its website. It also has a second Kelowna office on Harvey Avenue."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "A",
+   "s",
+   "s",
+   "o",
+   "c",
+   "i",
+   "a",
+   "t",
+   "e",
+   "d",
+   " ",
+   "P"
+  ],
+  "id": "af41a75a",
+  "w": "https://associatedpm.ca/residential-property-listings/"
+ },
+ {
+  "n": "FreshCo Hwy 97 & Leckie",
+  "c": "grocery",
+  "g": "dt",
+  "lat": 49.8826407,
+  "lng": -119.4316186,
+  "a": "500-2339 Highway 97 N",
+  "p": "250-860-4424",
+  "note": {
+   "zh": "位于 97 号公路与 Leckie 路口的平价超市，附设药房，在 Orchard Park 与 Glenmore 之间，每天营业。",
+   "en": "Discount supermarket with a pharmacy on Highway 97 at Leckie Road, between Orchard Park and Glenmore, open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "F",
+   "r",
+   "e",
+   "s",
+   "h",
+   "C",
+   "o",
+   " ",
+   "K",
+   "e",
+   "l",
+   "o"
+  ],
+  "id": "80a0b6af",
+  "w": "https://www.freshco.com/stores/freshco-hwy-97-leckie"
+ },
+ {
+  "n": "Landmark Cinemas West Kelowna Xtreme",
+  "c": "cinema",
+  "g": "wk",
+  "lat": 49.8804448,
+  "lng": -119.5354145,
+  "a": "525 Highway 97 S",
+  "p": "672-703-1100",
+  "note": {
+   "zh": "West Kelowna 的电影院，位于 Westbank 的 97 号公路南段。场次请上网查询，每周三上午更新下一周的场次。",
+   "en": "West Kelowna's movie theatre, on Highway 97 South in Westbank. Check showtimes online; new weekly listings go up each Wednesday morning."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "L",
+   "a",
+   "n",
+   "d",
+   "m",
+   "a",
+   "r",
+   "k",
+   " ",
+   "C",
+   "i",
+   "n"
+  ],
+  "sameComplex": [
+   "164b9d95",
+   "53dfad06"
+  ],
+  "id": "05520fc8",
+  "w": "https://www.landmarkcinemas.com/showtimes/west-kelowna-xtreme"
+ },
+ {
+  "n": "Westbank Hub Centre",
+  "c": "mall",
+  "g": "wk",
+  "lat": 49.836971,
+  "lng": -119.6127688,
+  "a": "3550 Carrington Rd",
+  "note": {
+   "zh": "位于 Westbank 区 Butt 路与 97 号公路交界的购物中心，属于 Louie 路和 Carrington 路一带的 Westbank Hub 商圈。各店营业时间不同。",
+   "en": "Shopping centre at Butt Road and Highway 97 in Westbank, part of the Westbank Hub shopping area along Louie Drive and Carrington Road. Stores keep their own hours."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "W",
+   "e",
+   "s",
+   "t",
+   "b",
+   "a",
+   "n",
+   "k",
+   " ",
+   "H",
+   "u",
+   "b"
+  ],
+  "id": "cc61c44b",
+  "w": "https://www.gwlraleasing.com/commercial-property/ca/bc/west-kelowna/westbank-hub-centre/"
+ },
+ {
+  "n": "Walmart Pharmacy West Kelowna (Westbank Hub North)",
+  "c": "pharmacy",
+  "g": "wk",
+  "lat": 49.8409665,
+  "lng": -119.6137732,
+  "a": "2170 Louie Dr",
+  "p": "250-768-1759",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1140,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Westbank 区 Louie 路 Walmart 超级购物中心内的药房，每周 7 天营业。",
+   "en": "Pharmacy inside the Walmart Supercentre on Louie Drive in Westbank, open seven days a week."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "W",
+   "a",
+   "l",
+   "m",
+   "a",
+   "r",
+   "t",
+   " ",
+   "p",
+   "h",
+   "a",
+   "r"
+  ],
+  "id": "fa52f8a0",
+  "w": "https://www.healthlinkbc.ca/clinic/walmart-canada-1"
  }
 ]
