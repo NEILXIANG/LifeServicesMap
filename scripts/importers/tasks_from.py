@@ -72,6 +72,13 @@ def main():
             t['place'] = m[0]['id']
         elif t.get('place') and not any(p['id'] == t['place'] for p in places):
             sys.exit('task %s still points at %s place %s — map it in task-overrides.json "places"' % (tid, a.src, t['place']))
+        # "say" is what the reader says out loud: English only, with its meaning in the other
+        # languages under sayGloss, in the wrapper the cards use
+        if isinstance(t.get('say'), dict):
+            sd = t['say']; wrap = {'zh': '（意思：%s）', 'fr': '(Sens : %s)', 'es': '(Significado: %s)',
+                                   'ko': '(뜻: %s)', 'ja': '（意味：%s）'}
+            t['say'] = sd['en']
+            t['sayGloss'] = {l: wrap[l] % sd[l].strip().strip('（）()') for l in wrap if sd.get(l)}
         out.append(t)
     if missing:
         if a.export_missing:
@@ -81,7 +88,9 @@ def main():
     # no local leftovers from the source city
     blob = json.dumps(out, ensure_ascii=False)
     src_name = kamdata.city_meta(a.src)['title'].split(' ')[0]
-    local_names = {p['n'] for p in src_places if len(p['n']) > 12 and not any(q['n'] == p['n'] for q in places)}
+    # a name that also appears inside the new city's own names is a shared one (Service Canada,
+    # Service BC, WorkBC…), not a leftover
+    local_names = {p['n'] for p in src_places if len(p['n']) > 12 and not any(p['n'] in q['n'] for q in places)}
     left = [n for n in local_names if n in blob]
     if src_name in blob: left.append(src_name)
     src_phones = set(re.findall(r'\b\d{3}-\d{3}-\d{4}\b', json.dumps(src_places))) - set(re.findall(r'\b\d{3}-\d{3}-\d{4}\b', json.dumps(places)))

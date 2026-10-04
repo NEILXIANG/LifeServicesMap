@@ -23,7 +23,11 @@
    "steps": [
     {
      "en": "Call 250-763-8008 (Immigrant Services is extension 1) to book, or walk in on weekdays at 618 Bernard Ave — say you have just arrived and want help getting set up.",
-     "zh": "打 250-763-8008（移民服务按分机 1）预约，或工作日直接去 618 Bernard Ave——说你刚到，想请人帮忙安顿下来。"
+     "zh": "打 250-763-8008（移民服务按分机 1）预约，或工作日直接去 618 Bernard Ave——说你刚到，想请人帮忙安顿下来。",
+     "fr": "Appelez le 250-763-8008 (Immigrant Services : poste 1) pour prendre rendez-vous, ou présentez-vous sans rendez-vous en semaine au 618 Bernard Ave — dites que vous venez d’arriver et que vous voulez de l’aide pour vous installer.",
+     "es": "Llame al 250-763-8008 (Immigrant Services es la extensión 1) para pedir una cita, o vaya sin cita entre semana a 618 Bernard Ave — diga que acaba de llegar y quiere ayuda para instalarse.",
+     "ko": "250-763-8008(Immigrant Services는 내선 1번)로 전화해 예약하거나, 평일에 618 Bernard Ave로 바로 찾아가세요 — 막 도착해서 정착 도움을 받고 싶다고 말하세요.",
+     "ja": "250-763-8008（Immigrant Servicesは内線1）に電話して予約するか、平日に618 Bernard Aveへ直接行ってください — 来たばかりで生活の立ち上げを手伝ってほしいと伝えましょう。"
     },
     {
      "en": "Ask whether an interpreter can be booked in your language.",
@@ -36,7 +40,11 @@
    ],
    "say": {
     "en": "Hi, I've just arrived in Kelowna and I'd like help getting set up. Could I speak to a settlement worker? I'd like an interpreter in my language, please.",
-    "zh": "你好，我刚到 Kelowna，想请人帮我安顿下来。可以和定居服务专员谈谈吗？我需要我母语的翻译，谢谢。"
+    "zh": "你好，我刚到 Kelowna，想请人帮我安顿下来。可以和定居服务专员谈谈吗？我需要我母语的翻译，谢谢。",
+    "fr": "Bonjour, je viens d’arriver à Kelowna et j’aimerais de l’aide pour m’installer. Puis-je parler à un intervenant en établissement ? J’aimerais un interprète dans ma langue, s’il vous plaît.",
+    "es": "Hola, acabo de llegar a Kelowna y quisiera ayuda para instalarme. ¿Podría hablar con un trabajador de asentamiento? Quisiera un intérprete en mi idioma, por favor.",
+    "ko": "안녕하세요, Kelowna에 막 도착했는데 정착하는 데 도움을 받고 싶어요. 정착 지원 담당자와 이야기할 수 있을까요? 제 언어로 통역해 주실 분을 부탁드려요.",
+    "ja": "こんにちは。Kelownaに来たばかりで、生活の立ち上げを手伝ってほしいです。定住支援ワーカーと話せますか？私の言語の通訳をお願いします。"
    }
   },
   "school": {
@@ -44,45 +52,85 @@
    "srcName": "SD23 Central Okanagan Public Schools",
    "t": {
     "en": "Register a child for school (SD23)",
-    "zh": "给孩子办入学（SD23 学区）"
+    "zh": "给孩子办入学（SD23 学区）",
+    "fr": "Inscrire un enfant à l’école (SD23)",
+    "es": "Inscribir a un niño en la escuela (SD23)",
+    "ko": "SD23에 자녀 학교 등록",
+    "ja": "SD23で子どもの就学手続き"
    },
    "why": {
     "en": "Your home address decides your catchment school. If your family is new to Canada, SD23 has a Welcome Centre that starts here.",
-    "zh": "孩子上哪所学校由家庭住址决定。刚到加拿大的家庭，SD23 学区有专门的欢迎中心，从那里开始。"
+    "zh": "孩子上哪所学校由家庭住址决定。刚到加拿大的家庭，SD23 学区有专门的欢迎中心，从那里开始。",
+    "fr": "Votre adresse détermine votre école de secteur. Si votre famille vient d’arriver au Canada, le SD23 a un Welcome Centre (centre d’accueil) : c’est là que tout commence.",
+    "es": "Su dirección determina la escuela de su zona. Si su familia acaba de llegar a Canadá, el SD23 tiene un Welcome Centre (centro de bienvenida): todo empieza ahí.",
+    "ko": "집 주소가 배정 학교를 정합니다. 가족이 캐나다에 온 지 얼마 안 됐다면, SD23에 Welcome Centre(환영 센터)가 있으니 그곳에서 시작합니다.",
+    "ja": "住所で学区の学校が決まります。ご家族がカナダに来たばかりなら、SD23にはWelcome Centre（ウェルカムセンター）があり、そこから始まります。"
    },
    "steps": [
     {
      "en": "Find your catchment school from your home address on the district’s catchment page.",
-     "zh": "在学区的学区划分（catchment）页面，用家庭住址查到对应的学校。"
+     "zh": "在学区的学区划分（catchment）页面，用家庭住址查到对应的学校。",
+     "fr": "Trouvez votre école de secteur à partir de votre adresse, sur la page des secteurs scolaires (catchment) du district.",
+     "es": "Encuentre la escuela de su zona según su domicilio, en la página de zonas escolares (catchment) del distrito.",
+     "ko": "학군의 catchment(학교 배정 구역) 페이지에서 집 주소로 배정 학교를 확인하세요.",
+     "ja": "学区のcatchment（通学区域）のページで、自宅住所から学区の学校を調べます。"
     },
     {
      "en": "Complete the district’s online Enrolment Application (there is a short video tutorial on the same page).",
-     "zh": "在网上填写学区的入学申请（同一页面有简短的视频教程）。"
+     "zh": "在网上填写学区的入学申请（同一页面有简短的视频教程）。",
+     "fr": "Remplissez en ligne la demande d’inscription du district, l’Enrolment Application (une courte vidéo explicative se trouve sur la même page).",
+     "es": "Complete en línea la solicitud de inscripción del distrito, la Enrolment Application (en la misma página hay un video tutorial corto).",
+     "ko": "학군의 온라인 Enrolment Application(입학 신청서)을 작성하세요(같은 페이지에 짧은 안내 동영상이 있습니다).",
+     "ja": "学区のオンラインのEnrolment Application（入学申請）に記入します（同じページに短い説明動画があります）。"
     },
     {
      "en": "If your family has documents from Immigration Canada (a permanent resident card, a study or work permit), the district processes them first, through its International Education office, before the school can register your child — the SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) can help you with this.",
-     "zh": "如果你们的身份文件来自加拿大移民部（永久居民卡、学签或工签），学区要先通过国际教育办公室处理这些文件，学校才能给孩子注册——SD23 欢迎中心（1040 Hollywood Rd S，250-870-5155）可以帮你办。"
+     "zh": "如果你们的身份文件来自加拿大移民部（永久居民卡、学签或工签），学区要先通过国际教育办公室处理这些文件，学校才能给孩子注册——SD23 欢迎中心（1040 Hollywood Rd S，250-870-5155）可以帮你办。",
+     "fr": "Si votre famille a des documents d’Immigration Canada (carte de résident permanent, permis d’études ou de travail), le district les traite d’abord, par son bureau International Education (éducation internationale), avant que l’école puisse inscrire votre enfant — le SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) peut vous aider pour cela.",
+     "es": "Si su familia tiene documentos de Immigration Canada (tarjeta de residente permanente, permiso de estudio o de trabajo), el distrito los procesa primero, a través de su oficina International Education (educación internacional), antes de que la escuela pueda inscribir a su hijo — el SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) puede ayudarle con esto.",
+     "ko": "가족이 캐나다 이민부(Immigration Canada)에서 받은 서류(영주권 카드, 학업 허가나 취업 허가)가 있다면, 학교가 자녀를 등록하기 전에 학군의 International Education(국제 교육) 사무실이 먼저 그 서류를 처리합니다 — SD23 Welcome Centre(1040 Hollywood Rd S, 250-870-5155)가 이 과정을 도와줄 수 있습니다.",
+     "ja": "ご家族がカナダ移民省（Immigration Canada）発行の書類（永住権カード、就学許可や就労許可）をお持ちなら、学校がお子さんを登録する前に、学区のInternational Education（国際教育）部門がまずその書類を処理します — SD23 Welcome Centre（1040 Hollywood Rd S、250-870-5155）がこの手続きを手伝ってくれます。"
     }
    ],
    "say": {
     "en": "Hi, we've just moved to Kelowna and I'd like to register my child. My child is still learning English.",
-    "zh": "你好，我们刚搬到 Kelowna，想给孩子办入学。孩子还在学英语。"
+    "zh": "你好，我们刚搬到 Kelowna，想给孩子办入学。孩子还在学英语。",
+    "fr": "Bonjour, nous venons d’emménager à Kelowna et j’aimerais inscrire mon enfant. Mon enfant apprend encore l’anglais.",
+    "es": "Hola, acabamos de mudarnos a Kelowna y quisiera inscribir a mi hijo/a. Mi hijo/a todavía está aprendiendo inglés.",
+    "ko": "안녕하세요, Kelowna로 막 이사 왔는데 아이를 학교에 등록하고 싶어요. 아이는 아직 영어를 배우는 중이에요.",
+    "ja": "こんにちは。Kelownaに引っ越してきたばかりで、子どもを学校に登録したいです。子どもはまだ英語を学習中です。"
    },
    "help": {
     "en": "SD23 Welcome Centre · 250-870-5155",
-    "zh": "SD23 欢迎中心 · 250-870-5155"
+    "zh": "SD23 欢迎中心 · 250-870-5155",
+    "fr": "SD23 Welcome Centre (centre d’accueil) · 250-870-5155",
+    "es": "SD23 Welcome Centre (centro de bienvenida) · 250-870-5155",
+    "ko": "SD23 Welcome Centre(환영 센터) · 250-870-5155",
+    "ja": "SD23 Welcome Centre（ウェルカムセンター） · 250-870-5155"
    },
    "note": {
     "en": "If your child is still learning English, say so when you register — asking early is what gets language support started. A child must turn five by December 31 to start Kindergarten that school year. If your BC Services Card has not arrived yet, the district accepts proof of your MSP application with one address document.",
-    "zh": "孩子还在学英语的话，注册时就说——早说才能早点得到语言支持。当年 12 月 31 日前满五岁，才能在那个学年上幼儿园。BC Services Card 还没到的话，学区接受 MSP 申请证明加一份住址证明。"
+    "zh": "孩子还在学英语的话，注册时就说——早说才能早点得到语言支持。当年 12 月 31 日前满五岁，才能在那个学年上幼儿园。BC Services Card 还没到的话，学区接受 MSP 申请证明加一份住址证明。",
+    "fr": "Si votre enfant apprend encore l’anglais, dites-le à l’inscription — c’est en le demandant tôt que le soutien linguistique se met en place. Un enfant doit avoir cinq ans au plus tard le 31 décembre pour entrer à la maternelle cette année scolaire-là. Si votre BC Services Card n’est pas encore arrivée, le district accepte la preuve de votre demande au MSP avec un document d’adresse.",
+    "es": "Si su hijo todavía está aprendiendo inglés, dígalo al inscribirlo: pedirlo pronto es lo que pone en marcha el apoyo lingüístico. Para empezar el kínder ese año escolar, el niño debe cumplir cinco años a más tardar el 31 de diciembre. Si su BC Services Card todavía no ha llegado, el distrito acepta el comprobante de su solicitud del MSP junto con un documento de domicilio.",
+    "ko": "자녀가 아직 영어를 배우는 중이라면 등록할 때 말하세요 — 일찍 요청해야 언어 지원이 시작됩니다. 그 학년도에 유치원(Kindergarten)에 들어가려면 12월 31일까지 만 5세가 되어야 합니다. BC Services Card가 아직 오지 않았다면, 학군은 MSP 신청 증빙과 주소 서류 한 가지를 받아 줍니다.",
+    "ja": "お子さんがまだ英語を学習中なら、登録時に伝えましょう — 早く頼むことで言語支援が始まります。その年度に幼稚園（Kindergarten）に入るには、12月31日までに5歳になっている必要があります。BC Services Cardがまだ届いていない場合、学区はMSP申請の証明と住所の書類1点で受け付けます。"
    },
    "bring": {
     "en": "Your child’s birth certificate (or other government proof of age and citizenship), and proof that you live in BC: your BC Services Card with your BC driver’s licence or one address document (lease, utility bill), or proof of your MSP application with one address document.",
-    "zh": "孩子的出生证明（或其他政府签发的年龄和国籍证明），以及你住在 BC 的证明：BC Services Card 加 BC 驾照或一份住址证明（租约、水电账单），或者 MSP 申请证明加一份住址证明。"
+    "zh": "孩子的出生证明（或其他政府签发的年龄和国籍证明），以及你住在 BC 的证明：BC Services Card 加 BC 驾照或一份住址证明（租约、水电账单），或者 MSP 申请证明加一份住址证明。",
+    "fr": "L’acte de naissance de votre enfant (ou une autre preuve gouvernementale de son âge et de sa citoyenneté), et une preuve que vous vivez en C.-B. : votre BC Services Card avec votre permis de conduire de la C.-B. ou un document d’adresse (bail, facture de services publics), ou la preuve de votre demande au MSP avec un document d’adresse.",
+    "es": "La partida de nacimiento de su hijo (u otro documento oficial que pruebe su edad y ciudadanía), y prueba de que usted vive en BC: su BC Services Card con su licencia de conducir de BC o un documento de domicilio (contrato de alquiler, factura de servicios), o el comprobante de su solicitud del MSP con un documento de domicilio.",
+    "ko": "자녀의 출생증명서(또는 나이와 국적을 증명하는 다른 정부 발급 서류), 그리고 BC에 산다는 증빙: BC Services Card와 BC 운전면허증 또는 주소 서류 한 가지(임대 계약서, 공과금 고지서), 아니면 MSP 신청 증빙과 주소 서류 한 가지.",
+    "ja": "お子さんの出生証明書（または年齢と国籍を示す、政府発行の別の証明書）と、BC州に住んでいる証明：BC Services CardとBC州の運転免許証または住所の書類1点（賃貸契約書、光熱費の請求書）、もしくはMSP申請の証明と住所の書類1点。"
    },
    "also": {
     "en": "Ask the Welcome Centre about SWIS (Settlement Workers in Schools) — free settlement help for your family, connected to the school.",
-    "zh": "问问欢迎中心的 SWIS（校园安置服务）——免费帮助你的家庭适应学校。"
+    "zh": "问问欢迎中心的 SWIS（校园安置服务）——免费帮助你的家庭适应学校。",
+    "fr": "Demandez au Welcome Centre le programme SWIS (Settlement Workers in Schools, intervenants en établissement dans les écoles) — une aide gratuite à l’installation pour votre famille, liée à l’école.",
+    "es": "Pregunte en el Welcome Centre por SWIS (Settlement Workers in Schools, trabajadores de asentamiento en las escuelas): ayuda gratuita de asentamiento para su familia, vinculada a la escuela.",
+    "ko": "Welcome Centre에 SWIS(Settlement Workers in Schools, 교내 정착 지원)를 문의하세요 — 학교와 연결된, 가족을 위한 무료 정착 지원입니다.",
+    "ja": "Welcome CentreでSWIS（Settlement Workers in Schools、校内定住支援）について聞いてみてください — 学校とつながった、ご家族のための無料の定住支援です。"
    }
   },
   "connect": {
@@ -90,43 +138,75 @@
    "srcName": "Okanagan Regional Library",
    "also": {
     "en": "The Okanagan Regional Library runs free English Corner conversation groups — at the Downtown, Mission, Rutland and West Kelowna branches, on different days. Ask at the desk or check the library’s events page.",
-    "zh": "Okanagan Regional Library 有免费的英语角（English Corner）——市中心、Mission、Rutland 和 West Kelowna 分馆都有，时间各不相同。到服务台问，或看图书馆的活动页面。"
+    "zh": "Okanagan Regional Library 有免费的英语角（English Corner）——市中心、Mission、Rutland 和 West Kelowna 分馆都有，时间各不相同。到服务台问，或看图书馆的活动页面。",
+    "fr": "L’Okanagan Regional Library organise des groupes de conversation gratuits, English Corner — aux succursales Downtown, Mission, Rutland et West Kelowna, à des jours différents. Renseignez-vous au comptoir ou consultez la page des activités de la bibliothèque.",
+    "es": "La Okanagan Regional Library organiza grupos de conversación gratuitos, English Corner, en las sucursales Downtown, Mission, Rutland y West Kelowna, en días distintos. Pregunte en el mostrador o consulte la página de actividades de la biblioteca.",
+    "ko": "Okanagan Regional Library는 무료 영어 회화 모임 English Corner를 엽니다 — Downtown, Mission, Rutland, West Kelowna 분관에서 요일을 달리해 열립니다. 안내 데스크에 묻거나 도서관 행사 페이지를 확인하세요.",
+    "ja": "Okanagan Regional Libraryでは、無料の英会話グループEnglish Cornerを開いています — Downtown、Mission、Rutland、West Kelownaの各分館で、曜日はそれぞれ異なります。カウンターで聞くか、図書館のイベントページを確認してください。"
    }
   },
   "sick": {
    "steps": [
     {
      "en": "Not urgent, or unsure: call 8-1-1 — free, 24 hours, a nurse, with interpreters in more than 130 languages (say the language you want).",
-     "zh": "不紧急或不确定：打 8-1-1——免费，24 小时，有护士接听，能提供 130 多种语言的翻译（说出你要的语言即可）。"
+     "zh": "不紧急或不确定：打 8-1-1——免费，24 小时，有护士接听，能提供 130 多种语言的翻译（说出你要的语言即可）。",
+     "fr": "Non urgent ou incertain : composez le 8-1-1 — gratuit, 24 h sur 24, une infirmière, avec des interprètes dans plus de 130 langues (dites la langue que vous voulez).",
+     "es": "No urgente o con dudas: llame al 8-1-1 — gratis, 24 horas, una enfermera, con intérpretes en más de 130 idiomas (diga el idioma que quiere).",
+     "ko": "급하지 않거나 판단이 어려우면 8-1-1로 전화하세요 — 무료, 24시간, 간호사 상담, 130개 이상 언어로 통역 가능(원하는 언어를 말하세요).",
+     "ja": "緊急でない・判断に迷うときは8-1-1に電話してください — 無料・24時間・看護師対応で、130以上の言語の通訳もあります（希望の言語を伝えてください）。"
     },
     {
      "en": "Minor problems a pharmacist can treat (for example allergies, cold sores, some infections): a BC pharmacist can assess you and prescribe — free in person; bring your Personal Health Number or ID.",
-     "zh": "药剂师能处理的小病（例如过敏、唇疱疹、部分感染）：BC 的药剂师可以评估并开药——当面看免费；带上个人健康号码（PHN）或身份证件。"
+     "zh": "药剂师能处理的小病（例如过敏、唇疱疹、部分感染）：BC 的药剂师可以评估并开药——当面看免费；带上个人健康号码（PHN）或身份证件。",
+     "fr": "Petits problèmes qu’un pharmacien peut traiter (par exemple allergies, boutons de fièvre, certaines infections) : en C.-B., un pharmacien peut vous évaluer et vous prescrire un traitement — gratuit en personne ; apportez votre Personal Health Number (PHN) ou une pièce d’identité.",
+     "es": "Problemas menores que un farmacéutico puede tratar (por ejemplo alergias, herpes labial, algunas infecciones): en BC, un farmacéutico puede evaluarle y recetarle — gratis en persona; lleve su Personal Health Number (PHN) o una identificación.",
+     "ko": "약사가 치료할 수 있는 가벼운 문제(예: 알레르기, 입술 포진, 일부 감염): BC의 약사는 상태를 평가하고 처방할 수 있습니다 — 직접 방문하면 무료이며, 개인 건강 번호(Personal Health Number)나 신분증을 가져가세요.",
+     "ja": "薬剤師が対応できる軽い症状（例：アレルギー、口唇ヘルペス、一部の感染症）：BC州の薬剤師は状態を評価して処方することができます — 対面なら無料です。個人健康番号（Personal Health Number）か身分証を持参してください。"
     },
     {
      "en": "Needs seeing today: an Urgent and Primary Care Centre — Kelowna (1141 Harvey Ave), Rutland (150 Hwy 33 W) or West Kelowna (2484 Main St). You do not need a family doctor; go early in the day.",
-     "zh": "今天就要看：去紧急与初级护理中心（UPCC）——Kelowna（1141 Harvey Ave）、Rutland（150 Hwy 33 W）或 West Kelowna（2484 Main St）。不需要家庭医生；尽量早去。"
+     "zh": "今天就要看：去紧急与初级护理中心（UPCC）——Kelowna（1141 Harvey Ave）、Rutland（150 Hwy 33 W）或 West Kelowna（2484 Main St）。不需要家庭医生；尽量早去。",
+     "fr": "À voir aujourd’hui : un Urgent and Primary Care Centre (centre de soins urgents et primaires) — Kelowna (1141 Harvey Ave), Rutland (150 Hwy 33 W) ou West Kelowna (2484 Main St). Pas besoin de médecin de famille ; allez-y tôt dans la journée.",
+     "es": "Necesita atención hoy: un Urgent and Primary Care Centre (centro de atención urgente y primaria) — Kelowna (1141 Harvey Ave), Rutland (150 Hwy 33 W) o West Kelowna (2484 Main St). No necesita médico de familia; vaya temprano en el día.",
+     "ko": "오늘 꼭 진료가 필요하면: Urgent and Primary Care Centre(긴급·1차 진료 센터) — Kelowna(1141 Harvey Ave), Rutland(150 Hwy 33 W), West Kelowna(2484 Main St). 가정의가 없어도 됩니다. 되도록 이른 시간에 가세요.",
+     "ja": "今日中に診てもらいたいとき：Urgent and Primary Care Centre（緊急・プライマリケアセンター）へ — Kelowna（1141 Harvey Ave）、Rutland（150 Hwy 33 W）、West Kelowna（2484 Main St）。かかりつけ医がいなくても大丈夫です。なるべく早い時間に行ってください。"
     },
     {
      "en": "Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the emergency department at Kelowna General Hospital.",
-     "zh": "胸痛、呼吸困难、大量出血，或你觉得情况严重：打 911，或去 Kelowna General Hospital 急诊。"
+     "zh": "胸痛、呼吸困难、大量出血，或你觉得情况严重：打 911，或去 Kelowna General Hospital 急诊。",
+     "fr": "Douleur thoracique, difficulté à respirer, saignement important, ou vous pensez que c’est grave : 911, ou l’urgence du Kelowna General Hospital.",
+     "es": "Dolor de pecho, dificultad para respirar, sangrado abundante o cree que es grave: 911, o urgencias del Kelowna General Hospital.",
+     "ko": "흉통, 호흡 곤란, 다량 출혈이 있거나 위중하다고 생각되면 911에 전화하거나 Kelowna General Hospital 응급실로 가세요.",
+     "ja": "胸痛、呼吸困難、大量出血、または重症だと思うときは、911に電話するか、Kelowna General Hospitalの救急外来へ行ってください。"
     }
    ]
   },
   "hardship": {
    "note": {
     "en": "Need a bed tonight? Kelowna’s Gospel Mission (Bay Ave Community Shelter, all genders; Leon Shelter, men) 250-763-3737; Cornerstone Shelter (adults 19+, open 24/7) 250-317-6678; Richter Street Shelter (19+, register in person at 10 am, 4 pm or 9 pm) 778-212-1401; in West Kelowna, Bartley Court Shelter (19+, register in person 2–4 pm weekdays) 778-583-4881. If one is full, try another. Women leaving violence, with or without children: Kelowna Women’s Shelter, 24 hours, call 250-763-1040 or text 236-970-0704 — the address is kept private.",
-    "zh": "今晚需要住处？Kelowna’s Gospel Mission（Bay Ave Community Shelter，不分性别；Leon Shelter，男性）250-763-3737；Cornerstone Shelter（19 岁以上，24 小时开放）250-317-6678；Richter Street Shelter（19 岁以上，上午 10 点、下午 4 点或晚上 9 点到场登记）778-212-1401；West Kelowna 的 Bartley Court Shelter（19 岁以上，工作日下午 2–4 点到场登记）778-583-4881。一家满了就试另一家。逃离暴力的女性（带不带孩子都可以）：Kelowna Women’s Shelter，24 小时，打 250-763-1040 或发短信到 236-970-0704——地址保密。"
+    "zh": "今晚需要住处？Kelowna’s Gospel Mission（Bay Ave Community Shelter，不分性别；Leon Shelter，男性）250-763-3737；Cornerstone Shelter（19 岁以上，24 小时开放）250-317-6678；Richter Street Shelter（19 岁以上，上午 10 点、下午 4 点或晚上 9 点到场登记）778-212-1401；West Kelowna 的 Bartley Court Shelter（19 岁以上，工作日下午 2–4 点到场登记）778-583-4881。一家满了就试另一家。逃离暴力的女性（带不带孩子都可以）：Kelowna Women’s Shelter，24 小时，打 250-763-1040 或发短信到 236-970-0704——地址保密。",
+    "fr": "Besoin d’un lit ce soir ? Kelowna’s Gospel Mission (Bay Ave Community Shelter, tous les genres ; Leon Shelter, hommes) 250-763-3737 ; Cornerstone Shelter (adultes de 19 ans et plus, ouvert 24 h sur 24, 7 jours sur 7) 250-317-6678 ; Richter Street Shelter (19 ans et plus, inscription sur place à 10 h, 16 h ou 21 h) 778-212-1401 ; à West Kelowna, Bartley Court Shelter (19 ans et plus, inscription sur place de 14 h à 16 h en semaine) 778-583-4881. Si l’un est plein, essayez-en un autre. Femmes qui fuient la violence, avec ou sans enfants : Kelowna Women’s Shelter, 24 h sur 24, appel au 250-763-1040 ou texto au 236-970-0704 — l’adresse reste confidentielle.",
+    "es": "¿Necesita una cama esta noche? Kelowna’s Gospel Mission (Bay Ave Community Shelter, todos los géneros; Leon Shelter, hombres) 250-763-3737; Cornerstone Shelter (adultos de 19 años o más, abierto las 24 horas, todos los días) 250-317-6678; Richter Street Shelter (19 años o más, registro en persona a las 10:00, 16:00 o 21:00) 778-212-1401; en West Kelowna, Bartley Court Shelter (19 años o más, registro en persona de 14:00 a 16:00 entre semana) 778-583-4881. Si uno está lleno, pruebe otro. Mujeres que huyen de la violencia, con o sin hijos: Kelowna Women’s Shelter, 24 horas, llame al 250-763-1040 o envíe un texto al 236-970-0704 — la dirección se mantiene en reserva.",
+    "ko": "오늘 밤 잘 곳이 필요하세요? Kelowna’s Gospel Mission(Bay Ave Community Shelter는 성별 무관, Leon Shelter는 남성) 250-763-3737; Cornerstone Shelter(19세 이상 성인, 연중무휴 24시간) 250-317-6678; Richter Street Shelter(19세 이상, 오전 10시·오후 4시·밤 9시에 직접 가서 등록) 778-212-1401; West Kelowna에는 Bartley Court Shelter(19세 이상, 평일 오후 2–4시에 직접 가서 등록) 778-583-4881. 한 곳이 꽉 찼으면 다른 곳을 시도하세요. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Kelowna Women’s Shelter, 24시간, 전화 250-763-1040 또는 문자 236-970-0704 — 주소는 공개하지 않습니다.",
+    "ja": "今夜寝る場所が必要ですか？Kelowna’s Gospel Mission（Bay Ave Community Shelterは性別を問わず、Leon Shelterは男性）250-763-3737、Cornerstone Shelter（19歳以上の成人、24時間年中無休）250-317-6678、Richter Street Shelter（19歳以上、10時・16時・21時に本人が出向いて登録）778-212-1401、West KelownaではBartley Court Shelter（19歳以上、平日14時〜16時に本人が出向いて登録）778-583-4881。1か所が満員なら別の所を試してください。暴力から逃れる女性（子連れでも一人でも）：Kelowna Women’s Shelter、24時間、電話 250-763-1040 またはSMS 236-970-0704 — 住所は非公開です。"
    },
    "also": {
     "en": "Food: the Central Okanagan Food Bank (Kelowna, and West Kelowna by appointment), The Salvation Army community services in Rutland and Westbank, and meals at Kelowna’s Gospel Mission. Each runs on its own days — call first.",
-    "zh": "食物：Central Okanagan Food Bank（Kelowna；West Kelowna 需预约）、救世军（The Salvation Army）在 Rutland 和 Westbank 的社区服务、Kelowna’s Gospel Mission 的免费餐。各自的开放日不同——先打电话。"
+    "zh": "食物：Central Okanagan Food Bank（Kelowna；West Kelowna 需预约）、救世军（The Salvation Army）在 Rutland 和 Westbank 的社区服务、Kelowna’s Gospel Mission 的免费餐。各自的开放日不同——先打电话。",
+    "fr": "Nourriture : la Central Okanagan Food Bank (Kelowna, et West Kelowna sur rendez-vous), les services communautaires de The Salvation Army à Rutland et à Westbank, et les repas de Kelowna’s Gospel Mission. Chacun a ses propres jours — appelez d’abord.",
+    "es": "Comida: el Central Okanagan Food Bank (Kelowna, y West Kelowna con cita), los servicios comunitarios de The Salvation Army en Rutland y Westbank, y las comidas de Kelowna’s Gospel Mission. Cada uno funciona en sus propios días — llame antes.",
+    "ko": "식품: Central Okanagan Food Bank(Kelowna, West Kelowna는 예약제), Rutland와 Westbank의 The Salvation Army(구세군) 지역사회 서비스, Kelowna’s Gospel Mission의 식사. 운영 요일이 각각 다르니 먼저 전화하세요.",
+    "ja": "食料：Central Okanagan Food Bank（Kelowna、West Kelownaは予約制）、RutlandとWestbankのThe Salvation Army（救世軍）の地域サービス、Kelowna’s Gospel Missionの食事。それぞれ開いている日が違うので、先に電話してください。"
    }
   },
   "rights": {
    "also": {
     "en": "A settlement worker at KCR Community Resources can help you find free legal advice and support — you do not have to do this alone.",
-    "zh": "KCR Community Resources 的定居服务专员可以帮你找免费的法律咨询和支持——你不必一个人面对。"
+    "zh": "KCR Community Resources 的定居服务专员可以帮你找免费的法律咨询和支持——你不必一个人面对。",
+    "fr": "Un intervenant en établissement de KCR Community Resources peut vous aider à trouver des conseils juridiques et du soutien gratuits — vous n’avez pas à traverser cela seul(e).",
+    "es": "Un trabajador de asentamiento de KCR Community Resources puede ayudarle a encontrar asesoría legal y apoyo gratuitos — no tiene que enfrentarlo solo.",
+    "ko": "KCR Community Resources의 정착 지원 담당자가 무료 법률 상담과 지원을 찾도록 도와줄 수 있습니다 — 혼자 감당하지 않아도 됩니다.",
+    "ja": "KCR Community Resourcesの定住支援ワーカーが、無料の法律相談や支援を探すのを手伝ってくれます — 一人で抱え込む必要はありません。"
    }
   },
   "eldercare": {
@@ -134,12 +214,20 @@
    "srcName": "Interior Health – Home and Community Care",
    "help": {
     "en": "Stuck between offices? Call 2-1-1 — it can also tell you who runs Better at Home (help for people 65+) in Kelowna. Or ask a settlement worker if language is part of the difficulty.",
-    "zh": "在几个部门之间转不过来？打 2-1-1——它也能告诉你 Kelowna 的 Better at Home（65 岁以上的居家帮助）由谁提供。如果语言是困难之一，可以找定居服务专员。"
+    "zh": "在几个部门之间转不过来？打 2-1-1——它也能告诉你 Kelowna 的 Better at Home（65 岁以上的居家帮助）由谁提供。如果语言是困难之一，可以找定居服务专员。",
+    "fr": "On vous renvoie d’un service à l’autre ? Appelez le 2-1-1 — on peut aussi vous dire qui gère Better at Home (aide pour les 65 ans et plus) à Kelowna. Ou adressez-vous à un intervenant en établissement si la langue fait partie de la difficulté.",
+    "es": "¿Le envían de una oficina a otra? Llame al 2-1-1: también puede decirle quién ofrece Better at Home (ayuda para mayores de 65 años) en Kelowna. O pida ayuda a un trabajador de asentamiento si el idioma es parte de la dificultad.",
+    "ko": "기관 사이에서 헤매고 있나요? 2-1-1로 전화하세요 — Kelowna에서 Better at Home(65세 이상 지원)을 누가 운영하는지도 알려줍니다. 언어가 어려움의 일부라면 정착 지원 담당자에게 물어보세요.",
+    "ja": "窓口の間で行き詰まったら、2-1-1に電話してください — KelownaでBetter at Home（65歳以上向けの支援）を運営している団体も教えてくれます。言葉も壁になっているなら、定住支援ワーカーに相談してください。"
    },
    "steps_replace": {
     "2": {
      "en": "For people 65 and over, Better at Home (a United Way BC program) helps with groceries, light housekeeping, yard work, friendly visits and meals; call 2-1-1 to find who runs it in Kelowna. Some of it is charged on a sliding scale by income.",
-     "zh": "65 岁以上的老人可以用 Better at Home（United Way BC 的项目）：帮忙买菜、简单家务、打理院子、上门探访和送餐；打 2-1-1 查 Kelowna 由哪家机构提供。部分服务按收入阶梯收费。"
+     "zh": "65 岁以上的老人可以用 Better at Home（United Way BC 的项目）：帮忙买菜、简单家务、打理院子、上门探访和送餐；打 2-1-1 查 Kelowna 由哪家机构提供。部分服务按收入阶梯收费。",
+     "fr": "Pour les 65 ans et plus, Better at Home (un programme de United Way BC) aide pour l’épicerie, le ménage léger, l’entretien du terrain, les visites amicales et les repas ; appelez le 2-1-1 pour savoir qui le gère à Kelowna. Certains services sont facturés selon une échelle liée au revenu.",
+     "es": "Para mayores de 65 años, Better at Home (un programa de United Way BC) ayuda con la compra, limpieza ligera, jardín, visitas amistosas y comidas; llame al 2-1-1 para saber quién lo ofrece en Kelowna. Algunos servicios se cobran según una escala de ingresos.",
+     "ko": "65세 이상이라면 Better at Home(United Way BC 프로그램)이 장보기, 가벼운 집안일, 마당 일, 방문 말벗, 식사를 도와줍니다. Kelowna에서 누가 운영하는지는 2-1-1로 전화해 알아보세요. 일부는 소득에 따라 차등 요금이 있습니다.",
+     "ja": "65歳以上なら、Better at Home（United Way BCのプログラム）が買い物、軽い家事、庭仕事、話し相手としての訪問、食事を手伝います。Kelownaで運営している団体は2-1-1に電話して確認してください。一部は収入に応じたスライド制の料金です。"
     }
    }
   }
