@@ -64,7 +64,10 @@
    "life"
   ],
   "id": "9834d147",
-  "w": "https://www2.gov.bc.ca/servicebc/kelowna"
+  "w": "https://www2.gov.bc.ca/servicebc/kelowna",
+  "sameComplex": [
+   "760010d9"
+  ]
  },
  {
   "n": "Kelowna Service Canada Centre and Passport Services",
@@ -147,7 +150,10 @@
    "life"
   ],
   "id": "6888f5cf",
-  "w": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna"
+  "w": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna",
+  "sameComplex": [
+   "036d741a"
+  ]
  },
  {
   "n": "WorkBC Centre – West Kelowna",
@@ -496,7 +502,10 @@
    "药店"
   ],
   "id": "b632d5d0",
-  "w": "https://www.shoppersdrugmart.ca/en/stores/225-shoppers-drug-mart-orchard-park-s-c/"
+  "w": "https://www.shoppersdrugmart.ca/en/stores/225-shoppers-drug-mart-orchard-park-s-c/",
+  "sameComplex": [
+   "3eb6e94d"
+  ]
  },
  {
   "n": "Shoppers Drug Mart Rutland Plaza 33",
@@ -526,7 +535,9 @@
   "id": "4d296ae3",
   "w": "https://www.shoppersdrugmart.ca/store-locator/store/2217?lang=en",
   "sameComplex": [
-   "9778de6e"
+   "9778de6e",
+   "97574325",
+   "39ad28d7"
   ]
  },
  {
@@ -556,7 +567,11 @@
    "药店"
   ],
   "id": "b3551a68",
-  "w": "https://www.shoppersdrugmart.ca/store-locator/store/2216?lang=en"
+  "w": "https://www.shoppersdrugmart.ca/store-locator/store/2216?lang=en",
+  "sameComplex": [
+   "d85124b7",
+   "e1085641"
+  ]
  },
  {
   "n": "KGM Community Dental (Kelowna's Gospel Mission)",
@@ -634,7 +649,8 @@
   "id": "6c9df47c",
   "w": "https://www.orl.bc.ca/library/kelowna-mission",
   "sameComplex": [
-   "b18e9129"
+   "b18e9129",
+   "9c5f8faa"
   ],
   "alias": [
    "English Corner – Kelowna Mission Library"
@@ -662,7 +678,9 @@
   "id": "9778de6e",
   "w": "https://www.orl.bc.ca/library/kelowna-rutland",
   "sameComplex": [
-   "4d296ae3"
+   "4d296ae3",
+   "97574325",
+   "39ad28d7"
   ],
   "alias": [
    "English Corner – Kelowna Rutland Library"
@@ -2075,7 +2093,8 @@
   ],
   "id": "c823ac20",
   "sameComplex": [
-   "ebe74ad0"
+   "ebe74ad0",
+   "cc5fe981"
   ]
  },
  {
@@ -2192,7 +2211,8 @@
   "id": "2237355e",
   "sameComplex": [
    "ba40a908",
-   "2aef8bfe"
+   "2aef8bfe",
+   "ea2b90f1"
   ]
  },
  {
@@ -2380,7 +2400,8 @@
    "family"
   ],
   "sameComplex": [
-   "c823ac20"
+   "c823ac20",
+   "cc5fe981"
   ],
   "id": "ebe74ad0"
  },
@@ -2756,7 +2777,8 @@
   ],
   "sameComplex": [
    "2237355e",
-   "2aef8bfe"
+   "2aef8bfe",
+   "ea2b90f1"
   ],
   "id": "ba40a908"
  },
@@ -3409,7 +3431,8 @@
   ],
   "sameComplex": [
    "2237355e",
-   "ba40a908"
+   "ba40a908",
+   "ea2b90f1"
   ],
   "id": "2aef8bfe"
  },
@@ -4659,7 +4682,10 @@
   "t": [
    "family"
   ],
-  "id": "fab0ecd4"
+  "id": "fab0ecd4",
+  "sameComplex": [
+   "cafc4b08"
+  ]
  },
  {
   "n": "Springvalley Elementary Out of School Care",
@@ -6273,7 +6299,8 @@
    "free"
   ],
   "sameComplex": [
-   "6c9df47c"
+   "6c9df47c",
+   "9c5f8faa"
   ],
   "id": "b18e9129"
  },
@@ -6670,7 +6697,10 @@
    "family",
    "free"
   ],
-  "id": "d28b9905"
+  "id": "d28b9905",
+  "sameComplex": [
+   "a5710c96"
+  ]
  },
  {
   "n": "Sarsons Beach Park",
@@ -6694,7 +6724,10 @@
    "scenic",
    "free"
   ],
-  "id": "534cf166"
+  "id": "534cf166",
+  "sameComplex": [
+   "0aea0666"
+  ]
  },
  {
   "n": "Scenic Canyon Regional Park",
@@ -7646,7 +7679,10 @@
    "女性健康"
   ],
   "id": "5f891129",
-  "w": "https://rutlandcommunityclinic.ca/"
+  "w": "https://rutlandcommunityclinic.ca/",
+  "sameComplex": [
+   "19f5e7fa"
+  ]
  },
  {
   "n": "Lakepoint Medical Clinic",
@@ -7686,7 +7722,10 @@
    "自费看病"
   ],
   "id": "164b9d95",
-  "w": "https://www.lakepointmedical.ca/"
+  "w": "https://www.lakepointmedical.ca/",
+  "sameComplex": [
+   "53dfad06"
+  ]
  },
  {
   "n": "Outreach Urban Health Centre (Interior Health)",
@@ -7887,7 +7926,10 @@
    "晚上买药"
   ],
   "id": "5b55bc09",
-  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2267/pharmacy"
+  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2267/pharmacy",
+  "sameComplex": [
+   "ae8338ed"
+  ]
  },
  {
   "n": "London Drugs Spall Plaza",
@@ -7983,7 +8025,10 @@
    "西基隆拿"
   ],
   "id": "ffe9bdb4",
-  "w": "https://www.londondrugs.com/stores/westbank/s/076"
+  "w": "https://www.londondrugs.com/stores/westbank/s/076",
+  "sameComplex": [
+   "b5cc7385"
+  ]
  },
  {
   "n": "Pharmasave Kelowna Airport Village",
@@ -8031,7 +8076,11 @@
    "机场"
   ],
   "id": "6d7ab55f",
-  "w": "https://pharmasave.com/store/kelowna-airport-village/"
+  "w": "https://pharmasave.com/store/kelowna-airport-village/",
+  "sameComplex": [
+   "dc6f06ff",
+   "0117754e"
+  ]
  },
  {
   "n": "KCR Community Resources – Free Tax Clinic (CVITP)",
@@ -8262,7 +8311,10 @@
    "free"
   ],
   "id": "d42d42dc",
-  "w": "https://www.kelownasikhtemple.ca/"
+  "w": "https://www.kelownasikhtemple.ca/",
+  "sameComplex": [
+   "bd10da91"
+  ]
  },
  {
   "n": "Ukrainian Orthodox Parish of Sts Peter & Paul",
@@ -8547,7 +8599,10 @@
    "free"
   ],
   "id": "684b15c1",
-  "w": "https://www.kelownasalvationarmy.ca/community-assistance/"
+  "w": "https://www.kelownasalvationarmy.ca/community-assistance/",
+  "sameComplex": [
+   "9603af74"
+  ]
  },
  {
   "n": "The Salvation Army – Community Services Westbank",
@@ -8606,7 +8661,10 @@
    "free"
   ],
   "id": "8dcca588",
-  "w": "https://www.kelownasalvationarmy.ca/community-assistance/"
+  "w": "https://www.kelownasalvationarmy.ca/community-assistance/",
+  "sameComplex": [
+   "bc8be723"
+  ]
  },
  {
   "n": "Central Okanagan Food Bank – West Kelowna",
@@ -8805,5 +8863,3354 @@
   ],
   "id": "bc037355",
   "w": "https://www.ymcasibc.ca/ccrr"
+ },
+ {
+  "n": "Okanagan Heritage Museum",
+  "c": "museum",
+  "g": "dt",
+  "lat": 49.887591,
+  "lng": -119.4944136,
+  "a": "470 Queensway Avenue",
+  "p": "250-763-2417",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     600,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     600,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     600,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     660,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "基洛纳主要的历史博物馆，介绍奥卡纳根河谷的形成、syilx（奥卡纳根原住民）文化和早期定居者历史，馆内还有中奥卡纳根体育名人堂和基洛纳公共档案馆。紧挨 Queensway 公交换乘站；每月第二个星期日可随意付费入场。",
+   "en": "Kelowna's main history museum, covering how the valley formed, syilx (Okanagan) culture and settler history, plus the Central Okanagan Sports Hall of Fame and the Kelowna Public Archives. It is right next to the Queensway transit exchange, and every second Sunday of the month you pay what you wish."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "free",
+   "indoor"
+  ],
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "H",
+   "e",
+   "r"
+  ],
+  "id": "a5bf1103",
+  "w": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ {
+  "n": "Okanagan Military Museum",
+  "c": "museum",
+  "g": "dt",
+  "lat": 49.8884813,
+  "lng": -119.4940491,
+  "a": "1424 Ellis St",
+  "p": "250-763-9292",
+  "note": {
+   "zh": "介绍奥卡纳根地区军事历史的小型博物馆，展出军装、徽章和大量枪械收藏，并设有军事图书馆和档案室。位于市中心 Ellis 街，紧邻 Memorial Arena 冰场。",
+   "en": "A small museum of Okanagan military history with uniforms, badges and a large firearms collection, plus a military library and archives. It is downtown on Ellis Street, beside Memorial Arena."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "free",
+   "indoor"
+  ],
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "M",
+   "i",
+   "l"
+  ],
+  "sameComplex": [
+   "5cca590c"
+  ],
+  "id": "cf723f3f",
+  "w": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ {
+  "n": "Laurel Packinghouse — Okanagan Wine and Orchard Museum",
+  "c": "heritage",
+  "g": "dt",
+  "lat": 49.8913851,
+  "lng": -119.4939843,
+  "a": "1304 Ellis St",
+  "p": "778-478-0325",
+  "note": {
+   "zh": "卑诗省最古老、最大的水果包装厂旧址，现为奥卡纳根葡萄酒与果园博物馆，介绍河谷的农业历史；门外有 Laurel Square 互动公园。随意捐款入场。",
+   "en": "The oldest and largest fruit packinghouse in BC, now home to the Okanagan Wine and Orchard Museum about the valley's farming roots, with the Laurel Square interactive park outside. Entry is by donation."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history"
+  ],
+  "alias": [
+   "L",
+   "a",
+   "u",
+   "r",
+   "e",
+   "l",
+   " ",
+   "P",
+   "a",
+   "c",
+   "k",
+   "i"
+  ],
+  "id": "124180e9",
+  "w": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ {
+  "n": "Kelowna Art Gallery",
+  "c": "museum",
+  "g": "dt",
+  "lat": 49.8913844,
+  "lng": -119.4962481,
+  "a": "1315 Water Street",
+  "p": "250-762-2226",
+  "h": {
+   "r": [
+    [
+     2,
+     2,
+     600,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     600,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     600,
+     1200,
+     0
+    ],
+    [
+     5,
+     5,
+     600,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于市中心文化区的公共美术馆，定期更换展览，包括原住民和加拿大艺术家的作品。12 岁以下儿童免费；每周四门票半价，并开放到晚上 8 点。",
+   "en": "The city's public art gallery in the downtown cultural district, with changing exhibitions including Indigenous and Canadian artists. Children under 12 get in free and admission is half price on Thursdays, when it stays open until 8 pm."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "free",
+   "indoor"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "A",
+   "r",
+   "t",
+   " "
+  ],
+  "id": "8cf5db85",
+  "w": "https://kelownaartgallery.com/"
+ },
+ {
+  "n": "Sncewips Heritage Museum (Westbank First Nation)",
+  "c": "indigenous",
+  "g": "wk",
+  "lat": 49.8804448,
+  "lng": -119.5354145,
+  "a": "Unit 260, 525 Highway 97",
+  "p": "778-755-2787",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "由 Westbank 原住民族（Westbank First Nation）拥有和运营的博物馆，用 syilx 人自己的藏品和讲述介绍他们的历史与文化。开放时间内可直接参观，也可以在官网预约导览。",
+   "en": "A museum owned and run by Westbank First Nation that tells the story of the syilx people through their own objects and voices. You can drop in during opening hours or book a guided tour on their website."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "culture"
+  ],
+  "alias": [
+   "S",
+   "n",
+   "c",
+   "e",
+   "w",
+   "i",
+   "p",
+   "s",
+   " ",
+   "H",
+   "e",
+   "r"
+  ],
+  "sameComplex": [
+   "164b9d95"
+  ],
+  "id": "53dfad06",
+  "w": "https://www.sncewips.com/"
+ },
+ {
+  "n": "Rotary Centre for the Arts",
+  "c": "museum",
+  "g": "dt",
+  "lat": 49.8915934,
+  "lng": -119.4949048,
+  "a": "421 Cawston Avenue",
+  "p": "250-717-5304",
+  "note": {
+   "zh": "位于市中心文化区的社区艺术中心，有美术展厅、剧场以及面向各年龄的艺术课程。这里也可以购买基洛纳社区剧院演出的门票。",
+   "en": "A community arts centre in the downtown cultural district with art galleries, a theatre and art classes for all ages. You can also buy tickets for Kelowna Community Theatre shows here."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "indoor"
+  ],
+  "alias": [
+   "R",
+   "o",
+   "t",
+   "a",
+   "r",
+   "y",
+   " ",
+   "C",
+   "e",
+   "n",
+   "t",
+   "r"
+  ],
+  "id": "8039f01c",
+  "w": "https://www.rotarycentreforthearts.com/"
+ },
+ {
+  "n": "Kelowna Community Theatre",
+  "c": "museum",
+  "g": "dt",
+  "lat": 49.8892654,
+  "lng": -119.4962987,
+  "a": "1375 Water Street",
+  "p": "250-469-8944",
+  "note": {
+   "zh": "市政府拥有的市中心主剧院，举办音乐会、巡演和本地演出，另有一个小型黑匣子剧场。可以网上购票、打售票处电话（250-469-8940），或到剧院或扶轮艺术中心现场购票。",
+   "en": "The City-owned main theatre downtown, hosting concerts, touring shows and local performances, plus a smaller Black Box theatre. Tickets are sold online, by phone at the box office (250-469-8940) or in person here or at the Rotary Centre for the Arts."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "indoor"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "C",
+   "o",
+   "m",
+   "m"
+  ],
+  "id": "475fe1ed",
+  "w": "https://theatre.kelowna.ca/"
+ },
+ {
+  "n": "Kelowna Family Y",
+  "c": "pool",
+  "g": "rt",
+  "lat": 49.8984434,
+  "lng": -119.3816237,
+  "a": "375 Hartman Road",
+  "p": "250-491-9622",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     330,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     480,
+     1200,
+     0
+    ],
+    [
+     7,
+     7,
+     540,
+     1140,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Rutland 的 YMCA（由市政府资助），有 25 米泳池、跳水池、浅水休闲池、体育馆、健身房和室内步道。YMCA 为负担不起会员费的人提供自己的资助项目。",
+   "en": "A City-funded YMCA in Rutland with a 25-metre pool, dive pool, shallow leisure pool, gym, fitness studio and indoor walking track. The YMCA has its own financial assistance for people who cannot afford a membership."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "indoor"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "F",
+   "a",
+   "m",
+   "i"
+  ],
+  "id": "33adbeff",
+  "w": "https://www.ymcasibc.ca/locations/kelowna-family-y/"
+ },
+ {
+  "n": "Cedar Creek Community Centre",
+  "c": "commctr",
+  "g": "pm",
+  "lat": 49.7959851,
+  "lng": -119.5024295,
+  "a": "5160 Chute Lake Rd",
+  "p": "250-469-8800",
+  "note": {
+   "zh": "位于 Upper Mission 的市立社区中心，举办列在基洛纳活动与课程指南中的季节性课程，也可以租用办活动。",
+   "en": "A City community centre in the Upper Mission that hosts seasonal programs listed in Kelowna's Activity & Program Guide. It can also be rented for events."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "alias": [
+   "C",
+   "e",
+   "d",
+   "a",
+   "r",
+   " ",
+   "C",
+   "r",
+   "e",
+   "e",
+   "k",
+   " "
+  ],
+  "sameComplex": [
+   "fab0ecd4"
+  ],
+  "id": "cafc4b08",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/cedar-creek-community-centre"
+ },
+ {
+  "n": "Memorial Arena",
+  "c": "rink",
+  "g": "dt",
+  "lat": 49.8884813,
+  "lng": -119.4940491,
+  "a": "1424 Ellis St",
+  "p": "250-469-8939",
+  "note": {
+   "zh": "建于 1945 年的市中心老冰场，开设滑冰课程和随到随滑时段，也是青少年冰球的主场。滑冰时间请查市政府的公众滑冰时间表。",
+   "en": "A historic downtown ice arena built in 1945 that hosts skating programs and drop-ins as well as minor hockey. Check the City's public skating schedule for times."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "indoor"
+  ],
+  "alias": [
+   "M",
+   "e",
+   "m",
+   "o",
+   "r",
+   "i",
+   "a",
+   "l",
+   " ",
+   "A",
+   "r",
+   "e"
+  ],
+  "sameComplex": [
+   "cf723f3f"
+  ],
+  "id": "5cca590c",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/memorial-arena"
+ },
+ {
+  "n": "MNP Place",
+  "c": "rink",
+  "g": "pm",
+  "lat": 49.835737,
+  "lng": -119.4803059,
+  "a": "4105 Gordon Dr",
+  "p": "250-764-6288",
+  "note": {
+   "zh": "位于 Mission 区的大型体育综合馆，有两块标准冰场、两个室内人造草场和室内跑道，列在市政府资助的康乐设施名单中。",
+   "en": "A large sports complex in the Mission with two NHL-size ice rinks, two indoor turf fields and an indoor running track. It is listed by the City among its City-funded recreation facilities."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "indoor"
+  ],
+  "alias": [
+   "M",
+   "N",
+   "P",
+   " ",
+   "P",
+   "l",
+   "a",
+   "c",
+   "e",
+   " ",
+   "C",
+   "a"
+  ],
+  "sameComplex": [
+   "6c9df47c",
+   "b18e9129"
+  ],
+  "id": "9c5f8faa",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/mnp-place"
+ },
+ {
+  "n": "Rutland Arena",
+  "c": "rink",
+  "g": "rt",
+  "lat": 49.8970378,
+  "lng": -119.3813804,
+  "a": "645 Dodd Rd",
+  "p": "250-469-8504",
+  "note": {
+   "zh": "位于 Rutland 的市立冰场，有两块标准冰场，可租冰鞋，是 Kelowna Chiefs 青年冰球队的主场。市政府公布了这里的公众滑冰时间表。",
+   "en": "A City arena in Rutland with two NHL-size rinks and skate rentals, home of the Kelowna Chiefs junior hockey team. The City publishes a public skating schedule for this arena."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "indoor"
+  ],
+  "alias": [
+   "R",
+   "u",
+   "t",
+   "l",
+   "a",
+   "n",
+   "d",
+   " ",
+   "A",
+   "r",
+   "e",
+   "n"
+  ],
+  "sameComplex": [
+   "d28b9905"
+  ],
+  "id": "a5710c96",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-arena"
+ },
+ {
+  "n": "Rutland Activity Centre",
+  "c": "commctr",
+  "g": "rt",
+  "lat": 49.8976457,
+  "lng": -119.3803836,
+  "a": "765 Dodd Rd",
+  "p": "250-765-3723",
+  "note": {
+   "zh": "由市政府与 Rutland 长者协会共同运营的活动中心，提供各年龄段的活动，例如儿童足球、瑜伽和保姆证书课程；长者协会为 50 岁以上人士开办许多活动。",
+   "en": "A shared City and Rutland Seniors Society centre with activities for all ages, such as children's soccer, yoga and babysitting courses. The seniors society runs many programs for people 50 and over."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "alias": [
+   "R",
+   "u",
+   "t",
+   "l",
+   "a",
+   "n",
+   "d",
+   " ",
+   "A",
+   "c",
+   "t",
+   "i"
+  ],
+  "id": "4a42649e",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-activity-centre"
+ },
+ {
+  "n": "Parkinson Activity Centre",
+  "c": "commctr",
+  "g": "dt",
+  "lat": 49.8832107,
+  "lng": -119.4591733,
+  "a": "1700 Parkinson Way",
+  "p": "250-762-4108",
+  "note": {
+   "zh": "与 Parkinson 长者协会合作运营的活动中心，为 50 岁以上人士开设瑜伽、绘画、太极、桥牌和电脑课等活动，位于 Parkinson 康乐中心旁。",
+   "en": "A centre run with the Parkinson Seniors Society offering programs for people 50 and over, such as yoga, painting, tai chi, bridge and computer lessons. It is beside Parkinson Recreation Centre."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "alias": [
+   "P",
+   "a",
+   "r",
+   "k",
+   "i",
+   "n",
+   "s",
+   "o",
+   "n",
+   " ",
+   "A",
+   "c"
+  ],
+  "id": "d2ff477f",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-activity-centre"
+ },
+ {
+  "n": "Sarsons Activity Centre",
+  "c": "commctr",
+  "g": "pm",
+  "lat": 49.8264222,
+  "lng": -119.4983939,
+  "a": "4398 Hobson Rd",
+  "p": "250-469-8957",
+  "note": {
+   "zh": "位于 Sarsons 湖滩旁的活动中心，白天由 Okanagan Mission 长者协会使用，晚上和周末举办市政府的课程活动。原名 Okanagan Mission 活动中心。",
+   "en": "A lakeside activity centre next to Sarsons Beach, used by the Okanagan Mission Seniors Centre Society in the daytime and for City programs on evenings and weekends. It was formerly called the Okanagan Mission Activity Centre."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "r",
+   "s",
+   "o",
+   "n",
+   "s",
+   " ",
+   "A",
+   "c",
+   "t",
+   "i"
+  ],
+  "sameComplex": [
+   "534cf166"
+  ],
+  "id": "0aea0666",
+  "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/sarsons-activity-centre"
+ },
+ {
+  "n": "Johnson Bentley Memorial Aquatic Centre",
+  "c": "pool",
+  "g": "wk",
+  "lat": 49.8268865,
+  "lng": -119.6240564,
+  "a": "3737 Old Okanagan Hwy",
+  "p": "778-797-7665",
+  "note": {
+   "zh": "西基洛纳的公共游泳馆，有 25 米泳池、温水池、热水池、蒸汽房、滑梯和健身房；随到随付，不需要办会员。从 2027 年 1 月 1 日起改由 YMCA（南内陆卑诗）运营。",
+   "en": "West Kelowna's public pool with a 25-metre pool, warm soaking pool, hot tub, steam room, slides and a weight room; drop-in, no membership needed. The YMCA of Southern Interior BC takes over running it from January 1, 2027."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "indoor"
+  ],
+  "alias": [
+   "J",
+   "o",
+   "h",
+   "n",
+   "s",
+   "o",
+   "n",
+   " ",
+   "B",
+   "e",
+   "n",
+   "t"
+  ],
+  "id": "dff6dbc7",
+  "w": "https://www.westkelownacity.ca/en/parks-recreation-and-culture/johnson-bentley-aquatic-centre.aspx"
+ },
+ {
+  "n": "Royal LePage Place & Jim Lind Arena",
+  "c": "rink",
+  "g": "wk",
+  "lat": 49.8590072,
+  "lng": -119.5820693,
+  "a": "2760 Cameron Road",
+  "p": "778-797-2265",
+  "note": {
+   "zh": "西基洛纳的主要冰场，有两块标准冰面（Royal LePage Place 和相邻的 Jim Lind Arena），还有免费的室内步行跑道。滑冰时间请查市政府的公众滑冰时间表。",
+   "en": "West Kelowna's main arena with two NHL-size ice sheets (Royal LePage Place and the adjacent Jim Lind Arena) and a free indoor walking track. Check the City's public skate schedule for times."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "indoor"
+  ],
+  "alias": [
+   "R",
+   "o",
+   "y",
+   "a",
+   "l",
+   " ",
+   "L",
+   "e",
+   "P",
+   "a",
+   "g",
+   "e"
+  ],
+  "id": "c192b052",
+  "w": "https://www.westkelownacity.ca/en/parks-recreation-and-culture/royal-lepage-place-arena.aspx"
+ },
+ {
+  "n": "RBC Royal Bank — Main Kelowna branch",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.884231,
+  "lng": -119.4930345,
+  "a": "1665 Ellis St",
+  "p": "250-868-4100",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "加拿大皇家银行（RBC）基洛纳市中心主分行（分行号 2400）。RBC 为永久居民、外国劳工和国际学生提供新来加拿大的银行套餐，包括无需加拿大信用记录即可申请的信用卡。",
+   "en": "RBC's main downtown Kelowna branch (transit 2400). RBC advertises newcomer banking for permanent residents, foreign workers and international students, including a first credit card without Canadian credit history."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "R",
+   "B",
+   "C",
+   " ",
+   "R",
+   "o",
+   "y",
+   "a",
+   "l",
+   " ",
+   "B",
+   "a"
+  ],
+  "id": "32fa8e5d",
+  "w": "https://maps.rbcroyalbank.com/BC-KELOWNA-branch-2400"
+ },
+ {
+  "n": "TD Canada Trust — Ellis Street branch",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.8847773,
+  "lng": -119.4931103,
+  "a": "1633 Ellis Street, Unit 100",
+  "p": "250-763-4241",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "道明银行（TD）基洛纳市中心分行（分行号 277），离 Queensway 公交换乘站步行不远。TD 有\"新到加拿大\"银行套餐，另有面向持学签国际学生的套餐。",
+   "en": "TD's downtown Kelowna branch (branch 277), a short walk from the Queensway exchange. TD advertises a New to Canada package and a separate package for international students with a study permit."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "T",
+   "D",
+   " ",
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "T",
+   "r"
+  ],
+  "id": "f23ad848",
+  "w": "https://www.td.com/ca/en/personal-banking/branch-locator"
+ },
+ {
+  "n": "Scotiabank — Kelowna branch",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.8864809,
+  "lng": -119.4938174,
+  "a": "488 Bernard Avenue",
+  "p": "250-712-4055",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     570,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     570,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     570,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     570,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "丰业银行（Scotiabank）位于 Bernard 大道的市中心分行（分行号 80150），职员还会说印地语、古吉拉特语和马拉地语。丰业银行的 StartRight 计划面向永久居民、国际学生和外国劳工。",
+   "en": "Scotiabank's downtown branch on Bernard Avenue (transit 80150), where staff also speak Hindi, Gujarati and Marathi. Scotiabank's StartRight program is for permanent residents, international students and foreign workers."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "c",
+   "o",
+   "t",
+   "i",
+   "a",
+   "b",
+   "a",
+   "n",
+   "k",
+   " ",
+   "B"
+  ],
+  "sameComplex": [
+   "9834d147"
+  ],
+  "id": "760010d9",
+  "w": "https://locator.scotiabank.com/branch/80150"
+ },
+ {
+  "n": "BMO Bank of Montreal — Kelowna Main Office",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.8866193,
+  "lng": -119.4968995,
+  "a": "294 Bernard Ave",
+  "p": "250-861-1609",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     570,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     570,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     570,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     570,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "蒙特利尔银行（BMO）基洛纳市中心总分行（分行号 07210），职员会说法语、荷兰语、约鲁巴语和南非荷兰语。BMO 的 NewStart 计划面向来加拿大五年内的永久居民和外国劳工。",
+   "en": "BMO's main downtown Kelowna branch (transit 07210), with staff who speak French, Dutch, Yoruba and Afrikaans. BMO's NewStart program is for permanent residents and foreign workers in their first five years in Canada."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "B",
+   "M",
+   "O",
+   " ",
+   "B",
+   "a",
+   "n",
+   "k",
+   " ",
+   "o",
+   "f",
+   " "
+  ],
+  "id": "fc95de07",
+  "w": "https://branches.bmo.com/bc/kelowna/b0721/"
+ },
+ {
+  "n": "CIBC — 328 Bernard Ave. Banking Centre",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.8866163,
+  "lng": -119.4962432,
+  "a": "328 Bernard Ave.",
+  "p": "250-763-6611",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     570,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     570,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     570,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     570,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "加拿大帝国商业银行（CIBC）位于 Bernard 大道的市中心全功能分行（分行号 00160）。CIBC 为永久居民以及持 12 个月以上工签的人提供新来加拿大的账户。",
+   "en": "CIBC's downtown full-service branch on Bernard Avenue (transit 00160). CIBC advertises a newcomer account for permanent residents and for workers with a work permit of 12 months or more."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "I",
+   "B",
+   "C",
+   " ",
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "i",
+   "a"
+  ],
+  "id": "c49bc182",
+  "w": "https://locations.cibc.com/bc/kelowna/00160"
+ },
+ {
+  "n": "Valley First (Tru Cooperative Bank) — Downtown Kelowna",
+  "c": "bank",
+  "g": "dt",
+  "lat": 49.8861068,
+  "lng": -119.4932979,
+  "a": "507 Bernard Ave",
+  "p": "888-597-8083",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     570,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     570,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     570,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     570,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Valley First 的市中心分行。Valley First 是奥卡纳根本地的金融机构，现为 Tru 合作银行（原 First West 信用合作社）旗下品牌。可网上预约；电话是总部免费热线。",
+   "en": "Downtown branch of Valley First, a local Okanagan financial institution that is now a division of Tru Cooperative Bank (formerly First West Credit Union). Appointments can be booked online; the phone number is a central toll-free line."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "V",
+   "a",
+   "l",
+   "l",
+   "e",
+   "y",
+   " ",
+   "F",
+   "i",
+   "r",
+   "s",
+   "t"
+  ],
+  "id": "43df7e62",
+  "w": "https://www.trucooperativebank.ca/valley-first/help-support/find-a-branch-atm"
+ },
+ {
+  "n": "Canada Post — Okanagan Mission Post Office",
+  "c": "post",
+  "g": "pm",
+  "lat": 49.8447477,
+  "lng": -119.4810296,
+  "a": "5-3818 Gordon Dr",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Lower Mission 的加拿大邮政直营邮局，只在工作日开放。根据加拿大邮政自己的名单，基洛纳其他地方没有直营邮局柜台，其余邮政点都设在商店和药房里。",
+   "en": "A Canada Post-run post office in the Lower Mission, open on weekdays only. Canada Post's own list shows no corporate post office counter elsewhere in Kelowna; other outlets are inside shops and pharmacies."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "id": "ec37864a",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Capri Centre (Capri Service Centre)",
+  "c": "post",
+  "g": "dt",
+  "lat": 49.8816284,
+  "lng": -119.4757465,
+  "a": "144-1835 Gordon Dr",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1050,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1050,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1050,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1050,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1050,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Capri Centre 购物中心内的邮政柜台，周一至周六开放，靠近 Capri-Landmark 一带，Gordon 路和 Harvey 大道有多条公交线路。",
+   "en": "A post office counter inside Capri Centre mall, open Monday to Saturday. It is close to the Capri-Landmark area and several bus routes on Gordon Drive and Harvey Avenue."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "6888f5cf"
+  ],
+  "id": "036d741a",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Orchard Park (Shoppers Drug Mart)",
+  "c": "post",
+  "g": "dt",
+  "lat": 49.8793159,
+  "lng": -119.4401586,
+  "a": "1360-2271 Harvey Ave",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     510,
+     1260,
+     0
+    ],
+    [
+     2,
+     2,
+     510,
+     1260,
+     0
+    ],
+    [
+     3,
+     3,
+     510,
+     1260,
+     0
+    ],
+    [
+     4,
+     4,
+     510,
+     1260,
+     0
+    ],
+    [
+     5,
+     5,
+     510,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Orchard Park 购物中心 Shoppers Drug Mart 药房里的邮政柜台，每天开放，工作日开到晚上 9 点。Orchard Park 是 Harvey 大道上的主要公交站点。",
+   "en": "A post office counter in the Shoppers Drug Mart at Orchard Park mall, open seven days and until 9 pm on weekdays. Orchard Park is a major bus stop on Harvey Avenue."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "b632d5d0"
+  ],
+  "id": "3eb6e94d",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Plaza 33, Rutland (Shoppers Drug Mart)",
+  "c": "post",
+  "g": "rt",
+  "lat": 49.8883237,
+  "lng": -119.3898977,
+  "a": "38-301 Hwy 33 W",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     480,
+     1200,
+     0
+    ],
+    [
+     2,
+     2,
+     480,
+     1200,
+     0
+    ],
+    [
+     3,
+     3,
+     480,
+     1200,
+     0
+    ],
+    [
+     4,
+     4,
+     480,
+     1200,
+     0
+    ],
+    [
+     5,
+     5,
+     480,
+     1200,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     960,
+     0
+    ],
+    [
+     7,
+     7,
+     720,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Rutland 区 Plaza 33 的 Shoppers Drug Mart 药房里的邮政柜台，每天开放，靠近 Rutland 公交换乘站。",
+   "en": "A post office counter in the Shoppers Drug Mart at Plaza 33 in Rutland, open seven days. It is near the Rutland transit exchange."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "4d296ae3",
+   "9778de6e",
+   "39ad28d7"
+  ],
+  "id": "97574325",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Glenpark (Shoppers Drug Mart)",
+  "c": "post",
+  "g": "gm",
+  "lat": 49.9155126,
+  "lng": -119.4412563,
+  "a": "100-1972 Kane Rd",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     510,
+     1230,
+     0
+    ],
+    [
+     2,
+     2,
+     510,
+     1230,
+     0
+    ],
+    [
+     3,
+     3,
+     510,
+     1230,
+     0
+    ],
+    [
+     4,
+     4,
+     510,
+     1230,
+     0
+    ],
+    [
+     5,
+     5,
+     510,
+     1230,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Glenmore 区 Kane 路 Shoppers Drug Mart 药房里的邮政柜台，每天开放。",
+   "en": "A post office counter in the Shoppers Drug Mart at Kane Road in Glenmore, open seven days."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "5b55bc09"
+  ],
+  "id": "ae8338ed",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Quail Ridge (Pharmasave)",
+  "c": "post",
+  "g": "nk",
+  "lat": 49.9527694,
+  "lng": -119.3875427,
+  "a": "304-1750 Pier Mac Way",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     600,
+     1080,
+     0
+    ],
+    [
+     2,
+     2,
+     600,
+     1080,
+     0
+    ],
+    [
+     3,
+     3,
+     600,
+     1080,
+     0
+    ],
+    [
+     4,
+     4,
+     600,
+     1080,
+     0
+    ],
+    [
+     5,
+     5,
+     600,
+     1080,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 UBC Okanagan 和机场附近 Pharmasave 药房里的邮政柜台，周一至周六开放，是很多 UBCO 学生最近的邮政点。",
+   "en": "A post office counter in the Pharmasave near UBC Okanagan and the airport, open Monday to Saturday. It is the closest post outlet for many UBCO students."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "6d7ab55f",
+   "0117754e"
+  ],
+  "id": "dc6f06ff",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Mission Park (Pharmasave)",
+  "c": "post",
+  "g": "pm",
+  "lat": 49.8600475,
+  "lng": -119.4893878,
+  "a": "41-3155 Lakeshore Rd",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1140,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1140,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1140,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1140,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1140,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1080,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Lakeshore 路 Mission Park 购物中心 Pharmasave 药房里的邮政柜台，每天开放。",
+   "en": "A post office counter in the Pharmasave at Mission Park shopping centre on Lakeshore Road, open seven days."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "id": "756e406f",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — West Kelowna (Shoppers Drug Mart)",
+  "c": "post",
+  "g": "wk",
+  "lat": 49.8283084,
+  "lng": -119.629076,
+  "a": "2475 Dobbin Rd, Unit 3",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1080,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1080,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1080,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1260,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1080,
+     0
+    ],
+    [
+     7,
+     7,
+     720,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Westbank 区 Dobbin 路 Shoppers Drug Mart 药房里的邮政柜台，每天开放，周四和周五开到晚上 9 点。",
+   "en": "A post office counter in the Shoppers Drug Mart on Dobbin Road in Westbank, open seven days and until 9 pm on Thursdays and Fridays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "b3551a68",
+   "e1085641"
+  ],
+  "id": "d85124b7",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Canada Post — Westbank (London Drugs)",
+  "c": "post",
+  "g": "wk",
+  "lat": 49.8393621,
+  "lng": -119.6127415,
+  "a": "2151 Louie Dr",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1140,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1140,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1140,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1140,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1140,
+     0
+    ],
+    [
+     7,
+     7,
+     660,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "设在 Westbank 区 Louie 路 London Drugs 里的邮政柜台，每天开放。",
+   "en": "A post office counter in London Drugs on Louie Drive in Westbank, open seven days."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "C",
+   "a",
+   "n",
+   "a",
+   "d",
+   "a",
+   " ",
+   "P",
+   "o",
+   "s",
+   "t",
+   " "
+  ],
+  "sameComplex": [
+   "ffe9bdb4"
+  ],
+  "id": "b5cc7385",
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+ },
+ {
+  "n": "Safeway Downtown Kelowna",
+  "c": "grocery",
+  "g": "dt",
+  "lat": 49.8856769,
+  "lng": -119.4892654,
+  "a": "697 Bernard Avenue",
+  "p": "250-860-0332",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     420,
+     1380,
+     0
+    ],
+    [
+     2,
+     2,
+     420,
+     1380,
+     0
+    ],
+    [
+     3,
+     3,
+     420,
+     1380,
+     0
+    ],
+    [
+     4,
+     4,
+     420,
+     1380,
+     0
+    ],
+    [
+     5,
+     5,
+     420,
+     1380,
+     0
+    ],
+    [
+     6,
+     6,
+     420,
+     1380,
+     0
+    ],
+    [
+     7,
+     7,
+     420,
+     1380,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "基洛纳市中心主要的大型超市，有药房和面包房，每天营业到晚上 11 点，从 Queensway 公交换乘站步行可达。",
+   "en": "The main full-size supermarket in downtown Kelowna, with a pharmacy and bakery, open late every day. It is a short walk from the Queensway transit exchange."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "f",
+   "e",
+   "w",
+   "a",
+   "y",
+   " ",
+   "D",
+   "o",
+   "w",
+   "n"
+  ],
+  "id": "c0075c91",
+  "w": "https://www.safeway.ca/stores/safeway-downtown-kelowna"
+ },
+ {
+  "n": "Save-On-Foods Rutland",
+  "c": "grocery",
+  "g": "rt",
+  "lat": 49.8883237,
+  "lng": -119.3898977,
+  "a": "#10 - 301 Highway 33 W",
+  "p": "250-765-5690",
+  "note": {
+   "zh": "位于 Rutland 区 Plaza 33 购物中心的大型超市，每天从早到晚营业，靠近 Rutland 公交换乘站。",
+   "en": "A large supermarket in the Plaza 33 shopping centre in Rutland, open every day from early morning to late evening. It is close to the Rutland transit exchange."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "v",
+   "e",
+   "-",
+   "O",
+   "n",
+   "-",
+   "F",
+   "o",
+   "o",
+   "d"
+  ],
+  "sameComplex": [
+   "4d296ae3",
+   "9778de6e",
+   "97574325"
+  ],
+  "id": "39ad28d7",
+  "w": "https://www.saveonfoods.com/store-information/rutland/2229"
+ },
+ {
+  "n": "Save-On-Foods Lakeshore Centre",
+  "c": "grocery",
+  "g": "pm",
+  "lat": 49.85912,
+  "lng": -119.4900368,
+  "a": "3175 Lakeshore Road",
+  "p": "250-860-7787",
+  "note": {
+   "zh": "位于 Lakeshore 路 Mission Park 的大型超市，附设药房，服务 Pandosy 和 Mission 一带，每天营业。",
+   "en": "A large supermarket with a pharmacy at Mission Park on Lakeshore Road, serving the Pandosy and Mission area. Open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "v",
+   "e",
+   "-",
+   "O",
+   "n",
+   "-",
+   "F",
+   "o",
+   "o",
+   "d"
+  ],
+  "id": "9c4a407d",
+  "w": "https://www.saveonfoods.com/store-information/lakeshore-centre/932"
+ },
+ {
+  "n": "Ray's NOFRILLS Kelowna",
+  "c": "grocery",
+  "g": "dt",
+  "lat": 49.8867979,
+  "lng": -119.4758176,
+  "a": "1111 Lawson Ave",
+  "p": "844-295-8219",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     480,
+     1260,
+     0
+    ],
+    [
+     2,
+     2,
+     480,
+     1260,
+     0
+    ],
+    [
+     3,
+     3,
+     480,
+     1260,
+     0
+    ],
+    [
+     4,
+     4,
+     480,
+     1260,
+     0
+    ],
+    [
+     5,
+     5,
+     480,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     480,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     480,
+     1260,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "市中心附近的平价超市，日常食品通常更便宜。只能到店购物，这家店不提供网上下单取货。",
+   "en": "A discount supermarket near downtown, often cheaper for basic groceries. In-store shopping only; online pickup is not offered at this location."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "N",
+   "o",
+   " ",
+   "F",
+   "r",
+   "i",
+   "l",
+   "l",
+   "s",
+   " ",
+   "N",
+   "O"
+  ],
+  "id": "6bd1a60b",
+  "w": "https://www.nofrills.ca/en/store-locator/details/7953"
+ },
+ {
+  "n": "Nesters Market Kelowna Airport",
+  "c": "grocery",
+  "g": "nk",
+  "lat": 49.9527694,
+  "lng": -119.3875427,
+  "a": "1750 Pier Mac Way",
+  "p": "250-491-0642",
+  "note": {
+   "zh": "位于机场和 UBC Okanagan 附近 Quail Ridge 一带的综合食品店，方便住在城北的学生。",
+   "en": "A full-service grocery store in the Quail Ridge area near the airport and UBC Okanagan, convenient for students living on the north side of the city."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "N",
+   "e",
+   "s",
+   "t",
+   "e",
+   "r",
+   "s",
+   " ",
+   "M",
+   "a",
+   "r",
+   "k"
+  ],
+  "sameComplex": [
+   "6d7ab55f",
+   "dc6f06ff"
+  ],
+  "id": "0117754e",
+  "w": "https://www.nestersmarket.com/stores/"
+ },
+ {
+  "n": "Save-On-Foods Westbank",
+  "c": "grocery",
+  "g": "wk",
+  "lat": 49.8283084,
+  "lng": -119.629076,
+  "a": "#1 - 2475 Dobbin Road",
+  "p": "250-768-2944",
+  "note": {
+   "zh": "位于西基洛纳 Westbank 区 Dobbin 路的大型超市，附设药房，每天营业。",
+   "en": "A large supermarket with a pharmacy on Dobbin Road in Westbank, West Kelowna, open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "v",
+   "e",
+   "-",
+   "O",
+   "n",
+   "-",
+   "F",
+   "o",
+   "o",
+   "d"
+  ],
+  "sameComplex": [
+   "b3551a68",
+   "d85124b7"
+  ],
+  "id": "e1085641",
+  "w": "https://www.saveonfoods.com/store-information/westbank/956"
+ },
+ {
+  "n": "Fruiticana Kelowna",
+  "c": "asian",
+  "g": "dt",
+  "lat": 49.8870059,
+  "lng": -119.4219213,
+  "a": "#160-2463 Highway 97 North",
+  "p": "250-448-7809",
+  "note": {
+   "zh": "卑诗省南亚食品连锁店 Fruiticana 的分店，有印度和旁遮普常用食材、香料、豆类、面粉和新鲜蔬果，每天营业。",
+   "en": "A branch of the BC South Asian grocery chain, with Indian and Punjabi staples, spices, lentils, flour and fresh produce. Open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "F",
+   "r",
+   "u",
+   "i",
+   "t",
+   "i",
+   "c",
+   "a",
+   "n",
+   "a",
+   " ",
+   "S"
+  ],
+  "id": "f4c238b9",
+  "w": "https://www.fruiticana.com/storefinder?city=Kelowna"
+ },
+ {
+  "n": "Sabzi Mandi Supermarket (Rutland)",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8892673,
+  "lng": -119.3908649,
+  "a": "284 Highway 33 W",
+  "note": {
+   "zh": "位于 Rutland 区的南亚超市，属于总部在素里（Surrey）的连锁店，出售香料、印度特色食品和蔬果。",
+   "en": "A South Asian supermarket in Rutland, part of a Surrey-based chain, selling spices, Indian specialty products and produce."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "b",
+   "z",
+   "i",
+   " ",
+   "M",
+   "a",
+   "n",
+   "d",
+   "i",
+   " "
+  ],
+  "id": "e2c31cfc"
+ },
+ {
+  "n": "Punjab Spice World and Produce Market",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8893748,
+  "lng": -119.3932391,
+  "a": "C-120 Dougall Rd N",
+  "note": {
+   "zh": "位于 Rutland 区的印度食品杂货店，在市政府的营业执照中登记为印度食品店。",
+   "en": "An East Indian grocery store in Rutland, licensed by the City as an East Indian grocery."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "P",
+   "u",
+   "n",
+   "j",
+   "a",
+   "b",
+   " ",
+   "S",
+   "p",
+   "i",
+   "c",
+   "e"
+  ],
+  "id": "17217475"
+ },
+ {
+  "n": "Bachhat Bazaar",
+  "c": "grocery",
+  "g": "rt",
+  "lat": 49.8876822,
+  "lng": -119.3998984,
+  "a": "170 Hollywood Rd S",
+  "p": "236-766-0940",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     540,
+     1260,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Rutland 区的社区平价食品店，以新鲜蔬果和低价为主，每天营业。",
+   "en": "A neighbourhood discount grocery store in Rutland focused on fresh produce and low prices, open every day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "B",
+   "a",
+   "c",
+   "h",
+   "h",
+   "a",
+   "t",
+   " ",
+   "B",
+   "a",
+   "z",
+   "a"
+  ],
+  "id": "e2ab8b95",
+  "w": "https://bachhatbazaar.ca/"
+ },
+ {
+  "n": "Farah Middle Eastern Foods",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8892079,
+  "lng": -119.3918238,
+  "a": "104-330 Highway 33 W",
+  "note": {
+   "zh": "Rutland 区的中东食品店，由来自叙利亚的家庭开办，出售清真（halal）食品和阿拉伯食品。",
+   "en": "A Middle Eastern grocery store in Rutland, started by a family who came from Syria, selling halal and Arabic foods."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "F",
+   "a",
+   "r",
+   "a",
+   "h",
+   " ",
+   "M",
+   "i",
+   "d",
+   "d",
+   "l",
+   "e"
+  ],
+  "sameComplex": [
+   "5f891129"
+  ],
+  "id": "19f5e7fa"
+ },
+ {
+  "n": "In 'N Out Arabic Market",
+  "c": "asian",
+  "g": "dt",
+  "lat": 49.8815033,
+  "lng": -119.4567496,
+  "a": "1769 Harvey Ave",
+  "note": {
+   "zh": "位于 Landmark 一带 Harvey 大道的中东食品店，出售阿拉伯国家、土耳其和伊朗的商品，店内还现做清真熟食。",
+   "en": "A Middle Eastern grocery on Harvey Avenue in the Landmark area, with products from Arab countries, Turkey and Iran plus fresh halal food made in-store."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "I",
+   "n",
+   " ",
+   "N",
+   " ",
+   "O",
+   "u",
+   "t",
+   " ",
+   "A",
+   "r",
+   "a"
+  ],
+  "id": "d66ab587"
+ },
+ {
+  "n": "The Halal Butcher",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8897319,
+  "lng": -119.3916781,
+  "a": "156 Asher Rd",
+  "note": {
+   "zh": "Rutland 区的清真（halal）肉店。",
+   "en": "A halal butcher shop and meat market in Rutland."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "T",
+   "h",
+   "e",
+   " ",
+   "H",
+   "a",
+   "l",
+   "a",
+   "l",
+   " ",
+   "B",
+   "u"
+  ],
+  "id": "472381f1"
+ },
+ {
+  "n": "Sampaguita and Lotus Mart",
+  "c": "asian",
+  "g": "dt",
+  "lat": 49.8827002,
+  "lng": -119.4453865,
+  "a": "11-2070 Harvey Ave",
+  "note": {
+   "zh": "位于 Harvey 大道的菲律宾食品店，出售菲律宾零食、日常食材和冷冻食品。",
+   "en": "A Filipino grocery store on Harvey Avenue selling Filipino snacks, pantry staples and frozen foods."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "m",
+   "p",
+   "a",
+   "g",
+   "u",
+   "i",
+   "t",
+   "a",
+   " ",
+   "a"
+  ],
+  "id": "4587155a"
+ },
+ {
+  "n": "San's Latin Market",
+  "c": "asian",
+  "g": "dt",
+  "lat": 49.8829847,
+  "lng": -119.4424534,
+  "a": "14-1771 Cooper Road",
+  "p": "250-868-2478",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     660,
+     1140,
+     0
+    ],
+    [
+     7,
+     7,
+     660,
+     900,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "拉丁美洲食品店，出售墨西哥等拉美商品，如玉米饼、莎莎酱、零食和饮料，还提供汇款和国际话费充值服务。",
+   "en": "A Latin American grocery with Mexican and other Latin products such as tortillas, salsas, snacks and drinks. It also offers money transfers and international phone top-ups."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "n",
+   "'",
+   "s",
+   " ",
+   "L",
+   "a",
+   "t",
+   "i",
+   "n",
+   " "
+  ],
+  "id": "6a0f1623",
+  "w": "https://www.sanslatinmarket.ca/"
+ },
+ {
+  "n": "Tamm Latin Market Rutland",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8905027,
+  "lng": -119.3865073,
+  "a": "207 Rutland Rd N",
+  "note": {
+   "zh": "位于 Rutland 中心的拉丁美洲食品店。",
+   "en": "A Latin American market in central Rutland."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "T",
+   "a",
+   "m",
+   "m",
+   " ",
+   "L",
+   "a",
+   "t",
+   "i",
+   "n",
+   " ",
+   "M"
+  ],
+  "id": "bf46a404"
+ },
+ {
+  "n": "Oriental Supermarket",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8915149,
+  "lng": -119.4168689,
+  "a": "2-2575 Highway 97 N",
+  "note": {
+   "zh": "基洛纳开业多年的亚洲食品超市，位于 97 号公路旁，有中国、日本、韩国、东南亚等亚洲食品。",
+   "en": "Kelowna's long-standing Asian grocery store on Highway 97, with Chinese, Japanese, Korean, Southeast Asian and other Asian foods."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "O",
+   "r",
+   "i",
+   "e",
+   "n",
+   "t",
+   "a",
+   "l",
+   " ",
+   "S",
+   "u",
+   "p"
+  ],
+  "id": "a2181776"
+ },
+ {
+  "n": "Russian & Ukrainian Deli",
+  "c": "asian",
+  "g": "dt",
+  "lat": 49.8775261,
+  "lng": -119.4515642,
+  "a": "106-1960 Springfield Rd",
+  "note": {
+   "zh": "出售俄罗斯和乌克兰食品的小型熟食店兼餐馆。",
+   "en": "A small deli and restaurant with Russian and Ukrainian foods."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "R",
+   "u",
+   "s",
+   "s",
+   "i",
+   "a",
+   "n",
+   " ",
+   "U",
+   "k",
+   "r",
+   "a"
+  ],
+  "id": "0f40437c"
+ },
+ {
+  "n": "Okanagan Sikh Temple (Gurdwara)",
+  "c": "religious",
+  "g": "rt",
+  "lat": 49.9032835,
+  "lng": -119.3854925,
+  "a": "1111 Rutland Rd N",
+  "p": "250-765-7477",
+  "note": {
+   "zh": "基洛纳的锡克教庙（Gurdwara），由奥卡纳根锡克庙与文化协会管理，每天早晚有祈祷，周日有集体活动；周日和节日提供免费的社区餐（langar）。",
+   "en": "Kelowna's gurdwara, run by the Okanagan Sikh Temple and Cultural Society, with daily morning and evening prayers and a Sunday program. Free community meals (langar) are served on Sundays and special days."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "S",
+   "i",
+   "k"
+  ],
+  "sameComplex": [
+   "d42d42dc"
+  ],
+  "id": "bd10da91",
+  "w": "https://www.kelownasikhtemple.ca/"
+ },
+ {
+  "n": "Kelowna Islamic Center (BCMA Kelowna Branch)",
+  "c": "religious",
+  "g": "rt",
+  "lat": 49.8893552,
+  "lng": -119.4084604,
+  "a": "1120 Highway 33",
+  "p": "250-979-1370",
+  "note": {
+   "zh": "基洛纳的清真寺，由卑诗穆斯林协会（BCMA）管理，有每日五次礼拜、周五聚礼、开斋节礼拜和周末学校。礼拜时间请看官网。",
+   "en": "Kelowna's mosque, run by the BC Muslim Association, holding the five daily prayers, Friday Jumu'ah, Eid prayers and a weekend school. Check the website for current prayer times."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "I",
+   "s",
+   "l",
+   "a"
+  ],
+  "id": "db95c7db",
+  "w": "http://org.thebcma.com/kelowna"
+ },
+ {
+  "n": "Kelowna Buddhist Temple",
+  "c": "religious",
+  "g": "dt",
+  "lat": 49.8809747,
+  "lng": -119.4775024,
+  "a": "1089 Borden Avenue",
+  "p": "250-717-5987",
+  "note": {
+   "zh": "净土真宗（Jodo Shinshu）佛寺，欢迎所有对佛教感兴趣的人，有周日法会和每月追思法会。大部分法会和诵经用英语，欢迎带孩子。",
+   "en": "A Jodo Shinshu (Pure Land) Buddhist temple open to anyone interested in Buddhism, with Sunday services and monthly memorial services. Most services and chanting are in English, and children are welcome."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "B",
+   "u",
+   "d",
+   "d"
+  ],
+  "id": "9e5639c9",
+  "w": "https://kbtemple.ca/"
+ },
+ {
+  "n": "Immaculate Conception Parish (Catholic)",
+  "c": "religious",
+  "g": "pm",
+  "lat": 49.8795169,
+  "lng": -119.4848496,
+  "a": "839 Sutherland Avenue",
+  "p": "250-762-3910",
+  "note": {
+   "zh": "市中心的天主教堂区，每天都有弥撒，周末有多台弥撒；周日还有传统拉丁弥撒。",
+   "en": "The downtown Catholic parish, with Mass every day and several Masses on weekends. A Traditional Latin Mass is also held here on Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "I",
+   "m",
+   "m",
+   "a",
+   "c",
+   "u",
+   "l",
+   "a",
+   "t",
+   "e",
+   " ",
+   "C"
+  ],
+  "sameComplex": [
+   "c823ac20",
+   "ebe74ad0"
+  ],
+  "id": "cc5fe981",
+  "w": "https://www.icckelowna.ca/"
+ },
+ {
+  "n": "St. Pius X Parish (Catholic) — Korean Catholic Community",
+  "c": "religious",
+  "g": "dt",
+  "lat": 49.8904802,
+  "lng": -119.4777503,
+  "a": "1346 Gordon Drive",
+  "p": "250-762-2587",
+  "note": {
+   "zh": "位于 Gordon 路与 Fuller 大道交口的天主教堂区。韩国天主教团体每周六上午在这里聚会。",
+   "en": "A central Catholic parish at Gordon Drive and Fuller Avenue. The Korean Catholic Community gathers here every Saturday morning."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "t",
+   ".",
+   " ",
+   "P",
+   "i",
+   "u",
+   "s",
+   " ",
+   "X",
+   " ",
+   "C"
+  ],
+  "id": "0324a6a4",
+  "w": "https://spxbc.com/"
+ },
+ {
+  "n": "Corpus Christi Parish (Catholic) — Filipino Mass",
+  "c": "religious",
+  "g": "rt",
+  "lat": 49.8972669,
+  "lng": -119.3873994,
+  "a": "750 Rutland Road",
+  "p": "250-765-6869",
+  "note": {
+   "zh": "Rutland 区的天主教堂区。菲律宾天主教团体每月第一个星期日在这里举行弥撒，当天也有越南语玫瑰经祈祷。",
+   "en": "The Catholic parish in Rutland. The Filipino Catholic Community celebrates Mass here on the first Sunday of each month, and there is a Vietnamese rosary that day too."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "C",
+   "o",
+   "r",
+   "p",
+   "u",
+   "s",
+   " ",
+   "C",
+   "h",
+   "r",
+   "i",
+   "s"
+  ],
+  "id": "a49d7f91",
+  "w": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069739&type=d&pREC_ID=1358566"
+ },
+ {
+  "n": "St. Charles Garnier Parish (Catholic)",
+  "c": "religious",
+  "g": "pm",
+  "lat": 49.8508283,
+  "lng": -119.4668839,
+  "a": "3645 Benvoulin Road",
+  "p": "250-860-6776",
+  "note": {
+   "zh": "位于基洛纳南部 Benvoulin 路的天主教堂区，每天有弥撒，周日上午 10:30 的弥撒设有儿童礼仪。",
+   "en": "A Catholic parish on Benvoulin Road in south Kelowna, with Masses every day and a children's liturgy at the late-morning Sunday Mass."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "S",
+   "t",
+   ".",
+   " ",
+   "C",
+   "h",
+   "a",
+   "r",
+   "l",
+   "e",
+   "s",
+   " "
+  ],
+  "id": "441f21f5",
+  "w": "https://stcharlesgarnier.ca/"
+ },
+ {
+  "n": "Our Lady of Lourdes Parish (Catholic), West Kelowna",
+  "c": "religious",
+  "g": "wk",
+  "lat": 49.8279514,
+  "lng": -119.6336323,
+  "a": "2547 Hebert Road",
+  "p": "250-768-4114",
+  "note": {
+   "zh": "西基洛纳的天主教堂区，周末和平日都有弥撒。",
+   "en": "The Catholic parish in West Kelowna, with weekend and daily Masses."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "O",
+   "u",
+   "r",
+   " ",
+   "L",
+   "a",
+   "d",
+   "y",
+   " ",
+   "o",
+   "f",
+   " "
+  ],
+  "sameComplex": [
+   "2237355e",
+   "ba40a908",
+   "2aef8bfe"
+  ],
+  "id": "ea2b90f1",
+  "w": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069758&type=d&pREC_ID=1358584"
+ },
+ {
+  "n": "Okanagan Chinese Baptist Church 奥根湖区华人浸信会",
+  "c": "religious",
+  "g": "rt",
+  "lat": 49.9020419,
+  "lng": -119.3863156,
+  "a": "1025 Rutland Road N.",
+  "p": "250-491-0910",
+  "note": {
+   "zh": "1996 年成立的华人教会，会众包括来自中国大陆、香港和台湾的家庭和大学生。主日崇拜主要用粤语，并有普通话同声传译。",
+   "en": "A Chinese-language church founded in 1996, attended by families and college students from Mainland China, Hong Kong and Taiwan. Sunday services are mainly in Cantonese with simultaneous Mandarin translation."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "O",
+   "k",
+   "a",
+   "n",
+   "a",
+   "g",
+   "a",
+   "n",
+   " ",
+   "C",
+   "h",
+   "i"
+  ],
+  "id": "380f9d36",
+  "w": "https://ocbckelowna.org/"
+ },
+ {
+  "n": "Kelowna Korean Presbyterian Church 켈로나 한인장로교회",
+  "c": "religious",
+  "g": "dt",
+  "lat": 49.8858851,
+  "lng": -119.469912,
+  "a": "1309 Bernard Ave",
+  "p": "778-712-2832",
+  "note": {
+   "zh": "位于 Bernard 大道的韩语长老会教会，周日下午礼拜，欢迎奥卡纳根的韩国家庭和学生。",
+   "en": "A Korean-language Presbyterian church on Bernard Avenue with a Sunday afternoon service, welcoming Korean families and students in the Okanagan."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "K",
+   "e",
+   "l",
+   "o",
+   "w",
+   "n",
+   "a",
+   " ",
+   "K",
+   "o",
+   "r",
+   "e"
+  ],
+  "id": "905767e6",
+  "w": "https://thekkpc.com/"
+ },
+ {
+  "n": "Dormition of the Mother of God Ukrainian Catholic Church",
+  "c": "religious",
+  "g": "dt",
+  "lat": 49.8922678,
+  "lng": -119.4775925,
+  "a": "1091 Coronation Avenue",
+  "p": "250-860-7295",
+  "note": {
+   "zh": "基洛纳的乌克兰天主教堂区，周日有英语和乌克兰语的圣礼（Divine Liturgy），是本地乌克兰社区的聚会场所。",
+   "en": "The Ukrainian Catholic parish in Kelowna, with Sunday Divine Liturgy in English and in Ukrainian. It is a gathering place for the local Ukrainian community."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "multi"
+  ],
+  "alias": [
+   "D",
+   "o",
+   "r",
+   "m",
+   "i",
+   "t",
+   "i",
+   "o",
+   "n",
+   " ",
+   "o",
+   "f"
+  ],
+  "id": "974a56f4",
+  "w": "https://kelowna.nweparchy.ca/"
+ },
+ {
+  "n": "Salvation Army Rutland Thrift Store",
+  "c": "secondhand",
+  "g": "rt",
+  "lat": 49.887677,
+  "lng": -119.3874201,
+  "a": "200 Rutland Rd S",
+  "p": "778-478-7000",
+  "note": {
+   "zh": "救世军在 Rutland 的大型二手店，出售二手衣物、家具和家居用品，收入用于本地救世军的服务项目。周日不营业。",
+   "en": "A large Salvation Army thrift store in Rutland selling used clothing, furniture and household goods; sales support local Salvation Army programs. Closed Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "l",
+   "v",
+   "a",
+   "t",
+   "i",
+   "o",
+   "n",
+   " ",
+   "A",
+   "r"
+  ],
+  "sameComplex": [
+   "684b15c1"
+  ],
+  "id": "9603af74",
+  "w": "https://www.kelownasalvationarmy.ca/location-hours/"
+ },
+ {
+  "n": "Salvation Army Westbank Thrift Store",
+  "c": "secondhand",
+  "g": "wk",
+  "lat": 49.8358962,
+  "lng": -119.6251153,
+  "a": "#100-3531 Old Okanagan Hwy",
+  "p": "778-484-9791",
+  "note": {
+   "zh": "救世军在西基洛纳 Westbank 的二手店，出售二手衣物和家居用品。周日不营业。",
+   "en": "The Salvation Army thrift store in Westbank, West Kelowna, selling used clothing and household goods. Closed Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "S",
+   "a",
+   "l",
+   "v",
+   "a",
+   "t",
+   "i",
+   "o",
+   "n",
+   " ",
+   "A",
+   "r"
+  ],
+  "sameComplex": [
+   "8dcca588"
+  ],
+  "id": "bc8be723",
+  "w": "https://www.kelownasalvationarmy.ca/location-hours/"
+ },
+ {
+  "n": "Value Village Kelowna",
+  "c": "secondhand",
+  "g": "rt",
+  "lat": 49.8901525,
+  "lng": -119.3962429,
+  "a": "190 Aurora Crescent",
+  "p": "250-491-1356",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     540,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1140,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "大型连锁二手店（营利性），出售二手衣服、鞋、家居用品和书籍，每天营业到晚上。",
+   "en": "A large for-profit thrift store selling used clothing, shoes, housewares and books, open seven days and into the evening."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "V",
+   "a",
+   "l",
+   "u",
+   "e",
+   " ",
+   "V",
+   "i",
+   "l",
+   "l",
+   "a",
+   "g"
+  ],
+  "id": "d814c766",
+  "w": "https://stores.savers.com/bc/kelowna/valuevillage-thrift-store-2004.html"
+ },
+ {
+  "n": "Value Village Westbank",
+  "c": "secondhand",
+  "g": "wk",
+  "lat": 49.8356164,
+  "lng": -119.6177027,
+  "a": "3021 Louie Drive",
+  "p": "236-261-5714",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     540,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1140,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "位于 Westbank 的大型二手店，出售二手衣物和家居用品，每天营业。",
+   "en": "A large thrift store in Westbank selling used clothing and household goods, open seven days."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "V",
+   "a",
+   "l",
+   "u",
+   "e",
+   " ",
+   "V",
+   "i",
+   "l",
+   "l",
+   "a",
+   "g"
+  ],
+  "id": "f7c4a7c6",
+  "w": "https://stores.savers.com/bc/westbank/valuevillage-thrift-store-2149.html"
+ },
+ {
+  "n": "Kelowna MCC Thrift Shop",
+  "c": "secondhand",
+  "g": "rt",
+  "lat": 49.8882238,
+  "lng": -119.3858595,
+  "a": "155 Rutland Road S",
+  "p": "250-765-7838",
+  "note": {
+   "zh": "门诺派中央委员会（MCC）在 Rutland 的二手店，出售状况良好的二手物品，收入用于 MCC 的救援和发展工作。周日不营业。",
+   "en": "A Mennonite Central Committee thrift shop in Rutland selling gently used goods to support MCC's relief and development work. Closed Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "M",
+   "C",
+   "C",
+   " ",
+   "T",
+   "h",
+   "r",
+   "i",
+   "f",
+   "t",
+   " ",
+   "S"
+  ],
+  "id": "0259da40",
+  "w": "https://mccthrift.com/kelowna-mcc-thrift-shop"
+ },
+ {
+  "n": "Habitat for Humanity ReStore Kelowna",
+  "c": "secondhand",
+  "g": "dt",
+  "lat": 49.8842216,
+  "lng": -119.4419962,
+  "a": "#800, 2092 Enterprise Way",
+  "p": "778-755-4346",
+  "note": {
+   "zh": "非营利商店，低价出售新的和二手的家具、电器、建材和家居用品，收入用于仁人家园（Habitat for Humanity）建房。适合给第一套住处添置家具。",
+   "en": "A non-profit store selling new and used furniture, appliances, building materials and housewares at low prices; proceeds support Habitat for Humanity home building. Good for furnishing a first apartment."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "H",
+   "a",
+   "b",
+   "i",
+   "t",
+   "a",
+   "t",
+   " ",
+   "f",
+   "o",
+   "r",
+   " "
+  ],
+  "id": "88c81bb2",
+  "w": "https://www.habitatforhumanityokanagan.ca/restore/"
+ },
+ {
+  "n": "Habitat for Humanity ReStore West Kelowna",
+  "c": "secondhand",
+  "g": "wk",
+  "lat": 49.8595451,
+  "lng": -119.5896869,
+  "a": "1793 Ross Road",
+  "p": "778-755-4346",
+  "note": {
+   "zh": "仁人家园在西基洛纳的 ReStore 商店，低价出售家具、电器、建材和家居用品。",
+   "en": "Habitat for Humanity's West Kelowna ReStore, selling low-cost furniture, appliances, building materials and housewares."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "H",
+   "a",
+   "b",
+   "i",
+   "t",
+   "a",
+   "t",
+   " ",
+   "f",
+   "o",
+   "r",
+   " "
+  ],
+  "id": "0b69860a",
+  "w": "https://www.habitatforhumanityokanagan.ca/restore/"
  }
 ]

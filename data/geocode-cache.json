@@ -1,4 +1,12 @@
 {
+ "#800, 2092 Enterprise Way, Kelowna, BC": {
+  "full": "UNIT 800 -- 2092 Enterprise Way, Kelowna, BC",
+  "lat": 49.8842216,
+  "lng": -119.4419962,
+  "precision": "CIVIC_NUMBER",
+  "score": 99,
+  "trusted": true
+ },
  "1000 KLO Rd, E110 (Centre for Learning), Kelowna, BC": {
   "full": "1000 KLO Rd, Kelowna, BC",
   "lat": 49.8616238,
@@ -19,6 +27,14 @@
   "full": "102 Snowsell St N, Kelowna, BC",
   "lat": 49.9288199,
   "lng": -119.4381944,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1025 Rutland Road N., Kelowna, BC": {
+  "full": "1025 Rutland Rd N, Kelowna, BC",
+  "lat": 49.9020419,
+  "lng": -119.3863156,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -87,6 +103,22 @@
   "score": 100,
   "trusted": true
  },
+ "1089 Borden Avenue, Kelowna, BC": {
+  "full": "1089 Borden Ave, Kelowna, BC",
+  "lat": 49.8809747,
+  "lng": -119.4775024,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1091 Coronation Avenue, Kelowna, BC": {
+  "full": "1091 Coronation Ave, Kelowna, BC",
+  "lat": 49.8922678,
+  "lng": -119.4775925,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1097 Hollywood Rd S, Kelowna, BC": {
   "full": "1097 Hollywood Rd S, Kelowna, BC",
   "lat": 49.8749048,
@@ -95,10 +127,26 @@
   "score": 100,
   "trusted": true
  },
+ "1111 Lawson Ave, Kelowna, BC": {
+  "full": "1111 Lawson Ave, Kelowna, BC",
+  "lat": 49.8867979,
+  "lng": -119.4758176,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1111 Rutland Rd N, Kelowna, BC": {
   "full": "1111 Rutland Rd N, Kelowna, BC",
   "lat": 49.9032835,
   "lng": -119.3854925,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1120 Highway 33, Kelowna, BC": {
+  "full": "1120 Hwy 33 W, Kelowna, BC",
+  "lat": 49.8893552,
+  "lng": -119.4084604,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -175,6 +223,14 @@
   "score": 96,
   "trusted": true
  },
+ "120 Dougall Rd N, Kelowna, BC": {
+  "full": "120 Dougall Rd N, Kelowna, BC",
+  "lat": 49.8893748,
+  "lng": -119.3932391,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1200 Water St, Kelowna, BC": {
   "full": "1200 Water St, Kelowna, BC",
   "lat": 49.8933963,
@@ -247,6 +303,14 @@
   "score": 100,
   "trusted": true
  },
+ "1304 Ellis St, Kelowna, BC": {
+  "full": "1304 Ellis St, Kelowna, BC",
+  "lat": 49.8913851,
+  "lng": -119.4939843,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1305 Gordon Dr, Kelowna, BC": {
   "full": "1305 Gordon Dr, Kelowna, BC",
   "lat": 49.891415,
@@ -255,10 +319,34 @@
   "score": 100,
   "trusted": true
  },
+ "1309 Bernard Ave, Kelowna, BC": {
+  "full": "1309 Bernard Ave, Kelowna, BC",
+  "lat": 49.8858851,
+  "lng": -119.469912,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1315 Water Street, Kelowna, BC": {
+  "full": "1315 Water St, Kelowna, BC",
+  "lat": 49.8913844,
+  "lng": -119.4962481,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1320 Wilson Ave, Kelowna, BC": {
   "full": "1320 Wilson Ave, Kelowna, BC",
   "lat": 49.8913175,
   "lng": -119.4690925,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1346 Gordon Drive, Kelowna, BC": {
+  "full": "1346 Gordon Dr, Kelowna, BC",
+  "lat": 49.8904802,
+  "lng": -119.4777503,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -311,10 +399,26 @@
   "score": 100,
   "trusted": true
  },
+ "1375 Water Street, Kelowna, BC": {
+  "full": "1375 Water St, Kelowna, BC",
+  "lat": 49.8892654,
+  "lng": -119.4962987,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1380 Ellis St, Kelowna, BC": {
   "full": "1380 Ellis St, Kelowna, BC",
   "lat": 49.8894295,
   "lng": -119.4937462,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1424 Ellis St, Kelowna, BC": {
+  "full": "1424 Ellis St, Kelowna, BC",
+  "lat": 49.8884813,
+  "lng": -119.4940491,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -407,6 +511,22 @@
   "score": 99,
   "trusted": false
  },
+ "155 Rutland Road S, Kelowna, BC": {
+  "full": "155 Rutland Rd S, Kelowna, BC",
+  "lat": 49.8882238,
+  "lng": -119.3858595,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "156 Asher Rd, Kelowna, BC": {
+  "full": "156 Asher Rd, Kelowna, BC",
+  "lat": 49.8897319,
+  "lng": -119.3916781,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1600 Abbott St, Kelowna, BC": {
   "full": "1600 Abbott St, Kelowna, BC",
   "lat": 49.8805947,
@@ -447,6 +567,14 @@
   "score": 100,
   "trusted": true
  },
+ "1633 Ellis Street, Kelowna, BC": {
+  "full": "1633 Ellis St, Kelowna, BC",
+  "lat": 49.8847773,
+  "lng": -119.4931103,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1649 Pandosy Street, Kelowna, BC": {
   "full": "1649 Pandosy St, Kelowna, BC",
   "lat": 49.884611,
@@ -459,6 +587,14 @@
   "full": "1650 Gallagher Rd, Kelowna, BC",
   "lat": 49.8672889,
   "lng": -119.3498792,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1665 Ellis St, Kelowna, BC": {
+  "full": "1665 Ellis St, Kelowna, BC",
+  "lat": 49.884231,
+  "lng": -119.4930345,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -511,6 +647,22 @@
   "score": 100,
   "trusted": true
  },
+ "170 Hollywood Rd S, Kelowna, BC": {
+  "full": "170 Hollywood Rd S, Kelowna, BC",
+  "lat": 49.8876822,
+  "lng": -119.3998984,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1700 Parkinson Way, Kelowna, BC": {
+  "full": "1700 Parkinson Way, Kelowna, BC",
+  "lat": 49.8832107,
+  "lng": -119.4591733,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1708 Dolphin Ave, Kelowna, BC": {
   "full": "1708 Dolphin Ave, Kelowna, BC",
   "lat": 49.879652,
@@ -551,10 +703,34 @@
   "score": 100,
   "trusted": true
  },
+ "1769 Harvey Ave, Kelowna, BC": {
+  "full": "1769 Harvey Ave, Kelowna, BC",
+  "lat": 49.8815033,
+  "lng": -119.4567496,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1771 Cooper Road, Kelowna, BC": {
+  "full": "1771 Cooper Rd, Kelowna, BC",
+  "lat": 49.8829847,
+  "lng": -119.4424534,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1790 K.l.o. Rd, Kelowna, BC": {
   "full": "1790 KLO Rd, Kelowna, BC",
   "lat": 49.8613773,
   "lng": -119.4569532,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1793 Ross Road, West Kelowna, BC": {
+  "full": "1793 Ross Rd, West Kelowna, BC",
+  "lat": 49.8595451,
+  "lng": -119.5896869,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -663,6 +839,14 @@
   "score": 100,
   "trusted": true
  },
+ "190 Aurora Crescent, Kelowna, BC": {
+  "full": "190 Aurora Cres, Kelowna, BC",
+  "lat": 49.8901525,
+  "lng": -119.3962429,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "190 Convair Place, Kelowna, BC": {
   "full": "190 Convair Pl, Kelowna, BC",
   "lat": 49.9543053,
@@ -741,6 +925,22 @@
   "lng": -119.3906215,
   "precision": "CIVIC_NUMBER",
   "score": 98,
+  "trusted": true
+ },
+ "1960 Springfield Rd, Kelowna, BC": {
+  "full": "1960 Springfield Rd, Kelowna, BC",
+  "lat": 49.8775261,
+  "lng": -119.4515642,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "1972 Kane Rd, Kelowna, BC": {
+  "full": "1972 Kane Rd, Kelowna, BC",
+  "lat": 49.9155126,
+  "lng": -119.4412563,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
   "trusted": true
  },
  "1972 Kane Road, Kelowna, BC": {
@@ -823,6 +1023,22 @@
   "score": 99,
   "trusted": true
  },
+ "207 Rutland Rd N, Kelowna, BC": {
+  "full": "207 Rutland Rd N, Kelowna, BC",
+  "lat": 49.8905027,
+  "lng": -119.3865073,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "2070 Harvey Ave, Kelowna, BC": {
+  "full": "2070 Harvey Ave, Kelowna, BC",
+  "lat": 49.8827002,
+  "lng": -119.4453865,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2081 McDougal Rd, Kelowna, BC": {
   "full": "2081 McDougall Rd, West Kelowna, BC",
   "lat": 49.8766704,
@@ -895,6 +1111,14 @@
   "score": 100,
   "trusted": true
  },
+ "2151 Louie Dr, West Kelowna, BC": {
+  "full": "2151 Louie Dr, West Kelowna, BC",
+  "lat": 49.8393621,
+  "lng": -119.6127415,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2151 Louie Drive, West Kelowna, BC": {
   "full": "2151 Louie Dr, West Kelowna, BC",
   "lat": 49.8393621,
@@ -947,6 +1171,14 @@
   "full": "2268 Pandosy St, Kelowna, BC",
   "lat": 49.8734589,
   "lng": -119.4930479,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "2271 Harvey Ave, Kelowna, BC": {
+  "full": "2271 Harvey Ave, Kelowna, BC",
+  "lat": 49.8793159,
+  "lng": -119.4401586,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1055,6 +1287,22 @@
   "score": 96,
   "trusted": true
  },
+ "2463 Highway 97 North, Kelowna, BC": {
+  "full": "2463 Hwy 97 N, Kelowna, BC",
+  "lat": 49.8870059,
+  "lng": -119.4219213,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "2475 Dobbin Rd, West Kelowna, BC": {
+  "full": "2475 Dobbin Rd, West Kelowna, BC",
+  "lat": 49.8283084,
+  "lng": -119.629076,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2475 Dobbin Road, West Kelowna, BC": {
   "full": "2475 Dobbin Rd, West Kelowna, BC",
   "lat": 49.8283084,
@@ -1127,12 +1375,28 @@
   "score": 100,
   "trusted": true
  },
+ "2547 Hebert Road, West Kelowna, BC": {
+  "full": "2547 Hebert Rd, West Kelowna, BC",
+  "lat": 49.8279514,
+  "lng": -119.6336323,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2547 Herbert Rd, West Kelowna, BC": {
   "full": "2547 Hebert Rd, West Kelowna, BC",
   "lat": 49.8279514,
   "lng": -119.6336323,
   "precision": "CIVIC_NUMBER",
   "score": 99,
+  "trusted": true
+ },
+ "2575 Highway 97 N, Kelowna, BC": {
+  "full": "2575 Hwy 97 N, Kelowna, BC",
+  "lat": 49.8915149,
+  "lng": -119.4168689,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
   "trusted": true
  },
  "2600 Abbott St, Kelowna, BC": {
@@ -1215,6 +1479,14 @@
   "score": 100,
   "trusted": true
  },
+ "2760 Cameron Road, West Kelowna, BC": {
+  "full": "2760 Cameron Rd, West Kelowna, BC",
+  "lat": 49.8590072,
+  "lng": -119.5820693,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2790 Richter St, Kelowna, BC": {
   "full": "2790 Richter St, Kelowna, BC",
   "lat": 49.8655298,
@@ -1227,6 +1499,14 @@
   "full": "2829 Inverness Rd, West Kelowna, BC",
   "lat": 49.8309546,
   "lng": -119.6503057,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "284 Highway 33 W, Kelowna, BC": {
+  "full": "284 Hwy 33 W, Kelowna, BC",
+  "lat": 49.8892673,
+  "lng": -119.3908649,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1271,6 +1551,14 @@
   "score": 100,
   "trusted": true
  },
+ "294 Bernard Ave, Kelowna, BC": {
+  "full": "294 Bernard Ave, Kelowna, BC",
+  "lat": 49.8866193,
+  "lng": -119.4968995,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2949 Pandosy St, Kelowna, BC": {
   "full": "2949 Pandosy St, Kelowna, BC",
   "lat": 49.8641567,
@@ -1283,6 +1571,14 @@
   "full": "2974 Glen Abbey Pl, West Kelowna, BC",
   "lat": 49.8339049,
   "lng": -119.6580304,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "301 Highway 33 W, Kelowna, BC": {
+  "full": "301 Hwy 33 W, Kelowna, BC",
+  "lat": 49.8883237,
+  "lng": -119.3898977,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1315,6 +1611,14 @@
   "full": "3020 Louie Dr, West Kelowna, BC",
   "lat": 49.8359458,
   "lng": -119.6211732,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "3021 Louie Drive, West Kelowna, BC": {
+  "full": "3021 Louie Dr, West Kelowna, BC",
+  "lat": 49.8356164,
+  "lng": -119.6177027,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1367,6 +1671,22 @@
   "score": 100,
   "trusted": true
  },
+ "3155 Lakeshore Rd, Kelowna, BC": {
+  "full": "3155 Lakeshore Rd, Kelowna, BC",
+  "lat": 49.8600475,
+  "lng": -119.4893878,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "3175 Lakeshore Road, Kelowna, BC": {
+  "full": "3175 Lakeshore Rd, Kelowna, BC",
+  "lat": 49.85912,
+  "lng": -119.4900368,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "3230 Salmon Rd, West Kelowna, BC": {
   "full": "3230 Salmon Rd, West Kelowna, BC",
   "lat": 49.8459267,
@@ -1391,10 +1711,26 @@
   "score": 100,
   "trusted": true
  },
+ "328 Bernard Ave., Kelowna, BC": {
+  "full": "328 Bernard Ave, Kelowna, BC",
+  "lat": 49.8866163,
+  "lng": -119.4962432,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "3285 Gordon Dr, Kelowna, BC": {
   "full": "3285 Gordon Dr, Kelowna, BC",
   "lat": 49.8584712,
   "lng": -119.4716132,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "330 Highway 33 W, Kelowna, BC": {
+  "full": "330 Hwy 33 W, Kelowna, BC",
+  "lat": 49.8892079,
+  "lng": -119.3918238,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1543,6 +1879,14 @@
   "score": 100,
   "trusted": true
  },
+ "3645 Benvoulin Road, Kelowna, BC": {
+  "full": "3645 Benvoulin Rd, Kelowna, BC",
+  "lat": 49.8508283,
+  "lng": -119.4668839,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "3660 Brown Road, West Kelowna, BC": {
   "full": "3660 Brown Rd, West Kelowna, BC",
   "lat": 49.830598,
@@ -1607,7 +1951,23 @@
   "score": 100,
   "trusted": true
  },
+ "3737 Old Okanagan Hwy, West Kelowna, BC": {
+  "full": "3737 Old Okanagan Hwy, West Kelowna, BC",
+  "lat": 49.8268865,
+  "lng": -119.6240564,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "375 Hartman Rd, Kelowna, BC": {
+  "full": "375 Hartman Rd, Kelowna, BC",
+  "lat": 49.8984434,
+  "lng": -119.3816237,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "375 Hartman Road, Kelowna, BC": {
   "full": "375 Hartman Rd, Kelowna, BC",
   "lat": 49.8984434,
   "lng": -119.3816237,
@@ -1638,6 +1998,14 @@
   "precision": "BLOCK",
   "score": 97,
   "trusted": false
+ },
+ "3818 Gordon Dr, Kelowna, BC": {
+  "full": "3818 Gordon Dr, Kelowna, BC",
+  "lat": 49.8447477,
+  "lng": -119.4810296,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
  },
  "399 Fizet Ave, Kelowna, BC": {
   "full": "399 Fizet Ave, Kelowna, BC",
@@ -1691,6 +2059,14 @@
   "full": "4194 Spiers Rd, Kelowna, BC",
   "lat": 49.8358906,
   "lng": -119.4216344,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "421 Cawston Avenue, Kelowna, BC": {
+  "full": "421 Cawston Ave, Kelowna, BC",
+  "lat": 49.8915934,
+  "lng": -119.4949048,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -1831,6 +2207,14 @@
   "score": 100,
   "trusted": true
  },
+ "470 Queensway Avenue, Kelowna, BC": {
+  "full": "470 Queensway, Kelowna, BC",
+  "lat": 49.887591,
+  "lng": -119.4944136,
+  "precision": "CIVIC_NUMBER",
+  "score": 99,
+  "trusted": true
+ },
  "470 Ziprick Rd, Kelowna, BC": {
   "full": "470 Ziprick Rd, Kelowna, BC",
   "lat": 49.8838102,
@@ -1895,6 +2279,14 @@
   "score": 100,
   "trusted": true
  },
+ "488 Bernard Avenue, Kelowna, BC": {
+  "full": "488 Bernard Ave, Kelowna, BC",
+  "lat": 49.8864809,
+  "lng": -119.4938174,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "5031 Windsong Cres, Kelowna, BC": {
   "full": "5031 Windsong Cres, Kelowna, BC",
   "lat": 49.8033006,
@@ -1915,6 +2307,14 @@
   "full": "505 Doyle Ave, Kelowna, BC",
   "lat": 49.888586,
   "lng": -119.4926229,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "507 Bernard Ave, Kelowna, BC": {
+  "full": "507 Bernard Ave, Kelowna, BC",
+  "lat": 49.8861068,
+  "lng": -119.4932979,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -2191,6 +2591,14 @@
   "score": 100,
   "trusted": true
  },
+ "697 Bernard Avenue, Kelowna, BC": {
+  "full": "697 Bernard Ave, Kelowna, BC",
+  "lat": 49.8856769,
+  "lng": -119.4892654,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "700 Ellis St, Kelowna, BC": {
   "full": "700 Ellis St, Kelowna, BC",
   "lat": 49.9023398,
@@ -2247,6 +2655,22 @@
   "score": 100,
   "trusted": true
  },
+ "750 Rutland Road, Kelowna, BC": {
+  "full": "750 Rutland Rd N, Kelowna, BC",
+  "lat": 49.8972669,
+  "lng": -119.3873994,
+  "precision": "CIVIC_NUMBER",
+  "score": 98,
+  "trusted": true
+ },
+ "765 Dodd Rd, Kelowna, BC": {
+  "full": "765 Dodd Rd, Kelowna, BC",
+  "lat": 49.8976457,
+  "lng": -119.3803836,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "770 Stearns Rd, Kelowna, BC": {
   "full": "770 Stearns Rd, Kelowna, BC",
   "lat": 49.8896943,
@@ -2264,6 +2688,14 @@
   "trusted": true
  },
  "839 Sutherland Ave, Kelowna, BC": {
+  "full": "839 Sutherland Ave, Kelowna, BC",
+  "lat": 49.8795169,
+  "lng": -119.4848496,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "839 Sutherland Avenue, Kelowna, BC": {
   "full": "839 Sutherland Ave, Kelowna, BC",
   "lat": 49.8795169,
   "lng": -119.4848496,
@@ -2477,6 +2909,14 @@
   "lng": -119.3961827,
   "precision": "CIVIC_NUMBER",
   "score": 97,
+  "trusted": true
+ },
+ "Unit 260, 525 Highway 97, West Kelowna, BC": {
+  "full": "UNIT 260 -- 525 Hwy 97, West Kelowna, BC",
+  "lat": 49.8804448,
+  "lng": -119.5354145,
+  "precision": "CIVIC_NUMBER",
+  "score": 98,
   "trusted": true
  }
 }

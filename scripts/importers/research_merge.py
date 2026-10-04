@@ -56,6 +56,9 @@ def main():
         cfg = json.load(open(os.path.join(imp.dir, 'import', 'config.json'), encoding='utf-8'))
         wk = {k.lower(): v for k, v in cfg.get('bc_childcare', {}).get('localities', {}).items() if v}
         for r in json.load(open(f, encoding='utf-8'))['places']:
+            # researchers write some fields as lists ("languages": ["Hindi", "Gujarati"]); treat all as text
+            for k in ('who', 'languages', 'cost', 'appointment', 'bring', 'hours_text', 'verify_notes'):
+                if isinstance(r.get(k), list): r[k] = '; '.join(str(x) for x in r[k])
             name, addr = (r.get('n') or '').strip(), (r.get('a') or '').strip()
             if not addr or re.search(r'confidential|private|not published', addr, re.I):
                 review.append((name, 'no public address (keep phone only)')); continue
@@ -83,6 +86,8 @@ def main():
             if r.get('alias'): rec['alias'] = [x for x in r['alias'] if isinstance(x, str)][:12]
             if r.get('w', '').startswith('http'):
                 rec['w'] = r['w']; rec['src'] = 'official'
+            elif r.get('src') == 'opendata':
+                rec['src'] = 'opendata'      # confirmed by government data (e.g. a City business licence), no website
             else:
                 rec['src'] = 'stub-pending-verify'
             # a programme of the organisation already on the map at this address (same phone, same
