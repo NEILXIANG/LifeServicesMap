@@ -4,7 +4,7 @@
     python3 scripts/review_checklist.py --city kelowna [--out docs/reports/<date>-<City>审核清单.md]
 
 What it does (methodology §8 上线标准):
-1. Launch-readiness: checks the city against the launch standard — safety-critical coverage,
+1. Launch-readiness: checks the city against the launch standard — safety-critical coverage, categories,
    six languages, hours share, approximate positions, themes, areas, task cards, transit, draft status.
 2. A review list ordered by consequence: safety-critical places first (care, shelters and crisis,
    settlement, government offices, food, legal), each with phone, source and the researcher's
@@ -43,6 +43,11 @@ def main():
     hours_base = [p for p in P if p['c'] not in no_hours]
     with_h = sum('h' in p for p in hours_base)
     kamdata.use('kamloops'); KP = kamdata.load('P'); kamdata.use(a.city)
+    # methodology §8: a category the reference city has must be collected here too if it exists here;
+    # one that does not exist (or is deliberately left out) is explained in import/config.json
+    try: absent = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'config.json'), encoding='utf-8')).get('categoriesNotCollected', {})
+    except FileNotFoundError: absent = {}
+    missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent))
     kb = [p for p in KP if p['c'] not in no_hours]; kref = 100.0 * sum('h' in p for p in kb) / max(1, len(kb))
     approx = [p for p in P if p.get('precision') == 'low']
     approx_safety = [p for p in approx if p['c'] in SAFETY]
@@ -60,6 +65,8 @@ def main():
             '%d / %d（%.0f%%）；Kamloops 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), kref)),
         row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
         row(own >= len(safety), '安全相关地点电话核实（src: own）', '已核实 %d / 安全相关 %d' % (own, len(safety))),
+        row(not missing, 'Kamloops 有的分类这里也有（不存在的写进 config.json 的 categoriesNotCollected）',
+            ('缺 %d 类：%s' % (len(missing), '、'.join(missing))) if missing else '齐全' + ('（%d 类已说明不收）' % len(absent) if absent else '')),
         row(len(T) > 0, '办事卡', '%d 张' % len(T)),
         row(None if not BR else True, '公交（运营方 GTFS）', '%d 条线路' % len(BR)),
         row(len(LM) > 0, '地标', '%d 个' % len(LM)),
