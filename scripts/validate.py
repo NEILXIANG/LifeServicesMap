@@ -122,6 +122,12 @@ def _city_obj():
                        capture_output=True, text=True)
     return json.loads(r.stdout) if r.returncode == 0 else {}
 CITYOBJ = _city_obj()
+
+# scripts/new-city.py marks every value only a person can fill in with "TODO:".
+# A city that still has one is a skeleton, not something to build for readers.
+_todo = [l.strip()[:90] for l in _kd.data_text().splitlines() if 'TODO:' in l]
+if _todo:
+    fail('%d unfinished TODO(s) in cities/%s/ — e.g. %s' % (len(_todo), CITY_ID, _todo[:3]))
 _bounds = CITYOBJ.get('bounds') or [[-90, -180], [90, 180]]
 if not CITYOBJ.get('bounds'): fail('CITY.bounds missing — cannot check coordinates')
 

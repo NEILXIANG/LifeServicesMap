@@ -274,6 +274,10 @@ inflates the count a person uses to judge how much choice they have.
 
 ## Adding a city
 
+Fastest: `python3 scripts/new-city.py <city> --name <Name> --centre <lat>,<lng>` creates the
+skeleton (BC-wide parts copied, everything city-specific marked `TODO:`; `validate.py`
+refuses a city until every TODO is gone). By hand:
+
 1. `cp -r cities/kamloops cities/<city>`
 2. In `city.json` set a new `id`, title, description, site URL and a **new**
    `storagePrefix`; in `data.js` replace `CITY` and set `FAV_MIGRATE={}`; replace

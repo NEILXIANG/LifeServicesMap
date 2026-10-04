@@ -43,6 +43,7 @@ if [[ $QUICK -eq 0 ]]; then
   fi
   echo "▸ 浏览器测试（$PY）"
   run engine-fixture "$PY" tests/engine/test_fixture_city.py
+  run engine-empty "$PY" tests/engine/test_empty_city.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
   for t in tests/kamloops/phase*test.py tests/kamloops/audit*.py tests/kamloops/soci2.py tests/kamloops/tasktest.py; do
     [[ -f "$t" ]] || continue
