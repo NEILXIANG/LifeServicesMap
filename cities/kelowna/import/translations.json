@@ -48,6 +48,27 @@
   "ko": "이 성당은 우크라이나에서 Kelowna로 온 난민을 맞이하는 일을 돕는다고 밝히고 있습니다. 난민을 받아들인 가정을 지원하고, 따뜻한 관계를 만들고, 지역 사회에 정착하도록 돕습니다.",
   "src_en": "This parish says it helps welcome refugees from Ukraine to Kelowna by supporting their hosts, building welcoming relationships and helping them settle into the community."
  },
+ "0482ea5b": {
+  "es": "Apartamentos de alquiler en Valley Road, en Glenmore, de una a tres habitaciones; se admiten mascotas y hay una oficina de alquiler en el lugar. Puede presentar su solicitud en línea o reservar una visita.",
+  "fr": "Appartements locatifs sur Valley Road, à Glenmore, d’une à trois chambres, animaux acceptés, avec un bureau de location sur place. Vous pouvez présenter une demande en ligne ou réserver une visite.",
+  "ja": "GlenmoreのValley Roadにある賃貸アパートで、1〜3ベッドルームがあり、ペット可で、建物内に賃貸事務所があります。オンラインで申し込むか、内見を予約できます。",
+  "ko": "Glenmore의 Valley Road에 있는 임대 아파트로, 원베드룸부터 쓰리베드룸까지 있고 반려동물 동반이 가능하며 단지 내에 임대 사무실이 있습니다. 온라인으로 신청하거나 집 보기를 예약할 수 있습니다.",
+  "src_en": "Rental apartments on Valley Road in Glenmore with one- to three-bedroom suites, pet friendly, with an on-site leasing office. You can apply online or book a viewing."
+ },
+ "05520fc8": {
+  "es": "El cine de West Kelowna, en Highway 97 South, en Westbank. Consulte los horarios en línea; la nueva cartelera semanal se publica cada miércoles por la mañana.",
+  "fr": "Le cinéma de West Kelowna, sur Highway 97 South, à Westbank. Consultez l’horaire des séances en ligne ; le nouvel horaire de la semaine paraît chaque mercredi matin.",
+  "ja": "WestbankのHighway 97 South沿いにある、West Kelownaの映画館です。上映時間はオンラインで確認してください。新しい週の上映スケジュールは毎週水曜日の朝に公開されます。",
+  "ko": "Westbank의 Highway 97 South에 있는 West Kelowna의 영화관입니다. 상영 시간은 온라인에서 확인하세요. 새 주간 상영표는 매주 수요일 아침에 올라옵니다.",
+  "src_en": "West Kelowna's movie theatre, on Highway 97 South in Westbank. Check showtimes online; new weekly listings go up each Wednesday morning."
+ },
+ "083c626a": {
+  "es": "Cine de cinco salas en Orchard Plaza, en Cooper Road, cerca del centro comercial Orchard Park. Consulte los horarios en línea.",
+  "fr": "Cinéma de cinq salles dans Orchard Plaza, sur Cooper Road, près du centre commercial Orchard Park. Consultez l’horaire des séances en ligne.",
+  "ja": "Cooper RoadのOrchard Plazaにある5スクリーンの映画館で、Orchard Parkモールの近くです。上映時間はオンラインで確認してください。",
+  "ko": "Cooper Road의 Orchard Plaza에 있는 5개 관 영화관으로, Orchard Park 쇼핑몰 근처입니다. 상영 시간은 온라인에서 확인하세요.",
+  "src_en": "Five-screen cinema in Orchard Plaza on Cooper Road, near Orchard Park mall. Check showtimes online."
+ },
  "0aea0666": {
   "es": "Centro de actividades junto al lago, al lado de Sarsons Beach. De día lo usa la Okanagan Mission Seniors Centre Society, y por las tardes y los fines de semana se usa para programas de la Ciudad. Antes se llamaba Okanagan Mission Activity Centre.",
   "fr": "Centre d’activités au bord du lac, à côté de Sarsons Beach, utilisé le jour par l’Okanagan Mission Seniors Centre Society et, le soir et la fin de semaine, pour les programmes de la Ville. Il s’appelait auparavant Okanagan Mission Activity Centre.",
@@ -61,6 +82,13 @@
   "ja": "Habitat for HumanityのWest Kelowna店のReStoreです。家具、家電、建築資材、生活用品を安く販売しています。",
   "ko": "Habitat for Humanity의 West Kelowna ReStore로, 가구, 가전제품, 건축 자재, 생활용품을 저렴하게 판매합니다.",
   "src_en": "Habitat for Humanity's West Kelowna ReStore, selling low-cost furniture, appliances, building materials and housewares."
+ },
+ "0ee119c8": {
+  "es": "Apartamentos construidos para alquiler en Summit Drive y Valley Road, en Glenmore, desde estudios hasta de tres habitaciones; libres de humo y cerca del transporte público. Equipo de administración en el lugar.",
+  "fr": "Appartements construits pour la location, à l’angle de Summit Drive et Valley Road, à Glenmore, du studio au trois chambres. Immeuble sans fumée, près du transport en commun. Équipe de gestion sur place.",
+  "ja": "GlenmoreのSummit DriveとValley Roadの交差点にある、賃貸専用に建てられたアパートで、ワンルーム（バチェラー）から3ベッドルームまであります。全館禁煙で、公共交通機関にも近いです。建物内に管理チームがいます。",
+  "ko": "Glenmore의 Summit Drive와 Valley Road 교차로에 있는, 임대용으로 지은 아파트로 스튜디오(bachelor)부터 쓰리베드룸까지 있습니다. 건물 전체 금연이고 대중교통이 가깝습니다. 현장에 관리팀이 있습니다.",
+  "src_en": "Purpose-built rental apartments at Summit Drive and Valley Road in Glenmore, from bachelor to three-bedroom suites, smoke-free and close to transit. On-site management team."
  },
  "0f40437c": {
   "es": "Pequeña tienda de delicatessen y restaurante con comida rusa y ucraniana.",
@@ -76,6 +104,13 @@
   "ko": "BC주에서 가장 오래되고 가장 큰 과일 포장 공장으로, 지금은 밸리의 농업 뿌리를 소개하는 Okanagan Wine and Orchard Museum(와인·과수원 박물관)이 있습니다. 밖에는 체험형 공원 Laurel Square가 있습니다. 입장은 자유 기부로 합니다.",
   "src_en": "The oldest and largest fruit packinghouse in BC, now home to the Okanagan Wine and Orchard Museum about the valley's farming roots, with the Laurel Square interactive park outside. Entry is by donation."
  },
+ "13a6333d": {
+  "es": "Centro comercial al aire libre en Lakeshore Road y KLO Road, donde está el intercambiador de autobuses South Pandosy. Estacionamiento gratuito hasta 3 horas por visita.",
+  "fr": "Centre commercial à ciel ouvert à l’angle de Lakeshore Road et KLO Road, où se trouve le pôle de correspondance d’autobus South Pandosy. Stationnement gratuit jusqu’à 3 heures par visite.",
+  "ja": "Lakeshore RoadとKLO Roadの交差点にある屋外型のショッピングセンターで、South Pandosyのバスターミナルがあります。1回の来店につき最大3時間まで無料で駐車できます。",
+  "ko": "Lakeshore Road와 KLO Road 교차로에 있는 야외 쇼핑센터로, South Pandosy 버스 환승장이 이곳에 있습니다. 한 번 방문할 때 최대 3시간까지 무료로 주차할 수 있습니다.",
+  "src_en": "Open-air shopping centre at Lakeshore Road and KLO Road, home to the South Pandosy bus exchange. Free parking for up to 3 hours per visit."
+ },
  "164b9d95": {
   "es": "Clínica familiar de West Kelowna que también atiende a pacientes sin cita a través de su reserva en línea (elija «walk-in patient»). Atiende a personas sin MSP, pero estas pagan una tarifa privada.",
   "fr": "Clinique familiale de West Kelowna qui accepte aussi les patients sans rendez-vous par sa réservation en ligne (choisissez « walk-in patient »). Elle reçoit les personnes sans MSP, mais elles paient des frais privés.",
@@ -89,6 +124,13 @@
   "ja": "Rutlandにあるインド食料品店で、市の営業許可でもインド食料品店として登録されています。",
   "ko": "Rutland에 있는 인도 식료품점으로, 시의 영업 허가에도 인도 식료품점으로 등록되어 있습니다.",
   "src_en": "An East Indian grocery store in Rutland, licensed by the City as an East Indian grocery."
+ },
+ "1777ee71": {
+  "es": "El primer centro comercial de Kelowna, en Gordon Drive y Harvey Avenue. Es un centro cerrado con patio de comidas, un banco, consultorios médicos y dentales, y el mostrador de Canada Post de Capri.",
+  "fr": "Le premier centre commercial de Kelowna, à l’angle de Gordon Drive et Harvey Avenue. Ce centre fermé compte une aire de restauration, une banque, des cabinets médicaux et dentaires, et le comptoir Postes Canada de Capri.",
+  "ja": "Gordon DriveとHarvey Avenueの交差点にある、Kelowna初のショッピングモールです。屋内型のモールで、フードコート、銀行、医院と歯科医院、Capri Canada Post窓口があります。",
+  "ko": "Gordon Drive와 Harvey Avenue 교차로에 있는 Kelowna 최초의 쇼핑몰입니다. 실내형 쇼핑몰로 푸드코트, 은행, 의원과 치과, Capri Canada Post 창구가 있습니다.",
+  "src_en": "Kelowna's first shopping mall, at Gordon Drive and Harvey Avenue, an enclosed mall with a food court, a bank, medical and dental offices, and the Capri Canada Post outlet."
  },
  "19a2e8f6": {
   "es": "Ayuda gratuita con los impuestos, sin cita, los jueves por la mañana; los voluntarios pueden hacer las declaraciones de este año y de años anteriores. Entre por la puerta del estacionamiento, detrás de la iglesia.",
@@ -117,6 +159,13 @@
   "ja": "妊娠中の人と出産したばかりのお母さん（生後6か月未満の赤ちゃん）のための、毎週の無料グループです。昼食、妊婦用ビタミン、食料品のギフト券があり、保健師も訪れます。事前の登録が必要です。",
   "ko": "임신부와 출산한 지 얼마 안 된 엄마(6개월 미만 아기)를 위한 무료 주간 모임입니다. 점심, 임신부용 비타민, 식료품 상품권을 제공하고 공중보건 간호사가 방문합니다. 먼저 등록해야 합니다.",
   "src_en": "Free weekly group for pregnant women and new mothers (baby under 6 months), with lunch, prenatal vitamins, grocery food certificates and visits from a public health nurse. You must register first."
+ },
+ "22d68943": {
+  "es": "El único hospital veterinario de urgencias abierto las 24 horas en el valle de Okanagan, con personal todos los días, incluidos los festivos. No necesita que otra clínica lo derive.",
+  "fr": "Le seul hôpital vétérinaire d’urgence ouvert 24 heures sur 24 dans la vallée de l’Okanagan, avec du personnel tous les jours, y compris les jours fériés. Vous n’avez pas besoin qu’une autre clinique vous y envoie.",
+  "ja": "Okanagan Valleyで唯一の24時間対応の動物救急病院で、祝日も含め毎日スタッフがいます。ほかの病院からの紹介は必要ありません。",
+  "ko": "Okanagan Valley에서 유일한 24시간 동물 응급 병원으로, 공휴일을 포함해 매일 직원이 근무합니다. 다른 병원의 의뢰가 없어도 됩니다.",
+  "src_en": "The only 24-hour emergency veterinary hospital in the Okanagan Valley, staffed every day including holidays. You do not need a referral from another clinic."
  },
  "230597dc": {
   "es": "Edificio de servicios comunitarios de WFN: programas de salud y bienestar como consejería, atención domiciliaria y enfermería para las personas que viven en tierras de WFN, además de Membership Services (servicios para miembros).",
@@ -152,6 +201,13 @@
   "ja": "最近改修されたRutlandのバス乗り換えターミナルで、UBCO、Orchard Park、ダウンタウンへ行けます。",
   "ko": "최근 새로 단장한 Rutland의 버스 환승장으로, UBCO, Orchard Park, 다운타운으로 갈 수 있습니다.",
   "src_en": "Rutland's bus exchange, recently upgraded, with links to UBCO, Orchard Park and downtown."
+ },
+ "30dee110": {
+  "es": "Residencia estudiantil privada con estudios amueblados para una persona, en cuatro edificios en Academy Way, a unos 5–10 minutos a pie de UBC Okanagan. El alquiler incluye los servicios básicos e internet; el contrato mínimo es de 12 meses.",
+  "fr": "Logements étudiants gérés par le privé : des studios meublés pour une personne, répartis dans quatre immeubles sur Academy Way, à environ 5 à 10 minutes à pied d’UBC Okanagan. Le loyer comprend les charges et Internet ; le bail minimum est de 12 mois.",
+  "ja": "Academy Wayにある4棟の建物に、家具付きの1人用ワンルームがある民間運営の学生向け住宅で、UBC Okanaganまで徒歩約5〜10分です。家賃には光熱費とインターネットが含まれ、最短の賃貸契約期間は12か月です。",
+  "ko": "Academy Way의 건물 4동에 가구가 딸린 1인용 스튜디오가 있는 민간 운영 학생 주거로, UBC Okanagan까지 걸어서 약 5~10분입니다. 월세에 공과금과 인터넷이 포함되며, 최소 임대 기간은 12개월입니다.",
+  "src_en": "Privately run student housing of furnished single-occupancy studios in four buildings on Academy Way, about a 5–10 minute walk from UBC Okanagan. Rent includes utilities and internet; the minimum lease is 12 months."
  },
  "3143e19f": {
   "es": "Línea de la policía para casos no urgentes y mostrador de atención de West Kelowna (lun.–vie. 8:00–16:30), incluidas las verificaciones de antecedentes penales; en una emergencia, llame al 911.",
@@ -223,12 +279,26 @@
   "ko": "Rutland의 Plaza 33 쇼핑센터에 있는 대형 슈퍼마켓으로, 매일 이른 아침부터 늦은 저녁까지 엽니다. Rutland 버스 환승장과 가깝습니다.",
   "src_en": "A large supermarket in the Plaza 33 shopping centre in Rutland, open every day from early morning to late evening. It is close to the Rutland transit exchange."
  },
+ "3b959121": {
+  "es": "Farmacia de propietarios locales en Glenmore Road, en la zona de Glenmore. Cerrada los domingos.",
+  "fr": "Pharmacie de propriété locale sur Glenmore Road, dans le secteur de Glenmore. Fermée le dimanche.",
+  "ja": "Glenmore地区のGlenmore Road沿いにある、地元経営の薬局です。日曜日は休みです。",
+  "ko": "Glenmore 지역 Glenmore Road에 있는, 지역 업체가 운영하는 약국입니다. 일요일은 휴무입니다.",
+  "src_en": "Locally owned pharmacy on Glenmore Road in the Glenmore area. Closed on Sundays."
+ },
  "3eb6e94d": {
   "es": "Mostrador de correos dentro del Shoppers Drug Mart del centro comercial Orchard Park, abierto los siete días de la semana y hasta las 21:00 entre semana. Orchard Park es una parada de autobús importante en Harvey Avenue.",
   "fr": "Comptoir postal dans le Shoppers Drug Mart du centre commercial Orchard Park, ouvert sept jours sur sept et jusqu’à 21 h en semaine. Orchard Park est un arrêt d’autobus important sur Harvey Avenue.",
   "ja": "Orchard ParkモールのShoppers Drug Mart内にある郵便窓口で、毎日開いており、平日は21:00まで営業しています。Orchard ParkはHarvey Avenueの主要なバス停です。",
   "ko": "Orchard Park 쇼핑몰의 Shoppers Drug Mart 안에 있는 우체국 창구로, 매일 열고 평일에는 저녁 9시까지 엽니다. Orchard Park는 Harvey Avenue의 주요 버스 정류장입니다.",
   "src_en": "A post office counter in the Shoppers Drug Mart at Orchard Park mall, open seven days and until 9 pm on weekdays. Orchard Park is a major bus stop on Harvey Avenue."
+ },
+ "4014ca5a": {
+  "es": "Autoescuela del centro que figura en la lista de cursos GLP aprobados por ICBC, con un curso GLP para adultos y paquetes de preparación para el examen práctico. Las clases son con un solo alumno por auto.",
+  "fr": "Auto-école du centre-ville figurant sur la liste des cours GLP approuvés par ICBC, dont un cours GLP pour adultes et des forfaits de préparation à l’examen de conduite. Les leçons se donnent avec un seul élève par voiture.",
+  "ja": "ICBC認定のGLP講習の一覧に載っているダウンタウンの自動車学校で、大人向けGLP講習や路上試験対策パッケージがあります。レッスンは車1台につき生徒1人です。",
+  "ko": "ICBC 승인 GLP 교육 과정 목록에 있는 다운타운의 운전학원으로, 성인 GLP 과정과 도로주행 시험 준비 패키지가 있습니다. 수업은 차 한 대에 학생 한 명씩입니다.",
+  "src_en": "Downtown driving school on ICBC's list of approved GLP courses, including an adult GLP course and road test preparation packages. Lessons are one student per car."
  },
  "42392486": {
   "es": "Farmacia de la zona de Mission, abierta de 8:00 a 22:00 todos los días, incluidos los domingos.",
@@ -342,6 +412,20 @@
   "ko": "Rutland에 있는 약국으로, 매일 밤 10시까지 엽니다.",
   "src_en": "Pharmacy in Rutland open until 10 p.m. every day."
  },
+ "4d9d15c0": {
+  "es": "Dos edificios de apartamentos solo de alquiler en Academy Way, cerca de UBC Okanagan, con estudios y apartamentos de una y dos habitaciones, amueblados o sin amueblar, y un administrador de la comunidad en el lugar. El contrato mínimo es de un año.",
+  "fr": "Deux immeubles d’appartements uniquement locatifs sur Academy Way, près d’UBC Okanagan, avec des studios et des appartements d’une ou deux chambres, meublés ou non, et un gestionnaire communautaire sur place. Le bail minimum est d’un an.",
+  "ja": "UBC Okanagan近くのAcademy Wayにある賃貸専用のアパート2棟で、家具付きまたは家具なしのワンルーム、1ベッドルーム、2ベッドルームがあり、建物内にコミュニティマネージャーがいます。最短の賃貸契約期間は1年です。",
+  "ko": "UBC Okanagan 근처 Academy Way에 있는 임대 전용 아파트 2동으로, 가구 포함 또는 미포함 스튜디오, 원베드룸, 투베드룸이 있고 단지 내에 커뮤니티 매니저가 있습니다. 최소 임대 기간은 1년입니다.",
+  "src_en": "Two rental-only apartment buildings on Academy Way near UBC Okanagan, with furnished or unfurnished studio, one- and two-bedroom suites and an on-site community manager. Minimum lease is one year."
+ },
+ "4ef71f53": {
+  "es": "Lavandería de autoservicio en el centro comercial Mission Park, a poca distancia a pie del campus de Kelowna de Okanagan College. Empiece su último lavado al menos una hora antes del cierre.",
+  "fr": "Buanderie libre-service dans le centre commercial Mission Park, à quelques minutes à pied du campus de Kelowna d’Okanagan College. Commencez votre dernier lavage au moins une heure avant la fermeture.",
+  "ja": "Mission Parkショッピングセンター内にあるセルフサービスのコインランドリーで、Okanagan CollegeのKelownaキャンパスから歩いてすぐです。最後の洗濯は閉店の1時間前までに始めてください。",
+  "ko": "Mission Park 쇼핑센터 안에 있는 셀프 빨래방으로, Okanagan College Kelowna 캠퍼스에서 걸어서 금방입니다. 마지막 세탁은 문 닫기 최소 1시간 전에 시작하세요.",
+  "src_en": "Self-serve laundromat in Mission Park shopping centre, a short walk from Okanagan College's Kelowna campus. Start your last wash at least one hour before closing."
+ },
  "4fa28ce2": {
   "es": "Cambie su licencia de conducir extranjera, haga los exámenes teórico y práctico y obtenga una BC ID; reserve cita en línea y traiga su licencia y sus documentos de inmigración.",
   "fr": "Échangez votre permis de conduire étranger, passez les examens théorique et pratique et obtenez une BC ID ; prenez rendez-vous en ligne et apportez votre permis et vos documents d’immigration.",
@@ -356,12 +440,26 @@
   "ko": "UBC Okanagan 캠퍼스 안의 버스 환승장으로, RapidBus 97번과 다른 노선이 다닙니다.",
   "src_en": "Bus exchange on the UBC Okanagan campus, served by RapidBus 97 and other routes."
  },
+ "536fa555": {
+  "es": "Cine de diez salas en McCurdy Road, con día de descuento para personas mayores los lunes. Algunas semanas también proyecta películas en otros idiomas, como en hindi con subtítulos en inglés.",
+  "fr": "Cinéma de dix salles sur McCurdy Road, avec une journée à prix réduit pour les aînés le lundi. Certaines semaines, il présente aussi des films dans d’autres langues, par exemple en hindi avec sous-titres anglais.",
+  "ja": "McCurdy Road沿いにある10スクリーンの映画館で、月曜日はシニア割引の日です。週によっては、英語字幕付きのヒンディー語映画など、ほかの言語の映画も上映しています。",
+  "ko": "McCurdy Road에 있는 10개 관 영화관으로, 월요일은 시니어 할인일입니다. 주에 따라 영어 자막이 있는 힌디어 영화처럼 다른 언어 영화도 상영합니다.",
+  "src_en": "Ten-screen cinema on McCurdy Road with a seniors' discount day on Mondays. Some weeks it also shows films in other languages, such as Hindi with English subtitles."
+ },
  "53dfad06": {
   "es": "Museo propiedad de la Westbank First Nation y gestionado por ella, que cuenta la historia del pueblo syilx a través de sus propios objetos y voces. Puede ir sin cita en el horario de apertura o reservar una visita guiada en su sitio web.",
   "fr": "Musée qui appartient à la Westbank First Nation et qu’elle gère, et qui raconte l’histoire du peuple syilx à travers ses propres objets et ses propres voix. Vous pouvez y passer pendant les heures d’ouverture ou réserver une visite guidée sur son site Web.",
   "ja": "Westbank First Nation（先住民族）が所有・運営する博物館で、syilxの人々の歴史を、彼ら自身の品々と声で伝えています。開館時間中は予約なしで見学でき、ウェブサイトでガイドツアーを予約することもできます。",
   "ko": "Westbank First Nation이 소유하고 운영하는 박물관으로, syilx 사람들의 이야기를 그들 자신의 물건과 목소리로 전합니다. 운영 시간에 그냥 방문하거나 웹사이트에서 가이드 투어를 예약할 수 있습니다.",
   "src_en": "A museum owned and run by Westbank First Nation that tells the story of the syilx people through their own objects and voices. You can drop in during opening hours or book a guided tour on their website."
+ },
+ "54a572db": {
+  "es": "Gran centro de entretenimiento cubierto para todas las edades, al lado de Landmark Cinemas, con Kids Zone (zona infantil), sala de videojuegos, laser tag y muro de escalada. Cerrado los lunes; el horario cambia según el mes.",
+  "fr": "Grand centre de divertissement intérieur pour tous les âges, à côté de Landmark Cinemas, avec une Kids Zone (espace enfants), des jeux d’arcade, du laser tag et un mur d’escalade. Fermé le lundi ; les heures changent selon le mois.",
+  "ja": "Landmark Cinemasの隣にある、全年齢向けの大型屋内エンターテインメント施設で、Kids Zone（子ども向けエリア）、ゲームセンター、レーザータグ、クライミングウォールがあります。月曜日は休みで、営業時間は月によって変わります。",
+  "ko": "Landmark Cinemas 옆에 있는 전 연령용 대형 실내 놀이 시설로, Kids Zone(어린이 구역), 오락실, 레이저 태그, 클라이밍 벽이 있습니다. 월요일은 휴무이며, 영업시간은 달마다 바뀝니다.",
+  "src_en": "Large indoor entertainment centre for all ages next to Landmark Cinemas, with a Kids Zone, arcade, laser tag and a climbing wall. Closed on Mondays; hours change by month."
  },
  "5b4fbf06": {
   "es": "Alimentos gratuitos con cita; primero regístrese en línea y traiga una identificación con foto de cada adulto, una identificación de cada niño y un comprobante de domicilio en Kelowna o West Kelowna.",
@@ -391,12 +489,26 @@
   "ko": "캐나다에 새로 온 사람, 원주민, 여성 건강을 위해 만든 비영리 팀 진료소(의사, 간호사, 약사, 사회복지사)로, 모든 서비스에서 통역·번역을 받을 수 있습니다. 새 환자는 전화하거나 직접 방문해 등록하세요.",
   "src_en": "Not-for-profit team clinic (doctors, nurses, pharmacists, social workers) set up for newcomers to Canada, Indigenous people and women's health, with translation for all services. New patients call or walk in to register."
  },
+ "6032b4d6": {
+  "es": "El centro comercial cubierto más grande de Kelowna, en Harvey Avenue (Highway 97), con unas 170 tiendas y servicios. Cada tienda tiene su propio horario y el centro comercial publica horarios especiales para los días festivos.",
+  "fr": "Le plus grand centre commercial intérieur de Kelowna, sur Harvey Avenue (Highway 97), avec environ 170 magasins et services. Chaque magasin a ses propres heures d’ouverture, et le centre publie des horaires spéciaux pour les jours fériés.",
+  "ja": "Harvey Avenue（Highway 97）沿いにある、Kelowna最大の屋内ショッピングモールです。約170の店舗やサービスが入っています。営業時間は店舗ごとに異なり、祝日の特別営業時間はモールが公表しています。",
+  "ko": "Harvey Avenue(Highway 97)에 있는 Kelowna 최대의 실내 쇼핑몰로, 약 170개의 매장과 서비스가 있습니다. 영업시간은 매장마다 다르며, 공휴일 특별 영업시간은 쇼핑몰에서 따로 공지합니다.",
+  "src_en": "Kelowna's largest indoor mall, on Harvey Avenue (Highway 97), with about 170 stores and services. Stores keep their own hours and the mall publishes special holiday hours."
+ },
  "6046fa00": {
   "es": "Atención dental de bajo costo para personas con bajos ingresos o que reciben asistencia social; no hace coronas, puentes ni dentaduras postizas.",
   "fr": "Soins dentaires à bas prix pour les personnes à faible revenu ou qui reçoivent de l’aide au revenu ; pas de couronnes, de ponts ni de prothèses dentaires.",
   "ja": "低所得の人や生活保護（income assistance）を受けている人向けの低料金の歯科診療です。クラウン、ブリッジ、入れ歯は扱っていません。",
   "ko": "저소득층이나 소득 지원(income assistance)을 받는 사람을 위한 저렴한 치과 진료입니다. 크라운, 브리지, 틀니는 하지 않습니다.",
   "src_en": "Low-cost dental care for people on low income or income assistance; no crowns, bridges or dentures."
+ },
+ "639305f2": {
+  "es": "Autoescuela que figura en la lista de cursos del Graduated Licensing Program (GLP, licencia por etapas) aprobados por ICBC. Enseña a conducir auto (automático y manual) y moto. Terminar un curso GLP aprobado por ICBC puede acortar el tiempo que usted tiene la licencia N.",
+  "fr": "Auto-école figurant sur la liste des cours du Graduated Licensing Program (GLP, permis progressif) approuvés par ICBC. Elle enseigne la conduite automobile (boîte automatique et manuelle) et la moto. Terminer un cours GLP approuvé par ICBC peut raccourcir la période pendant laquelle vous avez le permis N.",
+  "ja": "ICBCが認定するGraduated Licensing Program（GLP、段階的免許制度）講習の一覧に載っている自動車学校で、車（オートマとマニュアル）とバイクを教えています。ICBC認定のGLP講習を修了すると、Nライセンスを持つ期間を短くできる場合があります。",
+  "ko": "ICBC가 승인한 Graduated Licensing Program(GLP, 단계별 면허 제도) 교육 과정 목록에 있는 운전학원으로, 자동차(자동·수동)와 오토바이를 가르칩니다. ICBC 승인 GLP 과정을 마치면 N 면허를 가지고 있어야 하는 기간을 줄일 수 있습니다.",
+  "src_en": "Driving school on ICBC's list of approved Graduated Licensing Program (GLP) courses, teaching car (automatic and standard) and motorcycle. Finishing an ICBC-approved GLP course can shorten the time you hold an N licence."
  },
  "65eb2623": {
   "es": "El centro cultural francófono tiene un agente de asentamiento para personas francófonas recién llegadas a Canadá (vivienda, salud, escuelas, empleo, derechos), además de talleres de conversación en inglés, sesiones del examen TEF y una biblioteca en francés.",
@@ -432,6 +544,13 @@
   "ja": "秘密が守られ、批判されることのないInterior Healthのクリニックで、性感染症（STI）の検査と治療、妊娠検査、緊急避妊、無料のコンドームを提供しています。予約は1-844-862-4467に電話してください。",
   "ko": "비밀이 보장되고 편견 없이 대하는 Interior Health 클리닉으로, 성병(STI) 검사와 치료, 임신 검사, 응급 피임, 무료 콘돔을 제공합니다. 예약은 1-844-862-4467로 전화하세요.",
   "src_en": "Confidential, non-judgmental Interior Health clinic for STI testing and treatment, pregnancy tests, emergency contraception and free condoms. Call 1-844-862-4467 to book."
+ },
+ "68b9dda4": {
+  "es": "Supermercado grande con farmacia en Brandt's Creek Crossing, en Kane Road y Drysdale Boulevard, Glenmore. Abre todos los días.",
+  "fr": "Grand supermarché avec pharmacie, dans Brandt's Creek Crossing, à l’angle de Kane Road et Drysdale Boulevard, à Glenmore. Ouvert tous les jours.",
+  "ja": "GlenmoreのKane RoadとDrysdale Boulevardの交差点、Brandt's Creek Crossingにある大型スーパーで、薬局があります。毎日営業しています。",
+  "ko": "Glenmore의 Kane Road와 Drysdale Boulevard 교차로, Brandt's Creek Crossing에 있는 대형 슈퍼마켓으로 약국이 있습니다. 매일 영업합니다.",
+  "src_en": "Large supermarket with a pharmacy in Brandt's Creek Crossing at Kane Road and Drysdale Boulevard, Glenmore, open every day."
  },
  "6a0f1623": {
   "es": "Tienda latinoamericana con productos mexicanos y de otros países latinos, como tortillas, salsas, snacks y bebidas. También ofrece envíos de dinero y recargas telefónicas internacionales.",
@@ -531,6 +650,13 @@
   "ko": "West Kelowna 시청 2층의 운전면허 창구 — 면허 갱신, 필기시험, Class 4/5/7 도로 주행 시험. 예약제로만 운영합니다.",
   "src_en": "Driver licensing on the 2nd floor of West Kelowna City Hall — licence renewals, knowledge tests and Class 4/5/7 road tests, by appointment only."
  },
+ "7738557e": {
+  "es": "Supermercado de barrio en la esquina de Kane Road y Glenmore Road. Abre todos los días.",
+  "fr": "Supermarché de quartier à l’angle de Kane Road et Glenmore Road. Ouvert tous les jours.",
+  "ja": "Kane RoadとGlenmore Roadの角にある地域のスーパーで、毎日営業しています。",
+  "ko": "Kane Road와 Glenmore Road 모퉁이에 있는 동네 슈퍼마켓으로, 매일 영업합니다.",
+  "src_en": "Neighbourhood supermarket at the corner of Kane Road and Glenmore Road, open every day."
+ },
  "7764a8e2": {
   "es": "Sobre todo videoconsultas el mismo día con un médico de BC para cualquier persona con MSP, llamando al 250-765-0544 (todos los días de 10:00 a 16:00), con visitas en persona si hace falta. La línea principal de la oficina es el 250-300-3284.",
   "fr": "Surtout des consultations vidéo le jour même avec un médecin de la C.-B., pour toute personne qui a le MSP, en appelant le 250-765-0544 (tous les jours de 10 h à 16 h), avec des visites en personne au besoin. Le numéro principal du bureau est le 250-300-3284.",
@@ -545,6 +671,13 @@
   "ko": "성인에게 무료로 일대일 자원봉사 영어 튜터를 연결해 줍니다. 직장, 학업, CELPIP, 시민권 시험, 운전면허 시험을 준비할 수 있습니다. 수업은 보통 주 1–2일, 한 번에 1–2시간이며 최대 2년까지 할 수 있습니다.",
   "src_en": "A free one-to-one volunteer English tutor for adults, for work, school, CELPIP, the citizenship test or the driver's licence test. Lessons are usually 1–2 hours, 1–2 days a week, for up to 2 years."
  },
+ "7e3d2405": {
+  "es": "Hospital veterinario en Sexsmith Road, en el norte de Kelowna. Abre los sábados y acepta clientes nuevos. Fuera de horario, deriva las urgencias a Fairfield Animal Hospital.",
+  "fr": "Hôpital vétérinaire sur Sexsmith Road, dans le nord de Kelowna. Ouvert le samedi et accepte de nouveaux clients. En dehors des heures d’ouverture, il dirige les urgences vers Fairfield Animal Hospital.",
+  "ja": "Kelowna北部のSexsmith Road沿いにある動物病院で、土曜日も開いており、新規の受診も受け付けています。診療時間外の急患はFairfield Animal Hospitalへ紹介されます。",
+  "ko": "Kelowna 북부 Sexsmith Road에 있는 동물병원으로, 토요일에도 문을 열고 새 고객을 받고 있습니다. 진료 시간 이후의 응급 상황은 Fairfield Animal Hospital로 안내합니다.",
+  "src_en": "Veterinary hospital on Sexsmith Road in North Kelowna, open Saturdays and welcoming new clients. After hours it refers emergencies to Fairfield Animal Hospital."
+ },
  "7f387a81": {
   "es": "Oficina principal de la Okanagan Nation Alliance, que trabaja para la Syilx Okanagan Nation, el pueblo en cuyo territorio no cedido se encuentra Kelowna. Contáctela para consultas generales sobre programas, cultura y eventos Syilx.",
   "fr": "Bureau principal de l’Okanagan Nation Alliance, qui travaille pour la Syilx Okanagan Nation — le peuple sur le territoire non cédé duquel se trouve Kelowna. Contactez-le pour toute question générale sur les programmes, la culture et les événements Syilx.",
@@ -558,6 +691,13 @@
   "ja": "ダウンタウンの文化地区にある地域のアートセンターで、ギャラリー、劇場、すべての年齢向けのアート教室があります。ここでKelowna Community Theatreの公演チケットも買えます。",
   "ko": "다운타운 문화 지구에 있는 지역 예술 센터로, 미술 갤러리, 극장, 모든 연령을 위한 미술 수업이 있습니다. 이곳에서 Kelowna Community Theatre 공연 표도 살 수 있습니다.",
   "src_en": "A community arts centre in the downtown cultural district with art galleries, a theatre and art classes for all ages. You can also buy tickets for Kelowna Community Theatre shows here."
+ },
+ "80a0b6af": {
+  "es": "Supermercado de descuento con farmacia en Highway 97, en Leckie Road, entre Orchard Park y Glenmore. Abre todos los días.",
+  "fr": "Supermarché à bas prix avec pharmacie, sur Highway 97 à l’angle de Leckie Road, entre Orchard Park et Glenmore. Ouvert tous les jours.",
+  "ja": "Highway 97とLeckie Roadの交差点、Orchard ParkとGlenmoreの間にあるディスカウントスーパーで、薬局があります。毎日営業しています。",
+  "ko": "Highway 97과 Leckie Road 교차로, Orchard Park와 Glenmore 사이에 있는 할인 슈퍼마켓으로 약국이 있습니다. 매일 영업합니다.",
+  "src_en": "Discount supermarket with a pharmacy on Highway 97 at Leckie Road, between Orchard Park and Glenmore, open every day."
  },
  "83452699": {
   "es": "Albergue mixto gestionado por Kelowna's Gospel Mission, con comidas, baños y servicios de gestión de casos.",
@@ -650,6 +790,13 @@
   "ko": "소득이 낮다면 이곳에서 무료 법률 지원(가족법, 형사, 일부 이민 문제)을 신청할 수 있습니다. 월~목 9:00–12:00, 13:00–16:00, 금 9:00–12:00 운영합니다.",
   "src_en": "Apply for free legal aid (family, criminal, some immigration matters) if you have a low income; open Mon–Thu 9–12 & 1–4, Fri 9–12."
  },
+ "8fbf7c34": {
+  "es": "Oficina de residencias del campus de UBC Okanagan, en Nechako Residence; la recepción abre las 24 horas. Entre las 20:00 y las 7:00, quienes no viven allí usan el intercomunicador de la entrada para comunicarse con la recepción.",
+  "fr": "Bureau des résidences sur le campus d’UBC Okanagan, dans Nechako Residence ; l’accueil est ouvert 24 heures sur 24. Entre 20 h et 7 h, les personnes qui n’y habitent pas utilisent l’interphone de l’entrée pour joindre l’accueil.",
+  "ja": "Nechako Residence内にあるUBC Okanaganの学内寮の事務所で、受付は24時間開いています。午後8時から午前7時までは、寮に住んでいない人は入口のインターホンで受付に連絡します。",
+  "ko": "Nechako Residence에 있는 UBC Okanagan 교내 기숙사 사무실로, 안내 데스크는 24시간 운영합니다. 오후 8시부터 오전 7시까지는 기숙사에 살지 않는 사람은 입구 인터폰으로 데스크를 호출합니다.",
+  "src_en": "UBC Okanagan's on-campus residence office in Nechako Residence; the front desk is open 24 hours. Between 8 p.m. and 7 a.m. non-residents use the entrance intercom to reach the desk."
+ },
  "8ffe8733": {
   "es": "Clínica de maternidad de Interior Health, al lado del Kelowna General Hospital. Si está embarazada y no tiene médico de familia, puede acudir por su cuenta, sin derivación, en cualquier etapa del embarazo. Teléfono: 250-862-4300, ext. 33204.",
   "fr": "Clinique de maternité d’Interior Health, à côté du Kelowna General Hospital. Si vous êtes enceinte et n’avez pas de médecin de famille, vous pouvez vous y adresser vous-même, à n’importe quel stade de la grossesse. Téléphone : 250-862-4300, poste 33204.",
@@ -677,6 +824,13 @@
   "ja": "予約不要のクリニックです。すぐにいっぱいになるので、早めに行ってください。",
   "ko": "예약 없이 가는 진료소입니다. 금방 마감되니 일찍 가세요.",
   "src_en": "Walk-in clinic, no appointment needed; arrive early because it fills up."
+ },
+ "95492d7b": {
+  "es": "Lavandería y tintorería en el Westbank Shopping Centre, en Highway 97. Llame antes para confirmar el horario.",
+  "fr": "Buanderie et nettoyeur à sec dans le Westbank Shopping Centre, sur Highway 97. Téléphonez avant de venir pour connaître les heures d’ouverture.",
+  "ja": "Highway 97沿いのWestbank Shopping Centre内にあるコインランドリー兼ドライクリーニング店です。営業時間は事前に電話で確認してください。",
+  "ko": "Highway 97의 Westbank Shopping Centre 안에 있는 빨래방 겸 드라이클리닝 세탁소입니다. 영업시간은 미리 전화로 확인하세요.",
+  "src_en": "Laundromat and dry cleaner in the Westbank Shopping Centre on Highway 97. Call ahead for hours."
  },
  "9603af74": {
   "es": "Una gran tienda de segunda mano de la Salvation Army en Rutland, con ropa, muebles y artículos para el hogar usados; las ventas apoyan los programas locales de la Salvation Army. Cerrada los domingos.",
@@ -811,6 +965,20 @@
   "ko": "Kelowna의 대표 역사 박물관으로, 계곡의 형성, syilx(Okanagan 원주민) 문화, 정착민의 역사를 다루며, Central Okanagan Sports Hall of Fame과 Kelowna Public Archives도 있습니다. Queensway 버스 환승장 바로 옆에 있고, 매월 둘째 일요일에는 원하는 만큼만 내고 입장할 수 있습니다.",
   "src_en": "Kelowna's main history museum, covering how the valley formed, syilx (Okanagan) culture and settler history, plus the Central Okanagan Sports Hall of Fame and the Kelowna Public Archives. It is right next to the Queensway transit exchange, and every second Sunday of the month you pay what you wish."
  },
+ "a5ed2320": {
+  "es": "Farmacia de servicio completo en Summit Drive y Glenmore Road, al lado de Hillside Medical Clinic. Ofrece vacunación, una clínica del viajero y entrega gratuita de recetas a domicilio.",
+  "fr": "Pharmacie à service complet à l’angle de Summit Drive et Glenmore Road, à côté de Hillside Medical Clinic. Offre la vaccination, une clinique santé-voyage et la livraison gratuite des ordonnances.",
+  "ja": "Summit DriveとGlenmore Roadの交差点、Hillside Medical Clinicの隣にあるフルサービスの薬局です。予防接種、トラベルクリニック、処方薬の無料配達を行っています。",
+  "ko": "Summit Drive와 Glenmore Road 교차로, Hillside Medical Clinic 바로 옆에 있는 종합 약국입니다. 예방접종, 여행자 클리닉, 처방약 무료 배달을 제공합니다.",
+  "src_en": "Full-service pharmacy at Summit Drive and Glenmore Road, next to Hillside Medical Clinic. Offers immunizations, a travel clinic and free prescription delivery."
+ },
+ "a7994d33": {
+  "es": "Hospital veterinario para mascotas en la plaza comercial del IGA, en Kane Road y Glenmore Road. Abre hasta tarde los martes y jueves. Fuera de horario, la clínica envía las urgencias a Fairfield Animal Hospital.",
+  "fr": "Hôpital vétérinaire pour animaux de compagnie dans le centre commercial de l’IGA, à l’angle de Kane Road et Glenmore Road. Ouvert tard le mardi et le jeudi. En dehors des heures d’ouverture, la clinique dirige les urgences vers Fairfield Animal Hospital.",
+  "ja": "Kane RoadとGlenmore Roadの交差点、IGAのある商業施設内にあるペットの動物病院で、火曜日と木曜日は夜遅くまで開いています。診療時間外の急患はFairfield Animal Hospitalへ案内されます。",
+  "ko": "Kane Road와 Glenmore Road 교차로 IGA 상가에 있는 반려동물 병원으로, 화요일과 목요일에는 늦게까지 문을 엽니다. 진료 시간 이후의 응급 상황은 Fairfield Animal Hospital로 안내합니다.",
+  "src_en": "Veterinary hospital for pets in the IGA plaza at Kane Road and Glenmore Road, open late on Tuesdays and Thursdays. After hours the clinic sends emergencies to Fairfield Animal Hospital."
+ },
  "ae8338ed": {
   "es": "Mostrador de correos dentro del Shoppers Drug Mart de Kane Road, en Glenmore, abierto los siete días.",
   "fr": "Comptoir postal dans le Shoppers Drug Mart de Kane Road, à Glenmore, ouvert sept jours sur sept.",
@@ -825,12 +993,26 @@
   "ko": "SD23의 Welcome Centre(환영 센터)입니다. 캐나다에 새로 온 가정은 이곳에서 자녀의 학교 등록을 합니다. 가정이 학교생활에 적응하도록 돕는 Settlement Workers in Schools(SWIS)도 이곳에 있습니다.",
   "src_en": "SD23’s Welcome Centre: families new to Canada register their children for school here. Also home to Settlement Workers in Schools (SWIS), who help families settle into school life."
  },
+ "af41a75a": {
+  "es": "Empresa de administración de propiedades de Kelowna que publica en su sitio web las casas y apartamentos que tiene disponibles para alquilar. También tiene una segunda oficina en Kelowna, en Harvey Avenue.",
+  "fr": "Entreprise de gestion immobilière de Kelowna qui affiche ses maisons et appartements à louer sur son site Web. Elle a aussi un deuxième bureau à Kelowna, sur Harvey Avenue.",
+  "ja": "空いている賃貸住宅やアパートを自社のウェブサイトに掲載している、Kelownaの不動産管理会社です。Harvey AvenueにもKelownaの2つ目の事務所があります。",
+  "ko": "임대 가능한 주택과 아파트를 웹사이트에 올리는 Kelowna의 부동산 관리 회사입니다. Harvey Avenue에 Kelowna 두 번째 사무실도 있습니다.",
+  "src_en": "Kelowna property management company that posts its available rental homes and apartments on its website. It also has a second Kelowna office on Harvey Avenue."
+ },
  "af967d54": {
   "es": "Escuela secundaria pública (grados 9 a 12) que atiende la zona de Mission.",
   "fr": "École secondaire publique (9e à 12e année) qui dessert le secteur Mission.",
   "ja": "Mission地区を学区とする公立高校（9〜12年生）です。",
   "ko": "Mission 지역을 담당하는 공립 고등학교(9~12학년)입니다.",
   "src_en": "Public secondary school (grades 9–12) serving the Mission area."
+ },
+ "b117dbd0": {
+  "es": "Parque infantil cubierto para niños de 10 años o menos en Enterprise Way, con pases de día sin reserva, campamentos y fiestas de cumpleaños. Los padres se quedan y supervisan.",
+  "fr": "Aire de jeux intérieure pour les enfants de 10 ans et moins, sur Enterprise Way, avec laissez-passer à la journée sans réservation, camps et fêtes d’anniversaire. Les parents restent sur place et surveillent.",
+  "ja": "Enterprise Way にある10歳以下の子ども向け屋内遊び場で、予約なしの1日パス、キャンプ、誕生日パーティーがあります。保護者が付き添って見守ります。",
+  "ko": "Enterprise Way에 있는 10세 이하 어린이용 실내 놀이터로, 예약 없이 이용하는 1일권, 캠프, 생일 파티가 있습니다. 부모가 함께 머물며 지켜봐야 합니다.",
+  "src_en": "Indoor playground for children 10 and under on Enterprise Way, with drop-in day passes, camps and birthday parties. Parents stay and supervise."
  },
  "b2079547": {
   "es": "Centro acuático y de ejercicio de propiedad municipal en Mission, administrado por el YMCA, con toboganes de agua y piscinas para todas las edades.",
@@ -958,6 +1140,13 @@
   "ko": "자선단체가 운영하는 상담 센터로, 무료·저가·정가 상담이 있습니다. 성인 무료 상담은 310-6478(Interior Health Mental Health)에 전화해 의뢰를 받으세요. 저가 상담은 온라인이 아니라 전화로 예약합니다.",
   "src_en": "Charity counselling centre with free, low-cost and full-fee counselling. For free adult counselling, call 310-6478 (Interior Health Mental Health) to be referred. Low-cost spots are booked by phone, not online."
  },
+ "c89e4405": {
+  "es": "Lavandería de monedas en la plaza comercial Kelowna Crossing, en Highway 97, con máquinas grandes para ropa de cama. Se paga en efectivo o con tarjeta de crédito. También ofrece servicio de lavado y doblado.",
+  "fr": "Buanderie à pièces dans le centre commercial Kelowna Crossing, sur Highway 97, avec de grandes machines pour la literie. Paiement en argent comptant ou par carte de crédit. Offre aussi un service de lavage et pliage.",
+  "ja": "Highway 97沿いの商業施設Kelowna Crossingにあるコインランドリーで、寝具も洗える大型の機械があります。現金かクレジットカードで支払えます。洗濯してたたんでくれるサービスもあります。",
+  "ko": "Highway 97의 Kelowna Crossing 상가에 있는 코인 빨래방으로, 침구를 빨 수 있는 대형 세탁기가 있습니다. 현금이나 신용카드로 결제할 수 있습니다. 세탁 후 개어 주는 서비스도 있습니다.",
+  "src_en": "Coin laundromat in the Kelowna Crossing plaza on Highway 97 with large machines for bedding, paid by cash or credit card. Also offers wash and fold."
+ },
  "ca8447e9": {
   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Idiomas además del inglés: mandarín, cantonés. Edades: antes y después de la escuela (de 1.º grado a 12 años). Participa en el programa provincial de reducción de cuotas (CCFRI).",
   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Langues en plus de l’anglais : mandarin, cantonais. Âges : avant et après l’école (1re année à 12 ans). Participe au programme provincial de réduction des frais (CCFRI).",
@@ -986,6 +1175,13 @@
   "ko": "다운타운의 가톨릭 본당으로, 매일 미사가 있고 주말에는 여러 차례 미사가 있습니다. 일요일에는 전통 라틴어 미사도 있습니다.",
   "src_en": "The downtown Catholic parish, with Mass every day and several Masses on weekends. A Traditional Latin Mass is also held here on Sundays."
  },
+ "cc61c44b": {
+  "es": "Centro comercial en Butt Road y Highway 97, en Westbank, parte de la zona comercial Westbank Hub, a lo largo de Louie Drive y Carrington Road. Cada tienda tiene su propio horario.",
+  "fr": "Centre commercial à l’angle de Butt Road et Highway 97, à Westbank. Il fait partie du secteur commercial Westbank Hub, le long de Louie Drive et Carrington Road. Chaque magasin a ses propres heures d’ouverture.",
+  "ja": "WestbankのButt RoadとHighway 97の交差点にあるショッピングセンターで、Louie DriveとCarrington Road沿いに広がるWestbank Hub商業エリアの一部です。営業時間は店舗ごとに異なります。",
+  "ko": "Westbank의 Butt Road와 Highway 97 교차로에 있는 쇼핑센터로, Louie Drive와 Carrington Road를 따라 이어지는 Westbank Hub 상권의 일부입니다. 영업시간은 매장마다 다릅니다.",
+  "src_en": "Shopping centre at Butt Road and Highway 97 in Westbank, part of the Westbank Hub shopping area along Louie Drive and Carrington Road. Stores keep their own hours."
+ },
  "cc6dd518": {
   "es": "Si se lesionó en el trabajo y no está de acuerdo con una decisión de WorkSafeBC, esta oficina del gobierno le da asesoría gratuita y a veces lo representa. Es independiente de WorkSafeBC.",
   "fr": "Si vous avez été blessé au travail et n’êtes pas d’accord avec une décision de WorkSafeBC, ce bureau gouvernemental donne des conseils gratuits et peut parfois vous représenter. Il est indépendant de WorkSafeBC.",
@@ -999,6 +1195,13 @@
   "ja": "Okanaganの軍事史を紹介する小さな博物館で、軍服、記章、多数の銃器のコレクションのほか、軍事図書館と資料室があります。ダウンタウンのEllis Street、Memorial Arenaの隣です。",
   "ko": "Okanagan 군사 역사를 다루는 작은 박물관으로, 군복, 휘장, 대규모 총기 컬렉션과 군사 도서관·기록 보관소가 있습니다. 다운타운 Ellis Street의 Memorial Arena 옆에 있습니다.",
   "src_en": "A small museum of Okanagan military history with uniforms, badges and a large firearms collection, plus a military library and archives. It is downtown on Ellis Street, beside Memorial Arena."
+ },
+ "d1d57885": {
+  "es": "Centro de juegos cubierto en Westbank, con zona de juego blando para niños pequeños y estructuras de juego para niños de hasta 12 años. No hace falta reservar; compre un pase de día en la recepción.",
+  "fr": "Centre de jeux intérieur à Westbank, avec un espace de jeux souples pour les tout-petits et des structures de jeux pour les enfants jusqu’à 12 ans. Pas besoin de réserver ; achetez un laissez-passer à la journée à l’accueil.",
+  "ja": "Westbankにある屋内遊び場で、幼児向けのソフトプレイエリアと12歳までの子ども向けの遊具があります。予約は不要です。受付で1日パスを買ってください。",
+  "ko": "Westbank에 있는 실내 놀이 시설로, 유아용 소프트 놀이 공간과 12세까지의 어린이를 위한 놀이 기구가 있습니다. 예약은 필요 없고, 안내 데스크에서 일일 이용권을 사세요.",
+  "src_en": "Indoor play centre in Westbank with soft play for toddlers and play structures for children up to 12. No reservation needed; buy a day pass at the front desk."
  },
  "d2ff477f": {
   "es": "Un centro gestionado junto con la Parkinson Seniors Society que ofrece actividades para personas de 50 años o más, como yoga, pintura, taichí, bridge y clases de computación. Está al lado del Parkinson Recreation Centre.",
@@ -1041,6 +1244,13 @@
   "ja": "WestbankのDobbin RoadにあるShoppers Drug Mart内の郵便窓口で、毎日営業し、木曜と金曜は21:00まで開いています。",
   "ko": "Westbank의 Dobbin Road에 있는 Shoppers Drug Mart 안의 우체국 창구로, 일주일 내내 열며 목요일과 금요일은 밤 9시까지 엽니다.",
   "src_en": "A post office counter in the Shoppers Drug Mart on Dobbin Road in Westbank, open seven days and until 9 pm on Thursdays and Fridays."
+ },
+ "d94b8fff": {
+  "es": "Residencias estudiantiles tipo apartamento de Okanagan College en el campus de Kelowna, Home for School y Skaha Place; la oficina de vivienda está en 880 KLO Road. Debe ser estudiante de tiempo completo de Okanagan College; las residencias funcionan todo el año.",
+  "fr": "Résidences étudiantes de type appartement d’Okanagan College sur le campus de Kelowna, Home for School et Skaha Place ; le bureau du logement est au 880 KLO Road. Vous devez être étudiant à temps plein à Okanagan College ; les résidences sont ouvertes toute l’année.",
+  "ja": "Okanagan College Kelownaキャンパスのアパート型学生寮（Home for SchoolとSkaha Place）で、住居事務所は880 KLO Roadにあります。Okanagan Collegeのフルタイムの学生である必要があり、寮は一年中利用できます。",
+  "ko": "Okanagan College Kelowna 캠퍼스의 아파트형 학생 기숙사(Home for School, Skaha Place)로, 주거 사무실은 880 KLO Road에 있습니다. Okanagan College 전일제 학생이어야 하며, 기숙사는 연중 운영합니다.",
+  "src_en": "Okanagan College's apartment-style student residences on the Kelowna campus, Home for School and Skaha Place, with the housing office at 880 KLO Road. You must be a full-time Okanagan College student; housing runs year round."
  },
  "d9cab6e5": {
   "es": "Atención urgente sin cita en West Kelowna; se puede usar sin tener médico de familia.",
@@ -1091,6 +1301,13 @@
   "ko": "개울을 따라 있는 큰 공원으로, 산책로가 있습니다. 개는 반드시 목줄을 해야 합니다.",
   "src_en": "Large creekside park with walking trails; dogs must be on leash."
  },
+ "deead411": {
+  "es": "Tres edificios de apartamentos de alquiler recientes en Drysdale Boulevard, en Glenmore, junto a las tiendas de Brandt's Creek Crossing, con estudios y apartamentos de una y dos habitaciones. Se admiten mascotas.",
+  "fr": "Trois immeubles d’appartements locatifs récents sur Drysdale Boulevard, à Glenmore, à côté des commerces de Brandt's Creek Crossing, avec des studios et des appartements d’une ou deux chambres. Animaux acceptés.",
+  "ja": "GlenmoreのDrysdale Boulevard、Brandt's Creek Crossingの店舗の隣にある比較的新しい賃貸アパート3棟で、ワンルーム、1ベッドルーム、2ベッドルームがあります。ペット可です。",
+  "ko": "Glenmore의 Drysdale Boulevard, Brandt's Creek Crossing 상가 옆에 있는 비교적 새 임대 아파트 3동으로, 스튜디오, 원베드룸, 투베드룸이 있습니다. 반려동물 동반 가능합니다.",
+  "src_en": "Three newer rental apartment buildings on Drysdale Boulevard in Glenmore, next to the Brandt's Creek Crossing shops, with studio, one- and two-bedroom suites. Pet friendly."
+ },
  "dff6dbc7": {
   "es": "La piscina pública de West Kelowna, con piscina de 25 metros, piscina templada para relajarse, jacuzzi, baño de vapor, toboganes y sala de pesas; se paga por visita, sin necesidad de ser socio. El YMCA of Southern Interior BC pasa a administrarla a partir del 1 de enero de 2027.",
   "fr": "La piscine publique de West Kelowna, avec un bassin de 25 mètres, un bassin chaud de détente, un spa, un bain de vapeur, des glissoires et une salle de musculation ; accès à la séance, sans abonnement. Le YMCA of Southern Interior BC en reprend la gestion à partir du 1er janvier 2027.",
@@ -1104,6 +1321,13 @@
   "ja": "West KelownaのWestbank、Dobbin Roadにある薬局付きの大型スーパーで、毎日営業しています。",
   "ko": "West Kelowna Westbank의 Dobbin Road에 있는, 약국을 갖춘 대형 슈퍼마켓으로, 매일 영업합니다.",
   "src_en": "A large supermarket with a pharmacy on Dobbin Road in Westbank, West Kelowna, open every day."
+ },
+ "e158b024": {
+  "es": "Lavandería de autoservicio en Pandosy Street con lavadoras y secadoras grandes, pago con tarjeta o monedas y personal en el local. También ofrece servicio de lavado y doblado por encargo.",
+  "fr": "Buanderie libre-service sur Pandosy Street, avec de grandes laveuses et sécheuses, paiement par carte ou en pièces, et du personnel sur place. Offre aussi un service de dépôt avec lavage et pliage.",
+  "ja": "Pandosy Street沿いにあるセルフサービスのコインランドリーで、大型の洗濯機と乾燥機があり、カードか硬貨で支払えます。スタッフも常駐しています。洗濯物を預けると洗ってたたんでくれるサービスもあります。",
+  "ko": "Pandosy Street에 있는 셀프 빨래방으로, 대형 세탁기와 건조기가 있고 카드나 동전으로 결제하며 직원이 상주합니다. 세탁물을 맡기면 빨아서 개어 주는 서비스도 있습니다.",
+  "src_en": "Self-serve laundromat on Pandosy Street with large washers and dryers, paid by card or coin, with staff on hand. Also offers drop-off wash and fold."
  },
  "e2ab8b95": {
   "es": "Una tienda de comestibles de descuento del barrio en Rutland, centrada en frutas y verduras frescas y precios bajos, abierta todos los días.",
@@ -1168,6 +1392,13 @@
   "ko": "West Kelowna에서 12~24세를 위한 Foundry 청소년 상담으로, 월요일과 금요일에 Child & Youth Mental Health 사무실에서 합니다. 무료이며 비밀이 보장됩니다.",
   "src_en": "Foundry youth counselling for ages 12-24 in West Kelowna, on Mondays and Fridays at the Child & Youth Mental Health office. Free and confidential."
  },
+ "f0be0178": {
+  "es": "Parque infantil cubierto en Carrington Road, en West Kelowna, para niños de 1 a 12 años, con zonas separadas para los más pequeños y los mayores. Cada pase es para una sola visita: si sale, no puede volver a entrar.",
+  "fr": "Aire de jeux intérieure sur Carrington Road, à West Kelowna, pour les enfants de 1 à 12 ans, avec des zones séparées pour les tout-petits et les plus grands. Chaque laissez-passer vaut pour une seule visite ; une fois sortis, vous ne pouvez pas revenir.",
+  "ja": "West KelownaのCarrington Roadにある、1〜12歳の子ども向けの屋内遊び場で、幼児エリアと大きい子のエリアが分かれています。パスは1回の入場のみ有効で、一度出ると再入場できません。",
+  "ko": "West Kelowna의 Carrington Road에 있는 1~12세 어린이를 위한 실내 놀이터로, 유아 구역과 큰 아이 구역이 나뉘어 있습니다. 이용권은 1회 방문용이며, 나가면 다시 들어올 수 없습니다.",
+  "src_en": "Indoor playground on Carrington Road in West Kelowna for children aged 1 to 12, with separate toddler and big-kid zones. Each pass is for one visit with no re-entry."
+ },
  "f239c589": {
   "es": "El centro de amistad indígena de Kelowna, abierto a todos: programas para niños y familias, servicios para Ancianos (Elders), apoyo de salud mental, vivienda y servicios de alcance comunitario, y preparación gratuita de impuestos (hasta 10 años atrás) para personas que reciben asistencia por discapacidad o tienen ingresos bajos.",
   "fr": "Le centre d’amitié autochtone de Kelowna, ouvert à tous : programmes pour les enfants et les familles, services aux aînés (Elders), soutien en santé mentale, logement et services d’approche, et préparation gratuite des déclarations de revenus (jusqu’à 10 ans en arrière) pour les personnes qui reçoivent de l’aide pour personnes handicapées ou qui ont un faible revenu.",
@@ -1216,6 +1447,13 @@
   "ja": "Westbankにある大型リサイクルショップで、古着や生活用品を売っています。毎日営業しています。",
   "ko": "Westbank의 대형 중고 매장으로, 중고 의류와 생활용품을 팝니다. 일주일 내내 엽니다.",
   "src_en": "A large thrift store in Westbank selling used clothing and household goods, open seven days."
+ },
+ "fa52f8a0": {
+  "es": "Farmacia dentro del Walmart Supercentre en Louie Drive, en Westbank. Abre los siete días de la semana.",
+  "fr": "Pharmacie à l’intérieur du Walmart Supercentre, sur Louie Drive, à Westbank. Ouverte sept jours sur sept.",
+  "ja": "WestbankのLouie Driveにある、Walmart Supercentre内の薬局で、週7日営業しています。",
+  "ko": "Westbank의 Louie Drive에 있는 Walmart Supercentre 안의 약국으로, 일주일 내내 영업합니다.",
+  "src_en": "Pharmacy inside the Walmart Supercentre on Louie Drive in Westbank, open seven days a week."
  },
  "fac2727c": {
   "es": "Refugio de emergencia para hombres con 60 camas, además de duchas, lavandería, artículos de higiene y tres comidas calientes al día.",
