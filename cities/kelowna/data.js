@@ -114,7 +114,17 @@ const BR=/*@json bus-routes.json*/;
 const FAV_MIGRATE={};
 
 const LANDMARKS=/*@json landmarks.json*/;
-const LANDMARK_GLOSS={};
+// Landmarks (2026-10-03): one per area, chosen by the Kamloops rule — findable by someone who does
+// not know the city, and somewhere people actually have to go. Two are bus exchanges because most
+// people arriving here have no car; the gloss is the second, smaller line under each label.
+const LANDMARK_GLOSS={
+  "98f81277":{zh:"市中心公交总站",fr:"Pôle d’autobus du centre-ville",es:"Terminal de autobuses del centro",ko:"다운타운 버스 환승장",ja:"ダウンタウンのバスターミナル"},
+  "83ec9d28":{zh:"Kelowna 总医院",fr:"Hôpital général",es:"Hospital general",ko:"종합병원",ja:"総合病院"},
+  "3040279c":{zh:"Rutland 公交换乘站",fr:"Pôle d’autobus de Rutland",es:"Terminal de autobuses de Rutland",ko:"Rutland 버스 환승장",ja:"Rutland のバス乗り換え拠点"},
+  "64da672b":{zh:"Glenmore 康乐公园",fr:"Parc récréatif",es:"Parque recreativo",ko:"레크리에이션 공원",ja:"レクリエーション公園"},
+  "6af1cc50":{zh:"UBC 大学 Okanagan 校区",fr:"Université (campus Okanagan)",es:"Universidad (campus Okanagan)",ko:"대학교(오카나간 캠퍼스)",ja:"大学（オカナガン・キャンパス）"},
+  "4c522cc8":{zh:"West Kelowna 图书馆（市政厅同楼）",fr:"Bibliothèque (même édifice que l’hôtel de ville)",es:"Biblioteca (mismo edificio que el ayuntamiento)",ko:"도서관(시청과 같은 건물)",ja:"図書館（市役所と同じ建物）"}
+};
 
 // Bus coverage for Kelowna: BC Transit's official GTFS feed (valid 2026-10-01 to 2026-12-19),
 // imported by scripts/importers/gtfs_routes.py. Re-run the importer for each new edition and

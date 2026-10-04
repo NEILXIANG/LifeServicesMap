@@ -1,0 +1,147 @@
+{
+ "_comment": "Kelowna task cards = Kamloops cards (BC-wide steps) + these overrides (local offices, local wording). Built by cities/kelowna/import/build_tasks.py. Facts from official pages checked 2026-10-03: kcr.ca contact page; sd23.bc.ca/school-enrollment; welcomecentre.sd23.bc.ca; healthlinkbc.ca (8-1-1, pharmacy services, Health Connect Registry); interiorhealth.ca (UPCCs); each shelter's own site; orl.bc.ca (English Corner). fr/es/ko/ja are added by translation and must say the same as en.",
+ "places": {
+  "settle": "KCR Community Resources – Immigrant Services",
+  "sin": "Kelowna Service Canada Centre",
+  "msp": "Service BC Centre – Kelowna",
+  "licence": "ICBC Kelowna Driver Licensing",
+  "bank": "Scotiabank",
+  "connect": "Okanagan Regional Library – Kelowna Downtown",
+  "sick": "Kelowna Urgent and Primary Care Centre",
+  "doctor": "Kelowna Urgent and Primary Care Centre",
+  "hardship": "Central Okanagan Food Bank – Kelowna",
+  "legal": "Okanagan Thompson Legal Clinic – Kelowna",
+  "housing": "Okanagan Thompson Legal Clinic – Kelowna",
+  "jobloss": "WorkBC Centre – Kelowna",
+  "school": "SD23 Welcome Centre",
+  "eldercare": null
+ },
+ "fields": {
+  "settle": {
+   "src": "https://kcr.ca/immigrant-services/",
+   "srcName": "KCR Community Resources",
+   "steps": [
+    {
+     "en": "Call 250-763-8008 (Immigrant Services is extension 1) to book, or walk in on weekdays at 618 Bernard Ave — say you have just arrived and want help getting set up.",
+     "zh": "打 250-763-8008（移民服务按分机 1）预约，或工作日直接去 618 Bernard Ave——说你刚到，想请人帮忙安顿下来。"
+    },
+    {
+     "en": "Ask whether an interpreter can be booked in your language.",
+     "zh": "问一下能不能安排你语言的翻译。"
+    },
+    {
+     "en": "Bring whatever immigration papers you have; they will tell you what is missing.",
+     "zh": "带上你手上所有的移民文件，他们会告诉你还缺什么。"
+    }
+   ],
+   "say": {
+    "en": "Hi, I've just arrived in Kelowna and I'd like help getting set up. Could I speak to a settlement worker? I'd like an interpreter in my language, please.",
+    "zh": "你好，我刚到 Kelowna，想请人帮我安顿下来。可以和定居服务专员谈谈吗？我需要我母语的翻译，谢谢。"
+   }
+  },
+  "school": {
+   "src": "https://www.sd23.bc.ca/school-enrollment",
+   "srcName": "SD23 Central Okanagan Public Schools",
+   "t": {
+    "en": "Register a child for school (SD23)",
+    "zh": "给孩子办入学（SD23 学区）"
+   },
+   "why": {
+    "en": "Your home address decides your catchment school. If your family is new to Canada, SD23 has a Welcome Centre that starts here.",
+    "zh": "孩子上哪所学校由家庭住址决定。刚到加拿大的家庭，SD23 学区有专门的欢迎中心，从那里开始。"
+   },
+   "steps": [
+    {
+     "en": "Find your catchment school from your home address on the district’s catchment page.",
+     "zh": "在学区的学区划分（catchment）页面，用家庭住址查到对应的学校。"
+    },
+    {
+     "en": "Complete the district’s online Enrolment Application (there is a short video tutorial on the same page).",
+     "zh": "在网上填写学区的入学申请（同一页面有简短的视频教程）。"
+    },
+    {
+     "en": "If your family has documents from Immigration Canada (a permanent resident card, a study or work permit), the district processes them first, through its International Education office, before the school can register your child — the SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) can help you with this.",
+     "zh": "如果你们的身份文件来自加拿大移民部（永久居民卡、学签或工签），学区要先通过国际教育办公室处理这些文件，学校才能给孩子注册——SD23 欢迎中心（1040 Hollywood Rd S，250-870-5155）可以帮你办。"
+    }
+   ],
+   "say": {
+    "en": "Hi, we've just moved to Kelowna and I'd like to register my child. My child is still learning English.",
+    "zh": "你好，我们刚搬到 Kelowna，想给孩子办入学。孩子还在学英语。"
+   },
+   "help": {
+    "en": "SD23 Welcome Centre · 250-870-5155",
+    "zh": "SD23 欢迎中心 · 250-870-5155"
+   },
+   "note": {
+    "en": "If your child is still learning English, say so when you register — asking early is what gets language support started. A child must turn five by December 31 to start Kindergarten that school year. If your BC Services Card has not arrived yet, the district accepts proof of your MSP application with one address document.",
+    "zh": "孩子还在学英语的话，注册时就说——早说才能早点得到语言支持。当年 12 月 31 日前满五岁，才能在那个学年上幼儿园。BC Services Card 还没到的话，学区接受 MSP 申请证明加一份住址证明。"
+   },
+   "bring": {
+    "en": "Your child’s birth certificate (or other government proof of age and citizenship), and proof that you live in BC: your BC Services Card with your BC driver’s licence or one address document (lease, utility bill), or proof of your MSP application with one address document.",
+    "zh": "孩子的出生证明（或其他政府签发的年龄和国籍证明），以及你住在 BC 的证明：BC Services Card 加 BC 驾照或一份住址证明（租约、水电账单），或者 MSP 申请证明加一份住址证明。"
+   },
+   "also": {
+    "en": "Ask the Welcome Centre about SWIS (Settlement Workers in Schools) — free settlement help for your family, connected to the school.",
+    "zh": "问问欢迎中心的 SWIS（校园安置服务）——免费帮助你的家庭适应学校。"
+   }
+  },
+  "connect": {
+   "src": "https://www.orl.bc.ca/",
+   "srcName": "Okanagan Regional Library",
+   "also": {
+    "en": "The Okanagan Regional Library runs free English Corner conversation groups — at the Downtown, Mission, Rutland and West Kelowna branches, on different days. Ask at the desk or check the library’s events page.",
+    "zh": "Okanagan Regional Library 有免费的英语角（English Corner）——市中心、Mission、Rutland 和 West Kelowna 分馆都有，时间各不相同。到服务台问，或看图书馆的活动页面。"
+   }
+  },
+  "sick": {
+   "steps": [
+    {
+     "en": "Not urgent, or unsure: call 8-1-1 — free, 24 hours, a nurse, with interpreters in more than 130 languages (say the language you want).",
+     "zh": "不紧急或不确定：打 8-1-1——免费，24 小时，有护士接听，能提供 130 多种语言的翻译（说出你要的语言即可）。"
+    },
+    {
+     "en": "Minor problems a pharmacist can treat (for example allergies, cold sores, some infections): a BC pharmacist can assess you and prescribe — free in person; bring your Personal Health Number or ID.",
+     "zh": "药剂师能处理的小病（例如过敏、唇疱疹、部分感染）：BC 的药剂师可以评估并开药——当面看免费；带上个人健康号码（PHN）或身份证件。"
+    },
+    {
+     "en": "Needs seeing today: an Urgent and Primary Care Centre — Kelowna (1141 Harvey Ave), Rutland (150 Hwy 33 W) or West Kelowna (2484 Main St). You do not need a family doctor; go early in the day.",
+     "zh": "今天就要看：去紧急与初级护理中心（UPCC）——Kelowna（1141 Harvey Ave）、Rutland（150 Hwy 33 W）或 West Kelowna（2484 Main St）。不需要家庭医生；尽量早去。"
+    },
+    {
+     "en": "Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the emergency department at Kelowna General Hospital.",
+     "zh": "胸痛、呼吸困难、大量出血，或你觉得情况严重：打 911，或去 Kelowna General Hospital 急诊。"
+    }
+   ]
+  },
+  "hardship": {
+   "note": {
+    "en": "Need a bed tonight? Kelowna’s Gospel Mission (Bay Ave Community Shelter, all genders; Leon Shelter, men) 250-763-3737; Cornerstone Shelter (adults 19+, open 24/7) 250-317-6678; Richter Street Shelter (19+, register in person at 10 am, 4 pm or 9 pm) 778-212-1401; in West Kelowna, Bartley Court Shelter (19+, register in person 2–4 pm weekdays) 778-583-4881. If one is full, try another. Women leaving violence, with or without children: Kelowna Women’s Shelter, 24 hours, call 250-763-1040 or text 236-970-0704 — the address is kept private.",
+    "zh": "今晚需要住处？Kelowna’s Gospel Mission（Bay Ave Community Shelter，不分性别；Leon Shelter，男性）250-763-3737；Cornerstone Shelter（19 岁以上，24 小时开放）250-317-6678；Richter Street Shelter（19 岁以上，上午 10 点、下午 4 点或晚上 9 点到场登记）778-212-1401；West Kelowna 的 Bartley Court Shelter（19 岁以上，工作日下午 2–4 点到场登记）778-583-4881。一家满了就试另一家。逃离暴力的女性（带不带孩子都可以）：Kelowna Women’s Shelter，24 小时，打 250-763-1040 或发短信到 236-970-0704——地址保密。"
+   },
+   "also": {
+    "en": "Food: the Central Okanagan Food Bank (Kelowna, and West Kelowna by appointment), The Salvation Army community services in Rutland and Westbank, and meals at Kelowna’s Gospel Mission. Each runs on its own days — call first.",
+    "zh": "食物：Central Okanagan Food Bank（Kelowna；West Kelowna 需预约）、救世军（The Salvation Army）在 Rutland 和 Westbank 的社区服务、Kelowna’s Gospel Mission 的免费餐。各自的开放日不同——先打电话。"
+   }
+  },
+  "rights": {
+   "also": {
+    "en": "A settlement worker at KCR Community Resources can help you find free legal advice and support — you do not have to do this alone.",
+    "zh": "KCR Community Resources 的定居服务专员可以帮你找免费的法律咨询和支持——你不必一个人面对。"
+   }
+  },
+  "eldercare": {
+   "src": "https://www.interiorhealth.ca/services/home-and-community-care",
+   "srcName": "Interior Health – Home and Community Care",
+   "help": {
+    "en": "Stuck between offices? Call 2-1-1 — it can also tell you who runs Better at Home (help for people 65+) in Kelowna. Or ask a settlement worker if language is part of the difficulty.",
+    "zh": "在几个部门之间转不过来？打 2-1-1——它也能告诉你 Kelowna 的 Better at Home（65 岁以上的居家帮助）由谁提供。如果语言是困难之一，可以找定居服务专员。"
+   },
+   "steps_replace": {
+    "2": {
+     "en": "For people 65 and over, Better at Home (a United Way BC program) helps with groceries, light housekeeping, yard work, friendly visits and meals; call 2-1-1 to find who runs it in Kelowna. Some of it is charged on a sliding scale by income.",
+     "zh": "65 岁以上的老人可以用 Better at Home（United Way BC 的项目）：帮忙买菜、简单家务、打理院子、上门探访和送餐；打 2-1-1 查 Kelowna 由哪家机构提供。部分服务按收入阶梯收费。"
+    }
+   }
+  }
+ }
+}

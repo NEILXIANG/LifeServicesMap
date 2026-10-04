@@ -68,6 +68,29 @@ def similar(a, b, words=True):
     wb = {w for w in re.findall(r'[a-z0-9]+', b.lower()) if w not in GENERIC and len(w) > 2}
     return bool(wa and wb) and len(wa & wb) / min(len(wa), len(wb)) >= 0.6
 
+LANG4 = ('fr', 'es', 'ko', 'ja')
+
+def translations_path(city):
+    return os.path.join(kamdata.city_dir(city), 'import', 'translations.json')
+
+def load_translations(city):
+    """cities/<city>/import/translations.json: {id: {"src_en": <English it was made from>, "fr", "es", "ko", "ja"}}.
+    Kept apart from places.json so re-running an importer never throws translations away."""
+    try:
+        return json.load(open(translations_path(city), encoding='utf-8'))
+    except FileNotFoundError:
+        return {}
+
+def apply_translation(rec, translations):
+    """Add fr/es/ko/ja when they were made from exactly this English note; a changed English
+    note makes the old translation stale (it is not applied, and shows up as untranslated)."""
+    t = translations.get(rec.get('id'))
+    if not t or 'note' not in rec: return False
+    if t.get('src_en') != rec['note'].get('en'): return False
+    if not all(t.get(l) for l in LANG4): return False
+    for l in LANG4: rec['note'][l] = t[l]
+    return True
+
 class CityImport:
     def __init__(self, city, source, area_by_locality=None):
         kamdata.use(city)
@@ -105,6 +128,7 @@ class CityImport:
         except FileNotFoundError:
             self.anchors = None
         self.new, self.skipped, self.approx = [], [], []
+        self.translations = load_translations(city)
         self.bounds = None
         m = re.search(r'bounds:\[\[([-\d.]+),([-\d.]+)\],\[([-\d.]+),([-\d.]+)\]\]', kamdata.data_text(city))
         if m:
@@ -176,6 +200,7 @@ class CityImport:
                 self.skipped.append((rec['n'], 'same name already on the map')); return None
         rec.setdefault('g', self.area(rec['lat'], rec['lng'], locality))
         rec.setdefault('src', 'opendata'); rec.setdefault('v', MONTH)
+        apply_translation(rec, self.translations)
         rec['id'] = hashlib.sha1(('%s:%s:%s' % (self.city, self.source, key)).encode()).hexdigest()[:8]
         if rec.get('precision') == 'low': self.approx.append(rec['n'])
         self.new.append(rec)
