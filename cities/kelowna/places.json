@@ -684,7 +684,10 @@
   "src": "stub-pending-verify",
   "v": "2026-10",
   "id": "e3325185",
-  "w": "https://www.sd23.bc.ca/"
+  "w": "https://www.sd23.bc.ca/",
+  "sameComplex": [
+   "ae917f01"
+  ]
  },
  {
   "n": "École Kelowna Secondary",
@@ -1012,6 +1015,1256 @@
   "w": "https://www.kelownasunshinemarket.ca/"
  },
  {
+  "n": "SD23 Welcome Centre",
+  "c": "gov",
+  "g": "rt",
+  "lat": 49.8767106,
+  "lng": -119.39932,
+  "a": "1040 Hollywood Rd S",
+  "p": "250-870-5155",
+  "note": {
+   "zh": "SD23 学区的欢迎中心：刚到加拿大的家庭在这里给孩子办入学登记；这里也有校园安置服务（SWIS），帮助刚来的家庭适应学校。",
+   "en": "SD23’s Welcome Centre: families new to Canada register their children for school here. Also home to Settlement Workers in Schools (SWIS), who help families settle into school life."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "family",
+   "free"
+  ],
+  "alias": [
+   "SWIS",
+   "welcome centre",
+   "school registration",
+   "入学登记",
+   "新移民入学"
+  ],
+  "id": "ae917f01",
+  "w": "https://welcomecentre.sd23.bc.ca",
+  "sameComplex": [
+   "e3325185"
+  ]
+ },
+ {
+  "n": "Raymer Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8651826,
+  "lng": -119.4890325,
+  "a": "657 Raymer Ave",
+  "p": "250-870-5125",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "11387f1e",
+  "w": "https://ray.sd23.bc.ca/",
+  "sameComplex": [
+   "aa39c368",
+   "5045ea07"
+  ]
+ },
+ {
+  "n": "Rutland Middle School",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.8979867,
+  "lng": -119.3861629,
+  "a": "715 Rutland Rd N",
+  "p": "250-870-5109",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "055f52fd",
+  "w": "https://rms.sd23.bc.ca/"
+ },
+ {
+  "n": "Glenmore Elementary",
+  "c": "elem",
+  "g": "gm",
+  "lat": 49.8976293,
+  "lng": -119.4559595,
+  "a": "960 Glenmore Dr",
+  "p": "250-870-5136",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "a21ef563",
+  "w": "https://gme.sd23.bc.ca/"
+ },
+ {
+  "n": "South Kelowna Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8349378,
+  "lng": -119.4220089,
+  "a": "4176 Spiers Rd",
+  "p": "250-870-5107",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c4f64729",
+  "w": "https://ske.sd23.bc.ca/"
+ },
+ {
+  "n": "Dr Knox Middle School",
+  "c": "school",
+  "g": "gm",
+  "lat": 49.9228948,
+  "lng": -119.4347122,
+  "a": "121 Drysdale Blvd",
+  "p": "250-870-5130",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first. Offers early French immersion.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs. Offre l’immersion française précoce.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "142f1e72",
+  "w": "https://drk.sd23.bc.ca/"
+ },
+ {
+  "n": "Dorothea Walker Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8262626,
+  "lng": -119.483765,
+  "a": "4346 Gordon Dr",
+  "p": "250-870-5138",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f08ee7ee",
+  "w": "https://dwe.sd23.bc.ca/"
+ },
+ {
+  "n": "A S Matheson Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8759984,
+  "lng": -119.4777947,
+  "a": "2090 Gordon Dr",
+  "p": "250-870-5112",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "19ca3d77",
+  "w": "https://asm.sd23.bc.ca/",
+  "sameComplex": [
+   "48fbd878"
+  ]
+ },
+ {
+  "n": "North Glenmore Elementary",
+  "c": "elem",
+  "g": "gm",
+  "lat": 49.9285683,
+  "lng": -119.43686,
+  "a": "125 Snowsell St North",
+  "p": "250-870-5128",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "36879667",
+  "w": "https://nge.sd23.bc.ca/"
+ },
+ {
+  "n": "South Rutland Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8874659,
+  "lng": -119.3818469,
+  "a": "200 Mallach Rd",
+  "p": "250-870-5113",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c1540438",
+  "w": "https://sre.sd23.bc.ca/",
+  "sameComplex": [
+   "9d60a3f7"
+  ]
+ },
+ {
+  "n": "Bankhead Elementary",
+  "c": "elem",
+  "g": "dt",
+  "lat": 49.8916212,
+  "lng": -119.4716063,
+  "a": "1280 Wilson Ave",
+  "p": "250-870-5114",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "99e0b0fb",
+  "w": "https://bhe.sd23.bc.ca/",
+  "sameComplex": [
+   "670b7925"
+  ]
+ },
+ {
+  "n": "KLO Middle School",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8601915,
+  "lng": -119.4766737,
+  "a": "3130 Gordon Dr",
+  "p": "250-870-5106",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first. Offers early French immersion.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs. Offre l’immersion française précoce.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f229cc94",
+  "w": "https://klo.sd23.bc.ca/"
+ },
+ {
+  "n": "Belgo Elementary School",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8823009,
+  "lng": -119.3893171,
+  "a": "125 Adventure Rd",
+  "p": "250-870-5115",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "02b70017",
+  "w": "https://bge.sd23.bc.ca/"
+ },
+ {
+  "n": "Casorso Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.852691,
+  "lng": -119.4809706,
+  "a": "3675 Casorso Rd",
+  "p": "250-870-5135",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ac7a04ea",
+  "w": "https://cas.sd23.bc.ca/",
+  "sameComplex": [
+   "c54a2935"
+  ]
+ },
+ {
+  "n": "Springvalley Middle School",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.885162,
+  "lng": -119.4185961,
+  "a": "350 Ziprick Rd",
+  "p": "250-870-5111",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ab1a697d",
+  "w": "https://sms.sd23.bc.ca/"
+ },
+ {
+  "n": "Pearson Road Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8988556,
+  "lng": -119.3994835,
+  "a": "700 Pearson Rd",
+  "p": "250-870-5118",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "0a811768",
+  "w": "https://pse.sd23.bc.ca/",
+  "sameComplex": [
+   "898bef63"
+  ]
+ },
+ {
+  "n": "Glenrosa Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.839497,
+  "lng": -119.6559143,
+  "a": "3430 Webber Rd",
+  "p": "250-870-5142",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "a2009eab",
+  "w": "https://gre.sd23.bc.ca/",
+  "sameComplex": [
+   "a179bf46",
+   "da386d9b"
+  ]
+ },
+ {
+  "n": "Springvalley Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8838102,
+  "lng": -119.4183439,
+  "a": "470 Ziprick Rd",
+  "p": "250-870-5119",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2b06fb39",
+  "w": "https://sve.sd23.bc.ca/",
+  "sameComplex": [
+   "eb1b98e2"
+  ]
+ },
+ {
+  "n": "Hudson Road Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8624676,
+  "lng": -119.5656924,
+  "a": "1221 Hudson Rd",
+  "p": "250-870-5141",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "909afc43",
+  "w": "https://hre.sd23.bc.ca/"
+ },
+ {
+  "n": "Bellevue Creek Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8170119,
+  "lng": -119.4790293,
+  "a": "4574 Raymer Rd",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。设有早期法语沉浸课程（French Immersion）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b60b4067",
+  "w": "https://bce.sd23.bc.ca/",
+  "sameComplex": [
+   "6219b343"
+  ]
+ },
+ {
+  "n": "Black Mountain Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8672889,
+  "lng": -119.3498792,
+  "a": "1650 Gallagher Rd",
+  "p": "250-870-5143",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9f46d604",
+  "w": "https://bme.sd23.bc.ca/",
+  "sameComplex": [
+   "376aca1f"
+  ]
+ },
+ {
+  "n": "Helen Gorman Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8459267,
+  "lng": -119.6716437,
+  "a": "3230 Salmon Rd",
+  "p": "250-870-5116",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9b87bf9f",
+  "w": "https://hge.sd23.bc.ca/",
+  "sameComplex": [
+   "87f3a630"
+  ]
+ },
+ {
+  "n": "Quigley Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.880364,
+  "lng": -119.4001467,
+  "a": "705 Kitch Rd",
+  "p": "250-870-5134",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "0e60f1cd",
+  "w": "https://qge.sd23.bc.ca/",
+  "sameComplex": [
+   "d5b62de3",
+   "8b97ca00"
+  ]
+ },
+ {
+  "n": "Webber Road Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8309546,
+  "lng": -119.6503057,
+  "a": "2829 Inverness Rd",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5f3b8657",
+  "w": "https://wre.sd23.bc.ca/",
+  "sameComplex": [
+   "d04ce332"
+  ]
+ },
+ {
+  "n": "Rose Valley Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8873616,
+  "lng": -119.5558947,
+  "a": "1680 Westlake Rd",
+  "p": "250-870-5146",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "7fc3bca4",
+  "w": "https://rve.sd23.bc.ca/",
+  "sameComplex": [
+   "f29667c6"
+  ]
+ },
+ {
+  "n": "Shannon Lake Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8523782,
+  "lng": -119.6134475,
+  "a": "3044 Sandstone Dr",
+  "p": "250-870-5132",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "fa7b9c81",
+  "w": "https://sle.sd23.bc.ca/"
+ },
+ {
+  "n": "Anne McClymont Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8203795,
+  "lng": -119.4901988,
+  "a": "4489 Lakeshore Rd",
+  "p": "250-870-5133",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1f7c4b6a",
+  "w": "https://ame.sd23.bc.ca/"
+ },
+ {
+  "n": "Glenrosa Middle School",
+  "c": "school",
+  "g": "wk",
+  "lat": 49.8339049,
+  "lng": -119.6580304,
+  "a": "2974 Glen Abbey Pl",
+  "p": "250-870-5176",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。设有早期法语沉浸课程（French Immersion）。设有后期法语沉浸课程。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first. Offers early French immersion. Offers late French immersion.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs. Offre l’immersion française précoce. Offre l’immersion française tardive.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas. Ofrece inmersión temprana en francés. Ofrece inmersión tardía en francés.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요. 초기 프랑스어 몰입 과정 운영. 후기 프랑스어 몰입 과정 운영.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。早期フレンチ・イマージョンあり。後期フレンチ・イマージョンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "a17c0313",
+  "w": "https://gms.sd23.bc.ca/"
+ },
+ {
+  "n": "Ellison Elementary",
+  "c": "elem",
+  "g": "nk",
+  "lat": 49.9382848,
+  "lng": -119.3553687,
+  "a": "3735 Parkdale Rd",
+  "p": "250-870-5140",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "255f0075",
+  "w": "https://ele.sd23.bc.ca/",
+  "sameComplex": [
+   "b7c8b334"
+  ]
+ },
+ {
+  "n": "Chief Tomat Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8423704,
+  "lng": -119.5885942,
+  "a": "3365 East Boundary Rd",
+  "p": "250-870-5127",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9a4d6a38",
+  "w": "https://cte.sd23.bc.ca/",
+  "sameComplex": [
+   "e80e6934"
+  ]
+ },
+ {
+  "n": "Watson Road Elementary",
+  "c": "elem",
+  "g": "gm",
+  "lat": 49.9122892,
+  "lng": -119.4492417,
+  "a": "475 Yates Rd",
+  "p": "250-870-5137",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "24d81f72",
+  "w": "https://wat.sd23.bc.ca/"
+ },
+ {
+  "n": "Constable Neil Bruce Middle School",
+  "c": "school",
+  "g": "wk",
+  "lat": 49.8573584,
+  "lng": -119.5973516,
+  "a": "2010 Daimler Dr",
+  "p": "250-870-5177",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "316c79b3",
+  "w": "https://cnb.sd23.bc.ca/"
+ },
+ {
+  "n": "Rutland Elementary",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8986412,
+  "lng": -119.3755006,
+  "a": "620 Webster Rd",
+  "p": "250-870-5126",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "10baca81",
+  "w": "https://rle.sd23.bc.ca/",
+  "sameComplex": [
+   "3c1968e2"
+  ]
+ },
+ {
+  "n": "Chute Lake Elementary",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.7960002,
+  "lng": -119.5102641,
+  "a": "5240 Lark St",
+  "p": "250-870-5139",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d41ad5ee",
+  "w": "https://cle.sd23.bc.ca/"
+ },
+ {
+  "n": "Mar Jok Elementary",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8759482,
+  "lng": -119.5709013,
+  "a": "2101 Mcdougall Rd",
+  "p": "250-870-5104",
+  "note": {
+   "zh": "SD23 学区公立小学。孩子上哪所学校由家庭住址决定，先在学区网站查学区划分（catchment）。",
+   "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
+   "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
+   "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "db8c5ae8",
+  "w": "https://mje.sd23.bc.ca"
+ },
+ {
+  "n": "Central Secondary",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8811032,
+  "lng": -119.4881298,
+  "a": "1825 Richter St",
+  "note": {
+   "zh": "SD23 学区公立高中。入学按家庭住址划分，先查学区划分。",
+   "en": "SD23 public secondary school. Attendance is by home address — check the catchment map first.",
+   "fr": "École secondaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs.",
+   "es": "Escuela secundaria pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas.",
+   "ko": "SD23 공립 고등학교. 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요.",
+   "ja": "SD23 の公立高校。住所で通学区域が決まるので、まず学区地図を確認してください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3b288097"
+ },
+ {
+  "n": "Canyon Falls Middle School",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8043874,
+  "lng": -119.4675803,
+  "a": "1211 Frost Rd",
+  "p": "250-870-5123",
+  "note": {
+   "zh": "SD23 学区公立初中（middle school）。入学按家庭住址划分，先查学区划分。",
+   "en": "SD23 public middle school. Attendance is by home address — check the catchment map first.",
+   "fr": "École intermédiaire publique du SD23. L’inscription dépend de l’adresse — consultez la carte des secteurs.",
+   "es": "Escuela intermedia pública del SD23. La asignación depende de la dirección: consulte el mapa de zonas.",
+   "ko": "SD23 공립 중학교(middle school). 집 주소에 따라 배정되니 학구 지도를 먼저 확인하세요.",
+   "ja": "SD23 の公立ミドルスクール。住所で通学区域が決まるので、まず学区地図を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "dd785faa",
+  "w": "http://cms.sd23.bc.ca/"
+ },
+ {
+  "n": "Immaculata Regional High School",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8603619,
+  "lng": -119.4656313,
+  "a": "1493 K.L.O. Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "0443c18a"
+ },
+ {
+  "n": "Okanagan Christian School",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.8772606,
+  "lng": -119.3972146,
+  "a": "1035 Hollywood Rd S",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2fe62eba",
+  "sameComplex": [
+   "e35615a5"
+  ]
+ },
+ {
+  "n": "St Joseph Elementary School",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8795169,
+  "lng": -119.4848496,
+  "a": "839 Sutherland Ave",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c823ac20",
+  "sameComplex": [
+   "ebe74ad0"
+  ]
+ },
+ {
+  "n": "Kelowna Christian School",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8628104,
+  "lng": -119.4572087,
+  "a": "2870 Benvoulin Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "fb244ef6"
+ },
+ {
+  "n": "Lakeside School Kelowna",
+  "c": "elem",
+  "g": "pm",
+  "lat": 49.8171862,
+  "lng": -119.4991918,
+  "a": "429 Collett Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "6522ad17",
+  "sameComplex": [
+   "c8d8c96e"
+  ]
+ },
+ {
+  "n": "Flex Academy",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.891303,
+  "lng": -119.404224,
+  "a": "907 Badke Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3b262d43"
+ },
+ {
+  "n": "Okanagan Montessori Elementary School",
+  "c": "elem",
+  "g": "rt",
+  "lat": 49.8668326,
+  "lng": -119.4054837,
+  "a": "3439 East Kelowna Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "74b32082"
+ },
+ {
+  "n": "Our Lady of Lourdes",
+  "c": "school",
+  "g": "wk",
+  "lat": 49.8279514,
+  "lng": -119.6336323,
+  "a": "2547 Hebert Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2237355e",
+  "sameComplex": [
+   "ba40a908",
+   "2aef8bfe"
+  ]
+ },
+ {
+  "n": "Kelowna Arts Academy",
+  "c": "school",
+  "g": "rt",
+  "lat": 49.8926723,
+  "lng": -119.4098538,
+  "a": "1180 Houghton Rd",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "e4881668"
+ },
+ {
+  "n": "Aberdeen Hall Preparatory School",
+  "c": "school",
+  "g": "nk",
+  "lat": 49.9347773,
+  "lng": -119.4019881,
+  "a": "950 Academy Way",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5a639ede"
+ },
+ {
+  "n": "The Balsam School",
+  "c": "elem",
+  "g": "dt",
+  "lat": 49.8919062,
+  "lng": -119.4921213,
+  "a": "101-460 Doyle Ave.",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "851f0107"
+ },
+ {
+  "n": "Sensisyusten House of Learning",
+  "c": "elem",
+  "g": "wk",
+  "lat": 49.8405525,
+  "lng": -119.5963858,
+  "a": "1920 Quail Lane",
+  "note": {
+   "zh": "独立学校（私立），收学费，有自己的招生流程；直接联系学校。",
+   "en": "Independent (private) school — tuition fees and its own admissions; contact the school directly.",
+   "fr": "École indépendante (privée) — frais de scolarité et admission propre ; contactez l’école.",
+   "es": "Escuela independiente (privada): cobra matrícula y tiene su propio proceso de admisión; contacte a la escuela.",
+   "ko": "독립(사립)학교 — 수업료가 있고 자체 입학 절차가 있습니다. 학교에 직접 문의하세요.",
+   "ja": "独立（私立）学校。授業料がかかり、独自の入学手続きがあります。学校に直接問い合わせてください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c6c313dd"
+ },
+ {
+  "n": "École de l'Anse-au-sable",
+  "c": "school",
+  "g": "pm",
+  "lat": 49.8354422,
+  "lng": -119.4838372,
+  "a": "675 Lequime Rd",
+  "note": {
+   "zh": "法语公立学校（CSF 第 93 学区），不属于 SD23。入学资格有规定，先看学校网站或打电话问。",
+   "en": "French-language public school (Conseil scolaire francophone, district 93) — not part of SD23. Eligibility rules apply: check the school’s site or call first.",
+   "fr": "École publique francophone (Conseil scolaire francophone, district 93) — ne fait pas partie du SD23. Des critères d’admissibilité s’appliquent : consultez le site de l’école ou appelez.",
+   "es": "Escuela pública de lengua francesa (Conseil scolaire francophone, distrito 93); no pertenece al SD23. Hay requisitos de admisión: consulte el sitio de la escuela o llame.",
+   "ko": "프랑스어 공립학교(CSF 93학군)로 SD23 소속이 아닙니다. 입학 자격 요건이 있으니 학교 홈페이지를 보거나 먼저 전화하세요.",
+   "ja": "フランス語の公立学校（CSF 第93学区）。SD23 には属しません。入学資格の条件があるので、学校のサイトを見るか、まず電話で確認してください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "082d0de9",
+  "sameComplex": [
+   "0f833406"
+  ]
+ },
+ {
   "n": "Discovery World Daycare",
   "c": "daycare",
   "g": "pm",
@@ -1077,6 +2330,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "c823ac20"
   ],
   "id": "ebe74ad0"
  },
@@ -1150,7 +2406,7 @@
   "id": "3232443d"
  },
  {
-  "n": "Kelowna Christian School",
+  "n": "Kelowna Christian School (child care)",
   "c": "daycare",
   "g": "pm",
   "lat": 49.8584712,
@@ -1261,6 +2517,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "ac7a04ea"
   ],
   "id": "c54a2935"
  },
@@ -1448,6 +2707,7 @@
    "family"
   ],
   "sameComplex": [
+   "2237355e",
    "2aef8bfe"
   ],
   "id": "ba40a908"
@@ -1472,6 +2732,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "19ca3d77"
   ],
   "id": "48fbd878"
  },
@@ -1658,6 +2921,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "0a811768"
+  ],
   "id": "898bef63"
  },
  {
@@ -1727,6 +2993,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "082d0de9"
   ],
   "id": "0f833406"
  },
@@ -1917,6 +3186,7 @@
    "family"
   ],
   "sameComplex": [
+   "a2009eab",
    "da386d9b"
   ],
   "id": "a179bf46"
@@ -1967,6 +3237,7 @@
    "family"
   ],
   "sameComplex": [
+   "a2009eab",
    "a179bf46"
   ],
   "id": "da386d9b"
@@ -2085,6 +3356,7 @@
    "family"
   ],
   "sameComplex": [
+   "2237355e",
    "ba40a908"
   ],
   "id": "2aef8bfe"
@@ -2247,6 +3519,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "5f3b8657"
   ],
   "id": "d04ce332"
  },
@@ -3053,6 +4328,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "99e0b0fb"
+  ],
   "id": "670b7925"
  },
  {
@@ -3076,6 +4354,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "10baca81"
+  ],
   "id": "3c1968e2"
  },
  {
@@ -3098,6 +4379,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "9a4d6a38"
   ],
   "id": "e80e6934"
  },
@@ -3148,6 +4432,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "6522ad17"
+  ],
   "id": "c8d8c96e"
  },
  {
@@ -3170,6 +4457,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "9b87bf9f"
   ],
   "id": "87f3a630"
  },
@@ -3218,6 +4508,7 @@
    "family"
   ],
   "sameComplex": [
+   "0e60f1cd",
    "8b97ca00"
   ],
   "id": "d5b62de3"
@@ -3337,6 +4628,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "2b06fb39"
+  ],
   "id": "eb1b98e2"
  },
  {
@@ -3384,6 +4678,7 @@
    "family"
   ],
   "sameComplex": [
+   "11387f1e",
    "5045ea07"
   ],
   "id": "aa39c368"
@@ -3503,6 +4798,7 @@
    "family"
   ],
   "sameComplex": [
+   "11387f1e",
    "aa39c368"
   ],
   "id": "5045ea07"
@@ -3527,6 +4823,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "c1540438"
   ],
   "id": "9d60a3f7"
  },
@@ -3555,7 +4854,7 @@
   "id": "1f590bf9"
  },
  {
-  "n": "Aberdeen Hall Preparatory School",
+  "n": "Aberdeen Hall Preparatory School (child care)",
   "c": "daycare",
   "g": "nk",
   "lat": 49.92725,
@@ -3622,6 +4921,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "9f46d604"
+  ],
   "id": "376aca1f"
  },
  {
@@ -3644,6 +4946,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "b60b4067"
   ],
   "id": "6219b343"
  },
@@ -3853,6 +5158,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "2fe62eba"
+  ],
   "id": "e35615a5"
  },
  {
@@ -3968,6 +5276,9 @@
   "t": [
    "family"
   ],
+  "sameComplex": [
+   "7fc3bca4"
+  ],
   "id": "f29667c6"
  },
  {
@@ -3992,6 +5303,7 @@
    "family"
   ],
   "sameComplex": [
+   "0e60f1cd",
    "d5b62de3"
   ],
   "id": "8b97ca00"
@@ -4039,6 +5351,9 @@
   "v": "2026-10",
   "t": [
    "family"
+  ],
+  "sameComplex": [
+   "255f0075"
   ],
   "id": "b7c8b334"
  },

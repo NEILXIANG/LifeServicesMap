@@ -1,0 +1,698 @@
+{
+  "meta": {
+    "city": "Kelowna, British Columbia",
+    "compiled": "2026-10-03",
+    "notes": "confidence: official = government body (City of Kelowna incl. YLW, Province of BC, ECCC, Statistics Canada, BC Transit, Interior Health, BC Cancer/PHSA, SD23, CSF, RDCO/COEM, Westbank First Nation as a self-governing government, CIRNAC, Canadian Register of Historic Places); institution = the organisation's own site (UBCO, Okanagan College, ORL, Kelowna Museums, Tourism Kelowna, KCR, ONA, faith/community bodies about themselves); other = media/encyclopedic. kelowna.ca and ylw.kelowna.ca block scripted fetches (Cloudflare 403) but were read in a normal browser session; statcan.gc.ca and kelownamuseums.ca similar. Where a figure came only from a search-engine snippet of an official page, the fact says 'via search snippet'. GTFS-derived facts were computed from BC Transit's static feed downloaded 2026-10-03 (feed valid 2026-10-01 to 2026-12-19)."
+  },
+  "sections": {
+    "geography": [
+      {
+        "fact": "Kelowna lies on the east shore of Okanagan Lake in the Okanagan Valley. Okanagan Lake is about 135 km long and 4-5 km wide.",
+        "source_url": "https://en.wikipedia.org/wiki/Okanagan_Lake",
+        "source_name": "Wikipedia - Okanagan Lake (lake dimensions only; no official figure fetched)",
+        "confidence": "other"
+      },
+      {
+        "fact": "The William R. Bennett Bridge is a five-lane floating bridge across Okanagan Lake. It opened on 25 May 2008, cost $144.5 million and replaced the 1958 Okanagan Lake Bridge. The Province described it as 'a key transportation link between Kelowna and Westbank'. It has an elevated span for boats and a lane for cyclists and pedestrians. When the 1958 bridge opened, it was one of only three floating concrete bridges in the world.",
+        "source_url": "https://archive.news.gov.bc.ca/releases/news_releases_2005-2009/2008otp0141-000810.htm",
+        "source_name": "BC Government news release 2008OTP0141-000810 (Office of the Premier / Ministry of Transportation)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Highway 97 is the region's spine. It runs from West Kelowna (Westbank, Boucherie) over the bridge into downtown Kelowna, where it becomes Harvey Avenue through the central city and Orchard Park. It then continues north (stations at Banks, McCurdy and Sexsmith) to UBC Okanagan and the airport, and on to Lake Country. All 14 stops on RapidBus route 97 are on this corridor.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS feed (stop names and sequence for route 97; derived)",
+        "confidence": "official"
+      },
+      {
+        "fact": "The W.R. Bennett Bridge is the only road crossing of Okanagan Lake in the Central Okanagan. The Ministry of Transportation says its 2019 Central Okanagan Planning Study found that 'a second crossing is not warranted'. It plans instead to add capacity to the existing bridge, such as a sixth lane and HOV/transit lanes.",
+        "source_url": "https://www.castanet.net/news/Kelowna/449310/A-wider-Bennett-Bridge-no-second-crossing-proposed-in-provincial-transportation-strategy",
+        "source_name": "Castanet (reporting the Province's Central Okanagan Integrated Transportation Strategy)",
+        "confidence": "other"
+      },
+      {
+        "fact": "The City's 2040 Official Community Plan names the transportation links that shaped the city since the Second World War: the W.R. Bennett Bridge, the Okanagan Connector and Highway 97C. It also says Kelowna 'is expected to grow by approximately 45,000 citizens over the next 20 years', with growth focused on Urban Centres.",
+        "source_url": "https://www.kelowna.ca/our-community/planning-projects/2040-official-community-plan/ch-2-planning-context",
+        "source_name": "City of Kelowna - 2040 OCP, Chapter 2 Planning Context",
+        "confidence": "official"
+      },
+      {
+        "fact": "The City names its urban centres as Downtown, Rutland, Pandosy, Landmark and Upper Glenmore. It calls them 'neighbourhoods of choice for young people' where residents can walk or bike to shops, cafes, parks and lakes.",
+        "source_url": "https://www.kelowna.ca/our-community/community-stories/growing-kelowna/how-immigration-migration-are-shaping-our-city",
+        "source_name": "City of Kelowna - How Immigration & Migration are Shaping our City",
+        "confidence": "official"
+      },
+      {
+        "fact": "Central Okanagan Emergency Management (COEM) issues alerts by location for Kelowna, West Kelowna, Lake Country, Peachland, Westbank First Nation and Electoral Areas East and West. These are the region's local jurisdictions: two cities, two districts, a self-governing First Nation and two unincorporated electoral areas run by the Regional District of Central Okanagan (RDCO).",
+        "source_url": "https://www.coemergency.ca/updates/central-okanagan-emergency-management-launches-new-emergency-notification-system-thu-04022026-1022",
+        "source_name": "Central Okanagan Emergency Management - Alertable launch (2 Apr 2026)",
+        "confidence": "official"
+      },
+      {
+        "fact": "2021 Census populations: City of Kelowna 144,576; Kelowna CMA 222,162 (+14.0% from 2016, against 7.6% for BC); West Kelowna 36,078; Lake Country 15,817; Peachland 5,789.",
+        "source_url": "https://www12.statcan.gc.ca/census-recensement/2021/as-sa/fogs-spg/Page.cfm?lang=E&topic=1&dguid=2021S0503915",
+        "source_name": "Statistics Canada - Focus on Geography Series, 2021 Census (via search snippets; the page itself is behind a bot check)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Transit is a single regional system. The City says the Kelowna Regional Transit System 'operates service throughout the Central Okanagan including Kelowna, Lake Country, West Kelowna, Westbank First Nation, Peachland and the Regional District of Central Okanagan', with 28 routes, 100 buses, over 190,000 service hours a year and over five million trips a year.",
+        "source_url": "https://www.kelowna.ca/roads-transportation/public-transit/transit-service",
+        "source_name": "City of Kelowna - Transit service",
+        "confidence": "official"
+      },
+      {
+        "fact": "Libraries are also regional. The Okanagan Regional Library (ORL) has 30 branches serving more than 399,000 people over 59,600 km², and membership is free for residents of its regions. Central Okanagan branches: Kelowna Downtown (1380 Ellis St), Kelowna Mission (4105 Gordon Dr), Kelowna Rutland (#20-301 Hwy 33 W), UBCO Kelowna, West Kelowna (3731 Old Okanagan Hwy), Westside Learning Lab (525 Hwy 97 S, West Kelowna), Lake Country and Peachland.",
+        "source_url": "https://orl.bc.ca/hours-locations/",
+        "source_name": "Okanagan Regional Library - About Us / Our Libraries",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Recreation is municipal, so each community registers separately. Examples: the City of West Kelowna owns the Johnson Bentley Memorial Aquatic Centre (3737 Old Okanagan Hwy) and runs its own Recreation & Culture Office. The District of Lake Country runs programs from the Beasley Community Centre (3450 Woodsdale Rd). Peachland Recreation registers at 4450 6th Street. The RDCO runs regional parks across all of them, e.g. Mission Creek Regional Park (92 ha, inside Kelowna) and Kalamoir Regional Park (West Kelowna).",
+        "source_url": "https://www.westkelownacity.ca/parks-recreation-facilities/recreation-guide/",
+        "source_name": "City of West Kelowna; District of Lake Country (lakecountry.bc.ca/recreation); District of Peachland (peachland.ca/parks-recreation/recreation-programs); RDCO park directory (rdco.com/parks-and-trails/park-and-trail-directory/) - via search snippets",
+        "confidence": "official"
+      },
+      {
+        "fact": "Emergency management and air quality are regional too. The Regional Air Quality Program is a joint initiative of the City of Kelowna, City of West Kelowna, Westbank First Nation, RDCO, District of Peachland and District of Lake Country. Fire departments are municipal (e.g. Kelowna Fire Department, West Kelowna Fire Rescue).",
+        "source_url": "https://www.kelowna.ca/our-community/environment/air-quality",
+        "source_name": "City of Kelowna - Air quality",
+        "confidence": "official"
+      },
+      {
+        "fact": "The OCP says there are four syilx reserves within Kelowna city limits: three belong to Westbank First Nation and one to Okanagan Indian Band. So 'Kelowna' addresses can fall under First Nation as well as municipal jurisdiction.",
+        "source_url": "https://www.kelowna.ca/our-community/planning-projects/2040-official-community-plan/ch-2-planning-context",
+        "source_name": "City of Kelowna - 2040 OCP, Chapter 2",
+        "confidence": "official"
+      },
+      {
+        "fact": "The airport and UBC Okanagan are side by side at the north end of the city. On BC Transit route 23 the 'Kelowna Airport' stop is about 3-4 minutes from UBCO Exchange.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS (route 23 stop times; derived)",
+        "confidence": "official"
+      }
+    ],
+    "indigenous": [
+      {
+        "fact": "The City of Kelowna's standard acknowledgement, shown in the footer of kelowna.ca and ylw.kelowna.ca, reads: 'Kelowna is located on the traditional, ancestral, unceded territory of the syilx/Okanagan people.'",
+        "source_url": "https://www.kelowna.ca/our-community/news-events/news/kelowna-international-airport-welcomed-23-million-passengers-2025",
+        "source_name": "City of Kelowna website footer",
+        "confidence": "official"
+      },
+      {
+        "fact": "The City's longer acknowledgement (Climate Resilience site) reads: 'We acknowledge that Kelowna is located on the traditional, ancestral, unceded territory of the syilx/Okanagan people. The syilx Nation, including Westbank First Nation and the Okanagan Indian Band, comprises six communities north of what is now the border between Canada and the US and a confederated tribe south of the border.'",
+        "source_url": "https://climateresilience.kelowna.ca/indigenous-peoples-and-land-acknowledgement",
+        "source_name": "City of Kelowna - Climate Resilience: Indigenous Peoples and Land Acknowledgement",
+        "confidence": "official"
+      },
+      {
+        "fact": "The OCP, co-written by an Indigenous and a settler author, says syilx people have lived in the Okanagan Valley for more than 12,000 years. It says 'Kelowna' is a Nsyilxcen word for a female grizzly bear. Direct European contact came in 1811 with fur traders. In 1865 the Okanagan reserves were 'drastically reduced in size'. In 1974 syilx people from all seven communities held a 'sit-in' at the Indian Affairs office in Vernon, and in 1987 the syilx signed the Okanagan Nation Declaration. Note: the OCP counts seven syilx communities in Canada, while the City's acknowledgement says six north of the border.",
+        "source_url": "https://www.kelowna.ca/our-community/planning-projects/2040-official-community-plan/ch-2-planning-context",
+        "source_name": "City of Kelowna - 2040 OCP, Chapter 2 'Community histories'",
+        "confidence": "official"
+      },
+      {
+        "fact": "The Okanagan Nation Alliance member communities are Upper Nicola Band, Okanagan Indian Band, Westbank First Nation, Penticton Indian Band, Osoyoos Indian Band, Lower Similkameen Indian Band, Upper Similkameen Indian Band and the Colville Confederated Tribes in Washington State. The syilx are a trans-boundary people divided by the 49th parallel.",
+        "source_url": "https://syilx.org/governance/member-communities/",
+        "source_name": "Okanagan Nation Alliance - Member Communities",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Westbank First Nation (WFN) describes its people as suknaqínx, sqilxʷ and/or syilx, speaking nqilxʷcn. It is 'one of eight communities that comprise the Okanagan Nation'. WFN has over 900 Members (about 60% live on reserve) and is home to over 11,000 non-Member residents. Its five land parcels total 5,340 acres: Tsinstikeptum IR 9 and 10, Mission Creek IR 8, Medicine Hill IR 11 and Medicine Creek IR 12. The band was formed on 18 October 1963, separating from the Okanagan Indian Band.",
+        "source_url": "https://www.wfn.ca/our-community/community-profile/history.htm",
+        "source_name": "Westbank First Nation - History & Territory",
+        "confidence": "official"
+      },
+      {
+        "fact": "WFN is self-governing. The Westbank First Nation Self-Government Act received Royal Assent in 2004, and WFN self-government took effect on 1 April 2005. Under the agreement WFN has jurisdiction over the 'management, administration, government, control, regulation, use and protection of Westbank Lands'. The Canadian Charter applies, and non-Members must have ways to give input on WFN laws that affect them.",
+        "source_url": "https://www.rcaanc-cirnac.gc.ca/eng/1100100031766/1543001371378",
+        "source_name": "Crown-Indigenous Relations and Northern Affairs Canada - Westbank First Nation Self-Government Agreement; WFN history page",
+        "confidence": "official"
+      },
+      {
+        "fact": "Non-Members living on WFN lands, mostly leaseholders and tenants, do not vote for Chief and Council. They elect a five-member WFN Advisory Council (one per district: East Boundary, Old Okanagan, Lakeridge, Prairie, Lakeshore). It advises Chief and Council on proposed laws and takes part in the annual Local Government Services Budget, 'which sets property taxation rates'. The next election is 15 October 2026.",
+        "source_url": "http://www.wfn.ca/siya/advcouncil.htm",
+        "source_name": "Westbank First Nation - Advisory Council",
+        "confidence": "official"
+      },
+      {
+        "fact": "Okanagan Indian Band (OKIB) is based near Vernon at the north end of Okanagan Lake and has 2,584 members. It is negotiating outside the BC treaty process. Its land base is 11,282.5 ha.",
+        "source_url": "https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/consulting-with-first-nations/first-nations-negotiations/first-nations-a-z-listing/okanagan-indian-band",
+        "source_name": "Province of BC - First Nations A-Z: Okanagan Indian Band; land base from ONA member communities page",
+        "confidence": "official"
+      },
+      {
+        "fact": "The Sncəwips Heritage Museum is run by Westbank First Nation at 260-525 Highway 97 South (Okanagan Lake Shopping Centre, West Kelowna). It 'shares the history and culture of the syilx people' and reopened in its current space on 1 February 2020. It is open weekdays (WFN listed 10am-4pm Monday to Friday at reopening). Tourism listings translate Sncəwips as 'a conversation with an ancestor'.",
+        "source_url": "https://www.wfn.ca/blog/snceswipsmuseum.htm",
+        "source_name": "Westbank First Nation - sncewips Heritage Museum officially opens; Tourism Kelowna listing (meaning of name)",
+        "confidence": "official"
+      },
+      {
+        "fact": "The Okanagan Heritage Museum (Kelowna Museums, 470 Queensway Ave) has local and regional First Nation artefacts and stories. It runs syilx programming such as a 'syilx Traditional Plant Use Walking Tour' and nsyilxcən events. 'Those who self-identify as Indigenous visit the Okanagan Heritage Museum free of charge.'",
+        "source_url": "https://www.kelownamuseums.ca/exhibits/heritage-of-the-okanagan/",
+        "source_name": "Kelowna Museums - The Heritage of the Okanagan; exhibit/admission page",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Tourism Kelowna's acknowledgement thanks Westbank First Nation and Okanagan Indian Band 'for the privilege to live, work, and play on the tm̓xʷúlaʔxʷ (land)'. Its history page gives the syilx name for Okanagan Lake as kɬúsx̌nítkw.",
+        "source_url": "https://www.tourismkelowna.com/about/mandate/",
+        "source_name": "Tourism Kelowna - Mandate; History of Kelowna page",
+        "confidence": "institution"
+      },
+      {
+        "fact": "The Ki-Low-Na Friendship Society (442 Leon Ave, founded 1974) is the urban Indigenous friendship centre. Its services include family support, Elder care, Indigenous pre-school, housing, employment, counselling and an English as an additional language program.",
+        "source_url": "https://kfs.bc.ca/",
+        "source_name": "Ki-Low-Na Friendship Society (via search snippets of its site and the Central Okanagan community directory)",
+        "confidence": "other"
+      }
+    ],
+    "history": [
+      {
+        "fact": "In 1859 Father Pandosy founded the Mission of the Immaculate Conception, 'recognized as the first permanent European settlement in the Okanagan Valley'. The mission site is still a heritage site.",
+        "source_url": "https://www.tourismkelowna.com/explore/about-kelowna/history/",
+        "source_name": "Tourism Kelowna - History of Kelowna",
+        "confidence": "institution"
+      },
+      {
+        "fact": "In 1892 the townsite of Kelowna was laid out 'on these unceded syilx lands', and it was incorporated in 1905. Between 1904 and 1914 'thousands of acres' of grazing land and hay flats were planted with irrigated orchards. The north end filled with packinghouses, box factories and canneries linked by rail spurs and rail-barge slips.",
+        "source_url": "https://www.kelowna.ca/our-community/planning-projects/2040-official-community-plan/ch-2-planning-context",
+        "source_name": "City of Kelowna - 2040 OCP, Chapter 2",
+        "confidence": "official"
+      },
+      {
+        "fact": "Kelowna Museums describes the Laurel Packinghouse as 'the oldest and largest packinghouse in BC'. Kelowna Museums runs the Okanagan Heritage Museum, Okanagan Military Museum, Okanagan Wine and Orchard Museum and the Laurel Packinghouse.",
+        "source_url": "https://www.kelownamuseums.ca/",
+        "source_name": "Kelowna Museums Society",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Chinese community: in the early twentieth century Kelowna's Chinese community 'numbered about five hundred, or some 10% of the entire local population'. Its Chinatown was on Eli (now Harvey) Avenue. The reconstructed front of a 1920s Chinese Store, 'the only fragment of Chinatown preserved', is inside the Okanagan Heritage Museum. The City's heritage-register entry also tells the story of the Kon Wo Company grocery and the Wong family, including Depression-era hardship.",
+        "source_url": "https://www.kelowna.ca/our-community/arts-culture-heritage/heritage/heritage-register/chinese-store-kelowna-museum-470",
+        "source_name": "City of Kelowna Heritage Register - Chinese Store (Kelowna Museum, 470 Queensway)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Kelowna Museums runs a 'Kelowna's Chinatown' tour during Asian Heritage Month (e.g. 11 May 2025) to explain 'who lived there, why they lived there, and what happened'.",
+        "source_url": "https://www.kelownamuseums.ca/event/kelownas-chinatown-tour/",
+        "source_name": "Kelowna Museums - Kelowna's Chinatown Tour",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Japanese Canadians: the Kelowna Buddhist Temple (1089 Borden Ave), founded in 1933, has served Japanese Canadians in the central Okanagan for decades. It was 'the one place where Japanese Canadians could gather and maintain a sense of community in the face of the culture of discrimination' in parts of the Okanagan during the Second World War. The Province formally recognised it on 11 April 2017 as one of its Japanese Canadian historic places.",
+        "source_url": "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=23243",
+        "source_name": "Canadian Register of Historic Places - Kelowna Buddhist Temple (via search snippet)",
+        "confidence": "official"
+      },
+      {
+        "fact": "From early 2025 to 22 June 2025 the Okanagan Heritage Museum hosted 'Broken Promises', a travelling exhibition from the Nikkei National Museum. It covered the 1940s dispossession of nearly 22,000 Japanese Canadians forcibly removed from BC's coast in 1942.",
+        "source_url": "https://www.kelownamuseums.ca/exhibits/broken-promises/",
+        "source_name": "Kelowna Museums - Broken Promises",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Kelowna has been twinned with Kasugai (Aichi Prefecture, Japan) since 1981. Kasugai Gardens, a Japanese garden in the Cultural District that opened in 1987, celebrates the link and is open from mid-March to mid-October.",
+        "source_url": "https://www.kelowna.ca/our-community/community-stories/celebrating-45-years-kelowna-kasugai-friendship",
+        "source_name": "City of Kelowna - Celebrating 45 Years of Kelowna-Kasugai Friendship (via search snippet)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Punjabi/Sikh community: the Okanagan Sikh Temple and Cultural Society was incorporated in November 1979, when there were 34 Sikh families in Kelowna, Westbank and Lake Country. 'The early Sikh pioneers worked mainly in farming and forest industries.' Early services were held at the German Canadian Harmonie Club. The first temple opened in May 1982, and the current temple (1111 Rutland Rd N) opened on 26 April 2008. This is the temple's own account; no museum or government source was found.",
+        "source_url": "https://www.kelownasikhtemple.ca/",
+        "source_name": "Okanagan Sikh Temple & Cultural Society",
+        "confidence": "institution"
+      },
+      {
+        "fact": "The 'Ellison Field' airstrip opened in 1947 and grew into Kelowna International Airport. YLW dates its history to 1946, 'when Kelowna's residents purchased Dickson Ranch'. Later the economy diversified into tourism, wine and high tech.",
+        "source_url": "https://ylw.kelowna.ca/about-ylw",
+        "source_name": "City of Kelowna - About YLW; 2040 OCP Chapter 2",
+        "confidence": "official"
+      }
+    ],
+    "culture": [
+      {
+        "fact": "The Cultural District is downtown: 'Previously home to canneries, railways, and shipping wharves, today the six square blocks of the Cultural District are home to galleries, theatres, and museums.' Kelowna's Heritage Register lists more than 200 buildings.",
+        "source_url": "https://www.kelowna.ca/our-community/arts-culture-heritage/get-creative",
+        "source_name": "City of Kelowna - Get creative",
+        "confidence": "official"
+      },
+      {
+        "fact": "Main venues in the Cultural District include the Rotary Centre for the Arts (326-seat Mary Irwin Theatre, studios and galleries), the Kelowna Art Gallery (historical and contemporary Canadian art, Family Sundays), the Kelowna Community Theatre (home stage for Ballet Kelowna and the Okanagan Symphony Orchestra) and the Kelowna Museums Society.",
+        "source_url": "https://www.tourismkelowna.com/blog/stories/post/kelownas-cultural-district-a-gem-in-the-heart-of-downtown-kelowna/",
+        "source_name": "Tourism Kelowna - Kelowna's Cultural District",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Okanagan Heritage Museum admission: Adult $10, Student/Senior $8, Youth (5-17) $7, Family $25, 5 and under free. Pay-what-you-wish every second Sunday of the month; free for people who self-identify as Indigenous. Open Mon and Thu-Sat 10am-5pm and Sun 11am-4pm; closed Tue-Wed.",
+        "source_url": "https://www.kelownamuseums.ca/exhibits/broken-promises/",
+        "source_name": "Kelowna Museums - visitor info block",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Wine is central to Kelowna's identity. Tourism Kelowna counts over 40 wineries across Lake Country, Kelowna and West Kelowna and calls Kelowna 'the birthplace of BC wine' (a promotional claim). The OCP notes the wine industry added 'a new complexity to both agriculture and tourism'.",
+        "source_url": "https://www.tourismkelowna.com/blog/stories/post/a-first-timers-guide-to-wine-touring-in-and-around-kelowna/",
+        "source_name": "Tourism Kelowna - wine touring guides (via search snippet)",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Annual events listed by Tourism Kelowna. Summer: Canada Day on the waterfront (music, food trucks, fireworks), Parks Alive!, Kelowna Pride Month, Ribfest, Across the Lake Swim, Rock the Lake. Fall: Okanagan Wine Festival, Feast of Fields, Apple Marathon, Beer Week. Spring: Kelowna MapleFest, Kelowna Beer Festival, Spring Okanagan Wine Festival. Winter: Downtown Kelowna Winter Street Market & Light Up, Craft Culture Holiday Market.",
+        "source_url": "https://www.tourismkelowna.com/events/annual-events-festivals/",
+        "source_name": "Tourism Kelowna - Annual Events & Festivals",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Tourism scale: Tourism Kelowna puts tourism in Kelowna and the Central Okanagan at a $2.4 billion industry supporting about 13,000 jobs. Media reporting Tourism Kelowna's 2025 figures give 2.2 million visitors, $1.2 billion in visitor spending and 5.5 million overnight stays.",
+        "source_url": "https://www.tourismkelowna.com/community/value-of-tourism/",
+        "source_name": "Tourism Kelowna - Value of Tourism; 2025 figures via Global News (https://globalnews.ca/news/11844395/kelowna-tourism-spending-rose-2025/)",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Tourism Kelowna markets 'warm, sunny summers by the lake' and 'mild winters', with nearby mountains for snowy alpine activities. The lake, beaches, wineries, orchards and trails are the core of the city's image.",
+        "source_url": "https://www.tourismkelowna.com/plan/weather-climate/",
+        "source_name": "Tourism Kelowna - Weather & climate",
+        "confidence": "institution"
+      },
+      {
+        "fact": "The Okanagan Rail Trail is a multi-use path on a decommissioned rail line. Most of it opened on 27 September 2018, including nearly 14 km in Kelowna from Ellis Street to Old Vernon Road (paved in Kelowna). When finished it will run 49.5 km from Coldstream to downtown Kelowna. A 2.6 km section is unfinished while land transfers involving Canada, CN and Okanagan Indian Band are completed.",
+        "source_url": "https://www.kelowna.ca/roads-transportation/active-transportation/okanagan-rail-trail",
+        "source_name": "City of Kelowna - Okanagan Rail Trail",
+        "confidence": "official"
+      }
+    ],
+    "climate": [
+      {
+        "fact": "ECCC 1991-2020 Canadian Climate Normals, station 'KELOWNA' (Climate ID 1123939). This is a composite: KELOWNA A (1123970) 1991-2004, KELOWNA AWOS (1123965) 2005-Aug 2009, KELOWNA (1123939) Sep 2009-2020. Daily average temperature: January -2.6 °C, July 20.0 °C, year 8.2 °C. Daily maximum: July 28.5 °C, August 28.2 °C. Daily minimum: January -5.9 °C.",
+        "source_url": "https://climate.weather.gc.ca/climate_normals/results_1991_2020_e.html?climate_id=1123939&lstProvince=&searchType=stnProv&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&dispBack=0",
+        "source_name": "Environment and Climate Change Canada - Canadian Climate Normals 1991-2020 (Kelowna)",
+        "confidence": "official"
+      },
+      {
+        "fact": "1991-2020 normals: 27.8 days a year with a maximum above 30 °C (July 12.0, August 10.9, June 2.8) and 4.1 days above 35 °C. Only 29.2 days a year stay at or below 0 °C all day.",
+        "source_url": "https://climate.weather.gc.ca/climate_normals/results_1991_2020_e.html?climate_id=1123939&lstProvince=&searchType=stnProv&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&dispBack=0",
+        "source_name": "ECCC Climate Normals 1991-2020 (Kelowna) - Days with Maximum Temperature",
+        "confidence": "official"
+      },
+      {
+        "fact": "ECCC's 1991-2020 normals for Kelowna have no precipitation or snowfall averages: the precipitation thread (Kelowna A, 1991-2005) gives a value only for September. The most recent complete official precipitation normals are 1981-2010 for KELOWNA A (1123970): total precipitation 386.9 mm/yr, rainfall 311.3 mm, snowfall 89.0 cm (December 32.0 cm, January 26.9 cm), and 65.4 days/yr with at least 1 cm of snow on the ground.",
+        "source_url": "https://climate.weather.gc.ca/climate_normals/results_1981_2010_e.html?searchType=stnName&txtStationName=kelowna&searchMethod=contains&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&climate_id=1123970&dispBack=0",
+        "source_name": "ECCC Canadian Climate Normals 1981-2010 - KELOWNA A",
+        "confidence": "official"
+      },
+      {
+        "fact": "Winters are grey. Kelowna A's 1981-2010 bright sunshine normals are 35.1 hours in December (13.9% of possible daylight) and 39.4 hours in January (14.8%), against 297.8 hours in July (60.5%). The annual total is 1,948.9 hours. In winter the valley floor sits under persistent cloud.",
+        "source_url": "https://climate.weather.gc.ca/climate_normals/results_1981_2010_e.html?searchType=stnName&txtStationName=kelowna&searchMethod=contains&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&climate_id=1123970&dispBack=0",
+        "source_name": "ECCC Canadian Climate Normals 1981-2010 - KELOWNA A (Bright Sunshine)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Long-term extremes at Kelowna A (1968-2005 record) range from -36.1 °C (December 1968) to 39.5 °C (July 1994).",
+        "source_url": "https://climate.weather.gc.ca/climate_normals/results_1981_2010_e.html?searchType=stnName&txtStationName=kelowna&searchMethod=contains&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&climate_id=1123970&dispBack=0",
+        "source_name": "ECCC Canadian Climate Normals 1981-2010 - KELOWNA A (Extremes)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Valley inversions: the neighbouring Regional District of Okanagan-Similkameen's air-quality guide explains that 'Valley communities are subject to temperature inversions'. They 'can occur more frequently and can last all day during winter months (mid-Nov thru to mid-March)', trapping wood smoke and vehicle exhaust, sometimes for several days. No Central Okanagan (RDCO/City) page with an equivalent statement was found.",
+        "source_url": "https://www.rdos.bc.ca/assets/PUBLICWORKS/AirQuality/Agricultural-Programs/OurAir-OurHealth.pdf",
+        "source_name": "Regional District of Okanagan-Similkameen - 'Our Air, Our Health' air quality guide",
+        "confidence": "official"
+      }
+    ],
+    "hazards": [
+      {
+        "fact": "The City says: 'The Central Okanagan faces a high wildfire risk each year due to its dry summers, forested landscape, and history of major fire events.' Report an active fire in city limits to 911, and smoke or fire in a park to 1-800-663-5555 or *5555 on a cell phone. Kelowna Fire Department carries out planned (prescribed) burns.",
+        "source_url": "https://www.kelowna.ca/city-services/safety-emergency-services/fire-department/wildfires-fire-emergencies",
+        "source_name": "City of Kelowna - Wildfires & fire emergencies",
+        "confidence": "official"
+      },
+      {
+        "fact": "2003 Okanagan Mountain Park fire, as described by the City: started by lightning on 16 August 2003; 'consumed over 25,000 hectares'; forced 'the evacuation of more than 27,000 people'; destroyed '239 homes on the southern edges of the city'. Crews from over 60 BC fire departments, more than 1,000 forestry firefighters and 1,400 Canadian Armed Forces members fought it. The Province's figures: 25,600 ha, 33,050 people evacuated (4,050 of them twice), 238 homes lost or damaged, and 12 wooden trestles destroyed in Myra Canyon.",
+        "source_url": "https://www.kelowna.ca/city-services/safety-emergency-services/fire-department/wildfires-fire-emergencies",
+        "source_name": "City of Kelowna (accordion '2003 Okanagan Mountain Park Fire'); Province of BC - Major Historical Wildfires (https://www2.gov.bc.ca/gov/content/safety/wildfire-status/about-bcws/wildfire-history/major-historical-wildfires)",
+        "confidence": "official"
+      },
+      {
+        "fact": "2023 McDougall Creek wildfire, as described by the City: began on 15 August 2023 'under severe drought conditions'. It 'burned nearly 14,000 hectares and forced more than 35,000 residents from their homes across the Central Okanagan'. 'Over 300 structures were lost, including entire neighbourhoods in West Kelowna and the historic Lake Okanagan Resort.' Strong winds drove it 'across Okanagan Lake, igniting spot fires in Kelowna'. There were no reported fatalities.",
+        "source_url": "https://www.kelowna.ca/city-services/safety-emergency-services/fire-department/wildfires-fire-emergencies",
+        "source_name": "City of Kelowna (accordion '2023 McDougall Creek Wildfire')",
+        "confidence": "official"
+      },
+      {
+        "fact": "A fuel-treatment case study published on gov.bc.ca (FPInnovations, June 2026) says the McDougall Creek wildfire (K52767) started about 5 km northwest of West Kelowna. It 'was responsible for the ignition of the Walroy Lake and Clarke Creek wildfires by lofting embers across Okanagan Lake, which together formed the Grouse Complex'. The Grouse Complex forced 'the evacuation of more than 30 000 citizens' and 'more than 300 structures were impacted'. The lake is not a reliable firebreak.",
+        "source_url": "https://www2.gov.bc.ca/assets/gov/public-safety-and-emergency-services/wildfire-status/prevention/fire-fuel-management/fuels-management/mcdougall_creek_fpi_2026_06_10.pdf",
+        "source_name": "Province of BC (BC Wildfire Service fuels management) - McDougall Creek fuel treatment effectiveness case study",
+        "confidence": "official"
+      },
+      {
+        "fact": "Smoke season: the City publishes the Central Okanagan Air Quality Health Index and guidance on 'What to do when a smoky skies advisory is in place' and when to cancel outdoor events. It recommends home air purifiers. Kelowna is the only Central Okanagan city with a one-minute Idling Control Bylaw (since 25 July 2022).",
+        "source_url": "https://www.kelowna.ca/our-community/environment/air-quality",
+        "source_name": "City of Kelowna - Air quality",
+        "confidence": "official"
+      },
+      {
+        "fact": "Flooding: spring freshet 'typically occurs from April to July'. 'The potential for flooding exists every year', and owners near creeks, low-lying areas and lakefronts are responsible for protecting their property. Courtesy sandbags are available year-round at Fire Station No. 1, 2255 Enterprise Way. In 2017 'record-setting rainfall... combined with snow melt, saturated ground and high groundwater levels resulted in major flooding in Mill Creek, with considerable damage to Bellevue Creek and the Okanagan Lake foreshore'. Kelowna needed repairs at 52 locations costing about $10.7 million.",
+        "source_url": "https://www.kelowna.ca/our-community/environment/flooding",
+        "source_name": "City of Kelowna - Flooding",
+        "confidence": "official"
+      },
+      {
+        "fact": "The Okanagan Basin Water Board reported Okanagan Lake 'at historic levels - 343.16, as of May 31' 2017. Media citing lake-level records give the 2017 peak as 343.25 m on 9 June 2017, about 77 cm above 'full pool'.",
+        "source_url": "https://obwb.ca/update-6-june-2017/",
+        "source_name": "Okanagan Basin Water Board - Update #6 (June 2017); peak figure via KelownaNow",
+        "confidence": "official"
+      },
+      {
+        "fact": "Kelowna, West Kelowna and the Fintry Delta area of the RDCO declared a state of local emergency on 6 May 2017 because of creek flooding.",
+        "source_url": "https://www.kelownanow.com/watercooler/news/news/Kelowna/17/05/10/Status_of_the_State_of_Emergency_in_the_Central_Okanagan/",
+        "source_name": "KelownaNow",
+        "confidence": "other"
+      },
+      {
+        "fact": "How residents get alerts: on 2 April 2026 Central Okanagan Emergency Management replaced its email-only notifications with Alertable. It delivers 'evacuation alerts and orders, wildfire and flood information' by app, email, SMS or phone call, and residents choose locations (Kelowna, West Kelowna, Lake Country, Peachland, Westbank First Nation, Electoral Areas East and West). Sign up at coemergency.ca/subscribe; earlier email subscribers were pre-registered. COEM's website is the official source for emergency information, and its Emergency Operations Centre covers Kelowna, West Kelowna, Lake Country, Peachland and WFN.",
+        "source_url": "https://www.coemergency.ca/updates/central-okanagan-emergency-management-launches-new-emergency-notification-system-thu-04022026-1022",
+        "source_name": "Central Okanagan Emergency Management; RDCO Emergency management page (https://www.rdco.com/living-here/emergency-management/)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Note for the guide: several City pages (wildfire, flooding) still say to 'sign up for email updates' at cordemergency.ca. The current system is Alertable via coemergency.ca/subscribe.",
+        "source_url": "https://www.kelowna.ca/our-community/environment/flooding",
+        "source_name": "City of Kelowna - Flooding (compared with the COEM April 2026 release)",
+        "confidence": "official"
+      }
+    ],
+    "gateways": [
+      {
+        "fact": "Kelowna International Airport (YLW) handled a record 2,315,432 passengers in 2025 and a monthly record of 220,578 in December 2025. In 2025 it offered over 80 daily non-stop flights to 23 destinations with eight airlines. It is 'the ninth busiest airport in Canada and second busiest airport in British Columbia'. In 2025 seats to Mexico rose 37%. A terminal expansion that doubles the departures area opened in late January 2026.",
+        "source_url": "https://www.kelowna.ca/our-community/news-events/news/kelowna-international-airport-welcomed-23-million-passengers-2025",
+        "source_name": "City of Kelowna news release, 6 Feb 2026",
+        "confidence": "official"
+      },
+      {
+        "fact": "YLW calls itself 'the largest municipally owned airport in Canada'; it is run by the City of Kelowna. Its runway is 2,713 m (8,900 ft) long.",
+        "source_url": "https://ylw.kelowna.ca/about-ylw",
+        "source_name": "Kelowna International Airport - About YLW",
+        "confidence": "official"
+      },
+      {
+        "fact": "Direct routes listed by YLW (* = seasonal). Canada: Calgary (Air Canada, Flair*, WestJet), Comox, Cranbrook and Nanaimo (Pacific Coastal), Edmonton (Flair, WestJet), Montreal (Air Canada), Ottawa* (Porter), Prince George (Central Mountain Air, Pacific Coastal), Regina*, Saskatoon* and Winnipeg* (WestJet), Toronto (Air Canada, Porter), Vancouver (Air Canada, Air North, Central Mountain Air, WestJet), Victoria (Pacific Coastal, WestJet), Whitehorse (Air North, same plane via YVR). United States: Seattle (Alaska; WestJet*), Phoenix* (WestJet). Mexico (WestJet, winter seasonal): Cabo San Lucas, Cancun, Mazatlán, Puerto Vallarta. YLW states '21 direct routes and more than 200 one-stop connection destinations'.",
+        "source_url": "https://ylw.kelowna.ca/passengers/destinations-airlines",
+        "source_name": "Kelowna International Airport - Destinations & Airlines (read 2026-10-03)",
+        "confidence": "official"
+      },
+      {
+        "fact": "In 2024 YLW served 2.13 million passengers, and '40 per cent' were identified as non-resident visitors.",
+        "source_url": "https://www.tourismkelowna.com/industry/industry-news-centre/post/ylw-update-winter-20252026/",
+        "source_name": "Tourism Kelowna - YLW Winter 2025/2026 Update",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Getting from YLW to downtown by transit: YLW says the bus stop is 'along Airport Way, near long-term lot B'. In the current GTFS, the only Kelowna Regional Transit route serving the 'Kelowna Airport' stop is route 23 Lake Country, which runs UBCO Exchange - Kelowna Airport - Lake Country (about 3-4 min between UBCO Exchange and the airport). To reach downtown, transfer at UBCO Exchange to RapidBus 97 toward Westbank, which reaches Queensway Exchange downtown about 25 min later; allow roughly 35-50 min in total.",
+        "source_url": "https://ylw.kelowna.ca/passengers/transportation",
+        "source_name": "YLW - Transportation; BC Transit Kelowna GTFS (https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47), derived",
+        "confidence": "official"
+      },
+      {
+        "fact": "Airport bus frequency, from GTFS for fall 2026. A sample weekday (Tue 6 Oct 2026) has 39 airport-to-UBCO departures (about 05:58 to 00:35) and 34 toward Lake Country (05:54 to 19:42). Saturday has only 9 and 8 trips (about 07:00-21:00). On Sundays route 23 does not stop at 'Kelowna Airport'; it only stops at 'Innovation Dr at Airport Way', about 450 m away in a straight line.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS (derived; verify against bctransit.com before publishing)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Route 90 UBCO/Vernon (Vernon Regional Transit System) also stops at Kelowna Airport. It runs between UBC Okanagan and downtown Vernon via Okanagan College's Vernon campus and Winfield: hourly on weekdays (8am-8pm) and Saturdays (9am-7pm), 5 trips on Sundays. The single fare is $6.",
+        "source_url": "https://www.bctransit.com/vernon/schedules-and-maps/route-overview/?route=90",
+        "source_name": "BC Transit - Route 90 overview; fare from bctransit.com/kelowna/fares",
+        "confidence": "official"
+      },
+      {
+        "fact": "Other ground transport at YLW: taxis at the front curb (a $2 fee on airport taxi and ride-hailing trips over 3 km); ride-share (Uber, Uride) from the north end of the terminal; Avis, Budget, Enterprise and Hertz car rentals in the terminal; shuttles to ski resorts.",
+        "source_url": "https://ylw.kelowna.ca/passengers/transportation",
+        "source_name": "Kelowna International Airport - Transportation",
+        "confidence": "official"
+      },
+      {
+        "fact": "Intercity bus: Ebus runs service within the Okanagan and to the Lower Mainland and stops at YLW (meeting area #7, near the south entrance). Advance booking is required. Ebus's ticket kiosk has moved to 516 Lawrence Ave, downtown Kelowna.",
+        "source_url": "https://ylw.kelowna.ca/passengers/transportation",
+        "source_name": "Kelowna International Airport - Transportation (Scheduled Bus Services)",
+        "confidence": "official"
+      },
+      {
+        "fact": "There is no passenger rail. The discontinued CN rail line between Kelowna and Coldstream was bought on 1 June 2015 by the City of Kelowna, District of Lake Country, Regional District of North Okanagan and the Province ($22 million plus land donation) and turned into the Okanagan Rail Trail. No VIA Rail service to Kelowna was found (VIA's site could not be read to confirm).",
+        "source_url": "https://www.kelowna.ca/roads-transportation/active-transportation/okanagan-rail-trail",
+        "source_name": "City of Kelowna - Okanagan Rail Trail",
+        "confidence": "official"
+      }
+    ],
+    "transit": [
+      {
+        "fact": "Current routes in the Kelowna Regional Transit GTFS (fall 2026, 30 entries): 1 Lakeshore/Downtown, 2 North End Shuttle, 3 Dilworth Mountain, 4 Pandosy/Orchard Park, 5 Gordon/Downtown, 6 Glenmore/UBCO Express, 8 University/College, 9 Orchard Park/Downtown, 10 North Rutland/Downtown, 11 Rutland/Downtown, 12 McCulloch, 13 Quail Ridge, 14 Black Mountain, 16 Mission, 18 Glenmore/Downtown, 19 Glenmore/Orchard Park, 20 Lakeview, 21 Glenrosa, 22 Peachland, 23 Lake Country, 24 Shannon Ridge, 25 East Boundary, 26 Old Okanagan, 28 Shannon Lake, 29 Bear Creek, 32 The Lakes, 84 Academy Way, 88 School Special, 97 Okanagan, 98 Rutland/UBCO Express. The City's page says '28 routes'. OnDemand zones (Crawford, Lower Mission) are not in GTFS.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS routes.txt (feed 2026-10-01 to 2026-12-19)",
+        "confidence": "official"
+      },
+      {
+        "fact": "RapidBus route 97 'Okanagan' has 14 stops: Westbank Exchange - Hwy 97 at Butt Rd - Boucherie Mountain Exchange - Westlake-Hudson - Westside Rd - (W.R. Bennett Bridge) - Queensway Exchange (downtown) - Harvey Ave at Richter, Gordon, Parkinson and Cooper (Orchard Park) - Hwy 97 N at Banks, McCurdy and Sexsmith - UBCO Exchange. End to end takes about 58 minutes. On a sample weekday it runs about every 15 minutes (4 trips an hour each way) from about 07:00 to 16:00, then every 20-30 minutes in the evening; first trips about 05:45, last after 01:00.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS (derived from trips/stop_times for Tue 6 Oct 2026)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Service expansion from 4 January 2026: more daily Route 97 trips between Queensway Exchange and Westbank Exchange; more peak and evening service on Route 98 Rutland/UBCO; a new Route 16 Mission replacing 16 Kettle Valley and 17 Southridge; a Route 5 Gordon extension to McClure Rd; OnDemand service in Lower Mission; and new Sunday handyDART (8am-4pm). The Province, BC Transit, the City of Kelowna and the City of West Kelowna partnered on the expansion.",
+        "source_url": "https://news.gov.bc.ca/releases/2026TT0006-000010",
+        "source_name": "BC Government news release 'Expanding transit services in Kelowna', 12 Jan 2026",
+        "confidence": "official"
+      },
+      {
+        "fact": "Fares (Kelowna Regional Transit): single ride $3 and DayPASS $6 for all ages 13+; 30-Day Pass $80 adult or $55 concession; children 12 and under ride free; post-secondary 30-Day College Pass $65 or College Semester Pass $208; U-PASS (UBCO) is 'included in your tuition'; Route 90 single ride $6. The single fare rose to $3 and the 30-day adult pass to $80 on 1 October 2025.",
+        "source_url": "https://www.bctransit.com/kelowna/fares/",
+        "source_name": "BC Transit - Kelowna fares; BC Transit notice 'Fare and fare product changes... October 1' (2025)",
+        "confidence": "official"
+      },
+      {
+        "fact": "Umo, BC Transit's electronic fare system, launched in Kelowna on 13 March 2024 with the Umo Mobility app (QR code) and a free reloadable Umo card; cash is still accepted. Riders can now also tap Interac Debit, Visa, Mastercard or American Express cards, or Apple Pay, Google Pay or Samsung Pay. Contactless riders get a DayPASS automatically after their second tap in a day, if they use the same card or device each time.",
+        "source_url": "https://www.bctransit.com/kelowna/fares/how-fares-work/contactless-payment/",
+        "source_name": "BC Transit - Contactless Payment (Kelowna); Umo launch notice (https://www.bctransit.com/umo-launch-in-kelowna-13-03-2024/)",
+        "confidence": "official"
+      },
+      {
+        "fact": "GTFS is open data on BC Transit's Open Data page. Kelowna is operatorIds=47. Static feed: https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47. Realtime: https://bct.tmix.se/gtfs-realtime/alerts.pb?operatorIds=47, .../tripupdates.pb?operatorIds=47, .../vehicleupdates.pb?operatorIds=47. The static feed downloaded on 2026-10-03 was a 1.2 MB zip valid 2026-10-01 to 2026-12-19, published by Consat Telematics; agency 'BCTransit'.",
+        "source_url": "https://www.bctransit.com/open-data/",
+        "source_name": "BC Transit - Open Data",
+        "confidence": "official"
+      },
+      {
+        "fact": "Route 8 University/College links the two main campuses: UBCO Exchange to Okanagan College Exchange via Rutland and Orchard Park exchanges, about 40-50 minutes one way.",
+        "source_url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+        "source_name": "BC Transit Kelowna GTFS (derived)",
+        "confidence": "official"
+      }
+    ],
+    "education": [
+      {
+        "fact": "Central Okanagan Public Schools (SD23) is 'BC's fifth largest district, serving over 25,000 students'. It has 50 schools: 32 elementary, 8 middle, 5 secondary, 1 alternative, 3 learning centres and 1 online school. It serves Kelowna, West Kelowna, Lake Country, Peachland and the RDCO electoral areas. (An older SD23 'About' page still says about 24,000 students and 46 schools.)",
+        "source_url": "https://www.sd23.bc.ca/district-info",
+        "source_name": "Central Okanagan Public Schools - Vision, Purpose and Goals; About Us",
+        "confidence": "official"
+      },
+      {
+        "fact": "French Immersion: Early French Immersion starts in Kindergarten or Grade 1, and students who continue to Grade 12 earn a double Dogwood. It is offered at several 'École' elementary schools (e.g. Belgo, Bellevue Creek, Casorso, Dorothea Walker, Glenmore, Glenrosa, Peter Greer, Hudson Road), middle schools (Dr. Knox, Glenrosa, H.S. Grenda, KLO) and secondary schools (Kelowna Secondary, Okanagan Mission, George Elliot).",
+        "source_url": "https://www.sd23.bc.ca/french-immersion",
+        "source_name": "Central Okanagan Public Schools - French Immersion (via search snippet)",
+        "confidence": "official"
+      },
+      {
+        "fact": "English Language Learning: 'Students are funded to receive additional ELL instruction for up to a maximum of 5 years.' Proficiency is placed on five levels (Beginning to Bridging). Secondary schools offer non-credit ELL plus four board-authorised credit courses.",
+        "source_url": "https://www.sd23.bc.ca/english-language-learners",
+        "source_name": "Central Okanagan Public Schools - English Language Learners",
+        "confidence": "official"
+      },
+      {
+        "fact": "The SD23 Welcome Centre (1040 Hollywood Road S., Kelowna; 250-870-5155; Welcome.Centre@sd23.bc.ca) registers newcomer students and offers Settlement Workers in Schools (SWIS), parent orientation and newcomer resources. It serves refugees, refugee claimants, permanent residents and families on work or study permits, and does language assessments. The district reports 3,083 newcomer students (2,643 the year before).",
+        "source_url": "https://welcomecentre.sd23.bc.ca/",
+        "source_name": "SD23 Welcome Centre; SD23 2026/2027 Budget Presentation (https://www.sd23.bc.ca/documents/9c1ca0fc-0974-4a3f-911b-376a0c840758/26-27-Budget-Planning-Presentation.pdf) via search snippet",
+        "confidence": "official"
+      },
+      {
+        "fact": "Francophone school: École de l'Anse-au-sable (Conseil scolaire francophone de la Colombie-Britannique), K-12, 675 Lequime Road, Kelowna. It is the CSF's only school in the Central Okanagan; the next nearest is Entre-lacs in Penticton.",
+        "source_url": "https://www.csf.bc.ca/en/our-schools/",
+        "source_name": "Conseil scolaire francophone de la C.-B. - Our schools",
+        "confidence": "official"
+      },
+      {
+        "fact": "UBC Okanagan is at 3333 University Way in north Kelowna, beside the airport. It has 10,523 undergraduate and 1,268 graduate students (17% international, 7% Indigenous), 9 faculties, 679 faculty and 1,363 staff, with students from 99 countries. 2025-26 was UBCO's 20th year.",
+        "source_url": "https://ok.ubc.ca/about/facts-and-figures/",
+        "source_name": "UBC Okanagan - Facts and Figures; 20th-year milestone from UBCO News (https://news.ok.ubc.ca/2025/09/03/ubc-okanagan-kicks-off-milestone-year-with-record-domestic-enrolment/)",
+        "confidence": "institution"
+      },
+      {
+        "fact": "Okanagan College's Kelowna campus is at 1000 KLO Road, in the south-central city. The college has four main campuses (Kelowna, Penticton, Vernon, Salmon Arm) and '15,900+ students attend annually' (7,988 FTE). Programs include ESL and trades.",
+        "source_url": "https://www.okanagancollege.ca/about-oc",
+        "source_name": "Okanagan College - About OC / campuses (via search snippet)",
+        "confidence": "institution"
+      }
+    ],
+    "health": [
+      {
+        "fact": "Kelowna General Hospital (2268 Pandosy St) is run by Interior Health and is one of IH's two tertiary referral hospitals, providing 'high-level, specialty medical care'. Services include a 24-hour emergency and trauma department, cardiac surgery, cancer care (including paediatric oncology), neonatal intensive care, neurosurgery and adult and adolescent psychiatry.",
+        "source_url": "https://www.interiorhealth.ca/locations/kelowna-general-hospital",
+        "source_name": "Interior Health - Kelowna General Hospital",
+        "confidence": "official"
+      },
+      {
+        "fact": "The Interior Heart and Surgical Centre at KGH opened on 28 September 2015. The Premier said it made the Interior 'home to the only cardiac surgery program outside of Victoria and the Lower Mainland'. It has 15 operating rooms (2 for cardiac surgery) and room for up to 600 open-heart procedures a year.",
+        "source_url": "https://news.gov.bc.ca/releases/2015HLTH0084-001729",
+        "source_name": "BC Government news release 'New heart and surgical centre opens', 16 Oct 2015",
+        "confidence": "official"
+      },
+      {
+        "fact": "BC Cancer - Kelowna (Sindi Ahluwalia Hawkins Centre) is the Southern Interior's cancer centre. It provides radiation therapy, systemic therapy (chemotherapy) and supportive care.",
+        "source_url": "https://www.bccancer.bc.ca/our-services/centres-clinics/bc-cancer-kelowna",
+        "source_name": "BC Cancer (PHSA) - BC Cancer Kelowna",
+        "confidence": "official"
+      },
+      {
+        "fact": "Interior Health runs walk-in urgent and primary care centres (UPCCs); patients are seen by urgency, not arrival order. Kelowna UPCC, 1141 Harvey Ave: daily 9:30am-8:30pm including statutory holidays. West Kelowna UPCC, 2484 Main St: daily 11:30am-8:30pm. Rutland UPCC, 150 Hwy 33 W: daily 9:30am-8:30pm per IH (a community directory lists shorter weekday-only hours, so check before going). For health advice, call 8-1-1.",
+        "source_url": "https://www.interiorhealth.ca/locations/kelowna-urgent-primary-care-centre",
+        "source_name": "Interior Health - Kelowna UPCC; West Kelowna UPCC (https://www.interiorhealth.ca/locations/west-kelowna-urgent-and-primary-care-centre); Rutland UPCC (https://www.interiorhealth.ca/locations/rutland-urgent-and-primary-care-centre, via search snippet)",
+        "confidence": "official"
+      },
+      {
+        "fact": "To find a family doctor or nurse practitioner, register with BC's Health Connect Registry online or by phone at 8-1-1 ('Translation services are available in over 130 languages'). You need your Personal Health Number, home address and contact details. Coordinators contact you when a provider becomes available in your area. Don't register if you already have a provider.",
+        "source_url": "https://www.healthlinkbc.ca/find-care/health-connect-registry",
+        "source_name": "HealthLink BC - Health Connect Registry",
+        "confidence": "official"
+      }
+    ],
+    "newcomer_services": [
+      {
+        "fact": "KCR Community Resources is the main settlement agency. Its Immigrant Services include the LINC English Program; Settlement & Integration Services; the Resettlement Assistance Program (RAP) for government-assisted refugees; BC NSP and SAF Haven; Employment Support; a Mentorship Program; translation and interpretation in 50+ languages; a Youth Program (ages 9-17); Job Club; an English Conversation Circle; and Case Management. Phone 250-763-8008.",
+        "source_url": "https://kcr.ca/immigrant-services/",
+        "source_name": "KCR Community Resources - Immigrant Services",
+        "confidence": "institution"
+      },
+      {
+        "fact": "KCR Settlement & Integration Services are for permanent residents, protected persons (IRPA s.95), people IRCC has selected to become permanent residents, and CUAET visa holders; visitors are not eligible. Help is available in English, French, Spanish, Arabic, Farsi, Dari, Mandarin, Korean, Tagalog, Russian, Ukrainian, German and other languages.",
+        "source_url": "https://kcr.ca/immigrant-services/settlement-integration-services/",
+        "source_name": "KCR Community Resources - Settlement & Integration Services",
+        "confidence": "institution"
+      },
+      {
+        "fact": "KCR's LINC page says classes are free, run Pre-CLB to CLB 6 in 90-minute sessions five days a week, and start with a placement test. Eligibility is listed as adults 18+ who are permanent residents, convention refugees, refugee claimants, naturalized citizens or open work permit holders. The page still names 'Citizenship and Immigration Canada', so check whether it is current.",
+        "source_url": "https://kcr.ca/immigrant-services/linc-english-program/",
+        "source_name": "KCR Community Resources - LINC English Program (via search snippet)",
+        "confidence": "institution"
+      },
+      {
+        "fact": "KCR Immigrant Services office: 620 Leon Ave, Kelowna; Monday-Friday 8:30am-4:30pm; immigrantservices@kcr.ca.",
+        "source_url": "https://kelowna.cioc.ca/record/KNA0620",
+        "source_name": "Central Okanagan community services directory (CIOC) record for KCR Immigrant Services (via search snippet)",
+        "confidence": "other"
+      },
+      {
+        "fact": "The Central Okanagan Local Immigration Partnership (COLIP) is coordinated by KCR. It is 'driven by a Council of community stakeholders' (municipal governments, cultural groups, employers, schools, non-profits) and aims to improve coordination of settlement services and support community research and planning. In April 2014 KCR moved from the WelcomeBC Welcoming Communities Program (2007-2014) to the federally funded Local Immigration Partnership. The COLIP page lists no current newcomer guide, immigrant data report or settlement strategy.",
+        "source_url": "https://kcr.ca/immigrant-services/central-okanagan-local-immigration-partnership/",
+        "source_name": "KCR Community Resources - COLIP",
+        "confidence": "institution"
+      },
+      {
+        "fact": "City of Kelowna immigration data: Kelowna's immigrant population 'grew by nearly 70 per cent between 2001 and 2021', against 40% for BC. Among recent newcomers to the region, 53.4% have Asian origins. The top source countries are the Philippines (14%), India (13%), UK (7%), US (7%) and China (6%); the City notes the UK and US share is much higher than in Greater Vancouver or BC. Refugee arrivals (e.g. from Syria, Jamaica and Ukraine) are 13% of new arrivals. The visible-minority share rose from 5% (2001) to 14% (2021). Recent immigrants average 33.2 years old, and 54.4% of those aged 25-64 hold a bachelor's degree or higher.",
+        "source_url": "https://www.kelowna.ca/our-community/community-stories/growing-kelowna/how-immigration-migration-are-shaping-our-city",
+        "source_name": "City of Kelowna - How Immigration & Migration are Shaping our City",
+        "confidence": "official"
+      },
+      {
+        "fact": "Kelowna Newcomers Club (founded 1968, 400+ members) is a social club that helps people new to the area meet others. Many members are not immigrants.",
+        "source_url": "https://www.castanet.net/news/Kelowna/452835/Kelowna-Newcomers-Club-provides-way-to-meet-new-people-learn-about-the-Okanagan",
+        "source_name": "Castanet",
+        "confidence": "other"
+      }
+    ]
+  },
+  "absent_or_different": [
+    {
+      "fact": "Bridge dependency (Kelowna-specific): one five-lane floating bridge (W.R. Bennett, Highway 97) is the only road link between Kelowna and West Kelowna, Westbank First Nation and Peachland, and RapidBus 97 also uses it. The Province plans no second crossing. Crashes or closures on the bridge cut the region in two, so the guide should tell west-side residents to plan for it, including during wildfire evacuations.",
+      "source_url": "https://archive.news.gov.bc.ca/releases/news_releases_2005-2009/2008otp0141-000810.htm",
+      "source_name": "BC Government 2008 bridge release; Castanet on the provincial strategy (no second crossing)",
+      "confidence": "official"
+    },
+    {
+      "fact": "One urban area is split across many governments: the City of Kelowna, City of West Kelowna, District of Lake Country, District of Peachland, self-governing Westbank First Nation (11,000+ non-Member residents on its lands) and two RDCO electoral areas. They share one transit system, one school district, one library system and one emergency program, but recreation, fire, bylaws and property tax depend on the address. Residents on WFN land elect an Advisory Council, not a municipal council. The guide needs a 'which jurisdiction am I in?' step that Kamloops did not need.",
+      "source_url": "http://www.wfn.ca/siya/advcouncil.htm",
+      "source_name": "WFN Advisory Council; City of Kelowna transit page; ORL; COEM",
+      "confidence": "official"
+    },
+    {
+      "fact": "Two big campuses at opposite ends: UBC Okanagan (about 11,800 students) is at the far north end beside the airport, and Okanagan College's Kelowna campus is on KLO Road in the south-central city, 40-50 minutes apart on route 8. By contrast, Thompson Rivers University's main campus is in central Kamloops.",
+      "source_url": "https://ok.ubc.ca/about/facts-and-figures/",
+      "source_name": "UBCO facts; Okanagan College; BC Transit GTFS; TRU campuses (https://www.tru.ca/about/campuses.html)",
+      "confidence": "institution"
+    },
+    {
+      "fact": "Much larger airport: YLW had 2,315,432 passengers in 2025 (9th in Canada) with nonstops to Seattle, Phoenix and four Mexican resorts, against 293,840 at Kamloops Airport (YKA) in 2025. But transit to YLW is thin: only route 23 (and regional route 90) reaches it, with a transfer at UBCO Exchange to go downtown, few Saturday trips, and no Sunday stop at the terminal in the fall 2026 GTFS.",
+      "source_url": "https://www.kelowna.ca/our-community/news-events/news/kelowna-international-airport-welcomed-23-million-passengers-2025",
+      "source_name": "City of Kelowna YLW release; YKA figure via CFJC Today (https://cfjctoday.com/2026/01/13/fewer-flights-fewer-passengers-through-kamloops-airport-in-2025/); BC Transit GTFS",
+      "confidence": "official"
+    },
+    {
+      "fact": "No passenger rail: Kelowna's rail corridor became the Okanagan Rail Trail. Kamloops is on VIA Rail's Canadian (Kamloops North station); this is not confirmed from VIA's own site, which blocked access.",
+      "source_url": "https://www.kelowna.ca/roads-transportation/active-transportation/okanagan-rail-trail",
+      "source_name": "City of Kelowna - Okanagan Rail Trail; Kamloops VIA fact via Wikipedia (https://en.wikipedia.org/wiki/Kamloops_North_station)",
+      "confidence": "official"
+    },
+    {
+      "fact": "More seasonal tourism: about 2.2 million visitors a year and a $2.4B tourism economy, built around summer lake season, wine festivals and seasonal winter sun flights. Newcomers should expect summer crowds and traffic on Highway 97 and at beaches, and seasonal jobs. (Implication drawn from Tourism Kelowna and YLW figures; no official seasonality breakdown found.)",
+      "source_url": "https://www.tourismkelowna.com/community/value-of-tourism/",
+      "source_name": "Tourism Kelowna; YLW destinations",
+      "confidence": "institution"
+    },
+    {
+      "fact": "Lake-specific hazards: Okanagan Lake itself floods (2017 record level and damaged foreshore) on top of creek freshet. In 2023 wildfire embers crossed the lake from West Kelowna into Kelowna and Lake Country, so the lake does not protect the east side.",
+      "source_url": "https://www.kelowna.ca/our-community/environment/flooding",
+      "source_name": "City of Kelowna flooding and wildfire pages; gov.bc.ca McDougall Creek case study",
+      "confidence": "official"
+    },
+    {
+      "fact": "Grey winters: December and January get only about 14-15% of possible sunshine at Kelowna A (35-39 hours a month), and the valley-floor inversion season runs mid-November to mid-March. This is worth a 'winter wellbeing / vitamin D / go up the mountain for sun' note.",
+      "source_url": "https://climate.weather.gc.ca/climate_normals/results_1981_2010_e.html?searchType=stnName&txtStationName=kelowna&searchMethod=contains&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&climate_id=1123970&dispBack=0",
+      "source_name": "ECCC 1981-2010 normals (Kelowna A); RDOS air quality guide",
+      "confidence": "official"
+    },
+    {
+      "fact": "Regional medical hub: KGH has the Interior's only cardiac surgery program, and BC Cancer's Southern Interior centre is in Kelowna. Specialist referrals from across the Interior come here.",
+      "source_url": "https://news.gov.bc.ca/releases/2015HLTH0084-001729",
+      "source_name": "BC Government 2015 IHSC release; BC Cancer Kelowna",
+      "confidence": "official"
+    },
+    {
+      "fact": "RapidBus and tap-to-pay: Kelowna has a BRT-style RapidBus 97 corridor (about every 15 minutes in daytime) and Umo with contactless card and phone payment and automatic DayPASS capping. This differs from a route network built around one downtown exchange.",
+      "source_url": "https://www.bctransit.com/kelowna/fares/how-fares-work/contactless-payment/",
+      "source_name": "BC Transit; Kelowna GTFS",
+      "confidence": "official"
+    },
+    {
+      "fact": "Different immigrant mix: the City reports the Philippines and India as top sources but an unusually high UK and US share (14% combined) among recent immigrants, against 7-8% in Greater Vancouver and BC. Refugees from Syria, Jamaica and Ukraine are about 13% of new arrivals.",
+      "source_url": "https://www.kelowna.ca/our-community/community-stories/growing-kelowna/how-immigration-migration-are-shaping-our-city",
+      "source_name": "City of Kelowna",
+      "confidence": "official"
+    },
+    {
+      "fact": "Rapid growth: Kelowna CMA grew 14.0% between 2016 and 2021 (BC 7.6%, Canada 5.2%), reported as the fastest-growing metro in Canada. The City expects about 45,000 more residents in 20 years, which means pressure on housing and on attachment to family doctors.",
+      "source_url": "https://www12.statcan.gc.ca/census-recensement/2021/as-sa/fogs-spg/Page.cfm?lang=E&topic=1&dguid=2021S0503915",
+      "source_name": "Statistics Canada 2021 Census (via search snippet); City of Kelowna OCP",
+      "confidence": "official"
+    }
+  ],
+  "not_confirmed": [
+    "ECCC 1991-2020 annual precipitation and snowfall for Kelowna: not published for the composite station (precipitation thread covers 1991-2005 and gives only a September value). 1981-2010 Kelowna A values are given instead.",
+    "Days above 30 °C are from 1991-2020 (27.8); sunshine and snow figures are from 1981-2010 only.",
+    "No City of Kelowna or RDCO page describing winter valley cloud or inversions was found; the inversion statement comes from the neighbouring RDOS.",
+    "German and Portuguese settlement history in the Kelowna area: no Kelowna Museums or government source found; only media or other-community museum material, not used.",
+    "Punjabi/Sikh history comes only from the Okanagan Sikh Temple's own site; no museum or government source found.",
+    "The prewar Japanese Canadian population of Kelowna (a figure of about 500 appears in media) was not confirmed from an official source.",
+    "An official final structure count for the 2023 McDougall Creek fire varies: the City says over 300 structures lost (Grouse Complex), the gov.bc.ca case study says more than 300 impacted, and media cite 189 lost or damaged for McDougall Creek alone. The RDCO 'McDougall Creek Wildfire Snapshot' could not be opened (403).",
+    "The Okanagan Lake 2017 peak (343.25 m on 9 June 2017, 77 cm above full pool) is from media citing lake records; the OBWB page fetched shows 343.16 m on 31 May 2017.",
+    "COLIP publications: no current COLIP newcomer guide, immigrant fact sheet or settlement strategy was found on kcr.ca.",
+    "No City of Kelowna 'welcoming community' newcomer program or page was found beyond the 'How Immigration & Migration are Shaping our City' story.",
+    "No VIA Rail confirmation for Kelowna (VIA site blocked); the 'no passenger rail' finding rests on the City's Rail Trail page and the absence of any service found.",
+    "Kelowna Regional Transit funding split among partners: not confirmed on an official page (only a non-official summary).",
+    "The exact wording of the land acknowledgement read at Council meetings was not confirmed; the website footer and Climate Resilience wording are confirmed.",
+    "Sunday airport transit (route 23 skips the terminal stop) is derived from GTFS for fall 2026 and should be checked against the published route 23 timetable.",
+    "Okanagan College enrolment figures conflict (15,900+ annually on okanagancollege.ca versus about 20,500 in a third-party summary); the college's own figure is used."
+  ]
+}

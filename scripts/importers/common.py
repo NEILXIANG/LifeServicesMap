@@ -93,6 +93,8 @@ class CityImport:
                 if not p['sameComplex']: del p['sameComplex']
         self.seed = [p for p in self.places if p['id'] not in self.prov]   # hand-assigned records
         self.area_by_locality = area_by_locality or {}
+        self.name_suffix = None   # e.g. 'child care': appended when the name exists in another category
+        self.word_radius = 40   # schools and other one-of-a-kind names can use more (bc_schools: 400)
         # area anchors (cities/<city>/import/config.json "areaAnchors"): a few points per area;
         # a place gets the area of its nearest anchor. Explicit and stable, unlike voting among
         # whatever records happen to exist (Glenmore had one hand-assigned record and got no
@@ -131,8 +133,9 @@ class CityImport:
     def duplicate_of(self, name, cat, lat, lng, phone=None):
         for p in self.places + self.new:
             d = dist_m(lat, lng, p['lat'], p['lng'])
-            if d < 400 and similar(p['n'], name, words=False): return p          # one name inside the other
-            if d < 40 and p['c'] == cat and similar(p['n'], name): return p      # same building, same words
+            if d < 400 and p['c'] == cat and similar(p['n'], name, words=False): return p   # one name inside the other
+            # (a school and the after-school care in its building are different places: kept, linked)
+            if d < self.word_radius and p['c'] == cat and similar(p['n'], name): return p   # same building, same words
             if d < 40 and phone and p.get('p') == phone: return p
         return None
 
@@ -154,6 +157,22 @@ class CityImport:
         dup = self.duplicate_of(rec['n'], rec['c'], rec['lat'], rec['lng'], rec.get('p'))
         if dup:
             self.skipped.append((rec['n'], 'already listed as ' + dup['n'])); return None
+        # the same name in another category (a school and the child care licensed in its
+        # name) — both are real; the one being imported says what it is
+        # Deterministic whichever importer runs first: child care licensed in a school's name
+        # always carries the suffix, so the school keeps its plain name.
+        clash = [p for p in self.places + self.new if norm(p['n']) == norm(rec['n'])]
+        for p in clash:
+            if p['c'] == rec['c']:
+                self.skipped.append((rec['n'], 'same name already on the map')); return None
+            if p['c'] == 'daycare':
+                p['n'] = '%s (child care)' % p['n']
+            elif rec['c'] == 'daycare':
+                rec['n'] = '%s (child care)' % rec['n']
+            elif self.name_suffix:
+                rec['n'] = '%s (%s)' % (rec['n'], self.name_suffix)
+            else:
+                self.skipped.append((rec['n'], 'same name already on the map')); return None
         rec.setdefault('g', self.area(rec['lat'], rec['lng'], locality))
         rec.setdefault('src', 'opendata'); rec.setdefault('v', MONTH)
         rec['id'] = hashlib.sha1(('%s:%s:%s' % (self.city, self.source, key)).encode()).hexdigest()[:8]

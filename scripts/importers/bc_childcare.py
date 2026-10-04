@@ -85,6 +85,7 @@ def main():
     ap.add_argument('--csv', help='use a downloaded copy instead of fetching')
     a = ap.parse_args()
     imp = CityImport(a.city, 'bc-childcare-map')
+    imp.name_suffix = 'child care'
     cfg = json.load(open(os.path.join(imp.dir, 'import', 'config.json'), encoding='utf-8'))['bc_childcare']
     locs = {k.upper(): v for k, v in cfg['localities'].items()}
     imp.area_by_locality = {k.lower(): v for k, v in locs.items() if v}

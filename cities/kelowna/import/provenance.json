@@ -14,6 +14,11 @@
   "key": "333",
   "source": "bc-childcare-map"
  },
+ "02b70017": {
+  "imported": "2026-10-03",
+  "key": "02323043",
+  "source": "bc-k12-schools"
+ },
  "03255e3f": {
   "imported": "2026-10-03",
   "key": "3714",
@@ -29,15 +34,40 @@
   "key": "2855",
   "source": "bc-childcare-map"
  },
+ "0443c18a": {
+  "imported": "2026-10-03",
+  "key": "02396013",
+  "source": "bc-k12-schools"
+ },
+ "055f52fd": {
+  "imported": "2026-10-03",
+  "key": "02323015",
+  "source": "bc-k12-schools"
+ },
  "05f69ced": {
   "imported": "2026-10-03",
   "key": "4003",
   "source": "bc-childcare-map"
  },
+ "082d0de9": {
+  "imported": "2026-10-03",
+  "key": "09323027",
+  "source": "bc-k12-schools"
+ },
  "090080fe": {
   "imported": "2026-10-03",
   "key": "4699",
   "source": "bc-childcare-map"
+ },
+ "0a811768": {
+  "imported": "2026-10-03",
+  "key": "02323048",
+  "source": "bc-k12-schools"
+ },
+ "0e60f1cd": {
+  "imported": "2026-10-03",
+  "key": "02323060",
+  "source": "bc-k12-schools"
  },
  "0f833406": {
   "imported": "2026-10-03",
@@ -49,10 +79,20 @@
   "key": "4914",
   "source": "bc-childcare-map"
  },
+ "10baca81": {
+  "imported": "2026-10-03",
+  "key": "02323077",
+  "source": "bc-k12-schools"
+ },
  "110d65b3": {
   "imported": "2026-10-03",
   "key": "1424",
   "source": "bc-childcare-map"
+ },
+ "11387f1e": {
+  "imported": "2026-10-03",
+  "key": "02323014",
+  "source": "bc-k12-schools"
  },
  "12a8f201": {
   "imported": "2026-10-03",
@@ -63,6 +103,11 @@
   "imported": "2026-10-03",
   "key": "1774",
   "source": "bc-childcare-map"
+ },
+ "142f1e72": {
+  "imported": "2026-10-03",
+  "key": "02323029",
+  "source": "bc-k12-schools"
  },
  "1484531b": {
   "imported": "2026-10-03",
@@ -78,6 +123,11 @@
   "imported": "2026-10-03",
   "key": "1217",
   "source": "bc-childcare-map"
+ },
+ "19ca3d77": {
+  "imported": "2026-10-03",
+  "key": "02323031",
+  "source": "bc-k12-schools"
  },
  "1a1486ca": {
   "imported": "2026-10-03",
@@ -99,10 +149,30 @@
   "key": "4832",
   "source": "bc-childcare-map"
  },
+ "1f7c4b6a": {
+  "imported": "2026-10-03",
+  "key": "02323070",
+  "source": "bc-k12-schools"
+ },
+ "2237355e": {
+  "imported": "2026-10-03",
+  "key": "02396609",
+  "source": "bc-k12-schools"
+ },
  "23d92c23": {
   "imported": "2026-10-03",
   "key": "2250",
   "source": "bc-childcare-map"
+ },
+ "24d81f72": {
+  "imported": "2026-10-03",
+  "key": "02323074",
+  "source": "bc-k12-schools"
+ },
+ "255f0075": {
+  "imported": "2026-10-03",
+  "key": "02323072",
+  "source": "bc-k12-schools"
  },
  "25a1b828": {
   "imported": "2026-10-03",
@@ -119,6 +189,11 @@
   "key": "2403",
   "source": "bc-childcare-map"
  },
+ "2b06fb39": {
+  "imported": "2026-10-03",
+  "key": "02323050",
+  "source": "bc-k12-schools"
+ },
  "2db506c5": {
   "imported": "2026-10-03",
   "key": "5033",
@@ -128,6 +203,16 @@
   "imported": "2026-10-03",
   "key": "3590",
   "source": "bc-childcare-map"
+ },
+ "2fe62eba": {
+  "imported": "2026-10-03",
+  "key": "02396023",
+  "source": "bc-k12-schools"
+ },
+ "316c79b3": {
+  "imported": "2026-10-03",
+  "key": "02323075",
+  "source": "bc-k12-schools"
  },
  "3232443d": {
   "imported": "2026-10-03",
@@ -159,10 +244,25 @@
   "key": "330",
   "source": "bc-childcare-map"
  },
+ "36879667": {
+  "imported": "2026-10-03",
+  "key": "02323032",
+  "source": "bc-k12-schools"
+ },
  "376aca1f": {
   "imported": "2026-10-03",
   "key": "4992",
   "source": "bc-childcare-map"
+ },
+ "3b262d43": {
+  "imported": "2026-10-03",
+  "key": "02396479",
+  "source": "bc-k12-schools"
+ },
+ "3b288097": {
+  "imported": "2026-10-03",
+  "key": "02323082",
+  "source": "bc-k12-schools"
  },
  "3c1968e2": {
   "imported": "2026-10-03",
@@ -244,6 +344,11 @@
   "key": "3733",
   "source": "bc-childcare-map"
  },
+ "5a639ede": {
+  "imported": "2026-10-03",
+  "key": "02396689",
+  "source": "bc-k12-schools"
+ },
  "5b1a8dd8": {
   "imported": "2026-10-03",
   "key": "5489",
@@ -258,6 +363,11 @@
   "imported": "2026-10-03",
   "key": "325",
   "source": "bc-childcare-map"
+ },
+ "5f3b8657": {
+  "imported": "2026-10-03",
+  "key": "02323063",
+  "source": "bc-k12-schools"
  },
  "5fe285b3": {
   "imported": "2026-10-03",
@@ -279,6 +389,11 @@
   "key": "5289",
   "source": "bc-childcare-map"
  },
+ "6522ad17": {
+  "imported": "2026-10-03",
+  "key": "02396360",
+  "source": "bc-k12-schools"
+ },
  "66c16ca3": {
   "imported": "2026-10-03",
   "key": "2424",
@@ -293,6 +408,11 @@
   "imported": "2026-10-03",
   "key": "611",
   "source": "bc-childcare-map"
+ },
+ "74b32082": {
+  "imported": "2026-10-03",
+  "key": "02396575",
+  "source": "bc-k12-schools"
  },
  "761ce426": {
   "imported": "2026-10-03",
@@ -314,6 +434,11 @@
   "key": "1371",
   "source": "bc-childcare-map"
  },
+ "7fc3bca4": {
+  "imported": "2026-10-03",
+  "key": "02323065",
+  "source": "bc-k12-schools"
+ },
  "805950f8": {
   "imported": "2026-10-03",
   "key": "2945",
@@ -323,6 +448,11 @@
   "imported": "2026-10-03",
   "key": "4423",
   "source": "bc-childcare-map"
+ },
+ "851f0107": {
+  "imported": "2026-10-03",
+  "key": "02396966",
+  "source": "bc-k12-schools"
  },
  "871aa6f0": {
   "imported": "2026-10-03",
@@ -349,6 +479,11 @@
   "key": "5846",
   "source": "bc-childcare-map"
  },
+ "909afc43": {
+  "imported": "2026-10-03",
+  "key": "02323052",
+  "source": "bc-k12-schools"
+ },
  "90e09f43": {
   "imported": "2026-10-03",
   "key": "957",
@@ -369,6 +504,21 @@
   "key": "2683",
   "source": "bc-childcare-map"
  },
+ "99e0b0fb": {
+  "imported": "2026-10-03",
+  "key": "02323034",
+  "source": "bc-k12-schools"
+ },
+ "9a4d6a38": {
+  "imported": "2026-10-03",
+  "key": "02323073",
+  "source": "bc-k12-schools"
+ },
+ "9b87bf9f": {
+  "imported": "2026-10-03",
+  "key": "02323058",
+  "source": "bc-k12-schools"
+ },
  "9c80ab24": {
   "imported": "2026-10-03",
   "key": "3427",
@@ -384,10 +534,30 @@
   "key": "4814",
   "source": "bc-childcare-map"
  },
+ "9f46d604": {
+  "imported": "2026-10-03",
+  "key": "02323056",
+  "source": "bc-k12-schools"
+ },
  "a179bf46": {
   "imported": "2026-10-03",
   "key": "2026",
   "source": "bc-childcare-map"
+ },
+ "a17c0313": {
+  "imported": "2026-10-03",
+  "key": "02323071",
+  "source": "bc-k12-schools"
+ },
+ "a2009eab": {
+  "imported": "2026-10-03",
+  "key": "02323049",
+  "source": "bc-k12-schools"
+ },
+ "a21ef563": {
+  "imported": "2026-10-03",
+  "key": "02323018",
+  "source": "bc-k12-schools"
  },
  "a3317ba1": {
   "imported": "2026-10-03",
@@ -404,6 +574,11 @@
   "key": "4631",
   "source": "bc-childcare-map"
  },
+ "ab1a697d": {
+  "imported": "2026-10-03",
+  "key": "02323047",
+  "source": "bc-k12-schools"
+ },
  "ab8c9c77": {
   "imported": "2026-10-03",
   "key": "796",
@@ -419,6 +594,11 @@
   "key": "4394",
   "source": "bc-childcare-map"
  },
+ "ac7a04ea": {
+  "imported": "2026-10-03",
+  "key": "02323046",
+  "source": "bc-k12-schools"
+ },
  "b0341c51": {
   "imported": "2026-10-03",
   "key": "3702",
@@ -433,6 +613,11 @@
   "imported": "2026-10-03",
   "key": "3894",
   "source": "bc-childcare-map"
+ },
+ "b60b4067": {
+  "imported": "2026-10-03",
+  "key": "02323055",
+  "source": "bc-k12-schools"
  },
  "b635c249": {
   "imported": "2026-10-03",
@@ -479,6 +664,11 @@
   "key": "4655",
   "source": "bc-childcare-map"
  },
+ "c1540438": {
+  "imported": "2026-10-03",
+  "key": "02323033",
+  "source": "bc-k12-schools"
+ },
  "c2b3b977": {
   "imported": "2026-10-03",
   "key": "2730",
@@ -489,6 +679,11 @@
   "key": "5548",
   "source": "bc-childcare-map"
  },
+ "c4f64729": {
+  "imported": "2026-10-03",
+  "key": "02323022",
+  "source": "bc-k12-schools"
+ },
  "c4fe690b": {
   "imported": "2026-10-03",
   "key": "5389",
@@ -498,6 +693,16 @@
   "imported": "2026-10-03",
   "key": "575",
   "source": "bc-childcare-map"
+ },
+ "c6c313dd": {
+  "imported": "2026-10-03",
+  "key": "02397006",
+  "source": "bc-k12-schools"
+ },
+ "c823ac20": {
+  "imported": "2026-10-03",
+  "key": "02396081",
+  "source": "bc-k12-schools"
  },
  "c8d8c96e": {
   "imported": "2026-10-03",
@@ -539,6 +744,11 @@
   "key": "787",
   "source": "bc-childcare-map"
  },
+ "d41ad5ee": {
+  "imported": "2026-10-03",
+  "key": "02323078",
+  "source": "bc-k12-schools"
+ },
  "d5b62de3": {
   "imported": "2026-10-03",
   "key": "4395",
@@ -559,6 +769,11 @@
   "key": "2149",
   "source": "bc-childcare-map"
  },
+ "db8c5ae8": {
+  "imported": "2026-10-03",
+  "key": "02323079",
+  "source": "bc-k12-schools"
+ },
  "dbf1cf60": {
   "imported": "2026-10-03",
   "key": "3512",
@@ -568,6 +783,11 @@
   "imported": "2026-10-03",
   "key": "4427",
   "source": "bc-childcare-map"
+ },
+ "dd785faa": {
+  "imported": "2026-10-03",
+  "key": "02323084",
+  "source": "bc-k12-schools"
  },
  "de8ee64d": {
   "imported": "2026-10-03",
@@ -583,6 +803,11 @@
   "imported": "2026-10-03",
   "key": "5441",
   "source": "bc-childcare-map"
+ },
+ "e4881668": {
+  "imported": "2026-10-03",
+  "key": "02396676",
+  "source": "bc-k12-schools"
  },
  "e57739aa": {
   "imported": "2026-10-03",
@@ -624,6 +849,11 @@
   "key": "311",
   "source": "bc-childcare-map"
  },
+ "f08ee7ee": {
+  "imported": "2026-10-03",
+  "key": "02323030",
+  "source": "bc-k12-schools"
+ },
  "f12ca311": {
   "imported": "2026-10-03",
   "key": "5232",
@@ -633,6 +863,11 @@
   "imported": "2026-10-03",
   "key": "3173",
   "source": "bc-childcare-map"
+ },
+ "f229cc94": {
+  "imported": "2026-10-03",
+  "key": "02323038",
+  "source": "bc-k12-schools"
  },
  "f29667c6": {
   "imported": "2026-10-03",
@@ -654,10 +889,20 @@
   "key": "3742",
   "source": "bc-childcare-map"
  },
+ "fa7b9c81": {
+  "imported": "2026-10-03",
+  "key": "02323067",
+  "source": "bc-k12-schools"
+ },
  "fab0ecd4": {
   "imported": "2026-10-03",
   "key": "4543",
   "source": "bc-childcare-map"
+ },
+ "fb244ef6": {
+  "imported": "2026-10-03",
+  "key": "02396281",
+  "source": "bc-k12-schools"
  },
  "fe577103": {
   "imported": "2026-10-03",

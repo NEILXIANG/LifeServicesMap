@@ -117,5 +117,15 @@
     -119.555
    ]
   ]
+ },
+ "bc_schools": {
+  "cities": [
+   "Kelowna",
+   "West Kelowna",
+   "Westbank"
+  ],
+  "district": "023",
+  "districtShort": "SD23",
+  "sites": "sd23-sites.json"
  }
 }
