@@ -22,7 +22,7 @@ Rules (methodology §5):
 """
 import argparse, json, os, re, sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from common import CityImport
+from common import CityImport, dist_m
 from hours import parse_hours
 import kamdata
 
@@ -93,9 +93,9 @@ def main():
             # a programme of the organisation already on the map at this address (same phone, same
             # building: "English Corner" in a library) is folded into that record — its note says
             # "also here", its name becomes a search word — instead of a second pin on the same spot
-            imp.phone_dedupe = True
-            host = imp.duplicate_of(name, rec['c'], lat, lng, rec.get('p'))
-            imp.phone_dedupe = False
+            # the host: a library or campus within 40 m answering on the same number
+            host = next((q for q in imp.places + imp.new if q['c'] in ('library', 'school') and rec.get('p')
+                         and q.get('p') == rec.get('p') and dist_m(lat, lng, q['lat'], q['lng']) < 40), None)
             SAFETY = {'hospital', 'pharmacy', 'dental', 'support', 'foodbank', 'legal', 'police'}
             if host and (rec['c'] in SAFETY or host['c'] in SAFETY):
                 host = None      # safety-critical services always keep their own pin (a shelter is never a footnote)

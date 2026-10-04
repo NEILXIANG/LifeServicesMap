@@ -161,7 +161,7 @@ class CityImport:
             if d < 400 and p['c'] == cat and similar(p['n'], name, words=False): return p   # one name inside the other
             # (a school and the after-school care in its building are different places: kept, linked)
             if d < self.word_radius and p['c'] == cat and similar(p['n'], name): return p   # same building, same words
-            if d < 40 and phone and self.phone_dedupe and p.get('p') == phone: return p
+            if d < 40 and phone and self.phone_dedupe and p['c'] == cat and p.get('p') == phone: return p   # same switchboard, same kind of place
         return None
 
     def link_same_building(self, rec):
@@ -200,8 +200,8 @@ class CityImport:
                 self.skipped.append((rec['n'], 'same name already on the map')); return None
         rec.setdefault('g', self.area(rec['lat'], rec['lng'], locality))
         rec.setdefault('src', 'opendata'); rec.setdefault('v', MONTH)
-        apply_translation(rec, self.translations)
         rec['id'] = hashlib.sha1(('%s:%s:%s' % (self.city, self.source, key)).encode()).hexdigest()[:8]
+        apply_translation(rec, self.translations)    # needs the id (2026-10-03: was applied before it existed)
         if rec.get('precision') == 'low': self.approx.append(rec['n'])
         self.new.append(rec)
         if rec.get('precision') != 'low': self.link_same_building(rec)

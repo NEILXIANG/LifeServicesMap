@@ -739,8 +739,8 @@
     "Travel Health Consultations",
     "Diabetes Education and Support"
    ],
-   "note_en": "Downtown pharmacy open until 9 p.m. Monday to Saturday and on Sundays. In BC, pharmacists can treat 21 minor ailments, prescribe birth control and renew many prescriptions, free with a PHN.",
-   "note_zh": "市中心药房，周一至周六营业到晚上 9 点，周日也营业。在 BC，药剂师可以治疗 21 种常见小病、开避孕药并续开很多处方，有 PHN 就免费。",
+   "note_en": "Downtown pharmacy, open until 9 p.m. Monday to Saturday and until 6 p.m. on Sundays. In BC, pharmacists can treat 21 minor ailments, prescribe birth control and renew many prescriptions, free with a PHN.",
+   "note_zh": "市中心药房，周一至周六营业到晚上 9 点，周日营业到下午 6 点。在 BC，药剂师可以治疗 21 种常见小病、开避孕药并续开很多处方，有 PHN 就免费。",
    "alias": [
     "pharmacy",
     "drugstore",
