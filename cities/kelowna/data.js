@@ -9,6 +9,8 @@ const CITY={
   bounds:[[49.748,-119.736],[50.028,-119.256]],
   navSuffix:', Kelowna, BC',
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kelowna/'},
+  // search-prompt examples: the university and the main downtown exchange
+  examples:{campus:'UBCO', stop:'Queensway'},
   schoolDistrict:{name:'SD23', url:'https://www.sd23.bc.ca/catchment'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -114,6 +116,16 @@ const FAV_MIGRATE={};
 const LANDMARKS=/*@json landmarks.json*/;
 const LANDMARK_GLOSS={};
 
+// Bus coverage for Kelowna: BC Transit's official GTFS feed (valid 2026-10-01 to 2026-12-19),
+// imported by scripts/importers/gtfs_routes.py. Re-run the importer for each new edition and
+// update the count and date here (validate.py checks the count).
+const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-10-01', stopsChecked:955};
+UI.zh.busCoverage='已收录 {TRANSIT} 在 {CITY} 地区运营的 29 条常规线路（含 RapidBus 97，横跨大桥连接 West {CITY}、市中心和 UBCO）。另有 1 条只在上学日运行的校车专线（88）未显示。线路、站点和首末班时间来自 {TRANSIT} 官方时刻表数据（2026 年 10 月 1 日版），共 955 个站点；实时到站请看 {TRANSIT} 官网。';
+UI.en.busCoverage='All 29 regular routes {TRANSIT} runs in the {CITY} region are included — among them RapidBus 97, which crosses the bridge between West {CITY}, Downtown and UBCO. One school-day-only route (88) is not shown. Routes, stops and first/last trips come from {TRANSIT}’s official timetable data (1 October 2026 edition), 955 stops in all; for live arrivals, see {TRANSIT}’s website.';
+UI.fr.busCoverage='Les 29 lignes régulières exploitées par {TRANSIT} dans la région de {CITY} sont toutes incluses, dont le RapidBus 97 qui traverse le pont entre West {CITY}, le centre-ville et UBCO. Une ligne scolaire (88) n’est pas affichée. Lignes, arrêts et premiers et derniers départs proviennent des données horaires officielles de {TRANSIT} (édition du 1er octobre 2026), 955 arrêts au total ; pour les passages en temps réel, voyez le site de {TRANSIT}.';
+UI.es.busCoverage='Se incluyen las 29 rutas regulares que {TRANSIT} opera en la región de {CITY}, entre ellas el RapidBus 97, que cruza el puente entre West {CITY}, el centro y UBCO. No se muestra una ruta solo para días escolares (88). Rutas, paradas y primeras y últimas salidas provienen de los datos de horarios oficiales de {TRANSIT} (edición del 1 de octubre de 2026), 955 paradas en total; para llegadas en tiempo real, vea el sitio de {TRANSIT}.';
+UI.ko.busCoverage='{TRANSIT}가 {CITY} 지역에서 운행하는 정규 노선 29개가 모두 포함되어 있습니다. 그중 RapidBus 97은 다리를 건너 West {CITY}, 다운타운, UBCO를 잇습니다. 등교일에만 운행하는 노선 1개(88)는 표시하지 않습니다. 노선·정류장·첫차와 막차 시간은 {TRANSIT} 공식 시간표 데이터(2026년 10월 1일판, 정류장 955개)에서 가져왔습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 보세요.';
+UI.ja.busCoverage='{TRANSIT} が {CITY} 地域で運行する定期路線 29 本をすべて収録しています。そのうち RapidBus 97 は橋を渡って West {CITY}、ダウンタウン、UBCO を結びます。登校日のみの路線 1 本（88）は表示していません。路線・停留所・始発と終発は {TRANSIT} の公式時刻表データ（2026年10月1日版、停留所 955 か所）によるものです。リアルタイムの到着情報は {TRANSIT} のサイトをご覧ください。';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

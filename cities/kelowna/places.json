@@ -801,8 +801,8 @@
   "n": "Queensway Exchange",
   "c": "transit",
   "g": "dt",
-  "lat": 49.8873244,
-  "lng": -119.4949632,
+  "lat": 49.887338,
+  "lng": -119.49472,
   "a": "Queensway, downtown Kelowna",
   "note": {
    "zh": "基洛纳市中心的主要公交换乘站，包括 97 路快速公交在内的多条线路在此交汇。",
@@ -813,7 +813,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "98f81277",
   "w": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
  },
@@ -821,8 +820,8 @@
   "n": "Orchard Park Exchange",
   "c": "transit",
   "g": "dt",
-  "lat": 49.8803826,
-  "lng": -119.4425842,
+  "lat": 49.880305,
+  "lng": -119.44238,
   "a": "Cooper Rd at Hwy 97 (Harvey Ave), by Orchard Park mall",
   "note": {
    "zh": "位于 Orchard Park 购物中心旁的 Midtown 繁忙公交换乘站，可前往 UBCO、Rutland 和市中心。",
@@ -833,7 +832,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "9e9403c9",
   "w": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
  },
@@ -841,8 +839,8 @@
   "n": "Rutland Exchange",
   "c": "transit",
   "g": "rt",
-  "lat": 49.8905832,
-  "lng": -119.3920411,
+  "lat": 49.890602,
+  "lng": -119.391568,
   "a": "Shepherd Rd between Asher Rd and Roxby Rd",
   "note": {
    "zh": "Rutland 区的公交换乘站，近期完成升级，可前往 UBCO、Orchard Park 和市中心。",
@@ -853,7 +851,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "3040279c",
   "w": "https://www.bctransit.com/improvements-to-the-rutland-transit-exchange-complete-2026-02-19/"
  },
@@ -861,8 +858,8 @@
   "n": "UBCO Exchange",
   "c": "transit",
   "g": "nk",
-  "lat": 49.9395958,
-  "lng": -119.3948208,
+  "lat": 49.939578,
+  "lng": -119.39424,
   "a": "Transit Way / Alumni Ave, UBC Okanagan campus",
   "note": {
    "zh": "位于 UBC 奥卡纳根校区内的公交换乘站，有 97 路快速公交等线路。",
@@ -873,7 +870,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "50c26906",
   "w": "https://www.bctransit.com/new-ubc-okanagan-transit-exchange-improves-the-customer-experience/"
  },
@@ -881,8 +877,8 @@
   "n": "Okanagan College Exchange",
   "c": "transit",
   "g": "pm",
-  "lat": 49.861347,
-  "lng": -119.479333,
+  "lat": 49.86109,
+  "lng": -119.480133,
   "a": "K.L.O. Rd (north side) at Okanagan College",
   "note": {
    "zh": "位于奥卡纳根学院基洛纳校区的公交换乘站；2026 年扩建期间设有临时换乘点。",
@@ -893,7 +889,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "83d3651f",
   "w": "https://www.kelowna.ca/our-community/planning-projects/capital-projects/klo-ok-college-transit-exchange-expansion"
  },
@@ -5425,5 +5420,77 @@
    "family"
   ],
   "id": "c8e9aaef"
+ },
+ {
+  "n": "Boucherie Mountain Exchange",
+  "c": "transit",
+  "g": "wk",
+  "lat": 49.861882,
+  "lng": -119.58493,
+  "a": "Boucherie Mountain (bus exchange)",
+  "note": {
+   "zh": "公交换乘站（6 个站台）；线路和时间见\"公交路线\"。",
+   "en": "Bus exchange (6 bays); routes and times under Bus Routes."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "36cec009"
+ },
+ {
+  "n": "Mission Rec Exchange",
+  "c": "transit",
+  "g": "pm",
+  "lat": 49.836765,
+  "lng": -119.48062,
+  "a": "Mission Rec (bus exchange)",
+  "note": {
+   "zh": "公交换乘站（2 个站台）；线路和时间见\"公交路线\"。",
+   "en": "Bus exchange (2 bays); routes and times under Bus Routes."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "6f151299"
+ },
+ {
+  "n": "South Pandosy Exchange",
+  "c": "transit",
+  "g": "pm",
+  "lat": 49.86033,
+  "lng": -119.491215,
+  "a": "South Pandosy (bus exchange)",
+  "note": {
+   "zh": "公交换乘站（2 个站台）；线路和时间见\"公交路线\"。",
+   "en": "Bus exchange (2 bays); routes and times under Bus Routes."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "ddccef60"
+ },
+ {
+  "n": "Westbank Exchange",
+  "c": "transit",
+  "g": "wk",
+  "lat": 49.829093,
+  "lng": -119.63084,
+  "a": "Westbank (bus exchange)",
+  "note": {
+   "zh": "公交换乘站（4 个站台）；线路和时间见\"公交路线\"。",
+   "en": "Bus exchange (4 bays); routes and times under Bus Routes."
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "a13a4fa3"
  }
 ]
