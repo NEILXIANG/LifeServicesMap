@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  App icon / home-screen tile. The same single path as logo.svg, given the
+  tinted ground and the margin a launcher needs — see logo.svg for why the mark
+  is what it is.
+
+  This replaces a full-bleed drawing of the confluence. That drawing was right
+  about what to say and wrong about how it would be seen: with no frame and no
+  silhouette, at the size an icon is actually looked at, it read as a wishbone.
+
+  Two constraints the geometry satisfies:
+  · No width/height attributes, only a viewBox, so it scales into whatever box a
+    favicon, a home-screen tile or an app-switcher card gives it.
+  · "any maskable" means the platform cuts its own shape out of this, so the
+    ground bleeds to all four edges and the whole pin sits inside the central
+    80% safe circle (radius 76.8 about 96,96) — nothing load-bearing can be
+    clipped, whatever shape the launcher chooses.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img"
+     aria-label="A map pin holding two rivers meeting">
+  <rect width="192" height="192" fill="#EAF1FB"/>
+  <g transform="translate(96 96) scale(0.78) translate(-96 -96)">
+    <path fill="#1a73e8" fill-rule="evenodd" d="
+      M96 24c-28.2 0-51 22.8-51 51 0 37.5 51 93 51 93s51-55.5 51-93c0-28.2-22.8-51-51-51z
+      M96 62.6 L73.8 46.5 a7.8 7.8 0 0 0-9.2 12.6 L87.6 75.6 v34.2 a8.4 8.4 0 0 0 16.8 0 V75.6
+      l23-16.5 a7.8 7.8 0 0 0-9.2-12.6 Z"/>
+  </g>
+</svg>

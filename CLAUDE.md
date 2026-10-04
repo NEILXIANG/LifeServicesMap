@@ -11,6 +11,7 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 ./scripts/check-all.sh               # 再加全部浏览器测试（需 .venv 里的 Playwright）
 ./deploy.sh                          # 构建 → 校验 → wrangler deploy → 线上探针（需 npm install）
 ./deploy.sh --verify-only            # 只跑线上探针
+./deploy.sh --city <id> --dry-run    # 看某座城市的部署设置（网址、Worker、目录），不部署
 ```
 
 首次准备：`npm install`（锁定版本的 wrangler）；
@@ -23,7 +24,9 @@ python3 build.py                     # → build/kamloops.html，并同步 publi
 - `scripts/` 校验、链接检查、开放数据导出、统计分析，都接受 `--city <id>`（默认 kamloops）。
 - `tests/engine/` 引擎测试，用测试城市 `cities/_fixture/`（Testville，由 `tests/make-fixture-city.py` 生成，不要手改）；
   `tests/kamloops/` 线上城市的完整回归（索引见其 README）。
-- `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头。
+- `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头；城市无关，所有城市共用。
+- 部署：每座城市一个 Worker（决策 D1），设置在 `city.json` 的 `deploy` 段；`app/pwa/` 是 sw.js / manifest / 图标模板，
+  构建时按城市渲染到部署目录（Kamloops 是 `public/`，网址永久不变、不跳转）。统计按 `blob5` 区分城市，查询加 `--city`。
 - 运营资料（外联邮件、对外 PDF）不在仓库里，在同级目录 `../Guide to Life in Canada - ops/`。
 
 ## 规则

@@ -10,7 +10,7 @@ The single-file output is deliberate: no server, no build step for the reader, a
 anyone can keep their own copy. The split exists so that an engine improvement
 reaches every city at once instead of being re-applied to each one by hand.
 """
-import argparse, os, re, sys, datetime, json
+import argparse, os, re, sys, datetime, json, shutil
 from html import escape as html_escape
 
 def _project_root(p):
@@ -28,6 +28,30 @@ sys.path.insert(0, HERE)
 import kamdata
 MARKER = '/*__CITY_DATA__*/'
 META_MARKER = '/*__CITY_META__*/'
+
+
+PWA = os.path.join(HERE, 'app', 'pwa')
+
+def render_pwa(name, meta, deploy):
+    """app/pwa/<name> with the city's values filled in."""
+    t = open(os.path.join(PWA, name), encoding='utf-8').read()
+    vals = {'{{BASE}}': deploy['basePath'], '{{SW_CACHE}}': deploy['swCache'],
+            '{{PWA_LABEL}}': deploy['pwaLabel'], '{{TITLE}}': meta['title'],
+            '{{PWA_DESC}}': deploy['pwaDescription']}
+    for k, v in vals.items():
+        t = t.replace(k, v)
+    left = re.findall(r'\{\{[A-Z_]+\}\}', t)
+    if left:
+        sys.exit('app/pwa/%s: unfilled %s' % (name, sorted(set(left))))
+    return t
+
+def write_deploy_folder(assets, html, meta, deploy):
+    os.makedirs(assets, exist_ok=True)
+    open(os.path.join(assets, 'index.html'), 'w', encoding='utf-8').write(html)
+    for name in ('sw.js', 'manifest.json'):
+        open(os.path.join(assets, name), 'w', encoding='utf-8').write(render_pwa(name, meta, deploy))
+    for name in ('icon.svg', 'icon-180.png', 'icon-512.png'):
+        shutil.copyfile(os.path.join(PWA, name), os.path.join(assets, name))
 
 
 def build(city, out_path=None, inline_libs=True, sync_public=True):
@@ -52,6 +76,7 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     meta = json.load(open(meta_path, encoding='utf-8'))
     meta.pop('_comment', None)
     meta.pop('validate', None)      # validate.py's settings; the page never needs them
+    deploy = meta.pop('deploy', None)  # deploy settings; used below, not shipped in the page
     for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
         if k not in meta:
             sys.exit('%s: missing "%s"' % (meta_path, k))
@@ -77,26 +102,18 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     os.makedirs(os.path.dirname(os.path.abspath(out_path)), exist_ok=True)
     open(out_path, 'w', encoding='utf-8').write(html)
 
-    # deploy.sh's own [1/5] step rebuilds public/index.html — that is the file
-    # actually served by the Cloudflare Worker — but that only happens when
-    # someone runs deploy.sh. Anyone (including this build script's other
-    # callers, e.g. a plain `--city kamloops` run used only to feed
-    # validate.py/regress.py during local iteration) who rebuilds root
-    # kamloops.html without also running deploy.sh leaves public/index.html
-    # silently behind (this is exactly what happened 2026.09.07→08: root was
-    # rebuilt many times, public/index.html sat untouched since 04:56).
-    # So for kamloops specifically, every build keeps both copies in sync by
-    # default — the deploy artifact can no longer drift just because deploy.sh
-    # wasn't the thing that was run. Pass sync_public=False (or --no-sync-public
-    # from the CLI) for the rare case of a one-off test build (e.g. --cdn) that
-    # should not touch the real deploy artifact.
-    public_dir = os.path.join(HERE, 'public')
-    public_index = os.path.join(public_dir, 'index.html')
+    # 2026-09-08: the deploy folder must never drift from the build — every build of
+    # a deployable city refreshes it (public/ for Kamloops). 2026-10-03 (phase 4):
+    # driven by city.json "deploy" instead of `city == 'kamloops'`, and the folder is
+    # complete: index.html plus the manifest, service worker and icons rendered from
+    # app/pwa/ (Kamloops' render is byte-identical to the files it has always served).
+    # Pass sync_public=False (--no-sync-public) for one-off test builds.
     synced_public = False
-    if (sync_public and city == 'kamloops' and os.path.isdir(public_dir)
-            and os.path.abspath(out_path) != os.path.abspath(public_index)):
-        open(public_index, 'w', encoding='utf-8').write(html)
-        synced_public = True
+    if sync_public and deploy:
+        assets = os.path.join(HERE, deploy['assetsDir'])
+        if os.path.abspath(out_path) != os.path.abspath(os.path.join(assets, 'index.html')):
+            write_deploy_folder(assets, html, meta, deploy)
+            synced_public = True
 
     return out_path, len(html.encode()), synced_public
 
@@ -152,4 +169,4 @@ if __name__ == '__main__':
                                        sync_public=not a.no_sync_public)
     print('built %s  (%d KB)' % (path, size // 1024))
     if synced_public:
-        print('also synced public/index.html (the Cloudflare deploy artifact) to match')
+        print('also refreshed the deploy folder (index.html, sw.js, manifest.json, icons)')

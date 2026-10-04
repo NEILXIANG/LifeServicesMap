@@ -32,7 +32,7 @@ PAGE = 5000   # rows per request; pages walk back by timestamp so nothing is dro
 
 
 def main():
-    args = sys.argv[1:]
+    args = qe.take_city_arg(sys.argv[1:])
     days = 5
     if "--days" in args:
         days = int(args[args.index("--days") + 1])

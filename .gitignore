@@ -68,3 +68,6 @@ __pycache__/
 /docs/public/
 /Claude outputs/
 .venv/
+
+# 2026-10-03 阶段 4：Kamloops 以外城市的部署目录，build.py 生成
+/deploy/

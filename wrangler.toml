@@ -40,3 +40,26 @@ dataset = "kamloops_events"
 # Compatibility flags — none needed for this project today, but the section is
 # here so adding them later doesn't mean another round of "where does this go".
 # compatibility_flags = []
+# ---------------------------------------------------------------------------
+# 其他城市（2026-10-03 阶段 4，决策 D1：每座城市一个 Worker）
+#
+# Kamloops 用上面的顶层配置，Worker 名和网址永久不变。新城市各加一个环境，
+# 部署：./deploy.sh --city <city>（会带上 --env <city>）。环境里的 binding 不会继承
+# 顶层，assets 和 analytics_engine_datasets 都要写全。所有城市写同一个数据集
+# kamloops_events（改名会丢掉 Kamloops 的历史数据），按 blob5 = 城市 key 区分；
+# 查询加 --city，见 scripts/analytics/query-events.py。
+#
+# 对应的 cities/<city>/city.json 需要：
+#   "siteUrl": "https://<city>-lifemap.neilxiang.workers.dev/",
+#   "deploy": {"worker": "<city>-lifemap", "wranglerEnv": "<city>",
+#              "assetsDir": "deploy/<city>", "basePath": "/", "swCache": "<city>-lifemap-v1.0.0", ...}
+#
+# [env.kelowna]
+# name = "kelowna-lifemap"
+# [env.kelowna.assets]
+# directory = "./deploy/kelowna"
+# binding = "ASSETS"
+# run_worker_first = true
+# [[env.kelowna.analytics_engine_datasets]]
+# binding = "ANALYTICS"
+# dataset = "kamloops_events"
