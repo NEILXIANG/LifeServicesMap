@@ -1,0 +1,121 @@
+{
+ "_comment": "Settings for the reusable importers in scripts/importers/. Locality names as each dataset spells them; a value forces the area key, null lets the nearest hand-assigned records decide.",
+ "bc_childcare": {
+  "localities": {
+   "KELOWNA": null,
+   "WEST KELOWNA": "wk",
+   "WESTBANK": "wk"
+  }
+ },
+ "areaAnchors": {
+  "_comment": "Approximate anchor points per area (lat,lng), chosen at well-known places in each area; nearest anchor decides. West Kelowna is decided by locality, these only catch what has none.",
+  "dt": [
+   [
+    49.886,
+    -119.496
+   ],
+   [
+    49.895,
+    -119.49
+   ],
+   [
+    49.884,
+    -119.47
+   ],
+   [
+    49.88,
+    -119.445
+   ]
+  ],
+  "pm": [
+   [
+    49.875,
+    -119.492
+   ],
+   [
+    49.862,
+    -119.48
+   ],
+   [
+    49.84,
+    -119.49
+   ],
+   [
+    49.82,
+    -119.46
+   ],
+   [
+    49.81,
+    -119.43
+   ]
+  ],
+  "rt": [
+   [
+    49.89,
+    -119.395
+   ],
+   [
+    49.875,
+    -119.4
+   ],
+   [
+    49.89,
+    -119.36
+   ],
+   [
+    49.87,
+    -119.38
+   ]
+  ],
+  "gm": [
+   [
+    49.9,
+    -119.45
+   ],
+   [
+    49.912,
+    -119.44
+   ],
+   [
+    49.925,
+    -119.43
+   ],
+   [
+    49.938,
+    -119.44
+   ]
+  ],
+  "nk": [
+   [
+    49.94,
+    -119.4
+   ],
+   [
+    49.957,
+    -119.38
+   ],
+   [
+    49.935,
+    -119.375
+   ],
+   [
+    49.92,
+    -119.405
+   ]
+  ],
+  "wk": [
+   [
+    49.865,
+    -119.58
+   ],
+   [
+    49.83,
+    -119.62
+   ],
+   [
+    49.87,
+    -119.555
+   ]
+  ]
+ }
+}

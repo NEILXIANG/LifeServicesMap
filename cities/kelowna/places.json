@@ -1010,5 +1010,3105 @@
   "v": "2026-10",
   "id": "33c1c94c",
   "w": "https://www.kelownasunshinemarket.ca/"
+ },
+ {
+  "n": "Discovery World Daycare",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8701911,
+  "lng": -119.4835271,
+  "a": "870 Francis Ave",
+  "p": "250-868-7395",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：3 岁以下、2 岁半到 5 岁、课后托管（1 年级到 12 岁）。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: under 3, 2½ to 5, before/after school (grade 1 to age 12). In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : moins de 3 ans, 2 ans et demi à 5 ans, avant et après l’école (1re année à 12 ans). Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: menores de 3 años, de 2 años y medio a 5, antes y después de la escuela (de 1.º grado a 12 años). Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 3세 미만, 2세 반~5세, 방과 전후 돌봄(1학년~12세). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：3歳未満、2歳半〜5歳、学童保育（1年生〜12歳）。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "25a1b828"
+ },
+ {
+  "n": "Kids Corner Daycare",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8581664,
+  "lng": -119.4721036,
+  "a": "3261 Gordon Dr",
+  "p": "250-861-5437",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3379f1cd"
+ },
+ {
+  "n": "The Clubhouse at Sutherland",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8795169,
+  "lng": -119.4848496,
+  "a": "839 Sutherland Ave",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ebe74ad0"
+ },
+ {
+  "n": "Red Balloon Daycare #",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8618678,
+  "lng": -119.5671593,
+  "a": "2648 Alhambra Dr",
+  "p": "250-769-7052",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f06c46d2"
+ },
+ {
+  "n": "Glenmore Recreation After School Program",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9231067,
+  "lng": -119.4411005,
+  "a": "239 Snowsell St",
+  "p": "250-763-6343",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5f3a2c44"
+ },
+ {
+  "n": "For the Kids Daycare Centre",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8428334,
+  "lng": -119.3963291,
+  "a": "3770 Water Rd",
+  "p": "250-762-3661",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3232443d"
+ },
+ {
+  "n": "Kelowna Christian School",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8584712,
+  "lng": -119.4716132,
+  "a": "3285 Gordon Dr",
+  "p": "250-861-5432",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3455c7bb"
+ },
+ {
+  "n": "Cornerstone Early Learning Center",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.879823,
+  "lng": -119.4633752,
+  "a": "1920 Dunn St",
+  "p": "250-681-6884",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "02387c3d"
+ },
+ {
+  "n": "Daycare Connection",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8869221,
+  "lng": -119.4815286,
+  "a": "934 Bernard Ave",
+  "p": "250-860-2721",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。可用语言（除英语外）：旁遮普语、法语、西班牙语。年龄：3 岁以下、2 岁半到 5 岁。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Languages besides English: Punjabi, French, Spanish. Ages: under 3, 2½ to 5. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Langues en plus de l’anglais : pendjabi, français, espagnol. Âges : moins de 3 ans, 2 ans et demi à 5 ans. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Idiomas además del inglés: panyabí, francés, español. Edades: menores de 3 años, de 2 años y medio a 5. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 영어 외 가능 언어: 펀자브어, 프랑스어, 스페인어. 연령: 3세 미만, 2세 반~5세. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。英語以外の対応言語：パンジャーブ語、フランス語、スペイン語。年齢：3歳未満、2歳半〜5歳。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b8a42166"
+ },
+ {
+  "n": "Butterfly Kisses",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8896943,
+  "lng": -119.3719784,
+  "a": "770 Stearns Rd",
+  "p": "250-826-7298",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9d097609"
+ },
+ {
+  "n": "The Clubhouse at Casorso",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.852691,
+  "lng": -119.4809706,
+  "a": "3675 Casorso Rd",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c54a2935"
+ },
+ {
+  "n": "Westbank First Nation After School Program",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.840311,
+  "lng": -119.5942704,
+  "a": "1880 Quail Lane",
+  "p": "250-317-7397",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "6a265fd9"
+ },
+ {
+  "n": "Bella Vita- Glenmore",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9151088,
+  "lng": -119.4399442,
+  "a": "615-1984 Kane Rd",
+  "p": "778-898-4544",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "4be767e2"
+ },
+ {
+  "n": "Creative Advantage Klo",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8613773,
+  "lng": -119.4569532,
+  "a": "7-1790 K.l.o. Rd",
+  "p": "250-300-5498",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d21f56ed"
+ },
+ {
+  "n": "Ms Patty's Westside Montessori Children's Centre",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8380296,
+  "lng": -119.667491,
+  "a": "3155 Glenrosa Rd",
+  "p": "250-869-5185",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ab8c9c77"
+ },
+ {
+  "n": "Shannon Woods Childcare",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8704215,
+  "lng": -119.6067194,
+  "a": "2162 Shannon Woods Way",
+  "p": "250-575-8645",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take.",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés.",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan.",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "90e09f43"
+ },
+ {
+  "n": "Nature Dreams Daycare",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.844501,
+  "lng": -119.622767,
+  "a": "426-2440 Old Okanagan Hwy",
+  "p": "778-583-7868",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "f756d812"
+ },
+ {
+  "n": "Kelowna Kids Co. (2750 Richter St)",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8657016,
+  "lng": -119.4884976,
+  "a": "201-2750 Richter St",
+  "p": "778-392-8432",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ee7dcf47"
+ },
+ {
+  "n": "Angels Academy Childcare Centre",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8279514,
+  "lng": -119.6336323,
+  "a": "2547 Herbert Rd",
+  "p": "250-863-0244",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "2aef8bfe"
+  ],
+  "id": "ba40a908"
+ },
+ {
+  "n": "Okanagan Boys and Girls Clubs - A.s. Matheson",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8759984,
+  "lng": -119.4777947,
+  "a": "2090 Gordon Dr",
+  "p": "250-762-3989",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "48fbd878"
+ },
+ {
+  "n": "Lil' Bloomers Childcare",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8902833,
+  "lng": -119.3889988,
+  "a": "215 Shepherd Rd",
+  "p": "250-868-7259",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "12a8f201"
+ },
+ {
+  "n": "Kinderheart Montessori Lakeview",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8594418,
+  "lng": -119.5515976,
+  "a": "865 Anders Rd",
+  "p": "604-460-8558",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "871aa6f0"
+ },
+ {
+  "n": "Treehouse Forest Preschool",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8112733,
+  "lng": -119.4711157,
+  "a": "4711 Raymer Rd",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "168219cd"
+ },
+ {
+  "n": "Glenmore Little Bears Early Years Centre",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.8999804,
+  "lng": -119.4632536,
+  "a": "1603 Sonora Dr",
+  "p": "250-808-5216",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1e6ac086"
+ },
+ {
+  "n": "Cefa Early Learning Spall Road",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8834612,
+  "lng": -119.4532552,
+  "a": "3-1745 Spall Rd",
+  "p": "236-361-5511",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3d48183e"
+ },
+ {
+  "n": "Big Dreamers Daycare - Mac House",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.907216,
+  "lng": -119.388649,
+  "a": "155 Fitzpatrick Rd",
+  "p": "250-765-5777",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "409fbb51"
+ },
+ {
+  "n": "Cloud Nine Kids Childcare Centre",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8498998,
+  "lng": -119.4779346,
+  "a": "3714 Gordon Dr",
+  "p": "778-392-8555",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "7e74814a"
+ },
+ {
+  "n": "Ymca-Pearson Out of School Care",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8988556,
+  "lng": -119.3994835,
+  "a": "700 Pearson Rd",
+  "p": "250-317-9120",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "898bef63"
+ },
+ {
+  "n": "Play & Learn at Parkinson",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.887409,
+  "lng": -119.457202,
+  "a": "1800 Parkinson Way",
+  "p": "250-470-0639",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "110d65b3"
+ },
+ {
+  "n": "Thrive Out of School Care - Morning Star",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8323806,
+  "lng": -119.6628743,
+  "a": "3031 McIver Rd",
+  "p": "250-878-2938",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "005e5349"
+ },
+ {
+  "n": "Garderie Les Libellules",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8354422,
+  "lng": -119.4838372,
+  "a": "675 Lequime Rd",
+  "p": "604-736-5056",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "0f833406"
+ },
+ {
+  "n": "Knox Kids Co.",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9190137,
+  "lng": -119.4354949,
+  "a": "228 Valley Rd",
+  "p": "250-470-7858",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "de8ee64d"
+  ],
+  "id": "942d4c4f"
+ },
+ {
+  "n": "Class of West K - Unit (1979 Old Okanagan Hwy)",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8504446,
+  "lng": -119.5992423,
+  "a": "201-1979 Old Okanagan Hwy",
+  "p": "250-878-7803",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "bf5643ab"
+ },
+ {
+  "n": "Nurturing Education Through Security and Trust",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8811155,
+  "lng": -119.5510353,
+  "a": "1927 Horizon Dr",
+  "p": "250-469-1107",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "13fd5233"
+ },
+ {
+  "n": "Dynamic After School Care",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.884659,
+  "lng": -119.424481,
+  "a": "1880a Baron Rd",
+  "p": "250-763-8584",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "e5c4da72"
+ },
+ {
+  "n": "Produckidvity Academy - Leon",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.884603,
+  "lng": -119.4920034,
+  "a": "538 Leon Ave",
+  "p": "778-214-7406",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b98f1480"
+ },
+ {
+  "n": "Elowyn - Kettle Valley",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.7943445,
+  "lng": -119.512033,
+  "a": "103-5309 Main St",
+  "p": "778-477-3095",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "e57739aa"
+ },
+ {
+  "n": "Ohana Academy Inc.",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8768243,
+  "lng": -119.4442328,
+  "a": "2091 Springfield Rd",
+  "p": "250-317-6406",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "aba4eadd"
+ },
+ {
+  "n": "BGC Okanagan-Glenrosa",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.839497,
+  "lng": -119.6559143,
+  "a": "3430 Webber Rd",
+  "p": "250-258-0569",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "da386d9b"
+  ],
+  "id": "a179bf46"
+ },
+ {
+  "n": "Village Childcare",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.86049,
+  "lng": -119.45191,
+  "a": "1959 K. L. O. Rd",
+  "p": "250-300-5498",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "b635c249"
+ },
+ {
+  "n": "Le Petit Hibou Preschool Society",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.839497,
+  "lng": -119.6559143,
+  "a": "3430 Webber Rd",
+  "p": "250-768-7123",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "a179bf46"
+  ],
+  "id": "da386d9b"
+ },
+ {
+  "n": "Grasshoppers Childcare Centre",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8989371,
+  "lng": -119.4823691,
+  "a": "907 Ethel St",
+  "p": "250-717-7631",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "52dbf08f"
+ },
+ {
+  "n": "Precious Jewels Childcare Infant Toddler Program",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8773081,
+  "lng": -119.4758333,
+  "a": "1130 Springfield Rd",
+  "p": "250-899-7671",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "23d92c23"
+ },
+ {
+  "n": "Babies 'n' Tots Daycare (5031 Windsong Cres)",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8033006,
+  "lng": -119.4774847,
+  "a": "5031 Windsong Cres",
+  "p": "306-502-5222",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3ec4f3ef"
+ },
+ {
+  "n": "Okanagan Mission YMCA Child Care",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8191403,
+  "lng": -119.4836646,
+  "a": "4548 Gordon Dr",
+  "p": "250-491-8674",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "95cfe23b"
+ },
+ {
+  "n": "Presidential Kids Academy Childcare Centre - Hebert",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8279514,
+  "lng": -119.6336323,
+  "a": "2547 Hebert Rd",
+  "p": "778-721-8162",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "ba40a908"
+  ],
+  "id": "2aef8bfe"
+ },
+ {
+  "n": "Thrive Out of School Care - Glenmore",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.891415,
+  "lng": -119.4763171,
+  "a": "1305 Gordon Dr",
+  "p": "250-826-5436",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "66c16ca3"
+ },
+ {
+  "n": "Flex Academy Early Learning Center",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8905358,
+  "lng": -119.4045306,
+  "a": "905 Badke Rd",
+  "p": "250-862-2377",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "501e9d32"
+ },
+ {
+  "n": "Kelowna Airport YMCA Child Care Centre",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.9543053,
+  "lng": -119.3847166,
+  "a": "190 Convair Place",
+  "p": "250-491-8674",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f8537962"
+ },
+ {
+  "n": "Ohana Academy Inc. West Kelowna",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8628693,
+  "lng": -119.5627034,
+  "a": "1162 Hudson Rd",
+  "p": "250-469-4266",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "02137cec"
+ },
+ {
+  "n": "Capable Kids Preschool",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8609725,
+  "lng": -119.3511626,
+  "a": "2151 Verde Vista Rd",
+  "p": "604-441-4419",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "995b3a7d"
+ },
+ {
+  "n": "Bloom Early Learning",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8179812,
+  "lng": -119.4925355,
+  "a": "559 McClure Rd",
+  "p": "587-580-8044",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "337c2d99"
+ },
+ {
+  "n": "Gateway Early Learning Centre",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8309546,
+  "lng": -119.6503057,
+  "a": "2829 Inverness Rd",
+  "p": "250-768-3614",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d04ce332"
+ },
+ {
+  "n": "Occa Child Care Centre",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8780772,
+  "lng": -119.4675509,
+  "a": "1460 Inkar Rd",
+  "p": "778-484-6222",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。可用语言（除英语外）：普通话、粤语。年龄：课后托管（1 年级到 12 岁）。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Languages besides English: Mandarin, Cantonese. Ages: before/after school (grade 1 to age 12). In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Langues en plus de l’anglais : mandarin, cantonais. Âges : avant et après l’école (1re année à 12 ans). Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Idiomas además del inglés: mandarín, cantonés. Edades: antes y después de la escuela (de 1.º grado a 12 años). Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 영어 외 가능 언어: 중국어(표준어), 광둥어. 연령: 방과 전후 돌봄(1학년~12세). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。英語以外の対応言語：北京語、広東語。年齢：学童保育（1年生〜12歳）。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ca8447e9"
+ },
+ {
+  "n": "Presidential Kids Academy Childcare Centre - McIver",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.830955,
+  "lng": -119.6650672,
+  "a": "3660 McIver Rd",
+  "p": "778-721-8162",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c2b3b977"
+ },
+ {
+  "n": "Coast To Coast Educare - Klo Campus",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8617789,
+  "lng": -119.4901045,
+  "a": "205-595 K.l.o. Rd",
+  "p": "778-940-1963",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1a1486ca"
+ },
+ {
+  "n": "The Gathering Place Early Years Center Ltd.",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8846592,
+  "lng": -119.4036754,
+  "a": "875 Hollydell Rd",
+  "p": "250-863-6565",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5fe285b3"
+ },
+ {
+  "n": "Young Stars Childcare (Kelowna)",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8604511,
+  "lng": -119.3596605,
+  "a": "2-2180 Cortina Dr",
+  "p": "604-889-0795",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "a3317ba1"
+ },
+ {
+  "n": "Jasmine Early Learning",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8216865,
+  "lng": -119.4906126,
+  "a": "4456 Lakeshore Rd",
+  "p": "780-340-5805",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "03a91b39"
+ },
+ {
+  "n": "Kelowna Kids Co. (439 West Ave)",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8645642,
+  "lng": -119.4933522,
+  "a": "439 West Ave",
+  "p": "778-392-8432",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "805950f8"
+ },
+ {
+  "n": "Bloom & Play Early Learning Center",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8767743,
+  "lng": -119.4420467,
+  "a": "2139 Springfield Rd",
+  "p": "778-940-3040",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "03a0eb9e"
+ },
+ {
+  "n": "The Clubhouse at Ellison - Esquire",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.9371986,
+  "lng": -119.3532467,
+  "a": "3601 Esquire Rd",
+  "p": "250-863-1488",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "bce76458"
+ },
+ {
+  "n": "All About Kids Childcare",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8856004,
+  "lng": -119.3816145,
+  "a": "346 Holbrook Rd E",
+  "p": "250-469-4866",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "cd8dfe8b"
+ },
+ {
+  "n": "Babies 'n' Tots Daycare (1236 Cerise Dr)",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8932438,
+  "lng": -119.4709548,
+  "a": "1236 Cerise Dr",
+  "p": "306-502-5222",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "582fe3e2"
+ },
+ {
+  "n": "Sofia's Academy 2630 Alhambra Drive",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8622911,
+  "lng": -119.5671416,
+  "a": "2630 Alhambra Dr",
+  "p": "250-864-4842",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "bb65beb4"
+ },
+ {
+  "n": "Blossom Valley Early Learning Centre",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8842056,
+  "lng": -119.4948823,
+  "a": "1685 Pandosy St",
+  "p": "236-420-5111",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5d39da00"
+ },
+ {
+  "n": "Produckidvity - West Kelowna",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8297617,
+  "lng": -119.6205716,
+  "a": "101-2311 Carrington Rd",
+  "p": "778-754-5447",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "32e215df"
+ },
+ {
+  "n": "Kelowna Early Explorers Academy",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8850282,
+  "lng": -119.4250709,
+  "a": "2-1880 Baron Rd",
+  "p": "778-484-0129",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f14620bd"
+ },
+ {
+  "n": "Little Leaps and Bounds Center",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.893461,
+  "lng": -119.4203894,
+  "a": "107-2631 Enterprise Way",
+  "p": "250-575-4492",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ebe37712"
+ },
+ {
+  "n": "Jumping Jack Childcare Limited",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.9007049,
+  "lng": -119.3798976,
+  "a": "399 Fizet Ave",
+  "p": "236-338-0451",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1484531b"
+ },
+ {
+  "n": "Stepping Stones Early Learning Centre - Rutland (528 Hollywood Rd S)",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8831985,
+  "lng": -119.3986328,
+  "a": "528 Hollywood Rd S",
+  "p": "604-317-7084",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9c80ab24"
+ },
+ {
+  "n": "Lower Dilworth Mountain YMCA Child Care",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.8975313,
+  "lng": -119.4270981,
+  "a": "2-950 Dilworth Dr",
+  "p": "250-215-0078",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d1c092ea"
+ },
+ {
+  "n": "Here We Grow Early Learning Centre",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8900362,
+  "lng": -119.4881681,
+  "a": "1369 Richter Street",
+  "p": "250-860-5216",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "dbf1cf60"
+ },
+ {
+  "n": "Black Mountain YMCA Child Care",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8676904,
+  "lng": -119.3480187,
+  "a": "1620 Gallagher Rd",
+  "p": "250-215-0078",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "4de76ebd"
+ },
+ {
+  "n": "Pebbles & Pathways Childcare",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.830598,
+  "lng": -119.6285475,
+  "a": "3660 Brown Road",
+  "p": "604-787-7501",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：3 岁以下、2 岁半到 5 岁。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: under 3, 2½ to 5. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : moins de 3 ans, 2 ans et demi à 5 ans. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: menores de 3 años, de 2 años y medio a 5. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 3세 미만, 2세 반~5세. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：3歳未満、2歳半〜5歳。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2e4801f4"
+ },
+ {
+  "n": "The Gathering Place - Matt Rd",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8815855,
+  "lng": -119.4028763,
+  "a": "645 Matt Rd",
+  "p": "250-863-6565",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "605847c8"
+ },
+ {
+  "n": "Cuteness Overloaded Childcare",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8975628,
+  "lng": -119.3922906,
+  "a": "350 Patterson Road",
+  "p": "604-779-1350",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "4599936d"
+ },
+ {
+  "n": "Sage Garden Early Years",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8707654,
+  "lng": -119.4811964,
+  "a": "2415 Grenfell Rd",
+  "p": "250-808-8011",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "45505b79"
+ },
+ {
+  "n": "Willow and Pine Childcare",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.9715137,
+  "lng": -119.3651217,
+  "a": "9-6200 Spencer Rd",
+  "p": "250-819-6088",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "7ca795bf"
+ },
+ {
+  "n": "Wonderful Beginnings - Gordon Drive",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8850664,
+  "lng": -119.4767638,
+  "a": "1607 Gordon Dr",
+  "p": "306-471-4567",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b0341c51"
+ },
+ {
+  "n": "Okanagan Montessori East Kelowna (3419 East Kelowna Rd)",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8669356,
+  "lng": -119.4062929,
+  "a": "3419 East Kelowna Rd",
+  "p": "250-860-1165",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "03255e3f"
+ },
+ {
+  "n": "BGC Okanagan - Hudson Rd Club",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8623024,
+  "lng": -119.5664139,
+  "a": "2633 Alhambra Dr",
+  "p": "250-762-3989",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5967cf7e"
+ },
+ {
+  "n": "Landmark YMCA Child Care",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.879652,
+  "lng": -119.4596136,
+  "a": "B1-1708 Dolphin Ave",
+  "p": "250-215-0078",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f98efbcc"
+ },
+ {
+  "n": "Wonderful Beginnings - Gallaghers",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8403872,
+  "lng": -119.3781718,
+  "a": "4370 Gallaghers Dr E",
+  "p": "306-471-4567",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2948b4b9"
+ },
+ {
+  "n": "Triumph Academy Limited",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8824813,
+  "lng": -119.4806541,
+  "a": "964 Laurier Ave",
+  "p": "306-581-9141",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b05d8bbc"
+ },
+ {
+  "n": "Potter's Hand Daycare",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8803114,
+  "lng": -119.4588625,
+  "a": "1850 Kirschner Rd",
+  "p": "236-457-4729",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：3 岁以下、2 岁半到 5 岁。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: under 3, 2½ to 5. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : moins de 3 ans, 2 ans et demi à 5 ans. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: menores de 3 años, de 2 años y medio a 5. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 3세 미만, 2세 반~5세. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：3歳未満、2歳半〜5歳。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "05f69ced"
+ },
+ {
+  "n": "Creative Nest Academy Kelowna",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8841656,
+  "lng": -119.4937563,
+  "a": "1668 Ellis St",
+  "p": "604-319-5028",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "cfc41d83"
+ },
+ {
+  "n": "Bankhead Out of School Care Program",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8916212,
+  "lng": -119.4716063,
+  "a": "1280 Wilson Ave",
+  "p": "250-762-0766",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "670b7925"
+ },
+ {
+  "n": "Rutland Community School Children's Centre",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8986412,
+  "lng": -119.3755006,
+  "a": "620 Webster Rd",
+  "p": "250-765-4052",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3c1968e2"
+ },
+ {
+  "n": "Okanagan Boys and Girls Clubs - Chief Tomat Preschool",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8423704,
+  "lng": -119.5885942,
+  "a": "3365 East Boundary Rd",
+  "p": "250-762-3914",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "e80e6934"
+ },
+ {
+  "n": "Green Gables Glenmore",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9190137,
+  "lng": -119.4354949,
+  "a": "228 Valley Rd",
+  "p": "250-863-8931",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "942d4c4f"
+  ],
+  "id": "de8ee64d"
+ },
+ {
+  "n": "Lakeside Kinderhaus",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8171862,
+  "lng": -119.4991918,
+  "a": "429 Collett Rd",
+  "p": "250-764-4130",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c8d8c96e"
+ },
+ {
+  "n": "Bgco - Helen Gorman",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8459267,
+  "lng": -119.6716437,
+  "a": "3230 Salmon Road",
+  "p": "250-762-3914",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "87f3a630"
+ },
+ {
+  "n": "Big Dreamers Daycare Limited",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.9064979,
+  "lng": -119.3875706,
+  "a": "1370 Rutland Rd North",
+  "p": "250-765-5777",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ac66625f"
+ },
+ {
+  "n": "YMCA - Quigley",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.880364,
+  "lng": -119.4001467,
+  "a": "705 Kitch Rd",
+  "p": "250-764-9621",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "8b97ca00"
+  ],
+  "id": "d5b62de3"
+ },
+ {
+  "n": "Panda Bear's Daycare",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.855076,
+  "lng": -119.6168116,
+  "a": "2874 Shannon Place",
+  "p": "250-979-8269",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "84341927"
+ },
+ {
+  "n": "Okanagan Montessori East Kelowna (3439 Kelowna Rd E)",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.866742,
+  "lng": -119.405507,
+  "a": "3439 Kelowna Rd E",
+  "p": "250-860-1165",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：2 岁半到 5 岁、学前班。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: 2½ to 5, preschool. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : 2 ans et demi à 5 ans, prématernelle. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: de 2 años y medio a 5, preescolar. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 유치원 전 과정. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：2歳半〜5歳、プリスクール。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "dc3b2541"
+ },
+ {
+  "n": "The Lilyput Centre for Kids",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.876864,
+  "lng": -119.572731,
+  "a": "2081 McDougal Rd",
+  "p": "250-878-4852",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：2 岁半到 5 岁。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: 2½ to 5. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : 2 ans et demi à 5 ans. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: de 2 años y medio a 5. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：2歳半〜5歳。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "d7dde4e7"
+ },
+ {
+  "n": "Okanagan Boys and Girls Clubs - Cedar Creek",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.7959851,
+  "lng": -119.5024295,
+  "a": "5160 Chute Lake Rd",
+  "p": "250-762-3914",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "fab0ecd4"
+ },
+ {
+  "n": "Springvalley Elementary Out of School Care",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8838102,
+  "lng": -119.4183439,
+  "a": "470 Ziprick Rd",
+  "p": "250-762-3914",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "eb1b98e2"
+ },
+ {
+  "n": "Shannon Lake Preschool",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8562719,
+  "lng": -119.6080864,
+  "a": "118 2220 Shannon Ridge Dr",
+  "p": "250-707-3223",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take.",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés.",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan.",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "76236542"
+ },
+ {
+  "n": "Luna Park Preschool",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8651826,
+  "lng": -119.4890325,
+  "a": "657 Raymer Rd",
+  "p": "250-762-7505",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：2 岁半到 5 岁、学前班。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: 2½ to 5, preschool. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : 2 ans et demi à 5 ans, prématernelle. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: de 2 años y medio a 5, preescolar. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 유치원 전 과정. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：2歳半〜5歳、プリスクール。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "5045ea07"
+  ],
+  "id": "aa39c368"
+ },
+ {
+  "n": "Mountain View Modified Montessori Preschool",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8711647,
+  "lng": -119.3552377,
+  "a": "1375 Loseth Dr",
+  "p": "250-765-7791",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "bfacce76"
+ },
+ {
+  "n": "Bridge Kids",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.875364,
+  "lng": -119.477172,
+  "a": "2100 Gordon Dr",
+  "p": "778-214-3949",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "fe577103"
+ },
+ {
+  "n": "Miss Melissa's Preschool",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9253118,
+  "lng": -119.4336089,
+  "a": "108 Naito Crt",
+  "p": "250-763-5909",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "090080fe"
+ },
+ {
+  "n": "Sunridge Out of School Care",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8660894,
+  "lng": -119.5646373,
+  "a": "1190 Stevens Rd",
+  "p": "604-853-6959",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。年龄：课后托管（1 年级到 12 岁）。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: before/after school (grade 1 to age 12). In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : avant et après l’école (1re année à 12 ans). Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: antes y después de la escuela (de 1.º grado a 12 años). Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 방과 전후 돌봄(1학년~12세). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：学童保育（1年生〜12歳）。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "e0bb2b42"
+ },
+ {
+  "n": "The Clubhouse at Raymer",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8651826,
+  "lng": -119.4890325,
+  "a": "657 Raymer Ave",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "aa39c368"
+  ],
+  "id": "5045ea07"
+ },
+ {
+  "n": "South Rutland Afterschool Program",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8874659,
+  "lng": -119.3818469,
+  "a": "200 Mallach Rd",
+  "p": "250-762-3914",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "9d60a3f7"
+ },
+ {
+  "n": "Watson Road Licensed Care",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.912658,
+  "lng": -119.449375,
+  "a": "475 Yates Rd",
+  "p": "250-762-4495",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "1f590bf9"
+ },
+ {
+  "n": "Aberdeen Hall Preparatory School",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.92725,
+  "lng": -119.408161,
+  "a": "950 Academy Way",
+  "p": "250-491-1270",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "761ce426"
+ },
+ {
+  "n": "Stepping Stones Early Learning Centre",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8116173,
+  "lng": -119.4807895,
+  "a": "4713 Gordon Dr",
+  "p": "604-317-7084",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "100bb965"
+ },
+ {
+  "n": "Bme YMCA Out of School Care",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8672889,
+  "lng": -119.3498792,
+  "a": "1650 Gallagher Rd",
+  "p": "250-764-9621",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "376aca1f"
+ },
+ {
+  "n": "The Clubhouse at Bellevue Creek",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8170119,
+  "lng": -119.4790293,
+  "a": "4574 Raymer Rd",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "6219b343"
+ },
+ {
+  "n": "The Clubhouse at Cottonwoods",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8744983,
+  "lng": -119.4815571,
+  "a": "2255 Ethel St",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "2db506c5"
+ },
+ {
+  "n": "Produckidvity Academy - Sutherland",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.880445,
+  "lng": -119.4648648,
+  "a": "1521 Sutherland Ave",
+  "p": "778-214-7406",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "a904d6b8"
+ },
+ {
+  "n": "Kelowna Family YMCA Child Care",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.899861,
+  "lng": -119.379765,
+  "a": "375 Hartman Rd",
+  "p": "250-764-9621",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "precision": "low",
+  "id": "f12ca311"
+ },
+ {
+  "n": "Brightpath Lawrence Avenue",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8855882,
+  "lng": -119.4685713,
+  "a": "1370 Lawrence Ave",
+  "p": "250-860-9788",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d8175521"
+ },
+ {
+  "n": "Mamma Bears Cub House Daycare Ltd.",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8912632,
+  "lng": -119.3820646,
+  "a": "250 Gibbs Road W",
+  "p": "250-681-4845",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "624b7156"
+ },
+ {
+  "n": "Kelowna Creative Advantage Childcare",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8616736,
+  "lng": -119.4561706,
+  "a": "3070 Benvoulin Rd",
+  "p": "778-484-3400",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1d6236bf"
+ },
+ {
+  "n": "Lil' Dancing Owls Educational Daycare",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.8986433,
+  "lng": -119.4549475,
+  "a": "1896 Tronson Dr",
+  "p": "604-816-1604",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "55108daf"
+ },
+ {
+  "n": "Echo Early Learning Center",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8829009,
+  "lng": -119.378946,
+  "a": "535 Molnar Rd",
+  "p": "250-765-8685",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c4fe690b"
+ },
+ {
+  "n": "Okanagan Christian School Preschool",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8772606,
+  "lng": -119.3972146,
+  "a": "1035 Hollywood Rd S",
+  "p": "604-853-5451",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "e35615a5"
+ },
+ {
+  "n": "Adventure Junction Early Learning Centre",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9288199,
+  "lng": -119.4381944,
+  "a": "102 Snowsell St N",
+  "p": "250-878-2326",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "338aa34a"
+ },
+ {
+  "n": "Thrive Out of School Care - Mountainview",
+  "c": "daycare",
+  "g": "gm",
+  "lat": 49.9211722,
+  "lng": -119.44212,
+  "a": "271 Snowsell St",
+  "p": "250-826-5436",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "5b1a8dd8"
+ },
+ {
+  "n": "Precious Jewels Childcare Center",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.8749048,
+  "lng": -119.3978349,
+  "a": "1097 Hollywood Rd S",
+  "p": "250-899-7671",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "1585638f"
+ },
+ {
+  "n": "Little Fish Early Learning Center",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8601371,
+  "lng": -119.5768699,
+  "a": "1510 Ponderosa Rd",
+  "p": "250-826-0903",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c3fadebb"
+ },
+ {
+  "n": "YMCA - Rose Valley Out of School Care",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8873616,
+  "lng": -119.5558947,
+  "a": "1680 Westlake Rd",
+  "p": "250-764-9621",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "f29667c6"
+ },
+ {
+  "n": "Rutland Parent Participation Preschool",
+  "c": "daycare",
+  "g": "rt",
+  "lat": 49.880364,
+  "lng": -119.4001467,
+  "a": "705 Kitch Rd",
+  "p": "250-448-1758",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "sameComplex": [
+   "d5b62de3"
+  ],
+  "id": "8b97ca00"
+ },
+ {
+  "n": "For the Kids Daycare (West Kelowna)",
+  "c": "daycare",
+  "g": "wk",
+  "lat": 49.8610294,
+  "lng": -119.585904,
+  "a": "101-1680 Ross Rd",
+  "p": "250-769-1601",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b057d61a"
+ },
+ {
+  "n": "The Clubhouse at Ellison - Parkdale",
+  "c": "daycare",
+  "g": "nk",
+  "lat": 49.9382848,
+  "lng": -119.3553687,
+  "a": "3735 Parkdale Rd",
+  "p": "250-860-4393",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "b7c8b334"
+ },
+ {
+  "n": "Cefa Early Learning McKay Ave",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8668053,
+  "lng": -119.4901976,
+  "a": "100-590 McKay Ave",
+  "p": "236-420-3868",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "8d4ed10e"
+ },
+ {
+  "n": "Lakeshore Out of School Care",
+  "c": "daycare",
+  "g": "pm",
+  "lat": 49.8223767,
+  "lng": -119.4884074,
+  "a": "4409 Lakeshore Rd",
+  "p": "250-808-1780",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "4a09b1ad"
+ },
+ {
+  "n": "Echo Academy",
+  "c": "daycare",
+  "g": "dt",
+  "lat": 49.8813279,
+  "lng": -119.4630199,
+  "a": "1605 Sutherland Ave",
+  "p": "778-581-3246",
+  "note": {
+   "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。参加省政府的托儿费减免计划（CCFRI）。",
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. In the provincial fee-reduction programme (CCFRI).",
+   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Participe au programme provincial de réduction des frais (CCFRI).",
+   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Participa en el programa provincial de reducción de cuotas (CCFRI).",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。州の保育料軽減プログラム（CCFRI）に参加。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "c8e9aaef"
  }
 ]
