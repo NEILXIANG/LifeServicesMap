@@ -273,7 +273,7 @@ function renderBusList(){
     inp.oninput=e=>{if(e&&e.isComposing)return;_busQ=inp.value;renderBusList();};
     inp.addEventListener('compositionend',()=>{_busQ=inp.value;renderBusList();});
   }
-  if(inp)inp.placeholder=u.busSearchPh;
+  if(inp)inp.placeholder=tpl(u.busSearchPh,L_);
 }
 function fmtBusTime(t){
   const u=UI[L_];

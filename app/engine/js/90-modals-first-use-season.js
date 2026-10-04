@@ -139,7 +139,9 @@ let _phTimer=null,_phIdx=0;
 function startPlaceholderRotation(){
   clearInterval(_phTimer);_phTimer=null;
   const si=searchInputEl;if(!si)return;
-  const u=UI[L_];const rot=u.searchPhRot||[];
+  const u=UI[L_];
+  // a prompt that names a campus only makes sense where there is one and buses reach it
+  const rot=(u.searchPhRot||[]).filter(s=>s.indexOf('{CAMPUS}')<0||_hasCampusBus()).map(s=>tpl(s,L_));
   si.placeholder=u.searchPlaceholder;
   if(!rot.length)return;
   let reduce=false;try{reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;}catch(e){}
@@ -150,6 +152,7 @@ function startPlaceholderRotation(){
     si.placeholder=_phIdx===0?u.searchPlaceholder:rot[_phIdx-1];
   },4000);
 }
+function _hasCampusBus(){return !!(CITY.examples&&CITY.examples.campus)&&Object.keys(BR).length>0;}
 function searchSuggestions(){
   const u=UI[L_];
   const card=id=>{const t=typeof TASKS!=='undefined'&&TASKS.find(x=>x.id===id);return t?{ic:t.icon||'🧭',label:(t.q&&(t.q[L_]||t.q.en))||id,kind:u.ssKindGuide,go:()=>{trackEvent('search_suggest',{to:'task:'+id});openGuide('suggest',id);}}:null;};
@@ -157,7 +160,8 @@ function searchSuggestions(){
   out.push({ic:'💊',label:u.ssOpenPharmacy,kind:u.ssKindMap,go:()=>{trackEvent('search_suggest',{to:'open_pharmacy'});
     aC=new Set(['pharmacy']);selPresets.clear();presetsAdjusted=false;openNow=true;updateOpenQuickpick();renderCats();renderThemes();apply();
     try{const b=M.filter(m=>_isShown(m)).map(m=>[m.data.lat,m.data.lng]);if(b.length)map.fitBounds(b,{padding:[40,40],maxZoom:15});}catch(e){}}});
-  out.push({ic:'🚌',label:u.ssBusTru,kind:u.ssKindMap,go:()=>{trackEvent('search_suggest',{to:'bus_tru'});_busQ='TRU';openPanel('bus');const inp=document.getElementById('busSearch');if(inp){inp.value='TRU';}renderBusList();}});
+  if(_hasCampusBus()){const c=CITY.examples.campus;
+    out.push({ic:'🚌',label:tpl(u.ssBusTru,L_),kind:u.ssKindMap,go:()=>{trackEvent('search_suggest',{to:'bus_tru'});_busQ=c;openPanel('bus');const inp=document.getElementById('busSearch');if(inp){inp.value=c;}renderBusList();}});}
   return out;
 }
 function showSearchSuggest(){

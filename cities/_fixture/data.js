@@ -25,6 +25,9 @@ const CITY={
   bounds:[[50.5,-120.7],[50.9,-120.0]],
   navSuffix:', Testville, BC',
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kamloops/home'},
+  // names used as examples in the search prompts ("Which bus goes to TRU?") and the
+  // bus-stop search hint; a city without a campus leaves campus out and the prompt goes
+  examples:{campus:'TRU', stop:'Lansdowne'},
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -174,6 +177,17 @@ const LANDMARK_GLOSS={};
 // Westsyde Centennial Park (Westsyde — same, kept)
 
 // the city tier of the resident guide — the only guide section a new city rewrites
+// The bus panel's coverage note for this city: how many routes, which numbers do not
+// exist, and which feed edition they were checked against (validate.py keeps the
+// route count honest). Moved here from the engine on 2026-10-03 — it is a fact
+// about Kamloops, not about the app.
+const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-08-29', stopsChecked:475};
+UI.zh.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+UI.en.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+UI.fr.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+UI.es.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+UI.ko.busCoverage='{CITY}: 1 route ({TRANSIT}).';
+UI.ja.busCoverage='{CITY}: 1 route ({TRANSIT}).';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

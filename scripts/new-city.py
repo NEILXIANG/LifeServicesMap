@@ -71,6 +71,7 @@ def main():
     meta = {
         '_comment': 'Build-time settings for %s. See docs/guides/DATA-SCHEMA.md.' % a.name,
         'id': a.id,
+        'country': 'ca', 'province': 'bc',   # this script copies BC-wide content; another province needs its own pack first
         'title': '%s Life Guide' % a.name,
         'description': 'What to do, where to go, what to bring — step by step — with a map of verified places across %s. Free, no sign-up, six languages.' % a.name,
         'siteUrl': 'https://%s.neilxiang.workers.dev/' % worker,

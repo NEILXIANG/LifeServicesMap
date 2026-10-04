@@ -156,7 +156,7 @@ UI.zh.hcShowUpcc='在地图上看';UI.en.hcShowUpcc='Show it on the map';UI.fr.h
 UI.zh.taskSearchNone='没有匹配的卡片。试试换个词，或者打 2-1-1 问。';UI.en.taskSearchNone='No card matches that. Try another word, or call 2-1-1.';UI.fr.taskSearchNone='Aucune fiche ne correspond. Essayez un autre mot, ou appelez le 2-1-1.';UI.es.taskSearchNone='Ninguna ficha coincide. Pruebe otra palabra o llame al 2-1-1.';UI.ko.taskSearchNone='맞는 카드가 없습니다. 다른 말로 찾아보거나 2-1-1에 전화하세요.';UI.ja.taskSearchNone='該当するカードがありません。別の言葉で試すか、2-1-1に電話してください。';
 UI.zh.dlSetArrival='填到达日期，换算成具体日期';UI.en.dlSetArrival='Enter your arrival date to get the exact date';UI.fr.dlSetArrival='Entrez votre date d’arrivée pour la date exacte';UI.es.dlSetArrival='Ingrese su fecha de llegada para ver la fecha exacta';UI.ko.dlSetArrival='도착일을 입력하면 정확한 날짜로 바뀝니다';UI.ja.dlSetArrival='到着日を入れると具体的な日付になります';
 UI.zh.calAdded='已生成日历文件：{D}，提前 7 天提醒';UI.en.calAdded='Calendar file saved — {D}, reminder 7 days before';UI.fr.calAdded='Fichier calendrier enregistré — {D}, rappel 7 jours avant';UI.es.calAdded='Archivo de calendario guardado — {D}, aviso 7 días antes';UI.ko.calAdded='캘린더 파일 저장됨 — {D}, 7일 전 알림';UI.ja.calAdded='カレンダーファイルを保存 — {D}、7日前に通知';
-UI.zh.busSearchPh='搜站名或目的地：TRU、医院、Lansdowne…';UI.en.busSearchPh='Search a stop or place: TRU, hospital, Lansdowne…';UI.fr.busSearchPh='Chercher un arrêt : TRU, hôpital, Lansdowne…';UI.es.busSearchPh='Buscar una parada: TRU, hospital, Lansdowne…';UI.ko.busSearchPh='정류장 검색: TRU, hospital, Lansdowne…';UI.ja.busSearchPh='停留所を検索: TRU、hospital、Lansdowne…';
+UI.zh.busSearchPh='搜站名或目的地：{CAMPUS}、医院、{STOP}…';UI.en.busSearchPh='Search a stop or place: {CAMPUS}, hospital, {STOP}…';UI.fr.busSearchPh='Chercher un arrêt : {CAMPUS}, hôpital, {STOP}…';UI.es.busSearchPh='Buscar una parada: {CAMPUS}, hospital, {STOP}…';UI.ko.busSearchPh='정류장 검색: {CAMPUS}, hospital, {STOP}…';UI.ja.busSearchPh='停留所を検索: {CAMPUS}、hospital、{STOP}…';
 UI.zh.busSearchNone='没有线路经过这个站名。站名是英文路牌上的写法，试试路名。';UI.en.busSearchNone='No route has a stop with that name. Stop names are the English sign names — try a street.';UI.fr.busSearchNone='Aucun trajet n’a d’arrêt de ce nom. Les noms sont ceux des panneaux (en anglais) — essayez une rue.';UI.es.busSearchNone='Ninguna ruta tiene una parada con ese nombre. Los nombres son los de los letreros (en inglés) — pruebe una calle.';UI.ko.busSearchNone='그 이름의 정류장을 지나는 노선이 없습니다. 정류장 이름은 영어 표지판 기준입니다 — 길 이름으로 찾아보세요.';UI.ja.busSearchNone='その名前の停留所を通る路線はありません。停留所名は英語の標識どおりです — 通り名で試してください。';
 UI.zh.undo='撤销';UI.en.undo='Undo';UI.fr.undo='Annuler';UI.es.undo='Deshacer';UI.ko.undo='실행 취소';UI.ja.undo='元に戻す';
 UI.zh.resetDone='已恢复全市视图';UI.en.resetDone='Back to the whole city';UI.fr.resetDone='Retour à toute la ville';UI.es.resetDone='De vuelta a toda la ciudad';UI.ko.resetDone='전체 도시 보기로 돌아왔습니다';UI.ja.resetDone='全市表示に戻しました';
@@ -307,12 +307,12 @@ UI.ko.favBtnLabel='즐겨찾기';UI.ja.favBtnLabel='お気に入り';
 UI.ko.noFavorites='아직 즐겨찾기한 장소가 없습니다 — 장소 팝업의 ☆를 눌러 저장하세요';UI.ja.noFavorites='お気に入りはまだありません — 場所のポップアップにある☆をタップして保存してください';
 UI.ko.searchPlaceholder='장소 검색, 또는 질문: 의료카드는 어떻게?';UI.ja.searchPlaceholder='場所を検索、または質問：医療カードは？';
 // three real questions the box rotates through while it is empty (item 1)
-UI.zh.searchPhRot=['怎么办医保卡？','哪路公交到 TRU？','附近哪家药房现在开着？'];UI.en.searchPhRot=['How do I get a health card?','Which bus goes to TRU?','Which pharmacy is open now?'];
-UI.fr.searchPhRot=['Comment obtenir la carte santé ?','Quel bus va à TRU ?','Quelle pharmacie est ouverte maintenant ?'];UI.es.searchPhRot=['¿Cómo obtengo la tarjeta de salud?','¿Qué autobús va a TRU?','¿Qué farmacia está abierta ahora?'];
-UI.ko.searchPhRot=['의료카드는 어떻게 만드나요?','TRU 가는 버스는 몇 번?','지금 문 연 약국은?'];UI.ja.searchPhRot=['医療カードはどう申請する？','TRU へ行くバスは？','今開いている薬局は？'];
+UI.zh.searchPhRot=['怎么办医保卡？','哪路公交到 {CAMPUS}？','附近哪家药房现在开着？'];UI.en.searchPhRot=['How do I get a health card?','Which bus goes to {CAMPUS}?','Which pharmacy is open now?'];
+UI.fr.searchPhRot=['Comment obtenir la carte santé ?','Quel bus va à {CAMPUS} ?','Quelle pharmacie est ouverte maintenant ?'];UI.es.searchPhRot=['¿Cómo obtengo la tarjeta de salud?','¿Qué autobús va a {CAMPUS}?','¿Qué farmacia está abierta ahora?'];
+UI.ko.searchPhRot=['의료카드는 어떻게 만드나요?','{CAMPUS} 가는 버스는 몇 번?','지금 문 연 약국은?'];UI.ja.searchPhRot=['医療カードはどう申請する？','{CAMPUS} へ行くバスは？','今開いている薬局は？'];
 UI.zh.ssHead='大家常问';UI.en.ssHead='People often ask';UI.fr.ssHead='Questions fréquentes';UI.es.ssHead='Preguntas frecuentes';UI.ko.ssHead='자주 묻는 질문';UI.ja.ssHead='よくある質問';
 UI.zh.ssOpenPharmacy='附近哪家药房现在开着？';UI.en.ssOpenPharmacy='Which pharmacy is open now?';UI.fr.ssOpenPharmacy='Quelle pharmacie est ouverte maintenant ?';UI.es.ssOpenPharmacy='¿Qué farmacia está abierta ahora?';UI.ko.ssOpenPharmacy='지금 문 연 약국은?';UI.ja.ssOpenPharmacy='今開いている薬局は？';
-UI.zh.ssBusTru='哪路公交到 TRU？';UI.en.ssBusTru='Which bus goes to TRU?';UI.fr.ssBusTru='Quel bus va à TRU ?';UI.es.ssBusTru='¿Qué autobús va a TRU?';UI.ko.ssBusTru='TRU 가는 버스는 몇 번?';UI.ja.ssBusTru='TRU へ行くバスは？';
+UI.zh.ssBusTru='哪路公交到 {CAMPUS}？';UI.en.ssBusTru='Which bus goes to {CAMPUS}?';UI.fr.ssBusTru='Quel bus va à {CAMPUS} ?';UI.es.ssBusTru='¿Qué autobús va a {CAMPUS}?';UI.ko.ssBusTru='{CAMPUS} 가는 버스는 몇 번?';UI.ja.ssBusTru='{CAMPUS} へ行くバスは？';
 UI.zh.ssKindGuide='办事卡';UI.en.ssKindGuide='guide';UI.fr.ssKindGuide='fiche';UI.es.ssKindGuide='ficha';UI.ko.ssKindGuide='안내 카드';UI.ja.ssKindGuide='ガイド';
 UI.zh.ssKindMap='地图';UI.en.ssKindMap='map';UI.fr.ssKindMap='carte';UI.es.ssKindMap='mapa';UI.ko.ssKindMap='지도';UI.ja.ssKindMap='地図';
 UI.zh.fuFlyerHead='传单上的三件事，点一下就到';UI.en.fuFlyerHead='The three things on the flyer — one tap each';UI.fr.fuFlyerHead='Les trois points du dépliant — un geste chacun';UI.es.fuFlyerHead='Las tres cosas del volante — un toque cada una';UI.ko.fuFlyerHead='전단지의 세 가지 — 한 번만 누르세요';UI.ja.fuFlyerHead='チラシの三つのこと — ワンタップで';
@@ -362,7 +362,7 @@ UI.zh.searchActive='搜索结果已按当前的区域等筛选缩小范围';
 
 
 
-UI.zh.busCoverage='已收录 {TRANSIT} 在本市运营的全部 14 条常规线路。没有 8、11、12、15 号线——编号本身就是跳号的，不是这里漏了。另有 12 条仅在上学日运行的学生专线（70–81 号），本页未收录。线路、站点与运营时段已逐条核对 {TRANSIT} 官方 GTFS 数据（2026 年 8 月 29 日版），475 个站点全部一致；实时到站请查 {TRANSIT} 官网。';
+UI.zh.busCoverage='线路和站点来自 {TRANSIT} 的官方时刻表数据。实时到站请看 {TRANSIT} 官网。';
 UI.zh.aSearch='搜索地点';
 UI.zh.aClearSearch='清空搜索';
 UI.zh.aClose='关闭';
@@ -408,7 +408,7 @@ UI.en.srcStubTip='Added to fill a coverage gap and not yet checked item by item 
 UI.en.searchActive='Results narrowed by your current area and other filters';
 
 
-UI.en.busCoverage='All 14 regular routes {TRANSIT} runs here are included. There is no route 8, 11, 12 or 15 — the numbering skips them; nothing is missing. A further 12 school-day-only routes (70–81) are not shown. Routes, stops and service hours were checked line by line against {TRANSIT}’s official GTFS feed (29 August 2026 edition) and all 475 stops matched; for live arrivals, see {TRANSIT}.';
+UI.en.busCoverage='Routes and stops come from {TRANSIT}’s official timetable data. For live arrivals, see {TRANSIT}’s website.';
 UI.en.aSearch='Search places';
 UI.en.aClearSearch='Clear search';
 UI.en.aClose='Close';
@@ -455,7 +455,7 @@ UI.fr.searchActive='Résultats restreints par votre secteur et vos autres filtre
 
 
 
-UI.fr.busCoverage='Les 14 lignes régulières exploitées ici par {TRANSIT} sont toutes incluses. Il n’existe pas de ligne 8, 11, 12 ni 15 — la numérotation les saute, rien ne manque. S’y ajoutent 12 lignes scolaires (70–81), non reprises ici. Lignes, arrêts et heures de service ont été vérifiés un à un sur le flux GTFS officiel de {TRANSIT} (édition du 29 août 2026) : les 475 arrêts concordent. Arrivées en direct : voir {TRANSIT}.';
+UI.fr.busCoverage='Les lignes et les arrêts proviennent des données horaires officielles de {TRANSIT}. Pour les passages en temps réel, voyez le site de {TRANSIT}.';
 UI.fr.aSearch='Rechercher un lieu';
 UI.fr.aClearSearch='Effacer la recherche';
 UI.fr.aClose='Fermer';
@@ -502,7 +502,7 @@ UI.es.searchActive='Resultados limitados por su zona y sus otros filtros actuale
 
 
 
-UI.es.busCoverage='Se incluyen las 14 rutas regulares que {TRANSIT} opera aquí. No existen las rutas 8, 11, 12 ni 15 — la numeración simplemente las salta, no falta nada. Hay además 12 rutas escolares (70–81) que no se muestran. Rutas, paradas y horarios se verificaron una a una con el feed GTFS oficial de {TRANSIT} (edición del 29 de agosto de 2026) y las 475 paradas coincidieron; para llegadas en vivo, consulte {TRANSIT}.';
+UI.es.busCoverage='Las rutas y paradas provienen de los datos de horarios oficiales de {TRANSIT}. Para llegadas en tiempo real, vea el sitio de {TRANSIT}.';
 UI.es.aSearch='Buscar lugares';
 UI.es.aClearSearch='Borrar búsqueda';
 UI.es.aClose='Cerrar';
@@ -549,7 +549,7 @@ UI.ko.searchActive='현재 지역 등 필터에 맞춰 결과가 좁혀졌습니
 
 
 
-UI.ko.busCoverage='{TRANSIT}가 이 도시에서 운행하는 14개 정규 노선이 모두 포함되어 있습니다. 8·11·12·15번 노선은 존재하지 않습니다 — 번호가 건너뛸 뿐, 누락이 아닙니다. 이 밖에 등교일에만 운행하는 학생 전용 노선 12개(70–81번)는 포함하지 않았습니다. 노선·정류장·운행 시간은 {TRANSIT} 공식 GTFS 데이터(2026년 8월 29일판)와 한 건씩 대조했으며 475개 정류장이 모두 일치했습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 확인하세요.';UI.ja.busCoverage='{TRANSIT}がこの都市で運行する14の定期路線をすべて収録しています。8、11、12、15番の路線は存在しません — 番号が欠番になっているだけで、抜け漏れではありません。このほか、登校日のみ運行する学生専用路線12路線（70〜81番）は収録していません。路線・停留所・運行時間は{TRANSIT}の公式GTFSフィード（2026年8月29日版）と1件ずつ照合し、475の停留所すべてが一致しました。リアルタイムの到着情報は{TRANSIT}をご確認ください。';
+UI.ko.busCoverage='노선과 정류장은 {TRANSIT}의 공식 시간표 데이터에서 가져왔습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 보세요.';UI.ja.busCoverage='路線と停留所は {TRANSIT} の公式時刻表データによるものです。リアルタイムの到着情報は {TRANSIT} のサイトをご覧ください。';
 UI.ko.aSearch='장소 검색';UI.ja.aSearch='場所を検索';
 UI.ko.aClearSearch='검색어 지우기';UI.ja.aClearSearch='検索をクリア';
 UI.ko.aClose='닫기';UI.ja.aClose='閉じる';

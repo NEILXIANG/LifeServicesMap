@@ -24,6 +24,9 @@ const CITY={
   bounds:[[50.5,-120.7],[50.9,-120.0]],
   navSuffix:', Kamloops, BC',
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kamloops/home'},
+  // names used as examples in the search prompts ("Which bus goes to TRU?") and the
+  // bus-stop search hint; a city without a campus leaves campus out and the prompt goes
+  examples:{campus:'TRU', stop:'Lansdowne'},
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -180,6 +183,17 @@ const LANDMARK_GLOSS={
 // Westsyde Centennial Park (Westsyde — same, kept)
 
 // the city tier of the resident guide — the only guide section a new city rewrites
+// The bus panel's coverage note for this city: how many routes, which numbers do not
+// exist, and which feed edition they were checked against (validate.py keeps the
+// route count honest). Moved here from the engine on 2026-10-03 — it is a fact
+// about Kamloops, not about the app.
+const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-08-29', stopsChecked:475};
+UI.zh.busCoverage='已收录 {TRANSIT} 在本市运营的全部 14 条常规线路。没有 8、11、12、15 号线——编号本身就是跳号的，不是这里漏了。另有 12 条仅在上学日运行的学生专线（70–81 号），本页未收录。线路、站点与运营时段已逐条核对 {TRANSIT} 官方 GTFS 数据（2026 年 8 月 29 日版），475 个站点全部一致；实时到站请查 {TRANSIT} 官网。';
+UI.en.busCoverage='All 14 regular routes {TRANSIT} runs here are included. There is no route 8, 11, 12 or 15 — the numbering skips them; nothing is missing. A further 12 school-day-only routes (70–81) are not shown. Routes, stops and service hours were checked line by line against {TRANSIT}’s official GTFS feed (29 August 2026 edition) and all 475 stops matched; for live arrivals, see {TRANSIT}.';
+UI.fr.busCoverage='Les 14 lignes régulières exploitées ici par {TRANSIT} sont toutes incluses. Il n’existe pas de ligne 8, 11, 12 ni 15 — la numérotation les saute, rien ne manque. S’y ajoutent 12 lignes scolaires (70–81), non reprises ici. Lignes, arrêts et heures de service ont été vérifiés un à un sur le flux GTFS officiel de {TRANSIT} (édition du 29 août 2026) : les 475 arrêts concordent. Arrivées en direct : voir {TRANSIT}.';
+UI.es.busCoverage='Se incluyen las 14 rutas regulares que {TRANSIT} opera aquí. No existen las rutas 8, 11, 12 ni 15 — la numeración simplemente las salta, no falta nada. Hay además 12 rutas escolares (70–81) que no se muestran. Rutas, paradas y horarios se verificaron una a una con el feed GTFS oficial de {TRANSIT} (edición del 29 de agosto de 2026) y las 475 paradas coincidieron; para llegadas en vivo, consulte {TRANSIT}.';
+UI.ko.busCoverage='{TRANSIT}가 이 도시에서 운행하는 14개 정규 노선이 모두 포함되어 있습니다. 8·11·12·15번 노선은 존재하지 않습니다 — 번호가 건너뛸 뿐, 누락이 아닙니다. 이 밖에 등교일에만 운행하는 학생 전용 노선 12개(70–81번)는 포함하지 않았습니다. 노선·정류장·운행 시간은 {TRANSIT} 공식 GTFS 데이터(2026년 8월 29일판)와 한 건씩 대조했으며 475개 정류장이 모두 일치했습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 확인하세요.';
+UI.ja.busCoverage='{TRANSIT}がこの都市で運行する14の定期路線をすべて収録しています。8、11、12、15番の路線は存在しません — 番号が欠番になっているだけで、抜け漏れではありません。このほか、登校日のみ運行する学生専用路線12路線（70〜81番）は収録していません。路線・停留所・運行時間は{TRANSIT}の公式GTFSフィード（2026年8月29日版）と1件ずつ照合し、475の停留所すべてが一致しました。リアルタイムの到着情報は{TRANSIT}をご確認ください。';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

@@ -669,15 +669,21 @@ if _missing:
 # The copy used to say "14 main routes included", which reads as "we picked 14 of
 # more". The operator's own feed has exactly 14 regular routes; 8/11/12/15 do not
 # exist. If BR ever changes size, the sentence has to change with it.
+# 2026-10-03: the engine carries a generic note; a city with routes overrides it in
+# its data.js (which comes later in the page, so the LAST assignment is the one shown)
+# and must state its own route count, keep BUS_SOURCE, and name an example stop.
 _br_n = len(BR)
-for lang in LANGS:
-    m = re.search(r"UI\.%s\.busCoverage='([^']*)'" % lang, html)
-    if not m:
-        fail('%s has no busCoverage line' % lang); continue
-    if str(_br_n) not in m.group(1):
-        fail('%s busCoverage does not state the route count (%d)' % (lang, _br_n))
-if not re.search(r"const BUS_SOURCE=\{", script):
-    fail('BUS_SOURCE provenance block is missing')
+if _br_n:
+    for lang in LANGS:
+        ms = re.findall(r"UI\.%s\.busCoverage='([^']*)'" % lang, html)
+        if len(ms) < 2:
+            fail('%s: the city has %d routes but no busCoverage note of its own in data.js' % (lang, _br_n)); continue
+        if str(_br_n) not in ms[-1]:
+            fail('%s busCoverage does not state the route count (%d)' % (lang, _br_n))
+    if not re.search(r"const BUS_SOURCE=\{", script):
+        fail('BUS_SOURCE provenance block is missing (the city has bus routes)')
+    if not (CITYOBJ.get('examples') or {}).get('stop'):
+        fail('CITY.examples.stop missing — the bus-stop search hint names one')
 
 # ---------------------------------------------------------------- 10. duplicate affordances
 if 'search-cancel-button' not in css and 'type="search"' in body:

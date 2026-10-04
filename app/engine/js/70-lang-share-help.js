@@ -402,6 +402,9 @@ Object.keys(PRESETS).forEach(key=>{
 const backdrop=document.getElementById('backdrop'),panel=document.getElementById('panel'),
   areaBtnEl=document.getElementById('areaBtn'),catBtnEl=document.getElementById('catBtn'),busBtnEl=document.getElementById('busBtn'),favBtnEl=document.getElementById('favBtn'),
   panelAreaEl=document.getElementById('panelArea'),panelCatEl=document.getElementById('panelCat'),panelBusEl=document.getElementById('panelBus'),panelFavEl=document.getElementById('panelFav');
+// 2026-10-03: a city with no transit data has no bus entry at all, rather than a
+// button that opens an empty list.
+if(!Object.keys(BR).length&&busBtnEl)busBtnEl.hidden=true;
 // P0-E INT-01 — Tab 焦点圈在面板内（与 note/guide 同套机制）。
 // 2026-09-07：这一行原本写在上面约 18 行处，在 `const backdrop` 声明之前就引用了它，
 // 触发暂时性死区（Cannot access 'backdrop' before initialization），整段初始化直接中断。

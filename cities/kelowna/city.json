@@ -1,6 +1,8 @@
 {
   "_comment": "Build-time settings for Kelowna. See docs/guides/DATA-SCHEMA.md.",
   "id": "kelowna",
+  "country": "ca",
+  "province": "bc",
   "status": "draft",
   "title": "Kelowna Life Guide",
   "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kelowna. Free, no sign-up, six languages.",

@@ -22,7 +22,6 @@ const VERIFIED='2026-09-11';
 // Bus routes are not hand-collected: they come from the operator's GTFS feed, and
 // every stop name and coordinate in BR was re-checked against this edition of it.
 // Routes 8, 11, 12 and 15 are absent from the feed — Kamloops does not run them.
-const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-08-29', stopsChecked:475};
 function verifiedDate(l){
   const [y,m,d]=VERIFIED.split('-').map(Number);
   const mn=UI[l].months[m-1];
@@ -46,6 +45,8 @@ function tpl(str,l){
   if(!str)return str;
   return str
     .replace(/\{CITY\}/g,CITY.name[l])
+    .replace(/\{CAMPUS\}/g,(CITY.examples&&CITY.examples.campus)||'')
+    .replace(/\{STOP\}/g,(CITY.examples&&CITY.examples.stop)||'')
     .replace(/\{PROV\}/g,CITY.prov[l])
     .replace(/\{TRANSIT_URL\}/g,CITY.transit.url)
     .replace(/\{TRANSIT\}/g,CITY.transit.name)

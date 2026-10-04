@@ -96,6 +96,7 @@
      specificity — so the button would silently reappear, full-size, on every
      touch device. Same trap validate.py's "[hidden] traps" check looks for. */
   #noteToggle[hidden]{display:none;}
+  #busBtn[hidden]{display:none;}   /* no transit data in this city (2026-10-03) */
 
   .sec-label{padding:2px 0 7px;font-family:var(--font);font-size:11.5px;font-weight:600;color:var(--sage);letter-spacing:.2px;}
   /* unified filter toolbar — identical on every breakpoint */
