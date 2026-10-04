@@ -16,7 +16,8 @@ Everything except the map background works with no network at all.
 | `vendor/` | Leaflet and MarkerCluster, inlined so the map works offline. |
 | `scripts/check-all.sh` | Build + every check in one command. |
 | `scripts/validate.py` | Static invariants. Run after every edit. |
-| `tests/regress.py`, `tests/phase*test.py` | Browser checks. Need Playwright. |
+| `tests/engine/` | City-agnostic engine tests, run on the fixture city `cities/_fixture/` ("Testville"). |
+| `tests/kamloops/` | Kamloops regression suite (`regress.py` + the numbered rounds); index in its README. |
 | `scripts/export-open.py` | Writes out the freely-licensable subset of the data. |
 | `scripts/check-links.py` | Checks the external websites still resolve (needs a network). |
 | `scripts/monthly-quality-check.sh` | Stale POIs plus the link check. |

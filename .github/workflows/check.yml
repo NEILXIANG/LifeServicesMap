@@ -17,5 +17,7 @@ jobs:
         run: python3 build.py --city kamloops
       - name: Validate
         run: python3 scripts/validate.py build/kamloops.html
+      - name: 测试城市（cities/_fixture）构建 + 校验——证明引擎不依赖 Kamloops
+        run: python3 build.py --city _fixture && python3 scripts/validate.py --city _fixture
       - name: public/index.html 必须与构建结果一致
         run: git diff --exit-code --stat public/index.html

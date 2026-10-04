@@ -55,7 +55,27 @@ def root(start=None):
     raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 ROOT = root()
-CITY = 'kamloops'                    # 默认城市；阶段 3 起各脚本用 --city 覆盖
+# 当前城市：环境变量 LIFEGUIDE_CITY，或脚本解析 --city 后调用 use()；默认 kamloops
+CITY = os.environ.get('LIFEGUIDE_CITY') or 'kamloops'
+
+def cities():
+    """cities/ 下的全部城市（以 _ 开头的是测试用城市，不算）。"""
+    d = os.path.join(ROOT, 'cities')
+    return sorted(c for c in os.listdir(d)
+                  if not c.startswith(('_', '.')) and os.path.exists(os.path.join(d, c, 'city.json')))
+
+def use(city):
+    """切换当前城市；之后 load/save/data_text 默认都读写这座城市。"""
+    global CITY, DATA
+    if not os.path.exists(os.path.join(ROOT, 'cities', city, 'city.json')):
+        raise SystemExit('没有这座城市：cities/%s/city.json 不存在（现有：%s）' % (city, ', '.join(cities())))
+    CITY = city
+    DATA = data_template(city)
+    return city
+
+def city_meta(city=None):
+    """cities/<city>/city.json（构建期配置）。"""
+    return json.load(open(os.path.join(city_dir(city), 'city.json'), encoding='utf-8'))
 
 def city_dir(city=None):
     return os.path.join(ROOT, 'cities', city or CITY)

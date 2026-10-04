@@ -51,6 +51,7 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
         sys.exit('missing %s' % meta_path)
     meta = json.load(open(meta_path, encoding='utf-8'))
     meta.pop('_comment', None)
+    meta.pop('validate', None)      # validate.py's settings; the page never needs them
     for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
         if k not in meta:
             sys.exit('%s: missing "%s"' % (meta_path, k))

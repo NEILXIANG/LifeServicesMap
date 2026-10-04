@@ -30,16 +30,21 @@ python3 build.py --city kamloops >"$LOGDIR/build.log" 2>&1 || { cat "$LOGDIR/bui
 echo "  md5  $(md5 -q build/kamloops.html 2>/dev/null || md5sum build/kamloops.html | cut -d' ' -f1)"
 echo "  $(grep -oE "DATA_VERSION='[^']+'" build/kamloops.html | head -1)"
 
-echo "▸ 静态校验"
+echo "▸ 静态校验（每座城市 + 测试城市）"
 run validate python3 scripts/validate.py build/kamloops.html
+for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities() if c!="kamloops"))') _fixture; do
+  python3 build.py --city "$c" >"$LOGDIR/build-$c.log" 2>&1 || { cat "$LOGDIR/build-$c.log"; exit 1; }
+  run "validate-$c" python3 scripts/validate.py --city "$c"
+done
 
 if [[ $QUICK -eq 0 ]]; then
   if ! "$PY" -c 'import playwright' 2>/dev/null; then
     echo "✗ 没有 Playwright，跑不了浏览器测试（见 CLAUDE.md 的安装步骤，或加 --quick）"; exit 1
   fi
   echo "▸ 浏览器测试（$PY）"
-  run regress "$PY" tests/regress.py build/kamloops.html
-  for t in tests/phase*test.py tests/audit*.py tests/soci2.py tests/tasktest.py; do
+  run engine-fixture "$PY" tests/engine/test_fixture_city.py
+  run regress "$PY" tests/kamloops/regress.py build/kamloops.html
+  for t in tests/kamloops/phase*test.py tests/kamloops/audit*.py tests/kamloops/soci2.py tests/kamloops/tasktest.py; do
     [[ -f "$t" ]] || continue
     run "$(basename "$t" .py)" "$PY" "$t"
   done

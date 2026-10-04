@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Invariant checker for kamloops.html.
+Invariant checker for a built city page (build/<city>.html; --city <id>, default kamloops).
 
 Run after every batch of edits. Exits non-zero if any invariant is violated.
 Written because the previous round's six regressions were all of the form
@@ -22,12 +22,24 @@ def _project_root(p):
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 
+# 2026-10-03 (multi-city phase 3): --city <id> (or LIFEGUIDE_CITY) picks the city;
+# a positional path still names the built file directly.
+sys.path.insert(0, HERE)
+import kamdata as _kd
+_args = sys.argv[1:]
+if '--city' in _args:
+    _i = _args.index('--city')
+    _kd.use(_args[_i + 1])
+    del _args[_i:_i + 2]
+CITY_ID = _kd.CITY
+CITY_META = _kd.city_meta()
+
 def find_built(here, argv_path=None):
-    """The built file. Named kamloops.html here; readers often rename their copy,
+    """The built file: build/<city>.html; readers often rename their copy,
     so fall back to the only .html sitting next to this script."""
     if argv_path:
         return argv_path
-    default = os.path.join(here, 'build', 'kamloops.html')
+    default = os.path.join(here, 'build', '%s.html' % CITY_ID)
     if os.path.exists(default):
         return default
     found = [f for f in glob.glob(os.path.join(here, '*.html'))
@@ -38,15 +50,14 @@ def find_built(here, argv_path=None):
         sys.exit('no built HTML found next to this script — run build.py first')
     sys.exit('several .html files here; name one: %s <file>' % os.path.basename(__file__))
 
-PATH = find_built(HERE, sys.argv[1] if len(sys.argv) > 1 else None)
+PATH = find_built(HERE, _args[0] if _args else None)
 
-# 2026-09-21：不带参数时校验的是 build/kamloops.html。如果数据源比它新，
+# 2026-09-21：不带参数时校验的是 build/<city>.html。如果数据源比它新，
 # 说明改了数据还没重建——这时"all invariants hold"校验的是上一版，是个假通过。
 # （维护中真的发生过：加了 4 个地点、连续三次显示通过，重建后才报出主题顺序错误。）
-if len(sys.argv) <= 1:
+if not _args:
     _built_t = os.path.getmtime(PATH)
-    sys.path.insert(0, HERE); import kamdata as _kd
-    for _src, _t in (('cities/kamloops/', _kd.data_mtime()),
+    for _src, _t in (('cities/%s/' % CITY_ID, _kd.data_mtime()),
                      ('app/engine/', _kd.engine_mtime())):
         if _t > _built_t + 1:
             sys.exit('✗ %s 比构建产物 %s 新——先跑 python3 build.py 再校验，'
@@ -102,14 +113,29 @@ if r.returncode != 0:
 P = extract('P'); CI = extract('CI'); RI = extract('RI'); GN = extract('GN'); UI = extract('UI')
 BR = extract('BR'); CO = extract('CO'); CD = extract('CD'); IC = extract('IC')
 
-if len(P) < 240: fail('P shrank to %d places' % len(P))
+# the city's own settings (CITY in data.js), evaluated once with node
+def _city_obj():
+    m = re.search(r"const CITY=\{.*?\n\};", script, re.S)
+    if not m:
+        return {}
+    r = subprocess.run(['node', '-e', m.group(0) + ';process.stdout.write(JSON.stringify(CITY))'],
+                       capture_output=True, text=True)
+    return json.loads(r.stdout) if r.returncode == 0 else {}
+CITYOBJ = _city_obj()
+_bounds = CITYOBJ.get('bounds') or [[-90, -180], [90, 180]]
+if not CITYOBJ.get('bounds'): fail('CITY.bounds missing — cannot check coordinates')
+
+# a sudden drop in the place count is almost always a broken edit, not a decision;
+# the floor is per city (city.json "validate": {"minPlaces": N})
+_min_places = CITY_META.get('validate', {}).get('minPlaces', 1)
+if len(P) < _min_places: fail('P shrank to %d places (floor %d, city.json)' % (len(P), _min_places))
 for i, p in enumerate(P):
     for k in ('n', 'c', 'g', 'lat', 'lng', 'a'):
         if k not in p: fail('P[%d] %r missing required field %r' % (i, p.get('n'), k))
     if p['c'] not in CI: fail('P[%d] %r has unknown category %r' % (i, p['n'], p['c']))
     if p['g'] not in RI: fail('P[%d] %r has unknown region %r' % (i, p['n'], p['g']))
-    if not (50.5 < p['lat'] < 50.9 and -120.7 < p['lng'] < -120.0):
-        fail('P[%d] %r coordinates out of Kamloops bounds' % (i, p['n']))
+    if not (_bounds[0][0] < p['lat'] < _bounds[1][0] and _bounds[0][1] < p['lng'] < _bounds[1][1]):
+        fail('P[%d] %r coordinates outside CITY.bounds' % (i, p['n']))
 
 names = [p['n'] for p in P]
 dupes = [n for n, c in Counter(names).items() if c > 1]
@@ -790,7 +816,8 @@ else:
     copy_strings += re.findall(r"UI\.(?:zh|en|fr|es|ko)\.[A-Za-z0-9_]+='((?:[^'\\]|\\.)*)';", script)
     blob = '\n'.join(copy_strings)
     checks = [(cityname, '{CITY}')] if cityname else []
-    checks += [('BC Transit', '{TRANSIT}'), ('SD73', '{SD}')]
+    checks += [(lit, ph) for lit, ph in ((CITYOBJ.get('transit', {}).get('name'), '{TRANSIT}'),
+                                          (CITYOBJ.get('schoolDistrict', {}).get('name'), '{SD}')) if lit]
     for lit, ph in checks:
         n = blob.count(lit)
         if n:

@@ -24,7 +24,8 @@
 set -uo pipefail
 
 cd "$(dirname "$0")/.." || exit 1
-HERE="$(pwd)"   # 从项目根运行：bash scripts/monthly-quality-check.sh
+HERE="$(pwd)"   # 从项目根运行：bash scripts/monthly-quality-check.sh [城市，默认 kamloops]
+CITY="${1:-kamloops}"
 PY="python3"
 # 日期按 Kamloops 当地算，不看跑这个脚本的机器在哪个时区
 TODAY="$("$PY" -c 'import sys;sys.path.insert(0,".");import kamdata;print(kamdata.today())' 2>/dev/null || date +%Y-%m-%d)"
@@ -35,7 +36,7 @@ echo "== monthly-quality-check @ $TODAY =="
 # 1. Stale-POI report (TIME-01).
 # stdout 和 stderr 分开：原来 2>&1 折在一起，export-open.py 一旦抛异常，
 # traceback 的最后一行就被当成"本月过期数"原样写进了质量日志。
-"$PY" "$HERE/scripts/export-open.py" --stale-threshold 180 >/tmp/stale_$$.out 2>/tmp/stale_$$.err
+"$PY" "$HERE/scripts/export-open.py" --city "$CITY" --stale-threshold 180 >/tmp/stale_$$.out 2>/tmp/stale_$$.err
 STALE_RC=$?
 if [[ $STALE_RC -ne 0 ]]; then
   STALE_NOTE="脚本失败（rc=$STALE_RC）：$(tail -1 /tmp/stale_$$.err)"
@@ -50,7 +51,7 @@ echo "[TIME-01] $STALE_NOTE (rc=$STALE_RC)"
 # 计数从 --json 读，不再 grep 正文：正文格式一改（缩进、只打印异常）计数就
 # 全变 0，而且是静默的——这个月度巡检曾经连续几个月报"0 OK / 0 DEAD"。
 LINK_JSON="$HERE/data/check-links-$TODAY.json"
-"$PY" "$HERE/scripts/check-links.py" --deep-only --json "$LINK_JSON" \
+"$PY" "$HERE/scripts/check-links.py" --city "$CITY" --deep-only --json "$LINK_JSON" \
       >"$HERE/data/check-links-$TODAY.log" 2>&1
 LINK_RC=$?
 COUNTS="$("$PY" - "$LINK_JSON" <<'PYCOUNT'

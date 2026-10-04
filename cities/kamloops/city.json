@@ -5,5 +5,11 @@
   "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.",
   "siteUrl": "https://kamloops-lifemap.neilxiang.workers.dev/",
   "storagePrefix": "kamloops",
-  "searchStopwords": ["kamloops", "bc"]
+  "searchStopwords": [
+    "kamloops",
+    "bc"
+  ],
+  "validate": {
+    "minPlaces": 240
+  }
 }
