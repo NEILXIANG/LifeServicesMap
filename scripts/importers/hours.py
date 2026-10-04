@@ -123,6 +123,34 @@ def parse_hours(text):
     if appt: h['q'] = 'qAppt'
     return h
 
+
+def parse_services(text):
+    """Worship/service times -> the engine's h.s list [[day, minutes], ...] (shown as "Services: Sun 8:30 / …").
+
+    'Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m. (with Children's Liturgy), 7:00 p.m.' ->
+    [[6, 1020], [7, 510], [7, 630], [7, 1140]]. Weekday-wide lists ("Weekdays: 8:30 a.m.") expand to
+    each day. Returns None unless every part is understood (bracketed remarks are ignored).
+    """
+    if not text: return None
+    t = re.sub(r'\s*\([^)]*\)', '', re.sub(r'\s+', ' ', text)).strip(' .')
+    if UNSAFE.search(t): return None
+    out = []
+    for seg in [x.strip(' .') for x in re.split(r';|\n', t) if x.strip(' .')]:
+        m = re.match(r'^(.+?)\s*:\s*(.+)$', seg)
+        if not m: return None
+        dtxt = re.sub(r'\s*\((?:mon|tue|wed|thu|fri)[^)]*\)', '', m.group(1), flags=re.I)
+        days = _days(re.sub(r'^weekdays?\b.*', 'weekdays', dtxt.strip(), flags=re.I))
+        if not days: return None
+        times = [x.strip() for x in re.split(r',|&|\band\b', m.group(2)) if x.strip()]
+        mins = []
+        for tm in times:
+            mm = re.fullmatch(TIME_RE, tm, re.I)
+            if not mm or not re.search(r'[ap]\.?m|noon|midnight', tm, re.I): return None
+            mins.append(_minutes(mm))
+        for d in days:
+            for mi in mins: out.append([d, mi])
+    return sorted(out) or None
+
 if __name__ == '__main__':
     tests = {
      'Monday to Friday: 8:30 a.m. to 4:30 p.m.': {'r': [[1, 5, 510, 990, 0]]},
@@ -142,7 +170,16 @@ if __name__ == '__main__':
      'Mon – Fri, 8:30am – 12:00pm & 1:00pm – 4:30pm': {'r': [[1, 5, 510, 720, 0], [1, 5, 780, 990, 0]]},
      'Monday - Friday 8:30 am - 4:30 pm (closed statutory holidays).': {'r': [[1, 5, 510, 990, 0]]},
     }
+    svc = {
+     "Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m. (with Children's Liturgy), 7:00 p.m.; Weekdays (Mon-Fri): 8:30 a.m.":
+        [[1, 510], [2, 510], [3, 510], [4, 510], [5, 510], [6, 1020], [7, 510], [7, 630], [7, 1140]],
+     'Sunday: 10am': [[7, 600]],
+     'Sundays, see website': None,
+    }
     bad = 0
+    for k, want in svc.items():
+        got = parse_services(k); ok = got == want; bad += not ok
+        print('ok ' if ok else 'BAD', 'services', repr(k)[:50], '->', got)
     for k, want in tests.items():
         got = parse_hours(k)
         ok = got == want

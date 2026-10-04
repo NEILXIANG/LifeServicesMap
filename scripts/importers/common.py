@@ -91,6 +91,29 @@ def apply_translation(rec, translations):
     for l in LANG4: rec['note'][l] = t[l]
     return True
 
+def hours_path(city):
+    return os.path.join(kamdata.city_dir(city), 'import', 'hours.json')
+
+def load_hours(city):
+    """cities/<city>/import/hours.json: {id: {"hours_text", "services_text", "source_url", "fetched"}} —
+    hours copied verbatim from each place's own page, kept apart so re-imports never lose them."""
+    try:
+        return json.load(open(hours_path(city), encoding='utf-8'))
+    except FileNotFoundError:
+        return {}
+
+def apply_hours(rec, hours):
+    """Structured hours from the stored official wording, only where it is fully understood."""
+    from hours import parse_hours, parse_services
+    e = hours.get(rec.get('id'))
+    if not e or rec.get('h'): return False
+    h = parse_hours(e.get('hours_text'))
+    if not h and e.get('services_text'):
+        s = parse_services(e['services_text'])
+        if s: h = {'s': s}
+    if h: rec['h'] = h; return True
+    return False
+
 class CityImport:
     def __init__(self, city, source, area_by_locality=None):
         kamdata.use(city)
@@ -129,6 +152,7 @@ class CityImport:
             self.anchors = None
         self.new, self.skipped, self.approx = [], [], []
         self.translations = load_translations(city)
+        self.hours = load_hours(city)
         self.bounds = None
         m = re.search(r'bounds:\[\[([-\d.]+),([-\d.]+)\],\[([-\d.]+),([-\d.]+)\]\]', kamdata.data_text(city))
         if m:
@@ -202,6 +226,7 @@ class CityImport:
         rec.setdefault('src', 'opendata'); rec.setdefault('v', MONTH)
         rec['id'] = hashlib.sha1(('%s:%s:%s' % (self.city, self.source, key)).encode()).hexdigest()[:8]
         apply_translation(rec, self.translations)    # needs the id (2026-10-03: was applied before it existed)
+        apply_hours(rec, self.hours)
         if rec.get('precision') == 'low': self.approx.append(rec['n'])
         self.new.append(rec)
         if rec.get('precision') != 'low': self.link_same_building(rec)
