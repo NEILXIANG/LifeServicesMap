@@ -363,7 +363,10 @@
    "西基隆拿"
   ],
   "id": "d9cab6e5",
-  "w": "https://www.interiorhealth.ca/locations/west-kelowna-urgent-and-primary-care-centre"
+  "w": "https://www.interiorhealth.ca/locations/west-kelowna-urgent-and-primary-care-centre",
+  "sameComplex": [
+   "ed2a6f70"
+  ]
  },
  {
   "n": "Orchard Medical Centre",
@@ -457,10 +460,15 @@
    "addiction",
    "substance use",
    "心理健康",
-   "成瘾"
+   "成瘾",
+   "Kelowna Community Health & Services Centre"
   ],
   "id": "a55b7531",
-  "w": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use"
+  "w": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use",
+  "sameComplex": [
+   "8c512c24",
+   "68b5d493"
+  ]
  },
  {
   "n": "Shoppers Drug Mart Orchard Park S.C.",
@@ -570,10 +578,14 @@
    "low cost",
    "牙科",
    "牙医",
-   "低价"
+   "低价",
+   "Kelowna's Gospel Mission – Leon Shelter"
   ],
   "id": "6046fa00",
-  "w": "https://kelownagospelmission.ca/dental-clinic/"
+  "w": "https://kelownagospelmission.ca/dental-clinic/",
+  "sameComplex": [
+   "fac2727c"
+  ]
  },
  {
   "n": "Okanagan Regional Library – Kelowna Downtown",
@@ -584,8 +596,8 @@
   "a": "1380 Ellis St",
   "p": "250-762-2800",
   "note": {
-   "zh": "基洛纳最大的奥卡纳根区域图书馆分馆；居民可免费办理借书证，借阅图书、电子书并使用电脑和 Wi-Fi。",
-   "en": "The largest ORL branch in Kelowna; a library card is free for residents and gives access to books, e-books, computers and Wi-Fi."
+   "zh": "基洛纳最大的奥卡纳根区域图书馆分馆；居民可免费办理借书证，借阅图书、电子书并使用电脑和 Wi-Fi。此处还有：English Corner – Kelowna Downtown Library——每周一次、由志愿者带领的英语会话小组，在市中心图书馆。",
+   "en": "The largest ORL branch in Kelowna; a library card is free for residents and gives access to books, e-books, computers and Wi-Fi. Also here — English Corner – Kelowna Downtown Library: A weekly volunteer-led English conversation group at the downtown library."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -595,7 +607,10 @@
    "indoor"
   ],
   "id": "74718a21",
-  "w": "https://www.orl.bc.ca/library/kelowna-downtown"
+  "w": "https://www.orl.bc.ca/library/kelowna-downtown",
+  "alias": [
+   "English Corner – Kelowna Downtown Library"
+  ]
  },
  {
   "n": "Okanagan Regional Library – Kelowna Mission",
@@ -606,8 +621,8 @@
   "a": "4105 Gordon Dr",
   "p": "250-764-2254",
   "note": {
-   "zh": "位于 Mission 区、紧邻 H2O 中心的图书馆分馆，停车免费。",
-   "en": "Library branch in the Mission next to H2O; parking is free."
+   "zh": "位于 Mission 区、紧邻 H2O 中心的图书馆分馆，停车免费。此处还有：English Corner – Kelowna Mission Library——Mission 图书馆每周一次的英语会话小组，气氛轻松，可以练口语、交朋友。",
+   "en": "Library branch in the Mission next to H2O; parking is free. Also here — English Corner – Kelowna Mission Library: A friendly weekly English conversation group at the Mission library."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -620,6 +635,9 @@
   "w": "https://www.orl.bc.ca/library/kelowna-mission",
   "sameComplex": [
    "b18e9129"
+  ],
+  "alias": [
+   "English Corner – Kelowna Mission Library"
   ]
  },
  {
@@ -631,8 +649,8 @@
   "a": "#20-301 Hwy 33 W",
   "p": "250-765-8165",
   "note": {
-   "zh": "Rutland 区的图书馆分馆，位于 33 号公路旁的商业广场内，靠近 Rutland 公交换乘站。",
-   "en": "Rutland's library branch, in a shopping plaza on Highway 33 near the Rutland transit exchange."
+   "zh": "Rutland 区的图书馆分馆，位于 33 号公路旁的商业广场内，靠近 Rutland 公交换乘站。此处还有：English Corner – Kelowna Rutland Library——Rutland 图书馆（Plaza 33 商场内）每周一次、随到随参加的英语会话小组。",
+   "en": "Rutland's library branch, in a shopping plaza on Highway 33 near the Rutland transit exchange. Also here — English Corner – Kelowna Rutland Library: A weekly drop-in English conversation group at the Rutland library in Plaza 33 mall."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -645,6 +663,9 @@
   "w": "https://www.orl.bc.ca/library/kelowna-rutland",
   "sameComplex": [
    "4d296ae3"
+  ],
+  "alias": [
+   "English Corner – Kelowna Rutland Library"
   ]
  },
  {
@@ -656,8 +677,8 @@
   "a": "3731 Old Okanagan Hwy",
   "p": "250-768-4369",
   "note": {
-   "zh": "西基洛纳图书馆分馆，可在市政厅停车场免费停车，周日闭馆。",
-   "en": "West Kelowna's library branch; free parking in the City Hall lot. Closed Sundays."
+   "zh": "西基洛纳图书馆分馆，可在市政厅停车场免费停车，周日闭馆。此处还有：English Corner – West Kelowna Library——West Kelowna 图书馆每周两次免费英语会话小组。",
+   "en": "West Kelowna's library branch; free parking in the City Hall lot. Closed Sundays. Also here — English Corner – West Kelowna Library: Free English conversation groups twice a week at the West Kelowna library."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -670,6 +691,9 @@
   "w": "https://www.orl.bc.ca/library/west-kelowna",
   "sameComplex": [
    "763a5965"
+  ],
+  "alias": [
+   "English Corner – West Kelowna Library"
   ]
  },
  {
@@ -769,8 +793,8 @@
   "a": "3333 University Way",
   "p": "250-807-8000",
   "note": {
-   "zh": "UBC 大学奥卡纳根校区，位于基洛纳北部、机场附近，市中心和 Rutland 有频繁公交直达。",
-   "en": "UBC's Okanagan campus in north Kelowna near the airport, with frequent buses from downtown and Rutland."
+   "zh": "UBC 大学奥卡纳根校区，位于基洛纳北部、机场附近，市中心和 Rutland 有频繁公交直达。此处还有：UBC Okanagan – Global Engagement Office——UBCO 国际学生办公室：提供移民咨询、医疗保险和安顿适应方面的帮助。",
+   "en": "UBC's Okanagan campus in north Kelowna near the airport, with frequent buses from downtown and Rutland. Also here — UBC Okanagan – Global Engagement Office: UBCO's office for international students: immigration advising, health insurance and help settling in."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -778,6 +802,13 @@
   "w": "https://ok.ubc.ca/",
   "t": [
    "student"
+  ],
+  "alias": [
+   "UBC Okanagan – Global Engagement Office"
+  ],
+  "sameComplex": [
+   "9080e12c",
+   "6644e12d"
   ]
  },
  {
@@ -789,8 +820,8 @@
   "a": "1000 KLO Rd",
   "p": "250-762-5445",
   "note": {
-   "zh": "奥卡纳根学院主校区，提供文凭、技工、大学转学分及英语语言课程。",
-   "en": "Okanagan College's main campus, offering diplomas, trades, university transfer and English language programs."
+   "zh": "奥卡纳根学院主校区，提供文凭、技工、大学转学分及英语语言课程。此处还有：Okanagan College – English Language Studies——学院的全日制英语课程（英语语言证书和学术英语），可以衔接学院的专业课程。此处还有：Okanagan College – International Education——为 Okanagan 学院国际学生服务：有持证移民顾问（学签延期、毕业工签等），还有文化联络员帮你适应加拿大生活。",
+   "en": "Okanagan College's main campus, offering diplomas, trades, university transfer and English language programs. Also here — Okanagan College – English Language Studies: Full-time college English classes (English Language Certificate and English for Academic Purposes) that can lead into college programs. Also here — Okanagan College – International Education: Help for Okanagan College international students: certified immigration advisors (study permit extensions, post-graduation work permits) and cultural liaisons who help you settle into life in Canada."
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
@@ -798,6 +829,15 @@
   "w": "https://www.okanagancollege.ca/campuses/kelowna-campus",
   "t": [
    "student"
+  ],
+  "alias": [
+   "Okanagan College Counselling Services",
+   "Okanagan College – English Language Studies",
+   "Okanagan College – International Education"
+  ],
+  "sameComplex": [
+   "4a0d58a9",
+   "44e684f8"
   ]
  },
  {
@@ -912,7 +952,10 @@
    "life"
   ],
   "id": "8adfdff2",
-  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=105935&detail=true"
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=105935&detail=true",
+  "sameComplex": [
+   "760d0b10"
+  ]
  },
  {
   "n": "Parkinson Recreation Centre",
@@ -1423,7 +1466,8 @@
   "id": "0a811768",
   "w": "https://pse.sd23.bc.ca/",
   "sameComplex": [
-   "898bef63"
+   "898bef63",
+   "35324abd"
   ]
  },
  {
@@ -2309,7 +2353,10 @@
   "t": [
    "family"
   ],
-  "id": "3379f1cd"
+  "id": "3379f1cd",
+  "sameComplex": [
+   "36cfbf1f"
+  ]
  },
  {
   "n": "The Clubhouse at Sutherland",
@@ -2926,7 +2973,8 @@
    "family"
   ],
   "sameComplex": [
-   "0a811768"
+   "0a811768",
+   "35324abd"
   ],
   "id": "898bef63"
  },
@@ -3539,18 +3587,17 @@
   "p": "778-484-6222",
   "note": {
    "zh": "持牌托儿机构（BC 省政府开放数据）。托儿位普遍紧张，去之前先打电话问有没有空位、收什么年龄段。可用语言（除英语外）：普通话、粤语。年龄：课后托管（1 年级到 12 岁）。参加省政府的托儿费减免计划（CCFRI）。",
-   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Languages besides English: Mandarin, Cantonese. Ages: before/after school (grade 1 to age 12). In the provincial fee-reduction programme (CCFRI).",
-   "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Langues en plus de l’anglais : mandarin, cantonais. Âges : avant et après l’école (1re année à 12 ans). Participe au programme provincial de réduction des frais (CCFRI).",
-   "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Idiomas además del inglés: mandarín, cantonés. Edades: antes y después de la escuela (de 1.º grado a 12 años). Participa en el programa provincial de reducción de cuotas (CCFRI).",
-   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 영어 외 가능 언어: 중국어(표준어), 광둥어. 연령: 방과 전후 돌봄(1학년~12세). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
-   "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。英語以外の対応言語：北京語、広東語。年齢：学童保育（1年生〜12歳）。州の保育料軽減プログラム（CCFRI）に参加。"
+   "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Languages besides English: Mandarin, Cantonese. Ages: before/after school (grade 1 to age 12). In the provincial fee-reduction programme (CCFRI)."
   },
   "src": "opendata",
   "v": "2026-10",
   "t": [
    "family"
   ],
-  "id": "ca8447e9"
+  "id": "ca8447e9",
+  "sameComplex": [
+   "479aeb0c"
+  ]
  },
  {
   "n": "Presidential Kids Academy Childcare Centre - McIver",
@@ -4217,7 +4264,10 @@
   "t": [
    "family"
   ],
-  "id": "f98efbcc"
+  "id": "f98efbcc",
+  "sameComplex": [
+   "cc6dd518"
+  ]
  },
  {
   "n": "Wonderful Beginnings - Gallaghers",
@@ -6858,5 +6908,1902 @@
    "free"
   ],
   "id": "0632c4ba"
+ },
+ {
+  "n": "Kelowna Community Health & Services Centre (Interior Health public health)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.888586,
+  "lng": -119.4926229,
+  "a": "505 Doyle Avenue",
+  "p": "250-469-7070",
+  "note": {
+   "zh": "Interior Health 在市中心的公共卫生中心：婴儿、儿童和成人疫苗，孕期和产后支持，母乳喂养帮助，儿童牙齿、听力和语言检查。疫苗免费，请先打电话预约。",
+   "en": "Interior Health's main public health centre downtown, for vaccines for babies, children and adults, pregnancy and new-baby support, breastfeeding help, and child dental, hearing and speech checks. Immunizations are free. Call to book."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "public health",
+   "health unit",
+   "immunization",
+   "vaccine",
+   "baby clinic",
+   "child health clinic",
+   "breastfeeding",
+   "Doyle",
+   "公共卫生",
+   "打疫苗",
+   "疫苗",
+   "预防针"
+  ],
+  "sameComplex": [
+   "a55b7531",
+   "68b5d493"
+  ],
+  "id": "8c512c24",
+  "w": "https://www.interiorhealth.ca/locations/kelowna-community-health-services-centre"
+ },
+ {
+  "n": "Rutland Health Centre (Interior Health public health)",
+  "c": "hospital",
+  "g": "rt",
+  "lat": 49.89122,
+  "lng": -119.3973182,
+  "a": "102-285 Aurora Crescent",
+  "p": "250-980-4825",
+  "note": {
+   "zh": "Interior Health 在 Rutland 的公共卫生中心：打疫苗、婴幼儿体检、母乳喂养支持、验孕和咨询、结核病筛查。可以提供口译，主要需预约，也有部分免预约名额。",
+   "en": "Interior Health public health centre in Rutland, for vaccines, baby and child checks, breastfeeding help, pregnancy testing and counselling, and TB screening. Interpreters are available. Mostly by appointment, with some drop-in."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free",
+   "multi"
+  ],
+  "alias": [
+   "public health",
+   "Rutland health unit",
+   "immunization",
+   "vaccine",
+   "baby clinic",
+   "pregnancy test",
+   "TB test",
+   "公共卫生",
+   "疫苗",
+   "预防针",
+   "验孕",
+   "结核"
+  ],
+  "id": "264e4d24",
+  "w": "https://www.interiorhealth.ca/locations/rutland-health-centre"
+ },
+ {
+  "n": "West Kelowna Health Centre (Interior Health public health)",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.8302689,
+  "lng": -119.620752,
+  "a": "160-2300 Carrington Road",
+  "p": "250-980-5150",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Interior Health 在西基隆拿的公共卫生中心：疫苗、孕期和产后支持、母乳喂养帮助、儿童牙齿检查。有免费停车，请打电话预约。",
+   "en": "Interior Health public health centre in West Kelowna, for vaccines, pregnancy and new-baby support, breastfeeding help and child dental checks. Free parking. Call to book."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "public health",
+   "West Kelowna health unit",
+   "Westbank",
+   "immunization",
+   "vaccine",
+   "baby clinic",
+   "Carrington",
+   "公共卫生",
+   "疫苗",
+   "预防针",
+   "西基隆拿"
+  ],
+  "sameComplex": [
+   "d5dec90d"
+  ],
+  "id": "f3696455",
+  "w": "https://www.interiorhealth.ca/locations/west-kelowna-health-centre"
+ },
+ {
+  "n": "Kelowna Sexual & Reproductive Health Clinic (Interior Health)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.888586,
+  "lng": -119.4926229,
+  "a": "505 Doyle Avenue",
+  "p": "844-862-4467",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Interior Health 的性与生殖健康诊所，保密、不评判：性病检测与治疗、验孕、紧急避孕、免费安全套。拨打 1-844-862-4467 预约。",
+   "en": "Confidential, non-judgmental Interior Health clinic for STI testing and treatment, pregnancy tests, emergency contraception and free condoms. Call 1-844-862-4467 to book."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "sexual health",
+   "STI",
+   "STD",
+   "HIV test",
+   "birth control",
+   "emergency contraception",
+   "morning-after pill",
+   "condoms",
+   "性健康",
+   "性病检测",
+   "避孕",
+   "紧急避孕"
+  ],
+  "sameComplex": [
+   "a55b7531",
+   "8c512c24"
+  ],
+  "id": "68b5d493",
+  "w": "https://www.interiorhealth.ca/locations/kelowna-sexual-reproductive-health-clinic"
+ },
+ {
+  "n": "West Kelowna Sexual & Reproductive Health (Interior Health)",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.8302689,
+  "lng": -119.620752,
+  "a": "160-2300 Carrington Road",
+  "p": "844-862-4467",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Interior Health 在西基隆拿的保密性健康诊所，位于 West Kelowna Health Centre 内。拨打 1-844-862-4467 预约。",
+   "en": "Interior Health's confidential sexual health clinic in West Kelowna, in the West Kelowna Health Centre. Call 1-844-862-4467 to book."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "sexual health",
+   "STI",
+   "STD",
+   "birth control",
+   "emergency contraception",
+   "West Kelowna",
+   "Westbank",
+   "性健康",
+   "性病检测",
+   "避孕",
+   "西基隆拿"
+  ],
+  "sameComplex": [
+   "f3696455"
+  ],
+  "id": "d5dec90d",
+  "w": "https://www.interiorhealth.ca/locations/west-kelowna-sexual-reproductive-health"
+ },
+ {
+  "n": "Central Okanagan Maternity Clinic (Interior Health)",
+  "c": "hospital",
+  "g": "pm",
+  "lat": 49.8735531,
+  "lng": -119.4908414,
+  "a": "2251 Pandosy Street",
+  "p": "250-862-4300",
+  "note": {
+   "zh": "Interior Health 的产科诊所，在 Kelowna 总医院旁边。怀孕但没有家庭医生的人，可以在孕期任何阶段自己转介。电话 250-862-4300 转 33204。",
+   "en": "Interior Health maternity clinic beside Kelowna General Hospital. If you are pregnant and have no family doctor, you can refer yourself at any stage of pregnancy. Phone 250-862-4300 ext. 33204."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "maternity",
+   "prenatal",
+   "pregnancy",
+   "pregnant",
+   "midwife",
+   "obstetrics",
+   "KGH",
+   "产检",
+   "怀孕",
+   "孕妇",
+   "产科",
+   "助产士"
+  ],
+  "id": "8ffe8733",
+  "w": "https://www.interiorhealth.ca/locations/central-okanagan-maternity-clinic"
+ },
+ {
+  "n": "Special Deliveries prenatal and postnatal group (The Bridge Youth & Family Services)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.8912686,
+  "lng": -119.4253733,
+  "a": "8-2604 Enterprise Way",
+  "p": "250-878-6331",
+  "h": {
+   "r": [
+    [
+     4,
+     4,
+     720,
+     900,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "每周一次的免费孕妇和新妈妈小组（宝宝 6 个月以下）：提供午餐、孕期维生素、超市食品券，公共卫生护士会来访。需要先报名。",
+   "en": "Free weekly group for pregnant women and new mothers (baby under 6 months), with lunch, prenatal vitamins, grocery food certificates and visits from a public health nurse. You must register first."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "prenatal group",
+   "pregnancy support",
+   "new mom",
+   "prenatal vitamins",
+   "food voucher",
+   "The Bridge",
+   "孕妇",
+   "孕期",
+   "新妈妈",
+   "维生素",
+   "食品券",
+   "免费"
+  ],
+  "id": "1dd6babc",
+  "w": "https://thebridgeservices.ca/youth-and-family-services/early-years/special-deliveries"
+ },
+ {
+  "n": "CMHA Kelowna (Canadian Mental Health Association)",
+  "c": "hospital",
+  "g": "pm",
+  "lat": 49.8798242,
+  "lng": -119.4928806,
+  "a": "504 Sutherland Avenue",
+  "p": "250-861-3644",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "为 25 岁以上成人提供工作日免费线上心理咨询（单次咨询）。拨打 250-861-3644，说要 CMHA Kelowna Virtual Counselling。12–24 岁青少年请找 Foundry Kelowna（同样由 CMHA 运营）。",
+   "en": "Free virtual single-session counselling for adults 25+ on weekdays. Call 250-861-3644 and ask for CMHA Kelowna Virtual Counselling. CMHA Kelowna also runs Foundry Kelowna for ages 12-24."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "CMHA",
+   "mental health",
+   "counselling",
+   "free counselling",
+   "therapy",
+   "心理健康",
+   "心理咨询",
+   "免费咨询",
+   "抑郁",
+   "焦虑"
+  ],
+  "id": "f2d03b7a",
+  "w": "https://www.cmhakelowna.com/"
+ },
+ {
+  "n": "Foundry Kelowna (youth 12-24)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.8809114,
+  "lng": -119.4574213,
+  "a": "100-1815 Kirschner Road",
+  "p": "236-420-2803",
+  "note": {
+   "zh": "为 12–24 岁青少年提供的免费、保密一站式中心：免预约心理咨询、身体和性健康服务、同伴支持，以及学业、工作和住房方面的帮助。提前联系的话，部分预约可安排翻译。",
+   "en": "Free, confidential one-stop centre for ages 12-24: drop-in counselling, physical and sexual health care, peer support, and help with school, work and housing. Interpreters for some appointments if you call ahead."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "Foundry",
+   "youth",
+   "teen",
+   "young adult",
+   "youth counselling",
+   "youth clinic",
+   "drop-in counselling",
+   "青少年",
+   "青年",
+   "心理咨询",
+   "免费",
+   "学生"
+  ],
+  "id": "cba7e8e1",
+  "w": "https://foundrybc.ca/centre/kelowna/"
+ },
+ {
+  "n": "Foundry Kelowna – West Kelowna services (youth 12-24)",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.8297611,
+  "lng": -119.6304501,
+  "a": "15-2484 Main Street",
+  "p": "236-420-2803",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     960,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Foundry 在西基隆拿的青少年服务（12–24 岁），每周一和周五在儿童青少年心理健康办公室提供免费、保密的心理咨询。",
+   "en": "Foundry youth counselling for ages 12-24 in West Kelowna, on Mondays and Fridays at the Child & Youth Mental Health office. Free and confidential."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "Foundry",
+   "youth",
+   "teen",
+   "West Kelowna",
+   "Westbank",
+   "youth counselling",
+   "青少年",
+   "心理咨询",
+   "西基隆拿"
+  ],
+  "sameComplex": [
+   "d9cab6e5"
+  ],
+  "id": "ed2a6f70",
+  "w": "https://foundrybc.ca/centre/kelowna/"
+ },
+ {
+  "n": "Connect Counselling & Therapy Society",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.8796596,
+  "lng": -119.4440769,
+  "a": "4-1890 Cooper Road",
+  "p": "250-860-3181",
+  "note": {
+   "zh": "慈善机构心理咨询中心，有免费、低价和全价三种。成人免费咨询要先拨 310-6478（Interior Health 心理健康热线）转介；低价名额需打电话预约，不能网上预约。",
+   "en": "Charity counselling centre with free, low-cost and full-fee counselling. For free adult counselling, call 310-6478 (Interior Health Mental Health) to be referred. Low-cost spots are booked by phone, not online."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "counselling",
+   "low cost counselling",
+   "sliding scale",
+   "free counselling",
+   "therapy",
+   "family counselling",
+   "Kelowna Family Centre",
+   "心理咨询",
+   "低价咨询",
+   "免费咨询",
+   "家庭咨询"
+  ],
+  "id": "c7876aa2",
+  "w": "https://connectcounsellingandtherapy.com/"
+ },
+ {
+  "n": "UBC Okanagan Psychology Clinic – Walk-In Wellness Service",
+  "c": "hospital",
+  "g": "nk",
+  "lat": 49.9397006,
+  "lng": -119.3961827,
+  "a": "ASC 167, UBC Okanagan campus, 3333 University Way",
+  "p": "250-807-8241",
+  "note": {
+   "zh": "UBCO 的免费免预约心理支持（每次最多 30 分钟），18 岁以上任何 BC 居民都可以用，不限学生。由受督导的心理学博士生提供，每年 1–3 次。不是危机服务，也不开药、不做诊断。",
+   "en": "Free, brief (up to 30 min) drop-in mental health support at UBCO, open to anyone in BC aged 18+, not only students. Sessions are with supervised doctoral psychology students, 1-3 sessions per year. Not a crisis service, and no prescriptions or diagnoses."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "student"
+  ],
+  "alias": [
+   "walk-in counselling",
+   "UBCO",
+   "psychology clinic",
+   "free counselling",
+   "mental health",
+   "drop-in",
+   "心理咨询",
+   "免费",
+   "免预约",
+   "UBC"
+  ],
+  "sameComplex": [
+   "6af1cc50",
+   "6644e12d"
+  ],
+  "id": "9080e12c",
+  "w": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/"
+ },
+ {
+  "n": "UBC Okanagan Student Health Clinic (Student Wellness)",
+  "c": "hospital",
+  "g": "nk",
+  "lat": 49.9397006,
+  "lng": -119.3961827,
+  "a": "UNC 337, 3333 University Way",
+  "p": "250-807-9270",
+  "note": {
+   "zh": "仅限 UBCO 学生的校内诊所，有医生、执业护士和护士。需预约，也有部分当天名额。带健康卡或 PHN；国际学生使用 iMED 或 MSP。",
+   "en": "On-campus clinic for UBCO students only, with doctors, a nurse practitioner and nurses, by appointment with some same-day spots. Bring your health card or PHN; international students use iMED or MSP."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "student"
+  ],
+  "alias": [
+   "UBCO",
+   "student health",
+   "campus clinic",
+   "UBC Okanagan",
+   "iMED",
+   "international student",
+   "学生诊所",
+   "校医",
+   "留学生",
+   "UBC"
+  ],
+  "sameComplex": [
+   "6af1cc50",
+   "9080e12c"
+  ],
+  "id": "6644e12d",
+  "w": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
+ },
+ {
+  "n": "Okanagan College Counselling Services (Kelowna campus)",
+  "c": "hospital",
+  "g": "pm",
+  "lat": 49.8616238,
+  "lng": -119.4803931,
+  "a": "A100, Student Services building, 1000 KLO Road",
+  "p": "250-762-5445",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "仅限在读 Okanagan College 学生的免费短期心理咨询（个人、心理健康、职业或学业问题）。需在网上申请，不能直接上门。学生也可以随时拨打 Here2Talk（24 小时）：1-877-857-3397。",
+   "en": "Free short-term counselling for current Okanagan College students only (personal, mental health, career or academic). Request online; there is no drop-in. Students can also use Here2Talk 24/7 at 1-877-857-3397."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free",
+   "student"
+  ],
+  "alias": [
+   "Okanagan College",
+   "OC",
+   "student counselling",
+   "college counselling",
+   "Here2Talk",
+   "学生心理咨询",
+   "学院",
+   "留学生"
+  ],
+  "sameComplex": [
+   "98071a20",
+   "44e684f8"
+  ],
+  "id": "4a0d58a9",
+  "w": "https://www.okanagancollege.ca/counselling-services"
+ },
+ {
+  "n": "Okanagan College Certified Dental Assisting – Direct Patient Care Clinic (seasonal)",
+  "c": "dental",
+  "g": "pm",
+  "lat": 49.8616238,
+  "lng": -119.4803931,
+  "a": "Health Science Centre, 1000 KLO Road",
+  "p": "250-862-5424",
+  "note": {
+   "zh": "牙科助理学生提供的超低价洗牙、检查、涂氟和窝沟封闭，每年只在 5 月开放。只收现金，16 岁以上需先做初筛。",
+   "en": "Very low-cost cleanings, exams, fluoride and sealants done by dental assisting students, only in May each year. Cash only, and ages 16+ need a pre-screening."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "dental",
+   "cheap dental",
+   "teeth cleaning",
+   "dental school",
+   "Okanagan College",
+   "牙科",
+   "洗牙",
+   "便宜",
+   "低价牙科"
+  ],
+  "sameComplex": [
+   "98071a20",
+   "4a0d58a9"
+  ],
+  "id": "44e684f8",
+  "w": "https://www.okanagancollege.ca/notice/certified-dental-assisting-programs-direct-patient-care-clinic"
+ },
+ {
+  "n": "KLO Medical Clinic",
+  "c": "hospital",
+  "g": "pm",
+  "lat": 49.862213,
+  "lng": -119.4893583,
+  "a": "205-616 KLO Road",
+  "p": "250-791-0411",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "家庭诊所，为没有家庭医生的人提供需预约的“免排队”门诊名额。必须先在网上预约，不能直接上门。",
+   "en": "Family practice with booked 'walk-in' appointments for people without a family doctor. Book online first; you cannot just walk in."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "KLO",
+   "family doctor",
+   "no family doctor",
+   "免预约诊所",
+   "家庭医生",
+   "看医生"
+  ],
+  "id": "b450ee72",
+  "w": "https://klomedical.ca/"
+ },
+ {
+  "n": "Lakeshore Medical Centre (in Real Canadian Superstore)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.8810241,
+  "lng": -119.4317675,
+  "a": "2280 Baron Road",
+  "p": "250-764-8878",
+  "note": {
+   "zh": "看小病小伤的门诊，周六和法定假日也开。必须先打电话或网上预约，不接待直接上门。",
+   "en": "Same-day-style clinic for minor illness and injury, open Saturdays and statutory holidays. You must book first by phone or online; walk-ins are not accepted."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "Superstore",
+   "Baron Road",
+   "Orchard Park",
+   "Saturday clinic",
+   "周末看病",
+   "诊所",
+   "看医生"
+  ],
+  "id": "e82c5663",
+  "w": "https://www.healthlinkbc.ca/clinic/lakeshore-medical-centre"
+ },
+ {
+  "n": "Academy Hill Medical (near UBCO / airport)",
+  "c": "hospital",
+  "g": "nk",
+  "lat": 49.9353755,
+  "lng": -119.3994814,
+  "a": "109-975 Academy Way",
+  "p": "250-765-0544",
+  "note": {
+   "zh": "有 MSP 的人都可以预约当天视频看诊，由 BC 执照医生看诊。拨打 250-765-0544（每天 10:00–16:00），需要时可安排面诊。诊所总机 250-300-3284。",
+   "en": "Mostly same-day video visits with a BC doctor for anyone with MSP, by calling 250-765-0544 (10am-4pm daily), with in-person visits if needed. Main office line is 250-300-3284."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "virtual doctor",
+   "video visit",
+   "same day doctor",
+   "UBCO",
+   "airport",
+   "Academy Way",
+   "online doctor",
+   "视频看诊",
+   "网上看医生",
+   "当天看医生",
+   "机场"
+  ],
+  "id": "7764a8e2",
+  "w": "https://academyhillmedical.com/"
+ },
+ {
+  "n": "Rutland Community Clinic (for newcomers, Indigenous people, and women's health)",
+  "c": "hospital",
+  "g": "rt",
+  "lat": 49.8892079,
+  "lng": -119.3918238,
+  "a": "105-330 Highway 33",
+  "p": "250-717-8716",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "非营利团队诊所（医生、护士、药剂师、社工），专为刚到加拿大的人、原住民和需要女性健康服务的人设立，所有服务都可以提供翻译。新病人请打电话或直接到诊所登记。",
+   "en": "Not-for-profit team clinic (doctors, nurses, pharmacists, social workers) set up for newcomers to Canada, Indigenous people and women's health, with translation for all services. New patients call or walk in to register."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "newcomer clinic",
+   "immigrant clinic",
+   "refugee",
+   "women's health",
+   "Indigenous",
+   "Rutland",
+   "family doctor",
+   "translation",
+   "新移民",
+   "移民诊所",
+   "难民",
+   "女性健康"
+  ],
+  "id": "5f891129",
+  "w": "https://rutlandcommunityclinic.ca/"
+ },
+ {
+  "n": "Lakepoint Medical Clinic",
+  "c": "hospital",
+  "g": "wk",
+  "lat": 49.8804448,
+  "lng": -119.5354145,
+  "a": "202-525 Highway 97 South",
+  "p": "778-755-0700",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "西基隆拿的家庭诊所，也通过网上预约接待临时病人（选择“walk-in patient”）。没有 MSP 也可以看，但需要自费。",
+   "en": "West Kelowna family clinic that also takes walk-in patients through its online booking (choose 'walk-in patient'). It will see people without MSP, but they pay a private fee."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "walk-in",
+   "clinic",
+   "West Kelowna",
+   "Westbank",
+   "no MSP",
+   "uninsured",
+   "免预约诊所",
+   "西基隆拿",
+   "没有MSP",
+   "自费看病"
+  ],
+  "id": "164b9d95",
+  "w": "https://www.lakepointmedical.ca/"
+ },
+ {
+  "n": "Outreach Urban Health Centre (Interior Health)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.884611,
+  "lng": -119.4948665,
+  "a": "1649 Pandosy Street",
+  "p": "250-868-2230",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     600,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Interior Health 在市中心的初级保健中心（医生、执业护士、护士、社工），也提供减害和监督使用服务。可预约或直接上门，工作日 10:00–16:00。",
+   "en": "Interior Health drop-in primary care centre downtown (doctors, nurse practitioners, nurses, social workers), which also offers harm reduction and supervised consumption services. Book or drop in, weekdays 10-4."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "outreach",
+   "urban health",
+   "drop-in clinic",
+   "harm reduction",
+   "homeless",
+   "低门槛",
+   "免预约",
+   "减害"
+  ],
+  "id": "035896d3",
+  "w": "https://www.interiorhealth.ca/locations/outreach-urban-health-centre"
+ },
+ {
+  "n": "Shoppers Drug Mart Kelowna (Bernard Ave, downtown)",
+  "c": "pharmacy",
+  "g": "dt",
+  "lat": 49.8860668,
+  "lng": -119.4902018,
+  "a": "597 Bernard Avenue",
+  "p": "250-763-1232",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     480,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "市中心药房，周一至周六营业到晚上 9 点，周日也营业。在 BC，药剂师可以治疗 21 种常见小病、开避孕药并续开很多处方，有 PHN 就免费。",
+   "en": "Downtown pharmacy open until 9 p.m. Monday to Saturday and on Sundays. In BC, pharmacists can treat 21 minor ailments, prescribe birth control and renew many prescriptions, free with a PHN."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "drugstore",
+   "Shoppers",
+   "downtown",
+   "Bernard",
+   "药房",
+   "药店",
+   "买药",
+   "续药"
+  ],
+  "id": "c6394e2d",
+  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2201/pharmacy"
+ },
+ {
+  "n": "Shoppers Drug Mart The Ponds (Pharmacy Care Clinic)",
+  "c": "pharmacy",
+  "g": "pm",
+  "lat": 49.8049647,
+  "lng": -119.4740532,
+  "a": "1030 Frost Road",
+  "p": "250-448-0270",
+  "note": {
+   "zh": "Upper Mission 的药房，每天 8:00–22:00 营业。店内有 Pharmacy Care Clinic，药剂师可以在私密诊室评估常见小病，也可以做链球菌咽喉炎检测。",
+   "en": "Upper Mission pharmacy open 8 a.m.-10 p.m. every day, with a Pharmacy Care Clinic where a pharmacist can assess minor ailments in a private room. Also does strep throat tests."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "Shoppers",
+   "The Ponds",
+   "Upper Mission",
+   "pharmacy clinic",
+   "strep test",
+   "药房",
+   "药店",
+   "药剂师诊所",
+   "喉咙痛"
+  ],
+  "id": "6ae407aa",
+  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2132/pharmacy"
+ },
+ {
+  "n": "Shoppers Drug Mart Lakeshore And Lanfranco",
+  "c": "pharmacy",
+  "g": "pm",
+  "lat": 49.8575884,
+  "lng": -119.490702,
+  "a": "3327 Lakeshore Road",
+  "p": "250-868-9521",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     480,
+     1320,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Mission 区药房，每天 8:00–22:00 营业，周日也开。",
+   "en": "Mission-area pharmacy open 8 a.m.-10 p.m. every day, including Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "Shoppers",
+   "Lakeshore",
+   "Mission",
+   "Lanfranco",
+   "药房",
+   "药店",
+   "晚上买药"
+  ],
+  "id": "42392486",
+  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2131/pharmacy"
+ },
+ {
+  "n": "Shoppers Drug Mart Kane And Drysdale (Glenmore)",
+  "c": "pharmacy",
+  "g": "gm",
+  "lat": 49.9155126,
+  "lng": -119.4412563,
+  "a": "1972 Kane Road",
+  "p": "250-869-0132",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     480,
+     1320,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Glenmore 区药房，每天 8:00–22:00 营业，周日也开。",
+   "en": "Glenmore pharmacy open 8 a.m.-10 p.m. every day, including Sundays."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "Shoppers",
+   "Glenmore",
+   "Kane Road",
+   "Drysdale",
+   "药房",
+   "药店",
+   "晚上买药"
+  ],
+  "id": "5b55bc09",
+  "w": "https://www.shoppersdrugmart.ca/en/store-locator/store/2267/pharmacy"
+ },
+ {
+  "n": "London Drugs Spall Plaza",
+  "c": "pharmacy",
+  "g": "dt",
+  "lat": 49.8825592,
+  "lng": -119.4519176,
+  "a": "400-1950 Harvey Avenue",
+  "p": "250-860-2232",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     540,
+     1320,
+     0
+    ],
+    [
+     7,
+     7,
+     540,
+     1200,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "Harvey Ave 上的大型药妆店，周一至周六营业到晚上 10 点，周日和假日到晚上 8 点。以上为商店营业时间，药房柜台时间请打药房电话确认。",
+   "en": "Large drugstore on Harvey Ave open until 10 p.m. Monday to Saturday and until 8 p.m. on Sundays and holidays. These are store hours; call the pharmacy line to check counter hours."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "London Drugs",
+   "Spall",
+   "Harvey",
+   "drugstore",
+   "药房",
+   "药店",
+   "伦敦药房"
+  ],
+  "id": "beb9ed16",
+  "w": "https://www.londondrugs.com/stores/spall-plaza/s/012"
+ },
+ {
+  "n": "London Drugs Westbank",
+  "c": "pharmacy",
+  "g": "wk",
+  "lat": 49.8393621,
+  "lng": -119.6127415,
+  "a": "2151 Louie Drive",
+  "p": "250-707-2360",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     540,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     1200,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "西基隆拿的药妆店，周一至周六营业到晚上 9 点，周日和假日到晚上 8 点（商店营业时间）。店内也有邮局。",
+   "en": "West Kelowna drugstore open until 9 p.m. Monday to Saturday and until 8 p.m. on Sundays and holidays (store hours). It also has a Canada Post outlet."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "London Drugs",
+   "Westbank",
+   "West Kelowna",
+   "Louie Drive",
+   "药房",
+   "药店",
+   "西基隆拿"
+  ],
+  "id": "ffe9bdb4",
+  "w": "https://www.londondrugs.com/stores/westbank/s/076"
+ },
+ {
+  "n": "Pharmasave Kelowna Airport Village",
+  "c": "pharmacy",
+  "g": "nk",
+  "lat": 49.9527694,
+  "lng": -119.3875427,
+  "a": "304-1750 Pier Mac Way",
+  "p": "778-484-8960",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1080,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "离 UBCO 和机场最近的药房，但不开到很晚，周日休息。晚上买药请去 Glenmore 的 Shoppers（Kane Road，营业到晚上 10 点）。",
+   "en": "Closest pharmacy found to UBCO and the airport. Not open late or on Sundays; for evenings use the 10 p.m. Shoppers on Kane Road in Glenmore."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "alias": [
+   "pharmacy",
+   "Pharmasave",
+   "airport",
+   "UBCO",
+   "Airport Village",
+   "药房",
+   "药店",
+   "机场"
+  ],
+  "id": "6d7ab55f",
+  "w": "https://pharmasave.com/store/kelowna-airport-village/"
+ },
+ {
+  "n": "KCR Community Resources – Free Tax Clinic (CVITP)",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.8847385,
+  "lng": -119.4895809,
+  "a": "620 Leon Ave",
+  "p": "250-763-8008",
+  "note": {
+   "zh": "收入不高、报税情况简单的人可以请培训过的志愿者免费、保密地帮你报税。工作日可以把材料送过来（代办），大约 4–8 周完成。",
+   "en": "Trained volunteers do your tax return for free and in confidence if your income is modest and your taxes are simple. You can drop off your papers on weekdays; it takes 4–8 weeks."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "sameComplex": [
+   "dc2a5fe4"
+  ],
+  "id": "f2933ab1",
+  "w": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/"
+ },
+ {
+  "n": "KCR Community Resources – Career Paths for Skilled Immigrants",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8847385,
+  "lng": -119.4895809,
+  "a": "620 Leon Ave",
+  "p": "250-763-8008",
+  "note": {
+   "zh": "为永久居民提供的免费一对一就业辅导，帮助你回到来加拿大前的专业领域，包括执照认证、培训资助、导师和工作经验等。",
+   "en": "Free one-on-one coaching for permanent residents who want to get back into the career they had before coming to Canada, including help with licensing, training funds, mentoring and work experience."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "free",
+   "multi"
+  ],
+  "sameComplex": [
+   "f2933ab1"
+  ],
+  "id": "dc2a5fe4",
+  "w": "https://kcr.ca/employment-services/career-paths-for-skilled-immigrants/"
+ },
+ {
+  "n": "Project Literacy Central Okanagan – Free English Tutoring",
+  "c": "gov",
+  "g": "dt",
+  "lat": 49.8850812,
+  "lng": -119.4351098,
+  "a": "107-2293 Leckie Rd",
+  "p": "250-762-2163",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1140,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1140,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     720,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "为成年人免费配一对一志愿英语辅导老师，可以针对工作、学习、CELPIP 考试、入籍考试或驾照笔试来学。一般每周 1–2 次、每次 1–2 小时，最长 2 年。",
+   "en": "A free one-to-one volunteer English tutor for adults, for work, school, CELPIP, the citizenship test or the driver's licence test. Lessons are usually 1–2 hours, 1–2 days a week, for up to 2 years."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "free"
+  ],
+  "id": "7a947584",
+  "w": "https://projectliteracy.ca/programs/english-adult-tutoring/"
+ },
+ {
+  "n": "Evangel Church – Free ESL Classes",
+  "c": "gov",
+  "g": "pm",
+  "lat": 49.8581664,
+  "lng": -119.4721036,
+  "a": "3261 Gordon Dr",
+  "p": "250-762-0682",
+  "note": {
+   "zh": "教会开办的免费英语班，每周三个上午，教听说读写和加拿大文化。不提供托儿。",
+   "en": "Free church-run English classes three mornings a week, covering speaking, listening, reading, writing and Canadian culture. No childcare."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "free"
+  ],
+  "sameComplex": [
+   "3379f1cd"
+  ],
+  "id": "36cfbf1f",
+  "w": "https://evangelkelowna.com/esl"
+ },
+ {
+  "n": "OCCA Communities Association (formerly Okanagan Chinese Canadian Association)",
+  "c": "commctr",
+  "g": "dt",
+  "lat": 49.8780772,
+  "lng": -119.4675509,
+  "a": "1460 Inkar Rd",
+  "p": "778-484-6222",
+  "note": {
+   "zh": "多元文化社区协会（原奥肯那根华人协会），为刚到加拿大的人提供帮助：中英文求助热线、Access Pro Bono 志愿律师的免费法律咨询、会员免费英语班、报税协助和就业项目。",
+   "en": "A multicultural community association that helps newcomers: a Mandarin/English helpline, free legal advice from Access Pro Bono volunteer lawyers, ESL classes for members, tax-filing help and job programs."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free",
+   "multi"
+  ],
+  "sameComplex": [
+   "ca8447e9"
+  ],
+  "id": "479aeb0c",
+  "w": "https://occabc.ca/"
+ },
+ {
+  "n": "Centre culturel francophone de l'Okanagan (CCFO)",
+  "c": "commctr",
+  "g": "dt",
+  "lat": 49.886661,
+  "lng": -119.4882028,
+  "a": "702 Bernard Ave",
+  "p": "250-860-4074",
+  "h": {
+   "r": [
+    [
+     2,
+     3,
+     660,
+     1020,
+     0
+    ],
+    [
+     4,
+     4,
+     660,
+     1080,
+     0
+    ],
+    [
+     5,
+     5,
+     660,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     900,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "法语文化中心有专门为讲法语的刚到加拿大的人服务的安置专员（住房、医疗、上学、找工作、权利等），还有英语会话工作坊、TEF 法语考试和法语图书馆。",
+   "en": "The francophone cultural centre has a settlement agent for French-speaking newcomers (housing, health, schools, jobs, rights), plus English conversation workshops, TEF exam sessions and a French library."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "multi"
+  ],
+  "id": "65eb2623",
+  "w": "https://www.leccfo.org/fr/immigrer/"
+ },
+ {
+  "n": "Okanagan Sikh Temple & Cultural Society (Gurdwara)",
+  "c": "commctr",
+  "g": "rt",
+  "lat": 49.9032835,
+  "lng": -119.3854925,
+  "a": "1111 Rutland Rd N",
+  "p": "250-765-7477",
+  "note": {
+   "zh": "位于 Rutland 的锡克教谒师所，也是旁遮普社区的聚集地。这里的 langar（共享厨房）免费供餐。",
+   "en": "A Sikh gurdwara and Punjabi community hub in Rutland. Its langar is a free community kitchen."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "d42d42dc",
+  "w": "https://www.kelownasikhtemple.ca/"
+ },
+ {
+  "n": "Ukrainian Orthodox Parish of Sts Peter & Paul",
+  "c": "commctr",
+  "g": "dt",
+  "lat": 49.8780074,
+  "lng": -119.4476952,
+  "a": "1935 Barlee Rd",
+  "p": "250-860-7384",
+  "note": {
+   "zh": "这个乌克兰东正教堂区表示会帮助来到基隆拿的乌克兰难民：支持接待他们的家庭，建立友好关系，帮助他们融入社区。",
+   "en": "This parish says it helps welcome refugees from Ukraine to Kelowna by supporting their hosts, building welcoming relationships and helping them settle into the community."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "042ee9a9",
+  "w": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help"
+ },
+ {
+  "n": "Ki-Low-Na Friendship Society",
+  "c": "indigenous",
+  "g": "dt",
+  "lat": 49.8847441,
+  "lng": -119.4943724,
+  "a": "442 Leon Ave",
+  "p": "250-763-4905",
+  "h": {
+   "r": [
+    [
+     1,
+     4,
+     510,
+     990,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     720,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "基隆拿的原住民友谊中心，对所有人开放：有儿童与家庭项目、长者服务、心理健康支持、住房与外展服务，还为领残障援助或低收入的人免费报税（最多可补报 10 年）。",
+   "en": "Kelowna's Indigenous friendship centre, open to everyone: child and family programs, Elder services, mental-health supports, housing and outreach, and free tax preparation (up to 10 years back) for people on disability assistance or low income."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "culture",
+   "free"
+  ],
+  "id": "f239c589",
+  "w": "https://kfs.bc.ca/"
+ },
+ {
+  "n": "Westbank First Nation – Government Office (Lindley Building)",
+  "c": "indigenous",
+  "g": "wk",
+  "lat": 49.8823655,
+  "lng": -119.5339968,
+  "a": "515 Hwy 97 (Lindley Building)",
+  "p": "250-769-4999",
+  "note": {
+   "zh": "西岸原住民（Westbank First Nation）的主要政府办公室。WFN 是自治的原住民族，其土地上也住着很多非成员居民。一般问题找这里；WFN 税务部门电话 250-769-2400。",
+   "en": "Main office of Westbank First Nation, a self-governing First Nation whose lands include many non-Member residents. General inquiries go here; WFN Taxation is 250-769-2400."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "culture"
+  ],
+  "id": "8eaac5d5",
+  "w": "https://www.wfn.ca/programs-services.htm"
+ },
+ {
+  "n": "Westbank First Nation – Community Services & Health and Wellness (Quail Lane)",
+  "c": "indigenous",
+  "g": "wk",
+  "lat": 49.8401163,
+  "lng": -119.5951072,
+  "a": "1900 Quail Lane",
+  "p": "250-768-0227",
+  "note": {
+   "zh": "WFN 的社区服务大楼：为住在 WFN 土地上的居民提供健康项目，如心理咨询、居家护理和护士服务，还有成员服务处。",
+   "en": "WFN's community services building: health and wellness programs such as counselling, home care and nursing for people living on WFN lands, plus Membership Services."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "culture"
+  ],
+  "id": "230597dc",
+  "w": "https://www.wfn.ca/programs-services/health-wellness.htm"
+ },
+ {
+  "n": "Okanagan Nation Alliance – Main Office",
+  "c": "indigenous",
+  "g": "wk",
+  "lat": 49.8353548,
+  "lng": -119.6251211,
+  "a": "101-3535 Old Okanagan Hwy",
+  "p": "250-707-0095",
+  "note": {
+   "zh": "奥肯那根族联盟（Okanagan Nation Alliance）总部，为 Syilx 奥肯那根族服务——基隆拿就位于他们未割让的传统土地上。可咨询 Syilx 相关项目、文化和活动。",
+   "en": "Main office of the Okanagan Nation Alliance, which works for the Syilx Okanagan Nation — the people on whose unceded territory Kelowna stands. Contact for general inquiries about Syilx programs, culture and events."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "culture"
+  ],
+  "id": "7f387a81",
+  "w": "https://syilx.org/"
+ },
+ {
+  "n": "Central Okanagan United Church – Thursday Free Tax Clinic (CVITP)",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.8861197,
+  "lng": -119.4882102,
+  "a": "721 Bernard Ave",
+  "p": "250-762-3311",
+  "note": {
+   "zh": "每周四上午免费报税，随到随办，志愿者可以帮你报今年和往年的税。从教堂后面停车场那扇门进。",
+   "en": "Free walk-in tax help on Thursday mornings; volunteers can do this year's and earlier years' returns. Enter through the parking-lot door behind the church."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "19a2e8f6",
+  "w": "https://centralokanaganunitedchurch.com/"
+ },
+ {
+  "n": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
+  "c": "support",
+  "g": "pm",
+  "lat": 49.8804079,
+  "lng": -119.4890393,
+  "a": "608 Sutherland Ave",
+  "note": {
+   "zh": "扶轮社志愿者每月一次在大教堂地下室免费帮人报税，需发邮件预约。从停车场入口进。",
+   "en": "Free tax filing by Rotary volunteers once a month in the cathedral basement; book by email. Use the parking-lot entrance."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free",
+   "student"
+  ],
+  "id": "8ea5b030",
+  "w": "https://rotaryogopogo.org/page/tax-clinic-1"
+ },
+ {
+  "n": "Kelowna's Gospel Mission – Leon Shelter (men)",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.8842617,
+  "lng": -119.4979481,
+  "a": "251 Leon Ave",
+  "p": "250-763-3737",
+  "note": {
+   "zh": "男性紧急庇护所，有 60 个床位，提供淋浴、洗衣、卫生用品和每天三顿热饭。",
+   "en": "Emergency shelter with 60 beds for men, plus showers, laundry, hygiene supplies and three hot meals a day."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "sameComplex": [
+   "6046fa00"
+  ],
+  "id": "fac2727c",
+  "w": "https://kelownagospelmission.ca/services/"
+ },
+ {
+  "n": "Kelowna's Gospel Mission – Bay Ave Community Shelter",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.8993899,
+  "lng": -119.4940584,
+  "a": "858 Ellis St",
+  "p": "250-763-3737",
+  "note": {
+   "zh": "Kelowna 福音会开办的男女都收的庇护所，提供餐食、洗手间和个案管理服务。",
+   "en": "A co-ed shelter run by Kelowna's Gospel Mission, with meals, washrooms and case management services."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "83452699",
+  "w": "https://kelownagospelmission.ca/services/"
+ },
+ {
+  "n": "Cornerstone Shelter (John Howard Society of Okanagan & Kootenay)",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.884307,
+  "lng": -119.4944627,
+  "a": "425 Leon Ave",
+  "p": "250-317-6678",
+  "h": {
+   "a": 1
+  },
+  "note": {
+   "zh": "24 小时紧急庇护所，提供午餐和晚餐、淋浴、洗衣和衣物券；工作人员会帮你找房子。情侣和带宠物的人也可以入住。",
+   "en": "24-hour emergency shelter with hot lunch and dinner, showers, laundry and clothing vouchers; staff help with housing searches. Couples and pets welcome."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "b9a11732",
+  "w": "https://jhsok.ca/programs-services/housing/cornerstone-shelter/"
+ },
+ {
+  "n": "Richter Street Shelter (Turning Points Collaborative Society)",
+  "c": "support",
+  "g": "dt",
+  "lat": 49.8961637,
+  "lng": -119.4881039,
+  "a": "1083 Richter St",
+  "p": "778-212-1401",
+  "note": {
+   "zh": "不分性别的 24 小时庇护所（最多 48 人），提供餐食、淋浴、洗衣、个案规划和转介服务。",
+   "en": "All-gender 24-hour shelter (up to 48 people) with meals, showers, laundry, case planning and referrals."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "2aa81ec9",
+  "w": "https://turningpoints.ngo/continuum-of-care/shelter"
+ },
+ {
+  "n": "Bartley Court Shelter West Kelowna (Turning Points Collaborative Society)",
+  "c": "support",
+  "g": "wk",
+  "lat": 49.8658399,
+  "lng": -119.5877137,
+  "a": "2500 Bartley Ct",
+  "p": "778-583-4881",
+  "note": {
+   "zh": "West Kelowna 的 24 小时庇护所（42 个位置），提供餐食、淋浴、洗衣、个案规划，还有张贴招工和租房信息的资源室。",
+   "en": "West Kelowna's 24-hour shelter (42 spaces) with meals, showers, laundry, case planning and a resource room with job and rental postings."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "6eb4c93f",
+  "w": "https://turningpoints.ngo/continuum-of-care/shelter"
+ },
+ {
+  "n": "The Salvation Army – Community Services Rutland",
+  "c": "support",
+  "g": "rt",
+  "lat": 49.887677,
+  "lng": -119.3874201,
+  "a": "200 Rutland Rd S",
+  "p": "250-765-3450",
+  "note": {
+   "zh": "个案工作者帮助解决基本生活需要，如食物、衣物和家居用品，提供转介和办事指引，圣诞节还为儿童和青少年送礼物。",
+   "en": "Caseworkers help with basic needs such as food, clothing and household items, referrals and finding your way around services, and Christmas gifts for children and youth."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "684b15c1",
+  "w": "https://www.kelownasalvationarmy.ca/community-assistance/"
+ },
+ {
+  "n": "The Salvation Army – Community Services Westbank",
+  "c": "support",
+  "g": "wk",
+  "lat": 49.8358962,
+  "lng": -119.6251153,
+  "a": "100-3531 Old Okanagan Hwy",
+  "p": "778-484-9790",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     900,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     900,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     900,
+     0
+    ],
+    [
+     4,
+     4,
+     750,
+     900,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     900,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "West Kelowna 的个案工作办公室，帮助解决食物、衣物、家居用品、转介和办事指引等问题。",
+   "en": "West Kelowna caseworker office for help with food, clothing, household items, referrals and system navigation."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "8dcca588",
+  "w": "https://www.kelownasalvationarmy.ca/community-assistance/"
+ },
+ {
+  "n": "Central Okanagan Food Bank – West Kelowna",
+  "c": "foodbank",
+  "g": "wk",
+  "lat": 49.8289459,
+  "lng": -119.6271594,
+  "a": "203-3710 Hoskins Rd",
+  "p": "250-768-1559",
+  "note": {
+   "zh": "食物银行的 West Kelowna 分点。不看国籍身份，但需要全家每人的证件和住址证明，并且必须预约。",
+   "en": "The food bank's West Kelowna branch. Citizenship does not matter, but you need ID for everyone in your household and proof of your address, and you must book an appointment."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "daf09eae",
+  "w": "https://cofoodbank.com/get-food/"
+ },
+ {
+  "n": "John Howard Society of Okanagan & Kootenay – Regional Office",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.8877211,
+  "lng": -119.4922013,
+  "a": "1440 St. Paul St",
+  "p": "250-763-1331",
+  "note": {
+   "zh": "非营利机构，提供住房服务（庇护所、支援性和过渡性住房）、司法相关项目（如修复式司法、缓刑外展）、社区项目和就业服务。",
+   "en": "Non-profit offering housing (shelter, supportive and transitional housing), justice programs such as restorative justice and probation outreach, community programs and employment services."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "471a3df2",
+  "w": "https://jhsok.ca/"
+ },
+ {
+  "n": "Employment Standards Branch – Kelowna office",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.8901624,
+  "lng": -119.4237999,
+  "a": "102-1690 Powick Rd",
+  "p": "833-236-3700",
+  "note": {
+   "zh": "BC 省政府劳工标准处，负责工资、工时与加班、休假、法定假日、辞职或被解雇等问题，也包括临时外国劳工的相关规定。",
+   "en": "The B.C. government office for problems with pay, hours and overtime, time off, statutory holidays, quitting or being fired — including rules for temporary foreign workers."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "a36f2dbe",
+  "w": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us"
+ },
+ {
+  "n": "Workers' Advisers Office – Kelowna",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.8796333,
+  "lng": -119.4596023,
+  "a": "420-1726 Dolphin Ave",
+  "p": "800-663-4261",
+  "note": {
+   "zh": "如果你工伤后不同意 WorkSafeBC 的决定，这个政府办公室可以免费提供建议，有时还会代表你申诉。它独立于 WorkSafeBC。",
+   "en": "If you were hurt at work and disagree with a WorkSafeBC decision, this government office gives free advice and sometimes represents you. It is independent from WorkSafeBC."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "sameComplex": [
+   "f98efbcc"
+  ],
+  "id": "cc6dd518",
+  "w": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/personal-injury-and-workplace-safety"
+ },
+ {
+  "n": "Kelowna Family Justice Centre",
+  "c": "legal",
+  "g": "dt",
+  "lat": 49.8859236,
+  "lng": -119.4912841,
+  "a": "119-565 Bernard Ave",
+  "p": "250-712-3636",
+  "note": {
+   "zh": "政府免费提供的分居或离婚帮助：子女抚养安排、监护权、子女和配偶抚养费等。家事司法顾问是认证调解员。",
+   "en": "Free government help with separation or divorce: parenting arrangements, guardianship, child and spousal support. Family justice counsellors are accredited mediators."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "sameComplex": [
+   "8adfdff2"
+  ],
+  "id": "760d0b10",
+  "w": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-services-division/family-justice-centres/locations/kelowna"
+ },
+ {
+  "n": "Central Okanagan Family Hub – Kelowna",
+  "c": "commctr",
+  "g": "rt",
+  "lat": 49.8988556,
+  "lng": -119.3994835,
+  "a": "700 Pearson Rd",
+  "p": "250-826-6264",
+  "note": {
+   "zh": "设在 Rutland 的 Pearson Road 小学里的家庭服务中心，气氛友好：提供信息、帮你找服务、家长小组，还有短期食物援助。",
+   "en": "A welcoming family drop-in inside Pearson Road Elementary in Rutland: information, help finding services, parent groups and a short-term food support market."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "sameComplex": [
+   "0a811768",
+   "898bef63"
+  ],
+  "id": "35324abd",
+  "w": "https://cofh.ca/"
+ },
+ {
+  "n": "YMCA Child Care Resource & Referral (CCRR) – Central Okanagan",
+  "c": "commctr",
+  "g": "pm",
+  "lat": 49.8641567,
+  "lng": -119.4907569,
+  "a": "201-2949 Pandosy St",
+  "p": "236-499-2224",
+  "h": {
+   "r": [
+    [
+     1,
+     1,
+     540,
+     1020,
+     0
+    ],
+    [
+     2,
+     2,
+     540,
+     1020,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     1200,
+     0
+    ],
+    [
+     4,
+     4,
+     540,
+     1020,
+     0
+    ],
+    [
+     5,
+     5,
+     540,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     840,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "免费帮你找托儿所、了解各种托儿选择，并协助申请省政府的托儿费补助（Affordable Child Care Benefit）；还有玩具图书馆。",
+   "en": "Free help finding child care, understanding your options, and applying for the Affordable Child Care Benefit; also a toy library."
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "bc037355",
+  "w": "https://www.ymcasibc.ca/ccrr"
  }
 ]

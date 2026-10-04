@@ -24,6 +24,19 @@
   "key": "3714",
   "source": "bc-childcare-map"
  },
+ "035896d3": {
+  "appointment": "You can book an appointment or drop in",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday to Friday: 10 a.m. to 4 p.m.",
+  "imported": "2026-10-03",
+  "key": "Outreach Urban Health Centre (Interior Health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/outreach-urban-health-centre",
+  "verify_notes": "The IH page does not say who is eligible or whether people without MSP are seen. Community directories call it low-barrier care for people facing barriers (e.g. homelessness), but that is not official, so 'who' and 'cost' are left out. Mainly relevant to newcomers who are homeless or use substances; lower priority for the general newcomer list.",
+  "who": null
+ },
  "03a0eb9e": {
   "imported": "2026-10-03",
   "key": "2967",
@@ -33,6 +46,19 @@
   "imported": "2026-10-03",
   "key": "2855",
   "source": "bc-childcare-map"
+ },
+ "042ee9a9": {
+  "appointment": "Call or email office@stspeterandpaulkelowna.com.",
+  "bring": null,
+  "cost": null,
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Ukrainian Orthodox Parish of Sts Peter & Paul",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help",
+  "verify_notes": "Page content appears to date from the 2022 Ukrainian arrivals (CUAET); confirm the program is still active. Hours, languages and cost not published. Religious organisation — include at editor's discretion.",
+  "who": "Refugees from Ukraine arriving in Kelowna (the parish's stated focus)."
  },
  "0443c18a": {
   "imported": "2026-10-03",
@@ -139,10 +165,36 @@
   "key": "5542",
   "source": "bc-childcare-map"
  },
+ "164b9d95": {
+  "appointment": "Book online and choose the walk-in patient option; call if you have trouble. Several same-day appointments are kept, first come first served (not guaranteed).",
+  "bring": null,
+  "cost": "People without MSP can be seen, with limitations. If you do not have valid health coverage from another province there will be a private fee to pay.",
+  "hours_text": "Monday-Friday 09:00 - 16:00",
+  "imported": "2026-10-03",
+  "key": "Lakepoint Medical Clinic",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.lakepointmedical.ca/frequently-asked-questions",
+  "verify_notes": "hours_text is from HealthLinkBC (https://www.healthlinkbc.ca/clinic/lakepoint-medical-clinic); the clinic's own site does not post hours. HealthLinkBC lists it as a family practice for attached patients only, but the clinic's FAQ clearly describes walk-in booking. The private fee amount is not published. Its FAQ gives West Kelowna UPCC hours as Mon-Fri 4:30-8:30 pm and weekends/holidays 11:30-8:30, while the IH page (used for the on-file UPCC) says Mon-Sun 11:30-8:30. Re-check the on-file UPCC.",
+  "who": "Walk-in patients who live in the immediate Kelowna/West Kelowna area. Not accepting new family-practice patients."
+ },
  "168219cd": {
   "imported": "2026-10-03",
   "key": "1217",
   "source": "bc-childcare-map"
+ },
+ "19a2e8f6": {
+  "appointment": "Walk-in; first come, first served.",
+  "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
+  "cost": "free",
+  "hours_text": "Every Thursday from 09:00 AM - 12:00 PM, 2026-09-24 to 2026-12-17; closed during holidays.",
+  "imported": "2026-10-03",
+  "key": "Central Okanagan United Church – Thursday Free Tax Clinic (CVITP)",
+  "languages": "English",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
+  "verify_notes": "Source is the CRA free-tax-clinic directory (search BC > KELOWNA, clinic 'COUC Thursday Mornings', retrieved 2026-10-03): wheelchair accessible; 1 volunteer. The church's own tax-clinic page now returns 'page not found'; an earlier version said government ID is required and to call ahead because volunteer availability changes.",
+  "who": "General public with a modest income and a simple tax situation (CVITP)."
  },
  "19ca3d77": {
   "imported": "2026-10-03",
@@ -158,6 +210,19 @@
   "imported": "2026-10-03",
   "key": "5341",
   "source": "bc-childcare-map"
+ },
+ "1dd6babc": {
+  "appointment": "Registration is required. Call 250-878-6331 or email info@thebridgeservices.ca.",
+  "bring": null,
+  "cost": "No Cost to Join. Vitamins Offered at No Cost. Lunch Provided. Free Food Certificates.",
+  "hours_text": "Thursday 12pm - 3pm",
+  "imported": "2026-10-03",
+  "key": "Special Deliveries prenatal and postnatal group (The Bridge Youth & Family Services)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://thebridgeservices.ca/youth-and-family-services/early-years/special-deliveries",
+  "verify_notes": "The address is The Bridge's administration office, from the footer of the official site. The page does not say where the Thursday group meets, so ask when you register. No official 'Pregnancy Outreach Program' for Kelowna was found on HealthLinkBC. Its POP listings are for other cities.",
+  "who": "Pregnant and postnatal women (baby up to 6 months)"
  },
  "1e6ac086": {
   "imported": "2026-10-03",
@@ -184,6 +249,19 @@
   "key": "02396609",
   "source": "bc-k12-schools"
  },
+ "230597dc": {
+  "appointment": "Nurses are by appointment only — call 250-768-0227 ext. 2; counselling appointments recommended.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday to Friday 8:30 a.m. to 4:30 p.m. (as listed for counselling, home care and other recurring health programs).",
+  "imported": "2026-10-03",
+  "key": "Westbank First Nation – Community Services & Health and Wellness (Quail Lane)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.wfn.ca/contact-us.htm",
+  "verify_notes": "CRA's tax-clinic directory lists 'Tax Return for WFN members only' here (by appointment, drop-off or walk-in, Mon–Fri 8:00–4:30, 2026-03-15 to 2026-10-30, English/French, clientele Indigenous). Which programs are open to non-Members must be asked. Cost not stated.",
+  "who": "Health & wellness services 'support the physical, mental, emotional and spiritual well-being & healing of all who reside on WFN Lands'; some programs are for WFN Members only (e.g., chronic disease management; the free tax clinic)."
+ },
  "23751da1": {
   "imported": "2026-10-03",
   "key": "Thomson Marsh Park",
@@ -209,6 +287,19 @@
   "key": "26",
   "source": "bc-childcare-map"
  },
+ "264e4d24": {
+  "appointment": "Mostly by appointment. IH says there is some drop-in depending on patient need and staffing; if you drop in and can't be seen right away, they will book you a follow-up appointment.",
+  "bring": "Personal Health Number (BC Services Card), if you have one.",
+  "cost": "Interior Health says immunizations are free at your local public health clinic.",
+  "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m. Childhood immunizations and early childhood health assessments: Offered every second and fourth Wednesday from 8:30 a.m. to 6:15 p.m. Closed on weekends and all statutory holidays",
+  "imported": "2026-10-03",
+  "key": "Rutland Health Centre (Interior Health public health)",
+  "languages": "Interior Health lists 'Interpreter & Translation Services' as an amenity at this location",
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/rutland-health-centre",
+  "verify_notes": "All details are from the IH location page, and the phone is from IH's Immunization Services location list. The cost statement is from IH's Get Immunized page. Same building (285 Aurora Cres) as Rutland Medical Clinic (#200), which takes only its own attached patients.",
+  "who": "Infants, children, school-age youth, adults and families"
+ },
  "273bd5a2": {
   "imported": "2026-10-03",
   "key": "Kuipers' Peak Mountain Park",
@@ -218,6 +309,19 @@
   "imported": "2026-10-03",
   "key": "3891",
   "source": "bc-childcare-map"
+ },
+ "2aa81ec9": {
+  "appointment": "Walk-in registration at 10 am, 4 pm or 9 pm.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Operating Hours: 7 days a week, 24 hours a day. Registration: in person at 10am, 4pm and 9pm, first come, first serve.",
+  "imported": "2026-10-03",
+  "key": "Richter Street Shelter (Turning Points Collaborative Society)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
+  "verify_notes": "Page still contains COVID-era wording; confirm current status. Area North End (dt).",
+  "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness; all-gender inclusive."
  },
  "2aef8bfe": {
   "imported": "2026-10-03",
@@ -304,6 +408,19 @@
   "key": "330",
   "source": "bc-childcare-map"
  },
+ "35324abd": {
+  "appointment": "Drop-in at calendar times, or call, text or email first.",
+  "bring": null,
+  "cost": "Sessions or programs in the Parent Learning Place are free for participants.",
+  "hours_text": "Services are available Monday-Friday, 9:00 am – 3:00 pm. Please check our Calendar for drop-in times and group activities.",
+  "imported": "2026-10-03",
+  "key": "Central Okanagan Family Hub – Kelowna",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://cofh.ca/contact-us/",
+  "verify_notes": "Same address as the existing 'Pearson Road Elementary' record (hub is inside the school). Contact page still says to call to confirm access due to COVID-19 protocols. Coordinated by KCR.",
+  "who": "Any parents, grandparents or caregivers in the Central Okanagan, or those who are moving to the Central Okanagan."
+ },
  "36879667": {
   "imported": "2026-10-03",
   "key": "02323032",
@@ -313,6 +430,19 @@
   "imported": "2026-10-03",
   "key": "Boucherie Mountain Exchange",
   "source": "gtfs-exchanges"
+ },
+ "36cfbf1f": {
+  "appointment": "Fall 2026 classes are full — email esl@evangelkelowna.com to join the waitlist (priority to returning students; full-time attendance required; missing 4 classes loses your spot).",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Classes are on: Monday, Tuesday, Wednesday 9am to 11:30am (No class on statutory holidays). Fall semester September 14 – December 9, 2026; 2027 semester January 4 – May 19, 2027 (spring break March 15 – 25).",
+  "imported": "2026-10-03",
+  "key": "Evangel Church – Free ESL Classes",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://evangelkelowna.com/esl",
+  "verify_notes": "Childcare no longer available (stated on page). Faith requirement not stated on the current page.",
+  "who": "Adult English learners at three levels: Low Beginner, High Beginner, Intermediate. Immigration-status requirements not stated."
  },
  "376aca1f": {
   "imported": "2026-10-03",
@@ -359,6 +489,32 @@
   "key": "1363",
   "source": "bc-childcare-map"
  },
+ "42392486": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Daily 8:00-22:00",
+  "imported": "2026-10-03",
+  "key": "Shoppers Drug Mart Lakeshore And Lanfranco",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/late-night-pharmacy-services-0",
+  "verify_notes": "Hours were checked against both the Shoppers store page data and HealthLinkBC's Late Night Pharmacy listing (08:00-22:00).",
+  "who": null
+ },
+ "44e684f8": {
+  "appointment": "Call 250-862-5424 or email OCCDA@okanagan.bc.ca. Availability is limited.",
+  "bring": null,
+  "cost": "Cash only: Screening day scaling $15; Children 5-15 $10; Ages 16+ $25",
+  "hours_text": "Seasonal: runs for a few weeks each May (published dates: May 9 to May 30)",
+  "imported": "2026-10-03",
+  "key": "Okanagan College Certified Dental Assisting – Direct Patient Care Clinic (seasonal)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.okanagancollege.ca/notice/certified-dental-assisting-programs-direct-patient-care-clinic",
+  "verify_notes": "Seasonal program, and the notice does not show a year. A March 2024 OC story gives 'May 9-31, 2024', room #306 and contact cbmitchell@okanagan.bc.ca. The undated notice gives room 307 and OCCDA@okanagan.bc.ca. Confirm dates each spring before showing this.",
+  "who": "Children 5-15 can book directly. Ages 16+ need a pre-screening (at their own dentist or on the clinic's screening days)."
+ },
  "45505b79": {
   "imported": "2026-10-03",
   "key": "3667",
@@ -374,6 +530,32 @@
   "key": "Boyce-Gyro Beach Park",
   "source": "arcgis-parks"
  },
+ "471a3df2": {
+  "appointment": "Call or email info@jhsok.ca to be directed to the right program.",
+  "bring": null,
+  "cost": null,
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "John Howard Society of Okanagan & Kootenay – Regional Office",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://jhsok.ca/contact-us/",
+  "verify_notes": "Not a legal-advice clinic (no legal advice stated). Hours, eligibility and cost not published. Elizabeth Fry: the Central Okanagan Elizabeth Fry Society moved its victim and sexual-assault services to Kelowna Women's Shelter (confidential) on 2026-04-01, and its websites (efryokanagan.com password-protected; empowerific.com redirects to unrelated sites) cannot be verified — not included. The Kamloops E. Fry legal clinic once listed at 304-554 Leon Ave no longer appears on kamloopsefry.com — not included.",
+  "who": null
+ },
+ "479aeb0c": {
+  "appointment": "Helpline by phone/email or the online Newcomer Intake Form (appointments for complex issues). Legal consultation: online inquiry form, at OCCA's office or virtually. ESL: email info@occabc.ca to register.",
+  "bring": null,
+  "cost": "Membership $10/person or $20/family per year. ESL free for members. Legal consultation with volunteer lawyers is free.",
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "OCCA Communities Association (formerly Okanagan Chinese Canadian Association)",
+  "languages": "Helpline currently in English and Mandarin.",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://occabc.ca/contact/",
+  "verify_notes": "Office hours not published. ESL class schedule not shown in page text (break in July–August). Area: OpenStreetMap labels 1460 Inkar Rd as 'Pandosy'; assigned dt (near Capri/Gordon Dr) — confirm when geocoding. Okanagan Korean Culture & Knowledge Society (OKCK) lists the same address (no phone) — not added separately.",
+  "who": "Newcomers, immigrants, youth and seniors in the Central Okanagan; activities and services are open to the general public, usually for a fee; members (16+) join many activities free or at a discount. ESL classes are free for OCCA members."
+ },
  "48fbd878": {
   "imported": "2026-10-03",
   "key": "1133",
@@ -383,6 +565,19 @@
   "imported": "2026-10-03",
   "key": "5899",
   "source": "bc-childcare-map"
+ },
+ "4a0d58a9": {
+  "appointment": "Fill in the online request form; a counsellor emails within 2-3 business days with an appointment time. No drop-in: all appointments are pre-scheduled.",
+  "bring": null,
+  "cost": "Counselling services are free of charge for all currently enrolled OC students",
+  "hours_text": "8:30am - 4:30pm Monday to Friday",
+  "imported": "2026-10-03",
+  "key": "Okanagan College Counselling Services (Kelowna campus)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.okanagancollege.ca/counselling-services",
+  "verify_notes": "No on-campus medical clinic or nurse could be confirmed on okanagancollege.ca. The Student Health and Wellness page lists only counselling, and the health and dental plan is run by the students' union (ocsu.ca). Phone 250-762-5445 is the number on the counselling page (it is also the college's main line).",
+  "who": "Counselling services are for currently enrolled and attending OC students only"
  },
  "4be767e2": {
   "imported": "2026-10-03",
@@ -459,6 +654,19 @@
   "key": "5489",
   "source": "bc-childcare-map"
  },
+ "5b55bc09": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Daily 8:00-22:00",
+  "imported": "2026-10-03",
+  "key": "Shoppers Drug Mart Kane And Drysdale (Glenmore)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/late-night-pharmacy-services-0",
+  "verify_notes": "Hours were checked against both the Shoppers store page data and HealthLinkBC's Late Night Pharmacy listing (08:00-22:00).",
+  "who": null
+ },
  "5d39da00": {
   "imported": "2026-10-03",
   "key": "3143",
@@ -478,6 +686,19 @@
   "imported": "2026-10-03",
   "key": "02323063",
   "source": "bc-k12-schools"
+ },
+ "5f891129": {
+  "appointment": "If you are not registered, call (250) 717-8716 or come into the clinic. Online booking is for existing patients only.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "8am - 4:30pm | Monday - Friday",
+  "imported": "2026-10-03",
+  "key": "Rutland Community Clinic (for newcomers, Indigenous people, and women's health)",
+  "languages": "Translation services to support all services offered in the clinic",
+  "source": "research:R2-health.json",
+  "source_url": "https://rutlandcommunityclinic.ca/",
+  "verify_notes": "The clinic's own site was checked. It says it works with the Ministry of Health and Interior Health and is part of the Central Okanagan Primary Care Network. The street name varies on the site ('#105 - 330 Hwy 33' and '#105 - 330 Highway 33 South'); OSM places 330 on Highway 33 West in Rutland. The site does not say whether people without MSP (e.g. still in the wait period) can be seen, or at what cost; call to ask. Its own number ((250) 717-8716) is used, not the fax (250) 980-4720.",
+  "who": "People who identify as Indigenous, a recent immigrant or newcomer to Canada, or who need women's health services"
  },
  "5fe285b3": {
   "imported": "2026-10-03",
@@ -514,6 +735,32 @@
   "key": "02396360",
   "source": "bc-k12-schools"
  },
+ "65eb2623": {
+  "appointment": "Contact the settlement agent (Alex) at bienvenue@leccfo.org; support in person or online, Tuesday to Saturday, in Kelowna, Penticton and Vernon.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Tue, Wed, Fri: 11AM - 5PM; Thu: 11AM - 6PM; Sat: 10AM - 3PM.",
+  "imported": "2026-10-03",
+  "key": "Centre culturel francophone de l'Okanagan (CCFO)",
+  "languages": "French (website in French and English).",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.leccfo.org/en/about-us/",
+  "verify_notes": "Cost of settlement help not stated (membership gives library access). Postal code on site V1Y 6P5.",
+  "who": "French-speaking newcomers to the Okanagan (francophones and francophiles); immigration-status rules not stated."
+ },
+ "6644e12d": {
+  "appointment": "By appointment only, with some same-day appointments available. Book online only for STI screening and telehealth; call for everything else. Cancel 24 hours ahead or pay a $30 fee ($50 for an exam or procedure).",
+  "bring": "Care Card or Personal Health Number from BC or your home province. International students: iMED or BC MSP enrolment.",
+  "cost": "No extra charge for insured students. Uninsured students are charged for medical services and get a receipt for reimbursement.",
+  "hours_text": "Monday to Friday 9 am to 4 pm. Lunchtime closure: 12:30 to 1:30 pm",
+  "imported": "2026-10-03",
+  "key": "UBC Okanagan Student Health Clinic (Student Wellness)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/",
+  "verify_notes": "The Student Wellness contact page gives the office as 'University Centre 337' and says the lunch closure applies from May to August, while the clinic page lists it without dates. Languages are not stated.",
+  "who": "UBC Okanagan students only"
+ },
  "66c16ca3": {
   "imported": "2026-10-03",
   "key": "2424",
@@ -529,6 +776,32 @@
   "key": "Rotary Marsh Park",
   "source": "arcgis-parks"
  },
+ "684b15c1": {
+  "appointment": "Call for an appointment; you meet with a caseworker.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday 9 AM – 12 PM & 1 – 3 PM; Tuesday 1 PM – 3 PM; Wednesday 9 AM – 12 PM & 1 – 3 PM; Thursday 9 AM – 12 PM & 1 – 3 PM; Friday 9 AM – 12 PM & 1 – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
+  "imported": "2026-10-03",
+  "key": "The Salvation Army – Community Services Rutland",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
+  "verify_notes": "Hours differ between the site's pages: Location & Hours (used here) vs Community Assistance page ('Monday 9 AM to 3 PM; Tuesday 12:30 PM to 3 PM; Wed–Fri 9 AM to 3 PM'). Eligibility and cost not stated.",
+  "who": null
+ },
+ "68b5d493": {
+  "appointment": "Book a clinic appointment: Call 1-844-862-4467. To speak with a nurse, use IH's online form.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Clinic hours: Monday to Friday, 8:30 a.m. to 4:30 p.m.",
+  "imported": "2026-10-03",
+  "key": "Kelowna Sexual & Reproductive Health Clinic (Interior Health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-sexual-reproductive-health-clinic",
+  "verify_notes": "p is the toll-free 1-844-862-4467, written as 844-862-4467 to fit the NNN-NNN-NNNN format. The service list is from IH's Sexual Health page (https://www.interiorhealth.ca/health-and-wellness/sexual-health). The IH clinic page does not say what visits cost or whether MSP is needed, so cost is left out (only condoms are explicitly free). Same building as the public health centre above.",
+  "who": "Anyone looking for confidential sexual and reproductive health care"
+ },
  "695b8c20": {
   "imported": "2026-10-03",
   "key": "High Noon Park",
@@ -538,6 +811,19 @@
   "imported": "2026-10-03",
   "key": "611",
   "source": "bc-childcare-map"
+ },
+ "6ae407aa": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Daily 8:00-22:00. Pharmacy Care Clinic: Monday-Wednesday and Friday 12:00-18:00; Thursday and Saturday 10:00-18:00; Sunday closed",
+  "imported": "2026-10-03",
+  "key": "Shoppers Drug Mart The Ponds (Pharmacy Care Clinic)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.shoppersdrugmart.ca/en/store-locator/store/2132/pharmacy",
+  "verify_notes": "Store and clinic hours are from the Shoppers page data for the week of Oct 3-9, 2026; the clinic hours may change week to week. HealthLinkBC's 'Late Night Pharmacy Services' listing confirms 08:00-22:00 for this address.",
+  "who": null
  },
  "6bbf6840": {
   "imported": "2026-10-03",
@@ -549,6 +835,32 @@
   "key": "Ben Lee Park",
   "source": "arcgis-parks"
  },
+ "6d7ab55f": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday-Friday 9:00 am - 6:00 pm; Saturday 10:00 am - 5:00 pm; Sunday Closed",
+  "imported": "2026-10-03",
+  "key": "Pharmasave Kelowna Airport Village",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://pharmasave.com/store/kelowna-airport-village/",
+  "verify_notes": "Included to cover North Kelowna/UBCO, although it does not have late hours. No late-hours pharmacy was found in North Kelowna.",
+  "who": null
+ },
+ "6eb4c93f": {
+  "appointment": "Walk-in registration Mon–Fri 2–4 pm at 2515 Bartley Court.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Operating hours: 7 days a week, 24 hours a day. Registration: in person between 2 pm and 4 pm Monday to Friday at 2515 Bartley Court, first come, first serve.",
+  "imported": "2026-10-03",
+  "key": "Bartley Court Shelter West Kelowna (Turning Points Collaborative Society)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
+  "verify_notes": "Described as a temporary shelter ('short-term interim housing until a longer-term solution is in place') — check it is still open. Official postal code V1Z 2M7; 211 BC says V1Z 2M8.",
+  "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness, and willing to follow house rules."
+ },
  "6f151299": {
   "imported": "2026-10-03",
   "key": "Mission Rec Exchange",
@@ -558,6 +870,19 @@
   "imported": "2026-10-03",
   "key": "02396575",
   "source": "bc-k12-schools"
+ },
+ "760d0b10": {
+  "appointment": "If you do not have an appointment, call before you drop in.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "In person: Monday virtual services only; Tuesday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday closed. Virtual: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday closed. Hours are subject to change.",
+  "imported": "2026-10-03",
+  "key": "Kelowna Family Justice Centre",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-services-division/family-justice-centres/locations/kelowna",
+  "verify_notes": "Toll-free 1-888-227-7734. Interpreter availability not stated.",
+  "who": "Parents and other family members dealing with separation or divorce."
  },
  "761ce426": {
   "imported": "2026-10-03",
@@ -569,10 +894,36 @@
   "key": "4607",
   "source": "bc-childcare-map"
  },
+ "7764a8e2": {
+  "appointment": "Call 250-765-0544 to book a same-day video visit. In-person visits the same week if needed (in-person appointments at the Kelowna clinic on Wednesdays).",
+  "bring": null,
+  "cost": "Free with BC Provincial Health Number (MSP). Also covered by most private health insurance, including travel insurance and UBCO students' insurance plans.",
+  "hours_text": "See A Doctor Today – Hours: 10 A.M. To 4 P.M. Daily",
+  "imported": "2026-10-03",
+  "key": "Academy Hill Medical (near UBCO / airport)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://academyhillmedical.com/",
+  "verify_notes": "HealthLinkBC lists this clinic twice. One listing says Mon-Fri 09:00-17:00, 'Appointment required; no walk-in accepted', phone 250-300-3284; the other is an attached-patients family practice listing. hours_text is the same-day booking line from the clinic's own site. The site does not say what people without any insurance pay.",
+  "who": "Any patient with a valid MSP number, for same-day care, subject to availability. Limited availability for people on other provinces' health plans."
+ },
  "78649786": {
   "imported": "2026-10-03",
   "key": "Guisachan Heritage Park",
   "source": "arcgis-parks"
+ },
+ "7a947584": {
+  "appointment": "Apply online as a Learner; an English assessment interview is booked (can take 1–3 weeks), then you are matched with a volunteer tutor.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Monday 9am – 7pm; Tuesday 9am – 5pm; Wednesday 9am – 7pm; Thursday 9am to 5pm; Friday 9am to 12pm.",
+  "imported": "2026-10-03",
+  "key": "Project Literacy Central Okanagan – Free English Tutoring",
+  "languages": "Tutoring is in English; the organisation says it supports learners from 27 different language groups.",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://projectliteracy.ca/",
+  "verify_notes": "Waiting time for assessment 1–3 weeks per learner page. Children not allowed at lessons. Also runs 'Low-Literacy Support for newcomers' (three 12-week sessions a year) with KCR. FAQ calls the location 'downtown Kelowna'; Leckie Rd is in Midtown (area set dt). Old directories list 1635 Bertram St — superseded.",
+  "who": "Adults 19 or older. Working Holiday Visa and Tourist Visa holders do not qualify for English learning services. Canadians born here are also welcome."
  },
  "7b944d41": {
   "imported": "2026-10-03",
@@ -594,6 +945,19 @@
   "key": "Edith Gay Park",
   "source": "arcgis-parks"
  },
+ "7f387a81": {
+  "appointment": "Call first (toll-free 1-866-662-9609).",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.",
+  "imported": "2026-10-03",
+  "key": "Okanagan Nation Alliance – Main Office",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://syilx.org/contact-us/",
+  "verify_notes": "Program eligibility not stated on the contact page; most ONA programs are designed for Syilx communities, so this is mainly a learning/awareness listing for newcomers. Mailing city 'Westbank, BC V4T 3L7'; locality set to West Kelowna.",
+  "who": null
+ },
  "7f81acdf": {
   "imported": "2026-10-03",
   "key": "Ponds Community Park",
@@ -608,6 +972,19 @@
   "imported": "2026-10-03",
   "key": "2945",
   "source": "bc-childcare-map"
+ },
+ "83452699": {
+  "appointment": "Call first.",
+  "bring": null,
+  "cost": null,
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Kelowna's Gospel Mission – Bay Ave Community Shelter",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://kelownagospelmission.ca/services/",
+  "verify_notes": "Official page gives only a short description. 211 BC says: 24-hour shelter for adults 19+, intake 8 am–8 pm daily, first come first served, intake phone 236-420-0899 — not confirmed on the official site. BC Housing (Nov 2024) lists it as a temporary shelter, so check it is still open.",
+  "who": "Co-ed (all genders)."
  },
  "84341927": {
   "imported": "2026-10-03",
@@ -644,6 +1021,19 @@
   "key": "5645",
   "source": "bc-childcare-map"
  },
+ "8c512c24": {
+  "appointment": "Call to book. Child Health Clinic immunizations are booked by calling the local public health centre.",
+  "bring": "Personal Health Number (BC Services Card), if you have one. Interior Health asks for it when booking immunizations.",
+  "cost": "Interior Health says immunizations are free at your local public health clinic, and routine childhood immunizations are free.",
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Kelowna Community Health & Services Centre (Interior Health public health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-community-health-services-centre",
+  "verify_notes": "The address and service list come from the IH location page. The phone 250-469-7070 is from IH's Immunization Services location list (https://www.interiorhealth.ca/services/immunization-services/locations). The IH location page shows no opening hours, so hours_text is left out (211 BC lists Mon-Fri 8:00-5:30, but that is not official). The 'free' statements are from https://www.interiorhealth.ca/health-and-wellness/immunization-and-vaccines/get-immunized. IH does not say whether people still waiting for MSP can be immunized here, so they should ask when they call. Same building as 'Kelowna Mental Health & Substance Use' (already on file, id a55b7531) and the Kelowna Sexual & Reproductive Health Clinic below, so consider sameComplex.",
+  "who": "Babies, children, families and adults (Interior Health public health services)"
+ },
  "8ca727fd": {
   "imported": "2026-10-03",
   "key": "Stuart Park",
@@ -654,15 +1044,80 @@
   "key": "5846",
   "source": "bc-childcare-map"
  },
+ "8dcca588": {
+  "appointment": "Call for an appointment; you meet with a caseworker.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday 9 AM – 3 PM; Tuesday 9 AM – 3 PM; Wednesday 9 AM – 3 PM; Thursday 12:30 PM – 3 PM; Friday 9 AM – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
+  "imported": "2026-10-03",
+  "key": "The Salvation Army – Community Services Westbank",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
+  "verify_notes": "Mailing city 'Westbank, BC V4T 3L7'. Eligibility and cost not stated.",
+  "who": null
+ },
  "8e5a3d5b": {
   "imported": "2026-10-03",
   "key": "Waterfront Park",
   "source": "arcgis-parks"
  },
+ "8ea5b030": {
+  "appointment": "By appointment (also drop-off) — email taxclinic@rotaryogopogo.org. Walk-ins only in the spring session (appointments take priority).",
+  "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
+  "cost": "free",
+  "hours_text": "1st Friday of each month from 09:00 AM - 12:00 PM, 2026-05-01 to 2026-12-04 (appointments required). Spring session: every Friday 9 AM–noon, March 6–April 24, 2026.",
+  "imported": "2026-10-03",
+  "key": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
+  "languages": "English",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
+  "verify_notes": "No phone published (booking by email only). Address: CRA directory and the cathedral's own site (stmichaelscathedral.ca) say 608 Sutherland Ave; a Rotary calendar item says '650 Sutherland Ave' and 10:00 a.m. — 608 used.",
+  "who": "Individuals with modest incomes and simple tax situations, including seniors, low-income individuals and families, newcomers, Indigenous Peoples, persons with disabilities, students and people experiencing homelessness."
+ },
+ "8eaac5d5": {
+  "appointment": "Call or email mail@wfn.ca first.",
+  "bring": null,
+  "cost": null,
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Westbank First Nation – Government Office (Lindley Building)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.wfn.ca/contact-us.htm",
+  "verify_notes": "Contact page: 'Lindley Building (Government) 515 Hwy 97, Westbank, BC, V1Z 3J2'; Office of Chief & Council at #301 (third floor); site footer says '101-515 Hwy 97'. On WFN reserve land (mailing 'Westbank, BC'), not part of the City of West Kelowna — locality set to West Kelowna for map grouping. Office hours not on official site (211 BC says Mon–Fri 8:30–4:30).",
+  "who": "WFN Members and non-Member residents of WFN lands: 'Many programs & services are offered to both Member and non-Member community residents; if you're unsure, please ask!'"
+ },
  "8fa7bb62": {
   "imported": "2026-10-03",
   "key": "Parkinson Recreation Park",
   "source": "arcgis-parks"
+ },
+ "8ffe8733": {
+  "appointment": "Self-refer by phone (250-862-4300 ext. 33204), fax (250-870-4660) or email (COKMaternityClinic@interiorhealth.ca)",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday to Friday: 9 a.m. to 4 p.m. Health-care providers are available 24 hours a day, seven days a week for deliveries and emergencies.",
+  "imported": "2026-10-03",
+  "key": "Central Okanagan Maternity Clinic (Interior Health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/media/new-maternity-clinic-opens-its-doors-expectant-families-central-okanagan-december-7-2023",
+  "verify_notes": "Hours, address and phone are from the IH location page. The phone extension is 33204. The self-referral and 'regardless of if they have a regular primary care provider' wording comes from the IH media release (Dec 7, 2023), not the location page. The release gives clinic hours as 8:30-4:30, while the current location page says 9-4; hours_text uses the location page. Neither page says what it costs for people without MSP or what to bring.",
+  "who": "Pregnant people at any stage of pregnancy, with or without a family doctor. Self-referrals accepted."
+ },
+ "9080e12c": {
+  "appointment": "Walk in, no appointment needed. Virtual appointments by advance booking only (email ipc.ok@ubc.ca).",
+  "bring": null,
+  "cost": "No-fee (UBC Wellbeing: 'no-fee, brief, single-session psychological services')",
+  "hours_text": "Walk-in appointments are available on Tuesdays and Thursdays (Sept. to June) between 10:00 am and 3:00 pm at our clinic located in ASC 167. Please note our clinic closes for all University holidays and reading weeks (Nov & Feb).",
+  "imported": "2026-10-03",
+  "key": "UBC Okanagan Psychology Clinic – Walk-In Wellness Service",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/",
+  "verify_notes": "The phone (ext. 1) and the 'no-fee' wording are from UBC Wellbeing (https://wellbeing.ubc.ca/ubco-walk-well-being-clinic). The psychology department page does not state a cost. The street address 3333 University Way is the campus address from the UBCO Student Health Clinic page; the clinic itself only says 'ASC 167'. Languages are not stated.",
+  "who": "Available to any individual in British Columbia (age 18+): students, staff, faculty and community members"
  },
  "909afc43": {
   "imported": "2026-10-03",
@@ -764,6 +1219,19 @@
   "key": "2836",
   "source": "bc-childcare-map"
  },
+ "a36f2dbe": {
+  "appointment": "Call, text (604-660-2421) or email first — 'Most issues can be solved without visiting an office'; visit in person only if you cannot reach them by phone or email.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "By phone: Monday through Friday, 7:30 am to 5 pm Pacific Time (office hours not stated).",
+  "imported": "2026-10-03",
+  "key": "Employment Standards Branch – Kelowna office",
+  "languages": "By phone, 'someone can help you in the language of your choice'.",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us",
+  "verify_notes": "Phone is toll-free 1-833-236-3700 (written without the leading 1). Address also confirmed on the Ministry of Labour office-locations page. Cost not stated on the page.",
+  "who": "Workers and employers covered by B.C. employment standards (check first whether the standards apply to your job)."
+ },
  "a40c12f8": {
   "imported": "2026-10-03",
   "key": "Blair Pond Park",
@@ -844,6 +1312,19 @@
   "key": "Myra Bellevue Provincial Park",
   "source": "arcgis-parks"
  },
+ "b450ee72": {
+  "appointment": "Unattached and walk-in patients are required to make an appointment before being seen. Book online; walk-in appointments can be booked up to 1 week ahead. No walk-ins without an appointment.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday - Friday: 9am - 5pm",
+  "imported": "2026-10-03",
+  "key": "KLO Medical Clinic",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://klomedical.ca/",
+  "verify_notes": "The clinic's own site was checked. Its email is currently broken, so phone instead. The site does not say whether it sees patients without MSP or what they pay. Not found in HealthLinkBC's walk-in listing.",
+  "who": "Patients without a family doctor can be seen as walk-in patients by booked appointment. Accepting a limited number of new family-practice patients (ask at the front desk)."
+ },
  "b574dd3f": {
   "imported": "2026-10-03",
   "key": "Cook Road Boat Launch",
@@ -874,6 +1355,19 @@
   "key": "1842",
   "source": "bc-childcare-map"
  },
+ "b9a11732": {
+  "appointment": "Walk-in; new arrivals complete an intake.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Open 24/7; once you have a bed, there is no set wake-up time.",
+  "imported": "2026-10-03",
+  "key": "Cornerstone Shelter (John Howard Society of Okanagan & Kootenay)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://jhsok.ca/programs-services/housing/cornerstone-shelter/",
+  "verify_notes": "Email cornerstone@jhsok.ca.",
+  "who": "Adults (19+) currently experiencing homelessness; minors are referred to youth shelters. Couples and people with pets are welcome."
+ },
  "ba1606b1": {
   "imported": "2026-10-03",
   "key": "Cedar Creek Park",
@@ -894,10 +1388,36 @@
   "key": "3068",
   "source": "bc-childcare-map"
  },
+ "bc037355": {
+  "appointment": "Call, email (CCRR@ymcasibc.ca) or visit.",
+  "bring": null,
+  "cost": "free (funded by the Province of British Columbia)",
+  "hours_text": "Monday: 9:00 a.m. – 5:00 p.m.; Tuesday: 9:00 a.m. – 5:00 p.m.; Wednesday: 9:00 a.m. – 8:00 p.m.; Thursday: 9:00 a.m. – 5:00 p.m.; Friday: 9:00 a.m. – 5:00 p.m.; Saturday: 9:00 a.m. – 2:00 p.m.",
+  "imported": "2026-10-03",
+  "key": "YMCA Child Care Resource & Referral (CCRR) – Central Okanagan",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.ymcasibc.ca/ccrr",
+  "verify_notes": "Languages not stated.",
+  "who": "Families and child care providers in Peachland, West Kelowna, Kelowna and Lake Country."
+ },
  "bce76458": {
   "imported": "2026-10-03",
   "key": "2990",
   "source": "bc-childcare-map"
+ },
+ "beb9ed16": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Store Hours: Mon-Sat: 9:00 AM-10:00 PM; Sunday & Holidays: 9:00 AM-8:00 PM",
+  "imported": "2026-10-03",
+  "key": "London Drugs Spall Plaza",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.londondrugs.com/stores/spall-plaza/s/012",
+  "verify_notes": "Read in a browser because the site blocks automated fetch. London Drugs publishes store hours only, with no separate pharmacy hours, so the counter may close earlier. p is the pharmacy line; the general line is 250-860-3331.",
+  "who": null
  },
  "bf5643ab": {
   "imported": "2026-10-03",
@@ -944,10 +1464,36 @@
   "key": "Kerry Park",
   "source": "arcgis-parks"
  },
+ "c6394e2d": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday-Saturday 8:00-21:00; Sunday 10:00-18:00",
+  "imported": "2026-10-03",
+  "key": "Shoppers Drug Mart Kelowna (Bernard Ave, downtown)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.shoppersdrugmart.ca/en/store-locator/store/2201/pharmacy",
+  "verify_notes": "Hours come from the Shoppers store page's structured data (openingHoursSpecification). The store pages publish store hours only, with no separate pharmacy-counter hours, so the counter may close earlier; call to check.",
+  "who": null
+ },
  "c6c313dd": {
   "imported": "2026-10-03",
   "key": "02397006",
   "source": "bc-k12-schools"
+ },
+ "c7876aa2": {
+  "appointment": "Full-fee counselling: book online or call, no referral needed. Low-cost counselling: arranged through the office, not online; waitlists may apply. Free adult short-term counselling: referral through Adult Mental Health (call 310-MHSU / 310-6478). Free child, youth & family counselling: referral through Child & Youth Mental Health (778-699-2272). Women's Stopping the Violence counselling: contact the office directly.",
+  "bring": null,
+  "cost": "Free, low cost, and full fee services available. An annual intake fee is requested; 'If financial circumstances make this difficult, there is no expectation to pay.'",
+  "hours_text": "Monday: 8:30 am – 4:30 pm; Tuesday: 8:30 am – 5:30 pm; Wednesday: 8:30 am – 4:30 pm; Thursday: 8:30 am – 5:30 pm; Friday: 8:30 am – 4:30 pm. After hours appointments are available. Closed between 12:00 pm and 1:00 pm for lunch.",
+  "imported": "2026-10-03",
+  "key": "Connect Counselling & Therapy Society",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://connectcounsellingandtherapy.com/pages/free-funded-counselling",
+  "verify_notes": "Formerly the Kelowna Family Centre. The address, phone and hours are from https://connectcounsellingandtherapy.com/pages/contact. The page header says the postal code is V1Y 8B7, while the footer says V4V 2T2. The intake details are from /pages/referrals-intake. Fee amounts and languages are not published, so they are left out.",
+  "who": "Individuals, couples, children, youth and families in the Central Okanagan (Peachland to Lake Country)"
  },
  "c823ac20": {
   "imported": "2026-10-03",
@@ -968,6 +1514,32 @@
   "imported": "2026-10-03",
   "key": "2706",
   "source": "bc-childcare-map"
+ },
+ "cba7e8e1": {
+  "appointment": "Drop in during drop-in hours, or call 236-420-2803 to book",
+  "bring": null,
+  "cost": "All Foundry services are free and confidential",
+  "hours_text": "Opening hours: Monday, Tuesday, Wednesday, Friday: 9:00am – 5:00pm; Thursday: 9:00am – 7:00pm. Drop-In Hours: Monday, Tuesday, Wednesday, Friday: 10:00am-5:00pm; Thursday: 10:00am-7:00pm",
+  "imported": "2026-10-03",
+  "key": "Foundry Kelowna (youth 12-24)",
+  "languages": "Translation services available for some appointments. Get in touch before your visit to confirm.",
+  "source": "research:R2-health.json",
+  "source_url": "https://foundrybc.ca/centre/kelowna/",
+  "verify_notes": "All details are from the Foundry BC centre page, which says Foundry Kelowna is operated by CMHA Kelowna and is home to the IH Youth Team. The Thursday hours are from the same page as read by WebFetch. The page does not say whether a BC Services Card is required.",
+  "who": "Youth ages 12-24 and their families"
+ },
+ "cc6dd518": {
+  "appointment": "Call first (604-335-5931 or toll-free 1-800-663-4261).",
+  "bring": null,
+  "cost": "free",
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Workers' Advisers Office – Kelowna",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/personal-injury-and-workplace-safety/offices",
+  "verify_notes": "Address conflict: WAO office list (updated 2026-09-22) says 420-1726 Dolphin Ave; the Ministry of Labour office-locations page says 101-1726 Dolphin Ave — 420 used. No local phone published (fax 250-717-2010); hours not stated.",
+  "who": "Workers and their families with WorkSafeBC (workers' compensation) issues."
  },
  "cd8dfe8b": {
   "imported": "2026-10-03",
@@ -1019,10 +1591,36 @@
   "key": "02323078",
   "source": "bc-k12-schools"
  },
+ "d42d42dc": {
+  "appointment": "Walk-in during open hours.",
+  "bring": null,
+  "cost": "free (langar community kitchen)",
+  "hours_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras Sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8 PM.",
+  "imported": "2026-10-03",
+  "key": "Okanagan Sikh Temple & Cultural Society (Gurdwara)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://www.kelownasikhtemple.ca/",
+  "verify_notes": "OPTIONAL — the official site does not describe any newcomer-support program; included as a community hub with a free kitchen. Langar days/times not stated (sponsored langar seva on Sundays, Sangrands and Gurpurabs). Some directories give 1101 Rutland Rd N; official site says 1111. The other Kelowna gurdwara (Guru Amardas Darbar, Davie Rd) has no official site and conflicting addresses (220 vs 230 Davie Rd) — not included.",
+  "who": "The temple describes langar as upholding equality between all people regardless of background."
+ },
  "d5b62de3": {
   "imported": "2026-10-03",
   "key": "4395",
   "source": "bc-childcare-map"
+ },
+ "d5dec90d": {
+  "appointment": "Book a clinic appointment: Call 1-844-862-4467",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Clinic hours: Monday to Friday, 8:30 a.m. to 4:30 p.m.",
+  "imported": "2026-10-03",
+  "key": "West Kelowna Sexual & Reproductive Health (Interior Health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/west-kelowna-sexual-reproductive-health",
+  "verify_notes": "Cost and MSP requirements are not stated on the IH page, so they are left out. Same address as the West Kelowna Health Centre above. Community directories mention an Options for Sexual Health evening clinic at this address, but the Options website does not confirm it, so it is not included.",
+  "who": "Anyone looking for confidential sexual and reproductive health care"
  },
  "d7dde4e7": {
   "imported": "2026-10-03",
@@ -1039,6 +1637,19 @@
   "key": "2149",
   "source": "bc-childcare-map"
  },
+ "daf09eae": {
+  "appointment": "By appointment only; register as a new client first.",
+  "bring": "1 piece of photo ID for each adult over 18 (BCID or driver's licence, student ID, passport, etc.); 1 piece of ID for each child (birth certificate, BC Care Card, passport, etc.); proof of current Kelowna or West Kelowna address (rental agreement, rent receipts, utility bills, etc.).",
+  "cost": "free",
+  "hours_text": "By Appointment Only: Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM. Closed during BC Statutory Holidays.",
+  "imported": "2026-10-03",
+  "key": "Central Okanagan Food Bank – West Kelowna",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://cofoodbank.com/get-food/",
+  "verify_notes": "Kelowna main location is already on file. Friday 'Tiny Bundles' slot is not explained on the page — confirm who it is for before describing it.",
+  "who": "Anyone needing help 'regardless of race, national or ethnic origin, citizenship, colour, religion, sex, sexual orientation, gender identity, gender expression, income source, age, and mental or physical ability'; you must show a current Kelowna or West Kelowna address."
+ },
  "db8c5ae8": {
   "imported": "2026-10-03",
   "key": "02323079",
@@ -1048,6 +1659,19 @@
   "imported": "2026-10-03",
   "key": "3512",
   "source": "bc-childcare-map"
+ },
+ "dc2a5fe4": {
+  "appointment": "Fill in the online Eligibility Assessment Form, or call/email (careerpaths@kcr.ca) to book with a Case Manager.",
+  "bring": null,
+  "cost": "free",
+  "hours_text": "Monday - Friday 8:30 am - 4:30 pm (KCR office hours, all locations; closed statutory holidays).",
+  "imported": "2026-10-03",
+  "key": "KCR Community Resources – Career Paths for Skilled Immigrants",
+  "languages": "Services available in English and French.",
+  "source": "research:R2-settlement.json",
+  "source_url": "https://kcr.ca/employment-services/career-paths-for-skilled-immigrants/",
+  "verify_notes": "Same building as the KCR tax clinic (620 Leon Ave, Employment Services on the 1st floor per KCR contact page). Not for temporary residents (PR only).",
+  "who": "Must meet ALL: lives in the Thompson Okanagan or Kootenays; became a Permanent Resident in the last 10 years and is still a PR; unemployed or underemployed; wants to return to their pre-landing profession; at least 1 year pre-arrival experience in a regulated profession or 2 years in an unregulated profession (1 year if 30 or younger); intermediate to advanced English."
  },
  "dc3b2541": {
   "imported": "2026-10-03",
@@ -1099,6 +1723,19 @@
   "key": "4313",
   "source": "bc-childcare-map"
  },
+ "e82c5663": {
+  "appointment": "Appointment required; no walk-in accepted. Call to schedule an in-person or phone appointment. Online booking is available.",
+  "bring": null,
+  "cost": null,
+  "hours_text": "Monday-Friday 09:00 - 17:00; Saturday 10:00 - 16:00; Statutory holidays 10:00 - 16:00. Hours are subject to physician availability and patient volume.",
+  "imported": "2026-10-03",
+  "key": "Lakeshore Medical Centre (in Real Canadian Superstore)",
+  "languages": "English",
+  "source": "research:R2-health.json",
+  "source_url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/walk-clinic-79",
+  "verify_notes": "Source: HealthLinkBC walk-in clinic listing. The clinic's former page on divisionsbc.ca says it is outdated and points to Pathways (a physician directory), so HealthLinkBC is used. The HealthLinkBC clinic page gives Mon-Fri as 9am-5pm. Cost and MSP requirements are not stated.",
+  "who": "Anyone needing non-urgent care for minor illnesses and injuries"
+ },
  "e9d4af07": {
   "imported": "2026-10-03",
   "key": "Roxby Square",
@@ -1128,6 +1765,19 @@
   "imported": "2026-10-03",
   "key": "Robert's Lake Regional Park",
   "source": "arcgis-parks"
+ },
+ "ed2a6f70": {
+  "appointment": "Drop-in single-session counselling, or call 236-420-2803 to book an appointment",
+  "bring": null,
+  "cost": "Our services are always free and confidential",
+  "hours_text": "Monday and Friday, 9:00am-4:00pm",
+  "imported": "2026-10-03",
+  "key": "Foundry Kelowna – West Kelowna services (youth 12-24)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://foundrybc.ca/centre/kelowna/",
+  "verify_notes": "Foundry says these services run out of the Child & Youth Mental Health (CYMH) office at 15-2484 Main Street. The West Kelowna UPCC on file is also at 2484 Main Street. A June 2026 news story mentions a new West Kelowna Foundry site at #105-2370 Bering Rd, but Foundry's own page does not list it yet, so it is not used.",
+  "who": "Youth ages 12-24 and their families"
  },
  "ed41647a": {
   "imported": "2026-10-03",
@@ -1164,6 +1814,19 @@
   "key": "02323038",
   "source": "bc-k12-schools"
  },
+ "f239c589": {
+  "appointment": "Disability Tax Aid: contact Reception to schedule an appointment.",
+  "bring": null,
+  "cost": "Disability Tax Aid tax preparation is free; other program costs not stated.",
+  "hours_text": "Monday - Thursday: 8:30 AM to 4:30 PM; Friday: 9:00 AM to 12:00 PM.",
+  "imported": "2026-10-03",
+  "key": "Ki-Low-Na Friendship Society",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://kfs.bc.ca/",
+  "verify_notes": "Its former English/LINC program has been transferred to KCR Community Resources (kfs.bc.ca English Language Services page). Old directories list LINC at 620 Leon Ave under KFS — outdated.",
+  "who": "First Nation-informed programs for all peoples in all four stages of life: infants/children, youth, adults and Elders. Disability Tax Aid: people with Persons With Disability (PWD) designation, others with multiple barriers (PPMB), and low-income individuals."
+ },
  "f241d5cb": {
   "imported": "2026-10-03",
   "key": "Rotary Beach Park",
@@ -1174,10 +1837,49 @@
   "key": "McKinley Mountain Park",
   "source": "arcgis-parks"
  },
+ "f2933ab1": {
+  "appointment": "Drop-off (Mon–Fri) or virtual appointment; in-person appointments only in March and April.",
+  "bring": "KCR's completed intake form and checklist (download from the page). CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
+  "cost": "free",
+  "hours_text": "Operating months: March–June; September–December. Drop-off service: 9:00 AM–12:00 PM, 1:00 PM–4:00 PM, Monday–Friday. In-person appointments: March and April only (book via receptionist). Turn-around time for drop-off: 4–8 weeks.",
+  "imported": "2026-10-03",
+  "key": "KCR Community Resources – Free Tax Clinic (CVITP)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/",
+  "verify_notes": "Same building as KCR's main office (620 Leon Ave). Not shown in CRA's online clinic directory search for KELOWNA on 2026-10-03 (only COUC and Rotary clinics appeared), although KCR's page says it runs September–December. Languages not stated. Email incometax@kcr.ca.",
+  "who": "People with a modest income and a simple tax situation, including low-income families, newcomers, seniors and persons with disabilities; not for people with self-employment, rental or investment income. CRA's suggested income limits (clinics may adjust): 1 person $40,000; 2 people $55,000; 3 people $60,000; 4 people $65,000; 5 people $70,000; more than 5: $70,000 plus $5,000 per extra person."
+ },
  "f29667c6": {
   "imported": "2026-10-03",
   "key": "5619",
   "source": "bc-childcare-map"
+ },
+ "f2d03b7a": {
+  "appointment": "Call (250) 861-3644 or email mental.health@cmhakelowna.org and ask for CMHA Kelowna Virtual Counselling",
+  "bring": null,
+  "cost": "Virtual counselling is available free of charge",
+  "hours_text": "Monday - Friday: 9:00 AM - 4:00 PM; Saturday - Sunday: Closed; Holidays: Closed",
+  "imported": "2026-10-03",
+  "key": "CMHA Kelowna (Canadian Mental Health Association)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.cmhakelowna.com/programs-supports/virtual-counselling-services",
+  "verify_notes": "The address, hours and email are from https://www.cmhakelowna.com/mental-health/contact. CMHA's pages do not mention languages, MSP requirements or a newcomer-specific program, so those are left out.",
+  "who": "Adults ages 25+ for free virtual counselling. Youth 12-24 should use Foundry Kelowna."
+ },
+ "f3696455": {
+  "appointment": "Call to book",
+  "bring": "Personal Health Number (BC Services Card), if you have one.",
+  "cost": "Interior Health says immunizations are free at your local public health clinic.",
+  "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m.",
+  "imported": "2026-10-03",
+  "key": "West Kelowna Health Centre (Interior Health public health)",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.interiorhealth.ca/locations/west-kelowna-health-centre",
+  "verify_notes": "The hours and service list are from the IH location page. The address and phone are from IH's Immunization Services location list. Free parking is from the IH FAQ. The IH page does not say how to book, so 'call to book' is the general IH instruction from the Get Immunized page.",
+  "who": "Infants, children, families and adults"
  },
  "f756d812": {
   "imported": "2026-10-03",
@@ -1209,6 +1911,19 @@
   "key": "4543",
   "source": "bc-childcare-map"
  },
+ "fac2727c": {
+  "appointment": "Call first.",
+  "bring": null,
+  "cost": null,
+  "hours_text": null,
+  "imported": "2026-10-03",
+  "key": "Kelowna's Gospel Mission – Leon Shelter (men)",
+  "languages": null,
+  "source": "research:R2-settlement.json",
+  "source_url": "https://kelownagospelmission.ca/services/",
+  "verify_notes": "Same address as the existing 'KGM Community Dental' record. Hours/intake times, age limit and cost not on the official page (211 BC/CIOC say staffed 24/7, ages 19+). Mission's women's housing addresses are not published and are deliberately not included.",
+  "who": "Men; 'for those trying to maintain sobriety while living in shelter'."
+ },
  "fb244ef6": {
   "imported": "2026-10-03",
   "key": "02396281",
@@ -1218,5 +1933,18 @@
   "imported": "2026-10-03",
   "key": "4688",
   "source": "bc-childcare-map"
+ },
+ "ffe9bdb4": {
+  "appointment": null,
+  "bring": null,
+  "cost": null,
+  "hours_text": "Store Hours: Mon-Sat: 9:00 AM-9:00 PM; Sunday & Holidays: 10:00 AM-8:00 PM",
+  "imported": "2026-10-03",
+  "key": "London Drugs Westbank",
+  "languages": null,
+  "source": "research:R2-health.json",
+  "source_url": "https://www.londondrugs.com/stores/westbank/s/076",
+  "verify_notes": "Read in a browser. Store hours only, with no separate pharmacy-counter hours. p is the pharmacy line; the general line is 250-768-8504. London Drugs gives the town as 'Westbank'; locality is set to West Kelowna for consistency.",
+  "who": null
  }
 }

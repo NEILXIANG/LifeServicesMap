@@ -94,6 +94,7 @@ class CityImport:
         self.seed = [p for p in self.places if p['id'] not in self.prov]   # hand-assigned records
         self.area_by_locality = area_by_locality or {}
         self.name_suffix = None   # e.g. 'child care': appended when the name exists in another category
+        self.phone_dedupe = True   # research merges turn it off: one switchboard serves several services
         self.word_radius = 40   # schools and other one-of-a-kind names can use more (bc_schools: 400)
         # area anchors (cities/<city>/import/config.json "areaAnchors"): a few points per area;
         # a place gets the area of its nearest anchor. Explicit and stable, unlike voting among
@@ -136,7 +137,7 @@ class CityImport:
             if d < 400 and p['c'] == cat and similar(p['n'], name, words=False): return p   # one name inside the other
             # (a school and the after-school care in its building are different places: kept, linked)
             if d < self.word_radius and p['c'] == cat and similar(p['n'], name): return p   # same building, same words
-            if d < 40 and phone and p.get('p') == phone: return p
+            if d < 40 and phone and self.phone_dedupe and p.get('p') == phone: return p
         return None
 
     def link_same_building(self, rec):
