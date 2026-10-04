@@ -3,8 +3,8 @@
   "n": "KCR Community Resources – Immigrant Services",
   "c": "gov",
   "g": "dt",
-  "lat": 49.8864491,
-  "lng": -119.4897088,
+  "lat": 49.8866385,
+  "lng": -119.4894914,
   "a": "618 Bernard Ave",
   "p": "250-763-8008",
   "note": {
@@ -22,11 +22,36 @@
   "w": "https://kcr.ca/immigrant-services/"
  },
  {
+  "n": "Kelowna Urgent and Primary Care Centre (UPCC)",
+  "c": "hospital",
+  "g": "dt",
+  "lat": 49.8830837,
+  "lng": -119.4754685,
+  "a": "1141 Harvey Ave",
+  "p": "250-469-6985",
+  "note": {
+   "zh": "无需预约的紧急门诊；没有家庭医生也可以就诊。",
+   "en": "Walk-in urgent care with no appointment; can be used without a family doctor."
+  },
+  "src": "stub-pending-verify",
+  "v": "2026-10",
+  "alias": [
+   "UPCC",
+   "urgent care",
+   "walk-in",
+   "downtown",
+   "紧急门诊",
+   "免预约"
+  ],
+  "id": "37ef188e",
+  "w": "https://www.interiorhealth.ca/locations/kelowna-urgent-primary-care-centre"
+ },
+ {
   "n": "Service BC Centre – Kelowna",
   "c": "gov",
   "g": "dt",
-  "lat": 49.886504,
-  "lng": -119.4940211,
+  "lat": 49.8864835,
+  "lng": -119.4940126,
   "a": "305-478 Bernard Ave",
   "p": "250-861-7500",
   "note": {
@@ -45,8 +70,8 @@
   "n": "Kelowna Service Canada Centre and Passport Services",
   "c": "gov",
   "g": "dt",
-  "lat": 49.8870905,
-  "lng": -119.4942596,
+  "lat": 49.8870625,
+  "lng": -119.4941816,
   "a": "106-471 Queensway",
   "p": "800-622-6232",
   "note": {
@@ -65,8 +90,8 @@
   "n": "ICBC Kelowna Driver Licensing",
   "c": "gov",
   "g": "dt",
-  "lat": 49.8776304,
-  "lng": -119.4604107,
+  "lat": 49.8776453,
+  "lng": -119.4603343,
   "a": "1720 Springfield Rd",
   "p": "800-950-1498",
   "note": {
@@ -85,8 +110,8 @@
   "n": "ICBC West Kelowna Driver Licensing (by appointment only)",
   "c": "gov",
   "g": "wk",
-  "lat": 49.827819,
-  "lng": -119.6240286,
+  "lat": 49.8279523,
+  "lng": -119.6239077,
   "a": "201-3731 Old Okanagan Hwy",
   "p": "800-950-1498",
   "note": {
@@ -108,8 +133,8 @@
   "n": "WorkBC Centre – Kelowna",
   "c": "gov",
   "g": "dt",
-  "lat": 49.8821488,
-  "lng": -119.476772,
+  "lat": 49.8816284,
+  "lng": -119.4757465,
   "a": "107-1835 Gordon Dr",
   "p": "778-738-0225",
   "note": {
@@ -128,8 +153,8 @@
   "n": "WorkBC Centre – West Kelowna",
   "c": "gov",
   "g": "wk",
-  "lat": 49.8361663,
-  "lng": -119.6165662,
+  "lat": 49.8361776,
+  "lng": -119.6169545,
   "a": "111-3011 Louie Dr",
   "p": "778-741-0155",
   "note": {
@@ -141,7 +166,6 @@
   "t": [
    "life"
   ],
-  "precision": "low",
   "id": "4ba7d402",
   "w": "https://www.workbc.ca/workbc-centres/workbc-centre-west-kelowna"
  },
@@ -149,8 +173,8 @@
   "n": "Legal Aid BC – Kelowna (Kelowna Law Courts)",
   "c": "legal",
   "g": "dt",
-  "lat": 49.890535,
-  "lng": -119.4960984,
+  "lat": 49.8903554,
+  "lng": -119.4962551,
   "a": "228-1355 Water St",
   "p": "250-763-8613",
   "note": {
@@ -169,8 +193,8 @@
   "n": "Okanagan Thompson Legal Clinic – Kelowna",
   "c": "legal",
   "g": "dt",
-  "lat": 49.8845803,
-  "lng": -119.4921506,
+  "lat": 49.8847222,
+  "lng": -119.4914275,
   "a": "304-554 Leon Ave",
   "p": "236-425-9120",
   "note": {
@@ -189,8 +213,8 @@
   "n": "Central Okanagan Food Bank – Kelowna",
   "c": "foodbank",
   "g": "dt",
-  "lat": 49.8835858,
-  "lng": -119.4346914,
+  "lat": 49.8836745,
+  "lng": -119.4345437,
   "a": "2310 Enterprise Way",
   "p": "250-763-7161",
   "note": {
@@ -209,8 +233,8 @@
   "n": "Kelowna RCMP Detachment",
   "c": "police",
   "g": "dt",
-  "lat": 49.8940523,
-  "lng": -119.4894089,
+  "lat": 49.8941401,
+  "lng": -119.4893012,
   "a": "1190 Richter St",
   "p": "250-762-3300",
   "note": {
@@ -249,8 +273,8 @@
   "n": "West Kelowna RCMP Detachment",
   "c": "police",
   "g": "wk",
-  "lat": 49.8291977,
-  "lng": -119.6238492,
+  "lat": 49.8292053,
+  "lng": -119.6238723,
   "a": "2390 Dobbin Rd",
   "p": "250-768-2880",
   "note": {
@@ -269,8 +293,8 @@
   "n": "Kelowna General Hospital",
   "c": "hospital",
   "g": "pm",
-  "lat": 49.874053,
-  "lng": -119.493269,
+  "lat": 49.8734589,
+  "lng": -119.4930479,
   "a": "2268 Pandosy Street",
   "p": "250-862-4000",
   "note": {
@@ -294,8 +318,8 @@
   "n": "Rutland Urgent and Primary Care Centre (UPCC)",
   "c": "hospital",
   "g": "rt",
-  "lat": 49.889686,
-  "lng": -119.388037,
+  "lat": 49.8896393,
+  "lng": -119.388058,
   "a": "150 Highway 33 West",
   "p": "250-491-1100",
   "note": {
@@ -319,8 +343,8 @@
   "n": "West Kelowna Urgent and Primary Care Centre (UPCC)",
   "c": "hospital",
   "g": "wk",
-  "lat": 49.830703,
-  "lng": -119.630184,
+  "lat": 49.8297611,
+  "lng": -119.6304501,
   "a": "2484 Main Street",
   "p": "250-469-6010",
   "note": {
@@ -345,8 +369,8 @@
   "n": "Orchard Medical Centre",
   "c": "hospital",
   "g": "dt",
-  "lat": 49.877483,
-  "lng": -119.44354,
+  "lat": 49.8779473,
+  "lng": -119.443834,
   "a": "104-1990 Cooper Road",
   "p": "250-861-3235",
   "note": {
@@ -368,8 +392,8 @@
   "n": "Evolve Allied Health - Kelowna Glenmore (Hillside) Walk-in Clinic",
   "c": "hospital",
   "g": "gm",
-  "lat": 49.9013062,
-  "lng": -119.4528932,
+  "lat": 49.901555,
+  "lng": -119.4533555,
   "a": "114-1920 Summit Drive",
   "p": "250-763-6322",
   "note": {
@@ -393,8 +417,8 @@
   "n": "MD Medical Centre",
   "c": "hospital",
   "g": "wk",
-  "lat": 49.835642,
-  "lng": -119.621306,
+  "lat": 49.8359458,
+  "lng": -119.6211732,
   "a": "3020 Louie Drive",
   "p": "250-768-9959",
   "note": {
@@ -417,8 +441,8 @@
   "n": "Kelowna Mental Health & Substance Use",
   "c": "hospital",
   "g": "dt",
-  "lat": 49.888651,
-  "lng": -119.493259,
+  "lat": 49.888586,
+  "lng": -119.4926229,
   "a": "505 Doyle Avenue",
   "p": "250-469-7070",
   "note": {
@@ -442,8 +466,8 @@
   "n": "Shoppers Drug Mart Orchard Park S.C.",
   "c": "pharmacy",
   "g": "dt",
-  "lat": 49.879363,
-  "lng": -119.439476,
+  "lat": 49.8793159,
+  "lng": -119.4401586,
   "a": "2271 Harvey Avenue",
   "p": "250-860-3764",
   "note": {
@@ -470,8 +494,8 @@
   "n": "Shoppers Drug Mart Rutland Plaza 33",
   "c": "pharmacy",
   "g": "rt",
-  "lat": 49.888477,
-  "lng": -119.390274,
+  "lat": 49.8883237,
+  "lng": -119.3898977,
   "a": "301 Highway 33 West",
   "p": "250-765-4156",
   "note": {
@@ -501,8 +525,8 @@
   "n": "Shoppers Drug Mart West Kelowna",
   "c": "pharmacy",
   "g": "wk",
-  "lat": 49.826616,
-  "lng": -119.629274,
+  "lat": 49.8283084,
+  "lng": -119.629076,
   "a": "2475 Dobbin Road",
   "p": "250-707-0891",
   "note": {
@@ -530,8 +554,8 @@
   "n": "KGM Community Dental (Kelowna's Gospel Mission)",
   "c": "dental",
   "g": "dt",
-  "lat": 49.884389,
-  "lng": -119.497999,
+  "lat": 49.8842617,
+  "lng": -119.4979481,
   "a": "251 Leon Avenue",
   "p": "250-763-3737",
   "note": {
@@ -555,8 +579,8 @@
   "n": "Okanagan Regional Library – Kelowna Downtown",
   "c": "library",
   "g": "dt",
-  "lat": 49.889593,
-  "lng": -119.4941241,
+  "lat": 49.8894295,
+  "lng": -119.4937462,
   "a": "1380 Ellis St",
   "p": "250-762-2800",
   "note": {
@@ -577,8 +601,8 @@
   "n": "Okanagan Regional Library – Kelowna Mission",
   "c": "library",
   "g": "pm",
-  "lat": 49.8360695,
-  "lng": -119.4802409,
+  "lat": 49.835737,
+  "lng": -119.4803059,
   "a": "4105 Gordon Dr",
   "p": "250-764-2254",
   "note": {
@@ -599,8 +623,8 @@
   "n": "Okanagan Regional Library – Kelowna Rutland",
   "c": "library",
   "g": "rt",
-  "lat": 49.8884765,
-  "lng": -119.3902735,
+  "lat": 49.8883237,
+  "lng": -119.3898977,
   "a": "#20-301 Hwy 33 W",
   "p": "250-765-8165",
   "note": {
@@ -624,8 +648,8 @@
   "n": "Okanagan Regional Library – West Kelowna",
   "c": "library",
   "g": "wk",
-  "lat": 49.827819,
-  "lng": -119.6240286,
+  "lat": 49.8279523,
+  "lng": -119.6239077,
   "a": "3731 Old Okanagan Hwy",
   "p": "250-768-4369",
   "note": {
@@ -649,8 +673,8 @@
   "n": "Central Okanagan Public Schools (SD23) – School Board Office",
   "c": "school",
   "g": "rt",
-  "lat": 49.875782,
-  "lng": -119.3984739,
+  "lat": 49.8767106,
+  "lng": -119.39932,
   "a": "1040 Hollywood Rd S",
   "p": "250-860-8888",
   "note": {
@@ -666,8 +690,8 @@
   "n": "École Kelowna Secondary",
   "c": "school",
   "g": "pm",
-  "lat": 49.864649,
-  "lng": -119.4781488,
+  "lat": 49.8640577,
+  "lng": -119.4783557,
   "a": "1079 Raymer Ave",
   "p": "250-870-5105",
   "note": {
@@ -683,8 +707,8 @@
   "n": "Rutland Senior Secondary",
   "c": "school",
   "g": "rt",
-  "lat": 49.8972008,
-  "lng": -119.3866449,
+  "lat": 49.8969396,
+  "lng": -119.3837848,
   "a": "705 Rutland Rd N",
   "p": "250-870-5110",
   "note": {
@@ -700,8 +724,8 @@
   "n": "École Okanagan Mission Secondary",
   "c": "school",
   "g": "pm",
-  "lat": 49.8176217,
-  "lng": -119.4832956,
+  "lat": 49.8185945,
+  "lng": -119.4851097,
   "a": "4544 Gordon Dr",
   "p": "250-870-5108",
   "note": {
@@ -717,8 +741,8 @@
   "n": "Mount Boucherie Senior Secondary",
   "c": "school",
   "g": "wk",
-  "lat": 49.8581845,
-  "lng": -119.5842648,
+  "lat": 49.8589999,
+  "lng": -119.5827126,
   "a": "2751 Cameron Rd",
   "p": "250-870-5101",
   "note": {
@@ -734,8 +758,8 @@
   "n": "UBC Okanagan (University of British Columbia, Okanagan campus)",
   "c": "school",
   "g": "nk",
-  "lat": 49.9372585,
-  "lng": -119.3943984,
+  "lat": 49.9397006,
+  "lng": -119.3961827,
   "a": "3333 University Way",
   "p": "250-807-8000",
   "note": {
@@ -754,8 +778,8 @@
   "n": "Okanagan College – Kelowna Campus",
   "c": "school",
   "g": "pm",
-  "lat": 49.8618222,
-  "lng": -119.4812483,
+  "lat": 49.8616238,
+  "lng": -119.4803931,
   "a": "1000 KLO Rd",
   "p": "250-762-5445",
   "note": {
@@ -764,7 +788,6 @@
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
-  "precision": "low",
   "id": "98071a20",
   "w": "https://www.okanagancollege.ca/campuses/kelowna-campus",
   "t": [
@@ -875,8 +898,8 @@
   "n": "Towne Centre Card Shop (Canada Post outlet)",
   "c": "post",
   "g": "dt",
-  "lat": 49.8858482,
-  "lng": -119.4912953,
+  "lat": 49.8859236,
+  "lng": -119.4912841,
   "a": "19-565 Bernard Ave",
   "note": {
    "zh": "位于市中心 Bernard 大道一家贺卡店内的邮局柜台，周一至周六营业。",
@@ -894,8 +917,8 @@
   "n": "Parkinson Recreation Centre",
   "c": "commctr",
   "g": "dt",
-  "lat": 49.8832247,
-  "lng": -119.4575531,
+  "lat": 49.8831701,
+  "lng": -119.4584945,
   "a": "1800 Parkinson Way",
   "p": "250-469-8800",
   "note": {
@@ -911,8 +934,8 @@
   "n": "H2O Adventure + Fitness Centre",
   "c": "commctr",
   "g": "pm",
-  "lat": 49.837889,
-  "lng": -119.4810836,
+  "lat": 49.8377605,
+  "lng": -119.4807707,
   "a": "4075 Gordon Dr",
   "p": "250-491-9622",
   "note": {
@@ -933,8 +956,8 @@
   "n": "City Park",
   "c": "park",
   "g": "dt",
-  "lat": 49.8837019,
-  "lng": -119.5024246,
+  "lat": 49.8805947,
+  "lng": -119.5029411,
   "a": "1600 Abbott St",
   "note": {
    "zh": "市中心大型湖滨公园，有沙滩、夏季儿童水上乐园、游乐场、球场和无绳遛狗区。",
@@ -947,7 +970,6 @@
    "scenic",
    "free"
   ],
-  "precision": "low",
   "id": "2a35ed8d",
   "w": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/city-park"
  },
@@ -955,8 +977,8 @@
   "n": "Mission Creek Regional Park",
   "c": "park",
   "g": "rt",
-  "lat": 49.8724612,
-  "lng": -119.4003129,
+  "lat": 49.8763536,
+  "lng": -119.4264885,
   "a": "2363 Springfield Rd",
   "note": {
    "zh": "沿溪而建的大型公园，有步道；狗必须拴绳。",
@@ -969,7 +991,6 @@
    "scenic",
    "free"
   ],
-  "precision": "low",
   "id": "de97ee05",
   "w": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/mission-creek-regional-park"
  },
@@ -977,8 +998,8 @@
   "n": "Sunshine Market",
   "c": "asian",
   "g": "pm",
-  "lat": 49.8176421,
-  "lng": -119.4946681,
+  "lat": 49.8173926,
+  "lng": -119.4955351,
   "a": "#5-4600 Lakeshore Rd",
   "p": "250-706-7796",
   "note": {
@@ -987,7 +1008,6 @@
   },
   "src": "stub-pending-verify",
   "v": "2026-10",
-  "precision": "low",
   "id": "33c1c94c",
   "w": "https://www.kelownasunshinemarket.ca/"
  }
