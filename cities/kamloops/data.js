@@ -27,6 +27,11 @@ const CITY={
   // names used as examples in the search prompts ("Which bus goes to TRU?") and the
   // bus-stop search hint; a city without a campus leaves campus out and the prompt goes
   examples:{campus:'TRU', stop:'Lansdowne'},
+  // 2026-10-04: the local police non-emergency line (footer and Key Numbers) and the urgent and
+  // primary care centre(s) the health answer under the search box points to — both used to be
+  // written into the engine
+  police:'250-828-3000',
+  upcc:['b29c9af7'],
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -202,6 +207,37 @@ UI.fr.licenceData='<p><b>Données ouvertes provinciales :</b> certains lieux de 
 UI.es.licenceData='<p><b>Datos abiertos provinciales:</b> algunos lugares de esta página — guarderías con licencia y ubicaciones de escuelas de K a 12 — contienen información bajo la <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>.</p>';
 UI.ko.licenceData='<p><b>주 정부 공개 데이터:</b> 이 페이지의 일부 장소(허가받은 어린이집, K–12 학교 위치)에는 <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>에 따라 제공되는 정보가 포함되어 있습니다.</p>';
 UI.ja.licenceData='<p><b>州政府のオープンデータ：</b>このページの一部の場所（認可保育施設、K–12学校の位置）には、<a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> に基づく情報が含まれています。</p>';
+// 2026-10-04: city texts that used to sit in the engine (moved verbatim, so the page reads exactly as before)
+UI.zh.noteCoverage='本页数据由个人整理，来源为Google Places及各机构官网，覆盖各区。每类为该区域主要地点精选（餐馆/加油站等本市有数百家，非穷尽清单；🚌公交标注了主要枢纽站，备注中列出途经路线编号仅供参考，全市站点太多无法逐一列出，票价约成人单程$2.25/当日票$4.50/月票$55（支持Umo卡及银行卡Tap to Pay），具体线路/票价/实时到站请以{TRANSIT}官网为准）。';
+UI.en.noteCoverage='This is a personally compiled reference, gathered from Google Places and official websites, covering all neighbourhoods. Each category shows key locations (restaurants/gas stations etc have hundreds — curated selection, not exhaustive; 🚌 transit shows major exchanges with the route numbers serving them for reference only — there are far too many stops to list; fares are roughly $2.25 adult single/$4.50 DayPASS/$55 monthly (Umo card or tap-to-pay accepted) — confirm routes/fares/live arrivals on {TRANSIT}\'s own site).';
+UI.fr.noteCoverage='Cette page est une compilation personnelle, à partir de Google Places et des sites officiels, couvrant tous les quartiers. Chaque catégorie présente une sélection de lieux clés (restaurants/stations-service etc — des centaines, liste non exhaustive; 🚌 le transport en commun indique les pôles principaux avec les numéros de lignes qui les desservent, à titre indicatif seulement — trop d\'arrêts pour tous les lister; tarifs environ 2,25$ adulte/4,50$ DayPASS/55$ mensuel (carte Umo ou paiement sans contact acceptés) — vérifiez lignes/tarifs/arrivées en direct sur le site de {TRANSIT}).';
+UI.es.noteCoverage='Esta es una recopilación personal, a partir de Google Places y sitios web oficiales, que cubre todos los vecindarios. Cada categoría muestra los lugares principales (restaurantes/gasolineras, etc. hay cientos — selección curada, no exhaustiva; 🚌 el transporte público muestra los principales intercambiadores con los números de ruta que los sirven solo como referencia — hay demasiadas paradas para enumerarlas todas; las tarifas son aproximadamente $2.25 adulto sencillo/$4.50 DayPASS/$55 mensual (se acepta tarjeta Umo o pago sin contacto) — confirme rutas/tarifas/llegadas en vivo en el sitio de {TRANSIT}).';
+UI.ko.noteCoverage='이 페이지는 개인이 Google Places와 각 기관 공식 웹사이트를 참고해 정리한 자료이며, 모든 지역을 포함합니다. 각 분류는 해당 지역의 주요 장소를 선별한 것입니다(식당/주유소 등은 수백 곳에 달해 전체 목록이 아닙니다; 🚌 대중교통은 주요 환승 거점과 참고용 노선 번호만 표시하며, 정류장이 매우 많아 전부 나열할 수 없습니다. 요금은 대략 성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55입니다(Umo 카드 또는 탭 결제 가능) — 정확한 노선/요금/실시간 도착 정보는 {TRANSIT} 공식 웹사이트를 확인하세요).';
+UI.ja.noteCoverage='本ページのデータは個人が作成したもので、Google Placesおよび各機関の公式サイトから収集し、市内全域をカバーしています。各カテゴリーには主要なスポットを厳選して掲載しています（レストラン・ガソリンスタンドなどは市内に数百件あり、全てを網羅したリストではありません。🚌公共交通機関は主要な乗換拠点のみを表示し、備考欄に記載する経由路線番号は参考情報です。停留所が非常に多いため全ては掲載できません。運賃は目安として大人片道$2.25・1日券$4.50・月間パス$55です（Umoカードまたはタップ決済対応）。正確な路線・運賃・リアルタイムの到着情報は{TRANSIT}の公式サイトでご確認ください）。';
+UI.zh.noteThirdParty='页面里链接的网站、地图底图、以及来自 Google Places 的地址电话等事实数据，各有各的条款；它们不由本页面负责。';
+UI.en.noteThirdParty=' Sites linked from here, the map imagery, and factual data such as addresses and phone numbers drawn from Google Places are each under their own terms; this page does not answer for them.';
+UI.fr.noteThirdParty=' Les sites liés, le fond de carte et les données factuelles (adresses, téléphones) tirées de Google Places relèvent chacun de leurs propres conditions; cette page n’en répond pas.';
+UI.es.noteThirdParty=' Los sitios enlazados, las imágenes del mapa y los datos de hecho (direcciones, teléfonos) tomados de Google Places tienen cada uno sus propios términos; esta página no responde por ellos.';
+UI.ko.noteThirdParty=' 링크된 사이트, 지도 배경, Google Places에서 가져온 주소·전화 등 사실 정보는 각자의 약관을 따르며, 이 페이지가 책임지지 않습니다.';
+UI.ja.noteThirdParty='リンク先のサイト、地図の背景、Google Placesから得た住所・電話などの事実データは、それぞれの規約に従い、このページは責任を負いません。';
+UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，本地电话 <b>250-314-1900</b>，省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY}本地有一家实体法律诊所 <b>Okanagan Thompson Legal Clinic</b>（220-301 Victoria St，电话236-425-9121），提供家庭法协助、社会救助/伤残津贴、失业保险、债务、租房纠纷等方面的免费/低成本帮助（地图「分类 → 法律援助」可查看）；';
+UI.en.legalLocal='<b>Legal Aid BC</b> covers family law, criminal defence, and immigration/refugee matters for income-qualified people — {CITY} line <b>250-314-1900</b>, provincial line <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} has a physical legal clinic, the <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offering free/low-cost help with family law, income assistance/disability benefits, EI, debt, and tenancy issues (see Category → Legal Aid on this map). ';
+UI.fr.legalLocal='<b>Legal Aid BC</b> couvre le droit de la famille, la défense criminelle et les questions d\'immigration/réfugiés pour les personnes à revenu limité — ligne de {CITY} <b>250-314-1900</b>, ligne provinciale <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} a une clinique juridique physique, l\'<b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offrant une aide gratuite ou à faible coût en droit de la famille, aide au revenu/prestations d\'invalidité, assurance-emploi, dettes et questions de location (voir Catégorie → Aide juridique sur cette carte). ';
+UI.es.legalLocal='<b>Legal Aid BC</b> cubre derecho de familia, defensa criminal e inmigración/refugiados para personas que califican por ingresos — línea de {CITY} <b>250-314-1900</b>, línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} tiene una clínica legal física, la <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), que ofrece ayuda gratuita o de bajo costo en derecho de familia, asistencia social/beneficios por discapacidad, seguro de desempleo, deudas y disputas de arrendamiento (vea Categoría → Ayuda legal en este mapa). ';
+UI.ko.legalLocal='<b>Legal Aid BC</b>(법률 지원 BC)는 소득 기준을 충족하는 사람들을 위해 가족법, 형사 변호, 이민/난민 관련 법률 지원을 제공합니다({CITY} 지역 전화 <b>250-314-1900</b>, 주 전체 상담전화 <b>1-866-577-2525</b>, legalaid.bc.ca). {CITY}에는 <b>Okanagan Thompson Legal Clinic</b>(220-301 Victoria St, 전화 236-425-9121)이라는 실제 법률 클리닉이 있어 가족법, 사회부조/장애수당, 실업보험, 채무, 임대 분쟁 등에 대해 무료 또는 저비용 지원을 제공합니다(지도의 「분류 → 법률 지원」에서 확인 가능). ';
+UI.ja.legalLocal='<b>Legal Aid BC</b>は家族法、刑事弁護、移民・難民関連について、所得要件を満たす人を対象にカバーしています——{CITY}の窓口<b>250-314-1900</b>、州全体の窓口<b>1-866-577-2525</b>、legalaid.bc.ca。{CITY}には実店舗の法律相談所<b>Okanagan Thompson Legal Clinic</b>（220-301 Victoria St、236-425-9121）があり、家族法、生活保護・障害者給付、雇用保険、債務、賃貸トラブルについて無料または低額の相談ができます（この地図の「カテゴリー→法律扶助」参照）。';
+UI.zh.busFareText='成人单程$2.25 · 当日票$4.50 · 月票$55（支持Umo卡/银行卡感应支付）';
+UI.en.busFareText='Adult single $2.25 · DayPASS $4.50 · Monthly $55 (Umo card or tap-to-pay accepted)';
+UI.fr.busFareText='Adulte simple 2,25$ · DayPASS 4,50$ · Mensuel 55$ (carte Umo ou paiement sans contact accepté)';
+UI.es.busFareText='Adulto sencillo $2.25 · DayPASS $4.50 · Mensual $55 (se acepta tarjeta Umo o pago sin contacto)';
+UI.ko.busFareText='성인 편도 $2.25 · 데이패스 $4.50 · 월정기권 $55 (Umo 카드 또는 탭 결제 가능)';
+UI.ja.busFareText='大人片道$2.25 · 1日券$4.50 · 月間パス$55（Umoカードまたはタップ決済対応）';
+UI.zh.hcUpcc='北岸急诊中心（UPCC，700 Tranquille Rd）：不需要家庭医生，直接去。当天名额满了就不再接收，尽量早去。';
+UI.en.hcUpcc='North Shore UPCC (700 Tranquille Rd): walk in, no family doctor needed. Go early — once the day’s list is full they stop taking people.';
+UI.fr.hcUpcc='UPCC de la rive nord (700 Tranquille Rd) : sans rendez-vous, sans médecin de famille. Allez-y tôt — une fois la liste du jour pleine, ils n’acceptent plus personne.';
+UI.es.hcUpcc='UPCC de la ribera norte (700 Tranquille Rd): sin cita y sin médico de familia. Vaya temprano: cuando se llena la lista del día, ya no reciben a nadie.';
+UI.ko.hcUpcc='노스쇼어 UPCC(700 Tranquille Rd): 예약 없이 바로 가면 되고 주치의가 없어도 됩니다. 그날 명단이 차면 더 받지 않으니 일찍 가세요.';
+UI.ja.hcUpcc='ノースショアのUPCC（700 Tranquille Rd）：予約不要、かかりつけ医がいなくても受診できます。その日の受付枠が埋まると締め切るので、早めに行きましょう。';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

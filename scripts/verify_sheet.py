@@ -40,6 +40,8 @@ def main():
     P = kamdata.load('P')
     try: prov = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'provenance.json'), encoding='utf-8'))
     except FileNotFoundError: prov = {}
+    try: ver = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'verification.json'), encoding='utf-8'))
+    except FileNotFoundError: ver = {}
     order = {c: i for i, c in enumerate(SAFETY)}
     rows = sorted([p for p in P if p['c'] in SAFETY], key=lambda p: (order[p['c']], p['n']))
     today = datetime.date.today().isoformat()
@@ -48,7 +50,8 @@ def main():
     for i, p in enumerate(rows, 1):
         pv = prov.get(p['id'], {})
         who = pv.get('who') or ''
-        note = pv.get('verify_notes') or ''
+        # what the desk check (official pages) left for the phone: the most useful thing to ask about
+        note = (ver.get(p['id'], {}).get('remarks') or pv.get('verify_notes') or '')
         cards.append('''<section class="card">
 <div class="head"><span class="no">%d</span><span class="cat">%s</span><b>%s</b></div>
 <table>
@@ -63,7 +66,7 @@ def main():
 <div class="end">结果：☐ 全部确认 ☐ 有改动 ☐ 打不通（再试：____）　核实人：________　日期：________</div>
 </section>''' % (i, e(LABEL[p['c']]), e(p['n']), e(p.get('p', '（无电话）')), e(p['a']), e(city if p['g'] != 'wk' else 'West ' + city),
                   e(fmt_hours(p.get('h'))), e(who[:160]) or '（未知）',
-                  ('<p class="todo">调研时的疑问：%s</p>' % e(note[:260])) if note else ''))
+                  ('<p class="todo">官网复核后要电话确认的：%s</p>' % e(note[:320])) if note else ''))
     page = '''<!doctype html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>%(city)s 电话核实表 %(today)s</title>
 <style>

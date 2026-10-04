@@ -31,10 +31,10 @@
    "cost": "free",
    "appointment": "Drop-off (Mon–Fri) or virtual appointment; in-person appointments only in March and April.",
    "bring": "KCR's completed intake form and checklist (download from the page). CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
-   "note_en": "Trained volunteers do your tax return for free and in confidence if your income is modest and your taxes are simple. You can drop off your papers on weekdays; it takes 4–8 weeks.",
-   "note_zh": "收入不高、报税情况简单的人可以请培训过的志愿者免费、保密地帮你报税。工作日可以把材料送过来（代办），大约 4–8 周完成。",
+   "note_en": "Trained volunteers do your tax return for free and in confidence if your income is modest and your taxes are simple. You can drop off your papers on weekdays; it takes 4–8 weeks. The clinic closes over the summer, so call to check it has reopened.",
+   "note_zh": "收入不高、报税情况简单的人可以请培训过的志愿者免费、保密地帮你报税。工作日可以把材料送过来（代办），大约 4–8 周完成。夏季停办，去之前请打电话确认是否已经恢复。",
    "source_url": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/",
-   "verify_notes": "Same building as KCR's main office (620 Leon Ave). Not shown in CRA's online clinic directory search for KELOWNA on 2026-10-03 (only COUC and Rotary clinics appeared), although KCR's page says it runs September–December. Languages not stated. Email incometax@kcr.ca."
+   "verify_notes": "Same building as KCR's main office (620 Leon Ave). Not shown in CRA's online clinic directory search for KELOWNA on 2026-10-03 (only COUC and Rotary clinics appeared), although KCR's page says it runs September–December. Languages not stated. Email incometax@kcr.ca. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "KCR Community Resources – Career Paths for Skilled Immigrants",
@@ -82,8 +82,8 @@
    "hours_text": "Monday - Friday: 8:30-4:30; Saturday and Sunday closed.",
    "who": "Okanagan College international students.",
    "appointment": "Contact by phone or email; immigration advising: intedimmigration@okanagan.bc.ca, 250-762-5445 ext. 4914.",
-   "note_en": "Help for Okanagan College international students: certified immigration advisors (study permit extensions, post-graduation work permits) and cultural liaisons who help you settle into life in Canada.",
-   "note_zh": "为 Okanagan 学院国际学生服务：有持证移民顾问（学签延期、毕业工签等），还有文化联络员帮你适应加拿大生活。",
+   "note_en": "Help for Okanagan College international students: certified immigration advisors (study permit extensions, post-graduation work permits) and help settling into life in Canada (cultural liaisons are based at the Penticton and Vernon campuses and answer by email).",
+   "note_zh": "为 Okanagan 学院国际学生服务：有持证移民顾问（学签延期、毕业工签等），也帮助你适应加拿大生活（文化联络员在 Penticton 和 Vernon 校区，可发邮件联系）。",
    "source_url": "https://www.okanagancollege.ca/international/international-meet-the-team",
    "verify_notes": "Only for OC students. Cost not stated. General office email on page: askoc@okanagan.bc.ca."
   },
@@ -116,10 +116,10 @@
    "languages": "Tutoring is in English; the organisation says it supports learners from 27 different language groups.",
    "cost": "free",
    "appointment": "Apply online as a Learner; an English assessment interview is booked (can take 1–3 weeks), then you are matched with a volunteer tutor.",
-   "note_en": "A free one-to-one volunteer English tutor for adults, for work, school, CELPIP, the citizenship test or the driver's licence test. Lessons are usually 1–2 hours, 1–2 days a week, for up to 2 years.",
-   "note_zh": "为成年人免费配一对一志愿英语辅导老师，可以针对工作、学习、CELPIP 考试、入籍考试或驾照笔试来学。一般每周 1–2 次、每次 1–2 小时，最长 2 年。",
+   "note_en": "A free one-to-one volunteer English tutor for adults 19+, for work, school, CELPIP, the citizenship test or the driver's licence test. Lessons are usually 1–2 hours a week, on 1–2 days, for up to 2 years. Working Holiday and visitor visa holders do not qualify.",
+   "note_zh": "为 19 岁以上的成年人免费配一对一志愿英语辅导老师，可以针对工作、学习、CELPIP 考试、入籍考试或驾照笔试来学。一般每周共 1–2 小时、分 1–2 天，最长 2 年。持打工度假签证或访客签证的人不能参加。",
    "source_url": "https://projectliteracy.ca/",
-   "verify_notes": "Waiting time for assessment 1–3 weeks per learner page. Children not allowed at lessons. Also runs 'Low-Literacy Support for newcomers' (three 12-week sessions a year) with KCR. FAQ calls the location 'downtown Kelowna'; Leckie Rd is in Midtown (area set dt). Old directories list 1635 Bertram St — superseded."
+   "verify_notes": "Waiting time for assessment 1–3 weeks per learner page. Children not allowed at lessons. Also runs 'Low-Literacy Support for newcomers' (three 12-week sessions a year) with KCR. FAQ calls the location 'downtown Kelowna'; Leckie Rd is in Midtown (area set dt). Old directories list 1635 Bertram St — superseded. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Evangel Church – Free ESL Classes",
@@ -151,8 +151,8 @@
    "languages": "English conversation practice.",
    "cost": "free",
    "appointment": "Drop-in (no registration needed).",
-   "note_en": "A weekly volunteer-led English conversation group at the downtown library. Come practise speaking and meet people.",
-   "note_zh": "每周一次、由志愿者带领的英语会话小组，在市中心图书馆。来练口语、认识新朋友。",
+   "note_en": "A weekly English conversation group for beginner to intermediate learners, Wednesdays 6:30–8 p.m., at the downtown library.",
+   "note_zh": "每周一次的英语会话小组，适合初级到中级水平，每周三晚 6:30–8:00，在市中心图书馆。",
    "source_url": "https://orl.libcal.com/event/4019984",
    "verify_notes": "Same address as the existing 'Okanagan Regional Library – Kelowna Downtown' record — could be merged as a program note on that library. Run by volunteers with the Colibri Learning Foundation (englishcorner.ca). Schedule confirmed on ORL's event calendar for Oct 2026. Library opening hours: Mon–Thu 10–8, Fri 10–5:30, Sat 10–5, Sun 11–4."
   },
@@ -315,7 +315,7 @@
    "a": "1900 Quail Lane",
    "locality": "West Kelowna",
    "p": "250-768-0227",
-   "w": "https://www.wfn.ca/programs-services/health-wellness.htm",
+   "w": "https://www.wfn.ca/health-wellness.htm",
    "hours_text": "Monday to Friday 8:30 a.m. to 4:30 p.m. (as listed for counselling, home care and other recurring health programs).",
    "who": "Health & wellness services 'support the physical, mental, emotional and spiritual well-being & healing of all who reside on WFN Lands'; some programs are for WFN Members only (e.g., chronic disease management; the free tax clinic).",
    "appointment": "Nurses are by appointment only — call 250-768-0227 ext. 2; counselling appointments recommended.",
@@ -347,16 +347,16 @@
    "locality": "Kelowna",
    "p": "250-762-3311",
    "w": "https://centralokanaganunitedchurch.com/",
-   "hours_text": "Every Thursday from 09:00 AM - 12:00 PM, 2026-09-24 to 2026-12-17; closed during holidays.",
+   "hours_text": "Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.",
    "who": "General public with a modest income and a simple tax situation (CVITP).",
    "languages": "English",
    "cost": "free",
    "appointment": "Walk-in; first come, first served.",
    "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
-   "note_en": "Free walk-in tax help on Thursday mornings; volunteers can do this year's and earlier years' returns. Enter through the parking-lot door behind the church.",
-   "note_zh": "每周四上午免费报税，随到随办，志愿者可以帮你报今年和往年的税。从教堂后面停车场那扇门进。",
+   "note_en": "The church runs an income tax clinic on Thursdays at 9 a.m.; outside tax season the days vary, so call 250-762-3311 before going. Parking is behind the church, reached by the alley off Richter Street.",
+   "note_zh": "教堂每周四上午 9 点有报税服务；报税季以外的日子不固定，去之前请先打 250-762-3311 确认。停车场在教堂后面，从 Richter 街旁的小巷进入。",
    "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
-   "verify_notes": "Source is the CRA free-tax-clinic directory (search BC > KELOWNA, clinic 'COUC Thursday Mornings', retrieved 2026-10-03): wheelchair accessible; 1 volunteer. The church's own tax-clinic page now returns 'page not found'; an earlier version said government ID is required and to call ahead because volunteer availability changes."
+   "verify_notes": "Source is the CRA free-tax-clinic directory (search BC > KELOWNA, clinic 'COUC Thursday Mornings', retrieved 2026-10-03): wheelchair accessible; 1 volunteer. The church's own tax-clinic page now returns 'page not found'; an earlier version said government ID is required and to call ahead because volunteer availability changes. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
@@ -371,10 +371,10 @@
    "cost": "free",
    "appointment": "By appointment (also drop-off) — email taxclinic@rotaryogopogo.org. Walk-ins only in the spring session (appointments take priority).",
    "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
-   "note_en": "Free tax filing by Rotary volunteers once a month in the cathedral basement; book by email. Use the parking-lot entrance.",
-   "note_zh": "扶轮社志愿者每月一次在大教堂地下室免费帮人报税，需发邮件预约。从停车场入口进。",
+   "note_en": "Free tax filing by Rotary volunteers for people with low incomes, at St Michael's Cathedral (Richter Street at Sutherland Avenue). March to April: every Friday 9 a.m. to noon, walk-ins welcome. May to December: the first Friday of each month, 9 a.m. to noon, by appointment only — book by email.",
+   "note_zh": "扶轮社志愿者为低收入人士免费报税，地点在 St Michael's 大教堂（Richter 街与 Sutherland 大道路口）。3 月至 4 月：每周五上午 9 点至中午，可直接去；5 月至 12 月：每月第一个周五上午 9 点至中午，只接受预约，需发邮件预约。",
    "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
-   "verify_notes": "No phone published (booking by email only). Address: CRA directory and the cathedral's own site (stmichaelscathedral.ca) say 608 Sutherland Ave; a Rotary calendar item says '650 Sutherland Ave' and 10:00 a.m. — 608 used."
+   "verify_notes": "No phone published (booking by email only). Address: CRA directory and the cathedral's own site (stmichaelscathedral.ca) say 608 Sutherland Ave; a Rotary calendar item says '650 Sutherland Ave' and 10:00 a.m. — 608 used. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Kelowna's Gospel Mission – Leon Shelter (men)",
@@ -386,10 +386,10 @@
    "w": "https://kelownagospelmission.ca/services/",
    "who": "Men; 'for those trying to maintain sobriety while living in shelter'.",
    "appointment": "Call first.",
-   "note_en": "Emergency shelter with 60 beds for men, plus showers, laundry, hygiene supplies and three hot meals a day.",
-   "note_zh": "男性紧急庇护所，有 60 个床位，提供淋浴、洗衣、卫生用品和每天三顿热饭。",
+   "note_en": "Emergency shelter with 60 beds for men who are trying to stay sober while in shelter, plus showers, laundry, hygiene supplies and three hot meals a day. Call ahead to ask about a bed.",
+   "note_zh": "男性紧急庇护所，有 60 个床位，供在庇护所期间努力保持不饮酒、不吸毒的男性入住；提供淋浴、洗衣、卫生用品和每天三顿热饭。请先打电话问有没有床位。",
    "source_url": "https://kelownagospelmission.ca/services/",
-   "verify_notes": "Same address as the existing 'KGM Community Dental' record. Hours/intake times, age limit and cost not on the official page (211 BC/CIOC say staffed 24/7, ages 19+). Mission's women's housing addresses are not published and are deliberately not included."
+   "verify_notes": "Same address as the existing 'KGM Community Dental' record. Hours/intake times, age limit and cost not on the official page (211 BC/CIOC say staffed 24/7, ages 19+). Mission's women's housing addresses are not published and are deliberately not included. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Kelowna's Gospel Mission – Bay Ave Community Shelter",
@@ -401,10 +401,10 @@
    "w": "https://kelownagospelmission.ca/services/",
    "who": "Co-ed (all genders).",
    "appointment": "Call first.",
-   "note_en": "A co-ed shelter run by Kelowna's Gospel Mission, with meals, washrooms and case management services.",
-   "note_zh": "Kelowna 福音会开办的男女都收的庇护所，提供餐食、洗手间和个案管理服务。",
+   "note_en": "A co-ed shelter run by Kelowna's Gospel Mission, with space for meals, washrooms and case management services. Call ahead.",
+   "note_zh": "Kelowna 福音会开办的男女都收的庇护所，提供用餐场所、洗手间和个案管理服务。请先打电话。",
    "source_url": "https://kelownagospelmission.ca/services/",
-   "verify_notes": "Official page gives only a short description. 211 BC says: 24-hour shelter for adults 19+, intake 8 am–8 pm daily, first come first served, intake phone 236-420-0899 — not confirmed on the official site. BC Housing (Nov 2024) lists it as a temporary shelter, so check it is still open."
+   "verify_notes": "Official page gives only a short description. 211 BC says: 24-hour shelter for adults 19+, intake 8 am–8 pm daily, first come first served, intake phone 236-420-0899 — not confirmed on the official site. BC Housing (Nov 2024) lists it as a temporary shelter, so check it is still open. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Cornerstone Shelter (John Howard Society of Okanagan & Kootenay)",
@@ -418,10 +418,10 @@
    "who": "Adults (19+) currently experiencing homelessness; minors are referred to youth shelters. Couples and people with pets are welcome.",
    "cost": "free",
    "appointment": "Walk-in; new arrivals complete an intake.",
-   "note_en": "24-hour emergency shelter with hot lunch and dinner, showers, laundry and clothing vouchers; staff help with housing searches. Couples and pets welcome.",
-   "note_zh": "24 小时紧急庇护所，提供午餐和晚餐、淋浴、洗衣和衣物券；工作人员会帮你找房子。情侣和带宠物的人也可以入住。",
+   "note_en": "24-hour emergency shelter for adults 19+ with hot lunch and dinner, showers, laundry and clothing vouchers; staff help with housing searches. Couples and pets welcome. Under 19s are referred to youth shelters.",
+   "note_zh": "面向 19 岁以上成年人的 24 小时紧急庇护所，提供午餐和晚餐、淋浴、洗衣和衣物券；工作人员会帮你找房子。情侣和带宠物的人也可以入住。未满 19 岁的会被转介到青少年庇护所。",
    "source_url": "https://jhsok.ca/programs-services/housing/cornerstone-shelter/",
-   "verify_notes": "Email cornerstone@jhsok.ca."
+   "verify_notes": "Email cornerstone@jhsok.ca. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Richter Street Shelter (Turning Points Collaborative Society)",
@@ -435,10 +435,10 @@
    "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness; all-gender inclusive.",
    "cost": "free",
    "appointment": "Walk-in registration at 10 am, 4 pm or 9 pm.",
-   "note_en": "All-gender 24-hour shelter (up to 48 people) with meals, showers, laundry, case planning and referrals.",
-   "note_zh": "不分性别的 24 小时庇护所（最多 48 人），提供餐食、淋浴、洗衣、个案规划和转介服务。",
+   "note_en": "All-gender 24-hour shelter for adults 19+ (up to 48 people) with meals, showers, laundry, case planning and referrals. Register in person at 10 a.m., 4 p.m. or 9 p.m., first come, first served.",
+   "note_zh": "面向 19 岁以上成年人、不分性别的 24 小时庇护所（最多 48 人），提供餐食、淋浴、洗衣、个案规划和转介服务。每天上午 10 点、下午 4 点、晚上 9 点现场登记，先到先得。",
    "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
-   "verify_notes": "Page still contains COVID-era wording; confirm current status. Area North End (dt)."
+   "verify_notes": "Page still contains COVID-era wording; confirm current status. Area North End (dt). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Bartley Court Shelter West Kelowna (Turning Points Collaborative Society)",
@@ -452,10 +452,10 @@
    "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness, and willing to follow house rules.",
    "cost": "free",
    "appointment": "Walk-in registration Mon–Fri 2–4 pm at 2515 Bartley Court.",
-   "note_en": "West Kelowna's 24-hour shelter (42 spaces) with meals, showers, laundry, case planning and a resource room with job and rental postings.",
-   "note_zh": "West Kelowna 的 24 小时庇护所（42 个位置），提供餐食、淋浴、洗衣、个案规划，还有张贴招工和租房信息的资源室。",
+   "note_en": "West Kelowna's 24-hour shelter for adults 19+ (42 spaces) with meals, showers, laundry, case planning and a resource room with job and rental postings. Register in person Monday to Friday, 2–4 p.m., at 2515 Bartley Court (next door), first come, first served.",
+   "note_zh": "West Kelowna 面向 19 岁以上成年人的 24 小时庇护所（42 个位置），提供餐食、淋浴、洗衣、个案规划，还有张贴招工和租房信息的资源室。周一至周五下午 2 点至 4 点在隔壁 2515 Bartley Court 现场登记，先到先得。",
    "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
-   "verify_notes": "Described as a temporary shelter ('short-term interim housing until a longer-term solution is in place') — check it is still open. Official postal code V1Z 2M7; 211 BC says V1Z 2M8."
+   "verify_notes": "Described as a temporary shelter ('short-term interim housing until a longer-term solution is in place') — check it is still open. Official postal code V1Z 2M7; 211 BC says V1Z 2M8. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "The Salvation Army – Community Services Rutland",
@@ -467,10 +467,10 @@
    "w": "https://www.kelownasalvationarmy.ca/community-assistance/",
    "hours_text": "Monday 9 AM – 12 PM & 1 – 3 PM; Tuesday 1 PM – 3 PM; Wednesday 9 AM – 12 PM & 1 – 3 PM; Thursday 9 AM – 12 PM & 1 – 3 PM; Friday 9 AM – 12 PM & 1 – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
    "appointment": "Call for an appointment; you meet with a caseworker.",
-   "note_en": "Caseworkers help with basic needs such as food, clothing and household items, referrals and finding your way around services, and Christmas gifts for children and youth.",
-   "note_zh": "个案工作者帮助解决基本生活需要，如食物、衣物和家居用品，提供转介和办事指引，圣诞节还为儿童和青少年送礼物。",
+   "note_en": "Caseworkers help with basic needs such as food, clothing and household items, referrals and finding your way around services, and Christmas gifts for children and youth. By appointment: call first.",
+   "note_zh": "个案工作者帮助解决基本生活需要，如食物、衣物和家居用品，提供转介和办事指引，圣诞节还为儿童和青少年送礼物。需要预约，请先打电话。",
    "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
-   "verify_notes": "Hours differ between the site's pages: Location & Hours (used here) vs Community Assistance page ('Monday 9 AM to 3 PM; Tuesday 12:30 PM to 3 PM; Wed–Fri 9 AM to 3 PM'). Eligibility and cost not stated."
+   "verify_notes": "Hours differ between the site's pages: Location & Hours (used here) vs Community Assistance page ('Monday 9 AM to 3 PM; Tuesday 12:30 PM to 3 PM; Wed–Fri 9 AM to 3 PM'). Eligibility and cost not stated. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "The Salvation Army – Community Services Westbank",
@@ -482,10 +482,10 @@
    "w": "https://www.kelownasalvationarmy.ca/community-assistance/",
    "hours_text": "Monday 9 AM – 3 PM; Tuesday 9 AM – 3 PM; Wednesday 9 AM – 3 PM; Thursday 12:30 PM – 3 PM; Friday 9 AM – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
    "appointment": "Call for an appointment; you meet with a caseworker.",
-   "note_en": "West Kelowna caseworker office for help with food, clothing, household items, referrals and system navigation.",
-   "note_zh": "West Kelowna 的个案工作办公室，帮助解决食物、衣物、家居用品、转介和办事指引等问题。",
+   "note_en": "West Kelowna caseworker office for help with food, clothing, household items, referrals and system navigation. By appointment: call first.",
+   "note_zh": "West Kelowna 的个案工作办公室，帮助解决食物、衣物、家居用品、转介和办事指引等问题。需要预约，请先打电话。",
    "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
-   "verify_notes": "Mailing city 'Westbank, BC V4T 3L7'. Eligibility and cost not stated."
+   "verify_notes": "Mailing city 'Westbank, BC V4T 3L7'. Eligibility and cost not stated. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Central Okanagan Food Bank – West Kelowna",
@@ -531,10 +531,10 @@
    "who": "Workers and employers covered by B.C. employment standards (check first whether the standards apply to your job).",
    "languages": "By phone, 'someone can help you in the language of your choice'.",
    "appointment": "Call, text (604-660-2421) or email first — 'Most issues can be solved without visiting an office'; visit in person only if you cannot reach them by phone or email.",
-   "note_en": "The B.C. government office for problems with pay, hours and overtime, time off, statutory holidays, quitting or being fired — including rules for temporary foreign workers.",
-   "note_zh": "BC 省政府劳工标准处，负责工资、工时与加班、休假、法定假日、辞职或被解雇等问题，也包括临时外国劳工的相关规定。",
+   "note_en": "The B.C. government office for problems with pay, hours and overtime, time off, statutory holidays, quitting or being fired — including rules for temporary foreign workers. Phone or email first; phone help is available in your own language, Monday to Friday.",
+   "note_zh": "BC 省政府劳工标准处，负责工资、工时与加班、休假、法定假日、辞职或被解雇等问题，也包括临时外国劳工的相关规定。请先打电话或发邮件；周一至周五的电话服务可以用你自己的语言。",
    "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us",
-   "verify_notes": "Phone is toll-free 1-833-236-3700 (written without the leading 1). Address also confirmed on the Ministry of Labour office-locations page. Cost not stated on the page."
+   "verify_notes": "Phone is toll-free 1-833-236-3700 (written without the leading 1). Address also confirmed on the Ministry of Labour office-locations page. Cost not stated on the page. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Workers' Advisers Office – Kelowna",

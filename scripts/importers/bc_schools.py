@@ -113,6 +113,11 @@ def main():
     imp.area_by_locality = {k.lower(): v for k, v in cfgall.get('bc_childcare', {}).get('localities', {}).items() if v}
     sites = json.load(open(os.path.join(imp.dir, 'import', cfg['sites']), encoding='utf-8'))['sites'] if cfg.get('sites') else {}
     norm_site = {re.sub(r'[^a-z]', '', re.sub(r'^(école|ecole)\s+', '', k.lower())): v for k, v in sites.items()}
+    # 2026-10-04: the district's own name for a school wins over the provincial dataset's when it adds the
+    # "École" that marks French Immersion (the desk check found three middle schools missing it), and a
+    # verified official name can be set in config ("names": {dataset name: official name}) with its source
+    site_name = {re.sub(r'[^a-z]', '', re.sub(r'^(école|ecole)\s+', '', k.lower())): k for k in sites}
+    name_fix = {k: v for k, v in cfg.get('names', {}).items() if not k.startswith('_')}
     if a.csv:
         text = open(a.csv, encoding='utf-8-sig').read()
     else:
@@ -159,6 +164,11 @@ def main():
                't': ['family']}
         key = re.sub(r'[^a-z]', '', re.sub(r'^(école|ecole)\s+', '', n.lower()))
         w = norm_site.get(key) or next((v for k, v in norm_site.items() if key and (key in k or k in key)), None)
+        dn = site_name.get(key) or next((v for k, v in site_name.items() if key and (key in k or k in key)), None)
+        if dn and dn.lower().startswith('école') and not n.lower().startswith('école'):
+            rec['n'] = n = dn
+        if n in name_fix:
+            rec['n'] = n = name_fix[n]
         if w and public and not franco:
             rec['w'] = w
             ph = site_phone(w, pcache)

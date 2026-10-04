@@ -126,7 +126,11 @@
   ],
   "district": "023",
   "districtShort": "SD23",
-  "sites": "sd23-sites.json"
+  "sites": "sd23-sites.json",
+  "names": {
+   "_source": "Official school names confirmed on the schools' own sites and the SD23 directory, desk check 2026-10-04",
+   "Glenrosa Middle School": "École Glenrosa Middle School"
+  }
  },
  "arcgis_parks": {
   "url": "https://geoportal.kelowna.ca/arcgis/rest/services/ArcGISOnline/OpenData_Planning_and_other/MapServer/14",
@@ -157,5 +161,16 @@
   ],
   "_note": "City of Kelowna only — West Kelowna, Lake Country and Peachland publish their own park data (not yet imported).",
   "excludeName": "cemetery|detention pond"
+ },
+ "categoriesNotCollected": {
+  "_why": "Kamloops has these categories; Kelowna deliberately leaves them out of the first release. Commercial places that any map app lists, that change often and that no official source vouches for: listing a few would look complete without being so, and every stale one costs trust (methodology principle 8). Revisit if search_empty shows people looking for them.",
+  "restaurant": "commercial, hundreds in the city; not newcomer-critical",
+  "gas": "commercial; every map app lists them",
+  "conv": "commercial; changes often",
+  "barber": "commercial; changes often",
+  "hardware": "commercial; every map app lists them",
+  "usedcar": "commercial; risk of seeming to recommend a dealer",
+  "autorepair": "commercial; risk of seeming to recommend a garage",
+  "tutor": "commercial; free tutoring (Project Literacy, library English Corner) is listed under its own categories"
  }
 }

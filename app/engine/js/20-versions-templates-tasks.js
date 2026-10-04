@@ -5,7 +5,7 @@
 // by tpl() at render time, so a new city means editing this block and the data —
 // not hunting through five languages of copy.
 // ---------------------------------------------------------------------------
-const DATA_VERSION='2026.10.03a';
+const DATA_VERSION='2026.10.04a';
 // city → country basics → province specifics → country reference
 const GUIDE_ORDER=['guideCity','guideCA1','guideProv','guideCA2'];
 
@@ -43,7 +43,13 @@ function verifiedDate(l){
 function contactEmail(){return (CITY.contact_r||"").split("").reverse().join("");}
 function tpl(str,l){
   if(!str)return str;
+  // 2026-10-04: city texts first, so the placeholders inside them are filled by the lines below
   return str
+    .replace(/\{NOTE_COVERAGE\}/g,UI[l].noteCoverage||'')
+    .replace(/\{NOTE_THIRDPARTY\}/g,UI[l].noteThirdParty||'')
+    .replace(/\{LEGAL_LOCAL\}/g,UI[l].legalLocal||'')
+    .replace(/\{POLICE_TEL\}/g,String(CITY.police||'').replace(/\D/g,''))
+    .replace(/\{POLICE\}/g,CITY.police||'')
     .replace(/\{CITY\}/g,CITY.name[l])
     .replace(/\{CAMPUS\}/g,(CITY.examples&&CITY.examples.campus)||'')
     .replace(/\{STOP\}/g,(CITY.examples&&CITY.examples.stop)||'')

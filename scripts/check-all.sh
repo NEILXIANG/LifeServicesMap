@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # check-all.sh — 构建 + 全部检查，一条命令。多城市改造期间每一步都用它对照基线。
 #
-#   ./scripts/check-all.sh            # 构建 + validate + 全部浏览器测试
+#   ./scripts/check-all.sh            # 构建 + validate + 一致性检查 + 全部浏览器测试（含各城市 tests/<城市>/guitest.py）
 #   ./scripts/check-all.sh --quick    # 只构建 + validate（不需要 Playwright）
 #
 # 浏览器测试需要 Playwright。优先用项目内的 .venv（见 CLAUDE.md），没有就用系统 python3。
@@ -36,6 +36,16 @@ for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities()
   python3 build.py --city "$c" >"$LOGDIR/build-$c.log" 2>&1 || { cat "$LOGDIR/build-$c.log"; exit 1; }
   run "validate-$c" python3 scripts/validate.py --city "$c"
 done
+# 2026-10-04: cross-language numbers, phones and other cities' names inside each city's notes. A city still
+# being compiled (draft) must be clean; for a live city the report is listed but does not block.
+for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities() if not c.startswith("_")))'); do
+  if python3 -c "import kamdata,sys;sys.exit(0 if kamdata.city_meta('$c').get('status')=='draft' else 1)"; then
+    run "consistency-$c" python3 scripts/consistency_check.py --city "$c" --strict
+  else
+    python3 scripts/consistency_check.py --city "$c" >"$LOGDIR/consistency-$c.log" 2>&1
+    printf '  INFO  consistency-%s   %s\n' "$c" "$(head -1 "$LOGDIR/consistency-$c.log")"
+  fi
+done
 
 if [[ $QUICK -eq 0 ]]; then
   if ! "$PY" -c 'import playwright' 2>/dev/null; then
@@ -45,6 +55,9 @@ if [[ $QUICK -eq 0 ]]; then
   run engine-fixture "$PY" tests/engine/test_fixture_city.py
   run engine-empty "$PY" tests/engine/test_empty_city.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
+  for t in tests/*/guitest.py; do   # each city's own strict GUI run (2026-10-04: Kelowna)
+    [[ -f "$t" ]] && run "gui-$(basename "$(dirname "$t")")" "$PY" "$t"
+  done
   for t in tests/kamloops/phase*test.py tests/kamloops/audit*.py tests/kamloops/soci2.py tests/kamloops/tasktest.py; do
     [[ -f "$t" ]] || continue
     run "$(basename "$t" .py)" "$PY" "$t"

@@ -9,7 +9,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "8:00am - 9:00pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Nesters Market Kelowna Airport",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -32,7 +32,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Shop Hours: Monday - Saturday 10:00am - 5:00pm; Sunday Closed. Donation Hours: Monday - Saturday 10:00am - 3:30pm; Sunday Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna MCC Thrift Shop",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -41,7 +41,7 @@
   "who": null
  },
  "02b70017": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323043",
   "source": "bc-k12-schools"
  },
@@ -50,7 +50,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Sunday Mass: 8:30 AM, 11:30 AM, & 6:00 PM; Saturday: 4:00 PM; Tuesday-Friday: Rosary 8:30, Mass 9:00 am; Adoration/Benediction every Friday 9:35 am to 10:00 am; Confession Saturdays at 3:00 pm or by appointment. Korean Catholic Community: each Saturday at 11:00 a.m. (Rev. Fr. Mulvihill Room)",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "St. Pius X Parish (Catholic) — Korean Catholic Community",
   "languages": "English; Korean (community gathering)",
   "source": "research:R2-daily.json",
@@ -68,7 +68,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday to Friday: 10 a.m. to 4 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Outreach Urban Health Centre (Interior Health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -81,7 +81,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 09:00–17:30; Tuesday 09:00–17:30; Wednesday 09:00–17:30; Thursday 09:00–17:30; Friday 09:00–17:30; Saturday 09:00–17:00; Sunday closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Capri Centre (Capri Service Centre)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -104,7 +104,7 @@
   "bring": null,
   "cost": null,
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Ukrainian Orthodox Parish of Sts Peter & Paul",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -113,7 +113,7 @@
   "who": "Refugees from Ukraine arriving in Kelowna (the parish's stated focus)."
  },
  "0443c18a": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396013",
   "source": "bc-k12-schools"
  },
@@ -127,7 +127,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://www.broadstreet.ca/residential/lindgren-manor",
-  "verify_notes": "Broadstreet official building page (WebFetch) 2026-10-03: name, '420 Valley Road', phone 1-866-736-8515 (toll-free; no local number given), 1–3 bedrooms, pet friendly, online application, on-site central office. City business licences: BROADSTREET PROPERTIES LTD, LONG-TERM RENTAL BUILDING, 420 VALLEY RD and 1975 KANE RD. Broadstreet's Kelowna list: https://www.broadstreet.ca/residential/cities/kelowna",
+  "verify_notes": "Broadstreet official building page (WebFetch) 2026-10-03: name, '420 Valley Road', phone 1-866-736-8515 (toll-free; no local number given), 1–3 bedrooms, pet friendly, online application, on-site central office. City business licences: BROADSTREET PROPERTIES LTD, LONG-TERM RENTAL BUILDING, 420 VALLEY RD and 1975 KANE RD. Broadstreet's Kelowna list: https://www.broadstreet.ca/residential/cities/kelowna | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": ""
  },
  "05520fc8": {
@@ -144,7 +144,7 @@
   "who": ""
  },
  "055f52fd": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323015",
   "source": "bc-k12-schools"
  },
@@ -159,7 +159,7 @@
   "source": "arcgis-parks"
  },
  "082d0de9": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "09323027",
   "source": "bc-k12-schools"
  },
@@ -192,7 +192,7 @@
   "source": "arcgis-parks"
  },
  "0a811768": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323048",
   "source": "bc-k12-schools"
  },
@@ -201,7 +201,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Sarsons Activity Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -214,7 +214,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Store Hours: Monday to Saturday: 9:30 AM – 5:00 PM. Donation Centre Hours: Monday to Saturday: 9:30 AM – 4:00 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Habitat for Humanity ReStore West Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -228,7 +228,7 @@
   "source": "arcgis-parks"
  },
  "0e60f1cd": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323060",
   "source": "bc-k12-schools"
  },
@@ -250,7 +250,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Russian & Ukrainian Deli",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -269,7 +269,7 @@
   "source": "bc-childcare-map"
  },
  "10baca81": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323077",
   "source": "bc-k12-schools"
  },
@@ -279,7 +279,7 @@
   "source": "bc-childcare-map"
  },
  "11387f1e": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323014",
   "source": "bc-k12-schools"
  },
@@ -287,13 +287,13 @@
   "appointment": null,
   "bring": null,
   "cost": "Admission is by donation. Suggested donation $5 per person/$15 per family",
-  "hours_text": "PUBLIC HOURS: Thursday – Saturday 12:00am – 5:00pm; Sunday – Wednesday Closed",
-  "imported": "2026-10-03",
+  "hours_text": "Thursday to Saturday: 12:00 p.m. to 5:00 p.m.; Sunday to Wednesday: Closed",
+  "imported": "2026-10-04",
   "key": "Laurel Packinghouse — Okanagan Wine and Orchard Museum",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.kelownamuseums.ca/plan-your-visit/",
-  "verify_notes": "The former BC Orchard Industry Museum and BC Wine Museum now appear on the official site only as the combined 'Okanagan Wine and Orchard Museum' at the Laurel Packinghouse; no separate BC Wine Museum / Orchard Museum locations are listed. Published hours say '12:00am – 5:00pm', almost certainly a typo for 12:00pm (noon) — confirm before display.",
+  "verify_notes": "The former BC Orchard Industry Museum and BC Wine Museum now appear on the official site only as the combined 'Okanagan Wine and Orchard Museum' at the Laurel Packinghouse; no separate BC Wine Museum / Orchard Museum locations are listed. Published hours say '12:00am – 5:00pm', almost certainly a typo for 12:00pm (noon) — confirm before display. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh.",
   "who": null
  },
  "12a8f201": {
@@ -320,7 +320,7 @@
   "source": "bc-childcare-map"
  },
  "142f1e72": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323029",
   "source": "bc-k12-schools"
  },
@@ -339,7 +339,7 @@
   "bring": null,
   "cost": "People without MSP can be seen, with limitations. If you do not have valid health coverage from another province there will be a private fee to pay.",
   "hours_text": "Monday-Friday 09:00 - 16:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Lakepoint Medical Clinic",
   "languages": null,
   "source": "research:R2-health.json",
@@ -357,7 +357,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Punjab Spice World and Produce Market",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -375,24 +375,37 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://www.prospero.ca/properties/capri-centre/",
-  "verify_notes": "Owner's property page (Prospero International Realty) read in browser 2026-10-03; no mall phone or hours published by the owner (directory sites give 250-860-2524 and hours — not used). Owner page tenant list is dated (mentions Extra Foods and a passport centre; Service Canada passport office is now at 471 Queensway) so tenant names were left out of the note except the Canada Post outlet already in the guide.",
+  "verify_notes": "Owner's property page (Prospero International Realty) read in browser 2026-10-03; no mall phone or hours published by the owner (directory sites give 250-860-2524 and hours — not used). Owner page tenant list is dated (mentions Extra Foods and a passport centre; Service Canada passport office is now at 471 Queensway) so tenant names were left out of the note except the Canada Post outlet already in the guide. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": ""
+ },
+ "182404d7": {
+  "appointment": "",
+  "bring": "",
+  "cost": "free",
+  "hours_text": "",
+  "imported": "2026-10-04",
+  "key": "Ben Lee Waterpark",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/ben-lee-park",
+  "verify_notes": "City of Kelowna water parks page https://www.kelowna.ca/parks-recreation/parks-beaches/water-parks (read 2026-10-04 in a browser; kelowna.ca blocks scripted fetches): 'Water & splash parks in Kelowna', banner 'Water parks are closed for the season, we look forward to seeing you again next May!', 'Typical water park season hours' as copied in hours_text, and 'Locations: City Park Waterpark (1600 Abbott Street), Ben Lee Waterpark (900 Houghton Road), Quilchena Splash Park (347 Quilchena Drive)' - these are the only three City of Kelowna water/splash parks listed. The page also has a daily-hours widget showing '11 a.m. - 6 p.m.' for each park, which conflicts with the typical season hours; it looks like leftover end-of-season hours, so the typical season hours were used. No phone number for the water parks on the page. Ben Lee Park listing page (source_url): 900 Houghton Rd; amenities incl. Playground-Inclusive, Skateboard park, Waterpark; 'Ben Lee Waterpark is open May long weekend until early September.' Cost: City of Kelowna story 'A fresh splash at Ben Lee Park' (https://www.kelowna.ca/our-community/community-stories/fresh-splash-ben-lee-park, May 2, 2026) says 'As one of Kelowna's busiest free waterplay areas, the Ben Lee waterpark...' and lists new 2026 features (activity tower, splash blasters, water weaver, tidal wave, activator posts). No washroom listed in Ben Lee amenities. Ben Lee Park itself is already in the guide as a park.",
+  "who": "Children of a wide range of ages and abilities (public park)"
  },
  "19a2e8f6": {
   "appointment": "Walk-in; first come, first served.",
   "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
   "cost": "free",
-  "hours_text": "Every Thursday from 09:00 AM - 12:00 PM, 2026-09-24 to 2026-12-17; closed during holidays.",
-  "imported": "2026-10-03",
+  "hours_text": "Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.",
+  "imported": "2026-10-04",
   "key": "Central Okanagan United Church – Thursday Free Tax Clinic (CVITP)",
   "languages": "English",
   "source": "research:R2-settlement.json",
   "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
-  "verify_notes": "Source is the CRA free-tax-clinic directory (search BC > KELOWNA, clinic 'COUC Thursday Mornings', retrieved 2026-10-03): wheelchair accessible; 1 volunteer. The church's own tax-clinic page now returns 'page not found'; an earlier version said government ID is required and to call ahead because volunteer availability changes.",
+  "verify_notes": "Source is the CRA free-tax-clinic directory (search BC > KELOWNA, clinic 'COUC Thursday Mornings', retrieved 2026-10-03): wheelchair accessible; 1 volunteer. The church's own tax-clinic page now returns 'page not found'; an earlier version said government ID is required and to call ahead because volunteer availability changes. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "General public with a modest income and a simple tax situation (CVITP)."
  },
  "19ca3d77": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323031",
   "source": "bc-k12-schools"
  },
@@ -401,7 +414,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Farah Middle Eastern Foods",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -424,7 +437,7 @@
   "bring": null,
   "cost": "No Cost to Join. Vitamins Offered at No Cost. Lunch Provided. Free Food Certificates.",
   "hours_text": "Thursday 12pm - 3pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Special Deliveries prenatal and postnatal group (The Bridge Youth & Family Services)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -443,9 +456,22 @@
   "source": "bc-childcare-map"
  },
  "1f7c4b6a": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323070",
   "source": "bc-k12-schools"
+ },
+ "20c7c40b": {
+  "appointment": "",
+  "bring": "",
+  "cost": "fee",
+  "hours_text": "24/7",
+  "imported": "2026-10-04",
+  "key": "West Cabs (WestCabs)",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.westcabs.ca/",
+  "verify_notes": "Home page https://www.westcabs.ca/: 'Call Us at 778-754-8888 ... We're available 24/7', 'Text Us at 778-754-8888', app (Android & iOS) and web booking, services incl. Airport Transportation and Wheelchair-Accessible Service; footer address '#305 1979 Old Okanagan Westbank BC Canada V4T 34A' (postal code looks mistyped on the site; About page gives 'V4T 3A4'); about page https://www.westcabs.ca/about-us lists service area Kelowna, West Kelowna, Peachland, Lake Country. Address is an office, not a taxi stand. PTB taxi licensee list (https://www.ptboard.bc.ca/taxi-licensee-list, September 2026): 'West Kelowna Taxi Services Ltd.', trade names 'West Cabs, Westcabs Shuttles', Central Okanagan, 11 conventional + 2 accessible. YLW airport page (https://ylw.kelowna.ca/passengers/transportation, City of Kelowna, read 2026-10-04) lists this company and phone under 'Taxi and limousine services' and says 'Wheelchair-accessible vehicles and taxis are available at the front curb at YLW' and that a 2-dollar fee applies on any airport taxi trip longer than three kilometres. Ride-hailing: the Passenger Transportation Board ride-hail licensee list (https://www.ptboard.bc.ca/ride-hail-licensee-list, updated September 2026) shows Uber (regions 1-5), URide (2-5), Coastal Rides (1-5) and Safe Ride Sharing (4) approved for Region 4, which includes Central Okanagan (region table on https://www.ptboard.bc.ca/ride-hail-rates). The BC government Passenger Transportation Registry (https://www2.gov.bc.ca/gov/content/transportation/vehicle-safety-enforcement/services/passenger-transportation/guidance-resources/passenger-transportation-registry, updated 2026-09-23) lists 'Actual Ride-Hail Operating Areas' that include Kelowna only for Uber and Uride (Uride also Lake Country); Coastal Rides does not list Kelowna and Safe Ride Sharing is 'N/A - not currently operating'. West Kelowna is not named for any ride-hail company. The registry warns approved companies 'may operate only in select areas'. The YLW airport page says 'Ride share is now available at YLW' (Uber, Uride), pickup at the north end of the terminal outside Arrivals.",
+  "who": "Anyone; serves Kelowna, West Kelowna, Peachland, Lake Country and surrounding communities; wheelchair-accessible service offered"
  },
  "22170c5d": {
   "imported": "2026-10-03",
@@ -453,7 +479,7 @@
   "source": "arcgis-parks"
  },
  "2237355e": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396609",
   "source": "bc-k12-schools"
  },
@@ -475,7 +501,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday to Friday 8:30 a.m. to 4:30 p.m. (as listed for counselling, home care and other recurring health programs).",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Westbank First Nation – Community Services & Health and Wellness (Quail Lane)",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -494,12 +520,12 @@
   "source": "bc-childcare-map"
  },
  "24d81f72": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323074",
   "source": "bc-k12-schools"
  },
  "255f0075": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323072",
   "source": "bc-k12-schools"
  },
@@ -513,7 +539,7 @@
   "bring": "Personal Health Number (BC Services Card), if you have one.",
   "cost": "Interior Health says immunizations are free at your local public health clinic.",
   "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m. Childhood immunizations and early childhood health assessments: Offered every second and fourth Wednesday from 8:30 a.m. to 6:15 p.m. Closed on weekends and all statutory holidays",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rutland Health Centre (Interior Health public health)",
   "languages": "Interior Health lists 'Interpreter & Translation Services' as an amenity at this location",
   "source": "research:R2-health.json",
@@ -536,12 +562,12 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Operating Hours: 7 days a week, 24 hours a day. Registration: in person at 10am, 4pm and 9pm, first come, first serve.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Richter Street Shelter (Turning Points Collaborative Society)",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
-  "verify_notes": "Page still contains COVID-era wording; confirm current status. Area North End (dt).",
+  "verify_notes": "Page still contains COVID-era wording; confirm current status. Area North End (dt). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness; all-gender inclusive."
  },
  "2aef8bfe": {
@@ -550,7 +576,7 @@
   "source": "bc-childcare-map"
  },
  "2b06fb39": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323050",
   "source": "bc-k12-schools"
  },
@@ -580,7 +606,7 @@
   "source": "arcgis-parks"
  },
  "2fe62eba": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396023",
   "source": "bc-k12-schools"
  },
@@ -598,7 +624,7 @@
   "who": "Students"
  },
  "316c79b3": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323075",
   "source": "bc-k12-schools"
  },
@@ -622,7 +648,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday–Friday: 9:30 AM - 5:00 PM; Saturday & Sunday: Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "RBC Royal Bank — Main Kelowna branch",
   "languages": "English",
   "source": "research:R2-daily.json",
@@ -655,12 +681,12 @@
   "bring": null,
   "cost": "YMCA membership or drop-in; YMCA has its own Financial Assistance program for people who cannot afford full membership (apply through the YMCA membership financial assistance page or membership@ymcasibc.ca). City of Kelowna KFAP credits are for Parkinson Recreation Centre and City programs, not the Y.",
   "hours_text": "Mon - Fri: 5:30 a.m.–9:00 p.m.; Sat: 8:00 a.m.–8:00 p.m.; Sun: 9:00 a.m.–7:00 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Family Y",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/kelowna-family-y",
-  "verify_notes": "Address, phone and amenities from the City of Kelowna facility page; hours and financial assistance from the YMCA of Southern Interior BC's own location page (WebFetch summary), 2026-10-03. Pool swim times differ from building hours — check the YMCA schedule.",
+  "verify_notes": "Address, phone and amenities from the City of Kelowna facility page; hours and financial assistance from the YMCA of Southern Interior BC's own location page (WebFetch summary), 2026-10-03. Pool swim times differ from building hours — check the YMCA schedule. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "3455c7bb": {
@@ -673,7 +699,7 @@
   "bring": null,
   "cost": "Sessions or programs in the Parent Learning Place are free for participants.",
   "hours_text": "Services are available Monday-Friday, 9:00 am – 3:00 pm. Please check our Calendar for drop-in times and group activities.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Central Okanagan Family Hub – Kelowna",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -682,7 +708,7 @@
   "who": "Any parents, grandparents or caregivers in the Central Okanagan, or those who are moving to the Central Okanagan."
  },
  "36879667": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323032",
   "source": "bc-k12-schools"
  },
@@ -696,7 +722,7 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Classes are on: Monday, Tuesday, Wednesday 9am to 11:30am (No class on statutory holidays). Fall semester September 14 – December 9, 2026; 2027 semester January 4 – May 19, 2027 (spring break March 15 – 25).",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Evangel Church – Free ESL Classes",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -714,7 +740,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Chinese Baptist Church 奥根湖区华人浸信会",
   "languages": "Cantonese; Mandarin (simultaneous translation)",
   "source": "research:R2-daily.json",
@@ -732,7 +758,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Everyday 7AM to 10PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Save-On-Foods Rutland",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -740,13 +766,26 @@
   "verify_notes": "Save-On-Foods store page read in browser 2026-10-03 (phone shown as 12507655690). Thanksgiving and Remembrance Day hours listed as 7 AM - 10 PM.",
   "who": null
  },
+ "39e99908": {
+  "appointment": "",
+  "bring": "",
+  "cost": "fee per student per school year (lower for the third and fourth child; no additional cost for a fifth child or more; pro-rated by months). Fee subsidy available for financial hardship.",
+  "hours_text": "Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)",
+  "imported": "2026-10-04",
+  "key": "Central Okanagan Public Schools (SD23) – Transportation Services (school bus office)",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.sd23.bc.ca/transportation-services-programsservices",
+  "verify_notes": "Checked 2026-10-04 on SD23 official pages. (1) https://www.sd23.bc.ca/transportation-services-programsservices: 76 school bus routes serving Lake Country, Kelowna, West Kelowna and Peachland; 'Parents are required to submit the online transportation application'; 'A student must be registered on a route to ride the school bus'; 2026-2027 timeline: applications for eligible students between Feb 2 and May 31, 2026 processed in order; 'Applications received after May 31 will not be processed until August or later and students will be placed on a waitlist'; office accepts applications throughout the school year; students get a bus pass that must be scanned; no guest passengers; phone 250-870-5151, transportation@sd23.bc.ca; 'Click Here' to apply links to https://busconnect.sd23.bc.ca (Registration Connect portal, 2026-2027 option shown). (2) Contact page https://www.sd23.bc.ca/contact.aspx (redirect from /ProgramsServices/transportation/Pages/Contact.aspx): 'Transportation Offices are located at: 685 Dease Road, Kelowna ... V1X 4A4', office hours 'Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)'. (3) Eligibility https://www.sd23.bc.ca/eligibility (Policy 470R): distances 3 km / 4 km / 4.8 km from English catchment school; courtesy riders seated only if space (elementary first, then middle, then secondary); special-needs transport approved by Student Support Services is prioritized; no service under 2 km or for school of choice outside catchment; catchment maps linked. (4) Fees https://www.sd23.bc.ca/transportation-fees-payments-transportation: 2026-2027 annual fee per student (first and second child same amount, third and fourth half; no additional cost for five or more; family cap stated), charged to School Cash Online, pay in full or monthly within 30 days; cash/cheque in person at School Board Office 1040 Hollywood Road South; subsidy via school principal (exceptional circumstances) or CRA proof of income to subsidy@sd23.bc.ca. (5) Delays/cancellations are posted on the 'School Bus Stop' site; parents must subscribe for text/email alerts (https://www.sd23.bc.ca/school-bus-stop-). g=rt from BC Geocoder (685 Dease Rd at 49.898, -119.408, near Ben Lee Park). Office hours outside Sep-June are not stated.",
+  "who": "Students attending their English catchment school who live 3 km or more (elementary), 4 km or more (middle) or 4.8 km or more (high school) from it. Students closer than that are 'courtesy riders' and get a seat only if space is available. No service for students living less than 2 km from their English catchment school, or attending a school of choice outside their catchment. Only registered riders may ride."
+ },
  "3b262d43": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396479",
   "source": "bc-k12-schools"
  },
  "3b288097": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323082",
   "source": "bc-k12-schools"
  },
@@ -783,7 +822,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 08:30–21:00; Tuesday 08:30–21:00; Wednesday 08:30–21:00; Thursday 08:30–21:00; Friday 08:30–21:00; Saturday 09:00–17:00; Sunday 10:00–17:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Orchard Park (Shoppers Drug Mart)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -819,7 +858,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Daily 8:00-22:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Shoppers Drug Mart Lakeshore And Lanfranco",
   "languages": null,
   "source": "research:R2-health.json",
@@ -827,12 +866,25 @@
   "verify_notes": "Hours were checked against both the Shoppers store page data and HealthLinkBC's Late Night Pharmacy listing (08:00-22:00).",
   "who": null
  },
+ "433b39a0": {
+  "appointment": "",
+  "bring": "",
+  "cost": "fee",
+  "hours_text": "",
+  "imported": "2026-10-04",
+  "key": "Kelowna Cabs",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.kelownacabs.ca/contact-us",
+  "verify_notes": "Phones (Kelowna 250.762.2222, Westside 250.762.4444, toll free 1.800.375.9848), office address 5-3312 Appaloosa Rd, Kelowna V1V 2W5, app and online reservation from https://www.kelownacabs.ca/contact-us and home page; home page says 'We have Wheelchair Accessible taxis, Senior and Student Discounts as well as Airport Service.' Hours are NOT stated on the company site, so hours_text left blank (no 24/7 claim). Address is the company office, not a taxi stand; g=nk from BC Geocoder coordinates (49.921, -119.394). PTB taxi licensee list (https://www.ptboard.bc.ca/taxi-licensee-list, updated September 2026): 'Kelowna Cabs (1981) Ltd.', Central Okanagan, 78 conventional + 14 accessible taxis (largest in the region). YLW airport page (https://ylw.kelowna.ca/passengers/transportation, City of Kelowna, read 2026-10-04) lists this company and phone under 'Taxi and limousine services' and says 'Wheelchair-accessible vehicles and taxis are available at the front curb at YLW' and that a 2-dollar fee applies on any airport taxi trip longer than three kilometres. Ride-hailing: the Passenger Transportation Board ride-hail licensee list (https://www.ptboard.bc.ca/ride-hail-licensee-list, updated September 2026) shows Uber (regions 1-5), URide (2-5), Coastal Rides (1-5) and Safe Ride Sharing (4) approved for Region 4, which includes Central Okanagan (region table on https://www.ptboard.bc.ca/ride-hail-rates). The BC government Passenger Transportation Registry (https://www2.gov.bc.ca/gov/content/transportation/vehicle-safety-enforcement/services/passenger-transportation/guidance-resources/passenger-transportation-registry, updated 2026-09-23) lists 'Actual Ride-Hail Operating Areas' that include Kelowna only for Uber and Uride (Uride also Lake Country); Coastal Rides does not list Kelowna and Safe Ride Sharing is 'N/A - not currently operating'. West Kelowna is not named for any ride-hail company. The registry warns approved companies 'may operate only in select areas'. The YLW airport page says 'Ride share is now available at YLW' (Uber, Uride), pickup at the north end of the terminal outside Arrivals.",
+  "who": "Anyone; the company states it has wheelchair accessible taxis, senior and student discounts, and airport service"
+ },
  "43df7e62": {
   "appointment": null,
   "bring": null,
   "cost": "",
   "hours_text": "Monday 9:30am – 5:00pm; Tuesday 9:30am – 5:00pm; Wednesday 9:30am – 5:00pm; Thursday 9:30am – 5:00pm; Friday 9:30am – 5:00pm; Saturday Closed; Sunday Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Valley First (Tru Cooperative Bank) — Downtown Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -845,7 +897,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m. (with Children's Liturgy), 7:00 p.m.; Weekdays (Mon-Fri): 8:30 a.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "St. Charles Garnier Parish (Catholic)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -858,7 +910,7 @@
   "bring": null,
   "cost": "Cash only: Screening day scaling $15; Children 5-15 $10; Ages 16+ $25",
   "hours_text": "Seasonal: runs for a few weeks each May (published dates: May 9 to May 30)",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan College Certified Dental Assisting – Direct Patient Care Clinic (seasonal)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -876,7 +928,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Sampaguita and Lotus Mart",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -894,12 +946,25 @@
   "key": "Boyce-Gyro Beach Park",
   "source": "arcgis-parks"
  },
+ "46e8ce68": {
+  "appointment": "",
+  "bring": "",
+  "cost": "",
+  "hours_text": "",
+  "imported": "2026-10-04",
+  "key": "Kids Care Spray/Water Park (Westbank Centre Park)",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.westkelownacity.ca/parks-and-facilities/parks-facilities-details-page/?facilityId=TNT-COW-00000407-99664498-6711-4289-913D-051A688C8BCF",
+  "verify_notes": "City of West Kelowna Parks and Facilities finder detail page (source_url; read 2026-10-04 in a browser): 'Westbank Centre Park - Julia's Junction and the Kids Care Spray/Water Park', 2569 May St, West Kelowna, BC V4T 0G7, Tel (778) 797-8849 (appears to be the general parks line used on most park listings). Text: 'Spray park CLOSED for the season'; 'Kids Care Spray/Water Park (dawn to dusk) -CLOSED FOR THE SEASON The spray park opens for the summer season each year around May long weekend and closes early September'; 'Flush toilets and change rooms are available for public use while the spray park is in operation'; 'The park is wheelchair accessible'; amenities include Free Parking and Washrooms. Julia's Junction page https://www.westkelownacity.ca/parks-recreation-facilities/parks/julias-junction-inclusive-play-space/ says it is 'next to the Kids Care Spray/Water Park'. Searching the finder for 'Spray' returns only this park, so it is the only City of West Kelowna spray park listed. The older facility URL (facilities.westkelownacity.ca/Home/Detail?Id=99664498-...) now redirects to a 404 after the City's new website launch. Cost: not stated on the current page; an older City news release that described it as free to use has been removed, so cost left blank. Older third-party-visible text quoting 9:30 a.m.-7:30 p.m. hours is superseded by the current 'dawn to dusk'. | Desk check 2026-10-04 (second reader): wording tightened.",
+  "who": "Children and families (public park; the park is wheelchair accessible)"
+ },
  "471a3df2": {
   "appointment": "Call or email info@jhsok.ca to be directed to the right program.",
   "bring": null,
   "cost": null,
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "John Howard Society of Okanagan & Kootenay – Regional Office",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -912,7 +977,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "The Halal Butcher",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -925,7 +990,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Box Office Hours: Monday to Friday: 10 a.m. – 3 p.m. and 2 hours before show times; Weekends and Holidays: 3 hours before show times until 1 hour after show ends",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Community Theatre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -938,7 +1003,7 @@
   "bring": null,
   "cost": "Membership $10/person or $20/family per year. ESL free for members. Legal consultation with volunteer lawyers is free.",
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "OCCA Communities Association (formerly Okanagan Chinese Canadian Association)",
   "languages": "Helpline currently in English and Mandarin.",
   "source": "research:R2-settlement.json",
@@ -961,7 +1026,7 @@
   "bring": null,
   "cost": "Counselling services are free of charge for all currently enrolled OC students",
   "hours_text": "8:30am - 4:30pm Monday to Friday",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan College Counselling Services (Kelowna campus)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -974,7 +1039,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rutland Activity Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1066,12 +1131,12 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday - Friday 10am to 5pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Sncewips Heritage Museum (Westbank First Nation)",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.sncewips.com/",
-  "verify_notes": "Address, hours, phone and email (museum@wfn.ca) from the museum's own website footer, 2026-10-03; the site writes the address as 'Unit 260 at 525 Highway 97, Kelowna B.C. V1Z 4C9' — the V1Z postal area is the Westside on Westbank First Nation land, so locality set to West Kelowna (confirm preferred locality wording). The site posted a temporary closure Monday–Tuesday October 5–6 (2026). Admission is not stated officially; only a visitor review on the site says 'by donation', so cost left blank.",
+  "verify_notes": "Address, hours, phone and email (museum@wfn.ca) from the museum's own website footer, 2026-10-03; the site writes the address as 'Unit 260 at 525 Highway 97, Kelowna B.C. V1Z 4C9' — the V1Z postal area is the Westside on Westbank First Nation land, so locality set to West Kelowna (confirm preferred locality wording). The site posted a temporary closure Monday–Tuesday October 5–6 (2026). Admission is not stated officially; only a visitor review on the site says 'by donation', so cost left blank. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "54a572db": {
@@ -1113,7 +1178,7 @@
   "source": "bc-childcare-map"
  },
  "5a639ede": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396689",
   "source": "bc-k12-schools"
  },
@@ -1127,7 +1192,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Daily 8:00-22:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Shoppers Drug Mart Kane And Drysdale (Glenmore)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1140,7 +1205,7 @@
   "bring": null,
   "cost": "Public skating times are on the City's public skating schedules page.",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Memorial Arena",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1164,7 +1229,7 @@
   "source": "bc-childcare-map"
  },
  "5f3b8657": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323063",
   "source": "bc-k12-schools"
  },
@@ -1173,7 +1238,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "8am - 4:30pm | Monday - Friday",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rutland Community Clinic (for newcomers, Indigenous people, and women's health)",
   "languages": "Translation services to support all services offered in the clinic",
   "source": "research:R2-health.json",
@@ -1238,7 +1303,7 @@
   "source": "arcgis-parks"
  },
  "6522ad17": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396360",
   "source": "bc-k12-schools"
  },
@@ -1247,7 +1312,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Tue, Wed, Fri: 11AM - 5PM; Thu: 11AM - 6PM; Sat: 10AM - 3PM.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Centre culturel francophone de l'Okanagan (CCFO)",
   "languages": "French (website in French and English).",
   "source": "research:R2-settlement.json",
@@ -1260,13 +1325,26 @@
   "bring": "Care Card or Personal Health Number from BC or your home province. International students: iMED or BC MSP enrolment.",
   "cost": "No extra charge for insured students. Uninsured students are charged for medical services and get a receipt for reimbursement.",
   "hours_text": "Monday to Friday 9 am to 4 pm. Lunchtime closure: 12:30 to 1:30 pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "UBC Okanagan Student Health Clinic (Student Wellness)",
   "languages": null,
   "source": "research:R2-health.json",
   "source_url": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/",
   "verify_notes": "The Student Wellness contact page gives the office as 'University Centre 337' and says the lunch closure applies from May to August, while the clinic page lists it without dates. Languages are not stated.",
   "who": "UBC Okanagan students only"
+ },
+ "6673d08f": {
+  "appointment": "",
+  "bring": "Two pieces of ID if asked: an official government-issued photo ID with name and birth date (foreign government ID is accepted) plus a second ID with name and signature or picture (e.g. credit card or student card). Digital IDs are not accepted.",
+  "cost": "",
+  "hours_text": "Mon-Sat 9:00AM-9:00PM; Sun 9:00AM-6:00PM",
+  "imported": "2026-10-04",
+  "key": "BCLIQUOR Kelowna Westbank",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.bcliquorstores.com/store/locator/143",
+  "verify_notes": "Store #143 'KELOWNA WESTBANK' (page JSON-LD name 'BCLIQUOR Kelowna Westbank') on the official BC Liquor Stores locator https://www.bcliquorstores.com/store/locator/143; address 27-2475 Dobbin Rd, West Kelowna, BC V4T 2E9, phone and weekly hours read from the page's structured data and the locator's own data feed (bcliquorstores.com/stores/search), checked 2026-10-04. Holiday hours on the locator: Thanksgiving Mon Oct 12 2026 11:00AM-6:00PM, Remembrance Day Nov 11 12:00PM-6:00PM, Dec 24 closes 6:00PM, Christmas Day and New Year's Day closed. The page says store hours are subject to change without notice. Age/ID: BC government LCRB FAQ (https://www2.gov.bc.ca/gov/content/employment-business/business/liquor-regulation-licensing/liquor-licence-permits/liquor-resources-information/lcrb-faq) states 'The legal drinking age is 19. Anyone under 19 is a minor.' and, for buying liquor, if asked you must show 'An official government issued primary ID (including foreign government issued) with name, picture and birth date' plus a secondary ID with name and signature or picture; 'Digital IDs are not acceptable.' LCRB store sign PDF (https://www2.gov.bc.ca/assets/gov/employment-business-and-economic-development/business-management/liquor-regulation-licensing/documents/idsign-purchase.pdf) says 'You must be 19 or older to purchase LIQUOR. You must show two pieces of ID when requested'. Passport is not named explicitly in the FAQ examples; it is covered only by the 'foreign government issued' wording. | Desk check 2026-10-04 (second reader): wording tightened.",
+  "who": "Adults 19 and older (the legal drinking age in BC is 19; anyone under 19 is a minor)"
  },
  "66c16ca3": {
   "imported": "2026-10-03",
@@ -1288,12 +1366,12 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday 9 AM – 12 PM & 1 – 3 PM; Tuesday 1 PM – 3 PM; Wednesday 9 AM – 12 PM & 1 – 3 PM; Thursday 9 AM – 12 PM & 1 – 3 PM; Friday 9 AM – 12 PM & 1 – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "The Salvation Army – Community Services Rutland",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
-  "verify_notes": "Hours differ between the site's pages: Location & Hours (used here) vs Community Assistance page ('Monday 9 AM to 3 PM; Tuesday 12:30 PM to 3 PM; Wed–Fri 9 AM to 3 PM'). Eligibility and cost not stated.",
+  "verify_notes": "Hours differ between the site's pages: Location & Hours (used here) vs Community Assistance page ('Monday 9 AM to 3 PM; Tuesday 12:30 PM to 3 PM; Wed–Fri 9 AM to 3 PM'). Eligibility and cost not stated. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "68b5d493": {
@@ -1301,7 +1379,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Clinic hours: Monday to Friday, 8:30 a.m. to 4:30 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Sexual & Reproductive Health Clinic (Interior Health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1327,12 +1405,25 @@
   "key": "High Noon Park",
   "source": "arcgis-parks"
  },
+ "695fcb7d": {
+  "appointment": "",
+  "bring": "Two pieces of ID if asked: an official government-issued photo ID with name and birth date (foreign government ID is accepted) plus a second ID with name and signature or picture (e.g. credit card or student card). Digital IDs are not accepted.",
+  "cost": "",
+  "hours_text": "Mon-Sat 9:00AM-9:00PM; Sun 9:30AM-6:00PM",
+  "imported": "2026-10-04",
+  "key": "BCLIQUOR Kelowna Mission Park",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.bcliquorstores.com/store/locator/148",
+  "verify_notes": "Store #148 'KELOWNA MISSION PARK' (page JSON-LD name 'BCLIQUOR Kelowna Mission Park') on the official BC Liquor Stores locator https://www.bcliquorstores.com/store/locator/148; address 35-3155 Lakeshore Rd, Kelowna, BC V1W 3S9, phone and weekly hours read from the page's structured data and the locator's own data feed (bcliquorstores.com/stores/search), checked 2026-10-04. Listed as a Signature store with product consultants. Holiday hours on the locator: Thanksgiving Mon Oct 12 2026 11:00AM-6:00PM, Remembrance Day Nov 11 12:00PM-6:00PM, Dec 24 closes 6:00PM, Christmas Day and New Year's Day closed. The page says store hours are subject to change without notice. Age/ID: BC government LCRB FAQ (https://www2.gov.bc.ca/gov/content/employment-business/business/liquor-regulation-licensing/liquor-licence-permits/liquor-resources-information/lcrb-faq) states 'The legal drinking age is 19. Anyone under 19 is a minor.' and, for buying liquor, if asked you must show 'An official government issued primary ID (including foreign government issued) with name, picture and birth date' plus a secondary ID with name and signature or picture; 'Digital IDs are not acceptable.' LCRB store sign PDF (https://www2.gov.bc.ca/assets/gov/employment-business-and-economic-development/business-management/liquor-regulation-licensing/documents/idsign-purchase.pdf) says 'You must be 19 or older to purchase LIQUOR. You must show two pieces of ID when requested'. Passport is not named explicitly in the FAQ examples; it is covered only by the 'foreign government issued' wording. | Desk check 2026-10-04 (second reader): wording tightened.",
+  "who": "Adults 19 and older (the legal drinking age in BC is 19; anyone under 19 is a minor)"
+ },
  "6a0f1623": {
   "appointment": null,
   "bring": null,
   "cost": "",
   "hours_text": "Monday to Saturday: 11am - 7pm; Sunday: 11am - 3pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "San's Latin Market",
   "languages": "",
   "source": "research:R2-daily.json",
@@ -1350,7 +1441,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Daily 8:00-22:00. Pharmacy Care Clinic: Monday-Wednesday and Friday 12:00-18:00; Thursday and Saturday 10:00-18:00; Sunday closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Shoppers Drug Mart The Ponds (Pharmacy Care Clinic)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1368,7 +1459,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Sunday: 08:00 AM - 09:00 PM; Monday: 08:00 AM - 09:00 PM; Tuesday: 08:00 AM - 09:00 PM; Wednesday: 08:00 AM - 09:00 PM; Thursday: 08:00 AM - 09:00 PM; Friday: 08:00 AM - 09:00 PM; Saturday: 08:00 AM - 09:00 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Ray's NOFRILLS Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1386,7 +1477,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday-Friday 9:00 am - 6:00 pm; Saturday 10:00 am - 5:00 pm; Sunday Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Pharmasave Kelowna Airport Village",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1399,12 +1490,12 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Operating hours: 7 days a week, 24 hours a day. Registration: in person between 2 pm and 4 pm Monday to Friday at 2515 Bartley Court, first come, first serve.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Bartley Court Shelter West Kelowna (Turning Points Collaborative Society)",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://turningpoints.ngo/continuum-of-care/shelter",
-  "verify_notes": "Described as a temporary shelter ('short-term interim housing until a longer-term solution is in place') — check it is still open. Official postal code V1Z 2M7; 211 BC says V1Z 2M8.",
+  "verify_notes": "Described as a temporary shelter ('short-term interim housing until a longer-term solution is in place') — check it is still open. Official postal code V1Z 2M7; 211 BC says V1Z 2M8. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Anyone over the age of 19 who is facing barriers to housing or experiencing homelessness, and willing to follow house rules."
  },
  "6f151299": {
@@ -1413,7 +1504,7 @@
   "source": "gtfs-exchanges"
  },
  "74b32082": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396575",
   "source": "bc-k12-schools"
  },
@@ -1422,7 +1513,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 09:00–19:00; Tuesday 09:00–19:00; Wednesday 09:00–19:00; Thursday 09:00–19:00; Friday 09:00–19:00; Saturday 09:00–18:00; Sunday 10:00–17:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Mission Park (Pharmasave)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1435,7 +1526,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday: 9:30 AM - 5:00 PM; Tuesday: 9:30 AM - 5:00 PM; Wednesday: 9:30 AM - 5:00 PM; Thursday: 9:30 AM - 5:00 PM; Friday: 9:30 AM - 5:00 PM; Saturday: Closed; Sunday: Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Scotiabank — Kelowna branch",
   "languages": "English; Hindi; Gujarati; Marathi",
   "source": "research:R2-daily.json",
@@ -1448,7 +1539,7 @@
   "bring": null,
   "cost": "free",
   "hours_text": "In person: Monday virtual services only; Tuesday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday closed. Virtual: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday closed. Hours are subject to change.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Family Justice Centre",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -1484,7 +1575,7 @@
   "bring": null,
   "cost": "Free with BC Provincial Health Number (MSP). Also covered by most private health insurance, including travel insurance and UBCO students' insurance plans.",
   "hours_text": "See A Doctor Today – Hours: 10 A.M. To 4 P.M. Daily",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Academy Hill Medical (near UBCO / airport)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1502,12 +1593,12 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Monday 9am – 7pm; Tuesday 9am – 5pm; Wednesday 9am – 7pm; Thursday 9am to 5pm; Friday 9am to 12pm.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Project Literacy Central Okanagan – Free English Tutoring",
   "languages": "Tutoring is in English; the organisation says it supports learners from 27 different language groups.",
   "source": "research:R2-settlement.json",
   "source_url": "https://projectliteracy.ca/",
-  "verify_notes": "Waiting time for assessment 1–3 weeks per learner page. Children not allowed at lessons. Also runs 'Low-Literacy Support for newcomers' (three 12-week sessions a year) with KCR. FAQ calls the location 'downtown Kelowna'; Leckie Rd is in Midtown (area set dt). Old directories list 1635 Bertram St — superseded.",
+  "verify_notes": "Waiting time for assessment 1–3 weeks per learner page. Children not allowed at lessons. Also runs 'Low-Literacy Support for newcomers' (three 12-week sessions a year) with KCR. FAQ calls the location 'downtown Kelowna'; Leckie Rd is in Midtown (area set dt). Old directories list 1635 Bertram St — superseded. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Adults 19 or older. Working Holiday Visa and Tourist Visa holders do not qualify for English learning services. Canadians born here are also welcome."
  },
  "7b944d41": {
@@ -1548,7 +1639,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Nation Alliance – Main Office",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -1562,7 +1653,7 @@
   "source": "arcgis-parks"
  },
  "7fc3bca4": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323065",
   "source": "bc-k12-schools"
  },
@@ -1571,7 +1662,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Building hours: Monday to Friday: 9 AM - 9 PM; Saturday and Sunday: 10 AM - 9 PM; Holidays: 10 AM - 9 PM. Box office: Phone: Mon.- Sat.: 10 AM - 3 PM; In-person at RCA: Mon.- Fri. 1 PM - 4 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rotary Centre for the Arts",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1602,12 +1693,12 @@
   "bring": null,
   "cost": null,
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna's Gospel Mission – Bay Ave Community Shelter",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://kelownagospelmission.ca/services/",
-  "verify_notes": "Official page gives only a short description. 211 BC says: 24-hour shelter for adults 19+, intake 8 am–8 pm daily, first come first served, intake phone 236-420-0899 — not confirmed on the official site. BC Housing (Nov 2024) lists it as a temporary shelter, so check it is still open.",
+  "verify_notes": "Official page gives only a short description. 211 BC says: 24-hour shelter for adults 19+, intake 8 am–8 pm daily, first come first served, intake phone 236-420-0899 — not confirmed on the official site. BC Housing (Nov 2024) lists it as a temporary shelter, so check it is still open. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Co-ed (all genders)."
  },
  "84341927": {
@@ -1616,7 +1707,7 @@
   "source": "bc-childcare-map"
  },
  "851f0107": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396966",
   "source": "bc-k12-schools"
  },
@@ -1635,7 +1726,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Store Hours: Monday to Saturday: 9:30 AM – 5:00 PM. Donation Centre Hours: Monday to Saturday: 9:30 AM – 4:00 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Habitat for Humanity ReStore Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1663,7 +1754,7 @@
   "bring": "Personal Health Number (BC Services Card), if you have one. Interior Health asks for it when booking immunizations.",
   "cost": "Interior Health says immunizations are free at your local public health clinic, and routine childhood immunizations are free.",
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Community Health & Services Centre (Interior Health public health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1681,7 +1772,7 @@
   "bring": null,
   "cost": "Individual: $10; Student/Senior: $8; Family: $20; Children under 12: FREE; Gallery Members: FREE. Half Off Thursdays.",
   "hours_text": "Tuesday: 10 am to 5 pm; Wednesday: 10 am to 5 pm; Thursday: 10 am to 8 pm; Friday: 10 am to 5 pm; Saturday: 10 am to 5 pm; Sunday: 10 am to 5 pm; Monday: Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Art Gallery",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1699,12 +1790,12 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday 9 AM – 3 PM; Tuesday 9 AM – 3 PM; Wednesday 9 AM – 3 PM; Thursday 12:30 PM – 3 PM; Friday 9 AM – 3 PM; Saturday & Sunday Closed. Closed statutory holidays and holiday weekends.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "The Salvation Army – Community Services Westbank",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
-  "verify_notes": "Mailing city 'Westbank, BC V4T 3L7'. Eligibility and cost not stated.",
+  "verify_notes": "Mailing city 'Westbank, BC V4T 3L7'. Eligibility and cost not stated. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "8e5a3d5b": {
@@ -1717,12 +1808,12 @@
   "bring": "CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
   "cost": "free",
   "hours_text": "1st Friday of each month from 09:00 AM - 12:00 PM, 2026-05-01 to 2026-12-04 (appointments required). Spring session: every Friday 9 AM–noon, March 6–April 24, 2026.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
   "languages": "English",
   "source": "research:R2-settlement.json",
   "source_url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
-  "verify_notes": "No phone published (booking by email only). Address: CRA directory and the cathedral's own site (stmichaelscathedral.ca) say 608 Sutherland Ave; a Rotary calendar item says '650 Sutherland Ave' and 10:00 a.m. — 608 used.",
+  "verify_notes": "No phone published (booking by email only). Address: CRA directory and the cathedral's own site (stmichaelscathedral.ca) say 608 Sutherland Ave; a Rotary calendar item says '650 Sutherland Ave' and 10:00 a.m. — 608 used. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Individuals with modest incomes and simple tax situations, including seniors, low-income individuals and families, newcomers, Indigenous Peoples, persons with disabilities, students and people experiencing homelessness."
  },
  "8eaac5d5": {
@@ -1730,7 +1821,7 @@
   "bring": null,
   "cost": null,
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Westbank First Nation – Government Office (Lindley Building)",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -1753,7 +1844,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://okanagan.housing.ubc.ca/contact-us/",
-  "verify_notes": "UBC Okanagan Housing contact page read in browser 2026-10-03: 'Nechako Residence, 1255 International Mews, Kelowna V1V 1V8', 'The Front Desk is open 24/7', phone 250-807-8050, toll free 1-888-318-8666, email information@housing.okanagan.ubc.ca. Eligibility wording ('UBC Okanagan students') is our summary; the contact page does not state rules.",
+  "verify_notes": "UBC Okanagan Housing contact page read in browser 2026-10-03: 'Nechako Residence, 1255 International Mews, Kelowna V1V 1V8', 'The Front Desk is open 24/7', phone 250-807-8050, toll free 1-888-318-8666, email information@housing.okanagan.ubc.ca. Eligibility wording ('UBC Okanagan students') is our summary; the contact page does not state rules. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "UBC Okanagan students"
  },
  "8ffe8733": {
@@ -1761,7 +1852,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday to Friday: 9 a.m. to 4 p.m. Health-care providers are available 24 hours a day, seven days a week for deliveries and emergencies.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Central Okanagan Maternity Clinic (Interior Health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -1774,7 +1865,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Sunday service 1:30pm; dawn prayer 6:00 a.m. weekly on Zoom",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Korean Presbyterian Church 켈로나 한인장로교회",
   "languages": "Korean",
   "source": "research:R2-daily.json",
@@ -1786,17 +1877,17 @@
   "appointment": "Walk in, no appointment needed. Virtual appointments by advance booking only (email ipc.ok@ubc.ca).",
   "bring": null,
   "cost": "No-fee (UBC Wellbeing: 'no-fee, brief, single-session psychological services')",
-  "hours_text": "Walk-in appointments are available on Tuesdays and Thursdays (Sept. to June) between 10:00 am and 3:00 pm at our clinic located in ASC 167. Please note our clinic closes for all University holidays and reading weeks (Nov & Feb).",
-  "imported": "2026-10-03",
+  "hours_text": "Tuesday and Thursday: 10:00 a.m. to 3:00 p.m. (September to June)",
+  "imported": "2026-10-04",
   "key": "UBC Okanagan Psychology Clinic – Walk-In Wellness Service",
   "languages": null,
   "source": "research:R2-health.json",
   "source_url": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/",
-  "verify_notes": "The phone (ext. 1) and the 'no-fee' wording are from UBC Wellbeing (https://wellbeing.ubc.ca/ubco-walk-well-being-clinic). The psychology department page does not state a cost. The street address 3333 University Way is the campus address from the UBCO Student Health Clinic page; the clinic itself only says 'ASC 167'. Languages are not stated.",
+  "verify_notes": "The phone (ext. 1) and the 'no-fee' wording are from UBC Wellbeing (https://wellbeing.ubc.ca/ubco-walk-well-being-clinic). The psychology department page does not state a cost. The street address 3333 University Way is the campus address from the UBCO Student Health Clinic page; the clinic itself only says 'ASC 167'. Languages are not stated. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh.",
   "who": "Available to any individual in British Columbia (age 18+): students, staff, faculty and community members"
  },
  "909afc43": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323052",
   "source": "bc-k12-schools"
  },
@@ -1838,12 +1929,12 @@
   "bring": null,
   "cost": "",
   "hours_text": "Shopping Hours: Mon – Sat, 10 AM – 5 PM. Donation Hours: Tue – Sat, 10 AM – 2 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Salvation Army Rutland Thrift Store",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.kelownasalvationarmy.ca/location-hours/",
-  "verify_notes": "Salvation Army Kelowna's own site (WebFetch) 2026-10-03; City licence also lists it at 200 Rutland Rd S. The national thriftstore.ca locator returns no Kelowna stores (locally run). Salvation Army church & office: 1480 Sutherland Ave, 250-860-2329, Mon–Fri 9:00 AM – 3:00 PM.",
+  "verify_notes": "Salvation Army Kelowna's own site (WebFetch) 2026-10-03; City licence also lists it at 200 Rutland Rd S. The national thriftstore.ca locator returns no Kelowna stores (locally run). Salvation Army church & office: 1480 Sutherland Ave, 250-860-2329, Mon–Fri 9:00 AM – 3:00 PM. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "974a56f4": {
@@ -1851,7 +1942,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Divine Liturgy: Sundays 9:00 AM (English), 11:00 AM (Ukrainian); Tuesday-Friday 9:30 AM (English/Ukrainian); Saturdays 7:00 PM Great Vespers",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Dormition of the Mother of God Ukrainian Catholic Church",
   "languages": "Ukrainian; English",
   "source": "research:R2-daily.json",
@@ -1864,7 +1955,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 08:00–20:00; Tuesday 08:00–20:00; Wednesday 08:00–20:00; Thursday 08:00–20:00; Friday 08:00–20:00; Saturday 09:00–16:00; Sunday 12:00–16:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Plaza 33, Rutland (Shoppers Drug Mart)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1878,17 +1969,17 @@
   "source": "bc-childcare-map"
  },
  "99e0b0fb": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323034",
   "source": "bc-k12-schools"
  },
  "9a4d6a38": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323073",
   "source": "bc-k12-schools"
  },
  "9b87bf9f": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323058",
   "source": "bc-k12-schools"
  },
@@ -1897,7 +1988,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Everyday 7AM to 10PM. Pharmacy: Weekdays 8 AM - 8 PM; Saturday 8 AM - 8 PM; Sunday 10 AM - 6 PM; Holidays 10 AM - 6 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Save-On-Foods Lakeshore Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1910,7 +2001,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "MNP Place",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1943,18 +2034,31 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Buddhist Temple",
   "languages": "English",
   "source": "research:R2-daily.json",
   "source_url": "https://kbtemple.ca/",
-  "verify_notes": "Own website (WebFetch), 2026-10-03; email kbtemplesales@gmail.com; service times are on its calendar, not captured. Directories list a different phone (250-763-3827) — website phone used. No Chinese-language Buddhist temple found on an official source.",
+  "verify_notes": "Own website (WebFetch), 2026-10-03; email kbtemplesales@gmail.com; service times are on its calendar, not captured. Directories list a different phone (250-763-3827) — website phone used. No Chinese-language Buddhist temple found on an official source. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh, p.",
   "who": null
  },
  "9f46d604": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323056",
   "source": "bc-k12-schools"
+ },
+ "a01279e1": {
+  "appointment": "",
+  "bring": "",
+  "cost": "",
+  "hours_text": "",
+  "imported": "2026-10-04",
+  "key": "Quilchena Splash Park",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/quilchena-park",
+  "verify_notes": "City of Kelowna water parks page https://www.kelowna.ca/parks-recreation/parks-beaches/water-parks (read 2026-10-04 in a browser; kelowna.ca blocks scripted fetches): 'Water & splash parks in Kelowna', banner 'Water parks are closed for the season, we look forward to seeing you again next May!', 'Typical water park season hours' as copied in hours_text, and 'Locations: City Park Waterpark (1600 Abbott Street), Ben Lee Waterpark (900 Houghton Road), Quilchena Splash Park (347 Quilchena Drive)' - these are the only three City of Kelowna water/splash parks listed. The page also has a daily-hours widget showing '11 a.m. - 6 p.m.' for each park, which conflicts with the typical season hours; it looks like leftover end-of-season hours, so the typical season hours were used. No phone number for the water parks on the page. Quilchena Park listing page (source_url): 347 Quilchena Dr; amenities incl. Playground, Pickleball, Tennis, Trails, Waterpark; 'a splash park perfect for younger kids'; 'Quilchena splash park is open May long weekend until early September.' No washroom listed. Cost not stated on any page read, so cost left blank. Quilchena Park itself is already in the guide as a park (g=pm, matching it). | Desk check 2026-10-04 (second reader): wording tightened.",
+  "who": "Younger children (the City describes it as 'perfect for younger kids')"
  },
  "a13a4fa3": {
   "imported": "2026-10-03",
@@ -1967,12 +2071,12 @@
   "source": "bc-childcare-map"
  },
  "a17c0313": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323071",
   "source": "bc-k12-schools"
  },
  "a2009eab": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323049",
   "source": "bc-k12-schools"
  },
@@ -1981,7 +2085,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Oriental Supermarket",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -1990,7 +2094,7 @@
   "who": null
  },
  "a21ef563": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323018",
   "source": "bc-k12-schools"
  },
@@ -2004,12 +2108,12 @@
   "bring": null,
   "cost": null,
   "hours_text": "By phone: Monday through Friday, 7:30 am to 5 pm Pacific Time (office hours not stated).",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Employment Standards Branch – Kelowna office",
   "languages": "By phone, 'someone can help you in the language of your choice'.",
   "source": "research:R2-settlement.json",
   "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us",
-  "verify_notes": "Phone is toll-free 1-833-236-3700 (written without the leading 1). Address also confirmed on the Ministry of Labour office-locations page. Cost not stated on the page.",
+  "verify_notes": "Phone is toll-free 1-833-236-3700 (written without the leading 1). Address also confirmed on the Ministry of Labour office-locations page. Cost not stated on the page. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Workers and employers covered by B.C. employment standards (check first whether the standards apply to your job)."
  },
  "a40c12f8": {
@@ -2022,7 +2126,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Saturday: 4:30 p.m.; Sunday: 9:00 a.m. and 11:00 a.m.; Tuesday: 3:00 p.m.; Wednesday & Thursday: 9:00 a.m. Filipino Catholic Community Mass: every 1st Sunday of the month at 5:00 p.m. Vietnamese Rosary: first Sunday of the month after the 11:00 a.m. Mass.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Corpus Christi Parish (Catholic) — Filipino Mass",
   "languages": "English; Filipino community Mass; Vietnamese rosary",
   "source": "research:R2-daily.json",
@@ -2040,7 +2144,7 @@
   "bring": null,
   "cost": "Skate rentals available. Public skating times on the Rutland Arena Public Skating Schedule.",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Rutland Arena",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2053,7 +2157,7 @@
   "bring": null,
   "cost": "Adult - $10; Student/Senior - $8; Youth (5-17) - $7; Family - $25; 5 & Under - Free. Every second Sunday of the month - pay-what-you-wish. Those who self-identify as Indigenous visit free of charge.",
   "hours_text": "Monday 10:00am - 5:00pm; Tuesday CLOSED; Wednesday CLOSED; Thursday 10:00am - 5:00pm; Friday 10:00am - 5:00pm; Saturday 10:00am - 5:00pm; Sunday 11:00am - 4:00pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Heritage Museum",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2089,7 +2193,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://www.centralvalleyvet.com/contact-us",
-  "verify_notes": "Clinic's own website (WebFetch) 2026-10-03. City business licence: CENTRAL VALLEY VET CLINIC, 124-1940 Kane Rd. Emergency referral to Fairfield Animal Hospital (250-860-6550) stated on the contact page.",
+  "verify_notes": "Clinic's own website (WebFetch) 2026-10-03. City business licence: CENTRAL VALLEY VET CLINIC, 124-1940 Kane Rd. Emergency referral to Fairfield Animal Hospital (250-860-6550) stated on the contact page. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": ""
  },
  "a8f8d541": {
@@ -2108,7 +2212,7 @@
   "source": "bc-childcare-map"
  },
  "ab1a697d": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323047",
   "source": "bc-k12-schools"
  },
@@ -2128,7 +2232,7 @@
   "source": "bc-childcare-map"
  },
  "ac7a04ea": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323046",
   "source": "bc-k12-schools"
  },
@@ -2137,7 +2241,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 08:30–20:30; Tuesday 08:30–20:30; Wednesday 08:30–20:30; Thursday 08:30–20:30; Friday 08:30–20:30; Saturday 09:00–17:00; Sunday 09:00–17:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Glenpark (Shoppers Drug Mart)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2183,7 +2287,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://playarea.ca/",
-  "verify_notes": "Own website read in browser 2026-10-03: address, phone, hours. City of Kelowna business licence: PLAY AREA INDOOR RECREATION, 'STEM-ORIENTED INDOOR RECREATION FOR CHILDREN UNDER 10', 128-2540 ENTERPRISE WAY. Age limit and drop-in day pass from the licence and the site's day-pass page title; parent supervision from site text ('Parents can relax while their little ones climb'). Weekday hours may be taken up by camps — call ahead.",
+  "verify_notes": "Own website read in browser 2026-10-03: address, phone, hours. City of Kelowna business licence: PLAY AREA INDOOR RECREATION, 'STEM-ORIENTED INDOOR RECREATION FOR CHILDREN UNDER 10', 128-2540 ENTERPRISE WAY. Age limit and drop-in day pass from the licence and the site's day-pass page title; parent supervision from site text ('Parents can relax while their little ones climb'). Weekday hours may be taken up by camps — call ahead. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Children 10 and under with a parent"
  },
  "b18e9129": {
@@ -2201,7 +2305,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday - Friday: 9am - 5pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "KLO Medical Clinic",
   "languages": null,
   "source": "research:R2-health.json",
@@ -2219,7 +2323,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 09:00–19:00; Tuesday 09:00–19:00; Wednesday 09:00–19:00; Thursday 09:00–19:00; Friday 09:00–21:00; Saturday 09:00–19:00; Sunday 11:00–16:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Westbank (London Drugs)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2228,7 +2332,7 @@
   "who": null
  },
  "b60b4067": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323055",
   "source": "bc-k12-schools"
  },
@@ -2257,12 +2361,12 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Open 24/7; once you have a bed, there is no set wake-up time.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Cornerstone Shelter (John Howard Society of Okanagan & Kootenay)",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://jhsok.ca/programs-services/housing/cornerstone-shelter/",
-  "verify_notes": "Email cornerstone@jhsok.ca.",
+  "verify_notes": "Email cornerstone@jhsok.ca. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Adults (19+) currently experiencing homelessness; minors are referred to youth shelters. Couples and people with pets are welcome."
  },
  "ba1606b1": {
@@ -2290,7 +2394,7 @@
   "bring": null,
   "cost": "free (funded by the Province of British Columbia)",
   "hours_text": "Monday: 9:00 a.m. – 5:00 p.m.; Tuesday: 9:00 a.m. – 5:00 p.m.; Wednesday: 9:00 a.m. – 8:00 p.m.; Thursday: 9:00 a.m. – 5:00 p.m.; Friday: 9:00 a.m. – 5:00 p.m.; Saturday: 9:00 a.m. – 2:00 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "YMCA Child Care Resource & Referral (CCRR) – Central Okanagan",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -2303,7 +2407,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Shopping Hours: Mon – Sat, 10 AM – 5 PM. Donation Hours: Tue – Sat, 10 AM – 2 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Salvation Army Westbank Thrift Store",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2321,7 +2425,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Morning Nitnem: 5:30 AM - 6:30 AM; Evening Rehras Sahib, Kirtan & Sukhaasan: 6:30 PM - 8:00 PM; Doors close at 8:00 PM. Weekly Program on every Sunday: Sukhmani Sahib Path and Kirtan Sewa. Langar on Sundays, Sangrands and Gurpurabs.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Sikh Temple (Gurdwara)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2333,13 +2437,13 @@
   "appointment": null,
   "bring": null,
   "cost": null,
-  "hours_text": "Store Hours: Mon-Sat: 9:00 AM-10:00 PM; Sunday & Holidays: 9:00 AM-8:00 PM",
-  "imported": "2026-10-03",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 7:00 p.m.; Saturday: 9:00 a.m. to 6:00 p.m.; Sunday: 10:00 a.m. to 6:00 p.m.",
+  "imported": "2026-10-04",
   "key": "London Drugs Spall Plaza",
   "languages": null,
   "source": "research:R2-health.json",
   "source_url": "https://www.londondrugs.com/stores/spall-plaza/s/012",
-  "verify_notes": "Read in a browser because the site blocks automated fetch. London Drugs publishes store hours only, with no separate pharmacy hours, so the counter may close earlier. p is the pharmacy line; the general line is 250-860-3331.",
+  "verify_notes": "Read in a browser because the site blocks automated fetch. London Drugs publishes store hours only, with no separate pharmacy hours, so the counter may close earlier. p is the pharmacy line; the general line is 250-860-3331. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh.",
   "who": null
  },
  "bf46a404": {
@@ -2347,7 +2451,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Tamm Latin Market Rutland",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2370,16 +2474,16 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday: 7:00 a.m to 11:00 p.m; Tuesday: 7:00 a.m to 11:00 p.m; Wednesday: 7:00 a.m to 11:00 p.m; Thursday: 7:00 a.m to 11:00 p.m; Friday: 7:00 a.m to 11:00 p.m; Saturday: 7:00 a.m to 11:00 p.m; Sunday: 7:00 a.m to 11:00 p.m",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Safeway Downtown Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.safeway.ca/stores/safeway-downtown-kelowna",
-  "verify_notes": "Store page on safeway.ca read in browser 2026-10-03. City licence for 697 Bernard Ave is held by Sobey Capital Incorporated (Safeway's owner).",
+  "verify_notes": "Store page on safeway.ca read in browser 2026-10-03. City licence for 697 Bernard Ave is held by Sobey Capital Incorporated (Safeway's owner). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "c1540438": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323033",
   "source": "bc-k12-schools"
  },
@@ -2388,7 +2492,7 @@
   "bring": null,
   "cost": "Free indoor walking track (five laps = one kilometre). Public skate schedule on the City of West Kelowna site.",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Royal LePage Place & Jim Lind Arena",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2411,7 +2515,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 9:30 AM - 5:00 PM; Tuesday 9:30 AM - 5:00 PM; Wednesday 9:30 AM - 5:00 PM; Thursday 9:30 AM - 5:00 PM; Friday 9:30 AM - 5:00 PM; Saturday Closed; Sunday Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "CIBC — 328 Bernard Ave. Banking Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2420,7 +2524,7 @@
   "who": null
  },
  "c4f64729": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323022",
   "source": "bc-k12-schools"
  },
@@ -2444,7 +2548,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday-Saturday 8:00-21:00; Sunday 10:00-18:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Shoppers Drug Mart Kelowna (Bernard Ave, downtown)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -2453,7 +2557,7 @@
   "who": null
  },
  "c6c313dd": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02397006",
   "source": "bc-k12-schools"
  },
@@ -2462,7 +2566,7 @@
   "bring": null,
   "cost": "Free, low cost, and full fee services available. An annual intake fee is requested; 'If financial circumstances make this difficult, there is no expectation to pay.'",
   "hours_text": "Monday: 8:30 am – 4:30 pm; Tuesday: 8:30 am – 5:30 pm; Wednesday: 8:30 am – 4:30 pm; Thursday: 8:30 am – 5:30 pm; Friday: 8:30 am – 4:30 pm. After hours appointments are available. Closed between 12:00 pm and 1:00 pm for lunch.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Connect Counselling & Therapy Society",
   "languages": null,
   "source": "research:R2-health.json",
@@ -2471,7 +2575,7 @@
   "who": "Individuals, couples, children, youth and families in the Central Okanagan (Peachland to Lake Country)"
  },
  "c823ac20": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396081",
   "source": "bc-k12-schools"
  },
@@ -2508,7 +2612,7 @@
   "bring": null,
   "cost": "Programs are registered through the City (rec.kelowna.ca); low-income residents may qualify for the City of Kelowna Financial Assistance Program (KFAP).",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Cedar Creek Community Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2521,7 +2625,7 @@
   "bring": null,
   "cost": "All Foundry services are free and confidential",
   "hours_text": "Opening hours: Monday, Tuesday, Wednesday, Friday: 9:00am – 5:00pm; Thursday: 9:00am – 7:00pm. Drop-In Hours: Monday, Tuesday, Wednesday, Friday: 10:00am-5:00pm; Thursday: 10:00am-7:00pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Foundry Kelowna (youth 12-24)",
   "languages": "Translation services available for some appointments. Get in touch before your visit to confirm.",
   "source": "research:R2-health.json",
@@ -2534,7 +2638,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Sunday: Rosary 8:30 am, Mass 9:00 am, 11:00 am & 5:00 pm; Saturday: Rosary 8:30 am, Mass 9:00 am & 5:00 pm; Monday-Friday: 7:30 am Rosary, Mass 8:00 am; Wednesday: Rosary 4:30 pm, Mass 5:00 pm; First Friday: Benediction/Adoration 3:00 pm, Mass 4:00 pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Immaculate Conception Parish (Catholic)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2560,7 +2664,7 @@
   "bring": null,
   "cost": "free",
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Workers' Advisers Office – Kelowna",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -2588,12 +2692,12 @@
   "bring": null,
   "cost": "Adult - $5; Student/Senior - $4; Youth (5-17) - $3; Family - $10; 5 & Under - Free; Veterans - Free",
   "hours_text": "SUMMER HOURS (VICTORIA DAY TO LABOUR DAY): Tuesday - Saturday 12:00pm – 5:00pm; Sunday, & Monday Closed. WINTER HOURS: Tuesday, Wednesday, & Saturday 10:00am to 5:00pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Military Museum",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.kelownamuseums.ca/plan-your-visit/",
-  "verify_notes": "From Kelowna Museums' own page, 2026-10-03. The published winter hours list only Tuesday, Wednesday and Saturday; this looks incomplete — confirm by phone before showing winter days. Address shares 1424 Ellis St with Memorial Arena (City page).",
+  "verify_notes": "From Kelowna Museums' own page, 2026-10-03. The published winter hours list only Tuesday, Wednesday and Saturday; this looks incomplete — confirm by phone before showing winter days. Address shares 1424 Ellis St with Memorial Arena (City page). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "cfc41d83": {
@@ -2626,7 +2730,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://wildkidz.ca/",
-  "verify_notes": "Own website (WebFetch) 2026-10-03: address '#105 – 2374 Bering Road Westbank, BC V4T 3J6', phone, hours, 0-12 years, 'No reservations needed'. Prices not on page. Same unit was listed as 'Just 4 Fun Play Centre' in the WFN 2021 retail directory — apparently renamed; Just 4 Fun's own site now only does party rentals.",
+  "verify_notes": "Own website (WebFetch) 2026-10-03: address '#105 – 2374 Bering Road Westbank, BC V4T 3J6', phone, hours, 0-12 years, 'No reservations needed'. Prices not on page. Same unit was listed as 'Just 4 Fun Play Centre' in the WFN 2021 retail directory — apparently renamed; Just 4 Fun's own site now only does party rentals. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Children 0–12"
  },
  "d21f56ed": {
@@ -2644,7 +2748,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday to Friday 8am to 2:30pm, closed on Saturday and Sundays.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Parkinson Activity Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2653,7 +2757,7 @@
   "who": null
  },
  "d41ad5ee": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323078",
   "source": "bc-k12-schools"
  },
@@ -2662,7 +2766,7 @@
   "bring": null,
   "cost": "free (langar community kitchen)",
   "hours_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras Sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8 PM.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Okanagan Sikh Temple & Cultural Society (Gurdwara)",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -2680,7 +2784,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Clinic hours: Monday to Friday, 8:30 a.m. to 4:30 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "West Kelowna Sexual & Reproductive Health (Interior Health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -2693,7 +2797,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "In 'N Out Arabic Market",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2711,7 +2815,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday-Saturday: 9:00 a.m. - 9:00 p.m.; Sunday: 10:00 a.m. - 7:00 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Value Village Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2729,7 +2833,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 09:00–18:00; Tuesday 09:00–18:00; Wednesday 09:00–18:00; Thursday 09:00–21:00; Friday 09:00–21:00; Saturday 09:00–18:00; Sunday 12:00–16:00",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — West Kelowna (Shoppers Drug Mart)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2750,6 +2854,19 @@
   "verify_notes": "Okanagan College official page (WebFetch + raw HTML check) 2026-10-03: office and front desk 'open daily from 8:00 a.m. - 12:00 a.m.' (a search snippet said 12:00 p.m. — page text says a.m.), phone, info@okanaganhousing.ca, buildings at 880 and 860 KLO Rd, full-time eligibility, non-student stays May–August.",
   "who": "Full-time Okanagan College students (non-students may be able to stay May–August)"
  },
+ "d9c64fa2": {
+  "appointment": "",
+  "bring": "",
+  "cost": "",
+  "hours_text": "",
+  "imported": "2026-10-04",
+  "key": "City Park Waterpark",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/city-park",
+  "verify_notes": "City of Kelowna water parks page https://www.kelowna.ca/parks-recreation/parks-beaches/water-parks (read 2026-10-04 in a browser; kelowna.ca blocks scripted fetches): 'Water & splash parks in Kelowna', banner 'Water parks are closed for the season, we look forward to seeing you again next May!', 'Typical water park season hours' as copied in hours_text, and 'Locations: City Park Waterpark (1600 Abbott Street), Ben Lee Waterpark (900 Houghton Road), Quilchena Splash Park (347 Quilchena Drive)' - these are the only three City of Kelowna water/splash parks listed. The page also has a daily-hours widget showing '11 a.m. - 6 p.m.' for each park, which conflicts with the typical season hours; it looks like leftover end-of-season hours, so the typical season hours were used. No phone number for the water parks on the page. City Park listing page (source_url): address 1600 Abbott St; amenities include Washroom and Waterpark; description mentions 'children's waterpark', aqua park (Wibit), playground, change room and washroom facilities; 'City Park Waterpark is open May long weekend until early September.' Cost is not stated on any page read, so cost left blank (the City calls Ben Lee one of 'Kelowna's busiest free waterplay areas', which suggests but does not state that the others are free). City Park itself is already in the guide as a park.",
+  "who": "Children and families (children's waterpark in a public park)"
+ },
  "da386d9b": {
   "imported": "2026-10-03",
   "key": "2149",
@@ -2760,7 +2877,7 @@
   "bring": "1 piece of photo ID for each adult over 18 (BCID or driver's licence, student ID, passport, etc.); 1 piece of ID for each child (birth certificate, BC Care Card, passport, etc.); proof of current Kelowna or West Kelowna address (rental agreement, rent receipts, utility bills, etc.).",
   "cost": "free",
   "hours_text": "By Appointment Only: Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM. Closed during BC Statutory Holidays.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Central Okanagan Food Bank – West Kelowna",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -2769,7 +2886,7 @@
   "who": "Anyone needing help 'regardless of race, national or ethnic origin, citizenship, colour, religion, sex, sexual orientation, gender identity, gender expression, income source, age, and mental or physical ability'; you must show a current Kelowna or West Kelowna address."
  },
  "db8c5ae8": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323079",
   "source": "bc-k12-schools"
  },
@@ -2778,7 +2895,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Five daily prayers; Jumu'ah (Friday) prayer 1:30 PM (time shown on the website for October 3, 2026 — changes with the season)",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna Islamic Center (BCMA Kelowna Branch)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2796,7 +2913,7 @@
   "bring": null,
   "cost": "free",
   "hours_text": "Monday - Friday 8:30 am - 4:30 pm (KCR office hours, all locations; closed statutory holidays).",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "KCR Community Resources – Career Paths for Skilled Immigrants",
   "languages": "Services available in English and French.",
   "source": "research:R2-settlement.json",
@@ -2814,7 +2931,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 10:00–18:00; Tuesday 10:00–18:00; Wednesday 10:00–18:00; Thursday 10:00–18:00; Friday 10:00–18:00; Saturday 10:00–17:00; Sunday closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Quail Ridge (Pharmasave)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2823,7 +2940,7 @@
   "who": null
  },
  "dd785faa": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323084",
   "source": "bc-k12-schools"
  },
@@ -2847,7 +2964,7 @@
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://www.cpliving.com/apartments/trio",
-  "verify_notes": "Leasing page for TRIO (WebFetch) 2026-10-03: '333 Drysdale Boulevard, Kelowna, BC, V1V 0E7', leasing phone 1-833-390-1818 (toll-free call centre; hours shown in Eastern Time, i.e. 3 hours later than Kelowna), suite types, pet friendly, managed by Centurion Property Associates Inc. City business licence: CENTURION PROPERTY ASSOCIATES, LONG TERM RENTAL BUILDING, 333 DRYSDALE BLVD. 'Next to Brandt's Creek Crossing' from geocoding (333 Drysdale ~150 m from 1972 Kane Rd).",
+  "verify_notes": "Leasing page for TRIO (WebFetch) 2026-10-03: '333 Drysdale Boulevard, Kelowna, BC, V1V 0E7', leasing phone 1-833-390-1818 (toll-free call centre; hours shown in Eastern Time, i.e. 3 hours later than Kelowna), suite types, pet friendly, managed by Centurion Property Associates Inc. City business licence: CENTURION PROPERTY ASSOCIATES, LONG TERM RENTAL BUILDING, 333 DRYSDALE BLVD. 'Next to Brandt's Creek Crossing' from geocoding (333 Drysdale ~150 m from 1972 Kane Rd). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": ""
  },
  "dff6dbc7": {
@@ -2855,7 +2972,7 @@
   "bring": null,
   "cost": "Drop-in rates; no membership required. West Kelowna's published financial assistance is for children's sport (KidSport, Canadian Tire Jumpstart); no City adult low-income pass found.",
   "hours_text": "Public Swim (as of September 21, 2026): Monday - Thursday: 1 - 3 p.m. and 6:30 - 8 p.m.; Friday: 1 - 3 p.m. and 6:30 - 9 p.m.; Saturday/Sunday: 1 - 4 p.m. Weight Room & Facility: Monday - Friday: 6 a.m. - 9 p.m.; Saturday/Sunday: 9 a.m. - 4 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Johnson Bentley Memorial Aquatic Centre",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2873,7 +2990,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Everyday 7AM to 10PM. Pharmacy: Weekdays 8 AM - 8 PM; Saturday 10 AM - 6 PM; Sunday 10 AM - 6 PM; Holidays 10 AM - 6 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Save-On-Foods Westbank",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2898,13 +3015,13 @@
   "appointment": null,
   "bring": null,
   "cost": "",
-  "hours_text": "Monday to Sunday, 9 AM to 9 PM",
-  "imported": "2026-10-03",
+  "hours_text": "Monday to Sunday: 9:00 a.m. to 10:00 p.m.",
+  "imported": "2026-10-04",
   "key": "Bachhat Bazaar",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://bachhatbazaar.ca/contact/",
-  "verify_notes": "Own website contact page (WebFetch) 2026-10-03; the same site's footer says 9am–10pm daily, which conflicts — confirm. City licence: 'RETAIL SALES - GROCERY' at 170 Hollywood Rd S. The site does not say it specialises in South Asian food, so filed as general grocery (c=grocery) even though the name is Hindi/Punjabi ('savings market').",
+  "verify_notes": "Own website contact page (WebFetch) 2026-10-03; the same site's footer says 9am–10pm daily, which conflicts — confirm. City licence: 'RETAIL SALES - GROCERY' at 170 Hollywood Rd S. The site does not say it specialises in South Asian food, so filed as general grocery (c=grocery) even though the name is Hindi/Punjabi ('savings market'). | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text.",
   "who": null
  },
  "e2c31cfc": {
@@ -2912,7 +3029,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Sabzi Mandi Supermarket (Rutland)",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -2925,8 +3042,21 @@
   "key": "5441",
   "source": "bc-childcare-map"
  },
+ "e47f5fc5": {
+  "appointment": "",
+  "bring": "Photo ID or Y membership card (required for ages 19+)",
+  "cost": "fee (drop-in, 10-visit punch card or monthly membership; membership also covers the Kelowna Family Y)",
+  "hours_text": "Regular Hours: Mon - Fri 5:30 a.m.–9:00 p.m.; Sat 8:00 a.m.–6:00 p.m.; Sun 8:00 a.m.–5:00 p.m.",
+  "imported": "2026-10-04",
+  "key": "Kelowna Downtown YMCA",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.ymcasibc.ca/Locations/Kelowna-Downtown-Y",
+  "verify_notes": "YMCA of Southern Interior BC page https://www.ymcasibc.ca/Locations/Kelowna-Downtown-Y (checked 2026-10-04): 'Kelowna Downtown YMCA', 1011-505 Doyle Ave, Kelowna V1Y 6V8, 250-491-9622; regular hours as copied (Thanksgiving Day 9 a.m.-5 p.m.); about 22 classes per week (yoga, group strength, cycle, TRX, barre, 50+ classes), free weights, 15+ strength machines, 20 stationary bikes, treadmills, ellipticals, changerooms; membership includes full access to the Rutland Family Y; 'Please do not bring children under 10 to the Downtown Y. Children 10 and 11 years of age must be under the supervision of a parent or guardian at all times. Visitors 12 to 16 years of age must complete an orientation session to use the fitness centre on their own.'; no child/youth programs or child minding; photo ID rule 'Individuals aged 19+ must present a Y Membership Card or valid piece of Photo ID to be granted entry to YMCA operated facilities (including H2O). If you are unable to present Photo ID, you will unfortunately not be permitted access.'. Drop-in page https://www.ymcasibc.ca/Locations/Kelowna-Downtown-Y/Drop-In: drop-in rates for adult, senior, youth & young adult (13-24). Financial assistance is stated on the Family Y page/FAQ as a YMCA program but not on the Downtown Y page itself, so it is not put in cost here. g=dt from BC Geocoder (49.889, -119.493). Not run by the City; YMCA is a charity (non-profit).",
+  "who": "Adults and teens. No children under 10; ages 10-11 must be supervised by a parent or guardian at all times; ages 12-16 must complete an orientation to use the fitness centre on their own. No child/youth programs or child minding at this location."
+ },
  "e4881668": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396676",
   "source": "bc-k12-schools"
  },
@@ -2950,7 +3080,7 @@
   "bring": null,
   "cost": null,
   "hours_text": "Monday-Friday 09:00 - 17:00; Saturday 10:00 - 16:00; Statutory holidays 10:00 - 16:00. Hours are subject to physician availability and patient volume.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Lakeshore Medical Centre (in Real Canadian Superstore)",
   "languages": "English",
   "source": "research:R2-health.json",
@@ -2968,13 +3098,26 @@
   "bring": null,
   "cost": "",
   "hours_text": "Saturday: 5:00 p.m.; Sunday: 9:00 a.m. and 11:00 a.m.; Monday: 7:45 a.m. (9:00 a.m. Holiday Mondays); Tuesday: 9:00 a.m., First Tuesday 9:00 a.m. and 7:00 p.m. (September - June); Wednesday: 9:00 a.m.; Thursday: 9:00 a.m.; Friday: 9:00 a.m. with Eucharistic Adoration after Mass until 10:30 a.m.; First Fridays: 9:00 a.m. and 4:00 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Our Lady of Lourdes Parish (Catholic), West Kelowna",
   "languages": null,
   "source": "research:R2-daily.json",
   "source_url": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069758&type=d&pREC_ID=1358584",
   "verify_notes": "Diocese of Nelson parish page (WebFetch) 2026-10-03 confirmed address, phone and Saturday/Sunday Mass times; the detailed weekday schedule in hours_text is from a search summary of the same page. Confession: Sat 4:00-4:30 p.m., Sun 8:00-8:30 and 10:00-10:30 a.m.",
   "who": null
+ },
+ "ea3f677a": {
+  "appointment": "",
+  "bring": "Two pieces of ID if asked: an official government-issued photo ID with name and birth date (foreign government ID is accepted) plus a second ID with name and signature or picture (e.g. credit card or student card). Digital IDs are not accepted.",
+  "cost": "",
+  "hours_text": "Mon-Sat 9:00AM-9:00PM; Sun 9:30AM-8:00PM",
+  "imported": "2026-10-04",
+  "key": "BCLIQUOR Kelowna Orchard Park",
+  "languages": "",
+  "source": "research:R4-categories.json",
+  "source_url": "https://www.bcliquorstores.com/store/locator/167",
+  "verify_notes": "Store #167 'KELOWNA ORCHARD PK' (page JSON-LD name 'BCLIQUOR Kelowna Orchard Pk') on the official BC Liquor Stores locator https://www.bcliquorstores.com/store/locator/167; address 109-1835 Dilworth Dr, Kelowna, BC V1Y 9T1, phone and weekly hours read from the page's structured data and the locator's own data feed (bcliquorstores.com/stores/search), checked 2026-10-04. Listed as a Signature store with product consultants. Holiday hours on the locator: Thanksgiving Mon Oct 12 2026 11:00AM-6:00PM, Remembrance Day Nov 11 12:00PM-6:00PM, Dec 24 closes 6:00PM, Christmas Day and New Year's Day closed. The page says store hours are subject to change without notice. Age/ID: BC government LCRB FAQ (https://www2.gov.bc.ca/gov/content/employment-business/business/liquor-regulation-licensing/liquor-licence-permits/liquor-resources-information/lcrb-faq) states 'The legal drinking age is 19. Anyone under 19 is a minor.' and, for buying liquor, if asked you must show 'An official government issued primary ID (including foreign government issued) with name, picture and birth date' plus a secondary ID with name and signature or picture; 'Digital IDs are not acceptable.' LCRB store sign PDF (https://www2.gov.bc.ca/assets/gov/employment-business-and-economic-development/business-management/liquor-regulation-licensing/documents/idsign-purchase.pdf) says 'You must be 19 or older to purchase LIQUOR. You must show two pieces of ID when requested'. Passport is not named explicitly in the FAQ examples; it is covered only by the 'foreign government issued' wording. | Desk check 2026-10-04 (second reader): wording tightened.",
+  "who": "Adults 19 and older (the legal drinking age in BC is 19; anyone under 19 is a minor)"
  },
  "eb1b98e2": {
   "imported": "2026-10-03",
@@ -3001,7 +3144,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday 09:00–17:00; Tuesday 09:00–17:00; Wednesday 09:00–17:00; Thursday 09:00–17:00; Friday 09:00–17:00; Saturday closed; Sunday closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Canada Post — Okanagan Mission Post Office",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -3019,7 +3162,7 @@
   "bring": null,
   "cost": "Our services are always free and confidential",
   "hours_text": "Monday and Friday, 9:00am-4:00pm",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Foundry Kelowna – West Kelowna services (youth 12-24)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -3043,7 +3186,7 @@
   "source": "bc-childcare-map"
  },
  "f08ee7ee": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323030",
   "source": "bc-k12-schools"
  },
@@ -3071,7 +3214,7 @@
   "source": "bc-childcare-map"
  },
  "f229cc94": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323038",
   "source": "bc-k12-schools"
  },
@@ -3080,7 +3223,7 @@
   "bring": null,
   "cost": "Disability Tax Aid tax preparation is free; other program costs not stated.",
   "hours_text": "Monday - Thursday: 8:30 AM to 4:30 PM; Friday: 9:00 AM to 12:00 PM.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Ki-Low-Na Friendship Society",
   "languages": null,
   "source": "research:R2-settlement.json",
@@ -3093,7 +3236,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Mon 9:00 AM - 5:00 PM; Tues 9:00 AM - 5:00 PM; Wed 9:00 AM - 5:00 PM; Thu 9:00 AM - 5:00 PM; Fri 9:00 AM - 5:00 PM; Sat CLOSED; Sun CLOSED",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "TD Canada Trust — Ellis Street branch",
   "languages": "English",
   "source": "research:R2-daily.json",
@@ -3116,12 +3259,12 @@
   "bring": "KCR's completed intake form and checklist (download from the page). CRA's list: valid government-issued photo ID; SIN or temporary SIN; tax slips; receipts; previous Notice of Assessment when possible.",
   "cost": "free",
   "hours_text": "Operating months: March–June; September–December. Drop-off service: 9:00 AM–12:00 PM, 1:00 PM–4:00 PM, Monday–Friday. In-person appointments: March and April only (book via receptionist). Turn-around time for drop-off: 4–8 weeks.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "KCR Community Resources – Free Tax Clinic (CVITP)",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/",
-  "verify_notes": "Same building as KCR's main office (620 Leon Ave). Not shown in CRA's online clinic directory search for KELOWNA on 2026-10-03 (only COUC and Rotary clinics appeared), although KCR's page says it runs September–December. Languages not stated. Email incometax@kcr.ca.",
+  "verify_notes": "Same building as KCR's main office (620 Leon Ave). Not shown in CRA's online clinic directory search for KELOWNA on 2026-10-03 (only COUC and Rotary clinics appeared), although KCR's page says it runs September–December. Languages not stated. Email incometax@kcr.ca. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "People with a modest income and a simple tax situation, including low-income families, newcomers, seniors and persons with disabilities; not for people with self-employment, rental or investment income. CRA's suggested income limits (clinics may adjust): 1 person $40,000; 2 people $55,000; 3 people $60,000; 4 people $65,000; 5 people $70,000; more than 5: $70,000 plus $5,000 per extra person."
  },
  "f29667c6": {
@@ -3134,7 +3277,7 @@
   "bring": null,
   "cost": "Virtual counselling is available free of charge",
   "hours_text": "Monday - Friday: 9:00 AM - 4:00 PM; Saturday - Sunday: Closed; Holidays: Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "CMHA Kelowna (Canadian Mental Health Association)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -3147,7 +3290,7 @@
   "bring": "Personal Health Number (BC Services Card), if you have one.",
   "cost": "Interior Health says immunizations are free at your local public health clinic.",
   "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "West Kelowna Health Centre (Interior Health public health)",
   "languages": null,
   "source": "research:R2-health.json",
@@ -3160,12 +3303,12 @@
   "bring": null,
   "cost": "",
   "hours_text": "9:00 AM - 9:00 PM",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Fruiticana Kelowna",
   "languages": "",
   "source": "research:R2-daily.json",
   "source_url": "https://www.fruiticana.com/storefinder?city=Kelowna",
-  "verify_notes": "Address, phone and hours from Fruiticana's own store finder (WebFetch), 2026-10-03; City licence (0629515 BC LTD DBA FRUITICANA32, 'GROCERY STORE') confirms the address. Zone gm assumed for the Hwy 97 N / Banks Rd retail area — check.",
+  "verify_notes": "Address, phone and hours from Fruiticana's own store finder (WebFetch), 2026-10-03; City licence (0629515 BC LTD DBA FRUITICANA32, 'GROCERY STORE') confirms the address. Zone gm assumed for the Hwy 97 N / Banks Rd retail area — check. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": null
  },
  "f756d812": {
@@ -3178,7 +3321,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Monday–Saturday: 9:00 a.m. - 9:00 p.m.; Sunday: 10:00 a.m. - 7:00 p.m.",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Value Village Westbank",
   "languages": null,
   "source": "research:R2-daily.json",
@@ -3205,17 +3348,17 @@
   "appointment": null,
   "bring": null,
   "cost": "",
-  "hours_text": "Monday–Friday: 09:00 - 19:00; Saturday: 09:00 - 17:00; Sunday: 10:00 - 17:00",
+  "hours_text": "Monday to Friday: 8:00 a.m. to 7:00 p.m.; Saturday and Sunday: 9:00 a.m. to 6:00 p.m.",
   "imported": "2026-10-04",
   "key": "Walmart Pharmacy West Kelowna (Westbank Hub North)",
   "languages": null,
   "source": "research:R3-more.json",
   "source_url": "https://www.healthlinkbc.ca/clinic/walmart-canada-1",
-  "verify_notes": "HealthLinkBC (BC Government) pharmacy listing (WebFetch) 2026-10-04: 'Walmart Canada', '2170 Louie Drive, West Kelowna, BC V4T 1Y2', phone, hours. Westbank First Nation 2021 retail directory lists Walmart Super Centre, 2170 Louie Drive, 250-768-2417 (store main line). walmart.ca store page not checked; store hours omitted.",
+  "verify_notes": "HealthLinkBC (BC Government) pharmacy listing (WebFetch) 2026-10-04: 'Walmart Canada', '2170 Louie Drive, West Kelowna, BC V4T 1Y2', phone, hours. Westbank First Nation 2021 retail directory lists Walmart Super Centre, 2170 Louie Drive, 250-768-2417 (store main line). walmart.ca store page not checked; store hours omitted. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh.",
   "who": ""
  },
  "fa7b9c81": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02323067",
   "source": "bc-k12-schools"
  },
@@ -3229,16 +3372,16 @@
   "bring": null,
   "cost": null,
   "hours_text": null,
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "Kelowna's Gospel Mission – Leon Shelter (men)",
   "languages": null,
   "source": "research:R2-settlement.json",
   "source_url": "https://kelownagospelmission.ca/services/",
-  "verify_notes": "Same address as the existing 'KGM Community Dental' record. Hours/intake times, age limit and cost not on the official page (211 BC/CIOC say staffed 24/7, ages 19+). Mission's women's housing addresses are not published and are deliberately not included.",
+  "verify_notes": "Same address as the existing 'KGM Community Dental' record. Hours/intake times, age limit and cost not on the official page (211 BC/CIOC say staffed 24/7, ages 19+). Mission's women's housing addresses are not published and are deliberately not included. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh.",
   "who": "Men; 'for those trying to maintain sobriety while living in shelter'."
  },
  "fb244ef6": {
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "02396281",
   "source": "bc-k12-schools"
  },
@@ -3247,7 +3390,7 @@
   "bring": null,
   "cost": "",
   "hours_text": "Mon: 9:30 am - 5:00 pm; Tue: 9:30 am - 5:00 pm; Wed: 9:30 am - 5:00 pm; Thur: 9:30 am - 5:00 pm; Fri: 9:30 am - 5:00 pm; Sat: Closed; Sun: Closed",
-  "imported": "2026-10-03",
+  "imported": "2026-10-04",
   "key": "BMO Bank of Montreal — Kelowna Main Office",
   "languages": "Dutch; English; French; Yoruba; Afrikaans",
   "source": "research:R2-daily.json",
@@ -3264,13 +3407,13 @@
   "appointment": null,
   "bring": null,
   "cost": null,
-  "hours_text": "Store Hours: Mon-Sat: 9:00 AM-9:00 PM; Sunday & Holidays: 10:00 AM-8:00 PM",
-  "imported": "2026-10-03",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 7:00 p.m.; Saturday: 9:00 a.m. to 6:00 p.m.; Sunday: 10:00 a.m. to 6:00 p.m.",
+  "imported": "2026-10-04",
   "key": "London Drugs Westbank",
   "languages": null,
   "source": "research:R2-health.json",
   "source_url": "https://www.londondrugs.com/stores/westbank/s/076",
-  "verify_notes": "Read in a browser. Store hours only, with no separate pharmacy-counter hours. p is the pharmacy line; the general line is 250-768-8504. London Drugs gives the town as 'Westbank'; locality is set to West Kelowna for consistency.",
+  "verify_notes": "Read in a browser. Store hours only, with no separate pharmacy-counter hours. p is the pharmacy line; the general line is 250-768-8504. London Drugs gives the town as 'Westbank'; locality is set to West Kelowna for consistency. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh.",
   "who": null
  }
 }

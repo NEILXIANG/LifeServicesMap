@@ -1,4 +1,11 @@
 {
+ "0117754e": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 8:00 a.m. to 9:00 p.m.",
+  "notes": "Official wording (desk check 2026-10-04): Monday 8:00am - 9:00pm; Tuesday 8:00am - 9:00pm; Wednesday 8:00am - 9:00pm; Thursday 8:00am - 9:00pm; Friday 8:00am - 9:00pm; Saturday 8:00am - 9:00pm; Sunday 8:00am - 9:00pm",
+  "services_text": null,
+  "source_url": "https://www.nestersmarket.com/"
+ },
  "0259da40": {
   "fetched": "2026-10-04",
   "hours_text": "Shop hours: Monday 10:00am - 5:00pm; Tuesday 10:00am - 5:00pm; Wednesday 10:00am - 5:00pm; Thursday 10:00am - 5:00pm; Friday 10:00am - 5:00pm; Saturday 10:00am - 5:00pm; Sunday Closed",
@@ -27,6 +34,13 @@
   "services_text": null,
   "source_url": "https://www.habitatforhumanityokanagan.ca/restore/"
  },
+ "0ee119c8": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday: 8:00 a.m. to 9:00 p.m.; Saturday and Sunday: 12:00 p.m. to 4:00 p.m.",
+  "notes": "Leasing office hours as printed. Official wording (desk check 2026-10-04): Office Hours: Monday to Friday: 8 AM to 9 PM; Saturday to Sunday: 12 PM to 4 PM",
+  "services_text": null,
+  "source_url": "https://www.realstar.ca/apartments/bc/kelowna/glenmore-central/"
+ },
  "124180e9": {
   "fetched": "2026-10-04",
   "hours_text": "PUBLIC HOURS: Thursday – Saturday 12:00am – 5:00pm; Sunday – Wednesday Closed",
@@ -36,8 +50,8 @@
  },
  "19a2e8f6": {
   "fetched": "2026-10-04",
-  "hours_text": "Thursday Morning Tax Clinic runs from 9am to 12noon each Thursday",
-  "notes": "Text taken from a search-engine quote of the church's own Thursday Tax Clinic page, which now returns 404 (could not re-open it). Season/date range not confirmed from the church site (our file has 2026-09-24 to 2026-12-17, likely from the CRA clinic list). If the clinic is full for the day a sign is placed on the door before noon; enter from the parking lot behind the church. Church office: 'Mon - Thurs 9am - 12noon'.",
+  "hours_text": "Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.",
+  "notes": "Text taken from a search-engine quote of the church's own Thursday Tax Clinic page, which now returns 404 (could not re-open it). Season/date range not confirmed from the church site (our file has 2026-09-24 to 2026-12-17, likely from the CRA clinic list). If the clinic is full for the day a sign is placed on the door before noon; enter from the parking lot behind the church. Church office: 'Mon - Thurs 9am - 12noon'. Desk check 2026-10-04: the old dedicated page is gone; current site wording above.",
   "services_text": null,
   "source_url": "https://centralokanaganunitedchurch.com/thursday-tax-clinic/"
  },
@@ -47,6 +61,13 @@
   "notes": "KCR office hours (applies to all KCR locations incl. Immigrant Services at 618 & 654 Bernard Ave). Closed on Stat Holidays. Holiday closure listed: Dec 25 - Jan 1 (reopening Jan 2). Programme pages (Job Club, conversation circles, youth) have their own schedules.",
   "services_text": null,
   "source_url": "https://kcr.ca/about-us/contact-us/"
+ },
+ "22d68943": {
+  "fetched": "2026-10-04",
+  "hours_text": "Open 24/7",
+  "notes": "Only 24-hour emergency veterinary hospital in the Okanagan. Official wording (desk check 2026-10-04): Main Hours Mon Open 24 hrs Tue Open 24 hrs Wed Open 24 hrs Thu Open 24 hrs Fri Open 24 hrs Sat Open 24 hrs Sun Open 24 hrs",
+  "services_text": null,
+  "source_url": "https://www.fairfieldanimalhospital.ca/"
  },
  "264e4d24": {
   "fetched": "2026-10-04",
@@ -78,8 +99,8 @@
  },
  "35324abd": {
   "fetched": "2026-10-04",
-  "hours_text": "Services are available Monday-Friday, 9:00 am – 3:00 pm.",
-  "notes": "'Please check our Calendar for drop-in times and group activities, or, call, text or email for more information.'",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 3:00 p.m.",
+  "notes": "Drop-in times on the Hub calendar. Official wording (desk check 2026-10-04): Services are available Monday-Friday, 9:00 am – 3:00 pm. Please check our Calendar for drop-in times and group activities, or, call, text or email for more information.",
   "services_text": null,
   "source_url": "https://cofh.ca/"
  },
@@ -100,9 +121,9 @@
  "380f9d36": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Home page: 'Sunday services are primarily conducted in Cantonese with simultaneous Mandarin translation.' No office hours published.",
-  "services_text": "主日崇拜 Sunday Worship — 日期：逢星期日；時間：10:30 am；地點：教會禮堂 (Cantonese with simultaneous Mandarin translation; also live-streamed). 兒童崇拜 Children Worship: 逢星期日 10:30 am. 祈禱會 Prayer meeting: 逢星期三 7:30pm, online (Teams).",
-  "source_url": "https://ocbckelowna.org/worship-%e5%b4%87%e6%8b%9c%e8%81%9a%e6%9c%83/"
+  "notes": "Sunday worship in the church hall, also live-streamed. Official wording (desk check 2026-10-04): Sunday Worship 主日崇拜 — 日期：逢星期日；時間：10:30 am；地點：教會禮堂",
+  "services_text": "Sunday: 10:30 a.m.",
+  "source_url": "https://ocbckelowna.org/"
  },
  "39ad28d7": {
   "fetched": "2026-10-04",
@@ -111,11 +132,18 @@
   "services_text": null,
   "source_url": "https://www.saveonfoods.com/store-information/rutland/2229"
  },
+ "39e99908": {
+  "fetched": "2026-10-04",
+  "hours_text": "Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)",
+  "notes": "Seasonal (September to June): kept for a person; not converted.",
+  "services_text": null,
+  "source_url": "https://www.sd23.bc.ca/contact-us"
+ },
  "441f21f5": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Parish Office Hours: Tuesday - Friday: 9:00 AM - 2:00 PM.",
-  "services_text": "Daily Mass: Monday - Friday: 8:30 AM; Saturday (Sunday Mass): 5:00 PM; Sunday: 8:30 AM, 10:30 AM, 7:00 PM. Confession: Saturday 4:30PM - 4:45PM; Tuesday and Friday 9:00AM - 9:30 AM; or by appointment",
+  "notes": "Official wording (desk check 2026-10-04): Monday - Friday: 8:30 AM; Saturday (Sunday Mass): 5:00 PM; Sunday: 8:30 AM, 10:30 AM, 7:00 PM",
+  "services_text": "Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m., 7:00 p.m.",
   "source_url": "https://stcharlesgarnier.ca/"
  },
  "472381f1": {
@@ -167,19 +195,33 @@
   "services_text": null,
   "source_url": "https://www.shoppersdrugmart.ca/en/stores/2217-shoppers-drug-mart-rutland-plaza-33/"
  },
+ "4ef71f53": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday: 8:30 a.m. to 6:00 p.m.; Saturday and Sunday: 8:30 a.m. to 5:00 p.m.",
+  "notes": "Last wash 1 hour before closing. Closed statutory holidays. Official wording (desk check 2026-10-04): Monday 8:30AM - 6:00PM; Tuesday 8:30AM - 6:00PM; Wednesday 8:30AM - 6:00PM; Thursday 8:30AM - 6:00PM; Friday 8:30AM - 6:00PM; Saturday 8:30AM - 5:00PM; Sunday 8:30AM - 5:00PM. Last wash 1 hour before closing. Closed Statutory Holidays!",
+  "services_text": null,
+  "source_url": "https://www.spincitylaundromat.ca/"
+ },
+ "4fa28ce2": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday: 8:30 a.m. to 4:30 p.m.; Tuesday: 8:30 a.m. to 4:30 p.m.; Wednesday: 9:00 a.m. to 4:30 p.m.; Thursday: 8:30 a.m. to 4:30 p.m.; Friday: 8:30 a.m. to 4:30 p.m.; Saturday: 8:30 a.m. to 4:30 p.m.; Sunday: Closed",
+  "notes": "ICBC office locator (desk check 2026-10-04). Knowledge tests need an appointment. Official wording (desk check 2026-10-04): Monday 8:30–16:30; Tuesday 8:30–16:30; Wednesday 9:00–16:30; Thursday 8:30–16:30; Friday 8:30–16:30; Saturday 8:30–16:30 (from ICBC office-locator data; hours shown as decimal start/end values, rendered here)",
+  "services_text": null,
+  "source_url": "https://www.icbc.com/driver-licensing/visit-dl-office"
+ },
  "5b4fbf06": {
   "fetched": "2026-10-04",
-  "hours_text": "By Appointment Only: Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments: Fridays 9:00AM – 3:00 PM",
-  "notes": "Kelowna distribution hours, by appointment only. Closed during BC Statutory Holidays.",
+  "hours_text": "Monday to Saturday: 9:00 a.m. to 11:30 a.m. and 12:00 p.m. to 3:00 p.m. (by appointment only)",
+  "notes": "Kelowna distribution, by appointment only; closed BC statutory holidays. Tiny Bundles Fridays 9-3. Official wording (desk check 2026-10-04): Kelowna Distribution Hours: By Appointment Only; Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments Fridays 9:00AM – 3:00 PM; Closed during BC Statutory Holidays.",
   "services_text": null,
-  "source_url": "https://cofoodbank.com/get-food/"
+  "source_url": "https://cofoodbank.com/"
  },
  "6644e12d": {
   "fetched": "2026-10-04",
-  "hours_text": "Monday to Friday 9 am to 4 pm. Lunchtime closure: 12:30 to 1:30 pm",
-  "notes": "'The Student Health Clinic is open year-round.' By appointment only, with some same-day appointments (call 250-807-9270). For UBC Okanagan students.",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 12:30 p.m. and 1:30 p.m. to 4:00 p.m. (by appointment only)",
+  "notes": "By appointment, some same-day appointments; call 250-807-9270. Official wording (desk check 2026-10-04): The Student Health Clinic is open year-round. Monday to Friday 9 am to 4 pm* Lunchtime closure: 12:30 to 1:30 pm",
   "services_text": null,
-  "source_url": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
+  "source_url": "https://students.ok.ubc.ca/health-wellness/health-clinic/"
  },
  "684b15c1": {
   "fetched": "2026-10-04",
@@ -194,6 +236,13 @@
   "notes": "Closed statutory holidays. Page also says: 'Due to the current wildfire situation hours of operation may be impacted. Please call or email us before visiting.'",
   "services_text": null,
   "source_url": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna"
+ },
+ "68b9dda4": {
+  "fetched": "2026-10-04",
+  "hours_text": "Everyday 7AM to 10PM",
+  "notes": "Pharmacy weekdays 9-8, Sat-Sun 10-6, holidays closed. Official wording (desk check 2026-10-04): Store Hours: Everyday 7AM to 10PM",
+  "services_text": null,
+  "source_url": "https://www.saveonfoods.com/store-information/glenmore/2224"
  },
  "6ae407aa": {
   "fetched": "2026-10-04",
@@ -225,24 +274,31 @@
  },
  "760d0b10": {
   "fetched": "2026-10-04",
-  "hours_text": "Hours for in-person services: Monday Virtual services only; Tuesday 8:00 AM – 5:20 PM; Wednesday 8:00 AM – 5:20 PM; Thursday 8:00 AM – 5:20 PM; Friday Closed; Saturday Closed; Sunday Closed",
-  "notes": "Hours for virtual services: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday Closed. 'Hours are subject to change. If you do not have an appointment, it is recommended that you call the Kelowna Family Justice Centre before you drop in.' Phone 250-712-3636.",
+  "hours_text": "Tuesday to Thursday: 8:00 a.m. to 5:20 p.m.",
+  "notes": "In person Tue-Thu only; Monday virtual only; closed Friday. Call before dropping in. Official wording (desk check 2026-10-04): Hours for in-person services: Monday Virtual services only; Tuesday 8:00 AM – 5:20 PM; Wednesday 8:00 AM – 5:20 PM; Thursday 8:00 AM – 5:20 PM; Friday Closed; Saturday Closed; Sunday Closed. Hours for virtual services: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday Closed.",
   "services_text": null,
-  "source_url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-services-division/family-justice-centres/locations/kelowna"
+  "source_url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-centres"
  },
  "7f387a81": {
   "fetched": "2026-10-04",
-  "hours_text": "Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.",
-  "notes": "Closed statutory holidays.",
+  "hours_text": "Monday to Friday: 8:30 a.m. to 4:30 p.m.",
+  "notes": "Excluding statutory holidays. Official wording (desk check 2026-10-04): Our offices are open Monday to Friday from 8:30 am – 4:30 pm, excluding statutory holidays.",
   "services_text": null,
-  "source_url": "https://syilx.org/contact/"
+  "source_url": "https://syilx.org/"
  },
  "8039f01c": {
   "fetched": "2026-10-04",
-  "hours_text": "Building Hours: Monday to Friday: 9 AM - 9 PM; Saturday and Sunday: 10 AM - 9 PM; Holidays: 10 AM - 9 PM",
-  "notes": "RCA Reception: Mon. - Fri.: 9 AM - 5 PM. Box Office: Phone Mon.- Sat. 10 AM - 3 PM; in-person at RCA Mon.- Fri. 1 PM - 4 PM, and open 90 minutes before show time. Reception/box office CLOSED Sep. 30 and Oct. 12 (2026 holidays).",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 9:00 p.m.; Saturday and Sunday: 10:00 a.m. to 9:00 p.m.",
+  "notes": "Building hours. Reception Mon-Fri 9-5. Official wording (desk check 2026-10-04): Building Hours: Monday to Friday: 9 AM - 9 PM; Saturday and Sunday: 10 AM - 9 PM; Holidays: 10 AM - 9 PM",
   "services_text": null,
-  "source_url": "https://www.rotarycentreforthearts.com/"
+  "source_url": "https://rotarycentreforthearts.com/"
+ },
+ "80a0b6af": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 7:00 a.m. to 10:00 p.m.",
+  "notes": "Official wording (desk check 2026-10-04): Monday: 7:00 a.m to 10:00 p.m; Tuesday: 7:00 a.m to 10:00 p.m; Wednesday: 7:00 a.m to 10:00 p.m; Thursday: 7:00 a.m to 10:00 p.m; Friday: 7:00 a.m to 10:00 p.m; Saturday: 7:00 a.m to 10:00 p.m; Sunday: 7:00 a.m to 10:00 p.m",
+  "services_text": null,
+  "source_url": "https://www.freshco.com/stores/freshco-hwy-97-leckie"
  },
  "83ec9d28": {
   "fetched": "2026-10-04",
@@ -253,8 +309,8 @@
  },
  "865f5856": {
   "fetched": "2026-10-04",
-  "hours_text": "General services: Monday to Friday 8:00 am to 5:30 pm. Fingerprint services: Monday to Friday 9:30 am to 4:45 pm",
-  "notes": "Front-counter hours of the Kelowna Main Detachment. Call 911 for emergencies at any time.",
+  "hours_text": "Monday to Friday: 8:00 a.m. to 5:30 p.m.",
+  "notes": "General services. Fingerprint services Mon-Fri 9:30 a.m. to 4:45 p.m. Official wording (desk check 2026-10-04): General services: Monday to Friday 8:00 am to 5:30 pm; Fingerprint services: Monday to Friday 9:30 am to 4:45 pm",
   "services_text": null,
   "source_url": "https://rcmp.ca/en/bc/kelowna/contact"
  },
@@ -293,12 +349,26 @@
   "services_text": null,
   "source_url": "https://legalaid.bc.ca/services/legal-aid-locations"
  },
+ "8fbf7c34": {
+  "fetched": "2026-10-04",
+  "hours_text": "Open 24/7",
+  "notes": "Front desk 24/7; building secured 8 p.m. to 7 a.m. (intercom). Official wording (desk check 2026-10-04): Regular Hours: The Front Desk is open 24/7. Nechako Residence is secured daily from 8 p.m. to 7 a.m. During these hours, non-resident students and staff may use the intercom at any entrance to reach the Front Desk and request access.",
+  "services_text": null,
+  "source_url": "https://okanagan.housing.ubc.ca/contact-us/"
+ },
  "8ffe8733": {
   "fetched": "2026-10-04",
   "hours_text": "Monday to Friday : 9 a.m. to 4 p.m.",
   "notes": "Health-care providers are available 24 hours a day, seven days a week for deliveries and emergencies.",
   "services_text": null,
   "source_url": "https://www.interiorhealth.ca/locations/central-okanagan-maternity-clinic"
+ },
+ "905767e6": {
+  "fetched": "2026-10-04",
+  "hours_text": null,
+  "notes": "Sunday worship; English-speaking group too. Official wording (desk check 2026-10-04): SERVICE TIMING: Sun 1:30pm. 주일예배 일요일 1:30pm; 새벽기도회 6:00 a.m (매주 zoom으로 모입니다)",
+  "services_text": "Sunday: 1:30 p.m.",
+  "source_url": "https://thekkpc.com/"
  },
  "9080e12c": {
   "fetched": "2026-10-04",
@@ -324,8 +394,8 @@
  "974a56f4": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Parish Office Hours: Tuesday - Friday: 9:00 AM - 3:00 PM.",
-  "services_text": "SUNDAYS: 9:00am – Divine Liturgy (English); SUNDAYS: 11:00am – Divine Liturgy (Ukrainian); DAILY (Tue-Fri): 9:30 am – Divine Liturgy (Eng/Ukr); SATURDAYS: 7:00 pm – Great Vespers",
+  "notes": "Sunday 9:00 English, 11:00 Ukrainian; Saturday 7:00 p.m. Great Vespers. Official wording (desk check 2026-10-04): SUNDAYS: 9:00am – Divine Liturgy (English); SUNDAYS: 11:00am – Divine Liturgy (Ukrainian); DAILY (Tue-Fri): 9:30 am – Divine Liturgy (Eng/Ukr); SATURDAYS: 7:00 pm – Great Vespers",
+  "services_text": "Saturday: 7:00 p.m.; Sunday: 9:00 a.m., 11:00 a.m.",
   "source_url": "https://kelowna.nweparchy.ca/"
  },
  "9778de6e": {
@@ -351,17 +421,17 @@
  },
  "9f3e043b": {
   "fetched": "2026-10-04",
-  "hours_text": "Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm",
-  "notes": "Seasonal: in July & August weekday closing is 9pm. 'Closed Christmas and Boxing Day, modified holiday hours.'",
+  "hours_text": "Monday to Friday: 6:00 a.m. to 10:00 p.m.; Saturday and Sunday: 8:00 a.m. to 5:00 p.m.",
+  "notes": "Facility hours; closes 9 p.m. weekdays in July and August. Official wording (desk check 2026-10-04): Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm; Closed Christmas and Boxing Day, modified holiday hours. Front Counter hours: Monday - Friday: 6 a.m. - 9:30 p.m., Saturday & Sunday 8 a.m. - 4:30 p.m. Phone hours (250-469-8800): Monday - Friday: 8 a.m. - 9 p.m., Saturday - Sunday: 9:30 a.m. - 4 p.m.",
   "services_text": null,
-  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-recreation-centre-0"
+  "source_url": "https://www.kelowna.ca/parks-recreation/facilities-venues/parkinson-recreation-centre"
  },
  "a49d7f91": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Diocese page does NOT give a time for the Filipino Mass (our file says 5:00 p.m. - not confirmed). Parish's own site (http://www.corpuschristikelowna.com) matches the regular times and does not mention the Filipino Mass. Friday Masses are at care facilities only. Parish office: Tuesday - Friday 8:30 a.m. - 2:30 p.m.",
-  "services_text": "Saturday 4:30 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Sunday Filipino Mass: First Sunday of the Month; Sunday Vietnamese Mass: TBA; Vietnamese Rosary: First Sunday of the Month after the 11:00 a.m. Mass; Tuesday 3:00 p.m.; Wednesday 9:00 a.m.; Thursday 9:00 a.m. Reconciliation/Confession: Saturday 12:00 - 1:00 p.m.",
-  "source_url": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069739&type=d&pREC_ID=1358566"
+  "notes": "Diocese of Nelson parish page. Filipino Mass first Sunday of the month, time not stated. Official wording (desk check 2026-10-04): MASS TIME: Saturday 4:30 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Sunday Filipino Mass: First Sunday of the Month; Sunday Vietnamese Mass: TBA, Vietnamese Rosary: First Sunday of the Month after the 11:00 a.m. Mass; Tuesday 3:00 p.m.; Wednesday 9:00 a.m.; Thursday 9:00 a.m.; Reconciliation/Confession: Saturday 12:00 - 1:00 p.m.",
+  "services_text": "Saturday: 4:30 p.m.; Sunday: 9:00 a.m., 11:00 a.m.",
+  "source_url": "https://www.nelsondiocese.org/"
  },
  "a55b7531": {
   "fetched": "2026-10-04",
@@ -370,12 +440,19 @@
   "services_text": null,
   "source_url": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use"
  },
+ "a5ed2320": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Friday: 9:00 a.m. to 5:30 p.m.; Saturday: 9:00 a.m. to 5:00 p.m.; Sunday: Closed",
+  "notes": "Closed Sundays and holidays. Official wording (desk check 2026-10-04): Hours: Mon – Fri: 9:00 AM – 5:30 PM Sat: 9:00 AM – 5:00 PM Closed Sundays and Holidays",
+  "services_text": null,
+  "source_url": "https://www.dyckspharmacists.com/ida-glenmore/"
+ },
  "b2079547": {
   "fetched": "2026-10-04",
-  "hours_text": "Regular Facility Hours: Monday–Friday 5:30 a.m.–9:00 p.m.; Saturday & Sunday 8:00 a.m.–8:00 p.m.; Stat Holidays* 9:00 a.m.–5:00 p.m.",
-  "notes": "Source is the YMCA of Southern Interior BC, which operates the City-owned facility (the kelowna.ca page has no hours). Stat holidays 9:00 a.m.–5:00 p.m.; programs (classes, child minding, swim lessons etc.) do not run on statutory holidays. Pool times are on a separate pool schedule.",
+  "hours_text": "Monday to Friday: 5:30 a.m. to 9:00 p.m.; Saturday and Sunday: 8:00 a.m. to 8:00 p.m.",
+  "notes": "YMCA location page, regular hours. Official wording (desk check 2026-10-04): Regular Hours: Mon - Fri 5:30 a.m.–9:00 p.m.; Sat - Sun 8:00 a.m.–8:00 p.m.",
   "services_text": null,
-  "source_url": "https://www.ymcasibc.ca/Locations/H2O/Hours-Schedules"
+  "source_url": "https://www.ymcaokanagan.ca/locations/h2o-adventure-fitness-centre"
  },
  "b3551a68": {
   "fetched": "2026-10-04",
@@ -419,6 +496,13 @@
   "services_text": null,
   "source_url": "https://connectcounsellingandtherapy.com/pages/contact"
  },
+ "c89e4405": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Saturday: 9:00 a.m. to 6:00 p.m.; Sunday: Closed",
+  "notes": "Open statutory holidays except Christmas. Official wording (desk check 2026-10-04): Monday to Saturday: 9 AM to 6 PM. Open on statutory holidays, except Christmas.",
+  "services_text": null,
+  "source_url": "https://washwerk.ca/"
+ },
  "cba7e8e1": {
   "fetched": "2026-10-04",
   "hours_text": "Monday, Tuesday, Wednesday, Friday: 9:00am – 5:00pm; Thursday: 9:00am – 7:00pm",
@@ -429,8 +513,8 @@
  "cc5fe981": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Holiday variation: long-weekend Mondays and stat holidays Rosary 8:30 am / Mass 9:00 am. Confession outside those times by appointment (office 250-762-3910).",
-  "services_text": "Sunday: Rosary 8:30 am, Mass: 9:00 am, 11:00 am & 5:00 pm. Saturday: Rosary 8:30 am, Mass: 9:00 am & 5:00 pm (Vigil for Sunday). Monday - Friday: 7:30 am Rosary, Mass: 8:00 am. Long weekend Monday & Stat holidays: Rosary 8:30 am, Mass 9:00 am. Wednesday: Rosary 4:30 pm - Mass 5:00 pm, Novena to Our Lady of Perpetual Help to follow. First Friday Devotions: Benediction/Adoration 3:00 pm, Mass 4:00 pm. Sacrament of Reconciliation: Saturday 10:00- 11:00 am, 3:45 - 4:45 pm",
+  "notes": "Parish's own site. Official wording (desk check 2026-10-04): Holy Sacrifice of the Mass: Sunday - Rosary 8:30 am, Mass: 9:00 am, 11:00 am & 5:00 pm; Saturday - Rosary 8:30 am, Mass: 9:00 am & 5:00 pm (Vigil for Sunday); Monday - Friday - 7:30 am Rosary, Mass: 8:00 am; Long weekend Monday & Stat holidays - Rosary 8:30 am, Mass 9:00 am; + Wednesday - Rosary 4:30 pm - Mass 5:00 pm, Novena to Our Lady of Perpetual Help to follow; First Friday Devotions - Benediction/Adoration 3:00 pm, Mass 4:00 pm. Sacrament of Reconciliation: Saturday 10:00-11:00 am, 3:45-4:45 pm. TRADITIONAL LATIN MASS (diocese page): Sunday 1:00 p.m.; Mass on the First Friday of the Month at 7:00 p.m.; Mass on the First Saturday of the Month at 3:00 p.m.",
+  "services_text": "Saturday: 9:00 a.m., 5:00 p.m.; Sunday: 9:00 a.m., 11:00 a.m., 5:00 p.m.",
   "source_url": "https://www.icckelowna.ca/"
  },
  "cf723f3f": {
@@ -442,10 +526,10 @@
  },
  "d2ff477f": {
   "fetched": "2026-10-04",
-  "hours_text": "Monday to Friday 8am to 2:30pm, closed on Saturday and Sundays.",
-  "notes": "Operated with the Parkinson Senior Society (programs for ages 50+).",
+  "hours_text": "Monday to Friday: 8:00 a.m. to 2:30 p.m.; Saturday and Sunday: Closed",
+  "notes": "Official wording (desk check 2026-10-04): Monday to Friday 8am to 2:30pm, closed on Saturday and Sundays.",
   "services_text": null,
-  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-activity-centre"
+  "source_url": "https://www.kelowna.ca/parks-recreation/facilities-venues/parkinson-activity-centre"
  },
  "d42d42dc": {
   "fetched": "2026-10-04",
@@ -453,6 +537,13 @@
   "notes": "Place of worship: daily prayer times given; no separate public opening hours published other than 'Door Closed By 8 PM'.",
   "services_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Weekly Program on every Sunday: Sukhmaini Sahib Path and Kirtan Sewa",
   "source_url": "https://www.kelownasikhtemple.ca/"
+ },
+ "d94b8fff": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 8:00 a.m. to midnight",
+  "notes": "Main desk and Campus Housing office. Official wording (desk check 2026-10-04): The main desk is open daily from 8:00 a.m. - 12:00 a.m. (Campus Housing office keeps the same schedule)",
+  "services_text": null,
+  "source_url": "https://www.okanagancollege.ca/housing/campus-housing-in-kelowna"
  },
  "d9cab6e5": {
   "fetched": "2026-10-04",
@@ -463,10 +554,10 @@
  },
  "daf09eae": {
   "fetched": "2026-10-04",
-  "hours_text": "By Appointment Only: Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM",
-  "notes": "West Kelowna distribution hours, by appointment only. Closed during BC Statutory Holidays. Matches hours on file.",
+  "hours_text": "Tuesday: 9:30 a.m. to 12:30 p.m.; Wednesday: 4:30 p.m. to 7:30 p.m.; Thursday: 9:30 a.m. to 12:30 p.m.; Friday: 9:30 a.m. to 12:30 p.m. (by appointment only)",
+  "notes": "West Kelowna distribution, by appointment only; closed BC statutory holidays. Official wording (desk check 2026-10-04): West Kelowna Distribution Hours: By Appointment Only; Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM; Closed during BC Statutory Holidays.",
   "services_text": null,
-  "source_url": "https://cofoodbank.com/get-food/"
+  "source_url": "https://cofoodbank.com/"
  },
  "db95c7db": {
   "fetched": "2026-10-04",
@@ -506,8 +597,8 @@
  "ea2b90f1": {
   "fetched": "2026-10-04",
   "hours_text": null,
-  "notes": "Holiday Mondays: Mass at 9:00 a.m. Parish site (http://www.ololwestkelowna.com) confirms weekend Masses 'Saturday @ 5PM; Sunday @ 9AM and 11AM (11AM Mass is Livestreamed)' and points to its calendar for daily Masses.",
-  "services_text": "Saturday 5:00 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Monday 7:45 a.m. (9:00 a.m. Holiday Mondays); Tuesday 9:00 a.m., First Tuesday 9:00 a.m. and 7:00 p.m. (*September - June); Wednesday 9:00 a.m.; Thursday 9:00 a.m.; Friday 9:00 a.m., Eucharistic Adoration after Mass until 10:30 a.m.; First Fridays: 9:00 a.m. and 4:00 p.m. Reconciliation/Confession: Saturday 4:00-4:30 p.m.; Sunday 8:00-8:30 a.m. and 10:00-10:30 a.m.; First Friday 9:30-10:30 a.m. or by appointment",
+  "notes": "Parish's own site confirms Saturday 5 p.m., Sunday 9 and 11 a.m. Official wording (desk check 2026-10-04): Saturday 5:00 p.m.; Sunday 9:00 a.m. and 11:00 a.m.; Monday 7:45 a.m. (9:00 a.m. Holiday Mondays); Tuesday 9:00 a.m.; Wednesday 9:00 a.m.; Thursday 9:00 a.m.; Friday 9:00 a.m.",
+  "services_text": "Saturday: 5:00 p.m.; Sunday: 9:00 a.m., 11:00 a.m.",
   "source_url": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069758&type=d&pREC_ID=1358584"
  },
  "ebae0c1a": {
@@ -516,6 +607,13 @@
   "notes": "Walk-in. HealthLink BC page: 'It is recommended that you call before going to the clinic to confirm hours and availability.' Source is HealthLink BC (BC government directory), not the clinic's own site. Weekends not listed.",
   "services_text": null,
   "source_url": "https://www.healthlinkbc.ca/clinic/md-medical-centre"
+ },
+ "f0be0178": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday to Sunday: 9:30 a.m. to 6:30 p.m.",
+  "notes": "Official wording (desk check 2026-10-04): Opening Everyday From 09.30 am – 06:30 pm",
+  "services_text": null,
+  "source_url": "https://funspacekids.com/"
  },
  "f2933ab1": {
   "fetched": "2026-10-04",

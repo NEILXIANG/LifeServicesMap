@@ -112,27 +112,36 @@ function _taskCardEl(t,src){
 const _HEALTH_RE=/doctor|clinic|walk.?in\b|sick|urgent|nurs[e](?!ry)|\bgp\b|\ber\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
 const _NOT_HEALTH_RE=/\bdent|\bvet\b|veterin|animal|\bpets?\b|legal|lawyer|\blaw\b|牙|兽医|獸醫|宠物|寵物|法律|치과|동물|수의|歯|動物|獣医|\beyes?\b|optom|glasses|lunettes|gafas|眼科|眼镜|眼鏡|안과|안경|目医者|insurance|seguro|assurance|保险|保險|보험|保険/i;
 function _isHealthQuery(q){q=String(q||'');return _HEALTH_RE.test(q)&&!_NOT_HEALTH_RE.test(q);}
-const _UPCC_ID='b29c9af7';
+// 2026-10-04: the city's urgent and primary care centres come from CITY.upcc (place ids). This used
+// to be one Kamloops id written here, so in any other city the whole health answer silently vanished.
+function _upccs(){return (CITY.upcc||[]).map(id=>P.find(p=>p.id===id)).filter(Boolean);}
 function renderSearchHelp(){
   const el=document.getElementById('searchHelp');if(!el)return;
   const q=(searchRaw||searchTerm||'').trim(),u=UI[L_];
   if(!searchTerm||isCrisisQuery(q)){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
-  const health=_isHealthQuery(q),upcc=P.find(p=>p.id===_UPCC_ID);
+  const health=_isHealthQuery(q),ups=_upccs();
   if(!health&&!_closest){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
   el.innerHTML='';el.hidden=false;
   if(_closest){const n=document.createElement('p');n.className='sh-note';n.textContent=u.searchClosestNote(q,lastVisible);el.appendChild(n);}
-  if(health&&upcc){
+  if(health){
     el.dataset.kind='health';
-    const st=openState(upcc.h),hrs=fmtHours(upcc.h,L_);
-    const stTxt=st?('<span class="sh-status'+(st.open?' open':'')+'">'+esc(st.open?u.hcOpenNow:u.hcClosedNow)+'</span> · '):'';
+    const stOf=p=>{const st=openState(p.h);return st?('<span class="sh-status'+(st.open?' open':'')+'">'+esc(st.open?u.hcOpenNow:u.hcClosedNow)+'</span> · '):'';};
+    // one centre: the line reads as before; several: each centre by name, with its own status and hours
+    const upccLi=!ups.length?'':'<li>'+esc(u.hcUpcc)+(ups.length===1
+      ?'<br>'+stOf(ups[0])+esc(u.hcHours)+u.colon+esc(fmtHours(ups[0].h,L_))
+      :ups.map(p=>'<br><b>'+esc(p.n)+'</b> · '+esc(p.a)+'<br>'+stOf(p)+esc(u.hcHours)+u.colon+esc(fmtHours(p.h,L_))).join(''))+'</li>';
     const box=document.createElement('div');
     box.innerHTML='<p class="sh-title">'+esc(u.hcTitle)+'</p><ul class="sh-list">'
-      +'<li>'+esc(u.hcUpcc)+'<br>'+stTxt+esc(u.hcHours)+u.colon+esc(hrs)+'</li>'
+      +upccLi
       +'<li>'+phoneHtml(esc(u.hc811))+'</li><li>'+esc(u.hcPharm)+'</li><li>'+esc(u.hc911).replace(/\b911\b/,'<a href="tel:911">911</a>')+'</li></ul>';
     const btns=document.createElement('div');btns.className='sh-btns';
-    const b1=document.createElement('button');b1.type='button';b1.className='sh-btn primary';b1.textContent=u.hcShowUpcc;
-    b1.onclick=()=>{const m=M.find(x=>x.data.id===_UPCC_ID);if(m){trackEvent('search_help_click',{kind:'upcc'});focusMarker(m,16);}};
-    btns.appendChild(b1);
+    // the map button goes to a centre that is open now when there is one
+    const target=ups.find(p=>{const st=openState(p.h);return st&&st.open;})||ups[0];
+    if(target){
+      const b1=document.createElement('button');b1.type='button';b1.className='sh-btn primary';b1.textContent=u.hcShowUpcc;
+      b1.onclick=()=>{const m=M.find(x=>x.data.id===target.id);if(m){trackEvent('search_help_click',{kind:'upcc'});focusMarker(m,16);}};
+      btns.appendChild(b1);
+    }
     const sick=TASKS.find(t=>t.id==='sick');
     if(sick){const b2=document.createElement('button');b2.type='button';b2.className='sh-btn';b2.textContent=u.emptyGuideHint.replace('{T}',taskText(sick.t));
       b2.onclick=()=>openGuide('search_help','sick');btns.appendChild(b2);}

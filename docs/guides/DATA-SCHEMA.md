@@ -120,6 +120,12 @@ something a reader can verify (there is a source of record, and here is the link
 rather than by an unfalsifiable claim about how the data was gathered. Promote a
 record to `own` when you actually check it, and add a `w` when you find one.
 
+**Desk checks (2026-10-04).** A record's `src` says where its facts come from; whether a *second, independent
+reader* has compared it with that source is recorded separately, in `cities/<city>/import/verification.json`
+(`{id: {checked, method: "desk", result: confirmed|corrected, fixed: [...], urls, remarks}}`). A desk check is not a
+phone check: it never makes a record `own`. It is what promotes a `stub-pending-verify` record that has a `w` to
+`official`, and its `remarks` are printed on the phone-verification sheet as the questions still to ask.
+
 Two things depend on this field:
 
 - the small source chip in each popup, so credibility is visible per record instead

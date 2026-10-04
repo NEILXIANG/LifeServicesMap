@@ -2,7 +2,7 @@
  "http://cms.sd23.bc.ca/": "250-870-5123",
  "https://ame.sd23.bc.ca/": "250-870-5133",
  "https://asm.sd23.bc.ca/": "250-870-5112",
- "https://bce.sd23.bc.ca/": null,
+ "https://bce.sd23.bc.ca/": "250-870-5174",
  "https://bge.sd23.bc.ca/": "250-870-5115",
  "https://bhe.sd23.bc.ca/": "250-870-5114",
  "https://bme.sd23.bc.ca/": "250-870-5143",
@@ -37,5 +37,5 @@
  "https://sre.sd23.bc.ca/": "250-870-5113",
  "https://sve.sd23.bc.ca/": "250-870-5119",
  "https://wat.sd23.bc.ca/": "250-870-5137",
- "https://wre.sd23.bc.ca/": null
+ "https://wre.sd23.bc.ca/": "250-870-5131"
 }

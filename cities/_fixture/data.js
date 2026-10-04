@@ -28,6 +28,11 @@ const CITY={
   // names used as examples in the search prompts ("Which bus goes to TRU?") and the
   // bus-stop search hint; a city without a campus leaves campus out and the prompt goes
   examples:{campus:'TRU', stop:'Lansdowne'},
+  // 2026-10-04: the local police non-emergency line (footer and Key Numbers) and the urgent and
+  // primary care centre(s) the health answer under the search box points to — both used to be
+  // written into the engine
+  police:'250-555-0100',
+  upcc:['b29c9af7'],
   schoolDistrict:{name:'SD73', url:'https://www.sd73.bc.ca/find-my-catchment-school'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -196,6 +201,13 @@ UI.fr.licenceData='<p><b>Données ouvertes provinciales :</b> certains lieux de 
 UI.es.licenceData='<p><b>Datos abiertos provinciales:</b> algunos lugares de esta página — guarderías con licencia y ubicaciones de escuelas de K a 12 — contienen información bajo la <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>.</p>';
 UI.ko.licenceData='<p><b>주 정부 공개 데이터:</b> 이 페이지의 일부 장소(허가받은 어린이집, K–12 학교 위치)에는 <a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>에 따라 제공되는 정보가 포함되어 있습니다.</p>';
 UI.ja.licenceData='<p><b>州政府のオープンデータ：</b>このページの一部の場所（認可保育施設、K–12学校の位置）には、<a href="https://www2.gov.bc.ca/gov/content/data/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> に基づく情報が含まれています。</p>';
+// 2026-10-04: city texts that used to sit in the engine (moved verbatim, so the page reads exactly as before)
+UI.zh.busFareText='{CITY} fare text ({TRANSIT}).';
+UI.en.busFareText='{CITY} fare text ({TRANSIT}).';
+UI.fr.busFareText='{CITY} fare text ({TRANSIT}).';
+UI.es.busFareText='{CITY} fare text ({TRANSIT}).';
+UI.ko.busFareText='{CITY} fare text ({TRANSIT}).';
+UI.ja.busFareText='{CITY} fare text ({TRANSIT}).';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

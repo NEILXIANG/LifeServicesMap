@@ -11,6 +11,10 @@ const CITY={
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kelowna/'},
   // search-prompt examples: the university and the main downtown exchange
   examples:{campus:'UBCO', stop:'Queensway'},
+  // the local police non-emergency line (footer, Key Numbers): Kelowna RCMP; West Kelowna's own
+  // detachment is on the map. The health answer under the search box lists all three UPCCs.
+  police:'250-762-3300',
+  upcc:['37ef188e','8ea416a5','d9cab6e5'],
   schoolDistrict:{name:'SD23', url:'https://www.sd23.bc.ca/catchment'},
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the 14 task cards were last read against their official sources
@@ -83,16 +87,19 @@ const CITY={
   // ymcabc.ca womens-emergency-shelter; interiorhealth.ca (Interior Crisis Line).
   // Draft 2026-10-03 from the organisations' own pages; to verify by phone before launch.
   // kelownawomensshelter.com (24/7 line, text 236-970-0704; address kept private); interiorhealth.ca crisis-response.
+  // 2026-10-04 desk check: 250-763-1040 and text 236-970-0704 (24/7) on kelownawomensshelter.com — "free" is not
+  // stated there, so the note no longer says it; 1-888-353-2273 (24 hours) on interiorhealth.ca/services/crisis-response.
   localLines:[
-   {n:'250-763-1040',note:{en:'Kelowna Women’s Shelter — women and children leaving abuse. 24 hours, free, confidential; the address is kept private. Call, or text 236-970-0704:',
-      fr:'Kelowna Women’s Shelter — femmes et enfants qui fuient la violence. 24 h sur 24, gratuit, confidentiel ; l’adresse reste confidentielle. Appelez, ou textez le 236-970-0704 :',
-      es:'Kelowna Women’s Shelter — mujeres y niños que huyen del maltrato. 24 horas, gratis, confidencial; la dirección es privada. Llame, o envíe un texto al 236-970-0704:',
-      zh:'Kelowna Women’s Shelter——逃离虐待的女性和儿童。24 小时，免费，保密；地址不公开。打电话，或发短信到 236-970-0704：',
-      ko:'Kelowna Women’s Shelter — 학대를 피해 나온 여성과 아이들. 24시간, 무료, 비밀 보장, 주소는 비공개. 전화하거나 236-970-0704로 문자:',
-      ja:'Kelowna Women’s Shelter — 虐待から逃れる女性と子ども。24時間・無料・秘密厳守、住所は非公開。電話、またはSMS 236-970-0704：'}},
+   {n:'250-763-1040',note:{en:'Kelowna Women’s Shelter — women and children leaving abuse. 24 hours, confidential; the address is kept private. Call, or text 236-970-0704:',
+      fr:'Kelowna Women’s Shelter — femmes et enfants qui fuient la violence. 24 h sur 24, confidentiel ; l’adresse reste confidentielle. Appelez, ou textez le 236-970-0704 :',
+      es:'Kelowna Women’s Shelter — mujeres y niños que huyen del maltrato. 24 horas, confidencial; la dirección es privada. Llame, o envíe un texto al 236-970-0704:',
+      zh:'Kelowna Women’s Shelter——逃离虐待的女性和儿童。24 小时，保密；地址不公开。打电话，或发短信到 236-970-0704：',
+      ko:'Kelowna Women’s Shelter — 학대를 피해 나온 여성과 아이들. 24시간, 비밀 보장, 주소는 비공개. 전화하거나 236-970-0704로 문자:',
+      ja:'Kelowna Women’s Shelter — 虐待から逃れる女性と子ども。24時間・秘密厳守、住所は非公開。電話、またはSMS 236-970-0704：'}},
    {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}}
   ],
-  // CMHA Kelowna, Crisis Response Community Led (CRCL), checked on cmhakelowna.com 2026-10-03 (draft).
+  // CMHA Kelowna, Crisis Response Community Led (CRCL), checked on cmhakelowna.com 2026-10-03; desk check 2026-10-04:
+  // 778-940-2560, call or text, 11 a.m.–8:30 p.m. seven days a week, 13+, not a police service, serves Kelowna.
   localCrisis:{n:'778-940-2560',src:'https://www.cmhakelowna.com/programs-supports/crisis-response-community-led-crcl',
     note:{en:'Kelowna crisis team (not police), daily 11am–8:30pm, call or text, age 13+:',
           fr:'Équipe de crise de Kelowna (pas la police), tous les jours 11 h–20 h 30, appel ou texto, dès 13 ans :',
@@ -143,6 +150,31 @@ UI.fr.licenceData='<p><b>Données ouvertes :</b> certains lieux de cette page �
 UI.es.licenceData='<p><b>Datos abiertos:</b> algunos lugares de esta página — guarderías con licencia y ubicaciones de escuelas de K a 12 — contienen información usada bajo la <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>; los parques y otras instalaciones municipales, bajo la <a href="http://apps.kelowna.ca/images/opendata/opengovernmentlicence.pdf" target="_blank" rel="noopener">Open Government Licence – City of {CITY}</a>; rutas y paradas de autobús: {TRANSIT} es la fuente de estos datos (<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">términos de uso</a>).</p>';
 UI.ko.licenceData='<p><b>공개 데이터:</b> 이 페이지의 일부 장소(허가받은 어린이집, K–12 학교 위치)에는 <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>에 따라 이용하는 정보가 포함되어 있습니다. 공원 등 시 시설은 <a href="http://apps.kelowna.ca/images/opendata/opengovernmentlicence.pdf" target="_blank" rel="noopener">Open Government Licence – City of {CITY}</a>에 따라 이용합니다. 버스 노선과 정류장 데이터의 출처는 {TRANSIT}입니다(<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">공개 데이터 이용 약관</a>).</p>';
 UI.ja.licenceData='<p><b>オープンデータ：</b>このページの一部の場所（認可保育施設、K–12学校の位置）には、<a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> に基づいて利用している情報が含まれます。公園などの市の施設は <a href="http://apps.kelowna.ca/images/opendata/opengovernmentlicence.pdf" target="_blank" rel="noopener">Open Government Licence – City of {CITY}</a> に基づいて利用しています。バスの路線と停留所のデータの出典は {TRANSIT} です（<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">オープンデータ利用規約</a>）。</p>';
+// 2026-10-04: this city's own data note, fares, urgent care and local legal help (the engine keeps generic defaults)
+UI.zh.noteCoverage='本页由个人整理，覆盖 {CITY} 和 West {CITY}（Lake Country、Peachland 暂未收录）。地点来自政府开放数据（BC 省政府的持牌托儿和中小学、{CITY} 市政府的公园、{TRANSIT} 的线路和站点）和各机构官网；每个地点都标明了来源和最近核实的月份。每类只收录主要地点，不是全部商家。公交线路和站点来自 {TRANSIT} 官方时刻表数据；票价和实时到站请以 {TRANSIT} 官网为准。';
+UI.en.noteCoverage='This is a personally compiled reference covering {CITY} and West {CITY} (Lake Country and Peachland are not included yet). Places come from government open data (licensed child care and K–12 schools from the Province of BC, City of {CITY} parks, {TRANSIT} routes and stops) and from each organisation’s official website; every place shows its source and the month it was last checked. Each category shows key places, not every business. Bus routes and stops come from {TRANSIT}’s official timetable data; for fares and live arrivals, see {TRANSIT}’s website.';
+UI.fr.noteCoverage='Cette page est une compilation personnelle qui couvre {CITY} et West {CITY} (Lake Country et Peachland ne sont pas encore inclus). Les lieux proviennent de données ouvertes gouvernementales (garderies autorisées et écoles de la Province de la C.-B., parcs de la Ville de {CITY}, lignes et arrêts de {TRANSIT}) et du site officiel de chaque organisme ; chaque lieu indique sa source et le mois de la dernière vérification. Chaque catégorie présente les lieux principaux, pas tous les commerces. Les lignes et arrêts d’autobus proviennent des données horaires officielles de {TRANSIT} ; pour les tarifs et les passages en temps réel, voyez le site de {TRANSIT}.';
+UI.es.noteCoverage='Esta página es una recopilación personal que cubre {CITY} y West {CITY} (Lake Country y Peachland aún no están incluidos). Los lugares provienen de datos abiertos del gobierno (guarderías con licencia y escuelas de la Provincia de BC, parques de la Ciudad de {CITY}, rutas y paradas de {TRANSIT}) y del sitio oficial de cada organización; cada lugar indica su fuente y el mes de la última verificación. Cada categoría muestra los lugares principales, no todos los comercios. Las rutas y paradas de autobús provienen de los datos de horarios oficiales de {TRANSIT}; para tarifas y llegadas en tiempo real, vea el sitio de {TRANSIT}.';
+UI.ko.noteCoverage='이 페이지는 개인이 정리한 자료로, {CITY}와 West {CITY}를 다룹니다(Lake Country와 Peachland는 아직 포함하지 않았습니다). 장소는 정부 공개 데이터(BC 주 정부의 허가 어린이집과 K–12 학교, {CITY} 시의 공원, {TRANSIT}의 노선과 정류장)와 각 기관의 공식 웹사이트에서 가져왔으며, 장소마다 출처와 마지막으로 확인한 달을 표시했습니다. 분류마다 주요 장소만 실었으며 모든 업체를 담지는 않았습니다. 버스 노선과 정류장은 {TRANSIT} 공식 시간표 데이터에서 가져왔습니다. 요금과 실시간 도착 정보는 {TRANSIT} 웹사이트를 확인하세요.';
+UI.ja.noteCoverage='このページは個人がまとめたもので、{CITY} と West {CITY} を対象としています（Lake Country と Peachland はまだ含んでいません）。場所は政府のオープンデータ（BC州政府の認可保育施設と K–12 学校、{CITY} 市の公園、{TRANSIT} の路線と停留所）と各団体の公式サイトから集めたもので、各施設に出典と最終確認月を表示しています。各カテゴリーは主な場所のみで、すべての店舗を網羅してはいません。バスの路線と停留所は {TRANSIT} の公式時刻表データによるものです。運賃とリアルタイムの到着情報は {TRANSIT} のサイトをご覧ください。';
+UI.zh.busFareText='成人单程 $3 · 当日票 $6 · 成人 30 天票 $80 · 12 岁及以下免费 · 90 路（往 Vernon）单程 $6（可用 Umo 或感应支付；{TRANSIT} 官网，2026 年 10 月）';
+UI.en.busFareText='Adult single $3 · DayPASS $6 · 30-day adult pass $80 · children 12 and under ride free · Route 90 (to Vernon) single $6 (Umo or contactless payment; {TRANSIT} website, October 2026)';
+UI.fr.busFareText='Adulte : trajet 3 $ · DayPASS 6 $ · laissez-passer 30 jours 80 $ · gratuit pour les 12 ans et moins · ligne 90 (vers Vernon) 6 $ le trajet (Umo ou paiement sans contact ; site de {TRANSIT}, octobre 2026)';
+UI.es.busFareText='Adulto: viaje sencillo $3 · DayPASS $6 · pase de 30 días $80 · niños de 12 años o menos viajan gratis · ruta 90 (a Vernon) $6 por viaje (Umo o pago sin contacto; sitio de {TRANSIT}, octubre de 2026)';
+UI.ko.busFareText='성인 1회 $3 · DayPASS $6 · 성인 30일 패스 $80 · 12세 이하 무료 · 90번(Vernon행) 1회 $6 (Umo 또는 비접촉 결제, {TRANSIT} 웹사이트 2026년 10월 기준)';
+UI.ja.busFareText='大人1回 $3・DayPASS $6・大人30日パス $80・12歳以下は無料・90番（Vernon行き）1回 $6（Umo またはタッチ決済。{TRANSIT} のサイト、2026年10月時点）';
+UI.zh.hcUpcc='紧急和初级保健中心（UPCC）：不需要家庭医生，直接去。共有三家：';
+UI.en.hcUpcc='Urgent and Primary Care Centres (UPCC): walk in, no family doctor needed. There are three:';
+UI.fr.hcUpcc='Centres de soins urgents et primaires (UPCC) : sans rendez-vous, pas besoin de médecin de famille. Il y en a trois :';
+UI.es.hcUpcc='Centros de Atención Urgente y Primaria (UPCC): sin cita, no necesita médico de familia. Hay tres:';
+UI.ko.hcUpcc='긴급·일차 진료 센터(UPCC): 예약 없이 가면 되고, 가정의가 없어도 됩니다. 세 곳이 있습니다.';
+UI.ja.hcUpcc='緊急・プライマリーケアセンター（UPCC）：予約不要、かかりつけ医がいなくても受診できます。3か所あります。';
+UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，{CITY} 办公室在法院大楼（228-1355 Water St，电话 <b>250-763-8613</b>），省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY} 还有一家法律诊所 <b>Okanagan Thompson Legal Clinic</b>（304-554 Leon Ave，电话236-425-9120），提供租房、社会救助/伤残津贴、失业保险、就业、家庭法等方面的免费帮助（地图「分类 → 法律援助」可查看）；';
+UI.en.legalLocal='<b>Legal Aid BC</b> covers family law, criminal defence, and immigration/refugee matters for income-qualified people — {CITY} office at the Law Courts (228-1355 Water St, <b>250-763-8613</b>), provincial line <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} also has a legal clinic, the <b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), offering free help with tenancy, income and disability assistance, EI, employment and family law issues (see Category → Legal Aid on this map). ';
+UI.fr.legalLocal='<b>Legal Aid BC</b> couvre le droit de la famille, la défense criminelle et les questions d\'immigration/réfugiés pour les personnes à revenu limité — bureau de {CITY} au palais de justice (228-1355 Water St, <b>250-763-8613</b>), ligne provinciale <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} a aussi une clinique juridique, l\'<b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), qui aide gratuitement en matière de location, d\'aide au revenu et d\'invalidité, d\'assurance-emploi, d\'emploi et de droit de la famille (voir Catégorie → Aide juridique sur cette carte). ';
+UI.es.legalLocal='<b>Legal Aid BC</b> cubre derecho de familia, defensa criminal e inmigración/refugiados para personas que califican por ingresos — oficina de {CITY} en el edificio de los tribunales (228-1355 Water St, <b>250-763-8613</b>), línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} también tiene una clínica legal, la <b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), que ofrece ayuda gratuita en arrendamiento, asistencia social y por discapacidad, seguro de desempleo, empleo y derecho de familia (vea Categoría → Ayuda legal en este mapa). ';
+UI.ko.legalLocal='<b>Legal Aid BC</b>(법률 지원 BC)는 소득 기준을 충족하는 사람들을 위해 가족법, 형사 변호, 이민/난민 관련 법률 지원을 제공합니다({CITY} 사무소는 법원 건물 228-1355 Water St, 전화 <b>250-763-8613</b>, 주 전체 상담전화 <b>1-866-577-2525</b>, legalaid.bc.ca). {CITY}에는 <b>Okanagan Thompson Legal Clinic</b>(304-554 Leon Ave, 전화 236-425-9120)이라는 법률 클리닉도 있어 임대, 사회부조/장애수당, 실업보험, 고용, 가족법 문제를 무료로 도와줍니다(지도의 「분류 → 법률 지원」에서 확인 가능). ';
+UI.ja.legalLocal='<b>Legal Aid BC</b>は家族法、刑事弁護、移民・難民関連について、所得要件を満たす人を対象にカバーしています——{CITY}の事務所は裁判所の建物内（228-1355 Water St、<b>250-763-8613</b>）、州全体の窓口<b>1-866-577-2525</b>、legalaid.bc.ca。{CITY}には法律相談所<b>Okanagan Thompson Legal Clinic</b>（304-554 Leon Ave、236-425-9120）もあり、賃貸、生活保護・障害者給付、雇用保険、雇用、家族法について無料で相談できます（この地図の「カテゴリー→法律扶助」参照）。';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;
 UI.fr.guideCity=`/*@text guide/fr.html*/`;

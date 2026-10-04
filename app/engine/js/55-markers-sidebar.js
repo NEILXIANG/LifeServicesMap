@@ -83,15 +83,28 @@ function focusMarker(m,zoom,_settled){
     // "where do I go" and got a silent map. Whatever state the cluster ends in,
     // something has to open: the marker's own popup when it is on the map,
     // otherwise the same popup opened on the map at its coordinates.
+    const standalone=()=>{
+      const sp=L.popup(POPUP_OPTS).setLatLng(m.getLatLng()).setContent(popup(m.data,m.i));
+      sp._kplace=m.data;sp._kidx=m.i;
+      map.openPopup(sp);
+      trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk,src:'clustered'});
+    };
     const show=()=>{
       if(shown||gen!==_focusGen)return;   // the reader has asked for another place since
       shown=true;
       try{
-        if(map.hasLayer(m)){m.openPopup();return;}
-        const sp=L.popup(POPUP_OPTS).setLatLng(m.getLatLng()).setContent(popup(m.data,m.i));
-        sp._kplace=m.data;sp._kidx=m.i;
-        map.openPopup(sp);
-        trackEvent('marker_view',{id:m.data.id,cat:m.ck,reg:m.gk,src:'clustered'});
+        if(map.hasLayer(m)){
+          m.openPopup();
+          // 2026-10-04: marker changes queued while the cluster was busy (a few searches in a row leave
+          // some) are applied a moment later, and can fold this marker into a cluster. Leaflet closes a
+          // marker's card when the marker leaves the map, so the reader saw it flash and vanish (found
+          // by tests/kelowna/guitest.py: "Show it on the map" after three searches). If that happens
+          // right after opening, the same card stays open at the place instead.
+          const keep=()=>{if(gen===_focusGen)try{standalone();}catch(e){}};
+          m.once('remove',keep);setTimeout(()=>m.off('remove',keep),2500);
+          return;
+        }
+        standalone();
       }catch(e){}
     };
     const settle=()=>{

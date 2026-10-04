@@ -29,6 +29,9 @@ def main():
     prov = {}
     try: prov = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'provenance.json'), encoding='utf-8'))
     except FileNotFoundError: pass
+    # desk checks (2026-10-04): an independent second reader against the official page — not a phone check
+    try: ver = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'verification.json'), encoding='utf-8'))
+    except FileNotFoundError: ver = {}
     held = []
     for f in sorted(glob.glob(os.path.join(kamdata.city_dir(), 'import', 'research', '*.json'))):
         d = json.load(open(f, encoding='utf-8'))
@@ -47,6 +50,7 @@ def main():
     # one that does not exist (or is deliberately left out) is explained in import/config.json
     try: absent = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'config.json'), encoding='utf-8')).get('categoriesNotCollected', {})
     except FileNotFoundError: absent = {}
+    absent = {k: v for k, v in absent.items() if not k.startswith('_')}
     missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent))
     kb = [p for p in KP if p['c'] not in no_hours]; kref = 100.0 * sum('h' in p for p in kb) / max(1, len(kb))
     approx = [p for p in P if p.get('precision') == 'low']
@@ -61,9 +65,12 @@ def main():
     rows = [
         row(n >= 450, '地点数量（目标见 PROFILE.md）', '%d' % n),
         row(six == n, '六种语言', '%d / %d' % (six, n)),
-        row(100.0 * with_h / max(1, len(hours_base)) >= min(60, kref), '有营业时间（不含露天、托儿、学校；目标不低于 Kamloops 同口径）',
+        row(100.0 * with_h / max(1, len(hours_base)) >= kref - 0.5, '有营业时间（不含露天、托儿、学校；目标不低于 Kamloops 同口径）',
             '%d / %d（%.0f%%）；Kamloops 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), kref)),
         row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
+        row(all(p['id'] in ver for p in P if p.get('src') != 'opendata'), '非政府数据的地点都经过独立复核（对照官网）',
+            '%d / %d；其中安全相关 %d / %d' % (sum(p['id'] in ver for p in P if p.get('src') != 'opendata'), sum(p.get('src') != 'opendata' for p in P),
+                                          sum(p['id'] in ver for p in safety), len(safety))),
         row(own >= len(safety), '安全相关地点电话核实（src: own）', '已核实 %d / 安全相关 %d' % (own, len(safety))),
         row(not missing, 'Kamloops 有的分类这里也有（不存在的写进 config.json 的 categoriesNotCollected）',
             ('缺 %d 类：%s' % (len(missing), '、'.join(missing))) if missing else '齐全' + ('（%d 类已说明不收）' % len(absent) if absent else '')),
@@ -79,12 +86,16 @@ def main():
            '来源：' + '、'.join('%s %d' % (k, v) for k, v in src.most_common()) + '。',
            '区域：' + '、'.join('%s %d' % (k, v) for k, v in sorted(areas.items())) + '。', '',
            '## 二、先核实：安全相关的地点（%d 个）' % len(safety), '',
-           '| 类别 | 名称 | 电话 | 地址 | 来源网址 | 待核实说明 |', '|---|---|---|---|---|---|']
+           '| 类别 | 名称 | 电话 | 地址 | 来源网址 | 复核（对照官网） | 打电话时要问 |', '|---|---|---|---|---|---|---|']
     order = {c: i for i, c in enumerate(SAFETY)}
     for p in sorted(safety, key=lambda p: (order[p['c']], p['n'])):
         pv = prov.get(p['id'], {})
-        out.append('| %s | %s | %s | %s | %s | %s |' % (p['c'], p['n'].replace('|', '/'), p.get('p', '—'), p['a'].replace('|', '/'),
-                   (p.get('w') or pv.get('source_url') or ''), (pv.get('verify_notes') or '').replace('|', '/').replace('\n', ' ')[:300]))
+        vr = ver.get(p['id'], {})
+        chk = ('%s %s%s' % (vr['checked'], {'confirmed': '一致', 'corrected': '已改正'}.get(vr.get('result'), vr.get('result', '')),
+               ('（' + '、'.join(vr['fixed']) + '）') if vr.get('fixed') else '')) if vr else '未复核'
+        ask = (vr.get('remarks') or pv.get('verify_notes') or '').replace('|', '/').replace('\n', ' ')[:300]
+        out.append('| %s | %s | %s | %s | %s | %s | %s |' % (p['c'], p['n'].replace('|', '/'), p.get('p', '—'), p['a'].replace('|', '/'),
+                   (p.get('w') or pv.get('source_url') or ''), chk, ask))
     others = [p for p in P if p['c'] not in SAFETY and (prov.get(p['id'], {}).get('verify_notes'))]
     out += ['', '## 三、其他带"待核实说明"的地点（%d 个）' % len(others), '', '| 类别 | 名称 | 待核实说明 |', '|---|---|---|']
     for p in sorted(others, key=lambda p: (p['c'], p['n'])):

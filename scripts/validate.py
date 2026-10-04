@@ -684,6 +684,26 @@ if _br_n:
         fail('BUS_SOURCE provenance block is missing (the city has bus routes)')
     if not (CITYOBJ.get('examples') or {}).get('stop'):
         fail('CITY.examples.stop missing — the bus-stop search hint names one')
+    # 2026-10-04: fares are a city fact — the engine's line only says "see the operator's site"
+    for lang in LANGS:
+        if not re.search(r"UI\.%s\.busFareText='" % lang, html):
+            fail('%s: the city has bus routes but no busFareText of its own in data.js (the engine default only points to the operator)' % lang)
+
+# ------------------------------------------------- 9b. city facts the engine used to hold
+# (2026-10-04) Kelowna's draft showed Kamloops' police line, legal aid line and clinic, bus fares,
+# "gathered from Google Places" and — worst — tied the health answer to a Kamloops UPCC id, so in
+# Kelowna it never appeared. All of these now come from the city; these rules keep them there.
+if not CITYOBJ.get('police'):
+    (warn if DRAFT else fail)('CITY.police missing — the footer and Key Numbers name the local police non-emergency line')
+_upcc = CITYOBJ.get('upcc') or []
+_pid = {p.get('id'): p for p in P}
+for _u in _upcc:
+    if _u not in _pid:
+        fail('CITY.upcc lists %r, which is not a place in this city' % _u)
+    elif _pid[_u].get('c') != 'hospital':
+        fail('CITY.upcc %r (%s) is not in the hospital category' % (_u, _pid[_u].get('n')))
+if not _upcc:
+    warn('CITY.upcc is empty — the health answer under the search box will show 8-1-1, pharmacists and 911 only')
 
 # ---------------------------------------------------------------- 10. duplicate affordances
 if 'search-cancel-button' not in css and 'type="search"' in body:
@@ -918,6 +938,25 @@ if _os.path.exists(_os.path.join(HERE, 'app', 'engine', 'parts.txt')):
     _local_numbers = set(re.findall(r'\b(?:250|778|236)-\d{3}-\d{4}\b', _eng_code))
     if _local_numbers:
         warn('local phone number(s) in engine code (should live in data or UI strings): %s' % sorted(_local_numbers)[:5])
+    # 2026-10-04: the UI strings were exempt from the scan above, and that is exactly where Kamloops'
+    # police line, legal aid line and clinic sat for a month. Now the whole engine is scanned: a
+    # non-toll-free number must be a province-wide service listed here, with the reason.
+    ENGINE_NUMBERS_OK = {'604-878-7400': 'Access Pro Bono BC, province-wide'}
+    _all_nums = set(re.sub(r'\D', '', n) for n in re.findall(r'(?<![\d-])\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}\b', eng))
+    _ok = set(re.sub(r'\D', '', n) for n in ENGINE_NUMBERS_OK)
+    _bad = sorted(n for n in _all_nums if n not in _ok and not re.match(r'8(00|33|44|55|66|77|88)', n))
+    if _bad:
+        fail('local phone number(s) in the engine (city facts belong in cities/<id>/data.js): %s' % _bad[:5])
+    # and no place id of any city: a hard-coded id silently does nothing in every other city
+    _ids = set()
+    for _c in _kd.cities():
+        try:
+            _cur = _kd.CITY; _kd.use(_c); _ids |= {p['id'] for p in _kd.load('P')}
+        finally:
+            _kd.use(_cur)
+    _hard = sorted(i for i in _ids if re.search(r"['\"]%s['\"]" % re.escape(i), eng))
+    if _hard:
+        fail('place id(s) hard-coded in the engine (use a CITY setting instead): %s' % _hard[:5])
     if 'guideCity' in eng.replace('GUIDE_ORDER', ''):
         if re.search(r"UI\.\w+\.guideCity=`", eng):
             fail('guideCity (city-tier guide) leaked back into the engine')

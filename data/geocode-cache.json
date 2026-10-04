@@ -791,6 +791,14 @@
   "score": 100,
   "trusted": true
  },
+ "1835 Dilworth Dr, Kelowna, BC": {
+  "full": "1835 Dilworth Dr, Kelowna, BC",
+  "lat": 49.8812812,
+  "lng": -119.4364949,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1835 Gordon Dr, Kelowna, BC": {
   "full": "1835 Gordon Dr, Kelowna, BC",
   "lat": 49.8816284,
@@ -1013,6 +1021,14 @@
   "lng": -119.5992423,
   "precision": "CIVIC_NUMBER",
   "score": 95,
+  "trusted": true
+ },
+ "1979 Old Okanagan Hwy, West Kelowna, BC": {
+  "full": "1979 Old Okanagan Hwy, West Kelowna, BC",
+  "lat": 49.8504446,
+  "lng": -119.5992423,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
   "trusted": true
  },
  "1979 Old Okanagan Hwy, Westbank, BC": {
@@ -1503,6 +1519,14 @@
   "score": 99,
   "trusted": true
  },
+ "2569 May St, West Kelowna, BC": {
+  "full": "2569 May St, West Kelowna, BC",
+  "lat": 49.8269037,
+  "lng": -119.6350199,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "2575 Highway 97 N, Kelowna, BC": {
   "full": "2575 Hwy 97 N, Kelowna, BC",
   "lat": 49.8915149,
@@ -1867,6 +1891,14 @@
   "full": "3310 Carrington Rd, West Kelowna, BC",
   "lat": 49.8448894,
   "lng": -119.6015143,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "3312 Appaloosa Rd, Kelowna, BC": {
+  "full": "3312 Appaloosa Rd, Kelowna, BC",
+  "lat": 49.9209335,
+  "lng": -119.3936155,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true
@@ -2471,6 +2503,14 @@
   "score": 100,
   "trusted": true
  },
+ "505 Doyle Ave, Kelowna, BC": {
+  "full": "505 Doyle Ave, Kelowna, BC",
+  "lat": 49.888586,
+  "lng": -119.4926229,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "505 Doyle Avenue, Kelowna, BC": {
   "full": "505 Doyle Ave, Kelowna, BC",
   "lat": 49.888586,
@@ -2771,6 +2811,14 @@
   "full": "675 Lequime Rd, Kelowna, BC",
   "lat": 49.8354422,
   "lng": -119.4838372,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "685 Dease Rd, Kelowna, BC": {
+  "full": "685 Dease Rd, Kelowna, BC",
+  "lat": 49.8976736,
+  "lng": -119.408027,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true

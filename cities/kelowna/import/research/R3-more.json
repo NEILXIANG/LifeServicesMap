@@ -45,11 +45,11 @@
    "hours_text": "",
    "who": "",
    "cost": "",
-   "note_en": "Kelowna's first shopping mall, at Gordon Drive and Harvey Avenue, an enclosed mall with a food court, a bank, medical and dental offices, and the Capri Canada Post outlet.",
-   "note_zh": "Kelowna 最早的购物中心，位于 Gordon 大道与 Harvey 大道交界，为室内商场，有美食广场、银行、诊所和牙科，以及 Capri 邮局网点。",
+   "note_en": "An enclosed shopping mall at Gordon Drive and Harvey Avenue with a food court, a bank, medical and dental offices, and the Capri Canada Post outlet.",
+   "note_zh": "位于 Gordon 大道与 Harvey 大道交界的室内商场，有美食广场、银行、诊所和牙科，以及 Capri 邮局网点。",
    "alias": "Capri Centre mall Shops Capri Gordon Harvey 购物中心 商场 卡普里 基洛纳 基隆拿",
    "source_url": "https://www.prospero.ca/properties/capri-centre/",
-   "verify_notes": "Owner's property page (Prospero International Realty) read in browser 2026-10-03; no mall phone or hours published by the owner (directory sites give 250-860-2524 and hours — not used). Owner page tenant list is dated (mentions Extra Foods and a passport centre; Service Canada passport office is now at 471 Queensway) so tenant names were left out of the note except the Canada Post outlet already in the guide."
+   "verify_notes": "Owner's property page (Prospero International Realty) read in browser 2026-10-03; no mall phone or hours published by the owner (directory sites give 250-860-2524 and hours — not used). Owner page tenant list is dated (mentions Extra Foods and a passport centre; Service Canada passport office is now at 471 Queensway) so tenant names were left out of the note except the Canada Post outlet already in the guide. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Save-On-Foods Glenmore",
@@ -130,11 +130,11 @@
    "hours_text": "Monday: 8:00am - 5:30pm; Tuesday: 8:00am - 7:00pm; Wednesday: 8:00am - 5:30pm; Thursday: 8:00am - 7:00pm; Friday: 8:00am - 5:30pm; Saturday: Closed; Sunday: Closed",
    "who": "",
    "cost": "",
-   "note_en": "Veterinary hospital for pets in the IGA plaza at Kane Road and Glenmore Road, open late on Tuesdays and Thursdays. After hours the clinic sends emergencies to Fairfield Animal Hospital.",
-   "note_zh": "位于 Kane 路与 Glenmore 路口 IGA 商业区的宠物医院，周二、周四开到晚上。下班后的急诊请去 Fairfield 动物医院。",
+   "note_en": "Veterinary hospital for pets on Kane Road in Glenmore, open late on Tuesdays and Thursdays. After hours the clinic sends emergencies to Fairfield Animal Hospital.",
+   "note_zh": "位于 Glenmore 区 Kane 路的宠物医院，周二、周四开到晚上。下班后的急诊请去 Fairfield 动物医院。",
    "alias": "Central Valley Veterinary Hospital vet clinic Kane Glenmore pet dog cat 兽医 宠物医院 动物医院 格伦莫尔",
    "source_url": "https://www.centralvalleyvet.com/contact-us",
-   "verify_notes": "Clinic's own website (WebFetch) 2026-10-03. City business licence: CENTRAL VALLEY VET CLINIC, 124-1940 Kane Rd. Emergency referral to Fairfield Animal Hospital (250-860-6550) stated on the contact page."
+   "verify_notes": "Clinic's own website (WebFetch) 2026-10-03. City business licence: CENTRAL VALLEY VET CLINIC, 124-1940 Kane Rd. Emergency referral to Fairfield Animal Hospital (250-860-6550) stated on the contact page. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Okanagan Veterinary Hospital",
@@ -317,11 +317,11 @@
    "hours_text": "Weekdays: 8:30AM to 5:30PM; Weekends: 9:30AM to 6PM",
    "who": "Children 10 and under with a parent",
    "cost": "",
-   "note_en": "Indoor playground for children 10 and under on Enterprise Way, with drop-in day passes, camps and birthday parties. Parents stay and supervise.",
-   "note_zh": "位于 Enterprise Way 的室内儿童游乐场，适合 10 岁及以下儿童，可买日票随到随玩，也办营地和生日会。家长须陪同看护。",
+   "note_en": "Indoor playground for children 10 and under on Enterprise Way; a drop-in pass gives up to three hours of play. Also camps and birthday parties. Parents stay and supervise.",
+   "note_zh": "位于 Enterprise Way 的室内儿童游乐场，适合 10 岁及以下儿童；单次票最多可玩 3 小时。也办营地和生日会。家长须陪同看护。",
    "alias": "Play Area Kelowna indoor playground kids play centre Enterprise Way 室内游乐场 儿童乐园 遛娃 放电",
    "source_url": "https://playarea.ca/",
-   "verify_notes": "Own website read in browser 2026-10-03: address, phone, hours. City of Kelowna business licence: PLAY AREA INDOOR RECREATION, 'STEM-ORIENTED INDOOR RECREATION FOR CHILDREN UNDER 10', 128-2540 ENTERPRISE WAY. Age limit and drop-in day pass from the licence and the site's day-pass page title; parent supervision from site text ('Parents can relax while their little ones climb'). Weekday hours may be taken up by camps — call ahead."
+   "verify_notes": "Own website read in browser 2026-10-03: address, phone, hours. City of Kelowna business licence: PLAY AREA INDOOR RECREATION, 'STEM-ORIENTED INDOOR RECREATION FOR CHILDREN UNDER 10', 128-2540 ENTERPRISE WAY. Age limit and drop-in day pass from the licence and the site's day-pass page title; parent supervision from site text ('Parents can relax while their little ones climb'). Weekday hours may be taken up by camps — call ahead. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Energyplex",
@@ -351,11 +351,11 @@
    "hours_text": "Drop in Play: Open Mon-Fri 10am-5pm | Sat + Sun 9am-5pm",
    "who": "Children 0–12",
    "cost": "",
-   "note_en": "Indoor play centre in Westbank with soft play for toddlers and play structures for children up to 12. No reservation needed; buy a day pass at the front desk.",
-   "note_zh": "位于 Westbank 的室内游乐场，有幼儿软体游戏区和适合 12 岁以下儿童的游乐设施。无需预约，在前台买日票即可。",
+   "note_en": "Indoor play centre in Westbank for kids of all ages, with soft play for toddlers, a three-storey climbing structure and inflatables. No reservation needed; it sometimes closes for private events, so check before you go.",
+   "note_zh": "位于 Westbank 的室内游乐场，适合各个年龄的孩子，有幼儿软体游戏区、三层攀爬架和充气设施。无需预约；有时会因包场关闭，去之前请先确认。",
    "alias": "Wild Kidz indoor playground play centre Westbank West Kelowna Bering 室内游乐场 儿童乐园 遛娃 西基洛纳 西基隆拿",
    "source_url": "https://wildkidz.ca/",
-   "verify_notes": "Own website (WebFetch) 2026-10-03: address '#105 – 2374 Bering Road Westbank, BC V4T 3J6', phone, hours, 0-12 years, 'No reservations needed'. Prices not on page. Same unit was listed as 'Just 4 Fun Play Centre' in the WFN 2021 retail directory — apparently renamed; Just 4 Fun's own site now only does party rentals."
+   "verify_notes": "Own website (WebFetch) 2026-10-03: address '#105 – 2374 Bering Road Westbank, BC V4T 3J6', phone, hours, 0-12 years, 'No reservations needed'. Prices not on page. Same unit was listed as 'Just 4 Fun Play Centre' in the WFN 2021 retail directory — apparently renamed; Just 4 Fun's own site now only does party rentals. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "FunSpace Kids",
@@ -385,11 +385,11 @@
    "hours_text": "The Front Desk is open 24/7",
    "who": "UBC Okanagan students",
    "cost": "",
-   "note_en": "UBC Okanagan's on-campus residence office in Nechako Residence; the front desk is open 24 hours. Between 8 p.m. and 7 a.m. non-residents use the entrance intercom to reach the desk.",
-   "note_zh": "UBC Okanagan 校内学生宿舍办公室，设在 Nechako 宿舍楼，前台 24 小时开放。晚 8 点至早 7 点，非住宿人员需按入口对讲机联系前台。",
+   "note_en": "UBC Okanagan's on-campus residence office in Nechako Residence; the front desk is open 24 hours. Between 8 p.m. and 7 a.m. non-resident students and staff use the entrance intercom to reach the desk.",
+   "note_zh": "UBC Okanagan 校内学生宿舍办公室，设在 Nechako 宿舍楼，前台 24 小时开放。晚 8 点至早 7 点，非住宿的学生和教职员需按入口对讲机联系前台。",
    "alias": "UBC Okanagan UBCO student housing residence Nechako front desk dorm 学生宿舍 校内宿舍 住宿 UBCO 宿舍",
    "source_url": "https://okanagan.housing.ubc.ca/contact-us/",
-   "verify_notes": "UBC Okanagan Housing contact page read in browser 2026-10-03: 'Nechako Residence, 1255 International Mews, Kelowna V1V 1V8', 'The Front Desk is open 24/7', phone 250-807-8050, toll free 1-888-318-8666, email information@housing.okanagan.ubc.ca. Eligibility wording ('UBC Okanagan students') is our summary; the contact page does not state rules."
+   "verify_notes": "UBC Okanagan Housing contact page read in browser 2026-10-03: 'Nechako Residence, 1255 International Mews, Kelowna V1V 1V8', 'The Front Desk is open 24/7', phone 250-807-8050, toll free 1-888-318-8666, email information@housing.okanagan.ubc.ca. Eligibility wording ('UBC Okanagan students') is our summary; the contact page does not state rules. | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Okanagan College Campus Housing – Kelowna",
@@ -466,15 +466,15 @@
    "a": "420 Valley Rd",
    "locality": "Kelowna",
    "p": "866-736-8515",
-   "w": "https://www.broadstreet.ca/residential/lindgren-manor",
+   "w": "https://www.broadstreet.ca/british-columbia/kelowna/lindgren-manor",
    "hours_text": "",
    "who": "",
    "cost": "",
-   "note_en": "Rental apartments on Valley Road in Glenmore with one- to three-bedroom suites, pet friendly, with an on-site leasing office. You can apply online or book a viewing.",
-   "note_zh": "位于 Glenmore 区 Valley 路的出租公寓，有一至三居室，可养宠物，楼内设租赁办公室。可在网上申请或预约看房。",
+   "note_en": "Rental apartments on Valley Road in Glenmore with one- to three-bedroom suites, pet friendly, with on-site management. Viewings are by appointment; you can apply online or book a viewing.",
+   "note_zh": "位于 Glenmore 区 Valley 路的出租公寓，有一至三居室，可养宠物，有驻场管理。看房需预约，可在网上申请或预约看房。",
    "alias": "Lindgren Manor Broadstreet apartments Valley Road Glenmore rental 租房 公寓 出租公寓 格伦莫尔",
    "source_url": "https://www.broadstreet.ca/residential/lindgren-manor",
-   "verify_notes": "Broadstreet official building page (WebFetch) 2026-10-03: name, '420 Valley Road', phone 1-866-736-8515 (toll-free; no local number given), 1–3 bedrooms, pet friendly, online application, on-site central office. City business licences: BROADSTREET PROPERTIES LTD, LONG-TERM RENTAL BUILDING, 420 VALLEY RD and 1975 KANE RD. Broadstreet's Kelowna list: https://www.broadstreet.ca/residential/cities/kelowna"
+   "verify_notes": "Broadstreet official building page (WebFetch) 2026-10-03: name, '420 Valley Road', phone 1-866-736-8515 (toll-free; no local number given), 1–3 bedrooms, pet friendly, online application, on-site central office. City business licences: BROADSTREET PROPERTIES LTD, LONG-TERM RENTAL BUILDING, 420 VALLEY RD and 1975 KANE RD. Broadstreet's Kelowna list: https://www.broadstreet.ca/residential/cities/kelowna | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "TRIO apartments (Centurion)",
@@ -487,11 +487,11 @@
    "hours_text": "Mon-Fri: 9:00am – 9:00pm ET; Sat-Sun: 10:00am – 6:30pm ET (leasing phone line)",
    "who": "",
    "cost": "",
-   "note_en": "Three newer rental apartment buildings on Drysdale Boulevard in Glenmore, next to the Brandt's Creek Crossing shops, with studio, one- and two-bedroom suites. Pet friendly.",
-   "note_zh": "位于 Glenmore 区 Drysdale 大道的 3 栋较新出租公寓，紧邻 Brandt's Creek Crossing 商业区，有开间、一居室和两居室，可养宠物。",
+   "note_en": "Newer rental apartments (built 2019) on Drysdale Boulevard in Glenmore, next to a large shopping plaza, with studio, one- and two-bedroom suites. Pet friendly. The phone number is a call centre whose hours are in Eastern time.",
+   "note_zh": "位于 Glenmore 区 Drysdale 大道的较新出租公寓（2019 年建成），紧邻大型商业广场，有开间、一居室和两居室，可养宠物。电话是客服中心，营业时间按东部时间计算。",
    "alias": "TRIO apartments Centurion Drysdale Glenmore rental 租房 公寓 出租公寓 格伦莫尔",
    "source_url": "https://www.cpliving.com/apartments/trio",
-   "verify_notes": "Leasing page for TRIO (WebFetch) 2026-10-03: '333 Drysdale Boulevard, Kelowna, BC, V1V 0E7', leasing phone 1-833-390-1818 (toll-free call centre; hours shown in Eastern Time, i.e. 3 hours later than Kelowna), suite types, pet friendly, managed by Centurion Property Associates Inc. City business licence: CENTURION PROPERTY ASSOCIATES, LONG TERM RENTAL BUILDING, 333 DRYSDALE BLVD. 'Next to Brandt's Creek Crossing' from geocoding (333 Drysdale ~150 m from 1972 Kane Rd)."
+   "verify_notes": "Leasing page for TRIO (WebFetch) 2026-10-03: '333 Drysdale Boulevard, Kelowna, BC, V1V 0E7', leasing phone 1-833-390-1818 (toll-free call centre; hours shown in Eastern Time, i.e. 3 hours later than Kelowna), suite types, pet friendly, managed by Centurion Property Associates Inc. City business licence: CENTURION PROPERTY ASSOCIATES, LONG TERM RENTAL BUILDING, 333 DRYSDALE BLVD. 'Next to Brandt's Creek Crossing' from geocoding (333 Drysdale ~150 m from 1972 Kane Rd). | Desk check 2026-10-04 (independent second reader, official pages): corrected note_en, note_zh."
   },
   {
    "n": "Associated Property Management (APM) – Kelowna head office",
@@ -569,14 +569,14 @@
    "locality": "West Kelowna",
    "p": "250-768-1759",
    "w": "https://www.healthlinkbc.ca/clinic/walmart-canada-1",
-   "hours_text": "Monday–Friday: 09:00 - 19:00; Saturday: 09:00 - 17:00; Sunday: 10:00 - 17:00",
+   "hours_text": "Monday to Friday: 8:00 a.m. to 7:00 p.m.; Saturday and Sunday: 9:00 a.m. to 6:00 p.m.",
    "who": "",
    "cost": "",
-   "note_en": "Pharmacy inside the Walmart Supercentre on Louie Drive in Westbank, open seven days a week.",
-   "note_zh": "位于 Westbank 区 Louie 路 Walmart 超级购物中心内的药房，每周 7 天营业。",
+   "note_en": "Pharmacy inside the Walmart Supercentre on Louie Drive in Westbank, open seven days a week. Walmart's own page gives two different weekday closing times, so call to confirm.",
+   "note_zh": "位于 Westbank 区 Louie 路 Walmart 超级购物中心内的药房，每周 7 天营业。Walmart 官网上的平日关门时间有两个说法，去之前请打电话确认。",
    "alias": "Walmart pharmacy Westbank West Kelowna Louie Drive supercentre 药房 药店 沃尔玛 西基洛纳 西基隆拿",
    "source_url": "https://www.healthlinkbc.ca/clinic/walmart-canada-1",
-   "verify_notes": "HealthLinkBC (BC Government) pharmacy listing (WebFetch) 2026-10-04: 'Walmart Canada', '2170 Louie Drive, West Kelowna, BC V4T 1Y2', phone, hours. Westbank First Nation 2021 retail directory lists Walmart Super Centre, 2170 Louie Drive, 250-768-2417 (store main line). walmart.ca store page not checked; store hours omitted."
+   "verify_notes": "HealthLinkBC (BC Government) pharmacy listing (WebFetch) 2026-10-04: 'Walmart Canada', '2170 Louie Drive, West Kelowna, BC V4T 1Y2', phone, hours. Westbank First Nation 2021 retail directory lists Walmart Super Centre, 2170 Louie Drive, 250-768-2417 (store main line). walmart.ca store page not checked; store hours omitted. | Desk check 2026-10-04 (independent second reader, official pages): corrected hours_text, note_en, note_zh."
   }
  ]
 }

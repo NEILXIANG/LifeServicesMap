@@ -9,6 +9,7 @@ Kamloops Life Guide：面向新居民的多语言（六种）生活服务地图�
 python3 build.py                     # → build/kamloops.html，并同步 public/index.html（逐字节相同）
 ./scripts/check-all.sh --quick       # 构建 + validate.py（无需 Playwright）
 ./scripts/check-all.sh               # 再加全部浏览器测试（需 .venv 里的 Playwright）
+python3 scripts/consistency_check.py --city <id>   # 各语言备注的数字/电话一致、无别城名字（草稿城市在 check-all 里严格执行）
 ./deploy.sh                          # 构建 → 校验 → wrangler deploy → 线上探针（需 npm install）
 ./deploy.sh --verify-only            # 只跑线上探针
 ./deploy.sh --city <id> --dry-run    # 看某座城市的部署设置（网址、Worker、目录），不部署
@@ -25,7 +26,7 @@ python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城�
 - `build.py` 把引擎、数据、`vendor/` 的 Leaflet 合成一个文件。**只改 `app/` 和 `cities/`，不要手改构建产物。** 脚本读写数据一律通过 `kamdata.py`。
 - `scripts/` 校验、链接检查、开放数据导出、统计分析，都接受 `--city <id>`（默认 kamloops）。
 - `tests/engine/` 引擎测试，用测试城市 `cities/_fixture/`（Testville，由 `tests/make-fixture-city.py` 生成，不要手改）；
-  `tests/kamloops/` 线上城市的完整回归（索引见其 README）。
+  `tests/kamloops/` 线上城市的完整回归（索引见其 README）；`tests/<城市>/guitest.py` 每座城市的严格界面测试（check-all 自动跑）。
 - `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头；城市无关，所有城市共用。
 - 部署：每座城市一个 Worker（决策 D1），设置在 `city.json` 的 `deploy` 段；`app/pwa/` 是 sw.js / manifest / 图标模板，
   构建时按城市渲染到部署目录（Kamloops 是 `public/`，网址永久不变、不跳转）。统计按 `blob5` 区分城市，查询加 `--city`。
