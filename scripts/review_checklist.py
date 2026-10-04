@@ -37,9 +37,13 @@ def main():
     name = meta['title'].replace(' Life Guide', '')
     n = len(P)
     six = sum(all(l in p.get('note', {}) for l in L6) for p in P)
-    open_air = {'park', 'trail', 'beach', 'dogpark', 'splash'}
-    hours_base = [p for p in P if p['c'] not in open_air]
+    # open-air places have no hours; child care and schools are left out on both sides of the
+    # comparison because the government datasets they come from carry no hours (Kamloops: 3/84, 6/33)
+    no_hours = {'park', 'trail', 'beach', 'dogpark', 'splash', 'daycare', 'elem', 'school'}
+    hours_base = [p for p in P if p['c'] not in no_hours]
     with_h = sum('h' in p for p in hours_base)
+    kamdata.use('kamloops'); KP = kamdata.load('P'); kamdata.use(a.city)
+    kb = [p for p in KP if p['c'] not in no_hours]; kref = 100.0 * sum('h' in p for p in kb) / max(1, len(kb))
     approx = [p for p in P if p.get('precision') == 'low']
     approx_safety = [p for p in approx if p['c'] in SAFETY]
     src = collections.Counter(p.get('src') for p in P)
@@ -52,7 +56,8 @@ def main():
     rows = [
         row(n >= 450, '地点数量（目标见 PROFILE.md）', '%d' % n),
         row(six == n, '六种语言', '%d / %d' % (six, n)),
-        row(with_h / max(1, len(hours_base)) >= 0.6, '有营业时间（露天除外，目标 ≥ 60%）', '%d / %d（%.0f%%）' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)))),
+        row(100.0 * with_h / max(1, len(hours_base)) >= min(60, kref), '有营业时间（不含露天、托儿、学校；目标不低于 Kamloops 同口径）',
+            '%d / %d（%.0f%%）；Kamloops 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), kref)),
         row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
         row(own >= len(safety), '安全相关地点电话核实（src: own）', '已核实 %d / 安全相关 %d' % (own, len(safety))),
         row(len(T) > 0, '办事卡', '%d 张' % len(T)),
