@@ -66,8 +66,11 @@ async def main():
               any(e['t'] == 'search_run' and 'closest' not in e['p'] for e in ev) and not any(e['t'] == 'search_empty' for e in ev), ev)
 
         # ---- 4. task card leads the empty state
-        r = await search('医疗卡', 'zh')
-        check('"医疗卡": the task card is the first thing in the empty state', r['empty'] and r['emptyFirst'] == 'sh-card', r)
+        # 2026-10-04: 医疗卡 / health card are now also search words of the Service BC place (newcomer test: Kelowna's
+        # "health card" found no office), so they find a place and the card sits above the results (next check);
+        # the empty-state path is tested with a card word no place carries
+        r = await search('医疗保险', 'zh')
+        check('"医疗保险": the task card is the first thing in the empty state', r['empty'] and r['emptyFirst'] == 'sh-card', r)
         check('  …and the first .empty-btn is still the recovery button', r['firstEmptyBtn'] == await pg.evaluate("()=>UI.zh.clearSearchBtn"), r['firstEmptyBtn'])
         await pg.evaluate("()=>{_evBuf.length=0;}")
         await pg.click('#emptyState .sh-card .sh-btn'); await pg.wait_for_timeout(500)
@@ -75,7 +78,7 @@ async def main():
         check('  …its button opens the MSP card and is logged as search_empty', st['open'] and st['task'] == 'msp' and any(x.startswith('guide_open:search_empty') for x in st['ev']), st)
         await pg.evaluate("()=>closeModal(guideBackdropEl)"); await pg.wait_for_timeout(300)
         r = await search('health card')
-        check('"health card" (closest): the answer box carries the MSP card', r['help'] == 'closest' and await pg.evaluate("()=>!!document.querySelector('#searchHelp .sh-card')"), r)
+        check('"health card" (a card keyword that also finds Service BC): the answer box carries the MSP card above the place', r['help'] in ('task', 'closest') and await pg.evaluate("()=>!!document.querySelector('#searchHelp .sh-card')"), r)
         r = await search('xyzzy')
         check('no task card when no card fits', not await pg.evaluate("()=>!!document.querySelector('#emptyState .sh-card,#searchHelp .sh-card')"))
 

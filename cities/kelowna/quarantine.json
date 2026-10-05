@@ -1,1 +1,65 @@
-[]
+[
+ {
+  "n": "Okanagan Sikh Temple & Cultural Society (Gurdwara)",
+  "c": "commctr",
+  "g": "rt",
+  "lat": 49.9032835,
+  "lng": -119.3854925,
+  "a": "1111 Rutland Rd N",
+  "p": "250-765-7477",
+  "note": {
+   "zh": "位于 Rutland 的锡克教谒师所，也是旁遮普社区的聚集地。这里的 langar（共享厨房）免费供餐。",
+   "en": "A Sikh gurdwara and Punjabi community hub in Rutland. Its langar is a free community kitchen.",
+   "fr": "Gurdwara sikh et lieu de rassemblement de la communauté pendjabie à Rutland. Son langar est une cuisine communautaire gratuite.",
+   "es": "Un gurdwara sij y punto de encuentro de la comunidad panyabí en Rutland. Su langar es una cocina comunitaria gratuita.",
+   "ko": "Rutland에 있는 시크교 구르드와라이자 펀자브 공동체의 중심지입니다. 이곳의 langar는 무료 공동 부엌입니다.",
+   "ja": "Rutlandにあるシク教のグルドワラで、パンジャーブ系コミュニティの拠点でもあります。ここのlangarは無料の共同キッチンです。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "sameComplex": [
+   "bd10da91"
+  ],
+  "id": "d42d42dc",
+  "w": "https://www.kelownasikhtemple.ca/",
+  "quarantined": "2026-10-04: duplicate of bd10da91 (same gurdwara, same address and phone) — newcomer test"
+ },
+ {
+  "n": "Sabzi Mandi Supermarket (Rutland)",
+  "c": "asian",
+  "g": "rt",
+  "lat": 49.8892673,
+  "lng": -119.3908649,
+  "a": "284 Highway 33 W",
+  "note": {
+   "zh": "位于 Rutland 区的南亚超市，属于总部在素里（Surrey）的连锁店，出售香料、印度特色食品和蔬果。",
+   "en": "A South Asian supermarket in Rutland, part of a Surrey-based chain, selling spices, Indian specialty products and produce.",
+   "fr": "Supermarché sud-asiatique à Rutland, membre d’une chaîne basée à Surrey, avec des épices, des produits indiens spécialisés et des fruits et légumes.",
+   "es": "Un supermercado del sur de Asia en Rutland, parte de una cadena con sede en Surrey, que vende especias, productos indios especiales y frutas y verduras.",
+   "ko": "Rutland에 있는 남아시아 슈퍼마켓으로, Surrey에 본사를 둔 체인점이며 향신료, 인도 특산 식품, 채소·과일을 팝니다.",
+   "ja": "Rutlandにある南アジア系スーパーで、Surreyに本社があるチェーンの店舗です。スパイス、インドの特産品、野菜・果物を売っています。"
+  },
+  "src": "opendata",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "multi"
+  ],
+  "alias": [
+   "South",
+   "Asian",
+   "Indian",
+   "Punjabi",
+   "grocery",
+   "印度超市",
+   "南亚超市",
+   "旁遮普"
+  ],
+  "id": "e2c31cfc",
+  "quarantined": "2026-10-04: possible closure — the chain's own Locations page (Oct 2026) lists no Kelowna store; the City licence data still has it. Phone 284 Highway 33 W before restoring."
+ }
+]

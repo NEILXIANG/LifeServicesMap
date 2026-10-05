@@ -998,10 +998,11 @@ if _os.path.exists(_os.path.join(HERE, 'app', 'engine', 'parts.txt')):
 # the per-record stamps are kept by hand. The page tells readers the whole set
 # was checked on VERIFIED; if a release ships weeks after that date without
 # anyone touching it, that sentence is stale on the day it is deployed.
-_vm = re.search(r"const VERIFIED='(\d{4})-(\d{2})-(\d{2})'", html)
+# 2026-10-04: the date lives in the city's settings (CITY.verified), not the engine
+_vm = re.match(r'(\d{4})-(\d{2})-(\d{2})$', str(CITYOBJ.get('verified') or ''))
 _dm = re.search(r"const DATA_VERSION='(\d{4})\.(\d{2})\.(\d{2})[a-z]?'", html)
 if not _vm or not _dm:
-    fail('VERIFIED or DATA_VERSION missing or malformed')
+    fail('CITY.verified (YYYY-MM-DD) or DATA_VERSION missing or malformed')
 else:
     import datetime as _dt2
     _vd = _dt2.date(int(_vm.group(1)), int(_vm.group(2)), int(_vm.group(3)))
@@ -1191,6 +1192,12 @@ for _pat, _why in ((r'\\[pP]\{', 'Unicode property escape \\p{…} (ES2018)'),
     if _m:
         fail('%s in the app script: %r — above the ES2017 floor; on an older browser '
              'the whole page fails to parse' % (_why, _app[max(0, _m.start() - 30):_m.end() + 30]))
+
+# (2026-10-04) a search word of one Latin letter is a broken alias list, not a search word: an importer once
+# sliced a space-separated string into ["O","k","a",…] for 113 places, and every one-letter query matched them.
+_bad_alias = [p['n'] for p in P if any(re.fullmatch(r'[A-Za-z0-9]', str(a).strip()) for a in (p.get('alias') or []))]
+if _bad_alias:
+    fail('%d place(s) have one-letter search words (alias) — a string was split into characters? e.g. %s' % (len(_bad_alias), _bad_alias[:3]))
 
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'

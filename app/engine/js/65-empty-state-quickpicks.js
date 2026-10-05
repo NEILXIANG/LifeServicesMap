@@ -13,6 +13,30 @@ function hotlineHtml(compact){
   const items=(CITY.hotlines||[]).map(h=>'<a class="hl-line" href="tel:'+esc(h.n.replace(/[^\d]/g,''))+'"><b>'+esc(h.n)+'</b> '+esc(u['hot_'+h.t]||h.t)+'</a>');
   return '<div class="hotlines'+(compact?' compact':'')+'"><span class="hl-lead">'+iconify(u.hotlinesLead)+'</span>'+items.join('')+'</div>';
 }
+// closest known word for a one-word Latin query that found nothing: synonyms, category names, and the words
+// of place names and aliases; spaces ignored ("foodbank" → "food bank"); 1 edit for 4–5 letters, 2 for longer
+let _dymVocab=null;
+function _editDist(a,b){if(Math.abs(a.length-b.length)>2)return 9;const d=[];for(let i=0;i<=a.length;i++){d[i]=[i];}
+  for(let j=1;j<=b.length;j++)d[0][j]=j;
+  for(let i=1;i<=a.length;i++)for(let j=1;j<=b.length;j++){d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+    if(i>1&&j>1&&a[i-1]===b[j-2]&&a[i-2]===b[j-1])d[i][j]=Math.min(d[i][j],d[i-2][j-2]+1);}
+  return d[a.length][b.length];}
+function _didYouMean(q){
+  q=String(q||'').toLowerCase().trim();
+  if(!/^[a-z][a-z' -]{3,}$/.test(q)||q.split(/\s+/).length>2)return null;
+  if(!_dymVocab){
+    const v=new Set();
+    _SYN_IDX.forEach((cs,t)=>{if(/^[a-z][a-z' -]{3,}$/.test(t))v.add(t);});
+    Object.keys(CI).forEach(c=>{const l=catLabel(c).toLowerCase();if(/^[a-z][a-z' &-]{3,}$/.test(l))v.add(l.replace(/ & .*$/,''));});
+    P.forEach(p=>[p.n].concat(p.alias||[]).forEach(s=>String(s).toLowerCase().split(/[^a-z']+/).forEach(w=>{if(w.length>=4)v.add(w);})));
+    _dymVocab=[...v];
+  }
+  const qs=q.replace(/[\s-]/g,''),lim=qs.length>=6?2:1;
+  let best=null,bd=9;
+  _dymVocab.forEach(w=>{const ws=w.replace(/[\s-]/g,'');if(ws===qs&&w!==q){if(bd>0||w.length<best.length){best=w;bd=0;}return;}
+    const d=_editDist(qs,ws);if(d<=lim&&(d<bd||(d===bd&&w.length<(best||'').length))){best=w;bd=d;}});
+  return best&&best!==q?best:null;
+}
 function crisisHtml(){
   const u=UI[L_];
   return '<div class="crisis-block"><p class="crisis-lead">'+esc(u.crisisLead)+'</p>'+hotlineHtml(false)+localCrisisHtml()
@@ -21,6 +45,11 @@ function crisisHtml(){
 function renderEmptyState(v,searching,filtered){
   const el=document.getElementById('emptyState'),u=UI[L_];
   const crisis=searching&&isCrisisQuery(searchRaw||searchTerm);
+  // 2026-10-04: a health question with no place matching its words ("找医生") is answered by the health box
+  // above; "no matching places — check the spelling" under it contradicted that answer.
+  if(v===0&&searching&&!crisis&&!filtered&&_isHealthQuery(searchRaw||searchTerm)){
+    _lastEmptyKind=null;el.hidden=true;el.innerHTML='';el.dataset.kind='';return;
+  }
   if(v>0){
     _lastEmptyKind=null;
     if(crisis){el.hidden=false;el.dataset.kind='crisis';el.innerHTML=crisisHtml();}
@@ -40,6 +69,12 @@ function renderEmptyState(v,searching,filtered){
     // nothing (a "bank" search while only a bankless area is selected) — the honest
     // fix offers to drop the filter, not to imply the search itself came up empty.
     msg=u.noResultFiltered;label=u.emptyFiltersBtn;act=clearFiltersAct;
+  }else if(searching&&!crisis&&_didYouMean(searchRaw||searchTerm)){
+    // 2026-10-04 (newcomer test): "foodbank", "libary", "docter" ended at "check the spelling" with only a
+    // Clear button. One word, one or two letters off a word the map knows: offer that word.
+    const w=_didYouMean(searchRaw||searchTerm);
+    msg=u.dymMsg.replace('{Q}',esc(searchRaw||searchTerm)).replace('{W}',esc(w));label=u.dymBtn.replace('{W}',w);
+    act=()=>{searchInputEl.value=w;clearTimeout(searchTimer);runSearch();};
   }else if(searching){
     msg=u.noResultHint;label=u.clearSearchBtn;act=()=>{searchInputEl.value='';clearTimeout(searchTimer);runSearch();};
   }else if(onlyOpen){
@@ -73,7 +108,8 @@ function renderEmptyState(v,searching,filtered){
   // small second button — the one visitor who hit this tapped past it.
   if(searching){
     const hit=_taskForQuery();
-    if(hit&&!_isHealthQuery(searchRaw||searchTerm))el.insertBefore(_taskCardEl(hit,'search_empty'),el.firstChild);
+    // a card never goes above the 24-hour lines ("safe place" once led with the rental-scam card, 2026-10-04): after them
+    if(hit&&!_isHealthQuery(searchRaw||searchTerm)){const c=_taskCardEl(hit,'search_empty');if(crisis)el.appendChild(c);else el.insertBefore(c,el.firstChild);}
   }
 }
 // 2026-09-24: strongest match first. (1) a card with this exact alias; (2) the
@@ -95,6 +131,10 @@ function _taskForQuery(){
   if(_TASK_GENERIC.has(lq))return null;
   const exact=TASKS.find(t=>(t.alias||[]).some(a=>String(a).toLowerCase()===lq));
   if(exact)return exact;
+  // a card's own question or title, typed as is (2026-10-04: "No tengo médico de familia" suggested the sick card,
+  // whose title contains it, once the translations used the same term for family doctor)
+  const own=TASKS.find(t=>[t.q,t.t].some(x=>x&&String(taskText(x)).toLowerCase()===lq));
+  if(own)return own;
   const strong=TASKS.find(t=>taskMatchesLoose(t,q,true));
   if(strong)return strong;
   return _isPlaceWord(q)?null:(TASKS.find(t=>taskMatchesLoose(t,q))||null);
@@ -109,7 +149,8 @@ function _taskCardEl(t,src){
   box.appendChild(b);return box;
 }
 // ---- 2026-09-22: the answer box under the search bar ------------------------
-const _HEALTH_RE=/doctor|clinic|walk.?in\b|sick|urgent|nurs[e](?!ry)|\bgp\b|\ber\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
+// 2026-10-04: + common misspellings (docter, doctr, clinc, clinik) — the newcomer test's "docter" got nothing
+const _HEALTH_RE=/doct[eo]?r|dokter|clini?[ck]|clinc|walk.?in\b|sick|urgent|nurs[e](?!ry)|\bgp\b|\ber\b|physician|medical|fever|médecin|clinique|malade|urgence|infirmi|médico|clínica|enfermo|urgencia|enfermer|医生|看病|诊所|診所|急诊|急診|生病|发烧|發燒|门诊|門診|醫生|의사|병원|진료|아파(?!트)|응급|医者|病院|診療|受診|病気|発熱/i;
 const _NOT_HEALTH_RE=/\bdent|\bvet\b|veterin|animal|\bpets?\b|legal|lawyer|\blaw\b|牙|兽医|獸醫|宠物|寵物|法律|치과|동물|수의|歯|動物|獣医|\beyes?\b|optom|glasses|lunettes|gafas|眼科|眼镜|眼鏡|안과|안경|目医者|insurance|seguro|assurance|保险|保險|보험|保険/i;
 function _isHealthQuery(q){q=String(q||'');return _HEALTH_RE.test(q)&&!_NOT_HEALTH_RE.test(q);}
 // 2026-10-04: the city's urgent and primary care centres come from CITY.upcc (place ids). This used
@@ -120,6 +161,8 @@ function renderSearchHelp(){
   const q=(searchRaw||searchTerm||'').trim(),u=UI[L_];
   if(!searchTerm||isCrisisQuery(q)){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
   const health=_isHealthQuery(q),ups=_upccs();
+  const exactCard=!health&&!_closest&&_exactN>0?_exactTaskForQuery():null;   // with no places, the empty state already shows it
+  if(exactCard){el.innerHTML='';el.hidden=false;el.dataset.kind='task';el.appendChild(_taskCardEl(exactCard,'search_alias'));return;}
   if(!health&&!_closest){el.hidden=true;el.innerHTML='';el.dataset.kind='';return;}
   el.innerHTML='';el.hidden=false;
   if(_closest){const n=document.createElement('p');n.className='sh-note';n.textContent=u.searchClosestNote(q,lastVisible);el.appendChild(n);}
@@ -131,7 +174,10 @@ function renderSearchHelp(){
       ?'<br>'+stOf(ups[0])+esc(u.hcHours)+u.colon+esc(fmtHours(ups[0].h,L_))
       :ups.map(p=>'<br><b>'+esc(p.n)+'</b> · '+esc(p.a)+'<br>'+stOf(p)+esc(u.hcHours)+u.colon+esc(fmtHours(p.h,L_))).join(''))+'</li>';
     const box=document.createElement('div');
+    // at night every centre can be closed: say where to go instead of pointing at a closed door
+    const anyOpen=ups.some(p=>{const st=openState(p.h);return st&&st.open;});
     box.innerHTML='<p class="sh-title">'+esc(u.hcTitle)+'</p><ul class="sh-list">'
+      +(ups.length&&!anyOpen?'<li><b>'+phoneHtml(esc(u.hcNight))+'</b></li>':'')
       +upccLi
       +'<li>'+phoneHtml(esc(u.hc811))+'</li><li>'+esc(u.hcPharm)+'</li><li>'+esc(u.hc911).replace(/\b911\b/,'<a href="tel:911">911</a>')+'</li></ul>';
     const btns=document.createElement('div');btns.className='sh-btns';
@@ -151,6 +197,14 @@ function renderSearchHelp(){
     const hit=_taskForQuery();
     if(hit)el.appendChild(_taskCardEl(hit,'search_closest'));
   }
+}
+// 2026-10-04 (newcomer test): "SIN", "bank account" found places (a clinic whose Spanish alias contains "sin")
+// and never the card that answers the question. A query that IS one of a card's aliases gets that card above
+// the results, whatever the map finds.
+function _exactTaskForQuery(){
+  const lq=(searchRaw||searchTerm||'').trim().toLowerCase();
+  if(lq.length<2||_TASK_GENERIC.has(lq))return null;
+  return TASKS.find(t=>(t.alias||[]).some(a=>String(a).toLowerCase()===lq))||null;
 }
 const PRESETS={
   daily:['grocery','asian','hospital','pharmacy','bank','transit','gas','laundry','post','conv'],

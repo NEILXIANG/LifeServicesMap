@@ -24,6 +24,9 @@ const CITY={
   centre:[50.684,-120.35], zoom:12,
   bounds:[[50.5,-120.7],[50.9,-120.0]],
   navSuffix:', Testville, BC',
+  // the page-wide "last full check" date (Data Notes); a desk check of every non-government record against
+  // its official page, 2026-10-04 (cities/kamloops/import/verification.json)
+  verified:'2026-10-04',
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kamloops/home'},
   // names used as examples in the search prompts ("Which bus goes to TRU?") and the
   // bus-stop search hint; a city without a campus leaves campus out and the prompt goes
@@ -102,23 +105,23 @@ const CITY={
   // 2026-09-21: every local line the Help sheet and a crisis search show.
   // ymcabc.ca womens-emergency-shelter; interiorhealth.ca (Interior Crisis Line).
   localLines:[
-   {n:'250-374-6162',note:{en:'Y Women’s Emergency Shelter — women, with or without children, leaving violence. 24 hours, free, no referral; the address is kept private. Call, or text 250-682-7931:',
-      fr:'Y Women’s Emergency Shelter — femmes, avec ou sans enfants, qui fuient la violence. 24 h sur 24, gratuit, sans référence ; l’adresse reste confidentielle. Appelez, ou textez le 250-682-7931 :',
-      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Llame, o envíe un texto al 250-682-7931:',
-      zh:'Y Women’s Emergency Shelter——逃离暴力的女性（带不带孩子都行）。24 小时，免费，不需要转介；地址保密。打电话，或发短信到 250-682-7931：',
-      ko:'Y Women’s Emergency Shelter — 폭력을 피해 나온 여성(자녀 동반 무관). 24시간, 무료, 의뢰 불필요, 주소는 비공개. 전화하거나 250-682-7931로 문자:',
-      ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。電話、またはSMS 250-682-7931：'}},
+   {n:'250-374-6162',note:{en:'Y Women’s Emergency Shelter — women, with or without children, leaving violence. 24 hours, free, no referral; the address is kept private. Text 250-682-7931, or call:',
+      fr:'Y Women’s Emergency Shelter — femmes, avec ou sans enfants, qui fuient la violence. 24 h sur 24, gratuit, sans référence ; l’adresse reste confidentielle. Texto : 250-682-7931 — ou appelez le :',
+      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Envíe un texto al 250-682-7931, o llame al:',
+      zh:'Y Women’s Emergency Shelter——逃离暴力的女性（带不带孩子都行）。24 小时，免费，不需要转介；地址保密。可发短信到 250-682-7931，或打电话：',
+      ko:'Y Women’s Emergency Shelter — 폭력을 피해 나온 여성(자녀 동반 무관). 24시간, 무료, 의뢰 불필요, 주소는 비공개. 250-682-7931로 문자, 또는 전화:',
+      ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。SMSは250-682-7931、電話は：'}},
    {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'寄宿学校のサバイバーと家族、24時間：'}},
    {n:'1-855-242-3310',note:{en:'Hope for Wellness (Indigenous peoples), 24 hours:',fr:'Espoir pour le mieux-être (Autochtones), 24 h sur 24 :',es:'Hope for Wellness (pueblos indígenas), 24 horas:',zh:'Hope for Wellness（原住民心理支持），24 小时：',ko:'Hope for Wellness(원주민 대상), 24시간:',ja:'Hope for Wellness（先住民向け）、24時間：'}},
    {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}},
   ],
   localCrisis:{n:'778-470-2725',src:'https://kafs.ca/crcl-program',
-    note:{en:'Kamloops crisis team (not police), daily 11am–11pm, call, text or WhatsApp, age 13+:',
-          fr:'Équipe de crise de Kamloops (pas la police), tous les jours 11 h–23 h, appel, texto ou WhatsApp, dès 13 ans :',
-          es:'Equipo de crisis de Kamloops (no es la policía), todos los días 11–23 h, llamada, texto o WhatsApp, desde 13 años:',
-          zh:'Kamloops 危机小组（不是警察），每天 11:00–23:00，可打电话、发短信或 WhatsApp，13 岁以上：',
-          ko:'Kamloops 위기 대응팀(경찰 아님), 매일 11:00–23:00, 전화·문자·WhatsApp, 13세 이상:',
-          ja:'Kamloops の危機対応チーム（警察ではない）、毎日11:00–23:00、電話・SMS・WhatsApp、13歳以上：'}}
+    note:{en:'Kamloops crisis team (not police), daily 11am–11pm, call, text or WhatsApp, for Kamloops residents over 13 years of age:',
+          fr:'Équipe de crise de Kamloops (pas la police), tous les jours 11 h–23 h, appel, texto ou WhatsApp, pour les résidents de Kamloops de plus de 13 ans :',
+          es:'Equipo de crisis de Kamloops (no es la policía), todos los días 11–23 h, llamada, texto o WhatsApp, para residentes de Kamloops mayores de 13 años:',
+          zh:'Kamloops 危机小组（不是警察），每天 11:00–23:00，可打电话、发短信或 WhatsApp，面向 13 岁以上的 Kamloops 居民：',
+          ko:'Kamloops 위기 대응팀(경찰 아님), 매일 11:00–23:00, 전화·문자·WhatsApp, 13세 이상 Kamloops 주민 대상:',
+          ja:'Kamloops の危機対応チーム（警察ではない）、毎日11:00–23:00、電話・SMS・WhatsApp、13歳以上のKamloops住民が対象：'}}
 };
 
 // P1-E: every label below now carries a short compass-and-landmark cue in

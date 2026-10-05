@@ -278,7 +278,8 @@ function popup(p,idx){
     b+='</div>';
   }
   const hasCivic=/\d/.test(p.a||'');
-  const dest=hasCivic?encodeURIComponent(p.n+', '+p.a+CITY.navSuffix)
+  // an area can name its own municipality (Kelowna: West Kelowna is a different city, 2026-10-04)
+  const dest=hasCivic?encodeURIComponent(p.n+', '+p.a+((CITY.navSuffixArea||{})[p.g]||CITY.navSuffix))
                      :(p.lat+','+p.lng);
   const phoneDigits=p.p?(p.p.match(/\d{3}[-\s]?\d{3}[-\s]?\d{4}/)||[])[0]:null;
   b+='<div class="pact">';

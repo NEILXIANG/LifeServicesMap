@@ -8,6 +8,10 @@ const CITY={
   centre:[49.888,-119.496], zoom:12,
   bounds:[[49.748,-119.736],[50.028,-119.256]],
   navSuffix:', Kelowna, BC',
+  // the page-wide "last full check" date (Data Notes); a desk check of every non-government record against
+  // its official page, 2026-10-04 (cities/kelowna/import/verification.json)
+  verified:'2026-10-04',
+  navSuffixArea:{wk:', West Kelowna, BC'},   // directions: West Kelowna is its own municipality
   transit:{name:'BC Transit', url:'https://www.bctransit.com/kelowna/'},
   // search-prompt examples: the university and the main downtown exchange
   examples:{campus:'UBCO', stop:'Queensway'},
@@ -88,14 +92,14 @@ const CITY={
   // 2026-10-04 desk check: 250-763-1040 and text 236-970-0704 (24/7) on kelownawomensshelter.com — "free" is not
   // stated there, so the note no longer says it; 1-888-353-2273 (24 hours) on interiorhealth.ca/services/crisis-response.
   localLines:[
-   {n:'250-763-1040',note:{en:'Kelowna Women’s Shelter — women and children leaving abuse. 24 hours, confidential; the address is kept private. Call, or text 236-970-0704:',
-      fr:'Kelowna Women’s Shelter — femmes et enfants qui fuient la violence. 24 h sur 24, confidentiel ; l’adresse reste confidentielle. Appelez, ou textez le 236-970-0704 :',
-      es:'Kelowna Women’s Shelter — mujeres y niños que huyen del maltrato. 24 horas, confidencial; la dirección es privada. Llame, o envíe un texto al 236-970-0704:',
-      zh:'Kelowna Women’s Shelter——逃离虐待的女性和儿童。24 小时，保密；地址不公开。打电话，或发短信到 236-970-0704：',
-      ko:'Kelowna Women’s Shelter — 학대를 피해 나온 여성과 아이들. 24시간, 비밀 보장, 주소는 비공개. 전화하거나 236-970-0704로 문자:',
-      ja:'Kelowna Women’s Shelter — 虐待から逃れる女性と子ども。24時間・秘密厳守、住所は非公開。電話、またはSMS 236-970-0704：'}},
+   {n:'250-763-1040',note:{en:'Kelowna Women’s Shelter — women and children leaving abuse. 24 hours, confidential; the address is kept private. Text 236-970-0704, or call:',
+      fr:'Kelowna Women’s Shelter — femmes et enfants qui fuient la violence. 24 h sur 24, confidentiel ; l’adresse reste confidentielle. Texto : 236-970-0704 — ou appelez le :',
+      es:'Kelowna Women’s Shelter — mujeres y niños que huyen del maltrato. 24 horas, confidencial; la dirección es privada. Envíe un texto al 236-970-0704, o llame al:',
+      zh:'Kelowna Women’s Shelter——逃离虐待的女性和儿童。24 小时，保密；地址不公开。可发短信到 236-970-0704，或打电话：',
+      ko:'Kelowna Women’s Shelter — 학대를 피해 나온 여성과 아이들. 24시간, 비밀 보장, 주소는 비공개. 236-970-0704로 문자, 또는 전화:',
+      ja:'Kelowna Women’s Shelter — 虐待から逃れる女性と子ども。24時間・秘密厳守、住所は非公開。SMSは236-970-0704、電話は：'}},
    // 2026-10-04: the two national Indigenous 24-hour lines Kamloops lists (copied as is; they are not local).
-   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'寄宿学校のサバイバーと家族、24時間：'}},
+   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'先住民寄宿学校（Residential School）の生存者とその家族、24時間：'}},
    {n:'1-855-242-3310',note:{en:'Hope for Wellness (Indigenous peoples), 24 hours:',fr:'Espoir pour le mieux-être (Autochtones), 24 h sur 24 :',es:'Hope for Wellness (pueblos indígenas), 24 horas:',zh:'Hope for Wellness（原住民心理支持），24 小时：',ko:'Hope for Wellness(원주민 대상), 24시간:',ja:'Hope for Wellness（先住民向け）、24時間：'}},
    {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}}
   ],
@@ -104,7 +108,7 @@ const CITY={
   localCrisis:{n:'778-940-2560',src:'https://www.cmhakelowna.com/programs-supports/crisis-response-community-led-crcl',
     note:{en:'Kelowna crisis team (not police), daily 11am–8:30pm, call or text, age 13+:',
           fr:'Équipe de crise de Kelowna (pas la police), tous les jours 11 h–20 h 30, appel ou texto, dès 13 ans :',
-          es:'Equipo de crisis de Kelowna (no es la policía), todos los días 11–20:30 h, llamada o texto, desde 13 años:',
+          es:'Equipo de crisis de Kelowna (no es la policía), todos los días de 11:00 a 20:30, llamada o texto, desde 13 años:',
           zh:'Kelowna 危机小组（不是警察），每天 11:00–20:30，可打电话或发短信，13 岁以上：',
           ko:'Kelowna 위기 대응팀(경찰 아님), 매일 11:00–20:30, 전화·문자, 13세 이상:',
           ja:'Kelowna の危機対応チーム（警察ではない）、毎日11:00–20:30、電話・SMS、13歳以上：'}}
@@ -138,8 +142,8 @@ const LANDMARK_GLOSS={
 // imported by scripts/importers/gtfs_routes.py. Re-run the importer for each new edition and
 // update the count and date here (validate.py checks the count).
 const BUS_SOURCE={feed:'BC Transit GTFS', edition:'2026-10-01', stopsChecked:955};
-UI.zh.busCoverage='已收录 {TRANSIT} 在 {CITY} 地区运营的 29 条常规线路（含 RapidBus 97，横跨大桥连接 West {CITY}、市中心和 UBCO）。另有 1 条只在上学日运行的校车专线（88）未显示。线路、站点和首末班时间来自 {TRANSIT} 官方时刻表数据（2026 年 10 月 1 日版），共 955 个站点；实时到站请看 {TRANSIT} 官网。';
-UI.en.busCoverage='All 29 regular routes {TRANSIT} runs in the {CITY} region are included — among them RapidBus 97, which crosses the bridge between West {CITY}, Downtown and UBCO. One school-day-only route (88) is not shown. Routes, stops and first/last trips come from {TRANSIT}’s official timetable data (1 October 2026 edition), 955 stops in all; for live arrivals, see {TRANSIT}’s website.';
+UI.zh.busCoverage='已收录 {TRANSIT} 在 {CITY} 地区运营的 29 条常规线路（含 RapidBus 97，横跨大桥连接 West {CITY}、市中心和 UBCO）。另有 1 条只在上学日运行的线路（88 路）未显示。线路、站点和首末班时间来自 {TRANSIT} 官方时刻表数据（2026 年 10 月 1 日版），共 955 个站点；实时到站请看 {TRANSIT} 官网。';
+UI.en.busCoverage='All 29 regular routes {TRANSIT} runs in the {CITY} region are included — among them RapidBus 97, which crosses the bridge between West {CITY}, Downtown and UBCO. One school-day-only route (88) is not shown. Routes, stops and first/last trips come from {TRANSIT}’s official timetable data (October 1, 2026 edition), 955 stops in all; for live arrivals, see {TRANSIT}’s website.';
 UI.fr.busCoverage='Les 29 lignes régulières exploitées par {TRANSIT} dans la région de {CITY} sont toutes incluses, dont le RapidBus 97 qui traverse le pont entre West {CITY}, le centre-ville et UBCO. Une ligne scolaire (88) n’est pas affichée. Lignes, arrêts et premiers et derniers départs proviennent des données horaires officielles de {TRANSIT} (édition du 1er octobre 2026), 955 arrêts au total ; pour les passages en temps réel, voyez le site de {TRANSIT}.';
 UI.es.busCoverage='Se incluyen las 29 rutas regulares que {TRANSIT} opera en la región de {CITY}, entre ellas el RapidBus 97, que cruza el puente entre West {CITY}, el centro y UBCO. No se muestra una ruta solo para días escolares (88). Rutas, paradas y primeras y últimas salidas provienen de los datos de horarios oficiales de {TRANSIT} (edición del 1 de octubre de 2026), 955 paradas en total; para llegadas en tiempo real, vea el sitio de {TRANSIT}.';
 UI.ko.busCoverage='{TRANSIT}가 {CITY} 지역에서 운행하는 정규 노선 29개가 모두 포함되어 있습니다. 그중 RapidBus 97은 다리를 건너 West {CITY}, 다운타운, UBCO를 잇습니다. 등교일에만 운행하는 노선 1개(88)는 표시하지 않습니다. 노선·정류장·첫차와 막차 시간은 {TRANSIT} 공식 시간표 데이터(2026년 10월 1일판, 정류장 955개)에서 가져왔습니다. 실시간 도착 정보는 {TRANSIT} 웹사이트를 보세요.';
@@ -161,20 +165,20 @@ UI.ja.noteCoverage='このページは個人がまとめたもので、{CITY} �
 UI.zh.busFareText='成人单程 $3 · 当日票 $6 · 成人 30 天票 $80 · 12 岁及以下免费 · 90 路（往 Vernon）单程 $6（可用 Umo 或感应支付；{TRANSIT} 官网，2026 年 10 月）';
 UI.en.busFareText='Adult single $3 · DayPASS $6 · 30-day adult pass $80 · children 12 and under ride free · Route 90 (to Vernon) single $6 (Umo or contactless payment; {TRANSIT} website, October 2026)';
 UI.fr.busFareText='Adulte : trajet 3 $ · DayPASS 6 $ · laissez-passer 30 jours 80 $ · gratuit pour les 12 ans et moins · ligne 90 (vers Vernon) 6 $ le trajet (Umo ou paiement sans contact ; site de {TRANSIT}, octobre 2026)';
-UI.es.busFareText='Adulto: viaje sencillo $3 · DayPASS $6 · pase de 30 días $80 · niños de 12 años o menos viajan gratis · ruta 90 (a Vernon) $6 por viaje (Umo o pago sin contacto; sitio de {TRANSIT}, octubre de 2026)';
+UI.es.busFareText='Adulto: viaje sencillo $3 · DayPASS $6 · pase de 30 días para adultos $80 · niños de 12 años o menos viajan gratis · ruta 90 (a Vernon) $6 por viaje (Umo o pago sin contacto; sitio de {TRANSIT}, octubre de 2026)';
 UI.ko.busFareText='성인 1회 $3 · DayPASS $6 · 성인 30일 패스 $80 · 12세 이하 무료 · 90번(Vernon행) 1회 $6 (Umo 또는 비접촉 결제, {TRANSIT} 웹사이트 2026년 10월 기준)';
 UI.ja.busFareText='大人1回 $3・DayPASS $6・大人30日パス $80・12歳以下は無料・90番（Vernon行き）1回 $6（Umo またはタッチ決済。{TRANSIT} のサイト、2026年10月時点）';
-UI.zh.hcUpcc='紧急和初级保健中心（UPCC）：不需要家庭医生，直接去。共有三家：';
+UI.zh.hcUpcc='紧急与基层医疗中心（UPCC）：不需要家庭医生，直接去。共有三家：';
 UI.en.hcUpcc='Urgent and Primary Care Centres (UPCC): walk in, no family doctor needed. There are three:';
 UI.fr.hcUpcc='Centres de soins urgents et primaires (UPCC) : sans rendez-vous, pas besoin de médecin de famille. Il y en a trois :';
 UI.es.hcUpcc='Centros de Atención Urgente y Primaria (UPCC): sin cita, no necesita médico de familia. Hay tres:';
-UI.ko.hcUpcc='긴급·일차 진료 센터(UPCC): 예약 없이 가면 되고, 가정의가 없어도 됩니다. 세 곳이 있습니다.';
-UI.ja.hcUpcc='緊急・プライマリーケアセンター（UPCC）：予約不要、かかりつけ医がいなくても受診できます。3か所あります。';
-UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，{CITY} 办公室在法院大楼（228-1355 Water St，电话 <b>250-763-8613</b>），省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY} 还有一家法律诊所 <b>Okanagan Thompson Legal Clinic</b>（304-554 Leon Ave，电话236-425-9120），提供租房、社会救助/伤残津贴、失业保险、就业、家庭法等方面的免费帮助（地图「分类 → 法律援助」可查看）；';
+UI.ko.hcUpcc='긴급·1차 진료 센터(UPCC): 예약 없이 가면 되고, 가정의가 없어도 됩니다. 세 곳이 있습니다.';
+UI.ja.hcUpcc='緊急・プライマリケアセンター（UPCC）：予約不要、かかりつけ医がいなくても受診できます。3か所あります。';
+UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，{CITY} 办公室在法院大楼（228-1355 Water St，电话 <b>250-763-8613</b>），省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY} 还有一家法律诊所 <b>Okanagan Thompson Legal Clinic</b>（304-554 Leon Ave，电话236-425-9120），提供租房、社会救助/伤残津贴、就业保险（EI）、就业、家庭法等方面的免费帮助（地图「分类 → 法律援助」可查看）。';
 UI.en.legalLocal='<b>Legal Aid BC</b> covers family law, criminal defence, and immigration/refugee matters for income-qualified people — {CITY} office at the Law Courts (228-1355 Water St, <b>250-763-8613</b>), provincial line <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} also has a legal clinic, the <b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), offering free help with tenancy, income and disability assistance, EI, employment and family law issues (see Category → Legal Aid on this map). ';
 UI.fr.legalLocal='<b>Legal Aid BC</b> couvre le droit de la famille, la défense criminelle et les questions d\'immigration/réfugiés pour les personnes à revenu limité — bureau de {CITY} au palais de justice (228-1355 Water St, <b>250-763-8613</b>), ligne provinciale <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} a aussi une clinique juridique, l\'<b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), qui aide gratuitement en matière de location, d\'aide au revenu et d\'invalidité, d\'assurance-emploi, d\'emploi et de droit de la famille (voir Catégorie → Aide juridique sur cette carte). ';
-UI.es.legalLocal='<b>Legal Aid BC</b> cubre derecho de familia, defensa criminal e inmigración/refugiados para personas que califican por ingresos — oficina de {CITY} en el edificio de los tribunales (228-1355 Water St, <b>250-763-8613</b>), línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} también tiene una clínica legal, la <b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), que ofrece ayuda gratuita en arrendamiento, asistencia social y por discapacidad, seguro de desempleo, empleo y derecho de familia (vea Categoría → Ayuda legal en este mapa). ';
-UI.ko.legalLocal='<b>Legal Aid BC</b>(법률 지원 BC)는 소득 기준을 충족하는 사람들을 위해 가족법, 형사 변호, 이민/난민 관련 법률 지원을 제공합니다({CITY} 사무소는 법원 건물 228-1355 Water St, 전화 <b>250-763-8613</b>, 주 전체 상담전화 <b>1-866-577-2525</b>, legalaid.bc.ca). {CITY}에는 <b>Okanagan Thompson Legal Clinic</b>(304-554 Leon Ave, 전화 236-425-9120)이라는 법률 클리닉도 있어 임대, 사회부조/장애수당, 실업보험, 고용, 가족법 문제를 무료로 도와줍니다(지도의 「분류 → 법률 지원」에서 확인 가능). ';
+UI.es.legalLocal='<b>Legal Aid BC</b> cubre derecho de familia, defensa penal e inmigración/refugiados para personas que califican por ingresos — oficina de {CITY} en el edificio de los tribunales (228-1355 Water St, <b>250-763-8613</b>), línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} también tiene una clínica legal, la <b>Okanagan Thompson Legal Clinic</b> (304-554 Leon Ave, 236-425-9120), que ofrece ayuda gratuita en arrendamiento, asistencia social y por discapacidad, seguro de empleo (EI), empleo y derecho de familia (vea Categoría → Ayuda legal en este mapa). ';
+UI.ko.legalLocal='<b>Legal Aid BC</b>(법률 지원 BC)는 소득 기준을 충족하는 사람들을 위해 가족법, 형사 변호, 이민/난민 관련 법률 지원을 제공합니다({CITY} 사무소는 법원 건물 228-1355 Water St, 전화 <b>250-763-8613</b>, 주 전체 상담전화 <b>1-866-577-2525</b>, legalaid.bc.ca). {CITY}에는 <b>Okanagan Thompson Legal Clinic</b>(304-554 Leon Ave, 전화 236-425-9120)이라는 법률 클리닉도 있어 임대, 사회부조/장애수당, 고용보험(EI), 고용, 가족법 문제를 무료로 도와줍니다(지도의 「분류 → 법률 지원」에서 확인 가능). ';
 UI.ja.legalLocal='<b>Legal Aid BC</b>は家族法、刑事弁護、移民・難民関連について、所得要件を満たす人を対象にカバーしています——{CITY}の事務所は裁判所の建物内（228-1355 Water St、<b>250-763-8613</b>）、州全体の窓口<b>1-866-577-2525</b>、legalaid.bc.ca。{CITY}には法律相談所<b>Okanagan Thompson Legal Clinic</b>（304-554 Leon Ave、236-425-9120）もあり、賃貸、生活保護・障害者給付、雇用保険、雇用、家族法について無料で相談できます（この地図の「カテゴリー→法律扶助」参照）。';
 UI.zh.guideCity=`/*@text guide/zh.html*/`;
 UI.en.guideCity=`/*@text guide/en.html*/`;

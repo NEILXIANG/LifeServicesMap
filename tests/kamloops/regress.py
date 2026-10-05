@@ -1609,7 +1609,7 @@ async def main():
             return {withHours:/pv-open (on|off)/.test(a), withoutHours:!/pv-open/.test(b), qualified:!/pv-open/.test(c)};}""")
         check("70 the popup states open/closed when it can and stays silent when it cannot", pill['withHours'] and pill['withoutHours'] and pill['qualified'], pill)
         # the reverse entry: from an office's popup into the card that names it
-        await pg70.evaluate("()=>{resetAll();const m=M.find(x=>x.data.n==='Service BC Centre');focusMarker(m,16);}")
+        await pg70.evaluate("()=>{resetAll();const m=M.find(x=>x.data.n==='ICBC Driver Licensing');focusMarker(m,16);}")   # 2026-10-04: the MSP card's place is ICBC now
         await pg70.wait_for_timeout(1500)
         rev=await pg70.evaluate("""()=>{const c=document.querySelector('.leaflet-popup-content');
             const go=c&&c.querySelector('.pv-task-go');if(!go)return {no:'no entry'};
@@ -1765,7 +1765,7 @@ async def main():
             print('  SKIP  72 PDF text check — neither pdftotext nor pypdf available (.venv/bin/pip install pypdf)')
             prt['pdfHasCard']=prt['pdfNoChrome']=True
         else:
-            prt['pdfHasCard']=('Service BC' in ptxt) and ('455 Columbia' in ptxt)
+            prt['pdfHasCard']=('ICBC' in ptxt) and ('937 Concordia' in ptxt)   # 2026-10-04: MSP card names ICBC
             prt['pdfNoChrome']=('Quick Picks' not in ptxt) and ('Bus Routes' not in ptxt)
         check("72 printing a card lays the card out on a white page with the app chrome gone",
               prt['cls'] and prt['bodyPos']=='static' and prt['modalH']>200 and prt['modalW']>600 and prt['map'] and prt['tools'] and prt['guide'] and prt['header'] and prt['white'] and prt['pdfHasCard'] and prt['pdfNoChrome'], prt)
@@ -1784,9 +1784,11 @@ async def main():
             await pg73.fill('#searchInput',term); await pg73.wait_for_timeout(900)
             return await pg73.evaluate("""()=>{const pp=document.querySelector('.leaflet-popup');const mr=document.getElementById('map').getBoundingClientRect();
               return {z:map.getZoom(),v:lastVisible,popup:!!pp,top:pp?Math.round(pp.getBoundingClientRect().top-mr.top):-999};}""")
-        s1=await single('South Kamloops Secondary')
+        # 2026-10-04: two elementary notes now name South Kamloops Secondary (their students go on there), so it
+        # no longer has a single match; Sa-Hali Secondary does
+        s1=await single('Sa-Hali Secondary')
         await pg73.click('#searchClear'); await pg73.wait_for_timeout(400)
-        s2=await single('South Kamloops Secondary')
+        s2=await single('Sa-Hali Secondary')
         check("73 a single search result opens its popup inside the map at street zoom, and again after clearing", s1['v']==1 and s1['popup'] and s1['top']>=0 and s1['z']>=15 and s2['popup'] and s2['top']>=0, (s1,s2))
         # a re-run of apply() with nothing changed must not move the view or reopen the popup
         await pg73.evaluate("()=>{map.closePopup();map.setZoom(13);}"); await pg73.wait_for_timeout(400)

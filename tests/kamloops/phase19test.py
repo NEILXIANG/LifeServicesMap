@@ -73,9 +73,8 @@ async def main():
             TASKS.forEach(t=>{for(const q of [t.q[l]||t.q.en,t.t[l]||t.t.en]){searchRaw=q.toLowerCase();searchTerm=searchRaw;
               const x=_taskForQuery();if(!x||x.id!==t.id)bad.push([l,t.id,x?x.id:null]);}});}
             searchRaw='';searchTerm='';setLang('en');return bad}""")
-        # two cards legitimately share wording ("no family doctor" is also the sick card's own title)
         check('a card\'s own question or title, typed in any language, suggests that card (%d exceptions)' % len(ints),
-              len(ints) <= 2 and all(b[1] == 'doctor' and b[2] == 'sick' for b in ints), ints)
+              not ints, ints)   # 2026-10-04: a card's own words now win outright, so no exceptions remain
         check('no page errors', not errs, errs[:3])
         await b.close()
     print('\n%d passed, %d failed' % (P, F)); sys.exit(1 if F else 0)

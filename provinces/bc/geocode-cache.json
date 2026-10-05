@@ -719,6 +719,14 @@
   "score": 100,
   "trusted": true
  },
+ "1750 Batchelor Dr, Kamloops, BC": {
+  "full": "1750 Batchelor Dr, Kamloops, BC",
+  "lat": 50.716484,
+  "lng": -120.3696518,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
  "1750 Pier Mac Way, Kelowna, BC": {
   "full": "1750 Pier Mac Way, Kelowna, BC",
   "lat": 49.9527694,
@@ -2931,6 +2939,14 @@
   "full": "792 Kuipers Cres, Kelowna, BC",
   "lat": 49.797456,
   "lng": -119.4804801,
+  "precision": "CIVIC_NUMBER",
+  "score": 100,
+  "trusted": true
+ },
+ "810 Ord Rd, Kamloops, BC": {
+  "full": "810 Ord Rd, Kamloops, BC",
+  "lat": 50.7118424,
+  "lng": -120.3674921,
   "precision": "CIVIC_NUMBER",
   "score": 100,
   "trusted": true

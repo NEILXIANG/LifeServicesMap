@@ -35,6 +35,7 @@ def city_block(cid, name, lat, lng, dlat, dlng):
         (r"transit:\{name:'BC Transit', url:'[^']*'\}", "transit:{name:'BC Transit', url:'TODO: BC Transit page for %s'}" % name),
         (r"schoolDistrict:\{name:'SD73', url:'[^']*'\}", "schoolDistrict:{name:'TODO: school district (e.g. SD23)', url:'TODO: catchment finder URL'}"),
         (r"tasksChecked:'[^']*'", "tasksChecked:'TODO: YYYY-MM-DD the task cards were checked'"),
+        (r"verified:'[^']*'", "verified:'TODO: YYYY-MM-DD of the last full desk check of the places'"),
         (r"help:\{settle:'[^']*'", "help:{settle:'TODO: settlement agency phone'"),
         # 2026-10-04: these three are city facts too, and used to be copied silently (the docs audit ran this script)
         (r"examples:\{campus:'[^']*', stop:'[^']*'\}", "examples:{campus:'TODO: main campus short name (or remove campus)', stop:'TODO: main downtown bus exchange'}"),

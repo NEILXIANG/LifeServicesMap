@@ -34,6 +34,50 @@
 
 ---
 
+## 2026-10-04 独立复核（官网对照）之后：要打电话或开浏览器核实的
+
+Kamloops 全部 307 条非政府数据记录第一次做了独立复核（Kelowna 的做法；结果在 `cities/kamloops/import/verification.json`）：
+212 条确认、57 条改正、35 条官网无法读取（多为商家网站拦截自动读取，或根本没有官网）。安全相关的已用浏览器补核。
+下面这些仍需一个人打电话或用浏览器确认（地址、电话、营业时间）：
+
+| 分类 | 地点 |
+|---|---|
+| apt | The View Apartments |
+| asian | Cheng Kwong 長江超市 |
+| asian | Day to Day Grocery |
+| asian | FraserCart Indian Store |
+| autorepair | Stay Tuned Auto Repair |
+| bank | Beem Credit Union (Valleyview) |
+| bank | TD Bank (North Shore) |
+| bank | TD Bank (Notre Dame Dr) |
+| bank | TD Canada Trust (Victoria St) |
+| conv | 7-Eleven (Tranquille Rd) |
+| conv | Tranquille Market |
+| gas | Co-op Valleyview Gas Bar |
+| gas | Petro-Canada (10th Ave) |
+| gas | Petro-Canada (Powwow Trail) |
+| gas | Petro-Canada (Sydney Ave) |
+| grocery | FreshCo (Columbia) |
+| grocery | Safeway (Fortune Dr) |
+| gym | Anytime Fitness |
+| gym | Planet Fitness |
+| hardware | Canadian Tire |
+| hardware | Kamloops Home Hardware |
+| hardware | RONA Kamloops |
+| mall | Columbia Place |
+| mall | Columbia Square |
+| post | Canada Post |
+| post | Canada Post (Dalhousie Dr) |
+| post | Canada Post (North Shore) |
+| religious | Gurdwara Sahib Society |
+| religious | Kamloops Sikh Cultural Society |
+| restaurant | Oriental Express |
+| restaurant | Victoria Oriental |
+| secondhand | Lys's Thrift and Vintage |
+| taxi | Yellow Cabs Kamloops |
+| trail | Airport Trail |
+| tutor | The Success Formula Tutoring |
+
 ## 待核实（`v` 字段超 6 个月）
 
 `export-open.py` 可生成过期待核实清单。每月跑一次：

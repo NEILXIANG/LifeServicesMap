@@ -47,15 +47,16 @@
  },
  "0324a6a4": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "note: Korean community meets 3rd Sunday 12:30, not every Saturday"
+  ],
   "method": "desk",
-  "remarks": "Korean Catholic Community time (Saturdays 11:00 a.m., Fr. Mulvihill Room) is from the Diocese of Nelson 'Ethnic Masses' page; the parish site itself does not mention it. Diocese contact for that group: 250-448-2725. Note the Diocese parish page lists older Sunday times (9:00am, 11:00am, 6:00pm) and address 1077 Fuller Avenue; the parish's own site (used above) says Sunday 8:30 AM, 11:30 AM, 6:00 PM. Email spxkelowna@nelsondiocese.org. Parish also uses stpiuskelowna.org.",
-  "result": "confirmed",
+  "remarks": "Fix the Korean community timing to third Sunday 12:30 pm. Our-invitation page says Confession 'Saturday 3pm – 4pm or by appointment'. Email spxkelowna@nelsondiocese.org. Masses also live-streamed on YouTube.",
+  "result": "corrected",
   "urls": [
    "https://spxbc.com/",
    "https://spxbc.com/our-invitation/",
-   "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069759&type=d&pREC_ID=1358585",
-   "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069743&type=d&pREC_ID=1358569"
+   "https://spxbc.com/our-history/"
   ]
  },
  "035896d3": {
@@ -84,23 +85,21 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Page: 'The Parish is directing its efforts to help and welcome refugees from Ukraine to Kelowna ... supporting those who are providing accommodation with the extras, creating welcoming relationships, and help assimilation into our community.' It also says it supports refugees with food, rent, clothing, and 'Any refugee regardless of affiliation will be able to access support'. Office is 'open by appointment only'; phone is voicemail. Priest Rev. Fr Chad Pawlyshyn call/text 1-250-319-5979. Services in Ukrainian and English. Email office@stspeterandpaulkelowna.com.",
+  "remarks": "Services are on 'scheduled' Saturdays/Sundays — check the parish calendar (the priest serves other district parishes, e.g. Kamloops). Services jointly in Ukrainian and English. Refugee page (undated, from 2022 war onset): supports those providing accommodation 'with the extras', creates welcoming relationships, helps settlement; funds help refugees with food, rent, clothing — 'Any refugee regardless of affiliation'. Page may be dated; confirm the program is still active. Email office@stspeterandpaulkelowna.com.",
   "result": "confirmed",
   "urls": [
    "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help",
-   "https://www.stspeterandpaulkelowna.com/contact",
+   "https://www.stspeterandpaulkelowna.com/calendar",
    "https://www.stspeterandpaulkelowna.com/parish/general-information",
-   "https://www.stspeterandpaulkelowna.com/faith/divine-liturgy"
+   "https://www.stspeterandpaulkelowna.com/"
   ]
  },
  "0482ea5b": {
   "checked": "2026-10-04",
-  "fixed": [
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "866-736-8515 is Broadstreet's toll-free line ('Call 24/7'). Rents shown from $1728 (1-bed) to $2298 (3-bed); water included; security deposit half a month's rent; pets $200 deposit; parking $65-$80/mo. Promotion (one month free) for leases signed by Oct 31, 2026. Several unit types show 'Waitlist'. No office hours published.",
-  "result": "corrected",
+  "remarks": "No leasing-office hours published; viewings are booked online as 45-minute guided tours ('meet with the leasing agent five minutes prior to your appointment in our central leasing office'). 1-3 bedrooms, Pet Friendly, On-Site Management, 24/7 Client Support. 1.866 number is Broadstreet's company-wide line shown in the site header.",
+  "result": "confirmed",
   "urls": [
    "https://www.broadstreet.ca/british-columbia/kelowna/lindgren-manor"
   ]
@@ -109,10 +108,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Page: 'Movies and showtimes are updated for online ticket purchase each Wednesday morning for the upcoming week (Friday to Thursday).' Official address adds 'Sneena Road'. 'In Westbank' is geographic and not stated on the page. No regular opening hours published.",
+  "remarks": "No opening hours — hours follow showtimes. Official: 'Movies and showtimes are updated for online ticket purchase each Wednesday morning for the upcoming week (Friday to Thursday).' Senior's Day Monday 20% off; Movie Twosome Wednesdays.",
   "result": "confirmed",
   "urls": [
-   "https://www.landmarkcinemas.com/showtimes/west-kelowna-xtreme (read in browser; automated fetch returns 403)"
+   "https://www.landmarkcinemas.com/showtimes/west-kelowna-xtreme"
   ]
  },
  "055f52fd": {
@@ -131,7 +130,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Theatre page data: screenCount 5; free shopping-mall parking; experiences 3D and Recliner; wheelchair accessible. No regular hours published (showtime-based). 'Near Orchard Park mall' is geographic, not stated on page.",
+  "remarks": "No opening hours — hours follow showtimes online.",
   "result": "confirmed",
   "urls": [
    "https://www.cineplex.com/theatre/cineplex-cinemas-orchard-plaza"
@@ -153,10 +152,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "'Formerly known as the Okanagan Mission Activity Centre, sits on the waterfront next to Sarsons Beach.' Daytime: operated with the Okanagan Mission Seniors Centre Society; weekends and evenings: City programs or rentals. City programs info 250-469-8800; rentals via kelowna.ca/rentals; Seniors society 250-764-7642 / okmissionseniors.com. No hours published.",
+  "remarks": "No hours published. For community programs the page says call 250-469-8800; 250-469-8957 is the listed facility phone (rentals). Okanagan Mission Seniors Centre Society: 250-764-7642.",
   "result": "confirmed",
   "urls": [
-   "https://www.kelowna.ca/parks-recreation/recreation-facilities/sarsons-activity-centre (read in browser)"
+   "https://www.kelowna.ca/parks-recreation/recreation-facilities/sarsons-activity-centre"
   ]
  },
  "0b69860a": {
@@ -191,6 +190,17 @@
   "result": "corrected",
   "urls": [
    "https://www.realstar.ca/apartments/bc/kelowna/glenmore-central/"
+  ]
+ },
+ "0f40437c": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data ('DELICATESSEN AND RESTURANT'). rusukrdeli.com does not resolve; no official hours. Directories show 250-868-6080.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+   "https://www.rusukrdeli.com/"
   ]
  },
  "10baca81": {
@@ -236,7 +246,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Official page confirms open-air design, the South Pandosy Exchange (lines 1, 4, 12; line 8 about 150 m north) and 'ample free parking for up to 3 hours per visit'. No centre phone or centre hours published; each store keeps its own hours.",
+  "remarks": "Official: 'Hours — Please visit store detail page for business hours.' (no centre-wide hours). 'Mission Park customers can enjoy ample free parking for up to 3 hours per visit.' 'Mission Park is home to the South Pandosy Exchange transit hub'.",
   "result": "confirmed",
   "urls": [
    "https://missionparkshopping.ca/",
@@ -271,18 +281,24 @@
    "https://www.lakepointmedical.ca/down-for-maintenance"
   ]
  },
+ "17217475": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website found; name/address and 'EAST INDIAN GROCERY STORE' description confirmed in City business-licence open data. No official hours or phone (directories show 250-765-1546 — unverified).",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)"
+  ]
+ },
  "1777ee71": {
   "checked": "2026-10-04",
-  "fixed": [
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "Owner page (Prospero) lists no public phone or mall hours; the only phone shown is a leasing agent (604-699-3470), not for the public. Page also mentions Winners, Extra Foods, a Canada Passport Centre, bowling centre and the Coast Capri hotel.",
-  "result": "corrected",
+  "remarks": "Landlord (Prospero) property page gives no mall hours. Location: intersection of Highway 97 and Gordon Drive. Tenants include Winners, Extra Foods, Shoppers Home Health Centre.",
+  "result": "confirmed",
   "urls": [
-   "https://www.prospero.ca/properties/capri-centre/",
-   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=106859&detail=true",
-   "https://pub.geo.canadapost-postescanada.ca/server/rest/services/Hosted/FPO_FLEX_FACILITY_RETAIL_POINT/FeatureServer/0/query"
+   "https://www.prospero.ca/properties/capri-centre/"
   ]
  },
  "182404d7": {
@@ -299,18 +315,13 @@
  },
  "19a2e8f6": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "Church contact page: 'Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.' Office hours Mon–Thu 9am–12 noon ('After 12 noon please call ahead ... The door may be locked'). Call 250-762-3311 before going, especially outside tax season (Oct is outside tax season). Parking via the alley off Richter St, behind the church.",
-  "result": "corrected",
+  "remarks": "Parking: 'Parking lot access via alleyway off of Richter (parking is located behind the church)'. Church office hours Mon - Thurs 9am - 12noon ('After 12 noon please call ahead or make an appointment to come in. The door may be locked.'). Sunday worship 10am.",
+  "result": "confirmed",
   "urls": [
    "https://centralokanaganunitedchurch.com/",
-   "https://centralokanaganunitedchurch.com/contact-us",
-   "https://centralokanaganunitedchurch.com/thursday-tax-clinic/",
-   "https://www.canada.ca/en/revenue-agency/services/tax/individuals/community-volunteer-income-tax-program/need-a-hand-complete-your-tax-return.html"
+   "https://centralokanaganunitedchurch.com/contact-us"
   ]
  },
  "19ca3d77": {
@@ -321,6 +332,17 @@
   "result": "confirmed",
   "urls": [
    "https://asm.sd23.bc.ca/"
+  ]
+ },
+ "19f5e7fa": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data. farahmarket.ca does not resolve (domain dead), so no official hours/phone; 'started by a family who came from Syria' is from news coverage (Castanet), not an official source. Directories show 250-317-6729 — unverified.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+   "https://farahmarket.ca/"
   ]
  },
  "1ceef85e": {
@@ -387,12 +409,11 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "No building opening hours published; most programs run 'Monday to Friday | 8:30 a.m. to 4:30 p.m.' (Health & Wellness Dept: 250-768-0227 Ext. 2). Nurses are 'available by appointment only as they are currently working reduced hours' — call ahead; for urgent needs the page points to West Kelowna/Kelowna Urgent and Primary Care Centres. Page says services 'support ... all who reside on WFN Lands'; Home Care is for people 'currently living on reserve'; some programs (e.g. chronic disease management, medical transportation, Membership Services) are for WFN Members only. Contact page lists 'Members",
+  "remarks": "No building opening hours published; individual programs list Monday to Friday 8:30 a.m. to 4:30 p.m. (e.g. Addictions Counselling, Children and Youth Counselling, Home Care/Community Care/In-Home Care). Services 'support ... all who reside on WFN Lands'. Health & Wellness ext. 2. Early Years / Youth & Recreation are at 1880 Quail Lane (250 768 4838).",
   "result": "confirmed",
   "urls": [
    "https://www.wfn.ca/health-wellness.htm",
-   "https://www.wfn.ca/contact-us.htm",
-   "https://www.wfn.ca/membership-services.htm"
+   "https://www.wfn.ca/contact-us.htm"
   ]
  },
  "24d81f72": {
@@ -463,11 +484,11 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "BC Transit (19 Feb 2026): upgrades complete - two bus bays with shelters, park and ride lot, pick-up/drop-off area, bike lockers; EV chargers planned. The Rider's Guide gives the park & ride as 'Rutland Exchange (1008 Shepard Road)' (spelled 'Shepard' there). Routes: 98 Rutland/UBCO Express (Queensway-Rutland-UBCO), 8 (Okanagan College-Orchard Park-Rutland-UBCO), 10 and 11 to downtown via Orchard Park, 14.",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit news 19 Feb 2026: upgrades to the Rutland Transit Exchange completed.",
   "result": "confirmed",
   "urls": [
-   "https://www.bctransit.com/improvements-to-the-rutland-transit-exchange-complete-2026-02-19/",
-   "https://www.bctransit.com/kelowna/wp-content/uploads/sites/24/2026/08/kel_rg_sept2026.pdf"
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+   "https://www.bctransit.com/improvements-to-the-rutland-transit-exchange-complete-2026-02-19/"
   ]
  },
  "30dee110": {
@@ -565,14 +586,24 @@
    "https://www.sd23.bc.ca/school-enrollment"
   ]
  },
+ "36cec009": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (6) not verified from the guide text.",
+  "result": "confirmed",
+  "urls": [
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
+  ]
+ },
  "36cfbf1f": {
   "checked": "2026-10-04",
   "fixed": [
-   "hours"
+   "note: fall term full, waitlist"
   ],
   "method": "desk",
-  "remarks": "On-file hours empty; class times above. 'FALL SEMESTER 2026 - CLASS IS FULL' (September 14 – December 9, 2026); join the waitlist by emailing esl@evangelkelowna.com with class wanted, name, phone and email. Next semester: January 4 – May 19, 2027 (spring break March 15–25; Christmas break Dec 10 – Jan 3). 'COST: FREE'. 'CHILDCARE IS NO LONGER AVAILABLE AT OUR SCHOOL'. Three levels: Low Beginner, High Beginner, Intermediate. Full-time attendance required; missing 4 classes loses the spot; priority to returning students.",
-  "result": "corrected",
+  "remarks": "COST: FREE. 'CHILDCARE IS NO LONGER AVAILABLE AT OUR SCHOOL'. Covers listening, speaking, reading, writing and Canadian culture. Church office hours (site footer): 'Office hours m-th 9:30am-2:30pm'; Sunday services 10am. REGISTRATION: 'All classes are now full for this semester' — waitlist by email esl@evangelkelowna.com.",
+  "result": "confirmed",
   "urls": [
    "https://evangelkelowna.com/esl"
   ]
@@ -612,17 +643,15 @@
  },
  "39e99908": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "Hours are null on file but the official Contact Us page publishes office hours (Mon-Fri 6:30 a.m.-5:00 p.m., September to June); add them. Email transportation@sd23.bc.ca. All note claims supported: application via 'Click Here' -> https://busconnect.sd23.bc.ca; 'A student must be registered on a route to ride the school bus'; 'Applications received after May 31 will not be processed until August or later and students will be placed on a waitlist'; eligibility per Policy 470R: Elementary 3 Kms or more, Middle 4 Kms or more, High School 4.8 Kms or more from their English catchment school; 2026-2",
-  "result": "corrected",
+  "remarks": "Address/hours come from the legacy contact page (sd23.bc.ca/ProgramsServices/transportation/Pages/Contact.aspx → contact.aspx); the newer transportation page shows only the phone, transportation@sd23.bc.ca and the district office footer (1040 Hollywood Road S.) — do not confuse. Distances confirmed: elementary 3 km, middle 4 km, high school 4.8 km from English catchment school; apply via busconnect.sd23.bc.ca; after May 31 → processed August or later and waitlisted. Fees $550 / $275, family cap $1650; 'SUBSIDY - WAIVER OF FEES' for financial hardship.",
+  "result": "confirmed",
   "urls": [
    "https://www.sd23.bc.ca/transportation-services-programsservices",
-   "https://www.sd23.bc.ca/contact-us",
    "https://www.sd23.bc.ca/eligibility",
-   "https://www.sd23.bc.ca/transportation-fees-payments-transportation"
+   "https://www.sd23.bc.ca/transportation-fees-payments-transportation",
+   "https://www.sd23.bc.ca/contact.aspx"
   ]
  },
  "3b959121": {
@@ -653,11 +682,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "On ICBC GLP-schools list for Kelowna, 'Approved for Class 7'. YD page lists 'ADULT GLP CERTIFICATION COURSE' (virtual or in person, $1,649; with road test package $1,800), road test preparation, and 'Only 1:1 In-Vehicle Training'. Location: corner of Water St and Highway 97 in the Commerce Centre; parking entrance only when heading south on Water St; 5-minute walk from Queensway bus loop. Email Kelowna@YoungDrivers.com. No office hours published.",
+  "remarks": "No office hours published; only class start times (e.g. classes starting Oct 5, Oct 7, Oct 17 (virtual Saturday), Oct 18 (Sunday in person)). Call (250) 868-1268.",
   "result": "confirmed",
   "urls": [
-   "https://yd.com/locations/bc/kelowna",
-   "https://icbc.com/driver-licensing/driver-training/Choosing-your-driving-school/glp-schools"
+   "https://yd.com/locations/bc/kelowna"
   ]
  },
  "42392486": {
@@ -673,15 +701,14 @@
  },
  "433b39a0": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "note: unsupported \"largest\" and curb claim removed"
+  ],
   "method": "desk",
-  "remarks": "Site lists KELOWNA 250.762.2222, WESTSIDE 250.762.4444, toll free 1.800.375.9848; says 'We have Wheelchair Accessible taxis, Senior and Student Discounts as well as Airport Service' and offers a free Kelowna Cabs app (Android and iPhone) plus online reservation. 'Largest' is supported: About Us says it 'has the largest fleet of 92 ... cars in the Okanagan Valley', and the Passenger Transportation Board taxi licensee list (updated September 2026) shows Kelowna Cabs (1981) Ltd. with 78 conventional + 14 accessible taxis, the most in Central Okanagan. YLW (City of Kelowna airport) page: 'Wheelcha",
+  "remarks": "No service hours published on the homepage. Also offers senior and student discounts and advance online booking.",
   "result": "confirmed",
   "urls": [
-   "https://www.kelownacabs.ca/",
-   "https://www.kelownacabs.ca/about-us/",
-   "https://www.kelownacabs.ca/services/access-for-all-passengers/",
-   "https://www.kelownacabs.ca/services/reliability/"
+   "https://www.kelownacabs.ca/"
   ]
  },
  "43df7e62": {
@@ -710,12 +737,24 @@
  },
  "44e684f8": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "note: polishing, not cleanings"
+  ],
   "method": "desk",
-  "remarks": "Runs 'Every May'; this notice says 'This year's clinic will take place from May 9 to May 30' (year not stated on page; may be out of date). Fees, cash only: screening-day scaling $15; exam, polish, fluoride, x-rays and sealants $10 (ages 5-15) or $25 (16+). Ages 16+ need screening at their own dentist or on the clinic's screening days (May 9 and 12); ages 5-15 need no pre-screening. The exam is a 'limited dental examination' by the on-site dentist; students do the prescribed treatment; 'cleaning' is polishing plus only 'minimum scaling'. Room 307, HS building; pay parking lot #6. No weekly hou",
+  "remarks": "Seasonal: 'Every May'; this year's clinic ran May 9 to May 30 (year not printed; page copyright 2026). No daily hours published — book by phone 250-862-5424 or OCCDA@okanagan.bc.ca. Prices (cash only): screening-day scaling $15; exam, polish, fluoride, x-rays, sealants: children 5-15 $10, ages 16+ $25. Room 307, Health Science Centre.",
   "result": "confirmed",
   "urls": [
    "https://www.okanagancollege.ca/notice/certified-dental-assisting-programs-direct-patient-care-clinic"
+  ]
+ },
+ "4587155a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data ('RETAIL SALES - FILIPINO GROCERIES'). No official website; no official hours. Some listings call it 'Ishop Pinas Filipino Store' at the same address (third-party, unverified); directories show 778-484-6797.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)"
   ]
  },
  "46e8ce68": {
@@ -732,37 +771,38 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "No office hours published. Email info@jhsok.ca. Programs listed: housing (Cornerstone Shelter, STEP Place, Harvey House and several apartment buildings), justice (OCC Outreach, Probation Outreach, Restorative Justice, Shoplifting Prevention), community (Outreach + Community Inclusion, Home Share, Community Housing), employment and training (ASIST, Mental Health First Aid).",
+  "remarks": "No office hours published. Email info@jhsok.ca. Programs listed: Cornerstone Shelter, STEP Place, Harvey House, supportive/community housing, Probation Outreach, Restorative Justice, Shoplifting Prevention, Home Share, employment programs.",
   "result": "confirmed",
   "urls": [
    "https://jhsok.ca/",
-   "https://jhsok.ca/contact/"
+   "https://jhsok.ca/contact-us/"
   ]
  },
  "475fe1ed": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "250-469-8944 is 'General Enquiries'; box office 250-469-8940 (theboxoffice@kelowna.ca) is confirmed. Box office page: 'Tickets can be purchased online at theboxoffice.ca or on our website, in person at either the Kelowna Community Theatre or the Rotary Centre for the Arts, or over the phone by calling (250) 469-8940.' Site is run by the City of Kelowna (box office 'operated as part of the City of Kelowna's Cultural Services team'). Black Box Theatre is 'a smaller, more intimate performance space' at the back of the building, entrance from the rear parking lot. Every patron, including children,",
-  "result": "confirmed",
+  "remarks": "theatre.kelowna.ca is behind a Cloudflare JavaScript challenge (HTTP 403) so I could not read it directly (WebFetch and plain fetch both blocked; browser tools not allowed in this run). Search-engine index text of theatre.kelowna.ca/box-office and /contact-us says: box office Monday to Friday 10:00 AM to 3:00 PM; for events on weekends or statutory holidays the box office opens 3 hours before show time; general 250-469-8944, box office 250-469-8940; tickets online, by phone 250-469-8940, or in person at Kelowna Community Theatre or the Rotary Centre for the Arts (RCA box office Mon–Fri 1–4 p.m., 421 Cawston Ave). All consistent with the record — verify in a real browser before using the hours.",
+  "result": "unresolved",
   "urls": [
    "https://theatre.kelowna.ca/",
-   "https://theatre.kelowna.ca/contact-us",
    "https://theatre.kelowna.ca/box-office",
-   "https://theatre.kelowna.ca/about/theatre-faqs"
+   "https://theatre.kelowna.ca/contact-us"
   ]
  },
  "479aeb0c": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Helpline 8 am–8 pm daily, in English and Mandarin; appointments for complex issues; online Newcomer Intake Form. Legal: 'OCCA partners with the Access Pro Bono Society of BC'; volunteer lawyers give free legal advice at OCCA's office or virtually, via online inquiry form. ESL: 'All ESL classes are free for OCCA members', break in July–August. Tax-filing page only shows a past event ('2025 Feb: Presentation & Drop-in Clinic with the CRA'), so tax help may be seasonal; ask first. Job Connect for Future: Cohort 5 finished Nov 2025, monthly expansion workshops continue; eligibility includes CLB 5+",
+  "remarks": "No office/drop-in hours published for the Inkar Road site; the 8am-8pm daily hours are for the helpline (778-484-6222). Helpline: simple issues by phone/email/social media; appointments for complex issues. Legal: partners with Access Pro Bono Society of BC, volunteer lawyers give free advice. ESL classes free for OCCA members (register via info@occabc.ca). Also tax filing help and Job Connect for Future. WeChat: OCCA Group.",
   "result": "confirmed",
   "urls": [
    "https://occabc.ca/",
-   "https://occabc.ca/contact/",
    "https://occabc.ca/helpline/",
-   "https://occabc.ca/legal-consultation/"
+   "https://occabc.ca/legal-consultation/",
+   "https://occabc.ca/services/esl/",
+   "https://occabc.ca/taxfiling/",
+   "https://occabc.ca/contact/"
   ]
  },
  "4a0d58a9": {
@@ -779,10 +819,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "'Joint use facility operated through a partnership between the Rutland Seniors Centre Society and the City of Kelowna.' Activities listed: 'Kick & Run Soccer, health and well-being workshops, yoga classes and babysitting certification' (page does not say the soccer is for children, though Kick & Run is the City's children's program name). Seniors Society programs for 50+ (dancing, fitness, billiards, carpet bowling, bingo). Society site rutlandseniors.com. No hours published.",
+  "remarks": "City page publishes no hours. Joint-use facility of the Rutland Seniors Centre Society and the City; seniors programs for 50+ (rutlandseniors.com — no hours found there either).",
   "result": "confirmed",
   "urls": [
-   "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-activity-centre (read in browser)"
+   "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-activity-centre"
   ]
  },
  "4a5a9b7f": {
@@ -847,7 +887,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Two buildings: 755 and 805 Academy Way (on file lists only 755). 250-801-1899 is 'Rental Inquiries & Community Manager' (ivy@missiongroup.ca). Confirmed: 'two-building rental community' next to UBCO; 'Modern studio, one-, and two-bedroom apartments'; fully furnished, 'Unfurnished homes may be available depending on availability'; 'Dedicated on-site community manager'; 'minimum lease terms are one year'; pet friendly; 5-10 minute walk to UBCO campus. No office hours published.",
+  "remarks": "No leasing-office hours published; contact ivy@missiongroup.ca. Caution: the displayed number 250.801.1899 is linked to tel:2363044547 on the page — the two differ; the displayed number matches our record, but a caller tapping the link would reach 236-304-4547. 'Please note, minimum lease terms are one year.' Furnished (major furniture items) or unfurnished subject to availability; studio, 1- and 2-bed; on-site community manager; pet-friendly.",
   "result": "confirmed",
   "urls": [
    "https://www.missiongroup.ca/rent/ivy-hall-ivy-walk/"
@@ -884,22 +924,21 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "UBCO Campus Planning: 'The UBCO Transit Exchange is located on Alumni Avenue and Transit Way.' Sept 2026 Rider's Guide: served by 97 Okanagan (end of the line), 98, 8, 6, 13, 23, 84 and 90 UBCO/Vernon; take 23 or 90 for the Kelowna airport.",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit: six bus bays, transit lanes on Alumni Avenue and Transit Way; integrates with RapidBus.",
   "result": "confirmed",
   "urls": [
-   "https://www.bctransit.com/new-ubc-okanagan-transit-exchange-improves-the-customer-experience/",
-   "https://campusplanning.ok.ubc.ca/transportation/travel-options/transit/",
-   "https://www.bctransit.com/kelowna/wp-content/uploads/sites/24/2026/08/kel_rg_sept2026.pdf"
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+   "https://www.bctransit.com/new-ubc-okanagan-transit-exchange-improves-the-customer-experience/"
   ]
  },
  "536fa555": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Page lists 'Senior's Day - Monday' and, this week, 'Drishyam: The Conclusion (Hindi w EST)' with English subtitles. Also Movie Twosome Wednesday and Kid's Day Sunday. 'Ten-screen' is taken from the theatre name 'Grand 10'; no screen count is stated on the page. 'Movies and showtimes are updated for online ticket purchase each Wednesday morning for the upcoming week (Friday to Thursday).' No regular opening hours published.",
+  "remarks": "No opening hours — hours follow showtimes (check online). 'Senior's Day - Monday: 20% Off Admission and Concessions'. Currently showing 'Drishyam: The Conclusion (Hindi w EST)' (English subtitles), confirming occasional Hindi films.",
   "result": "confirmed",
   "urls": [
-   "https://www.landmarkcinemas.com/showtimes/kelowna-grand-10 (read in browser; automated fetch returns 403)"
+   "https://www.landmarkcinemas.com/showtimes/kelowna-grand-10"
   ]
  },
  "53dfad06": {
@@ -917,26 +956,21 @@
  },
  "54a572db": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "No hours on file; the hours page is titled 'Opening Hours October' (monthly schedule, confirming hours change by month) - the day labels on the page are laid out in columns, matched here by position. Activities have different hours: climbing wall and laser tag are closed Tue-Thu. October exceptions: Oct 9 and Oct 23 activities 11am-8:30. Site says 'All Ages'; attractions include The Kids Zone, laser tag, laser maze, power grid, 30-foot rock climbing wall, 35+ arcade games. 'Next to Landmark Cinemas' is supported by addresses: Landmark Kelowna Grand 10 is at 110 - 948 McCurdy Road.",
-  "result": "corrected",
+  "remarks": "Hours are published per month ('October') and differ by activity — the note's 'Closed on Mondays; hours change by month' is right. Day labels in the page text are out of order (column layout); I assigned the second block to Friday because its exceptions (Oct 9, Oct 23) are Fridays — check visually. October exceptions: Oct 9 activities 11am-8:30, bar 12-10; Oct 23 activities 11-8:30. Next to Landmark Cinemas (same 948 McCurdy Rd building).",
+  "result": "confirmed",
   "urls": [
    "https://www.energyplex.ca/",
-   "https://www.energyplex.ca/opening-hours",
-   "https://www.landmarkcinemas.com/showtimes/kelowna-grand-10"
+   "https://www.energyplex.ca/opening-hours"
   ]
  },
  "5b4fbf06": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "On-file hours are empty but the official page publishes Kelowna distribution hours (by appointment only). New clients register online ('To Register as a New Client CLICK HERE'). Required: 1 piece of photo ID for all adults over 18 (front and back), 1 piece of ID for all children, proof of current Kelowna or West Kelowna address (rental agreement, rent receipts, utility bills). Serves people regardless of citizenship, national or ethnic origin, income source, etc. 'Tiny Bundles' = Friday appointments (baby supplies program).",
-  "result": "corrected",
+  "remarks": "Distribution by appointment only; register online first. ID: photo ID for all adults 18+, ID for all children, proof of current Kelowna or West Kelowna address. Closed BC statutory holidays.",
+  "result": "confirmed",
   "urls": [
    "https://cofoodbank.com/get-food/"
   ]
@@ -956,7 +990,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "City page: 'an ice hockey arena built in 1945 and has a capacity of 2,600', 'home to the Kelowna Minor Hockey and the Okanagan College Hockey Leagues', 'hosts skating programs ... seasonal programs and drop ins at kelowna.ca/recreation'. No hours published on the facility page. kelowna.ca blocks automated fetches; checked in a browser.",
+  "remarks": "No regular opening hours published; drop-in times via kelowna.ca/recreation and the public skating schedules page. Built 1945, capacity 2,600; home to Kelowna Minor Hockey and Okanagan College hockey leagues.",
   "result": "confirmed",
   "urls": [
    "https://www.kelowna.ca/parks-recreation/recreation-facilities/memorial-arena"
@@ -1005,7 +1039,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "251 Leon Avenue is the Mission's address shown in the site footer/contact page; the dental page does not give a separate clinic address. The dental page says 'For more info: Call: 250-763-3737' (the Mission's main line) and gives a dental email. No hours published - call first. Services: cleanings, check-ups, X-rays, extractions, fillings. Staff can support patients in English, Tagalog, Hindi and Punjabi. A third-party directory (bc.211.ca, not used as evidence) lists a different dental phone, 778-738-3636; the official HealthLinkBC resource page could not be opened (certificate error).",
+  "remarks": "No clinic hours published; call 250-763-3737 or email. Services: cleanings, check-ups, X-rays, extractions, fillings. Staff support in English, Tagalog, Hindi and Punjabi. The dental page does not name the street address; 251 Leon Ave is KGM's main address — confirm location when phoning.",
   "result": "confirmed",
   "urls": [
    "https://kelownagospelmission.ca/dental-clinic/",
@@ -1016,12 +1050,11 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "ICBC GLP-schools list (Kelowna) includes All Weather Driving School, 'Approved for Class 7' (car only; ICBC lists no motorcycle GLP approval for it). School site: 'Cars (Automatic and Standard) and Motorcycles'; runs motorcycle MSA theory courses. ICBC: completing an approved GLP course means 'you could be eligible to reduce the duration of your N licence by six months', only with a clean driving record and if the course is finished within one year during the learner (L) stage. No office hours published. Email info@allweatherdrivingschool.com.",
+  "remarks": "No office hours published; 'Please call the office to book' 250-763-6562.",
   "result": "confirmed",
   "urls": [
    "https://allweatherdrivingschool.com/",
-   "https://icbc.com/driver-licensing/driver-training/Choosing-your-driving-school/glp-schools",
-   "https://icbc.com/driver-licensing/driver-training/New-drivers-or-riders"
+   "https://icbc.com/driver-licensing/driver-training/Choosing-your-driving-school/glp-schools"
   ]
  },
  "65eb2623": {
@@ -1036,12 +1069,10 @@
  },
  "6644e12d": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "Hours were missing on file; page publishes them (footnote for the asterisk not visible in page text). 'Our clinic is by appointment only, with some same-day appointments available'; book by calling 250-807-9270 (online booking only for STI screening and Telehealth). Clinical team: Registered Nurses, Nurse Practitioner and General Practitioners. Bring Care Card/PHN on first visit; 'International students should be enrolled in iMED until they are eligible to enrol in the BC Medical Services Plan (MSP)'; students with other insurance pay cash; uninsured students are charged. No-show fee $30 ($50 ",
-  "result": "corrected",
+  "remarks": "Hours carry an asterisk whose footnote I could not locate on the page. By appointment only, some same-day appointments; call 250-807-9270 (online booking only for STI screening and NP/physician telehealth). Must bring Care Card or PHN (BC or other province except QC) on first visit; international students use iMED until MSP eligible. No-show fees $30/$50.",
+  "result": "confirmed",
   "urls": [
    "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
   ]
@@ -1190,6 +1221,17 @@
    "https://turningpoints.ngo/continuum-of-care/shelter"
   ]
  },
+ "6f151299": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit news 29 Apr 2026: 'Work is underway on major improvements to the Mission Recreation Transit Exchange... The project is expected to be completed this fall.' Expect construction impacts / possible stop changes in autumn 2026. Bay count (2) not verified.",
+  "result": "confirmed",
+  "urls": [
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+   "https://www.bctransit.com/improvements-to-the-mission-recreation-transit-exchange-starting-soon-2026-04-29/"
+  ]
+ },
  "70841b64": {
   "checked": "2026-10-04",
   "fixed": [],
@@ -1252,13 +1294,16 @@
  },
  "763a5965": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "hours added from ICBC locator data (by appointment)"
+  ],
   "method": "desk",
-  "remarks": "ICBC news release (July 15, 2024): 'All driver licensing counter transactions, such as driver's licence renewals, knowledge tests, and Class 4, 5 and 7 road tests are being offered at the West Kelowna location by appointment only.' ICBC's locator is set not to display hours for this office (internal data suggests Mon/Tue/Thu/Fri 8:30–4:30, Wed 9–4:30, but it is not shown publicly). No walk-ins — book online first. Locator lists the city as 'Kelowna' but the building is West Kelowna City Hall.",
+  "remarks": "Hours come from the structured data embedded in ICBC's official locator page (displayServiceHours is set to 'false' for this office, so the page itself does not display them). ICBC states its offices open at 9 a.m. on Wednesdays, consistent with the data. All services by appointment only; book via icbc.com. Locator lists city as 'Kelowna'.",
   "result": "confirmed",
   "urls": [
    "https://www.icbc.com/locators/driver-licensing-office",
-   "https://icbc.com/about-icbc/newsroom/2024-jul15-okanagan-driver-licensing-office"
+   "https://icbc.com/about-icbc/newsroom/2024-jul15-okanagan-driver-licensing-office",
+   "https://icbc.com/driver-licensing/visit-dl-office"
   ]
  },
  "7738557e": {
@@ -1275,7 +1320,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "The only hours published are for the same-day booking phone line (10-4 daily); no clinic opening hours are given. Page: 'Free with BC Provincial Health Number (MSP)'; 'Limited availablility for non BC provincial health plans'; 'We welcome any patient with a valid MSP number for same-day care, subject to availability.' In-person: 'On Wednesdays, he offers in-person appointments at our Kelowna clinic' and in-person follow-ups are 'available the same week at one of our locations in Kelowna or Big White' - do not just walk in; call first.",
+  "remarks": "The 10am-4pm daily hours are for the phone line to book same-day video calls; in-person visits 'available the same week at one of our locations in Kelowna or Big White' if needed. Free with BC PHN (MSP); same-day care subject to availability. No separate in-person clinic opening hours published.",
   "result": "confirmed",
   "urls": [
    "https://academyhillmedical.com/"
@@ -1363,7 +1408,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Official wording: 'a co-ed facility that offers space for meals, washrooms, and case management services' (says 'space for meals', not that meals are served — minor). Phone is the Mission's main line. No hours published; call ahead.",
+  "remarks": "Official: co-ed facility with space for meals, washrooms and case management services. No hours or bed count published. Address publicly listed by the operator.",
   "result": "confirmed",
   "urls": [
    "https://kelownagospelmission.ca/services/"
@@ -1373,12 +1418,11 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "City page (Phase: Under construction; est. Summer 2026 - Fall 2026): expansion with bus bay, platform, shelters and bicycle lockers 'along the north side of K.L.O. Rd.'; 'A temporary exchange will be in place during construction located on K.L.O. Rd. west of Campus Rd West'; 'completion expected end of October 2026'. So until about November 2026 riders should use the temporary stop west of Campus Rd West. The note should be updated after construction ends. Served by routes 1, 4, 8, 12 and 88 per the Sept 2026 Rider's Guide.",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). City of Kelowna: 'Under construction'; 'A temporary exchange will be in place during construction located on K.L.O. Rd. west of Campus Rd West.' 'Construction is underway with completion expected end of October 2026.' Re-check in November 2026 and update the note once complete.",
   "result": "confirmed",
   "urls": [
-   "https://www.kelowna.ca/our-community/planning-projects/capital-projects/klo-ok-college-transit-exchange-expansion",
-   "https://www.bctransit.com/kelowna/wp-content/uploads/sites/24/2026/08/kel_rg_sept2026.pdf",
-   "https://www.bctransit.com/improvements-to-the-rutland-transit-exchange-complete-2026-02-19/"
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+   "https://www.kelowna.ca/our-community/planning-projects/capital-projects/klo-ok-college-transit-exchange-expansion"
   ]
  },
  "83ec9d28": {
@@ -1429,12 +1473,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Location page publishes no hours and no FAQs. Services listed include Child and Youth Immunization Program, Immunization Services, Prenatal Services, Postpartum Care, Breastfeeding Clinics & Support, Early Childhood Dental Development 0-6 Years, Hearing Services (Children & Teens), Speech-Language Pathology (0-5). 'Free' applies to provincially funded vaccines for eligible people ('There is no cost for the vaccines delivered by Public Health Nurses'); travel vaccines are not free. IH 'Get Immunized' page: book child immunizations 'by calling your local public health centre'; flu/COVID shots at",
+  "remarks": "The IH location page publishes no opening hours. Call 250-469-7070 to book. Site also lists harm reduction supplies, pharmacy services, public health dietitian services.",
   "result": "confirmed",
   "urls": [
-   "https://www.interiorhealth.ca/locations/kelowna-community-health-services-centre",
-   "https://www.interiorhealth.ca/services/immunization-services",
-   "https://www.interiorhealth.ca/health-and-wellness/immunization-and-vaccines/get-immunized"
+   "https://www.interiorhealth.ca/locations/kelowna-community-health-services-centre"
   ]
  },
  "8cf5db85": {
@@ -1471,29 +1513,23 @@
  },
  "8ea5b030": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "No phone number on the Rotary page (correctly null); booking 'by email only at taxclinic@rotaryogopogo.org'. Free, for low-income individuals and families, part of CRA's CVITP. Next monthly sessions in 2026: first Fridays (Nov 6, Dec 4 by the stated pattern), 9am–noon, appointment only. Cathedral office phone 250-762-3321 is for the church, not the clinic.",
-  "result": "corrected",
+  "remarks": "No phone; book by email only: taxclinic@rotaryogopogo.org. Next sessions in 2026: first Fridays Nov 6 and Dec 4, 9am–noon, by appointment. Free, for low-income individuals and families.",
+  "result": "confirmed",
   "urls": [
-   "https://rotaryogopogo.org/page/tax-clinic-1",
-   "https://stmichaelscathedral.ca/contact-us/"
+   "https://rotaryogopogo.org/page/tax-clinic-1"
   ]
  },
  "8eaac5d5": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Contact page: 'If the department you are seeking to connect with is not listed, please use the general Lindley Building contact information.' Taxation T 250 769 2400 confirmed; fax 250-769-4377; email mail@wfn.ca. History & Territory page: 'WFN is home to over 11,000 non-Member residents' and 'WFN is a self-governing First Nation' (Self-Government Agreement implemented April 1, 2005). No office hours published on the WFN site.",
+  "remarks": "No general office hours published on WFN's contact page. Taxation T 250 769 2400 (confirmed). Email mail@wfn.ca. WFN homepage currently shows a boil water notice / watermain repair on IR9 (Oct 1, 2026) — one-off.",
   "result": "confirmed",
   "urls": [
    "https://www.wfn.ca/programs-services.htm",
-   "https://www.wfn.ca/contact-us.htm",
-   "https://www.wfn.ca/history-territory.htm",
-   "https://www.wfn.ca/self-government-laws.htm"
+   "https://www.wfn.ca/contact-us.htm"
   ]
  },
  "8ef01232": {
@@ -1542,13 +1578,10 @@
  },
  "9080e12c": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "Walk-in only Tuesdays and Thursdays 10 a.m.-3 p.m., September to June; closed University holidays and reading weeks (Nov & Feb) and for summer (clinic closed June 19 to Sept 7 this year per notice). Virtual appointments by advance booking via email ipc.ok@ubc.ca. Clinic office phone 250.807.8241 (Mon-Fri 8-4, voicemail after hours) is on the clinic home page, not the walk-in page.",
-  "result": "corrected",
+  "remarks": "All note claims match: up to 30 min, 1-3 sessions per academic year, 18+ anywhere in BC, Masters/PhD student clinicians supervised by UBCO registered psychologists, no diagnosis, no prescriptions, not a crisis service. Fees: 'determined by a variety of factors' / 'low-cost access'. Closed for reading weeks (Nov & Feb) and summer (annual notice: closed June 19 to Sept 7). Virtual appointments by advance booking via ipc.ok@ubc.ca. Street address 3333 University Way not shown on the page (campus address).",
+  "result": "confirmed",
   "urls": [
    "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/",
    "https://psych.ok.ubc.ca/psychology-clinic/"
@@ -1582,11 +1615,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "The 'Location & Hours' page lists addresses and phones only — no hours published, so 'Call ahead for hours' is appropriate. The site is a small, rarely updated WordPress site (sister store Miss Tulips Green Drycleaners, 559 Bernard Ave, Kelowna, 250-762-5323); no explicit statement it is still operating in 2026 — calling first is advisable.",
+  "remarks": "The site has a 'Location & Hours' menu item but no hours text is published (checked HTML and rendered text). Call ahead, as the note already says.",
   "result": "confirmed",
   "urls": [
-   "https://misstulipsgreendrycleaner.com/",
-   "https://misstulipsgreendrycleaner.com/?page_id=66"
+   "https://misstulipsgreendrycleaner.com/"
   ]
  },
  "9603af74": {
@@ -1670,11 +1702,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Sept 2026 Rider's Guide: 97 Okanagan (Westbank - Queensway Transit Exchange - Cooper Station - McCurdy Station - UBCO) stops here, as do 98 Rutland/UBCO Express and routes 1, 2, 5, 6, 9, 10, 11, 18 and the 70 Penticton/Kelowna. The guide calls 97 a 'Rapid Line'. Listed website is the old April 2025 guide; the current one is kel_rg_sept2026.pdf.",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Rider's guide (effective April 27, 2025) shows Queensway Exchange as the downtown hub with many routes incl. 97.",
   "result": "confirmed",
   "urls": [
-   "https://www.bctransit.com/kelowna/wp-content/uploads/sites/24/2026/08/kel_rg_sept2026.pdf",
-   "https://www.bctransit.com/kelowna/schedules-and-maps/"
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
   ]
  },
  "99e0b0fb": {
@@ -1723,38 +1754,33 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "City page lists: two indoor artificial turf fields, two NHL-sized rink surfaces, indoor running track, athlete development centre and physiotherapy clinic, meeting rooms, licensed restaurant. The City's facility list is introduced as 'City-funded recreation facilities operated by the City and community partners' and includes MNP Place. No hours on the City page; it links to a separate MNP Place website. kelowna.ca blocks automated fetches (Cloudflare 403); checked in a browser.",
+  "remarks": "No facility opening hours published. MNP Place's own site (mnpplace.com, operated by Planet Ice) says the skate rental/sharpening shop is 'Open weekdays from 8am - 4pm and for all public skating sessions.' Features per City: two indoor turf fields, two NHL-sized rinks, indoor running track.",
   "result": "confirmed",
   "urls": [
    "https://www.kelowna.ca/parks-recreation/recreation-facilities/mnp-place",
-   "https://www.kelowna.ca/parks-recreation/recreation-facilities-fields/recreation-facilities"
+   "https://mnpplace.com/"
   ]
  },
  "9e5639c9": {
   "checked": "2026-10-04",
-  "fixed": [
-   "phone"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "PHONE WRONG: on-file 250-717-5987 appears on the site only as the order line for the temple's Chow Mein fundraiser sale ('Leave a message at 250-717-5987'). The Contact page telephone is (250) 763-3827 - 'Please leave a message, as in most cases there will only be an answering machine'. Note claims confirmed: Pure Land / Jodo Shinshu temple 'open to anyone who is interested in Buddhism', 'Most of our services are in English and we also chant in English. Kids are welcome!', monthly memorial services, 'SUNDAY SERVICES' section. But Sunday services are not every week - the October calendar shows ",
-  "result": "corrected",
+  "remarks": "No fixed weekly service time published. Official: 'SUNDAY SERVICES — We celebrate our ancestors in monthly memorial services, and hold a series of special services throughout the year. Check the calendar for upcoming services.' Calendar is an embedded widget (no dates readable). Phone: 'Please leave a message, as in most cases there will only be an answering machine.' Most services and chanting in English; kids welcome.",
+  "result": "confirmed",
   "urls": [
    "https://kbtemple.ca/",
    "https://kbtemple.ca/contact/",
-   "https://kbtemple.ca/calendar/",
-   "https://localendar.com/public/kelownabuddhist"
+   "https://kbtemple.ca/calendar/"
   ]
  },
  "9e9403c9": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "The current Rider's Guide (effective Sept 6, 2026) exchange map inset labels 'Cooper', 'Hwy. 97 (Harvey)' and 'Cooper Station' around 'Orchard Park Exchange', which is consistent with the file, but no street address is written; timetables call the stop 'Orchard Park Mall'. Routes there include 4, 8, 9, 10, 11, 19 (8 goes to UBCO and Rutland, 9/10/11 to downtown). RapidBus 97 and 98 stop at nearby 'Cooper Station', not inside the exchange. Not from an official source (unverified): a news report says the exchange is in the mall parking lot and will move west to Cooper Road in 2027 - worth re-che",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Map label only; no street address in the guide.",
   "result": "confirmed",
   "urls": [
-   "https://www.bctransit.com/kelowna/wp-content/uploads/sites/24/2026/08/kel_rg_sept2026.pdf",
-   "https://www.bctransit.com/kelowna/schedules-and-maps/",
-   "https://www.bctransit.com/kelowna/schedules-and-maps/route-overview/?route=9"
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
   ]
  },
  "9f3e043b": {
@@ -1790,6 +1816,16 @@
    "https://www.kelowna.ca/parks-recreation/parks-beaches/parks-beaches-listing/quilchena-park"
   ]
  },
+ "a13a4fa3": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (4) not verified.",
+  "result": "confirmed",
+  "urls": [
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
+  ]
+ },
  "a17c0313": {
   "checked": "2026-10-04",
   "fixed": [
@@ -1818,6 +1854,16 @@
    "https://www.sd23.bc.ca/french-immersion"
   ]
  },
+ "a2181776": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data ('RETAIL AND WHOLESALE'). No official website found, so no official hours/phone; product-range and 'long-standing' claims unverifiable. Directories show 250-762-2395.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)"
+  ]
+ },
  "a21ef563": {
   "checked": "2026-10-04",
   "fixed": [],
@@ -1833,7 +1879,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Official page: 'Most issues can be solved without visiting an office. If you cannot contact us by phone or email and need in-person service...' — so phone/email first. Phone help is available in the caller's language of choice. Text line for quick questions: 604-660-2421. 'Employment Standards can't give legal advice.' No in-person office hours are published for Kelowna.",
+  "remarks": "Hours given are for the phone line; no in-person counter hours published for the Kelowna office. Official: 'Most issues can be solved without visiting an office. If you cannot contact us by phone or email and need in-person service...'. Text line 604-660-2421 for quick questions.",
   "result": "confirmed",
   "urls": [
    "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us"
@@ -1867,7 +1913,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "City page: 'Two NHL-sized rink surfaces', 'Skate rentals available', 'Food concession is currently unavailable', home to the Kelowna Chiefs (KIJHL), and links a 'Rutland Arena Public Skating Schedule'. No regular hours on the page. kelowna.ca blocks automated fetches; checked in a browser.",
+  "remarks": "No regular hours published; see the City's Rutland Arena public skating schedule. Two NHL-sized rinks, skate rentals; food concession currently unavailable; home of the Kelowna Chiefs (KIJHL).",
   "result": "confirmed",
   "urls": [
    "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-arena"
@@ -1948,24 +1994,24 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "No hours published; email Welcome.Centre@sd23.bc.ca. Registration starts ONLINE: create an account on the Family Portal (True North), choose the parent's/guardian's immigration status (Permanent Resident, Refugee, Refugee Claimant, Study Permit, Work Permit, Other), attach documents; 'Application processing time is typically 3-5 business days'. SWIS is IRCC-funded, 'offered free of charge to eligible newcomer students and their families', covers all 45 district schools, team speaks more than 15 languages. Families should apply online before showing up in person.",
+  "remarks": "No office hours shown on the pages I could read. A web-search snippet attributed to the Welcome Centre site said it 'can be called or emailed from 8:30AM - 3:00 PM Monday-Friday' (ext 3019), but I could not see that text on the fetched page — treat as unverified. sd23.bc.ca says to call (250) 870-5155 to book an appointment and provide documents. Email Welcome.Centre@sd23.bc.ca.",
   "result": "confirmed",
   "urls": [
    "https://welcomecentre.sd23.bc.ca",
+   "https://welcomecentre.sd23.bc.ca/registration",
+   "https://welcomecentre.sd23.bc.ca/materials",
    "https://welcomecentre.sd23.bc.ca/about-us",
-   "https://welcomecentre.sd23.bc.ca/contact",
-   "https://welcomecentre.sd23.bc.ca/swis-services"
+   "https://www.sd23.bc.ca/school-enrollment"
   ]
  },
  "af41a75a": {
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Second Kelowna office confirmed: 'Harvey Avenue Branch, 103, 1553 Harvey Ave, Kelowna, BC V1Y 6G1, Tel: 250-717-5010'. Toll-free 1-877-612-0025. Also a Vernon office (3110 29 Ave). Rental listings are posted on the site (Kelowna, West Kelowna, Penticton and area). No office hours published.",
+  "remarks": "No office hours published. Second Kelowna office: 103 1553 Harvey Avenue, Kelowna, BC V1Y 6G1, Tel 250-717-5010. Toll free 1-877-612-0025.",
   "result": "confirmed",
   "urls": [
    "https://associatedpm.ca/residential-property-listings/",
-   "https://associatedpm.ca/",
    "https://associatedpm.ca/contact-us/"
   ]
  },
@@ -2030,7 +2076,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "No hours published. Site says it provides 'free quality legal services'. Community legal advocates help with income assistance, provincial disability benefits, federal income security programs, EI, debt and residential tenancy (forms and written appeals); lawyer representation in human rights, employment, debt, judicial reviews, disability, civil litigation, Indigenous matters and limited family law; family law advocates (services in English and Spanish). 'We do not provide assistance in: criminal law, property law, corporate law, real estate.' The phrase 'issues that legal aid doesn't cover' ",
+  "remarks": "The official site publishes no office or intake hours; contact by phone 236-425-9120 or info@bclegalclinic.com. Areas listed: income assistance, provincial disability benefits, federal income security programs, employment insurance, debt, residential tenancy (community legal advocates); human rights, employment, judicial reviews, disability, civil litigation, Indigenous matters, limited family law (lawyers); family law advocates (English/Spanish). Does not help with criminal, property, corporate or real estate law.",
   "result": "confirmed",
   "urls": [
    "https://www.bclegalclinic.com/contact",
@@ -2108,7 +2154,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Site also lists a second number 250-717-7844 and email info@kelownasikhtemple.ca. Langar: site says 'Gurdwara Sahib Langar Seva can be undertaken on Sunday(s), Sangrands and Gurpurabs' (supports 'Sundays and special days'). Doors closed by 8 PM.",
+  "remarks": "Site also says 'Gurdwara Sahib Langar Seva can be undertaken on Sunday(s), Sangrands and Gurpurabs.' Note: the Punjabi version of the daily times on the same page gives the evening as 5:30–8:00 pm while the English says 6:30–8:00 pm — English times used; doors close by 8 pm. Sunday program time is not stated (the page has a dynamic calendar that did not render). Phone (250) 765-7477; donations queries 250-717-7844; info@kelownasikhtemple.ca.",
   "result": "confirmed",
   "urls": [
    "https://www.kelownasikhtemple.ca/"
@@ -2137,6 +2183,17 @@
    "https://rcmp.ca/en/bc/kelowna/contact"
   ]
  },
+ "bf46a404": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data. tammrestaurant.com (Tamm Mexican Restaurant, 430 Harvey Ave) lists 'Our Hours: Sunday – Thursday: 10 AM – 8 PM; Friday & Saturday: 10 AM – 9 PM' but does not say which location these apply to and gives no Rutland address — do not use for the Rutland market. A directory lists 203 Rutland Rd N; the City licence says 207.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+   "https://www.tammrestaurant.com/"
+  ]
+ },
  "c0075c91": {
   "checked": "2026-10-04",
   "fixed": [],
@@ -2163,10 +2220,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "City page: 'Full NHL size ice sheet' plus 'an adjacent second, full NHL size ice sheet at Jim Lind Arena'; indoor walking track 'Free to use!' ('Five laps = one Kilometer'), 'Closed during special events or other closures'. No regular hours on the page; public skate times are in the City's recreation guide/public skate schedules.",
+  "remarks": "No facility opening hours published; see the City's Public Skate Schedule. 778-797-2265 is the Recreation and Culture Department booking line. Indoor walking track is free; 'Closed during special events or other closures'. No skate sharpening at this facility. Home of the West Kelowna Warriors (BCHL).",
   "result": "confirmed",
   "urls": [
-   "https://www.westkelownacity.ca/en/parks-recreation-and-culture/royal-lepage-place-arena.aspx"
+   "https://www.westkelownacity.ca/parks-recreation-facilities/all-facilities/royal-lepage-place-arena/"
   ]
  },
  "c49bc182": {
@@ -2234,10 +2291,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Page: 'This facility hosts programs and activities each season through Kelowna's Activity & Program Guide.' 'This facility is available for rentals.' Rental inquiries: 250-469-8957. No hours published. 'Upper Mission' is geographic and not stated on the page.",
+  "remarks": "City page publishes no opening hours; it hosts seasonal programs in Kelowna's Activity & Program Guide. Rental inquiries 250-469-8957.",
   "result": "confirmed",
   "urls": [
-   "https://www.kelowna.ca/parks-recreation/recreation-facilities/cedar-creek-community-centre (read in browser; automated fetch blocked by Cloudflare)"
+   "https://www.kelowna.ca/parks-recreation/recreation-facilities/cedar-creek-community-centre"
   ]
  },
  "cba7e8e1": {
@@ -2267,7 +2324,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Owner/leasing page (GWL Realty Advisors) says it is 'at the intersection of Butt Road and Highway 97'; a sister property 'Westbank Hub North' is listed at 2130 Louie Drive. No public phone (only leasing agents) and no hours; tenants not named. The page's postal code V6V 2L1 looks wrong (V6V is Richmond) - do not copy it. 'Stores keep their own hours' is not stated but follows from no centre hours being published.",
+  "remarks": "Leasing page publishes no centre hours (stores keep their own hours, as the note says). Official: 'located in West Kelowna (Westbank) at the intersection of Butt Road and Highway 97'. A related listing on the same page is at 2130 Louie Drive.",
   "result": "confirmed",
   "urls": [
    "https://www.gwlraleasing.com/commercial-property/ca/bc/west-kelowna/westbank-hub-centre/"
@@ -2277,7 +2334,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Official: WAO 'is part of the Ministry of Labour but is independent from WorkSafeBC. We provide help and free advice to workers and their families and sometimes represent them when they disagree with a decision made by WorkSafeBC.' No hours published. Page notice: 'We are currently experiencing a high volume of work... Please do not call or email for updates unless your matter has an urgent deadline.' To make a new injury claim, contact WorkSafeBC directly, not WAO. Has a Foreign Workers topic page with translated factsheets.",
+  "remarks": "No office hours published. Phone assistance: 604-335-5931 or toll free 1-800-663-4261; Kelowna office fax 250-717-2010. Official: 'part of the Ministry of Labour but is independent from WorkSafeBC'; provides free advice and sometimes represents workers who disagree with a WorkSafeBC decision.",
   "result": "confirmed",
   "urls": [
    "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/personal-injury-and-workplace-safety",
@@ -2286,33 +2343,22 @@
  },
  "cf723f3f": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "No hours on file, but the museum publishes seasonal hours (copied verbatim above; winter hours currently apply - the winter line on the page is oddly formatted, so calling 250-763-9292 first is wise). Admission: Adult $5, Student/Senior $4, Youth (5-17) $3, Family $10, 5 & under free, Veterans free. Library and archives by appointment only.",
-  "result": "corrected",
+  "remarks": "Seasonal hours; winter hours apply now (after Labour Day): Tue, Wed, Sat 10am-5pm. Admission: Adult $5, Student/Senior $4, Youth (5-17) $3, Family $10, 5 & under free, Veterans free. Page also mentions the Vince Bezeau Military Archives and Library.",
+  "result": "confirmed",
   "urls": [
-   "https://www.kelownamuseums.ca/plan-your-visit/",
-   "https://www.kelownamuseums.ca/museum/okanagan-military-museum/",
-   "https://www.kelowna.ca/parks-recreation/recreation-facilities/memorial-arena"
+   "https://www.kelownamuseums.ca/plan-your-visit/"
   ]
  },
  "d1d57885": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "No hours on file, and the site contradicts itself: site-wide banner 'Mon-Fri 10am-5pm | Sat + Sun 9am-5pm'; home page body 'Monday through Sunday: 10:00 am to 5:00pm'; contact page 'Monday – Friday: 9:00am – 5:00pm; Sat/Sun: 9:00am – 5pm'. Closes for private events (announced on social media) - call 250-886-4542 before going. Entry $16.50 per child; online waiver available. Has a cafe.",
-  "result": "corrected",
+  "remarks": "Same page elsewhere says 'drop in Monday through Sunday: 10:00 am to 5:00pm' — inconsistent weekend opening (9am vs 10am); use the banner text (Sat + Sun 9am) or say 'from 9 or 10am'. 'No Reservations Needed!'. Private event closures posted on social media.",
+  "result": "confirmed",
   "urls": [
-   "https://wildkidz.ca/",
-   "https://wildkidz.ca/facility/",
-   "https://wildkidz.ca/membership/",
-   "https://wildkidz.ca/contact/"
+   "https://wildkidz.ca/"
   ]
  },
  "d2ff477f": {
@@ -2339,7 +2385,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Site: 'The Langar or free community kitchen is a hallmark of the Sikh faith'; Gurdwara 'is open to every one regardless of age, gender, caste, color, or creed'. The Punjabi-script version of the daily program gives the evening program as 5.30 - 8:00, unlike the English 6.30 PM, so evening times are inconsistent on the page. Doors close at 8 PM. Email info@kelownasikhtemple.ca. Site footer says © 2018 and parts contain placeholder text, so it may be little maintained.",
+  "remarks": "Site also says 'Gurdwara Sahib Langar Seva can be undertaken on Sunday(s), Sangrands and Gurpurabs.' Note: the Punjabi version of the daily times on the same page gives the evening as 5:30–8:00 pm while the English says 6:30–8:00 pm — English times used; doors close by 8 pm. Sunday program time is not stated (the page has a dynamic calendar that did not render). Phone (250) 765-7477; donations queries 250-717-7844; info@kelownasikhtemple.ca.",
   "result": "confirmed",
   "urls": [
    "https://www.kelownasikhtemple.ca/"
@@ -2354,6 +2400,17 @@
   "urls": [
    "https://www.interiorhealth.ca/locations/west-kelowna-sexual-reproductive-health",
    "https://www.interiorhealth.ca/locations/west-kelowna-health-centre"
+  ]
+ },
+ "d66ab587": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Confirmed in City business-licence open data. innoutarabicmarket.com does not resolve, so product/halal claims and hours cannot be checked against an official source. Directories show 250-717-3260 — unverified.",
+  "result": "confirmed",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+   "https://innoutarabicmarket.com/"
   ]
  },
  "d814c766": {
@@ -2410,12 +2467,10 @@
  },
  "daf09eae": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "On-file hours are empty but the official page publishes West Kelowna distribution hours (by appointment only; open only Tue–Fri, including a Wednesday evening slot 4:30–7:30 PM). ID: photo ID for each adult over 18 and ID for each child, plus proof of current Kelowna or West Kelowna address. Food bank states it helps 'regardless of ... citizenship'.",
-  "result": "corrected",
+  "remarks": "Serves people 'regardless of ... citizenship'. Need photo ID for all adults 18+, ID for all children, proof of current Kelowna or West Kelowna address; register online first; appointments only.",
+  "result": "confirmed",
   "urls": [
    "https://cofoodbank.com/get-food/"
   ]
@@ -2436,13 +2491,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "hours.ok=true because the record correctly has no fixed hours and the note tells people to check the website - prayer times change daily (example for Oct 4, 2026 above; Jummah 1:30 PM). Confirmed: daily prayers and Jumma ('our Islamic Center is open for all daily and Jumma prayers'), 'Weekend School/Madrasa', and Eid prayers held here (BCMA Eid al-Adha 2025 notice: Kelowna Islamic Centre Masjid Al-Salam, 1120 Highway 33 North, 1st Salah 7:15 AM, 2nd Salah 8:45 AM). BCMA posts Eid locations/times on thebcma.com before each Eid. Branch notice says the phone is a voicemail line ('leave us a voice",
+  "remarks": "Daily prayer times change with the season — only Jummah (Friday) 1:30 PM is a stable time; link to the page for daily times. Page lists Weekend School/Madrasa. A July 2026 news item announced two Jummah prayers on one date (one-off). Email kelownamasjid@thebcma.com.",
   "result": "confirmed",
   "urls": [
-   "https://org.thebcma.com/kelowna",
-   "https://thebcma.com/News.aspx?newsId=2979",
-   "https://adminpanel.thebcma.com/upload/images/BCMA%20Eid%20Al-Adha%20Locations%202025.jpg",
-   "https://thebcma.com/News.aspx?newsId=2606"
+   "http://org.thebcma.com/kelowna"
   ]
  },
  "dc2a5fe4": {
@@ -2480,6 +2532,16 @@
    "https://www.sd23.bc.ca/catchment"
   ]
  },
+ "ddccef60": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (2) not verified.",
+  "result": "confirmed",
+  "urls": [
+   "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf"
+  ]
+ },
  "de97ee05": {
   "checked": "2026-10-04",
   "fixed": [
@@ -2495,13 +2557,10 @@
  },
  "deead411": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours",
-   "note_claims"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "833-390-1818 is Centurion's Customer Care Centre (call centre), not an on-site office; its hours are in EASTERN time - i.e. Mon-Fri 6:00am-6:00pm and Sat-Sun 7:00am-3:30pm Pacific. Page lists 'On-site staff'. Promotion up to 2 months free; security deposit $499; pet deposit half a month's rent; parking $85-$110/month.",
-  "result": "corrected",
+  "remarks": "Hours are for the call centre, in Eastern time (= Mon-Fri 6:00am–6:00pm, Sat-Sun 7:00am–3:30pm Pacific). Built 2019; studio, one- and two-bedroom; pet friendly (pet deposit half a month's rent); tours in person or virtual. Page also gives 1-888-236-7767 'if you don't see your desired move in date'.",
+  "result": "confirmed",
   "urls": [
    "https://www.cpliving.com/apartments/trio"
   ]
@@ -2546,6 +2605,18 @@
   "result": "corrected",
   "urls": [
    "https://bachhatbazaar.ca/"
+  ]
+ },
+ "e2c31cfc": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "POSSIBLE CLOSURE — check before keeping: the chain's official Locations page (Oct 2026) lists Surrey, Abbotsford, Burnaby, Vancouver Island (Nanaimo, Courtenay, Victoria), Langley, Richmond, Calgary and 'Kamloops Location (Opening Soon)', but NO Kelowna store (a leftover 'kelowna' tab id exists in the page script with no content). The City business-licence open data still lists 'DHS FOODS LTD. DBA SABZI MANDI SUPERMARKET' at 284 Highway 33 W (dataset date unknown). No official hours or phone found; third-party listings show 236-862-5022 and 9am-9pm daily (not acceptable evidence).",
+  "result": "unresolved",
+  "urls": [
+   "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+   "https://sabzimandicanada.com/locations/",
+   "https://sabzimandicanada.com/contact/"
   ]
  },
  "e3325185": {
@@ -2714,15 +2785,12 @@
  },
  "f2933ab1": {
   "checked": "2026-10-04",
-  "fixed": [
-   "hours"
-  ],
+  "fixed": [],
   "method": "desk",
-  "remarks": "On-file hours are empty; official drop-off hours above. Page still shows 'THANK YOU FOR A GREAT SEASON! CLOSE FOR SUMMER. TENTATIVE REOPEN- SEPTEMBER 2026' — as of Oct 2026 call to confirm it has reopened. 'Turn around time: 4 to 8 weeks.' Eligibility: modest income and simple tax situation (no self-employment, rental or investment income; CRA CVITP income limits). Described as 'free and confidential tax filing services'. Emails: incometax@kcr.ca. Virtual appointments also offered in season.",
-  "result": "corrected",
+  "remarks": "Banner still reads 'CLOSE FOR SUMMER. TENTATIVE REOPEN- SEPTEMBER 2026' — call to confirm it has reopened. Drop-off turnaround 4 to 8 weeks; virtual appointments also offered. Email incometax@kcr.ca.",
+  "result": "confirmed",
   "urls": [
-   "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/",
-   "https://kcr.ca/about-us/contact-us/"
+   "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/"
   ]
  },
  "f2d03b7a": {
@@ -2752,12 +2820,10 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "Hours not on file; store finder lists 9:00 AM - 9:00 PM (no day breakdown). Address and phone match.",
+  "remarks": "Store finder gives one daily range (no day breakdown); assume every day unless the store says otherwise. Chain has stores in BC and Alberta (Abbotsford, Calgary, Edmonton, etc.).",
   "result": "confirmed",
   "urls": [
-   "https://www.fruiticana.com/storefinder?city=Kelowna",
-   "https://www.fruiticana.com/our-company",
-   "https://www.fruiticana.com/"
+   "https://www.fruiticana.com/storefinder?city=Kelowna"
   ]
  },
  "f7c4a7c6": {
@@ -2799,7 +2865,7 @@
   "checked": "2026-10-04",
   "fixed": [],
   "method": "desk",
-  "remarks": "IMPORTANT for the note: official page says 'The Leon Shelter is for those trying to maintain sobriety while living in shelter.' Consider adding this. Otherwise matches: '60 emergency beds for men, along with access to showers, laundry, hygiene supplies, and three hot and nutritious meals every day.' No hours published (emergency shelter); call ahead for bed availability.",
+  "remarks": "Official: 60 emergency beds for men, showers, laundry, hygiene supplies, three hot meals every day; for those trying to maintain sobriety while in shelter. No hours published (address is publicly listed by the operator).",
   "result": "confirmed",
   "urls": [
    "https://kelownagospelmission.ca/services/"

@@ -18,7 +18,8 @@ const TASK_BUCKETS=['first','ongoing','problem'];
 const LICENCE={id:'CC BY-NC 4.0', url:'https://creativecommons.org/licenses/by-nc/4.0/'};
 // Single source of truth for the verification date. It used to be written out by
 // hand in five different note strings, which is how they drift apart.
-const VERIFIED='2026-09-11';
+// 2026-10-04: the date is the city's (CITY.verified) — Kelowna showed Kamloops' 2026-09-11 (newcomer test).
+const VERIFIED=CITY.verified||'';
 // Bus routes are not hand-collected: they come from the operator's GTFS feed, and
 // every stop name and coordinate in BR was re-checked against this edition of it.
 // Routes 8, 11, 12 and 15 are absent from the feed — Kamloops does not run them.

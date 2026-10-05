@@ -21,6 +21,7 @@ function matchScore(d,q){
   for(const w of words){const sc=matchScore1(d,w);if(sc<=0)return 0;if(sc<min)min=sc;}
   return Math.max(1,min-1);
 }
+function _wordStart(t,q){let i=t.indexOf(q);while(i>=0){if(i===0||!/[a-z0-9\u00c0-\u024f]/.test(t[i-1]))return true;i=t.indexOf(q,i+1);}return false;}
 function matchScore1(d,q){
   const name=d.n.toLowerCase(), addr=(d.a||'').toLowerCase();
   const cat=catLabel(d.c).toLowerCase();
@@ -41,17 +42,22 @@ function matchScore1(d,q){
   // rather than "Royal Inland", 驾照 rather than "ICBC". Without these the
   // search box quietly fails the readers the six languages exist for.
   const alias=(d.alias||[]).map(a=>String(a).toLowerCase());
+  // 2026-10-04 (newcomer test): "sin" matched inside "Licensing", "Housing", "Crossing" and the Spanish
+  // alias "clínica sin cita", so the SIN search led to ICBC and a laundromat. A Latin query of three
+  // letters or fewer (SIN, ER, GP, TRU, MSP) must start a word; longer and CJK queries are unchanged.
+  const short=q.length<=3&&/^[a-z0-9]+$/.test(q);
+  const has=t=>short?_wordStart(t,q):t.includes(q);
   if(name.startsWith(q))return 100;
-  if(name.includes(q))return 80;
+  if(has(name))return 80;
   if(alias.some(a=>a===q||a.startsWith(q)))return 70;
-  if(alias.some(a=>a.includes(q)))return 65;
-  if(cat.startsWith(q)||cat.includes(q))return 60;
+  if(alias.some(a=>has(a)))return 65;
+  if(cat.startsWith(q)||has(cat))return 60;
   // the synonym table: any word for this kind of place, in any of the six languages
   if(synCats(q).has(d.c))return 58;
-  if(themes.some(t=>t.includes(q)))return 55;
-  if(tag&&tag.includes(q))return 50;
-  if(addr.includes(q))return 40;
-  if(reg.includes(q))return 30;
+  if(themes.some(t=>has(t)))return 55;
+  if(tag&&has(tag))return 50;
+  if(has(addr))return 40;
+  if(has(reg))return 30;
   // Notes are long prose, so a hit inside one only counts for a query with enough
   // information in it. Two CJK/Hangul characters are a whole word; two Latin
   // letters are not — so the threshold differs by script rather than raw length.
@@ -211,6 +217,11 @@ function apply(){let v=0;
   writeURLState();
   renderEmptyState(v,searching,filtered);
   try{renderSearchHelp();}catch(e){}
+  // 2026-10-04 (newcomer tests): a card opened on the map itself (not on a marker — a clustered or
+  // filtered place) is not closed when its marker leaves, so the last place's card stayed open through
+  // later searches. Close it once a search or filter no longer includes its place.
+  try{const op=map._popup;if(op&&op._kplace&&map.hasLayer(op)&&!(_focusPending&&_focusPending.data.id===op._kplace.id)){
+    const mm=M.find(x=>x.data.id===op._kplace.id);if(mm&&!markerPasses(mm))map.closePopup(op);}}catch(e){}
 }
 // One honest explanation for each way the map can legitimately end up empty.
 let lastVisible=0,lastDims=0;

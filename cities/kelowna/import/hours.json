@@ -15,17 +15,13 @@
  },
  "0324a6a4": {
   "fetched": "2026-10-04",
-  "hours_text": null,
-  "notes": "Monday: 'Closed - Church is Open' (no Mass). Korean Catholic Community time is from https://spxbc.com/our-history/ (parish groups list); this DIFFERS from our file ('each Saturday at 11:00 a.m., Rev. Fr. Mulvihill Room') - use the current site text.",
-  "services_text": "Saturday: 4:00 pm; Sunday: 8:30 am, 11:30 am & 6:00 pm; Tuesday through Friday: Rosary 8:30, Mass 9:00 am; Adoration/ Benediction: Every Friday 9:35 am to 10:00 am; Confession: Saturdays at 3:00 pm or by appointment. Korean Catholic Community: Every third Sunday of the month at 12:30 pm in the Fr. Martin Room.",
+  "hours_text": "Mass Schedule - St. Pius X Kelowna: Saturday: 4:00 pm; Sunday: 8:30 am, 11:30 am & 6:00 pm; Tuesday through Friday: Rosary 8:30, Mass 9:00 am; Adoration/ Benediction: Every Friday 9:35 am to 10:00 am; Confession: Saturdays at 3:00 pm or by appointment. (Monday: Closed - Church is Open)",
   "source_url": "https://spxbc.com/"
  },
  "042ee9a9": {
   "fetched": "2026-10-04",
-  "hours_text": null,
-  "notes": "Services are on 'scheduled' Saturdays/Sundays only (see parish calendar), not every week. 'Please note, the office is open by appointment only.' Light lunch in the Parish Hall after each Sunday Divine Liturgy (not July/August).",
-  "services_text": "5:30 PM Vespers on scheduled Saturdays; 9:30 AM Divine Liturgy on scheduled Sundays; 9:30 AM Divine Liturgy on scheduled Feast Days or Weekdays; Confession from 9:00-9:30 AM before all Liturgies, after Vespers or by appointment",
-  "source_url": "https://www.stspeterandpaulkelowna.com/calendar"
+  "hours_text": "Timing of Services: 5:30 PM Vespers on scheduled Saturdays; 9:30 AM Divine Liturgy on scheduled Sundays; 9:30 AM Divine Liturgy on scheduled Feast Days or Weekdays; Confession from 9:00-9:30 AM before all Liturgies, after Vespers or by appointment",
+  "source_url": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help"
  },
  "0b69860a": {
   "fetched": "2026-10-04",
@@ -51,9 +47,7 @@
  "19a2e8f6": {
   "fetched": "2026-10-04",
   "hours_text": "Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.",
-  "notes": "Text taken from a search-engine quote of the church's own Thursday Tax Clinic page, which now returns 404 (could not re-open it). Season/date range not confirmed from the church site (our file has 2026-09-24 to 2026-12-17, likely from the CRA clinic list). If the clinic is full for the day a sign is placed on the door before noon; enter from the parking lot behind the church. Church office: 'Mon - Thurs 9am - 12noon'. Desk check 2026-10-04: the old dedicated page is gone; current site wording above.",
-  "services_text": null,
-  "source_url": "https://centralokanaganunitedchurch.com/thursday-tax-clinic/"
+  "source_url": "https://centralokanaganunitedchurch.com/"
  },
  "1ceef85e": {
   "fetched": "2026-10-04",
@@ -106,9 +100,7 @@
  },
  "36cfbf1f": {
   "fetched": "2026-10-04",
-  "hours_text": "Classes are on: Monday, Tuesday, Wednesday 9am to 11:30am (No class on statutory holidays)",
-  "notes": "Class schedule (this listing is the ESL programme). Fall semester 2026: September 14 – December 9, 2026 (page says 'CLASS IS FULL'; waitlist via esl@evangelkelowna.com). Christmas break December 10 – January 3, 2027; 2027 semester January 4 – May 19, 2027; spring break March 15 – 25, 2027; summer break June to August. Church footer: 'Facility Hours M-F 7am-9pm | Sat-sun 7am-3pm | Office hours m-th 9:30am-2:30pm'; Sunday services begin at 10am.",
-  "services_text": null,
+  "hours_text": "Classes are on: Monday, Tuesday, Wednesday 9am to 11:30am. (Fall term September 14 – December 9, 2026; ESL year has 2 semesters: September and January.)",
   "source_url": "https://evangelkelowna.com/esl"
  },
  "37ef188e": {
@@ -134,10 +126,8 @@
  },
  "39e99908": {
   "fetched": "2026-10-04",
-  "hours_text": "Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)",
-  "notes": "Seasonal (September to June): kept for a person; not converted.",
-  "services_text": null,
-  "source_url": "https://www.sd23.bc.ca/contact-us"
+  "hours_text": "Office Hours Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)",
+  "source_url": "https://www.sd23.bc.ca/transportation-services-programsservices"
  },
  "441f21f5": {
   "fetched": "2026-10-04",
@@ -159,6 +149,11 @@
   "notes": "These are box-office hours (the theatre itself is open for performances only). Weekend/holiday box office opens only on show days. Box Office 250-469-8940.",
   "services_text": null,
   "source_url": "https://theatre.kelowna.ca/contact-us"
+ },
+ "479aeb0c": {
+  "fetched": "2026-10-04",
+  "hours_text": "Helpline: 8 am – 8 pm daily (English, Mandarin)",
+  "source_url": "https://occabc.ca/"
  },
  "4a5a9b7f": {
   "fetched": "2026-10-04",
@@ -209,19 +204,20 @@
   "services_text": null,
   "source_url": "https://www.icbc.com/driver-licensing/visit-dl-office"
  },
+ "54a572db": {
+  "fetched": "2026-10-04",
+  "hours_text": "October: Monday - CLOSED. Tuesday, Wednesday, &Thursday: Kids Zone + Arcade + Laser Maze + Power Grid 10 AM - 6 PM; Rock Climbing + Laser Tag Closed; Lazy Lounge Bar Closed. Friday: Kids Zone + Arcade + Laser Maze + Power Grid 10 AM - 10 PM; Rock Climbing + Laser Tag 4 PM - 8:30 PM (last call at 8); Lazy Lounge Bar 4 PM - 10 PM. Saturday: Kids Zone etc. 10 AM - 10 PM; Rock Climbing + Laser Tag 11 AM - 8:30 PM; Lazy Lounge Bar 12 PM - 10 PM. Sunday: Kids Zone etc. 10 AM - 6 PM; Rock Climbing + Laser Tag 11 AM - 5:30 PM (last call at 5); Lazy Lounge Bar 12 PM - 6 PM.",
+  "source_url": "https://www.energyplex.ca/"
+ },
  "5b4fbf06": {
   "fetched": "2026-10-04",
-  "hours_text": "Monday to Saturday: 9:00 a.m. to 11:30 a.m. and 12:00 p.m. to 3:00 p.m. (by appointment only)",
-  "notes": "Kelowna distribution, by appointment only; closed BC statutory holidays. Tiny Bundles Fridays 9-3. Official wording (desk check 2026-10-04): Kelowna Distribution Hours: By Appointment Only; Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments Fridays 9:00AM – 3:00 PM; Closed during BC Statutory Holidays.",
-  "services_text": null,
-  "source_url": "https://cofoodbank.com/"
+  "hours_text": "Kelowna Distribution Hours — By Appointment Only — Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments Fridays 9:00AM – 3:00 PM. Closed during BC Statutory Holidays.",
+  "source_url": "https://cofoodbank.com/get-food/"
  },
  "6644e12d": {
   "fetched": "2026-10-04",
-  "hours_text": "Monday to Friday: 9:00 a.m. to 12:30 p.m. and 1:30 p.m. to 4:00 p.m. (by appointment only)",
-  "notes": "By appointment, some same-day appointments; call 250-807-9270. Official wording (desk check 2026-10-04): The Student Health Clinic is open year-round. Monday to Friday 9 am to 4 pm* Lunchtime closure: 12:30 to 1:30 pm",
-  "services_text": null,
-  "source_url": "https://students.ok.ubc.ca/health-wellness/health-clinic/"
+  "hours_text": "Hours of service: Monday to Friday 9 am to 4 pm*; Lunchtime closure: 12:30 to 1:30 pm",
+  "source_url": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
  },
  "684b15c1": {
   "fetched": "2026-10-04",
@@ -278,6 +274,16 @@
   "notes": "In person Tue-Thu only; Monday virtual only; closed Friday. Call before dropping in. Official wording (desk check 2026-10-04): Hours for in-person services: Monday Virtual services only; Tuesday 8:00 AM – 5:20 PM; Wednesday 8:00 AM – 5:20 PM; Thursday 8:00 AM – 5:20 PM; Friday Closed; Saturday Closed; Sunday Closed. Hours for virtual services: Monday–Thursday 8:00 AM – 5:20 PM; Friday–Sunday Closed.",
   "services_text": null,
   "source_url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-centres"
+ },
+ "763a5965": {
+  "fetched": "2026-10-04",
+  "hours_text": "Monday 8:30-16:30; Tuesday 8:30-16:30; Wednesday 9:00-16:30; Thursday 8:30-16:30; Friday 8:30-16:30 (from ICBC locator data fields mondayHoursStart/End etc.; Saturday/Sunday not listed)",
+  "source_url": "https://www.icbc.com/locators/driver-licensing-office"
+ },
+ "7764a8e2": {
+  "fetched": "2026-10-04",
+  "hours_text": "Call 2507650544 Hours: 10 A.M. To 4 P.M. Daily",
+  "source_url": "https://academyhillmedical.com/"
  },
  "7f387a81": {
   "fetched": "2026-10-04",
@@ -337,9 +343,7 @@
  },
  "8ea5b030": {
   "fetched": "2026-10-04",
-  "hours_text": "Session 1: Every Friday From 9Am till Noon, Starting March 6th till April 24th. Session 2 (*by appointment only): First Friday of each month From 9Am till Noon, Starting May 1st till December 4th",
-  "notes": "2026 schedule. Walk-ins welcome for Session 1 only (appointments take priority); book by email taxclinic@rotaryogopogo.org. Location: St. Michael's Cathedral, corner of Richter Street and Sutherland Avenue.",
-  "services_text": null,
+  "hours_text": "2026 Clinics will be held as follow: Session 1 — Every Friday, From 9Am till Noon, Starting March 6th till April 24th. Session 2 — *by appointment only — First Friday of each month, From 9Am till Noon, Starting May 1st till December 4th. Walk-ins Welcome (For Session 1 only).",
   "source_url": "https://rotaryogopogo.org/page/tax-clinic-1"
  },
  "8ef01232": {
@@ -372,9 +376,7 @@
  },
  "9080e12c": {
   "fetched": "2026-10-04",
-  "hours_text": "Walk-in appointments are available on Tuesdays and Thursdays (Sept. to June) between 10:00 am and 3:00 pm",
-  "notes": "Location ASC 167. Seasonal: September to June only. Clinic closes for all University holidays and reading weeks (Nov & Feb). Virtual appointments by advance booking only.",
-  "services_text": null,
+  "hours_text": "Walk-in appointments are available on Tuesdays and Thursdays (Sept. to June) between 10:00 am and 3:00 pm at our clinic located in ASC 167. Please note our clinic closes for all University holidays and reading weeks (Nov & Feb). [Clinic phone/email line] Hours: 8:00 a.m. to 4:00 p.m. Monday to Friday. Closed statutory holidays and campus reading breaks, as well as July to August for summer break.",
   "source_url": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/"
  },
  "939b7edc": {
@@ -425,6 +427,11 @@
   "notes": "Facility hours; closes 9 p.m. weekdays in July and August. Official wording (desk check 2026-10-04): Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm; Closed Christmas and Boxing Day, modified holiday hours. Front Counter hours: Monday - Friday: 6 a.m. - 9:30 p.m., Saturday & Sunday 8 a.m. - 4:30 p.m. Phone hours (250-469-8800): Monday - Friday: 8 a.m. - 9 p.m., Saturday - Sunday: 9:30 a.m. - 4 p.m.",
   "services_text": null,
   "source_url": "https://www.kelowna.ca/parks-recreation/facilities-venues/parkinson-recreation-centre"
+ },
+ "a36f2dbe": {
+  "fetched": "2026-10-04",
+  "hours_text": "By phone: Someone can help you in the language of your choice. Service is available Monday through Friday, 7:30 am to 5 pm Pacific Time. Call 1-833-236-3700",
+  "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us"
  },
  "a49d7f91": {
   "fetched": "2026-10-04",
@@ -477,9 +484,7 @@
  },
  "bd10da91": {
   "fetched": "2026-10-04",
-  "hours_text": null,
-  "notes": "Daily prayer times; no separate public opening hours published other than doors closing by 8 PM.",
-  "services_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Weekly Program on every Sunday: Sukhmaini Sahib Path and Kirtan Sewa",
+  "hours_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib , kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Gurbani Kirtan: Weekly Program on every Sunday. Sukhmaini Sahib Path and Kirtan Sewa",
   "source_url": "https://www.kelownasikhtemple.ca/"
  },
  "bed59267": {
@@ -519,10 +524,13 @@
  },
  "cf723f3f": {
   "fetched": "2026-10-04",
-  "hours_text": "WINTER HOURS: Tuesday, Wednesday, & Saturday 10:00am to 5:00pm. SUMMER HOURS (VICTORIA DAY TO LABOUR DAY): Tuesday - Saturday 12:00pm – 5:00pm; Sunday, & Monday Closed",
-  "notes": "Seasonal: summer hours run Victoria Day to Labour Day; winter hours otherwise (in effect now, October). Winter: days not listed (Sun, Mon, Thu, Fri) are closed.",
-  "services_text": null,
+  "hours_text": "SUMMER Hours (Victoria Day to labour Day): Tuesday - Saturday 12:00pm – 5:00pm; Sunday, & Monday Closed. WINTER Hours: Tuesday, Wednesday, & Saturday 10:00am to 5:00pm",
   "source_url": "https://www.kelownamuseums.ca/plan-your-visit/"
+ },
+ "d1d57885": {
+  "fetched": "2026-10-04",
+  "hours_text": "Drop in Play: Open Mon-Fri 10am-5pm | Sat + Sun 9am-5pm | Check our socials for Private Event Closures",
+  "source_url": "https://wildkidz.ca/"
  },
  "d2ff477f": {
   "fetched": "2026-10-04",
@@ -533,9 +541,7 @@
  },
  "d42d42dc": {
   "fetched": "2026-10-04",
-  "hours_text": null,
-  "notes": "Place of worship: daily prayer times given; no separate public opening hours published other than 'Door Closed By 8 PM'.",
-  "services_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib, kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Weekly Program on every Sunday: Sukhmaini Sahib Path and Kirtan Sewa",
+  "hours_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib , kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Gurbani Kirtan: Weekly Program on every Sunday. Sukhmaini Sahib Path and Kirtan Sewa",
   "source_url": "https://www.kelownasikhtemple.ca/"
  },
  "d94b8fff": {
@@ -554,16 +560,12 @@
  },
  "daf09eae": {
   "fetched": "2026-10-04",
-  "hours_text": "Tuesday: 9:30 a.m. to 12:30 p.m.; Wednesday: 4:30 p.m. to 7:30 p.m.; Thursday: 9:30 a.m. to 12:30 p.m.; Friday: 9:30 a.m. to 12:30 p.m. (by appointment only)",
-  "notes": "West Kelowna distribution, by appointment only; closed BC statutory holidays. Official wording (desk check 2026-10-04): West Kelowna Distribution Hours: By Appointment Only; Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM; Closed during BC Statutory Holidays.",
-  "services_text": null,
-  "source_url": "https://cofoodbank.com/"
+  "hours_text": "West Kelowna Distribution Hours — By Appointment Only — Tuesdays 9:30 AM – 12:30 PM; Wednesdays 4:30 PM – 7:30 PM; Thursdays 9:30 AM – 12:30 PM; Fridays (Tiny Bundles) 9:30 AM – 12:30 PM. Closed during BC Statutory Holidays.",
+  "source_url": "https://cofoodbank.com/get-food/"
  },
  "db95c7db": {
   "fetched": "2026-10-04",
-  "hours_text": null,
-  "notes": "Prayer times change through the year; the branch page shows that day's times and a 'Download Salat Times' timetable. No public opening hours published. Phone (250) 979-1370.",
-  "services_text": "Jummah 1:30:00 PM. Daily salat (iqamah) times shown for Saturday, October 3, 2026: Fajr 6:15 AM; Dhuhr 1:30 PM; Asr 4:45 PM; Maghrib 6:39 PM; Isha 8:15 PM",
+  "hours_text": "Jummah 1:30:00 PM. Daily prayer table on 2026-10-04 (start / iqamah): Fajr 05:16 AM / 6:15 AM; Sunrise 07:01 AM; Dhur 12:56 PM / 1:30 PM; Asr 04:39 PM / 4:45 PM; Magreb 6:37 PM; Isha 08:00 PM / 8:15 PM",
   "source_url": "http://org.thebcma.com/kelowna"
  },
  "dc2a5fe4": {
@@ -572,6 +574,11 @@
   "notes": "KCR office hours for all locations (Employment Services at 620 Leon Ave, 1st floor). Closed on Stat Holidays; closed Dec 25 - Jan 1.",
   "services_text": null,
   "source_url": "https://kcr.ca/about-us/contact-us/"
+ },
+ "deead411": {
+  "fetched": "2026-10-04",
+  "hours_text": "Call Centre Hours: Mon-Fri: 9:00am – 9:00pm ET; Sat-Sun: 10:00am – 6:30pm ET",
+  "source_url": "https://www.cpliving.com/apartments/trio"
  },
  "dff6dbc7": {
   "fetched": "2026-10-04",
@@ -617,16 +624,12 @@
  },
  "f2933ab1": {
   "fetched": "2026-10-04",
-  "hours_text": "Drop off: 9:00am –12:00pm, 1:00pm- 4:00pm, Monday – Friday.",
-  "notes": "Seasonal: 'Dates: March to June; September to December each year (in-person appointments are available in March and April only)'. Closed for holidays from Dec 15; closed July-Aug. Drop-off turnaround 4 to 8 weeks. In-person appointments: book via receptionist (March/April only).",
-  "services_text": null,
+  "hours_text": "Dates: March to June; September to December each year ( in-person appointments are available in March and April only ). Hours: Drop off: 9:00am –12:00pm, 1:00pm- 4:00pm, Monday – Friday. In-person appointments: please speak to our receptionist to book a time for March or April only.",
   "source_url": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/"
  },
  "f4c238b9": {
   "fetched": "2026-10-04",
   "hours_text": "Store Hours 9:00 AM - 9:00 PM",
-  "notes": "Fruiticana store finder lists one daily range for the Kelowna store (#160-2463 Highway 97 North); days not broken out.",
-  "services_text": null,
   "source_url": "https://www.fruiticana.com/storefinder?city=Kelowna"
  }
 }

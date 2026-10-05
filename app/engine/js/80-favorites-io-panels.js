@@ -11,11 +11,13 @@ function dismissHint(){
 function refreshHint(){
   document.getElementById('fhint').innerHTML=hintDismissed?'':iconify(TIGHT.matches?UI[L_].hintShort:UI[L_].hint);
 }
-const FAV_CODE_PREFIX='KAM1:';
+// 2026-10-04: the city's own prefix (Kamloops keeps KAM1: so codes already written down still work). A code
+// from another city used to be accepted and silently dropped every place — 'already saved here'.
+const FAV_CODE_PREFIX=String(SP).slice(0,3).toUpperCase()+'1:';
 function favCode(){return FAV_CODE_PREFIX+[...favorites].join('.');}
 function parseFavCode(txt){
   const t=(txt||'').trim();
-  if(t.indexOf(FAV_CODE_PREFIX)!==0)return null;
+  if(t.indexOf(FAV_CODE_PREFIX)!==0)return /^[A-Z]{3}1:/.test(t)?'other':null;
   const live=new Set(P.map(p=>p.id));
   // Unknown ids are dropped rather than rejected: a code exported from an older
   // edition should still restore whatever it can instead of failing whole.
@@ -48,6 +50,7 @@ function wireFavIO(){
     if(!box.value.trim()){box.focus();favMsg(u.favPastePrompt);return;}
     const ids=parseFavCode(box.value);
     if(ids===null){trackEvent('fav_import',{ok:false,reason:'bad_code'});favMsg(u.favBadCode);return;}
+    if(ids==='other'){trackEvent('fav_import',{ok:false,reason:'other_city'});favMsg(u.favOtherCity);return;}
     // count what is new to this browser, not what the code contained
     const fresh=ids.filter(id=>!favorites.has(id));
     trackEvent('fav_import',{ok:true,n:fresh.length});

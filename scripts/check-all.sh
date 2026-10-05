@@ -58,6 +58,7 @@ if [[ $QUICK -eq 0 ]]; then
   run engine-fixture "$PY" tests/engine/test_fixture_city.py
   run engine-empty "$PY" tests/engine/test_empty_city.py
   run engine-bc-time "$PY" tests/engine/test_bc_permanent_dst.py
+  run engine-popup "$PY" tests/engine/test_popup_lifecycle.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
   for t in tests/*/guitest.py; do   # each city's own strict GUI run (2026-10-04: Kelowna)
     [[ -f "$t" ]] && run "gui-$(basename "$(dirname "$t")")" "$PY" "$t"

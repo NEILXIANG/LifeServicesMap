@@ -100,8 +100,14 @@ function focusMarker(m,zoom,_settled){
           // marker's card when the marker leaves the map, so the reader saw it flash and vanish (found
           // by tests/kelowna/guitest.py: "Show it on the map" after three searches). If that happens
           // right after opening, the same card stays open at the place instead.
-          const keep=()=>{if(gen===_focusGen)try{standalone();}catch(e){}};
-          m.once('remove',keep);setTimeout(()=>m.off('remove',keep),2500);
+          // Only for that fold: not when a new search took the place off the map, and not after the reader
+          // closed the card (both reopened it — newcomer tests, 2026-10-04). A close while the marker is
+          // still on the map is the reader's; the close Leaflet does on removal comes after the marker left.
+          let closedByReader=false;
+          const onClose=()=>{if(map.hasLayer(m))closedByReader=true;};
+          m.once('popupclose',onClose);
+          const keep=()=>{if(gen===_focusGen&&!closedByReader&&markerPasses(m))try{standalone();}catch(e){}};
+          m.once('remove',keep);setTimeout(()=>{m.off('remove',keep);m.off('popupclose',onClose);},2500);
           return;
         }
         standalone();

@@ -47,8 +47,10 @@ async def main():
                     back:!!document.getElementById('taskBack')};}""")
         chk("a task opens with steps, office, cost, wait and its source",
             det['steps']==4 and det['mapBtn'] and det['back'] and 'MSP' in (det['src'] or ''), det)
-        chk("the office it names is the right one (ICBC trap avoided elsewhere)",
-            det['place']=='Service BC Centre', det['place'])
+        # 2026-10-04: the card's own step says adults collect the photo card "at an ICBC driver licensing office —
+        # not Service BC" (gov.bc.ca, Apply for MSP), and both newcomer tests found the Service BC pin contradicting it
+        chk("the office it names is the one the card sends you to (ICBC, where adults collect the photo card)",
+            det['place']=='ICBC Driver Licensing', det['place'])
 
         back=await pg.evaluate("""()=>{document.getElementById('taskBack').click();
             return document.querySelectorAll('.task-card').length;}""")

@@ -21,15 +21,15 @@
    "q": "qOffice"
   },
   "note": {
-   "zh": "Fraser排名全市最高7.8，AP课程+法语沉浸",
-   "en": "Highest Fraser ranking in the city (7.8); AP courses and French immersion",
-   "fr": "Meilleur classement Fraser de la ville (7,8); cours AP et immersion française",
-   "es": "La mejor clasificación Fraser de la ciudad (7,8); cursos AP e inmersión en francés",
-   "ko": "시 전체에서 프레이저 순위 최상위(7.8), AP 과정과 프랑스어 몰입 교육",
-   "ja": "フレーザーランキング市内最高（7.8）、AP課程、フランス語イマージョン"
+   "zh": "有法语沉浸项目和AP课程",
+   "en": "French immersion programme and AP courses",
+   "fr": "Programme d'immersion française et cours AP",
+   "es": "Programa de inmersión en francés y cursos AP",
+   "ko": "프랑스어 몰입 과정과 AP 과정",
+   "ja": "フランス語イマージョン課程とAP課程あり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family"
   ],
@@ -45,15 +45,15 @@
   "p": "250-374-3174",
   "w": "https://www.sd73.bc.ca/lg",
   "note": {
-   "zh": "⭐口碑良好的社区小学。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
-   "en": "⭐ Well-regarded neighbourhood elementary school. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
-   "fr": "⭐ École primaire de quartier bien considérée. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
-   "es": "⭐ Escuela primaria de barrio con buena reputación. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
-   "ko": "⭐ 평판이 좋은 동네 초등학교. 사무실 운영 시간과 수업 시간은 학교마다 다르고 해마다 바뀝니다 — 가기 전에 학교에 전화하거나 홈페이지를 확인하세요.",
-   "ja": "⭐評判の良い地域の小学校。事務室の受付時間や授業時間は学校ごとに異なり、年度によっても変わります — 行く前に学校に電話するか、学校のページで確認してください。"
+   "zh": "<b>K–7 法语沉浸式（French Immersion）小学</b>，不是普通英语授课的学区小学；毕业后升入 South Kamloops Secondary。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "en": "<b>A K–7 French Immersion school</b>, not a regular English-program neighbourhood school; it feeds into South Kamloops Secondary. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
+   "fr": "<b>École d’immersion française de la maternelle à la 7e année</b>, et non une école de quartier au programme anglais ordinaire ; elle mène à South Kamloops Secondary. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
+   "es": "<b>Escuela de inmersión en francés de K a 7.º</b>, no una escuela de barrio con el programa normal en inglés; sus alumnos pasan a South Kamloops Secondary. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
+   "ko": "<b>K–7 프랑스어 몰입(French Immersion) 학교</b>로, 일반 영어 과정 동네 학교가 아닙니다. 졸업 후 South Kamloops Secondary로 진학합니다. 사무실 운영 시간과 수업 시간은 학교마다 다르고 해마다 바뀝니다 — 가기 전에 학교에 전화하거나 홈페이지를 확인하세요.",
+   "ja": "<b>K〜7年生のフランス語イマージョン校</b>で、通常の英語課程の地域校ではありません。卒業後はSouth Kamloops Secondaryに進みます。事務室の受付時間や授業時間は学校ごとに異なり、年度によっても変わります — 行く前に学校に電話するか、学校のページで確認してください。"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family"
   ],
@@ -81,7 +81,7 @@
    "ja": "主要病院、救急科あり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "alias": [
    "医院",
    "大医院",
@@ -90,7 +90,14 @@
    "応急",
    "病院",
    "hôpital",
-   "hospital"
+   "hospital",
+   "ER",
+   "emergency",
+   "emergency room",
+   "urgences",
+   "emergencias",
+   "응급실",
+   "救急"
   ],
   "id": "1e3e329a"
  },
@@ -122,7 +129,7 @@
    "ja": "⭐かかりつけ医がなくても利用可能"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "急诊",
    "walk in",
@@ -162,15 +169,15 @@
    ]
   },
   "note": {
-   "zh": "⭐评分最高，接受急诊",
-   "en": "⭐ Highest rated locally; accepts dental emergencies",
-   "fr": "⭐ La mieux notée localement; accepte les urgences dentaires",
-   "es": "⭐ La mejor valorada de la zona; atiende urgencias dentales",
-   "ko": "⭐ 지역 최고 평점, 치과 응급도 진료",
-   "ja": "⭐地域最高評価、緊急診療も対応"
+   "zh": "⭐有当天急诊预约，请先打电话",
+   "en": "⭐ Offers same-day emergency appointments; call the office first",
+   "fr": "⭐ Offre des rendez-vous d'urgence le jour même ; appelez d'abord le cabinet",
+   "es": "⭐ Ofrece citas de urgencia el mismo día; llame primero a la clínica",
+   "ko": "⭐ 당일 응급 예약 가능, 먼저 전화하세요",
+   "ja": "⭐当日の緊急予約に対応、まず電話を"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "id": "172f9aae",
   "w": "https://www.riversidedentalclinic.ca/"
  },
@@ -202,7 +209,7 @@
    "ja": "⭐評判が非常に良く、土曜も営業"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "id": "08c3204e",
   "w": "https://kamloopsveterinaryclinic.com/"
  },
@@ -235,7 +242,7 @@
    "ja": "店内にCanada Postの窓口あり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -270,7 +277,7 @@
    "ja": "非緊急用、緊急時は911"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "id": "6cf9171d"
  },
  {
@@ -286,15 +293,15 @@
    "k": "hSite"
   },
   "note": {
-   "zh": "⭐50m八道泳池+25m短池+1/3/5m跳台+210尺螺旋滑梯+2个大按摩池+桑拿+蒸汽房。位于TCC内，同楼有健身房/室内跑道/体操馆。⚠️每年8月下旬-9月初年度维护全馆关闭",
-   "en": "⭐ 50 m eight-lane pool, 25 m short-course pool, 1/3/5 m diving platforms, a 210 ft spiral slide, two large hot tubs, sauna and steam room. Inside the TCC, which also has a gym, indoor running track and gymnastics hall. ⚠️ Closes for annual maintenance from late August to early September",
-   "fr": "⭐ Bassin de 50 m à huit couloirs, bassin de 25 m, plongeoirs de 1/3/5 m, glissade en spirale de 64 m, deux grands bains à remous, sauna et hammam. Dans le TCC, qui abrite aussi un gym, une piste de course intérieure et une salle de gymnastique. ⚠️ Fermé pour entretien annuel de fin août à début septembre",
-   "es": "⭐ Piscina de 50 m con ocho carriles, piscina de 25 m, plataformas de salto de 1/3/5 m, tobogán en espiral de 64 m, dos jacuzzis grandes, sauna y baño de vapor. Dentro del TCC, que también tiene gimnasio, pista de atletismo cubierta y sala de gimnasia. ⚠️ Cierra por mantenimiento anual de finales de agosto a principios de septiembre",
-   "ko": "⭐ 50m 8레인 수영장, 25m 단수로 수영장, 1/3/5m 다이빙대, 64m 나선형 슬라이드, 대형 온수풀 2개, 사우나와 증기실. 헬스장·실내 트랙·체조장이 있는 TCC 안에 있음. ⚠️ 매년 8월 말~9월 초 정기 점검 휴관",
-   "ja": "⭐50m8コースプール、25mショートコースプール、1/3/5m飛び込み台、210ftのらせん滑り台、大型ジャグジー2台、サウナ、スチームルーム。ジム、屋内ランニングトラック、体操ホールもあるTCC内。⚠️毎年8月下旬〜9月上旬は定期メンテナンスで休館"
+   "zh": "⭐50m八道室内泳池、1m/3m跳板和5m跳台、滑梯、休闲池、带无障碍升降椅的按摩池、桑拿和蒸汽房。位于TCC内，同楼有健身房、200米室内跑道和体操馆。所有使用者都需要一个市政府康乐账户（City Recreation Account）",
+   "en": "⭐ 50 m eight-lane indoor pool, 1 m and 3 m diving boards and a 5 m tower, a waterslide, a leisure pool, a hot tub with an accessible lift, sauna and steam room. Inside the TCC, which also has a gym, a 200 m indoor track and a gymnastics facility. Every user needs a City Recreation Account",
+   "fr": "⭐ Bassin intérieur de 50 m à huit couloirs, tremplins de 1 et 3 m et tour de 5 m, glissade d'eau, bassin récréatif, bain à remous avec lève-personne, sauna et hammam. Dans le TCC, qui abrite aussi un gym, une piste intérieure de 200 m et une salle de gymnastique. Chaque usager doit avoir un compte City Recreation Account",
+   "es": "⭐ Piscina cubierta de 50 m con ocho carriles, trampolines de 1 y 3 m y torre de 5 m, tobogán, piscina recreativa, jacuzzi con elevador accesible, sauna y baño de vapor. Dentro del TCC, que también tiene gimnasio, pista cubierta de 200 m y sala de gimnasia. Todos los usuarios necesitan una City Recreation Account",
+   "ko": "⭐ 50m 8레인 실내 수영장, 1m·3m 다이빙 보드와 5m 다이빙 타워, 워터슬라이드, 레저풀, 장애인용 리프트가 있는 온수풀, 사우나와 증기실. 헬스장·200m 실내 트랙·체조장이 있는 TCC 안에 있음. 이용자는 모두 시 레크리에이션 계정(City Recreation Account)이 필요",
+   "ja": "⭐50m8コース室内プール、1m・3m飛び板と5m飛び込み台、ウォータースライド、レジャープール、昇降リフト付きジャグジー、サウナ、スチームルーム。ジム、200m屋内トラック、体操施設もあるTCC内。利用者は全員、市のレクリエーションアカウント（City Recreation Account）が必要"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family",
    "fun",
@@ -305,7 +312,7 @@
   "id": "dc0b303d"
  },
  {
-  "n": "Centennial Water Park",
+  "n": "Riverside Park Water Park",
   "c": "splash",
   "g": "sk",
   "lat": 50.6787601,
@@ -326,15 +333,15 @@
    "q": "qSeasonSite"
   },
   "note": {
-   "zh": "⭐免费，紧邻河滩playground",
-   "en": "⭐ Free, right beside the river beach playground",
-   "fr": "⭐ Gratuit, juste à côté du terrain de jeu de la plage",
-   "es": "⭐ Gratis, justo al lado del parque infantil de la playa",
-   "ko": "⭐ 무료, 강변 해변 놀이터 바로 옆",
-   "ja": "⭐無料、リバービーチのプレイグラウンドのすぐ隣"
+   "zh": "⭐Riverside Park 的无障碍戏水公园，紧邻融合式playground；Riverside 停车收费。和 Westsyde Centennial Park 的戏水公园不是同一个",
+   "en": "⭐ Riverside Park's accessible water park, right beside the inclusive playground; parking at Riverside is paid. Not the same as the water park in Westsyde Centennial Park",
+   "fr": "⭐ Les jeux d'eau accessibles du parc Riverside, juste à côté du terrain de jeu inclusif ; stationnement payant à Riverside. À ne pas confondre avec les jeux d'eau du parc Westsyde Centennial",
+   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el aparcamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
+   "ko": "⭐ Riverside Park의 무장애 물놀이 시설로, 통합 놀이터 바로 옆. Riverside 주차는 유료. Westsyde Centennial Park의 물놀이 시설과는 다른 곳",
+   "ja": "⭐Riverside Parkのバリアフリー水遊び場、インクルーシブ・プレイグラウンドのすぐ隣。Riversideの駐車場は有料。Westsyde Centennial Parkの水遊び場とは別の場所"
   },
-  "src": "places",
-  "v": "2026-09",
+  "src": "official",
+  "v": "2026-10",
   "t": [
    "family",
    "fun",
@@ -342,7 +349,13 @@
   ],
   "pq": "pCity",
   "id": "dd819a8a",
-  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks"
+  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks",
+  "sameComplex": [
+   "050b5d80"
+  ],
+  "alias": [
+   "Centennial Water Park"
+  ]
  },
  {
   "n": "Totem Fitness",
@@ -356,15 +369,15 @@
    "a": true
   },
   "note": {
-   "zh": "⭐评分满分！设施新，含拳击区+淋浴",
-   "en": "⭐ Perfect rating; new facilities including a boxing area and showers",
-   "fr": "⭐ Note parfaite; installations neuves, dont un espace de boxe et des douches",
-   "es": "⭐ Valoración perfecta; instalaciones nuevas, con zona de boxeo y duchas",
-   "ko": "⭐ 만점 평가, 복싱 공간과 샤워실을 갖춘 새 시설",
-   "ja": "⭐評価満点、ボクシングエリア、シャワーを備えた新しい設備"
+   "zh": "⭐健身房，也是 BC Boxing 认证的拳击俱乐部；有咖啡吧和专业用品店",
+   "en": "⭐ A gym that is also a chartered BC Boxing club, with a café and pro shop",
+   "fr": "⭐ Un gym qui est aussi un club affilié à BC Boxing, avec café et boutique spécialisée",
+   "es": "⭐ Un gimnasio que también es club afiliado a BC Boxing, con cafetería y tienda especializada",
+   "ko": "⭐ BC Boxing 공인 복싱 클럽을 겸하는 체육관, 카페와 용품점 있음",
+   "ja": "⭐BC Boxing公認ボクシングクラブを兼ねたジム、カフェとプロショップあり"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "fun",
    "student",
@@ -384,15 +397,15 @@
   "p": "250-828-3600",
   "w": "https://www.kamloops.ca/recreation-culture/facilities/mcarthur-island-sport-event-centre",
   "note": {
-   "zh": "三块冰场（迷你、奥运尺寸和 NHL 尺寸），另有冰壶和家庭滑冰。",
-   "en": "Three ice sheets (mini, Olympic and NHL size), plus curling and family skating.",
-   "fr": "Trois patinoires (mini, olympique et LNH), plus curling et patinage familial.",
-   "es": "Tres pistas de hielo (mini, olímpica y de tamaño NHL), además de curling y patinaje familiar.",
-   "ko": "아이스링크 3면(미니, 올림픽, NHL 규격)과 컬링, 가족 스케이팅.",
-   "ja": "リンクが3面（ミニ、オリンピック、NHLサイズ）、カーリングと家族向けスケートも。"
+   "zh": "三块冰场（迷你、奥运尺寸和 NHL 尺寸）。公众滑冰时间见市政府的 Skate Hours 页面。",
+   "en": "Three ice sheets (mini, Olympic and NHL size). Public skating times are on the City's Skate Hours page.",
+   "fr": "Trois patinoires (mini, olympique et LNH). Les heures de patinage public sont sur la page Skate Hours de la Ville.",
+   "es": "Tres pistas de hielo (mini, olímpica y de tamaño NHL). Los horarios de patinaje público están en la página Skate Hours de la Ciudad.",
+   "ko": "아이스링크 3면(미니, 올림픽, NHL 규격). 일반 스케이팅 시간은 시의 Skate Hours 페이지에 있습니다.",
+   "ja": "リンクが3面（ミニ、オリンピック、NHLサイズ）。一般スケートの時間は市のSkate Hoursページで。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "family",
    "fun",
@@ -419,15 +432,15 @@
    ]
   },
   "note": {
-   "zh": "⭐社区人气公园！夏季浅水池+免费木偶剧",
-   "en": "⭐ A neighbourhood favourite — summer wading pool and free puppet shows",
-   "fr": "⭐ Un favori du quartier — pataugeoire l'été et spectacles de marionnettes gratuits",
-   "es": "⭐ Favorito del barrio — piscina infantil en verano y teatro de marionetas gratis",
-   "ko": "⭐ 동네에서 인기 — 여름 물놀이장과 무료 인형극",
-   "ja": "⭐地域で人気、夏の浅瀬プールと無料の人形劇"
+   "zh": "⭐夏季浅水池、playground和洗手间",
+   "en": "⭐ Summer wading pool, a playground and washrooms",
+   "fr": "⭐ Pataugeoire l'été, terrain de jeu et toilettes",
+   "es": "⭐ Piscina infantil en verano, zona de juegos y baños",
+   "ko": "⭐ 여름 물놀이장, 놀이터, 화장실",
+   "ja": "⭐夏の浅瀬プール、プレイグラウンド、トイレ"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "family",
    "free"
@@ -455,22 +468,26 @@
    ]
   },
   "note": {
-   "zh": "市中心河滩：夏天可以游泳，7 月起公园里有音乐会。Scoopz 冰淇淋在街对面。位于 Riverside Park 内。",
-   "en": "Downtown river beach: summer swimming, and concerts in the park from July. Scoopz ice cream is across the street. Inside Riverside Park.",
-   "fr": "Plage de rivière au centre-ville : baignade l’été et concerts dans le parc à partir de juillet. Le glacier Scoopz est de l’autre côté de la rue. Dans le parc Riverside.",
-   "es": "Playa de río en el centro: baño en verano y conciertos en el parque desde julio. La heladería Scoopz está al otro lado de la calle. Dentro de Riverside Park.",
-   "ko": "시내 강변 해변: 여름 수영, 7월부터 공원 음악회. Scoopz 아이스크림은 길 건너편에 있습니다. Riverside Park 안.",
-   "ja": "ダウンタウンの川辺のビーチ：夏は泳げて、7月から公園でコンサート。Scoopzのアイスは通りの向かい。Riverside Park内。"
+   "zh": "市中心河滩：只能在绳子围起的区域内游泳；夏天有救生员，但不一定随时在岗；注意水流湍急和水深骤变。夏天每晚在 Rotary Bandshell 有 Music in the Park 音乐会。位于 Riverside Park 内。",
+   "en": "Downtown river beach. Swim only inside the roped area; lifeguards are there in summer but not always on duty, and there are strong currents and drop-offs. Music in the Park plays nightly through the summer at the Rotary Bandshell. Inside Riverside Park.",
+   "fr": "Plage de rivière au centre-ville. Baignade seulement dans la zone délimitée par des cordes ; il y a des sauveteurs l’été, mais pas toujours en service, et de forts courants et des fonds qui tombent brusquement. Music in the Park chaque soir de l’été au Rotary Bandshell. Dans le parc Riverside.",
+   "es": "Playa de río en el centro. Nade solo dentro de la zona acordonada; en verano hay socorristas, pero no siempre están de servicio, y hay corrientes fuertes y desniveles bruscos. Music in the Park todas las noches del verano en el Rotary Bandshell. Dentro de Riverside Park.",
+   "ko": "시내 강변 해변. 수영은 줄로 표시한 구역 안에서만 하세요. 여름에는 안전요원이 있지만 항상 근무하는 것은 아니며, 물살이 세고 갑자기 깊어지는 곳이 있습니다. 여름 내내 매일 저녁 Rotary Bandshell에서 Music in the Park 공연이 열립니다. Riverside Park 안.",
+   "ja": "ダウンタウンの川辺のビーチ。泳げるのはロープで囲まれた区域内だけです。夏はライフガードがいますが常にいるとは限らず、流れが強く急に深くなる場所があります。夏の間は毎晩Rotary BandshellでMusic in the Parkが開かれます。Riverside Park内。"
   },
-  "src": "places",
-  "v": "2026-09",
+  "src": "official",
+  "v": "2026-10",
   "t": [
    "family",
    "fun",
    "scenic",
    "free"
   ],
-  "id": "050b5d80"
+  "id": "050b5d80",
+  "w": "https://www.kamloops.ca/recreation-culture/facilities/riverside-park-beach",
+  "sameComplex": [
+   "dd819a8a"
+  ]
  },
  {
   "n": "Peterson Creek Nature Park",
@@ -481,15 +498,15 @@
   "a": "1440 Glenfair Dr",
   "p": "250-828-3311",
   "note": {
-   "zh": "⭐热门自然步道！山谷景观+瀑布，可徒步骑行",
-   "en": "⭐ A popular nature trail: valley views and a waterfall, good for hiking and biking",
-   "fr": "⭐ Sentier nature très fréquenté : vues sur la vallée et une chute, bon pour la randonnée et le vélo",
-   "es": "⭐ Sendero natural muy popular: vistas al valle y una cascada, bueno para caminar y andar en bici",
-   "ko": "⭐ 인기 자연 산책로 — 계곡 전망과 폭포, 하이킹과 자전거에 좋음",
-   "ja": "⭐人気の自然歩道、渓谷の眺めと滝、ハイキング、サイクリングに良い"
+   "zh": "⭐自然公园：山谷观景点和徒步步道，Xget'tem' Trail 可步行也可骑车。狗可在控制下不拴绳。",
+   "en": "⭐ A nature park with a valley viewpoint and hiking trails; the Xget'tem' Trail is shared by walkers and cyclists. Dogs may be off leash under control.",
+   "fr": "⭐ Parc naturel avec belvédère sur la vallée et sentiers de randonnée ; le Xget'tem' Trail est partagé par piétons et cyclistes. Chiens sans laisse permis s’ils restent sous contrôle.",
+   "es": "⭐ Parque natural con mirador al valle y senderos; el Xget'tem' Trail es compartido por peatones y ciclistas. Los perros pueden ir sin correa si están bajo control.",
+   "ko": "⭐ 계곡 전망대와 하이킹 코스가 있는 자연공원. Xget'tem' Trail은 보행자와 자전거가 함께 씁니다. 반려견은 통제 하에 목줄 없이 다닐 수 있습니다.",
+   "ja": "⭐渓谷の展望地とハイキングコースのある自然公園。Xget'tem' Trailは歩行者と自転車の共用です。犬は管理下ならリードなしで可。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "scenic",
    "free"
@@ -518,15 +535,15 @@
   "lng": -120.3143317,
   "a": "1110 River St",
   "note": {
-   "zh": "⭐围栏+饮水+便袋，适合中小型犬",
-   "en": "⭐ Fenced, with water and waste bags; suits small and medium dogs",
-   "fr": "⭐ Clôturé, avec eau et sacs à déjections; convient aux petits et moyens chiens",
-   "es": "⭐ Vallado, con agua y bolsas para excrementos; apto para perros pequeños y medianos",
-   "ko": "⭐ 울타리가 있고 물과 배변봉투 제공, 소·중형견에 적합",
-   "ja": "⭐フェンス付き、水と排泄物用袋あり、小型・中型犬向き"
+   "zh": "⭐有围栏，狗可在控制下不拴绳；有长椅和拾便袋",
+   "en": "⭐ Fenced, off leash under control, with benches and bag dispensers",
+   "fr": "⭐ Clôturé, sans laisse sous contrôle, avec bancs et distributeurs de sacs",
+   "es": "⭐ Vallado, sin correa bajo control, con bancos y dispensadores de bolsas",
+   "ko": "⭐ 울타리가 있고 통제 하에 목줄 없이 가능, 벤치와 배변봉투함 있음",
+   "ja": "⭐フェンス付き、管理下ならリードなしで可、ベンチとフン袋のディスペンサーあり"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "free"
   ],
@@ -587,15 +604,15 @@
    ]
   },
   "note": {
-   "zh": "⭐免费网络+儿童活动，与美术馆同栋",
-   "en": "⭐ Free internet and children's programmes; shares a building with the art gallery",
-   "fr": "⭐ Internet gratuit et programmes pour enfants; partage un bâtiment avec la galerie d'art",
-   "es": "⭐ Internet gratis y programas infantiles; comparte edificio con la galería de arte",
-   "ko": "⭐ 무료 인터넷과 어린이 프로그램, 미술관과 같은 건물 사용",
-   "ja": "⭐無料インターネットと子ども向けプログラム、美術館と同じ建物"
+   "zh": "⭐免费 Wi-Fi、儿童活动，也提供考试监考和公共会议室。位于 TNRD Civic 大楼",
+   "en": "⭐ Free Wi-Fi and children's programmes; also exam invigilation and public meeting rooms. In the TNRD Civic building",
+   "fr": "⭐ Wi-Fi gratuit et programmes pour enfants ; aussi surveillance d'examens et salles de réunion publiques. Dans l'édifice civique du TNRD (TNRD Civic building)",
+   "es": "⭐ Wi-Fi gratis y programas infantiles; también supervisión de exámenes y salas de reuniones públicas. En el edificio TNRD Civic",
+   "ko": "⭐ 무료 Wi-Fi와 어린이 프로그램, 시험 감독과 공공 회의실도 있음. TNRD Civic 건물 안",
+   "ja": "⭐無料Wi-Fiと子ども向けプログラム、試験監督や公共会議室もあり。TNRD Civicビル内"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "图书馆",
    "도서관",
@@ -634,15 +651,15 @@
    ]
   },
   "note": {
-   "zh": "⭐地下有儿童游戏区",
-   "en": "⭐ There is a children's play area downstairs",
-   "fr": "⭐ Il y a une aire de jeux pour enfants au sous-sol",
-   "es": "⭐ Hay una zona de juegos para niños en la planta baja",
-   "ko": "⭐ 아래층에 어린이 놀이 공간이 있음",
-   "ja": "⭐地下に子ども向け遊び場あり"
+   "zh": "⭐一楼有儿童博物馆（Children's Museum），可动手体验的常设展",
+   "en": "⭐ The Children's Museum, a permanent hands-on exhibit, is on the first floor",
+   "fr": "⭐ Le Children's Museum, une exposition permanente interactive, est au premier niveau (rez-de-chaussée)",
+   "es": "⭐ El Children's Museum, una exposición permanente interactiva, está en la primera planta (planta baja)",
+   "ko": "⭐ 1층에 직접 만져 보는 상설 전시인 어린이 박물관(Children's Museum)이 있음",
+   "ja": "⭐1階に体験型の常設展示「Children's Museum」あり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family",
    "history",
@@ -687,7 +704,7 @@
    "ja": "UltraAVX、3D、ドルビーアトモスのスクリーンあり。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "fun",
    "indoor"
@@ -714,15 +731,15 @@
    ]
   },
   "note": {
-   "zh": "⭐价格最实惠，PC Optimum积分",
-   "en": "⭐ The most affordable prices, with PC Optimum points",
-   "fr": "⭐ Les prix les plus abordables, avec les points PC Optimum",
-   "es": "⭐ Los precios más asequibles, con puntos PC Optimum",
-   "ko": "⭐ 가장 저렴한 가격대, PC Optimum 포인트 적립",
-   "ja": "⭐最も手頃な価格帯、PC Optimumポイントも貯まる"
+   "zh": "⭐可积PC Optimum积分；店内有药房、加油站和证件照服务",
+   "en": "⭐ PC Optimum points; also a pharmacy, gas bar and passport photos",
+   "fr": "⭐ Points PC Optimum ; aussi une pharmacie, un poste d'essence et des photos de passeport",
+   "es": "⭐ Puntos PC Optimum; también farmacia, gasolinera y fotos de pasaporte",
+   "ko": "⭐ PC Optimum 포인트 적립, 약국·주유소·여권 사진 서비스도 있음",
+   "ja": "⭐PC Optimumポイントが貯まる、薬局、ガソリンスタンド、パスポート写真もあり"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "超市",
    "超級市場",
@@ -802,14 +819,6 @@
     ]
    ]
   },
-  "note": {
-   "zh": "⭐评价不错的中餐馆",
-   "en": "⭐ A well-reviewed Chinese restaurant",
-   "fr": "⭐ Un restaurant chinois bien commenté",
-   "es": "⭐ Un restaurante chino con buenas reseñas",
-   "ko": "⭐ 평이 좋은 중식당",
-   "ja": "⭐評判の良い中華料理店"
-  },
   "src": "places",
   "v": "2026-08",
   "t": [
@@ -840,15 +849,15 @@
    ]
   },
   "note": {
-   "zh": "⭐置办家具首选！餐桌等家具价格实惠，提供送货",
-   "en": "⭐ The first stop for furnishing a place — tables and other furniture at reasonable prices, delivery available",
-   "fr": "⭐ Le premier arrêt pour meubler un logement — tables et autres meubles à prix raisonnable, livraison possible",
-   "es": "⭐ La primera parada para amueblar una vivienda — mesas y otros muebles a precios razonables, con entrega",
-   "ko": "⭐ 집을 채울 때 첫 번째로 들를 곳 — 식탁 등 가구가 합리적인 가격, 배송 가능",
-   "ja": "⭐家具を揃えるならまずここ、テーブルなどが手頃な価格、配送も可能"
+   "zh": "⭐二手及近新家具，Kamloops 地区可送货。看货和取货需预约",
+   "en": "⭐ Used and like-new furniture, with delivery throughout the Kamloops area. Viewings and pick-ups are by appointment",
+   "fr": "⭐ Meubles usagés et comme neufs, avec livraison dans toute la région de Kamloops. Visites et ramassages sur rendez-vous",
+   "es": "⭐ Muebles usados y casi nuevos, con entrega en toda la zona de Kamloops. Visitas y recogidas con cita previa",
+   "ko": "⭐ 중고 및 새것 같은 가구, Kamloops 지역 전역 배송. 구경과 픽업은 예약제",
+   "ja": "⭐中古・新品同様の家具、Kamloops地域全域に配送。見学と引き取りは予約制"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life",
    "free"
@@ -886,7 +895,7 @@
    ]
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -934,15 +943,15 @@
    ]
   },
   "note": {
-   "zh": "最大商场，含影院+美食广场",
-   "en": "The largest mall, with a cinema and food court",
-   "fr": "Le plus grand centre commercial, avec cinéma et aire de restauration",
-   "es": "El centro comercial más grande, con cine y patio de comidas",
-   "ko": "가장 큰 쇼핑몰, 영화관과 푸드코트 있음",
-   "ja": "最大のショッピングモール、映画館とフードコートあり"
+   "zh": "购物中心，含Cineplex影院+美食广场",
+   "en": "A shopping mall with a Cineplex cinema and a food court",
+   "fr": "Un centre commercial avec un cinéma Cineplex et une aire de restauration",
+   "es": "Un centro comercial con cine Cineplex y patio de comidas",
+   "ko": "Cineplex 영화관과 푸드코트가 있는 쇼핑몰",
+   "ja": "Cineplexの映画館とフードコートがあるショッピングモール"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life",
    "fun",
@@ -960,15 +969,15 @@
   "p": "250-376-1216",
   "w": "https://www.bctransit.com/kamloops",
   "note": {
-   "zh": "市内公交枢纽站，途经1/2/3/6/7/9/17/18路（以BC Transit官网当期时刻表为准）",
-   "en": "The city's main transit exchange, served by routes 1/2/3/6/7/9/17/18 (check BC Transit's current schedule)",
-   "fr": "Le principal pôle de correspondance de la ville, desservi par les lignes 1/2/3/6/7/9/17/18 (vérifiez l'horaire courant de BC Transit)",
-   "es": "El principal intercambiador de la ciudad, con las rutas 1/2/3/6/7/9/17/18 (consulte el horario vigente de BC Transit)",
-   "ko": "시내 주요 환승 거점, 1/2/3/6/7/9/17/18번 노선 경유(BC Transit 최신 시간표 확인)",
-   "ja": "市内メインのバスターミナル、1/2/3/6/7/9/17/18番が発着（最新時刻表はBC Transit公式サイトで確認）"
+   "zh": "市内主要公交换乘站；经过的线路请以BC Transit官网当期时刻表为准",
+   "en": "The city's main transit exchange; check BC Transit's current schedule for the routes that stop here",
+   "fr": "Le principal pôle de correspondance de la ville ; consultez l'horaire courant de BC Transit pour les lignes qui s'y arrêtent",
+   "es": "El principal intercambiador de la ciudad; consulte el horario vigente de BC Transit para ver qué rutas paran aquí",
+   "ko": "시내 주요 환승 거점. 정차 노선은 BC Transit 최신 시간표에서 확인하세요",
+   "ja": "市内メインのバスターミナル。発着する路線はBC Transitの最新時刻表で確認"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "公交总站",
    "汽车站",
@@ -1004,15 +1013,15 @@
    ]
   },
   "note": {
-   "zh": "⭐服务口碑好，建议预约",
-   "en": "⭐ Good service reputation; book an appointment",
-   "fr": "⭐ Bonne réputation de service; prenez rendez-vous",
-   "es": "⭐ Buena reputación de servicio; pida cita",
-   "ko": "⭐ 서비스 평판이 좋음, 예약 권장",
-   "ja": "⭐サービスの評判が良い、予約推奨"
+   "zh": "⭐可预约；员工会说英语和印地语。周六不营业",
+   "en": "⭐ Book an appointment; staff speak English and Hindi. Closed Saturdays",
+   "fr": "⭐ Prenez rendez-vous ; le personnel parle anglais et hindi. Fermé le samedi",
+   "es": "⭐ Pida cita; el personal habla inglés e hindi. Cerrado los sábados",
+   "ko": "⭐ 예약 가능, 직원이 영어와 힌디어를 함. 토요일 휴무",
+   "ja": "⭐予約可、スタッフは英語とヒンディー語に対応。土曜休み"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1084,15 +1093,15 @@
    "a": true
   },
   "note": {
-   "zh": "24小时，含Slurpee和披萨",
-   "en": "Open 24 hours, with Slurpees and pizza",
-   "fr": "Ouvert 24 h, avec Slurpees et pizza",
-   "es": "Abierto 24 h, con Slurpees y pizza",
-   "ko": "24시간 영업, 슬러피와 피자 판매",
-   "ja": "24時間営業、スラーピー、ピザあり"
+   "zh": "24小时，有热食、咖啡吧和ATM",
+   "en": "Open 24 hours, with hot food, a coffee bar and an ATM",
+   "fr": "Ouvert 24 h, avec plats chauds, comptoir à café et guichet automatique",
+   "es": "Abierto 24 h, con comida caliente, barra de café y cajero automático",
+   "ko": "24시간 영업, 따뜻한 음식·커피 바·ATM 있음",
+   "ja": "24時間営業、ホットフード、コーヒーバー、ATMあり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1119,15 +1128,15 @@
    ]
   },
   "note": {
-   "zh": "⭐⭐最重要资源！免费LINC/ESL英语课+免费托儿+求职辅导+免费公民模拟考+中文翻译；另提供居民安顿、语言评估与就业辅导，是本地主要的居民服务机构",
-   "en": "⭐⭐ The single most useful resource: free LINC/ESL classes, free childcare while you study, job-search help, a free citizenship practice test, and Chinese interpretation. Also settlement support, language assessment and employment counselling — the main resident-serving agency in the city",
-   "fr": "⭐⭐ La ressource la plus utile de toutes : cours d'anglais LINC/ESL gratuits, garderie gratuite pendant les cours, aide à la recherche d'emploi, un test de pratique gratuit pour la citoyenneté canadienne, et interprétation en chinois. Également accompagnement à l'installation, évaluation linguistique et orientation professionnelle — le principal organisme d'accueil des nouveaux résidents de la ville",
-   "es": "⭐⭐ El recurso más útil de todos: clases de inglés LINC/ESL gratuitas, guardería gratuita mientras estudia, apoyo en la búsqueda de empleo, una prueba de práctica gratuita para la ciudadanía canadiense, e interpretación en chino. También acompañamiento en el asentamiento, evaluación lingüística y orientación laboral — la principal agencia de acogida de nuevos residentes de la ciudad",
-   "ko": "⭐⭐ 가장 유용한 자원 — 무료 LINC/ESL 영어 수업, 수업 중 무료 보육, 구직 지원, 무료 캐나다 시민권 모의시험, 중국어 통역. 정착 지원·언어 평가·취업 상담도 제공하는 시내 대표 주민 지원 기관",
-   "ja": "⭐⭐最も役立つ拠点、無料LINC/ESL英語クラス、受講中の無料託児、求職サポート、無料のカナダ市民権模擬試験、中国語通訳あり。定住支援、語学評価、就労相談も行う市内代表的な住民支援機関"
+   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供居民安顿、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
+   "en": "⭐⭐ Free LINC English classes for eligible clients (permanent residents, refugees, and temporary residents on a pathway to PR), free childminding for preschool children while you study (pre-register through a Settlement Counsellor), job-search help and a free citizenship practice test. Also settlement support, language assessment and employment counselling. Interpretation and translation (including Cantonese and Mandarin) is a paid service",
+   "fr": "⭐⭐ Cours d'anglais LINC gratuits pour les clients admissibles (résidents permanents, réfugiés et résidents temporaires en voie d'obtenir la résidence permanente), halte-garderie gratuite pour les enfants d'âge préscolaire pendant les cours (inscription préalable auprès d'un conseiller en établissement), aide à la recherche d'emploi et un test de pratique gratuit pour la citoyenneté. Également accompagnement à l'installation, évaluation linguistique et orientation professionnelle. L'interprétation et la traduction (y compris en cantonais et en mandarin) sont des services payants",
+   "es": "⭐⭐ Clases de inglés LINC gratuitas para clientes que cumplan los requisitos (residentes permanentes, refugiados y residentes temporales en camino a la residencia permanente), cuidado gratuito de niños en edad preescolar mientras estudia (con inscripción previa a través de un consejero de asentamiento), apoyo en la búsqueda de empleo y una prueba de práctica gratuita para la ciudadanía. También acompañamiento en el asentamiento, evaluación lingüística y orientación laboral. La interpretación y la traducción (incluidos cantonés y mandarín) son servicios de pago",
+   "ko": "⭐⭐ 자격이 되는 분(영주권자, 난민, 영주권 취득 경로에 있는 임시 거주자)을 위한 무료 LINC 영어 수업, 수업 중 미취학 아동 무료 돌봄(정착 상담사를 통해 사전 등록), 구직 지원, 무료 시민권 모의시험. 정착 지원·언어 평가·취업 상담도 제공합니다. 통역·번역(광둥어·중국어 포함)은 유료 서비스입니다",
+   "ja": "⭐⭐対象者（永住者、難民、永住への道筋にある一時滞在者）向けの無料LINC英語クラス、受講中の未就学児の無料託児（定住カウンセラーを通じて事前登録）、求職サポート、無料の市民権模擬試験。定住支援、語学評価、就労相談も行います。通訳・翻訳（広東語・北京語を含む）は有料サービスです"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "移民服务",
    "定居",
@@ -1195,13 +1204,20 @@
    "ja": "⭐SIN（社会保険番号）とパスポートの申請窓口"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "工卡",
    "SIN",
    "社保号",
    "사회보험번호",
-   "社会保険番号"
+   "社会保険番号",
+   "social insurance",
+   "social insurance number",
+   "社会保险号",
+   "NAS",
+   "número de seguro social",
+   "passport",
+   "护照"
   ],
   "t": [
    "life"
@@ -1230,21 +1246,26 @@
    ]
   },
   "note": {
-   "zh": "⭐换BC驾照+车辆保险，周六也营业",
-   "en": "⭐ Exchange your licence for a BC one and arrange vehicle insurance; open Saturdays",
-   "fr": "⭐ Échangez votre permis contre un permis de la C.-B. et souscrivez l'assurance auto; ouvert le samedi",
-   "es": "⭐ Cambie su licencia por una de BC y contrate el seguro del vehículo; abierto los sábados",
-   "ko": "⭐ 운전면허를 BC 면허로 교환하고 자동차 보험 가입, 토요일 영업",
-   "ja": "⭐BC州運転免許への切替、自動車保険の手続き、土曜も営業"
+   "zh": "⭐换BC驾照，周六也营业；笔试和路考在网上预约。车辆保险不在这里办，要找 Autoplan 保险经纪",
+   "en": "⭐ Exchange your licence for a BC one; open Saturdays. Book knowledge and road tests online. Vehicle insurance is not sold here — buy it from an Autoplan broker",
+   "fr": "⭐ Échangez votre permis contre un permis de la C.-B. ; ouvert le samedi. Réservez les examens théoriques et pratiques en ligne. L'assurance auto ne se vend pas ici — adressez-vous à un courtier Autoplan",
+   "es": "⭐ Cambie su licencia por una de BC; abierto los sábados. Reserve en línea los exámenes teóricos y prácticos. El seguro del vehículo no se vende aquí: contrátelo con un corredor Autoplan",
+   "ko": "⭐ 운전면허를 BC 면허로 교환, 토요일 영업. 필기·도로 주행 시험은 온라인으로 예약하세요. 자동차 보험은 여기서 팔지 않으니 Autoplan 중개인에게 가입하세요",
+   "ja": "⭐BC州運転免許への切替、土曜も営業。筆記試験と路上試験はオンラインで予約。自動車保険はここでは扱わないので、Autoplanの代理店で加入してください"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "alias": [
    "驾照",
    "车管所",
    "운전면허",
    "運転免許",
-   "permis"
+   "permis",
+   "licence",
+   "license",
+   "driver's licence",
+   "drivers license",
+   "licencia"
   ],
   "t": [
    "life"
@@ -1253,82 +1274,33 @@
   "id": "867acd77"
  },
  {
-  "n": "Service BC Centre",
-  "c": "gov",
-  "g": "sk",
-  "lat": 50.6704457,
-  "lng": -120.3308755,
-  "a": "455 Columbia St Rm 250",
-  "p": "250-828-4540",
-  "w": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc",
-  "h": {
-   "r": [
-    [
-     1,
-     5,
-     540,
-     990,
-     0
-    ]
-   ]
-  },
-  "note": {
-   "zh": "省政府的一站式窗口：协助办理 MSP 医保登记、出生证明及其他省级项目。带照片的 BC Services Card 本身要去 ICBC 驾照办公室办，不在这里。带护照或移民文件、以及一份写有本地地址的信件。周一至周五 9:00–16:30。",
-   "en": "The province’s front counter: help with MSP enrolment, birth certificates and other provincial programmes. The photo BC Services Card itself is issued at an ICBC driver licensing office, not here. Bring your passport or immigration papers and one letter showing your local address. Weekdays 9–4:30.",
-   "fr": "Le guichet de la province : aide à l’inscription au MSP, certificats de naissance et autres programmes provinciaux. La carte BC Services avec photo, elle, se fait dans un bureau de permis de conduire d’ICBC, pas ici. Apportez votre passeport ou vos papiers d’immigration et une lettre montrant votre adresse locale. En semaine, 9 h–16 h 30.",
-   "es": "La ventanilla de la provincia: ayuda con la inscripción al MSP, partidas de nacimiento y otros programas provinciales. La BC Services Card con foto se tramita en una oficina de licencias de ICBC, no aquí. Traiga su pasaporte o documentos de inmigración y una carta con su dirección local. Días laborables, 9–16:30.",
-   "ko": "주 정부 민원 창구: MSP 등록, 출생증명서, 기타 주 정부 프로그램을 도와줍니다. 사진이 있는 BC Services Card 자체는 여기가 아니라 ICBC 운전면허 사무소에서 발급합니다. 여권이나 이민 서류, 그리고 현지 주소가 적힌 우편물 하나를 가져오세요. 평일 9:00–16:30.",
-   "ja": "州の総合窓口：MSP加入の手続き、出生証明書、その他の州のプログラムを扱います。写真付きのBC Services Card自体は、ここではなくICBCの運転免許事務所で発行されます。パスポートか移民書類と、現住所の分かる郵便物を1通持参してください。平日 9:00–16:30。"
-  },
-  "src": "official",
-  "v": "2026-09",
-  "alias": [
-   "医保",
-   "MSP",
-   "健康卡",
-   "의료카드",
-   "医療カード"
-  ],
-  "t": [
-   "life"
-  ],
-  "tag": "tProvincial",
-  "id": "85cdbdb6"
- },
- {
-  "n": "North Shore Community Centre",
+  "n": "Kamloops Seniors Community Centre",
   "c": "commctr",
   "g": "ns",
   "lat": 50.6966709,
   "lng": -120.3653018,
   "a": "730 Cottonwood Ave #452",
-  "h": {
-   "r": [
-    [
-     1,
-     4,
-     510,
-     960,
-     0
-    ]
-   ]
-  },
   "note": {
-   "zh": "社区活动中心",
-   "en": "Community activity centre",
-   "fr": "Centre d'activités communautaires",
-   "es": "Centro de actividades comunitarias",
-   "ko": "커뮤니티 활동 센터",
-   "ja": "コミュニティ活動センター"
+   "zh": "Kamloops Seniors Community Centre，由 CSI Kamloops（The Centre for Seniors Information）运营的长者中心，每周七天都有身心健康活动。停车场在楼后；活动日历见 csikamloops.ca",
+   "en": "Kamloops Seniors Community Centre, a seniors' centre run by CSI Kamloops (The Centre for Seniors Information), with physical and mental wellness activities seven days a week. Parking is at the back of the building; events calendar at csikamloops.ca",
+   "fr": "Kamloops Seniors Community Centre, un centre pour aînés géré par CSI Kamloops (The Centre for Seniors Information), avec des activités de bien-être physique et mental sept jours sur sept. Stationnement à l'arrière du bâtiment ; calendrier des activités sur csikamloops.ca",
+   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Aparcamiento detrás del edificio; calendario de actividades en csikamloops.ca",
+   "ko": "Kamloops Seniors Community Centre — CSI Kamloops(The Centre for Seniors Information)가 운영하는 노인 센터로, 주 7일 몸과 마음의 건강 활동이 있습니다. 주차장은 건물 뒤편, 행사 일정은 csikamloops.ca에서 확인하세요",
+   "ja": "Kamloops Seniors Community Centre — CSI Kamloops（The Centre for Seniors Information）が運営するシニアセンターで、心身の健康のための活動が週7日あります。駐車場は建物の裏、イベント予定はcsikamloops.caで"
   },
-  "src": "places",
-  "v": "2026-08",
+  "src": "official",
+  "v": "2026-10",
   "t": [
    "free",
    "multi",
    "indoor"
   ],
-  "id": "2c52857d"
+  "id": "2c52857d",
+  "w": "https://csikamloops.ca/seniorscentre.htm",
+  "alias": [
+   "North Shore Community Centre"
+  ],
+  "p": "778-470-6000"
  },
  {
   "n": "The Laundry Guys (Summit)",
@@ -1357,15 +1329,15 @@
    ]
   },
   "note": {
-   "zh": "⭐全新机器，可洗被子，员工友善",
-   "en": "⭐ New machines, big enough for duvets, and friendly staff",
-   "fr": "⭐ Machines neuves, assez grandes pour les couettes, et personnel accueillant",
-   "es": "⭐ Máquinas nuevas, con capacidad para edredones, y personal amable",
-   "ko": "⭐ 새 기계에 이불도 들어가며 직원이 친절함",
-   "ja": "⭐新品の機械で布団も洗え、スタッフも親切"
+   "zh": "⭐最后一批衣物须在关门前 60 分钟开始洗；另一家分店在 301 Tranquille Rd",
+   "en": "⭐ Last load 60 minutes before closing; a second location at 301 Tranquille Rd",
+   "fr": "⭐ Dernière brassée 60 minutes avant la fermeture ; une deuxième adresse au 301 Tranquille Rd",
+   "es": "⭐ Última carga 60 minutos antes del cierre; otra sucursal en 301 Tranquille Rd",
+   "ko": "⭐ 마지막 세탁은 마감 60분 전까지, 두 번째 지점은 301 Tranquille Rd",
+   "ja": "⭐最終の洗濯は閉店60分前まで、2号店は301 Tranquille Rd"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1392,15 +1364,15 @@
    ]
   },
   "note": {
-   "zh": "⭐评分极高，市中心",
-   "en": "⭐ Very highly rated, downtown",
-   "fr": "⭐ Très bien noté, au centre-ville",
-   "es": "⭐ Muy bien valorado, en el centro",
-   "ko": "⭐ 다운타운에 있고 평점이 매우 높음",
-   "ja": "⭐評価が非常に高い、ダウンタウン"
+   "zh": "⭐市中心理发店，网上预约；最晚可在预约前 2 小时取消。",
+   "en": "⭐ Downtown barbershop; book online. Cancellations are accepted up to 2 hours before your appointment.",
+   "fr": "⭐ Barbier au centre-ville ; réservation en ligne. Annulation possible jusqu’à 2 heures avant le rendez-vous.",
+   "es": "⭐ Barbería en el centro; reserve en línea. Se aceptan cancelaciones hasta 2 horas antes de la cita.",
+   "ko": "⭐ 다운타운 이발소로, 온라인으로 예약합니다. 예약 2시간 전까지 취소할 수 있습니다.",
+   "ja": "⭐ダウンタウンの理髪店で、オンライン予約制です。キャンセルは予約の2時間前まで受け付けています。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1435,15 +1407,15 @@
    ]
   },
   "note": {
-   "zh": "⭐全市最便宜（低6-10分/升），需会员",
-   "en": "⭐ The cheapest fuel in the city (6–10 cents/litre less); membership required",
-   "fr": "⭐ Le carburant le moins cher de la ville (6 à 10 cents/litre de moins); adhésion obligatoire",
-   "es": "⭐ El combustible más barato de la ciudad (6–10 centavos/litro menos); requiere membresía",
-   "ko": "⭐ 시내에서 가장 저렴한 주유(리터당 6~10센트 저렴), 멤버십 필요",
-   "ja": "⭐市内最安のガソリン（1リットルあたり6〜10セント安い）、会員制"
+   "zh": "⭐需Costco会员",
+   "en": "⭐ Costco membership required",
+   "fr": "⭐ Adhésion Costco obligatoire",
+   "es": "⭐ Requiere membresía de Costco",
+   "ko": "⭐ Costco 멤버십 필요",
+   "ja": "⭐Costcoの会員資格が必要"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1467,7 +1439,7 @@
    "ja": "1BR、2BRあり（賃料は公式サイトまたは電話で確認）、水道代込み、猫可、Northills Mall近く、エレベーターあり"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "id": "bfd3954a"
  },
  {
@@ -1480,15 +1452,15 @@
   "p": "250-372-1940",
   "w": "https://www.kelsongroup.com/residential/cities/kamloops",
   "note": {
-   "zh": "本市最大公寓管理公司，旗下27+栋公寓楼（本图大部分公寓楼由其管理），可直接询问空房",
-   "en": "The city's largest apartment management company, with 27+ buildings (most of the apartments on this map). You can ask them directly about vacancies",
-   "fr": "La plus grande société de gestion d'appartements de la ville, avec plus de 27 immeubles (la plupart des appartements de cette carte). Vous pouvez les contacter directement pour les logements libres",
-   "es": "La mayor administradora de apartamentos de la ciudad, con más de 27 edificios (la mayoría de los apartamentos de este mapa). Puede preguntarles directamente por las viviendas libres",
-   "ko": "시내 최대 아파트 관리회사로 27개 이상의 건물 보유(이 지도의 아파트 대부분). 공실 문의는 직접 연락하면 됩니다",
-   "ja": "市内最大のアパート管理会社、27棟以上を運営（この地図の物件の大半を管理）、空室状況は直接問い合わせ可"
+   "zh": "公寓管理公司，在本市有27栋公寓楼（本图大部分公寓楼由其管理）。官网按楼显示空房，满租的楼可登记提醒，也可直接询问",
+   "en": "An apartment management company with 27 buildings in the city (most of the apartments on this map). The website shows vacancies building by building, with a 'Notify Me' sign-up for full ones; you can also ask them directly",
+   "fr": "Une société de gestion d'appartements avec 27 immeubles en ville (la plupart des appartements de cette carte). Le site indique les logements libres immeuble par immeuble, avec une inscription « Notify Me » pour les immeubles complets ; vous pouvez aussi les contacter directement",
+   "es": "Una administradora de apartamentos con 27 edificios en la ciudad (la mayoría de los apartamentos de este mapa). La web muestra las viviendas libres edificio por edificio, con aviso «Notify Me» para los llenos; también puede preguntarles directamente",
+   "ko": "시내에 건물 27개를 둔 아파트 관리회사(이 지도의 아파트 대부분). 웹사이트에 건물별 공실이 나오고, 꽉 찬 건물은 'Notify Me'로 알림을 신청할 수 있습니다. 직접 문의해도 됩니다",
+   "ja": "市内に27棟を持つアパート管理会社（この地図の物件の大半）。ウェブサイトで建物ごとの空室がわかり、満室の建物は「Notify Me」で通知を登録できます。直接問い合わせることもできます"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "id": "4e467f97"
  },
  {
@@ -1512,7 +1484,7 @@
    "ja": "⚠️スクールバスの停留所は住所ごとに個別割当で、固定リストとしては公開されていない。利用資格は学区公式サイトのregister for busingページを確認し、徒歩距離の基準は電話で確認を。ここは教育委員会事務所であり、バス車庫ではない"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family"
   ],
@@ -1548,7 +1520,7 @@
    "ja": "Kamloops教区のカトリック大聖堂、ダウンタウンのランドマーク"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "history",
    "culture",
@@ -1569,15 +1541,15 @@
    "a": true
   },
   "note": {
-   "zh": "本地老牌出租车公司，24小时电召及机场接送；Uber已上线，Lyft暂未开通",
-   "en": "A long-established local taxi company with 24-hour dispatch and airport transfers. Uber operates here; Lyft does not",
-   "fr": "Une compagnie de taxi locale bien établie, répartition 24 h et transferts vers l'aéroport. Uber est présent ici; Lyft ne l'est pas",
-   "es": "Una empresa de taxis local de larga trayectoria, con central 24 h y traslados al aeropuerto. Uber opera aquí; Lyft no",
-   "ko": "오래된 지역 택시 회사, 24시간 배차와 공항 이동 서비스. Uber는 운영하지만 Lyft는 없음",
-   "ja": "老舗の地元タクシー会社、24時間配車と空港送迎に対応。Uberは利用可能、Lyftは未対応"
+   "zh": "1973年起经营的本地出租车公司，24小时服务。车辆有机场接客许可，去机场请提前预约",
+   "en": "A local taxi company since 1973, with 24-hour service. Its cars are licensed to pick up at Kamloops Airport; book airport trips in advance",
+   "fr": "Une compagnie de taxi locale depuis 1973, service 24 h. Ses voitures sont autorisées à prendre des clients à l'aéroport de Kamloops ; réservez à l'avance pour l'aéroport",
+   "es": "Una empresa de taxis local desde 1973, con servicio 24 h. Sus coches tienen licencia para recoger en el aeropuerto de Kamloops; reserve con antelación los viajes al aeropuerto",
+   "ko": "1973년부터 운영한 지역 택시 회사로 24시간 서비스. 차량이 Kamloops 공항 승차 허가를 받았으며, 공항 이동은 미리 예약하세요",
+   "ja": "1973年創業の地元タクシー会社、24時間対応。Kamloops空港での乗車許可を持っており、空港への移動は事前予約を"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "tag": "tTaxi",
   "precision": "low",
   "id": "d9e32c2a"
@@ -1611,7 +1583,7 @@
    "ja": "体系的なカリキュラムを持つ全国チェーンの自動車教習所、BC州免許を目指す住民に適する"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "tag": "tDrivingSchool",
   "precision": "low",
   "id": "caa84d26"
@@ -1644,7 +1616,7 @@
    ]
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "tag": "tUsedCar",
   "id": "f87b7fca"
  },
@@ -1658,12 +1630,12 @@
   "p": "250-554-2277",
   "w": "https://www.facebook.com/staytunedautorepair/",
   "note": {
-   "zh": "North Shore独立维修店，口碑较好",
-   "en": "An independent North Shore repair shop with a good reputation",
-   "fr": "Un garage indépendant du North Shore, de bonne réputation",
-   "es": "Un taller independiente en North Shore con buena reputación",
-   "ko": "North Shore의 독립 정비소, 평판이 좋음",
-   "ja": "North Shoreの独立系修理工場、評判が良い"
+   "zh": "North Shore独立维修店",
+   "en": "An independent North Shore repair shop",
+   "fr": "Un garage indépendant du North Shore",
+   "es": "Un taller independiente en North Shore",
+   "ko": "North Shore의 독립 정비소",
+   "ja": "North Shoreの独立系修理工場"
   },
   "src": "official",
   "v": "2026-09",
@@ -1698,7 +1670,7 @@
    "ja": "認可保育施設、乳幼児保育も対応"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family"
   ],
@@ -1765,7 +1737,7 @@
    "ja": "忍者コース付きトランポリンパーク、Sahali Mall内"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "family",
    "fun",
@@ -1803,7 +1775,7 @@
    "ja": "新しく来た人向けのScotiabankの口座パッケージ StartRight があります。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1819,15 +1791,15 @@
   "p": "236-425-9121",
   "w": "https://www.bclegalclinic.com",
   "note": {
-   "zh": "免费/低门槛法律诊所，覆盖家庭法协助、社会救助/伤残津贴、EI、债务、租房纠纷等；具体是否收案请致电确认",
-   "en": "A free or low-cost legal clinic covering family law, income assistance and disability benefits, EI, debt and tenancy disputes; call to confirm whether they can take your case",
-   "fr": "Une clinique juridique gratuite ou à faible coût couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs; appelez pour savoir s'ils peuvent prendre votre dossier",
-   "es": "Una clínica jurídica gratuita o de bajo coste que cubre derecho de familia, asistencia social y prestaciones por discapacidad, seguro de empleo, deudas y conflictos de alquiler; llame para saber si pueden aceptar su caso",
-   "ko": "가족법·생활보조와 장애 급여·고용보험·채무·임대 분쟁을 다루는 무료 또는 저비용 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
-   "ja": "家族法、収入補助、障害給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料または低額の法律クリニック、案件を受けられるか電話で確認を"
+   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、EI、债务、租房纠纷等；具体是否收案请致电确认",
+   "en": "A free legal clinic covering family law, income assistance and disability benefits, EI, debt and tenancy disputes; call to confirm whether they can take your case",
+   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs; appelez pour savoir s'ils peuvent prendre votre dossier",
+   "es": "Una clínica jurídica gratuita que cubre derecho de familia, asistencia social y prestaciones por discapacidad, seguro de empleo, deudas y conflictos de alquiler; llame para saber si pueden aceptar su caso",
+   "ko": "가족법·생활보조와 장애 급여·고용보험·채무·임대 분쟁을 다루는 무료 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
+   "ja": "家族法、収入補助、障害給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料の法律クリニック、案件を受けられるか電話で確認を"
   },
   "src": "official",
-  "v": "2026-08",
+  "v": "2026-10",
   "t": [
    "free",
    "multi"
@@ -1884,7 +1856,7 @@
    "ja": "WestsydeのBC Liquor店舗。Save-On-Foodsと同じプラザにあり、街まで出る必要がありません。祝日の前は電話で確認を。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1912,15 +1884,15 @@
    ]
   },
   "note": {
-   "zh": "⭐ 面向有需要的家庭发放食物，凭家中每位成员的身份证件即可，不看移民身份。家庭/单亲与单身/夫妇分在不同日子领取，60岁以上长者有更早的时段；中午有休息时间。领取频率与当期时段请以官网或电话为准。",
-   "en": "⭐ Food for households in need, on presentation of ID for each household member; immigration status is not screened. Families/single parents and singles/couples attend on different days, with an earlier slot for seniors 60+ and a break over midday. Confirm current times and how often you can attend on the website or by phone.",
-   "fr": "⭐ Nourriture pour les ménages dans le besoin, sur présentation d'une pièce d'identité par membre du ménage; le statut d'immigration n'est pas vérifié. Familles et parents seuls d'un côté, personnes seules et couples de l'autre, à des jours différents, avec une plage plus tôt pour les 60 ans et plus et une pause le midi. Confirmez les heures et la fréquence sur le site ou par téléphone.",
-   "es": "⭐ Alimentos para hogares que lo necesitan, presentando una identificación por cada miembro del hogar; no se revisa la situación migratoria. Familias y padres solos por un lado, personas solas y parejas por otro, en días distintos, con un horario más temprano para mayores de 60 años y una pausa al mediodía. Confirme horarios y frecuencia en el sitio web o por teléfono.",
-   "ko": "⭐ 도움이 필요한 가구에 식품을 제공하며, 가구 구성원 각자의 신분증을 제시하면 됩니다. 이민 신분은 확인하지 않습니다. 가족·한부모 가구와 1인·부부 가구가 서로 다른 요일에 방문하고, 60세 이상 노인은 더 이른 시간대가 있으며 점심 무렵 휴식 시간이 있습니다. 정확한 시간과 이용 횟수는 홈페이지나 전화로 확인하세요.",
-   "ja": "⭐生活に困っている世帯への食料支援、世帯全員分の身分証提示で利用可、移民ステータスは問われない。家族・ひとり親世帯と単身・カップル世帯で利用日が分かれ、60歳以上のシニアには早い時間帯があり、昼は休止時間もある。最新の時間帯と利用頻度は公式サイトまたは電話で確認を"
+   "zh": "⭐ 面向有需要的家庭发放食物，需出示家中每位成员的一件身份证件。周一至周四家庭/单亲与单身/夫妇分在不同日子领取，周五和周六两类都可以来；60岁以上长者有更早的时段，中午有休息时间。不易腐食品包每个自然月可领一次，面包、蔬果、奶制品和肉类每月两次。当期时段请以官网或电话为准。",
+   "en": "⭐ Food for households in need; bring a piece of ID for every person in your household. Families/single parents and singles/couples come on different days from Monday to Thursday, and either group can come on Friday and Saturday; there is an earlier slot for seniors 60+ and a break over midday. A non-perishable hamper once per calendar month; bread, produce, dairy and meat twice a month. Confirm current times on the website or by phone.",
+   "fr": "⭐ Nourriture pour les ménages dans le besoin ; apportez une pièce d'identité pour chaque personne du ménage. Du lundi au jeudi, familles et parents seuls d'un côté, personnes seules et couples de l'autre, viennent à des jours différents ; le vendredi et le samedi, les deux groupes peuvent venir. Plage plus tôt pour les 60 ans et plus et pause le midi. Un panier de denrées non périssables une fois par mois civil ; pain, fruits et légumes, produits laitiers et viande deux fois par mois. Confirmez les heures sur le site ou par téléphone.",
+   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias y padres solos por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
+   "ko": "⭐ 도움이 필요한 가구에 식품을 제공하며, 가구 구성원 모두의 신분증을 한 가지씩 가져오세요. 월~목요일에는 가족·한부모 가구와 1인·부부 가구가 서로 다른 요일에 방문하고, 금·토요일에는 두 그룹 모두 올 수 있습니다. 60세 이상 노인은 더 이른 시간대가 있고 점심 무렵 휴식 시간이 있습니다. 비부패성 식품 꾸러미는 달력상 한 달에 한 번, 빵·농산물·유제품·육류는 한 달에 두 번 받을 수 있습니다. 정확한 시간은 홈페이지나 전화로 확인하세요.",
+   "ja": "⭐生活に困っている世帯への食料支援です。世帯全員それぞれの身分証を1点ずつ持参してください。月〜木は家族・ひとり親世帯と単身・カップル世帯で利用日が分かれ、金・土はどちらも利用できます。60歳以上のシニアには早い時間帯があり、昼は休止時間があります。保存食のパックは暦月に1回、パン・青果・乳製品・肉は月2回。最新の時間帯は公式サイトまたは電話で確認してください。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "食物银行",
    "免费食物",
@@ -1943,15 +1915,15 @@
   "a": "159 Seymour St",
   "w": "https://www.kamloops.ca/recreation-culture/culture-heritage/heritage-buildings/st-andrews-square",
   "note": {
-   "zh": "建于1887年，是全市最古老的公共建筑，晚期维多利亚哥特复兴风格。1991年险被拆除，1996年由市政府买下修复并连同旁边的广场重新向公众开放；2026年完成又一轮大修后重开，现作为活动与文化场地使用。开放时间随活动安排变动，前往前请查官网。",
-   "en": "Built in 1887 and the city's oldest public building, in late Victorian Gothic Revival style. Saved from demolition in 1991, bought and restored by the City in 1996 and reopened to the public along with the square beside it; it reopened again in 2026 after a further major restoration, and is used as an events and cultural venue. Opening depends on what is booked, so check the website before going.",
-   "fr": "Construit en 1887, c'est le plus ancien bâtiment public de la ville, de style néogothique victorien tardif. Sauvé de la démolition en 1991, acheté et restauré par la Ville en 1996 puis rouvert au public avec la place attenante; il a rouvert de nouveau en 2026 après une autre restauration majeure et sert de lieu d'événements et de culture. L'ouverture dépend des réservations : vérifiez le site avant de vous déplacer.",
-   "es": "Construido en 1887, es el edificio público más antiguo de la ciudad, de estilo neogótico victoriano tardío. Se salvó de la demolición en 1991, la Ciudad lo compró y restauró en 1996 y lo reabrió al público junto con la plaza contigua; volvió a reabrir en 2026 tras otra restauración importante y se usa como sede de eventos y actividades culturales. La apertura depende de lo que esté reservado: consulte el sitio web antes de ir.",
-   "ko": "1887년에 지어진 이 도시에서 가장 오래된 공공 건축물로, 후기 빅토리아 고딕 리바이벌 양식입니다. 1991년 철거 위기를 넘긴 뒤 1996년 시가 매입·복원해 옆 광장과 함께 다시 공개했고, 2026년 대규모 보수를 마치고 재개관해 행사·문화 공간으로 쓰입니다. 개방 여부는 예약 일정에 따라 달라지므로 방문 전 홈페이지를 확인하세요.",
-   "ja": "1887年建造、市内最古の公共建築でヴィクトリア朝後期ゴシック・リバイバル様式。1991年に取り壊しの危機を免れ、1996年に市が買い取って修復し、隣接する広場とともに一般公開。2026年にはさらなる大規模改修を経て再オープンし、イベント・文化施設として利用されている。開館は予約状況によるため、訪問前に公式サイトを確認"
+   "zh": "建于1887年，是全市现存最古老的公共建筑。市政府于1991年买下这座旧教堂，1997年开始修复；2024年5月遭火灾、烟熏和水浸损坏，经大规模修复后于2026年5月重新开放，现作为活动与文化场地使用，也可租用。开放时间随活动安排变动，前往前请查官网。",
+   "en": "Built in 1887 and the city's oldest remaining public building. The City bought the old church in 1991 and began restoring it in 1997; after fire, smoke and water damage in May 2024 it reopened in May 2026 following extensive restoration, and is used as an events and cultural venue that can be rented. Opening depends on what is booked, so check the website before going.",
+   "fr": "Construit en 1887, c'est le plus ancien bâtiment public encore debout de la ville. La Ville a acheté l'ancienne église en 1991 et en a commencé la restauration en 1997 ; endommagé par le feu, la fumée et l'eau en mai 2024, il a rouvert en mai 2026 après d'importants travaux et sert de lieu d'événements et de culture, qu'on peut louer. L'ouverture dépend des réservations : vérifiez le site avant de vous déplacer.",
+   "es": "Construido en 1887, es el edificio público más antiguo que se conserva en la ciudad. La Ciudad compró la antigua iglesia en 1991 y empezó a restaurarla en 1997; tras daños por fuego, humo y agua en mayo de 2024, reabrió en mayo de 2026 después de una restauración importante, y se usa como sede de eventos y actividades culturales que se puede alquilar. La apertura depende de lo que esté reservado: consulte el sitio web antes de ir.",
+   "ko": "1887년에 지어진, 이 도시에 남아 있는 가장 오래된 공공 건축물입니다. 시가 1991년 옛 교회를 매입해 1997년 복원을 시작했습니다. 2024년 5월 화재·연기·침수 피해를 입은 뒤 대규모 복원을 거쳐 2026년 5월 다시 문을 열었고, 대여도 가능한 행사·문화 공간으로 쓰입니다. 개방 여부는 예약 일정에 따라 달라지므로 방문 전 홈페이지를 확인하세요.",
+   "ja": "1887年建造、市内に現存する最古の公共建築です。市が1991年に旧教会を買い取り、1997年に修復を始めました。2024年5月に火災・煙・水による被害を受けた後、大規模な修復を経て2026年5月に再オープンし、貸し出しもできるイベント・文化施設として使われています。開館は予約状況によるため、訪問前に公式サイトを確認してください。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "t": [
    "scenic",
    "history",
@@ -1969,15 +1941,15 @@
   "p": "250-376-1296",
   "w": "https://kafs.ca/",
   "note": {
-   "en": "A friendship centre serving Indigenous people in Kamloops since 1972 — status, non-status, Métis and Inuit — with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
-   "fr": "Un centre d’amitié au service des Autochtones de Kamloops depuis 1972 — inscrits, non inscrits, Métis et Inuits — avec des programmes ancrés dans la culture. Téléphonez d’abord pour savoir ce qui est offert.",
-   "es": "Un centro de amistad que sirve a personas indígenas en Kamloops desde 1972 — con y sin estatus, métis e inuit — con programas culturalmente arraigados. Llame antes para saber qué hay disponible.",
-   "zh": "自 1972 年起服务于 Kamloops 原住民（含登记与非登记身份、梅蒂人、因纽特人）的友谊中心，提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
-   "ko": "1972년부터 캄루프스의 원주민(등록·비등록, 메티스, 이누이트)을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램을 제공합니다. 방문 전 전화로 확인하세요.",
-   "ja": "1972年からカムループスの先住民（登録・非登録、メティス、イヌイット）を支援するフレンドシップセンター。文化に根ざしたプログラムを提供しています。訪問前に電話でご確認ください。"
+   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论身份（status-free），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
+   "en": "A friendship centre serving urban Indigenous people in Kamloops since 1972, whatever their status, with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
+   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
+   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
+   "ko": "1972년부터 신분(status)과 관계없이 캄루프스 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
+   "ja": "1972年から、ステータスの有無を問わずカムループスの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "原住民",
    "友谊中心",
@@ -2018,7 +1990,7 @@
    "ja": "市内全域のボランティア募集とつないでくれます。知り合いがいない状態で来たとき、人と出会う最も確実な方法であり、カナダでの推薦者や職歴もここから始まることが多いです。訪問は予約制。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "志愿",
    "志愿者",
@@ -2100,15 +2072,15 @@
    ]
   },
   "note": {
-   "en": "A large local social-services agency, and a good first stop if you want to volunteer somewhere that puts you with the same people week after week: Meals on Wheels delivery routes, the Better at Home programme (driving seniors, grocery help), and the Mount Paul food centre. It also runs a youth shelter for ages 13-18 — phone this number to ask about that.",
-   "fr": "Un grand organisme local de services sociaux, et un bon premier arrêt si vous voulez faire du bénévolat là où vous retrouvez les mêmes personnes chaque semaine : livraison de la popote roulante, programme Mieux chez soi (conduire des aînés, aide à l'épicerie), et le centre alimentaire Mount Paul. Il gère aussi un refuge pour les 13-18 ans — téléphonez à ce numéro.",
-   "es": "Una gran agencia local de servicios sociales, y un buen primer paso si quiere ser voluntario en un lugar donde verá a las mismas personas cada semana: rutas de reparto de comida a domicilio, el programa Better at Home (llevar a mayores, ayuda con las compras) y el centro alimentario Mount Paul. También gestiona un albergue juvenil de 13 a 18 años — llame a este número.",
-   "zh": "本地规模较大的社会服务机构，如果你想做义工、并且希望<b>每周见到同一批人</b>，这里是个好起点：送餐上门路线、Better at Home 项目（接送长者、代买杂货）、以及 Mount Paul 食物中心。它同时运营 13–18 岁青少年庇护所——相关事宜请打这个电话。",
-   "ko": "규모가 큰 지역 사회서비스 기관으로, 매주 같은 사람들을 만나는 방식의 자원봉사를 원한다면 좋은 출발점입니다: 도시락 배달 노선, Better at Home 프로그램(어르신 차량 지원, 장보기 도움), Mount Paul 푸드센터. 13-18세 청소년 쉼터도 운영하니 이 번호로 문의하세요.",
-   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です: 配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターも運営しているので、この番号へお問い合わせください。"
+   "zh": "本地规模较大的社会服务机构，如果你想做义工、并且希望<b>每周见到同一批人</b>，这里是个好起点：送餐上门路线、Better at Home 项目（接送长者、代买杂货）、以及 Mount Paul 食物中心。它同时运营 Kamloops Youth Shelter（13–18 岁青少年庇护所）——想问有没有床位，请联系或直接去庇护所，也可以发邮件到 adm@interiorcommunityservices.bc.ca。",
+   "en": "A large local social-services agency, and a good first stop if you want to volunteer somewhere that puts you with the same people week after week: Meals on Wheels delivery routes, the Better at Home programme (driving seniors, grocery help), and the Mount Paul food centre. It also runs the Kamloops Youth Shelter for ages 13-18 — to ask about space, call or go to the shelter, or email adm@interiorcommunityservices.bc.ca.",
+   "fr": "Un grand organisme local de services sociaux, et un bon premier arrêt si vous voulez faire du bénévolat là où vous retrouvez les mêmes personnes chaque semaine : livraison de la popote roulante, programme Mieux chez soi (conduire des aînés, aide à l'épicerie), et le centre alimentaire Mount Paul. Il gère aussi le Kamloops Youth Shelter pour les 13-18 ans — pour savoir s'il y a de la place, appelez ou présentez-vous au refuge, ou écrivez à adm@interiorcommunityservices.bc.ca.",
+   "es": "Una gran agencia local de servicios sociales, y un buen primer paso si quiere ser voluntario en un lugar donde verá a las mismas personas cada semana: rutas de reparto de comida a domicilio, el programa Better at Home (llevar a mayores, ayuda con las compras) y el centro alimentario Mount Paul. También gestiona el Kamloops Youth Shelter para jóvenes de 13 a 18 años: para saber si hay plaza, llame o acuda al albergue, o escriba a adm@interiorcommunityservices.bc.ca.",
+   "ko": "규모가 큰 지역 사회서비스 기관으로, 매주 같은 사람들을 만나는 방식의 자원봉사를 원한다면 좋은 출발점입니다: 도시락 배달 노선, Better at Home 프로그램(어르신 차량 지원, 장보기 도움), Mount Paul 푸드센터. 13-18세 청소년 쉼터인 Kamloops Youth Shelter도 운영합니다 — 자리가 있는지는 쉼터에 연락하거나 직접 가서 묻고, adm@interiorcommunityservices.bc.ca로 이메일을 보낼 수도 있습니다.",
+   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です: 配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "志愿",
    "义工",
@@ -2160,15 +2132,15 @@
    ]
   },
   "note": {
-   "zh": "省政府出资的免费就业服务：找工作、改简历、面试练习、职业培训与资格认证的资助，以及自雇创业支持。居民和持工签者都可以用，也有专门面向残障人士的服务。带上简历和身份证件，先做一次登记面谈。在 Lansdowne Village 二楼。",
-   "en": "Free, provincially funded employment services: job search, résumé help, interview practice, funding for training and credential recognition, and self-employment support. Open to residents and work-permit holders, with dedicated services for people with disabilities. Bring your résumé and ID for a first intake meeting. Upstairs in Lansdowne Village.",
-   "fr": "Services d'emploi gratuits financés par la province : recherche d'emploi, aide au CV, entrevues d'entraînement, financement de formations et de reconnaissance des titres, et soutien au travail autonome. Ouvert aux résidents et aux titulaires d'un permis de travail, avec des services adaptés aux personnes handicapées. Apportez votre CV et une pièce d'identité pour une première rencontre d'accueil. À l'étage de Lansdowne Village.",
-   "es": "Servicios de empleo gratuitos financiados por la provincia: búsqueda de trabajo, ayuda con el currículum, práctica de entrevistas, financiación de formación y reconocimiento de credenciales, y apoyo al autoempleo. Abierto a residentes y titulares de permiso de trabajo, con servicios específicos para personas con discapacidad. Traiga su currículum e identificación para una primera reunión de admisión. En la planta alta de Lansdowne Village.",
-   "ko": "주정부가 지원하는 무료 취업 서비스: 구직, 이력서 다듬기, 면접 연습, 직업훈련과 자격 인정 비용 지원, 자영업 지원. 거주자와 취업비자 소지자가 이용할 수 있고 장애인을 위한 전담 서비스도 있습니다. 첫 등록 상담 때 이력서와 신분증을 가져오세요. Lansdowne Village 2층에 있습니다.",
-   "ja": "州の資金による無料の就労支援: 求職、履歴書の添削、面接練習、職業訓練や資格認定への費用補助、自営業の支援。居住者と就労許可を持つ人が利用でき、障がいのある方向けの専門サービスもあります。初回の登録面談には履歴書と身分証をお持ちください。Lansdowne Villageの2階です。"
+   "zh": "省政府出资的免费就业服务：找工作、改简历、技能评估、培训机会和工作安置。去之前先申请一个 <b>BCeID</b>——官网说求职者需要 BCeID 才能接受服务。在 Lansdowne Village 二楼。",
+   "en": "Free, provincially funded employment services: job search, résumé help, skills assessment, access to training and job placement. Set up a BCeID before you go — the centre says job seekers need one to receive service. Upstairs in Lansdowne Village.",
+   "fr": "Services d'emploi gratuits financés par la province : recherche d'emploi, aide au CV, évaluation des compétences, accès à la formation et placement. Créez un BCeID avant d'y aller — le centre indique que les chercheurs d'emploi en ont besoin pour être servis. À l'étage de Lansdowne Village.",
+   "es": "Servicios de empleo gratuitos financiados por la provincia: búsqueda de trabajo, ayuda con el currículum, evaluación de habilidades, acceso a formación y colocación laboral. Cree una cuenta BCeID antes de ir: el centro indica que quien busca empleo la necesita para recibir el servicio. En la planta alta de Lansdowne Village.",
+   "ko": "주정부가 지원하는 무료 취업 서비스: 구직, 이력서 다듬기, 기술 평가, 훈련 연계, 취업 알선. 가기 전에 BCeID를 만들어 두세요 — 센터 안내에 따르면 구직자는 BCeID가 있어야 서비스를 받을 수 있습니다. Lansdowne Village 2층에 있습니다.",
+   "ja": "州の資金による無料の就労支援: 求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "找工作",
    "就业",

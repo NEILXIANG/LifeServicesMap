@@ -36,7 +36,11 @@ function getSid(){
 }
 // 2026-09-21: a search that says someone may be in danger gets the lines that
 // answer, above any results, and the words themselves are never uploaded.
-const _CRISIS_RE=/\b(suicid\w*|kill my ?self|kill me|want to die|self[- ]?harm\w*|overdos\w*|abus\w*|violen\w*|domestic|hits me|beats me|rape\w*|sexual assault|assault\w*|unsafe|in danger|crisis|crise|dv|me tuer|mourir|agress\w*|agresi\w*|matarme|morir|maltrato\w*)\b|自杀|想死|不想活|轻生|自残|家暴|暴力|被打|打我|虐待|性侵|强奸|危机|자살|죽고 싶|자해|폭력|학대|폭행|自殺|死にたい|自傷|性暴力/i;
+// 2026-10-04 (newcomer test, persona fleeing abuse at night): "safe place", "women shelter", "he hit me",
+// "scared of my husband" found a supermarket and a pub. (Generic "shelter" words — 庇护所, 쉼터, シェルター —
+// stay place-search synonyms for the shelter category; validate.py keeps crisis words out of SYN.) Added the words people actually type; the crisis block is
+// shown ABOVE the normal results, so a wider net only ever adds the 24-hour lines (and logs the query as [crisis]).
+const _CRISIS_RE=/\b(suicid\w*|kill my ?self|kill me|want to die|self[- ]?harm\w*|overdos\w*|abus\w*|violen\w*|domestic|hits me|beats me|hit me|hitting me|hurts? me|rape\w*|sexual assault|assault\w*|unsafe|in danger|crisis|crise|dv|safe[ ](?:place|house|home)|transition house|wom[ae]n'?s? shelter|shelter for wom[ae]n|(?:scared|afraid|frightened) of (?:my )?(?:husband|wife|partner|boyfriend|girlfriend|ex|dad|father|mom|mother|family)|leav(?:e|ing) (?:my )?(?:husband|wife|partner|boyfriend|abuser)|escape from|fleeing|abuser|me tuer|mourir|agress\w*|agresi\w*|matarme|morir|maltrato\w*|maison d'h[ée]bergement|refuge pour femmes|il me frappe|me pega|casa de acogida|refugio para mujeres)\b|自杀|想死|不想活|轻生|自残|家暴|家庭暴力|暴力|被打|打我|虐待|性侵|强奸|危机|逃离|자살|죽고 싶|자해|폭력|학대|폭행|때려|自殺|死にたい|自傷|性暴力|殴られ/i;
 function isCrisisQuery(q){return !!q&&_CRISIS_RE.test(String(q));}
 const _evBuf=[];
 const _EV_MAX=1000;

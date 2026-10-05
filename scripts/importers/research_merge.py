@@ -82,7 +82,12 @@ def main():
             h = parse_hours(r.get('hours_text'))
             if h: rec['h'] = h
             if t: rec['t'] = sorted(set(t), key=TORDER.index)
-            if r.get('alias'): rec['alias'] = [x for x in r['alias'] if isinstance(x, str)][:12]
+            # 2026-10-04: research files give alias as ONE space-separated string; slicing that string made
+            # 113 Kelowna places' search words single letters ["O","k","a",…] (newcomer test). Split strings.
+            al = r.get('alias')
+            if isinstance(al, str): al = [t.strip(' .()') for t in re.split(r'[\s,;/]+', al)]
+            al = [x for x in (al or []) if isinstance(x, str) and len(x.strip()) > 1 and x.lower() not in ('of', 'and', 'the', 'de', 'la', 'et', 'y')]
+            if al: rec['alias'] = list(dict.fromkeys(al))[:20]
             if r.get('w', '').startswith('http'):
                 rec['w'] = r['w']; rec['src'] = 'official'
             elif r.get('src') == 'opendata':

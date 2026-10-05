@@ -8,8 +8,8 @@
   "a": "618 Bernard Ave",
   "p": "250-763-8008",
   "note": {
-   "zh": "基隆拿主要的免费移民安置机构，服务永久居民和难民（BC NSP 项目也服务工签持有人、国际学生和新入籍公民）；致电 250-763-8008 转 1。",
-   "en": "Kelowna's main free settlement agency for permanent residents and refugees (BC NSP also serves work-permit holders, international students and new citizens); call 250-763-8008 ext. 1.",
+   "zh": "Kelowna 主要的免费移民安置机构，服务永久居民和难民（BC NSP 项目也服务工签持有人、国际学生和新入籍公民）；致电 250-763-8008 转 1。",
+   "en": "Kelowna's main free settlement agency for permanent residents and refugees (BC's own settlement program, BC NSP, also serves work-permit holders, international students and new citizens); call 250-763-8008 ext. 1.",
    "fr": "Principal organisme d’établissement gratuit de Kelowna pour les résidents permanents et les réfugiés (le programme BC NSP sert aussi les titulaires de permis de travail, les étudiants étrangers et les nouveaux citoyens) ; appelez le 250-763-8008, poste 1.",
    "es": "La principal agencia gratuita de asentamiento de Kelowna para residentes permanentes y refugiados (el programa BC NSP también atiende a titulares de permiso de trabajo, estudiantes internacionales y nuevos ciudadanos); llame al 250-763-8008, ext. 1.",
    "ko": "영주권자와 난민을 위한 Kelowna의 대표적인 무료 정착 지원 기관입니다(BC NSP 프로그램은 취업 허가 소지자, 유학생, 새 시민권자도 지원합니다). 250-763-8008로 전화해 내선 1번을 누르세요.",
@@ -34,7 +34,29 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "移民服务",
+   "定居",
+   "移民",
+   "이민",
+   "settlement",
+   "immigrant services",
+   "newcomer services",
+   "settlement services",
+   "esl",
+   "linc",
+   "english class",
+   "services aux immigrants",
+   "英語教室",
+   "英会話",
+   "영어 교실",
+   "영어 수업",
+   "英语课",
+   "英文课",
+   "cours d'anglais",
+   "clases de inglés"
+  ]
  },
  {
   "n": "Kelowna Urgent and Primary Care Centre (UPCC)",
@@ -50,7 +72,7 @@
    "fr": "Soins urgents sans rendez-vous ; vous pouvez y aller même sans médecin de famille.",
    "es": "Atención urgente sin cita; puede ir aunque no tenga médico de familia.",
    "ko": "예약 없이 가는 긴급 진료소입니다. 가정의가 없어도 이용할 수 있습니다.",
-   "ja": "予約なしで受診できる急患診療です。かかりつけ医がいなくても利用できます。"
+   "ja": "予約なしで受診できる緊急診療所です。かかりつけ医がいなくても利用できます。"
   },
   "src": "official",
   "v": "2026-10",
@@ -85,10 +107,10 @@
   "a": "305-478 Bernard Ave",
   "p": "250-861-7500",
   "note": {
-   "zh": "省政府服务窗口——办理 BC 服务卡账户与身份核验、MSP 医保及其他省政府业务；周一至周五 9:00–16:30。这里不办收入援助，也不办 ICBC 驾照业务（带照片的 BC 服务卡在 ICBC 驾照办公室办理；收入援助请打 1-866-866-0800）。",
+   "zh": "省政府服务窗口——办理 BC 服务卡账户与身份核验、MSP 医保及其他省政府业务；周一至周五 9:00–16:30。这里不办社会救助（income assistance），也不办 ICBC 驾照业务（带照片的 BC 服务卡在 ICBC 驾照办公室办理；社会救助请打 1-866-866-0800）。",
    "en": "Provincial government services in person — BC Services Card account and ID verification, MSP and other BC government help; open Mon–Fri 9:00–4:30. Income assistance and ICBC driver licensing are not offered here (the photo BC Services Card is issued at an ICBC driver licensing office; income assistance: 1-866-866-0800).",
    "fr": "Services du gouvernement provincial en personne — compte BC Services Card et vérification d'identité, MSP et autres services du gouvernement de la C.-B.; ouvert du lundi au vendredi, de 9 h à 16 h 30. L'aide au revenu (income assistance) et les permis de conduire ICBC ne sont pas offerts ici (la BC Services Card avec photo est délivrée dans un bureau de permis de conduire ICBC; aide au revenu : 1-866-866-0800).",
-   "es": "Servicios del gobierno provincial en persona: cuenta de la BC Services Card y verificación de identidad, MSP y otros trámites del gobierno de BC; abierto de lunes a viernes, de 9:00 a 16:30. Aquí no se ofrecen la asistencia económica (income assistance) ni las licencias de conducir de ICBC (la BC Services Card con foto se emite en una oficina de licencias de conducir de ICBC; asistencia económica: 1-866-866-0800).",
+   "es": "Servicios del gobierno provincial en persona: cuenta de la BC Services Card y verificación de identidad, MSP y otros trámites del gobierno de BC; abierto de lunes a viernes, de 9:00 a 16:30. Aquí no se ofrecen la asistencia social (income assistance) ni las licencias de conducir de ICBC (la BC Services Card con foto se emite en una oficina de licencias de conducir de ICBC; asistencia social: 1-866-866-0800).",
    "ko": "주 정부 서비스를 직접 방문해 받을 수 있는 곳입니다. BC Services Card 계정 및 신분 확인, MSP, 기타 BC 주 정부 업무를 도와드립니다. 월–금 오전 9시–오후 4시 30분에 엽니다. 이곳에서는 소득 지원(income assistance)과 ICBC 운전면허 업무를 하지 않습니다(사진이 있는 BC Services Card는 ICBC 운전면허 사무소에서 발급합니다. 소득 지원: 1-866-866-0800).",
    "ja": "州政府のサービスを対面で受けられる窓口です。BC Services Card のアカウントと本人確認、MSP、その他の BC 州政府の手続きを扱います。月〜金 9:00〜16:30 に開いています。所得支援（income assistance）と ICBC の運転免許の手続きはここでは扱っていません（写真付きの BC Services Card は ICBC の運転免許オフィスで発行されます。所得支援：1-866-866-0800）。"
   },
@@ -112,6 +134,18 @@
   },
   "sameComplex": [
    "760010d9"
+  ],
+  "alias": [
+   "MSP",
+   "health card",
+   "BC Services Card",
+   "医保",
+   "健康卡",
+   "医疗卡",
+   "의료카드",
+   "医療カード",
+   "carte santé",
+   "tarjeta sanitaria"
   ]
  },
  {
@@ -125,7 +159,7 @@
   "note": {
    "zh": "联邦政府服务窗口——办理社会保险号（SIN）、护照、就业保险、CPP/OAS 养老金；请携带移民身份文件；周一至周五 8:30–16:00。",
    "en": "Federal services in person — Social Insurance Number (SIN), passports, EI, CPP/OAS; bring your immigration documents; open Mon–Fri 8:30–4:00.",
-   "fr": "Services fédéraux en personne — numéro d’assurance sociale (SIN), passeports, assurance-emploi (EI), pensions CPP/OAS ; apportez vos documents d’immigration ; ouvert du lun. au ven., 8 h 30–16 h.",
+   "fr": "Services fédéraux en personne — numéro d’assurance sociale (NAS), passeports, assurance-emploi (AE), pensions du RPC et de la SV ; apportez vos documents d’immigration ; ouvert du lun. au ven., 8 h 30–16 h.",
    "es": "Servicios federales en persona: número de seguro social (SIN), pasaportes, seguro de empleo (EI), pensiones CPP/OAS; traiga sus documentos de inmigración; abierto de lun. a vie., 8:30–16:00.",
    "ko": "연방 정부 대면 서비스 — 사회보험번호(SIN), 여권, 고용보험(EI), CPP/OAS 연금. 이민 관련 서류를 가져오세요. 월–금 8:30–16:00.",
    "ja": "連邦政府の窓口サービス — 社会保険番号（SIN）、パスポート、雇用保険（EI）、CPP／OAS年金。在留関係の書類を持参してください。月〜金 8:30–16:00。"
@@ -147,7 +181,21 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "SIN",
+   "social insurance",
+   "social insurance number",
+   "工卡",
+   "社保号",
+   "社会保险号",
+   "NAS",
+   "número de seguro social",
+   "사회보험번호",
+   "社会保険番号",
+   "passport",
+   "护照"
+  ]
  },
  {
   "n": "ICBC Kelowna Driver Licensing",
@@ -217,7 +265,19 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "licence",
+   "license",
+   "driver's licence",
+   "drivers license",
+   "驾照",
+   "车管所",
+   "운전면허",
+   "運転免許",
+   "permis",
+   "licencia"
+  ]
  },
  {
   "n": "ICBC West Kelowna Driver Licensing (by appointment only)",
@@ -228,7 +288,7 @@
   "a": "201-3731 Old Okanagan Hwy",
   "p": "800-950-1498",
   "note": {
-   "zh": "位于西基隆拿市政厅二楼的驾照办理处——驾照更新、笔试及 4/5/7 级路考，仅限预约。",
+   "zh": "位于 West Kelowna 市政厅二楼的驾照办理处——驾照更新、笔试及 4/5/7 级路考，仅限预约。",
    "en": "Driver licensing on the 2nd floor of West Kelowna City Hall — licence renewals, knowledge tests and Class 4/5/7 road tests, by appointment only.",
    "fr": "Service des permis de conduire au 2e étage de l’hôtel de ville de West Kelowna (City Hall) — renouvellement de permis, examens théoriques et examens pratiques de classe 4, 5 et 7, sur rendez-vous seulement.",
    "es": "Oficina de licencias de conducir en el 2.º piso del ayuntamiento de West Kelowna (City Hall): renovación de licencias, exámenes teóricos y exámenes prácticos de clase 4, 5 y 7, solo con cita.",
@@ -244,6 +304,44 @@
   "w": "https://www.icbc.com/locators/driver-licensing-office",
   "sameComplex": [
    "4c522cc8"
+  ],
+  "h": {
+   "r": [
+    [
+     1,
+     2,
+     510,
+     990,
+     0
+    ],
+    [
+     3,
+     3,
+     540,
+     990,
+     0
+    ],
+    [
+     4,
+     5,
+     510,
+     990,
+     0
+    ]
+   ],
+   "q": "qAppt"
+  },
+  "alias": [
+   "licence",
+   "license",
+   "driver's licence",
+   "drivers license",
+   "驾照",
+   "车管所",
+   "운전면허",
+   "運転免許",
+   "permis",
+   "licencia"
   ]
  },
  {
@@ -290,7 +388,20 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "找工作",
+   "就业",
+   "工作",
+   "취업",
+   "일자리",
+   "就職",
+   "仕事",
+   "emploi",
+   "empleo",
+   "trabajo",
+   "job"
+  ]
  },
  {
   "n": "WorkBC Centre – West Kelowna",
@@ -301,7 +412,7 @@
   "a": "111-3011 Louie Dr",
   "p": "778-741-0155",
   "note": {
-   "zh": "为西基隆拿居民提供免费求职和就业服务；周一至周四 8:00–18:00，周五 9:00–16:00。",
+   "zh": "为 West Kelowna 居民提供免费求职和就业服务；周一至周四 8:00–18:00，周五 9:00–16:00。",
    "en": "Free job-search help and employment services for West Kelowna residents; open Mon–Thu 8–6, Fri 9–4.",
    "fr": "Aide gratuite à la recherche d’emploi et services d’emploi pour les résidents de West Kelowna ; ouvert du lun. au jeu. de 8 h à 18 h, le ven. de 9 h à 16 h.",
    "es": "Ayuda gratuita para buscar empleo y servicios de empleo para residentes de West Kelowna; abierto de lun. a jue. de 8:00 a 18:00 y vie. de 9:00 a 16:00.",
@@ -332,7 +443,20 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "找工作",
+   "就业",
+   "工作",
+   "취업",
+   "일자리",
+   "就職",
+   "仕事",
+   "emploi",
+   "empleo",
+   "trabajo",
+   "job"
+  ]
  },
  {
   "n": "Legal Aid BC – Kelowna (Kelowna Law Courts)",
@@ -381,7 +505,16 @@
      0
     ]
    ]
-  }
+  },
+  "alias": [
+   "legal aid",
+   "法律援助",
+   "律师",
+   "법률 구조",
+   "法律扶助",
+   "aide juridique",
+   "asistencia legal"
+  ]
  },
  {
   "n": "Okanagan Thompson Legal Clinic – Kelowna",
@@ -394,8 +527,8 @@
   "note": {
    "zh": "免费法律咨询和代理，涉及租房、收入/残疾援助、就业保险、劳动、家庭法等法律援助不覆盖的问题。",
    "en": "Free legal advice and representation on tenancy, income/disability assistance, EI, employment, family law and other issues that legal aid doesn't cover.",
-   "fr": "Conseils juridiques et représentation gratuits pour le logement locatif, l’aide au revenu ou aux personnes handicapées, l’EI (assurance-emploi), l’emploi, le droit de la famille et d’autres questions que l’aide juridique ne couvre pas.",
-   "es": "Asesoría y representación legal gratuitas sobre alquiler, asistencia de ingresos o por discapacidad, EI (seguro de empleo), empleo, derecho de familia y otros asuntos que la asistencia legal no cubre.",
+   "fr": "Conseils juridiques et représentation gratuits pour le logement locatif, l’aide au revenu ou aux personnes handicapées, l’assurance-emploi, l’emploi, le droit de la famille et d’autres questions que l’aide juridique ne couvre pas.",
+   "es": "Asesoría y representación legal gratuitas sobre alquiler, asistencia social o por discapacidad, EI (seguro de empleo), empleo, derecho de familia y otros asuntos que la asistencia legal no cubre.",
    "ko": "임대차, 소득·장애 지원, EI(고용보험), 고용, 가족법 등 법률 지원(legal aid)이 다루지 않는 문제에 대해 무료 법률 상담과 대리를 해 줍니다.",
    "ja": "賃貸、所得・障がい者支援、EI（雇用保険）、雇用、家族法など、法律扶助（legal aid）の対象外の問題について、無料で法律相談と代理をしてくれます。"
   },
@@ -416,11 +549,11 @@
   "a": "2310 Enterprise Way",
   "p": "250-763-7161",
   "note": {
-   "zh": "免费领取食物，需预约；请先在网上登记，并携带每位成人的带照片证件、每个孩子的身份证明以及基隆拿/西基隆拿的住址证明。",
+   "zh": "免费领取食物，需预约；请先在网上登记，并携带每位成人的带照片证件、每个孩子的身份证明以及 Kelowna/West Kelowna 的住址证明。",
    "en": "Free food by appointment; register online first and bring photo ID for each adult, ID for each child and proof of a Kelowna/West Kelowna address.",
    "fr": "Nourriture gratuite sur rendez-vous ; inscrivez-vous d’abord en ligne et apportez une pièce d’identité avec photo pour chaque adulte, une pièce d’identité pour chaque enfant et une preuve d’adresse à Kelowna ou à West Kelowna.",
    "es": "Alimentos gratuitos con cita; primero regístrese en línea y traiga una identificación con foto de cada adulto, una identificación de cada niño y un comprobante de domicilio en Kelowna o West Kelowna.",
-   "ko": "예약제로 무료 식품을 받을 수 있습니다. 먼저 온라인으로 등록하고, 성인마다 사진이 있는 신분증, 아이마다 신분 증명, Kelowna/West Kelowna 주소 증빙을 가져오세요.",
+   "ko": "예약제로 무료 식품을 받을 수 있습니다. 먼저 온라인으로 등록하고, 성인마다 사진이 있는 신분증, 아이마다 신분 증명 서류, Kelowna/West Kelowna 주소 증빙을 가져오세요.",
    "ja": "予約制で無料の食料を受け取れます。まずオンラインで登録し、大人は一人ずつ写真付きの身分証明書、子どもは一人ずつ身分を証明するもの、そしてKelowna／West Kelownaの住所の証明を持参してください。"
   },
   "src": "official",
@@ -444,7 +577,7 @@
    "en": "Police non-emergency line and front counter (Mon–Fri 8–5:30) for reports and criminal record checks; fingerprinting has its own hours, Mon–Fri 9:30–4:45. Call 911 for emergencies.",
    "fr": "Ligne non urgente de la police et comptoir d'accueil (du lundi au vendredi, de 8 h à 17 h 30) pour faire une déclaration ou une vérification de casier judiciaire; la prise d'empreintes digitales a ses propres heures, du lundi au vendredi de 9 h 30 à 16 h 45. En cas d'urgence, composez le 911.",
    "es": "Línea de la policía para asuntos que no son emergencias y mostrador de atención (de lunes a viernes, de 8:00 a 17:30) para hacer denuncias y solicitar certificados de antecedentes penales; la toma de huellas dactilares tiene su propio horario, de lunes a viernes de 9:30 a 16:45. En caso de emergencia, llame al 911.",
-   "ko": "경찰 비긴급 전화와 민원 창구(월–금 오전 8시–오후 5시 30분)로, 신고와 범죄경력 조회를 할 수 있습니다. 지문 채취는 시간이 따로 있으며, 월–금 오전 9시 30분–오후 4시 45분입니다. 긴급 상황에는 911에 전화하세요.",
+   "ko": "경찰 비응급 전화와 민원 창구(월–금 오전 8시–오후 5시 30분)로, 신고와 범죄경력 조회를 할 수 있습니다. 지문 채취는 시간이 따로 있으며, 월–금 오전 9시 30분–오후 4시 45분입니다. 응급 상황에는 911에 전화하세요.",
    "ja": "警察の緊急でない用件の電話と受付窓口（月〜金 8:00〜17:30）で、被害の届け出や犯罪経歴証明（criminal record check）の手続きができます。指紋採取は時間が別で、月〜金 9:30〜16:45 です。緊急時は 911 に電話してください。"
   },
   "src": "official",
@@ -475,7 +608,7 @@
   "a": "115 McIntosh Rd",
   "p": "250-765-6355",
   "note": {
-   "zh": "位于拉特兰的社区警务站，可咨询、投诉和报案（周一至周五 9:00–16:30）；非紧急用途。",
+   "zh": "位于 Rutland 的社区警务站，可咨询、投诉和报案（周一至周五 9:00–16:30）；非紧急用途。",
    "en": "Neighbourhood police office in Rutland for general information, complaints and crime reports (Mon–Fri 9–4:30); not for emergencies.",
    "fr": "Poste de police de quartier à Rutland pour les renseignements généraux, les plaintes et le signalement des crimes (du lundi au vendredi, de 9 h à 16 h 30) ; pas pour les urgences.",
    "es": "Oficina de policía de barrio en Rutland para información general, quejas y denuncias de delitos (de lunes a viernes, de 9:00 a 16:30); no es para emergencias.",
@@ -510,10 +643,10 @@
   "a": "2390 Dobbin Rd",
   "p": "250-768-2880",
   "note": {
-   "zh": "西基隆拿警察非紧急电话及前台（周一至周五 8:00–16:30），可办理无犯罪记录证明；紧急情况请拨 911。",
+   "zh": "West Kelowna 警察非紧急电话及前台（周一至周五 8:00–16:30），可办理无犯罪记录证明；紧急情况请拨 911。",
    "en": "Police non-emergency line and front counter for West Kelowna (Mon–Fri 8–4:30), including criminal record checks; call 911 for emergencies.",
    "fr": "Ligne non urgente et comptoir d’accueil de la police pour West Kelowna (lun.–ven. 8 h–16 h 30), y compris les vérifications de casier judiciaire ; en cas d’urgence, composez le 911.",
-   "es": "Línea de la policía para casos no urgentes y mostrador de atención de West Kelowna (lun.–vie. 8:00–16:30), incluidas las verificaciones de antecedentes penales; en una emergencia, llame al 911.",
+   "es": "Línea de la policía para casos no urgentes y mostrador de atención de West Kelowna (lun.–vie. 8:00–16:30), incluidos los certificados de antecedentes penales; en una emergencia, llame al 911.",
    "ko": "West Kelowna 경찰의 비응급 전화와 민원 창구(월–금 8:00–16:30)로, 범죄 경력 조회도 합니다. 응급 상황에는 911로 전화하세요.",
    "ja": "West Kelownaの警察の緊急でない電話と受付窓口（月〜金 8:00–16:30）で、犯罪経歴証明（criminal record check）も扱います。緊急時は911に電話してください。"
   },
@@ -545,12 +678,12 @@
   "a": "2268 Pandosy Street",
   "p": "250-862-4000",
   "note": {
-   "zh": "24小时急诊科；危及生命的紧急情况请拨打 9-1-1。",
-   "en": "24-hour emergency department; call 9-1-1 for life-threatening emergencies.",
-   "fr": "Urgences ouvertes 24 h sur 24 ; en cas d’urgence vitale, composez le 9-1-1.",
-   "es": "Servicio de urgencias abierto las 24 horas; si hay peligro para la vida, llame al 9-1-1.",
-   "ko": "24시간 응급실입니다. 생명이 위험한 응급 상황에는 9-1-1로 전화하세요.",
-   "ja": "24時間対応の救急外来です。命にかかわる緊急時は9-1-1に電話してください。"
+   "zh": "24小时急诊科；危及生命的紧急情况请拨打 911。",
+   "en": "24-hour emergency department; call 911 for life-threatening emergencies.",
+   "fr": "Urgences ouvertes 24 h sur 24 ; en cas d’urgence vitale, composez le 911.",
+   "es": "Servicio de urgencias abierto las 24 horas; si hay peligro para la vida, llame al 911.",
+   "ko": "24시간 응급실입니다. 생명이 위험한 응급 상황에는 911로 전화하세요.",
+   "ja": "24時間対応の救急外来です。命にかかわる緊急時は911に電話してください。"
   },
   "src": "official",
   "v": "2026-10",
@@ -581,7 +714,7 @@
    "en": "Walk-in urgent care in Rutland; no appointment needed.",
    "fr": "Soins urgents sans rendez-vous à Rutland ; pas besoin de prendre rendez-vous.",
    "es": "Atención urgente sin cita en Rutland; no hace falta pedir cita.",
-   "ko": "Rutland에 있는, 예약 없이 가는 긴급 진료소입니다. 예약이 필요 없습니다.",
+   "ko": "Rutland에 있는, 예약 없이 갈 수 있는 긴급 진료소입니다.",
    "ja": "Rutlandにある予約不要の緊急診療所です。予約なしで受診できます。"
   },
   "src": "official",
@@ -617,7 +750,7 @@
   "a": "2484 Main Street",
   "p": "250-469-6010",
   "note": {
-   "zh": "西基隆拿的免预约紧急门诊；没有家庭医生也可以就诊。",
+   "zh": "West Kelowna 的免预约紧急门诊；没有家庭医生也可以就诊。",
    "en": "Walk-in urgent care in West Kelowna; can be used without a family doctor.",
    "fr": "Soins urgents sans rendez-vous à West Kelowna ; accessible même sans médecin de famille.",
    "es": "Atención urgente sin cita en West Kelowna; se puede usar sin tener médico de familia.",
@@ -798,11 +931,11 @@
   "a": "3020 Louie Drive",
   "p": "250-768-9959",
   "note": {
-   "zh": "西基隆拿的免预约诊所，无需预约。",
+   "zh": "West Kelowna 的免预约诊所，无需预约。",
    "en": "Walk-in clinic in West Kelowna, no appointment needed.",
    "fr": "Clinique sans rendez-vous à West Kelowna ; pas besoin de prendre rendez-vous.",
    "es": "Clínica sin cita en West Kelowna; no hace falta pedir cita.",
-   "ko": "West Kelowna에 있는, 예약 없이 가는 진료소입니다. 예약이 필요 없습니다.",
+   "ko": "West Kelowna에 있는, 예약 없이 갈 수 있는 진료소입니다.",
    "ja": "West Kelownaにある予約不要のクリニックです。予約なしで受診できます。"
   },
   "src": "official",
@@ -1006,7 +1139,7 @@
   "a": "2475 Dobbin Road",
   "p": "250-707-0891",
   "note": {
-   "zh": "西基隆拿药房，每天营业至晚上10点。",
+   "zh": "West Kelowna 药房，每天营业至晚上10点。",
    "en": "Pharmacy in West Kelowna open until 10 p.m. every day.",
    "fr": "Pharmacie à West Kelowna, ouverte jusqu’à 22 h tous les jours.",
    "es": "Farmacia en West Kelowna, abierta hasta las 22:00 todos los días.",
@@ -1088,7 +1221,7 @@
   "a": "1380 Ellis St",
   "p": "250-762-2800",
   "note": {
-   "zh": "奥卡纳根区域图书馆的基洛纳市中心分馆；居民可免费办理借书证，借阅图书、电子书并使用电脑和 Wi-Fi。暂时没有证件的，可以问 Access Card（临时借书证）。此处还有：English Corner – Kelowna Downtown Library——每周一次的英语会话小组，适合初级到中级水平，每周三晚 6:30–8:00。",
+   "zh": "奥卡纳根区域图书馆的 Kelowna 市中心分馆；居民可免费办理借书证，借阅图书、电子书并使用电脑和 Wi-Fi。暂时没有证件的，可以问 Access Card（临时借书证）。此处还有：English Corner – Kelowna Downtown Library——每周一次的英语会话小组，适合初级到中级水平，每周三晚 6:30–8:00。",
    "en": "Kelowna's downtown library branch; a library card is free for residents and gives access to books, e-books, computers and Wi-Fi. If you have no ID yet, ask about an Access Card. Also here — English Corner – Kelowna Downtown Library: A weekly English conversation group for beginner to intermediate learners, Wednesdays 6:30–8 p.m.",
    "fr": "Succursale du centre-ville de la bibliothèque de Kelowna; la carte de bibliothèque est gratuite pour les résidents et donne accès aux livres, livres numériques, ordinateurs et Wi-Fi. Si vous n'avez pas encore de pièce d'identité, demandez une Access Card. Aussi sur place — English Corner – Kelowna Downtown Library : groupe hebdomadaire de conversation en anglais pour les niveaux débutant à intermédiaire, le mercredi de 18 h 30 à 20 h.",
    "es": "Sucursal de la biblioteca en el centro de Kelowna; la tarjeta de biblioteca es gratuita para los residentes y da acceso a libros, libros electrónicos, computadoras y Wi-Fi. Si todavía no tiene documento de identidad, pregunte por la Access Card. También aquí — English Corner – Kelowna Downtown Library: grupo semanal de conversación en inglés para niveles de principiante a intermedio, los miércoles de 18:30 a 20:00.",
@@ -1174,7 +1307,7 @@
    "en": "Library branch in the Mission next to H2O; parking is free. Also here — English Corner – Kelowna Mission Library: A friendly weekly English conversation group at the Mission library.",
    "fr": "Bibliothèque dans le secteur Mission, à côté du H2O ; le stationnement est gratuit. Également ici — English Corner – Kelowna Mission Library : un groupe de conversation en anglais convivial, chaque semaine, à la bibliothèque du secteur Mission.",
    "es": "Biblioteca en la zona de Mission, junto a H2O; el estacionamiento es gratuito. También aquí — English Corner – Kelowna Mission Library: un grupo semanal y amigable de conversación en inglés en la biblioteca de Mission.",
-   "ko": "Mission 지역 H2O 옆에 있는 도서관 분관으로, 주차는 무료입니다. 이곳에는 또 — English Corner – Kelowna Mission Library: Mission 도서관에서 매주 열리는 편안한 분위기의 영어 회화 모임입니다.",
+   "ko": "Mission 지역 H2O 옆에 있는 도서관 분관으로, 주차는 무료입니다. 이곳에는 또한 — English Corner – Kelowna Mission Library: Mission 도서관에서 매주 열리는 편안한 분위기의 영어 회화 모임입니다.",
    "ja": "Mission地区、H2Oの隣にある図書館分館で、駐車場は無料です。ここにはほかに — English Corner – Kelowna Mission Library：Mission図書館で毎週開かれる、和やかな英会話グループです。"
   },
   "src": "official",
@@ -1260,7 +1393,7 @@
    "en": "Rutland's library branch, in a shopping plaza on Highway 33 near the Rutland transit exchange. Also here — English Corner – Kelowna Rutland Library: A weekly drop-in English conversation group at the Rutland library in Plaza 33 mall.",
    "fr": "La succursale de la bibliothèque à Rutland, dans un centre commercial sur la Highway 33, près du pôle de correspondance d’autobus de Rutland. Aussi sur place — English Corner – Kelowna Rutland Library : un groupe de conversation anglaise hebdomadaire, sans inscription, à la bibliothèque de Rutland dans le centre commercial Plaza 33.",
    "es": "La sucursal de la biblioteca en Rutland, en un centro comercial de la Highway 33, cerca del intercambiador de autobuses de Rutland. También aquí — English Corner – Kelowna Rutland Library: un grupo semanal de conversación en inglés, sin inscripción, en la biblioteca de Rutland del centro comercial Plaza 33.",
-   "ko": "Rutland의 도서관 분관으로, Highway 33 옆 쇼핑 플라자 안, Rutland 버스 환승장 근처에 있습니다. 같은 곳에 — English Corner – Kelowna Rutland Library: Plaza 33 몰 안의 Rutland 도서관에서 매주 열리는, 자유롭게 참여하는 영어 회화 모임입니다.",
+   "ko": "Rutland의 도서관 분관으로, Highway 33 옆 쇼핑 플라자 안, Rutland 버스 환승장 근처에 있습니다. 이곳에는 또한 — English Corner – Kelowna Rutland Library: Plaza 33 몰 안의 Rutland 도서관에서 매주 열리는, 자유롭게 참여하는 영어 회화 모임입니다.",
    "ja": "Rutlandの図書館分館で、Highway 33沿いのショッピングプラザ内、Rutlandのバスターミナルの近くにあります。同じ場所に — English Corner – Kelowna Rutland Library：Plaza 33モール内のRutland図書館で毎週開かれる、予約なしで参加できる英会話グループです。"
   },
   "src": "official",
@@ -1336,11 +1469,11 @@
   "a": "3731 Old Okanagan Hwy",
   "p": "250-768-4369",
   "note": {
-   "zh": "西基洛纳图书馆分馆，可在市政厅停车场免费停车，周日闭馆。此处还有：English Corner – West Kelowna Library——West Kelowna 图书馆每周两次免费英语会话小组。",
+   "zh": "West Kelowna 图书馆分馆，可在市政厅停车场免费停车，周日闭馆。此处还有：English Corner – West Kelowna Library——West Kelowna 图书馆每周两次免费英语会话小组。",
    "en": "West Kelowna's library branch; free parking in the City Hall lot. Closed Sundays. Also here — English Corner – West Kelowna Library: Free English conversation groups twice a week at the West Kelowna library.",
-   "fr": "La bibliothèque de West Kelowna ; stationnement gratuit dans le stationnement de l’hôtel de ville (City Hall). Fermée le dimanche. Également ici — English Corner – West Kelowna Library : groupes de conversation en anglais gratuits, deux fois par semaine, à la bibliothèque de West Kelowna.",
-   "es": "La biblioteca de West Kelowna; estacionamiento gratuito en el del ayuntamiento (City Hall). Cerrada los domingos. También aquí — English Corner – West Kelowna Library: grupos gratuitos de conversación en inglés dos veces por semana en la biblioteca de West Kelowna.",
-   "ko": "West Kelowna의 도서관 분관입니다. 시청 주차장에 무료로 주차할 수 있습니다. 일요일 휴관. 이곳에는 또 — English Corner – West Kelowna Library: West Kelowna 도서관에서 일주일에 두 번 열리는 무료 영어 회화 모임입니다.",
+   "fr": "La bibliothèque de West Kelowna ; stationnement gratuit au parc de stationnement de l’hôtel de ville (City Hall). Fermée le dimanche. Également ici — English Corner – West Kelowna Library : groupes de conversation en anglais gratuits, deux fois par semaine, à la bibliothèque de West Kelowna.",
+   "es": "La biblioteca de West Kelowna; estacionamiento gratuito en el lote del ayuntamiento (City Hall). Cerrada los domingos. También aquí — English Corner – West Kelowna Library: grupos gratuitos de conversación en inglés dos veces por semana en la biblioteca de West Kelowna.",
+   "ko": "West Kelowna의 도서관 분관입니다. 시청 주차장에 무료로 주차할 수 있습니다. 일요일 휴관. 이곳에는 또한 — English Corner – West Kelowna Library: West Kelowna 도서관에서 일주일에 두 번 열리는 무료 영어 회화 모임입니다.",
    "ja": "West Kelownaの図書館分館です。市役所の駐車場に無料で駐車できます。日曜休館。ここにはほかに — English Corner – West Kelowna Library：West Kelowna図書館で週2回開かれる無料の英会話グループです。"
   },
   "src": "official",
@@ -1414,7 +1547,7 @@
   "a": "1040 Hollywood Rd S",
   "p": "250-860-8888",
   "note": {
-   "zh": "基洛纳和西基洛纳公立学校的学区总部；入学登记和学区划分问题可从这里开始咨询。",
+   "zh": "Kelowna 和 West Kelowna 公立学校的学区总部；入学登记和学区划分问题可从这里开始咨询。",
    "en": "School district head office for Kelowna and West Kelowna public schools; start here for registration and catchment questions.",
    "fr": "Siège du district scolaire pour les écoles publiques de Kelowna et de West Kelowna ; commencez ici pour les questions d’inscription et de secteur scolaire.",
    "es": "Oficina central del distrito escolar de las escuelas públicas de Kelowna y West Kelowna; empiece aquí si tiene preguntas sobre inscripción y zonas escolares.",
@@ -1501,7 +1634,7 @@
   "a": "2751 Cameron Rd",
   "p": "250-870-5101",
   "note": {
-   "zh": "位于西基洛纳的公立高中（9–12 年级），属于第 23 学区。",
+   "zh": "位于 West Kelowna 的公立高中（9–12 年级），属于第 23 学区。",
    "en": "Public secondary school (grades 9–12) in West Kelowna, part of SD23.",
    "fr": "École secondaire publique (9e à 12e année) à West Kelowna, qui fait partie du SD23.",
    "es": "Escuela secundaria pública (grados 9 a 12) en West Kelowna, parte del SD23.",
@@ -1522,11 +1655,11 @@
   "a": "3333 University Way",
   "p": "250-807-8000",
   "note": {
-   "zh": "UBC 大学奥卡纳根校区，位于基洛纳北部、机场附近，市中心和 Rutland 有频繁公交直达。此处还有：UBC Okanagan – Global Engagement Office——UBCO 国际学生办公室：提供移民咨询、医疗保险和安顿适应方面的帮助。",
+   "zh": "UBC 大学奥卡纳根校区，位于 Kelowna 北部、机场附近，市中心和 Rutland 有频繁公交直达。此处还有：UBC Okanagan – Global Engagement Office——UBCO 国际学生办公室：提供移民咨询、医疗保险和安顿适应方面的帮助。",
    "en": "UBC's Okanagan campus in north Kelowna near the airport, with frequent buses from downtown and Rutland. Also here — UBC Okanagan – Global Engagement Office: UBCO's office for international students: immigration advising, health insurance and help settling in.",
    "fr": "Le campus de l’Okanagan de UBC, dans le nord de Kelowna près de l’aéroport, avec des autobus fréquents depuis le centre-ville et Rutland. Également ici — UBC Okanagan – Global Engagement Office : le bureau de UBCO pour les étudiants étrangers : conseils en immigration, assurance maladie et aide pour s’installer.",
    "es": "El campus de UBC en el Okanagan, en el norte de Kelowna cerca del aeropuerto, con autobuses frecuentes desde el centro y Rutland. También aquí — UBC Okanagan – Global Engagement Office: la oficina de UBCO para estudiantes internacionales: asesoría migratoria, seguro médico y ayuda para instalarse.",
-   "ko": "Kelowna 북쪽 공항 근처에 있는 UBC의 Okanagan 캠퍼스로, 다운타운과 Rutland에서 버스가 자주 다닙니다. 이곳에는 또 — UBC Okanagan – Global Engagement Office: UBCO의 유학생 지원 사무실로, 이민 상담, 건강보험, 정착 도움을 제공합니다.",
+   "ko": "Kelowna 북쪽 공항 근처에 있는 UBC의 Okanagan 캠퍼스로, 다운타운과 Rutland에서 버스가 자주 다닙니다. 이곳에는 또한 — UBC Okanagan – Global Engagement Office: UBCO의 유학생 지원 사무실로, 이민 상담, 건강보험, 정착 도움을 제공합니다.",
    "ja": "Kelowna北部、空港近くにあるUBCのOkanaganキャンパスで、ダウンタウンとRutlandから頻繁にバスが出ています。ここにはほかに — UBC Okanagan – Global Engagement Office：UBCOの留学生向けオフィスで、在留手続きの相談、健康保険、生活を始めるための手助けをしています。"
   },
   "src": "official",
@@ -1585,7 +1718,7 @@
   "lng": -119.49472,
   "a": "Queensway, downtown Kelowna",
   "note": {
-   "zh": "基洛纳市中心的主要公交换乘站，包括 97 路快速公交在内的多条线路在此交汇。",
+   "zh": "Kelowna 市中心的主要公交换乘站，包括 97 路快速公交在内的多条线路在此交汇。",
    "en": "Downtown Kelowna's main bus exchange, where many routes including RapidBus 97 meet.",
    "fr": "Le principal pôle de correspondance d’autobus du centre-ville de Kelowna, où se croisent de nombreuses lignes, dont RapidBus 97.",
    "es": "El principal intercambiador de autobuses del centro de Kelowna, donde se cruzan muchas rutas, incluida la RapidBus 97.",
@@ -1633,7 +1766,7 @@
   "note": {
    "zh": "Rutland 区的公交换乘站，近期完成升级，可前往 UBCO、Orchard Park 和市中心。",
    "en": "Rutland's bus exchange, recently upgraded, with links to UBCO, Orchard Park and downtown.",
-   "fr": "Le pôle d’échange d’autobus de Rutland, récemment modernisé, avec des liaisons vers UBCO, Orchard Park et le centre-ville.",
+   "fr": "Le pôle de correspondance d’autobus de Rutland, récemment modernisé, avec des liaisons vers UBCO, Orchard Park et le centre-ville.",
    "es": "El intercambiador de autobuses de Rutland, renovado hace poco, con conexiones a UBCO, Orchard Park y el centro.",
    "ko": "최근 새로 단장한 Rutland의 버스 환승장으로, UBCO, Orchard Park, 다운타운으로 갈 수 있습니다.",
    "ja": "最近改修されたRutlandのバス乗り換えターミナルで、UBCO、Orchard Park、ダウンタウンへ行けます。"
@@ -1656,7 +1789,7 @@
   "note": {
    "zh": "位于 UBC 奥卡纳根校区内的公交换乘站，有 97 路快速公交等线路。",
    "en": "Bus exchange on the UBC Okanagan campus, served by RapidBus 97 and other routes.",
-   "fr": "Pôle d’échange d’autobus sur le campus de UBC Okanagan, desservi par le RapidBus 97 et d’autres lignes.",
+   "fr": "Pôle de correspondance d’autobus sur le campus de UBC Okanagan, desservi par le RapidBus 97 et d’autres lignes.",
    "es": "Intercambiador de autobuses en el campus de UBC Okanagan, con servicio del RapidBus 97 y otras rutas.",
    "ko": "UBC Okanagan 캠퍼스 안의 버스 환승장으로, RapidBus 97번과 다른 노선이 다닙니다.",
    "ja": "UBC Okanaganキャンパス内のバス乗り換えターミナルで、RapidBus 97などの路線が通っています。"
@@ -1677,9 +1810,9 @@
   "lng": -119.480133,
   "a": "K.L.O. Rd (north side) at Okanagan College",
   "note": {
-   "zh": "位于奥卡纳根学院基洛纳校区的公交换乘站；2026 年扩建期间设有临时换乘点。",
+   "zh": "位于奥卡纳根学院 Kelowna 校区的公交换乘站；2026 年扩建期间设有临时换乘点。",
    "en": "Bus exchange at Okanagan College's Kelowna campus; under expansion in 2026 with a temporary exchange during construction.",
-   "fr": "Pôle d’échange d’autobus au campus de Kelowna d’Okanagan College ; agrandissement en cours en 2026, avec un pôle temporaire pendant les travaux.",
+   "fr": "Pôle de correspondance d’autobus au campus de Kelowna d’Okanagan College ; agrandissement en cours en 2026, avec un pôle temporaire pendant les travaux.",
    "es": "Intercambiador de autobuses en el campus de Kelowna de Okanagan College; en ampliación en 2026, con un intercambiador provisional durante las obras.",
    "ko": "Okanagan College Kelowna 캠퍼스의 버스 환승장으로, 2026년 확장 공사 중이며 공사 기간에는 임시 환승장을 씁니다.",
    "ja": "Okanagan CollegeのKelownaキャンパスにあるバス乗り換えターミナルです。2026年は拡張工事中で、工事の間は仮のターミナルを使います。"
@@ -1884,7 +2017,7 @@
   "a": "#5-4600 Lakeshore Rd",
   "p": "250-706-7796",
   "note": {
-   "zh": "位于下 Mission 区的杂货店，自称拥有基洛纳最齐全的印度食品。",
+   "zh": "位于下 Mission 区的杂货店，自称拥有 Kelowna 最齐全的印度食品。",
    "en": "Grocery store in the Lower Mission that says it has the largest selection of Indian groceries in Kelowna.",
    "fr": "Épicerie dans le Lower Mission qui dit avoir le plus grand choix de produits indiens à Kelowna.",
    "es": "Tienda de comestibles en Lower Mission que dice tener la mayor variedad de productos indios de Kelowna.",
@@ -1916,9 +2049,9 @@
   "a": "1040 Hollywood Rd S",
   "p": "250-870-5155",
   "note": {
-   "zh": "SD23 学区的欢迎中心：刚到加拿大的家庭在这里给孩子办入学登记。登记先在 SD23 Family Portal 网上开始，一般需要 3–5 个工作日处理。这里也有校园安置服务（SWIS），帮助刚来的家庭适应学校。",
+   "zh": "SD23 学区的欢迎中心：刚到加拿大的家庭在这里给孩子办入学登记。登记先在 SD23 Family Portal 网上开始，一般需要 3–5 个工作日处理。这里也有校内定居支持项目（SWIS），帮助刚来的家庭适应学校。",
    "en": "SD23’s Welcome Centre: families new to Canada register their children for school here. Registration starts online in the SD23 Family Portal and usually takes 3–5 business days. Also home to Settlement Workers in Schools (SWIS), who help families settle into school life.",
-   "fr": "Le Welcome Centre du SD23 : les familles qui viennent d'arriver au Canada y inscrivent leurs enfants à l'école. L'inscription commence en ligne dans le SD23 Family Portal et prend habituellement 3–5 jours ouvrables. On y trouve aussi les Settlement Workers in Schools (SWIS), qui aident les familles à s'adapter à la vie scolaire.",
+   "fr": "Le Welcome Centre du SD23 : les familles qui viennent d'arriver au Canada y inscrivent leurs enfants à l'école. L'inscription commence en ligne dans le SD23 Family Portal et prend habituellement 3 à 5 jours ouvrables. On y trouve aussi les Settlement Workers in Schools (SWIS), qui aident les familles à s'adapter à la vie scolaire.",
    "es": "El Welcome Centre del SD23: aquí las familias que acaban de llegar a Canadá inscriben a sus hijos en la escuela. La inscripción comienza en línea en el SD23 Family Portal y suele tardar 3–5 días hábiles. Aquí también están los Settlement Workers in Schools (SWIS), que ayudan a las familias a adaptarse a la vida escolar.",
    "ko": "SD23의 Welcome Centre입니다. 캐나다에 막 도착한 가족은 이곳에서 자녀의 학교 등록을 합니다. 등록은 SD23 Family Portal에서 온라인으로 시작하며, 보통 3–5 영업일이 걸립니다. 가족이 학교생활에 적응하도록 돕는 Settlement Workers in Schools(SWIS)도 이곳에 있습니다.",
    "ja": "SD23 の Welcome Centre です。カナダに来たばかりの家族は、ここで子どもの学校登録をします。登録は SD23 Family Portal でオンラインで始め、通常 3〜5 営業日かかります。家族が学校生活に慣れるよう手助けする Settlement Workers in Schools（SWIS）もここにあります。"
@@ -2020,7 +2153,7 @@
   "id": "ebe74ad0"
  },
  {
-  "n": "Red Balloon Daycare #",
+  "n": "Red Balloon Daycare",
   "c": "daycare",
   "g": "wk",
   "lat": 49.8618678,
@@ -4247,7 +4380,7 @@
    "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: 2½ to 5, preschool. In the provincial fee-reduction programme (CCFRI).",
    "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : 2 ans et demi à 5 ans, prématernelle. Participe au programme provincial de réduction des frais (CCFRI).",
    "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: de 2 años y medio a 5, preescolar. Participa en el programa provincial de reducción de cuotas (CCFRI).",
-   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 유치원 전 과정. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 프리스쿨(유치원 입학 전 과정). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
    "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：2歳半〜5歳、プリスクール。州の保育料軽減プログラム（CCFRI）に参加。"
   },
   "src": "opendata",
@@ -4373,7 +4506,7 @@
    "en": "Licensed child care (BC government open data). Spaces are scarce — call first to ask about openings and the ages they take. Ages: 2½ to 5, preschool. In the provincial fee-reduction programme (CCFRI).",
    "fr": "Garderie autorisée (données ouvertes du gouvernement de la C.-B.). Les places sont rares — téléphonez d’abord pour demander s’il y a de la place et quels âges sont acceptés. Âges : 2 ans et demi à 5 ans, prématernelle. Participe au programme provincial de réduction des frais (CCFRI).",
    "es": "Guardería con licencia (datos abiertos del gobierno de BC). Hay pocas plazas: llame antes para preguntar por vacantes y las edades que aceptan. Edades: de 2 años y medio a 5, preescolar. Participa en el programa provincial de reducción de cuotas (CCFRI).",
-   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 유치원 전 과정. 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
+   "ko": "허가받은 보육시설(BC주 정부 공개 데이터). 자리가 부족하니 먼저 전화해 빈자리와 받는 연령을 물어보세요. 연령: 2세 반~5세, 프리스쿨(유치원 입학 전 과정). 주 정부 보육료 감면 프로그램(CCFRI) 참여.",
    "ja": "認可保育施設（BC州政府のオープンデータ）。空きが少ないので、まず電話で空き状況と受け入れ年齢を確認してください。年齢：2歳半〜5歳、プリスクール。州の保育料軽減プログラム（CCFRI）に参加。"
   },
   "src": "opendata",
@@ -5143,7 +5276,7 @@
    "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5166,7 +5299,7 @@
    "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約7ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5192,7 +5325,7 @@
    "fr": "Parc régional, environ 17 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque regional, unas 17 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 17헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "広域公園，約17ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "広域公園、約17ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5216,7 +5349,7 @@
    "fr": "Parc, environ 3 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 3 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 3헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約3ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約3ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5236,10 +5369,10 @@
   "note": {
    "zh": "湖滩公园（Okanagan 湖），禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
    "en": "Lake beach park (Okanagan Lake), no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
-   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
-   "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+   "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5263,7 +5396,7 @@
    "fr": "Aire canine sans laisse, environ 7 ha (données ouvertes de la Ville).",
    "es": "Zona para perros sin correa, unas 7 ha (datos abiertos de la Ciudad).",
    "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 7헥타르(시 공개 데이터).",
-   "ja": "リードなしで犬を遊ばせられるエリア，約7ヘクタール（市のオープンデータ）。"
+   "ja": "リードなしで犬を遊ばせられるエリア、約7ヘクタール（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5285,7 +5418,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 10 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 10 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 10헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約10ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約10ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5308,7 +5441,7 @@
    "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5331,7 +5464,7 @@
    "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約2ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5354,7 +5487,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 128 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 128 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 128헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約128ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約128ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5377,7 +5510,7 @@
    "fr": "Parc, environ 3 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 3 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 3헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約3ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約3ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5400,7 +5533,7 @@
    "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約4ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5423,7 +5556,7 @@
    "fr": "Aire canine sans laisse, environ 7 ha (données ouvertes de la Ville).",
    "es": "Zona para perros sin correa, unas 7 ha (datos abiertos de la Ciudad).",
    "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 7헥타르(시 공개 데이터).",
-   "ja": "リードなしで犬を遊ばせられるエリア，約7ヘクタール（市のオープンデータ）。"
+   "ja": "リードなしで犬を遊ばせられるエリア、約7ヘクタール（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5448,7 +5581,7 @@
    "fr": "Aire canine sans laisse, environ 11 ha (données ouvertes de la Ville).",
    "es": "Zona para perros sin correa, unas 11 ha (datos abiertos de la Ciudad).",
    "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 11헥타르(시 공개 데이터).",
-   "ja": "リードなしで犬を遊ばせられるエリア，約11ヘクタール（市のオープンデータ）。"
+   "ja": "リードなしで犬を遊ばせられるエリア、約11ヘクタール（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5468,9 +5601,9 @@
    "zh": "公园，约 1 公顷，禁止带狗（市政府开放数据）。",
    "en": "Park, about 1 ha, no dogs (City open data).",
    "fr": "Parc, environ 1 ha, chiens interdits (données ouvertes de la Ville).",
-   "es": "Parque, unas 1 ha, no se permiten perros (datos abiertos de la Ciudad).",
+   "es": "Parque, aproximadamente 1 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 1헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約1ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5490,10 +5623,10 @@
   "note": {
    "zh": "湖滩公园（Okanagan 湖），约 4 公顷（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
    "en": "Lake beach park (Okanagan Lake), about 4 ha (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
-   "fr": "Parc-plage (lac Okanagan), environ 4 ha (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "fr": "Parc-plage (lac Okanagan), environ 4 ha (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), unas 4 ha (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
-   "ko": "호숫가 해변 공원(오카나간 호수), 약 4헥타르(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約4ヘクタール（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 4헥타르(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約4ヘクタール（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5517,7 +5650,7 @@
    "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約7ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5543,7 +5676,7 @@
    "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5566,7 +5699,7 @@
    "fr": "Parc, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Parque, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "공원, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "公園，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "公園、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5589,7 +5722,7 @@
    "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約2ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5612,7 +5745,7 @@
    "fr": "Parc régional, environ 17 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque regional, unas 17 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 17헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "広域公園，約17ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "広域公園、約17ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5636,7 +5769,7 @@
    "fr": "Parc, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約2ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5659,7 +5792,7 @@
    "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5682,7 +5815,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 367 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 367 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 367헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約367ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約367ヘクタール、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5705,7 +5838,7 @@
    "fr": "Parc, environ 11 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 11 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 11헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約11ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約11ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5728,7 +5861,7 @@
    "fr": "Parc régional, environ 37 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque regional, unas 37 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 37헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "広域公園，約37ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "広域公園、約37ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5752,7 +5885,7 @@
    "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約4ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5775,7 +5908,7 @@
    "fr": "Parc régional, environ 32 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque regional, unas 32 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 32헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "広域公園，約32ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "広域公園、約32ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5799,7 +5932,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 22 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 22 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 22헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約22ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約22ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5822,7 +5955,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 17 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 17 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 17헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約17ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約17ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5845,7 +5978,7 @@
    "fr": "Parc, environ 47 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Parque, unas 47 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 47헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "公園，約47ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "公園、約47ヘクタール、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5872,7 +6005,7 @@
    "fr": "Parc, environ 8 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 8 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 8헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約8ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約8ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5895,7 +6028,7 @@
    "fr": "Parc, environ 4 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 4 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 4헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約4ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約4ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5918,7 +6051,7 @@
    "fr": "Parc, environ 10 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 10 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 10헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約10ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約10ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5941,7 +6074,7 @@
    "fr": "Parc provincial, environ 114 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque provincial, unas 114 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "주립공원, 약 114헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "州立公園，約114ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "州立公園、約114ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5964,7 +6097,7 @@
    "fr": "Aire canine sans laisse, environ 5 ha (données ouvertes de la Ville).",
    "es": "Zona para perros sin correa, unas 5 ha (datos abiertos de la Ciudad).",
    "ko": "목줄 없이 개를 풀어놓을 수 있는 구역, 약 5헥타르(시 공개 데이터).",
-   "ja": "リードなしで犬を遊ばせられるエリア，約5ヘクタール（市のオープンデータ）。"
+   "ja": "リードなしで犬を遊ばせられるエリア、約5ヘクタール（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5986,7 +6119,7 @@
    "fr": "Parc provincial, environ 82 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque provincial, unas 82 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "주립공원, 약 82헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "州立公園，約82ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "州立公園、約82ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6009,7 +6142,7 @@
    "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約7ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6032,7 +6165,7 @@
    "fr": "Parc, environ 19 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 19 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 19헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約19ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約19ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6058,7 +6191,7 @@
    "fr": "Parc, environ 3 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 3 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 3헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約3ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約3ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6084,7 +6217,7 @@
    "fr": "Parc, environ 2 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 2 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 2헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約2ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約2ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6107,7 +6240,7 @@
    "fr": "Parc, environ 4 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 4 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 4헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約4ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約4ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6130,7 +6263,7 @@
    "fr": "Parc régional, environ 2 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque regional, unas 2 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 2헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "広域公園，約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "広域公園、約2ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6151,10 +6284,10 @@
   "note": {
    "zh": "湖滩公园（Okanagan 湖），约 2 公顷，禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
    "en": "Lake beach park (Okanagan Lake), about 2 ha, no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
-   "fr": "Parc-plage (lac Okanagan), environ 2 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "fr": "Parc-plage (lac Okanagan), environ 2 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), unas 2 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
-   "ko": "호숫가 해변 공원(오카나간 호수), 약 2헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 2헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6178,7 +6311,7 @@
    "fr": "Parc, environ 3 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, unas 3 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 약 3헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，約3ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、約3ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6201,7 +6334,7 @@
    "fr": "Parc, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Parque, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "공원, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "公園，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "公園、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6224,7 +6357,7 @@
    "fr": "Parc, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6247,7 +6380,7 @@
    "fr": "Parc, environ 15 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Parque, unas 15 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 15헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "公園，約15ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "公園、約15ヘクタール、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6270,10 +6403,10 @@
   "note": {
    "zh": "湖滩公园（Okanagan 湖），约 1 公顷，禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
    "en": "Lake beach park (Okanagan Lake), about 1 ha, no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
-   "fr": "Parc-plage (lac Okanagan), environ 1 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
-   "es": "Parque de playa (lago Okanagan), unas 1 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
-   "ko": "호숫가 해변 공원(오카나간 호수), 약 1헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+   "fr": "Parc-plage (lac Okanagan), environ 1 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
+   "es": "Parque de playa (lago Okanagan), aproximadamente 1 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
+   "ko": "호숫가 해변 공원(오카나간 호수), 약 1헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
+   "ja": "湖のビーチ公園（オカナガン湖），約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6300,7 +6433,7 @@
    "fr": "Parc régional, environ 245 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque regional, unas 245 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 245헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "広域公園，約245ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "広域公園、約245ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6324,7 +6457,7 @@
    "fr": "Parc, environ 4 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 4 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 4헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約4ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約4ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6344,10 +6477,10 @@
   "note": {
    "zh": "湖滩公园（Okanagan 湖），禁止带狗（市政府开放数据）。夏天游泳的人多；没有救生员时自己注意安全，带孩子要寸步不离。",
    "en": "Lake beach park (Okanagan Lake), no dogs (City open data). Busy for swimming in summer; where there is no lifeguard, swim with care and keep children within reach.",
-   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; sans surveillant, prudence, et gardez les enfants à portée de main.",
+   "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいないときは注意し、子どもからは目を離さないでください。"
+   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6369,9 +6502,9 @@
    "zh": "公园，约 1 公顷，狗须牵绳（市政府开放数据）。",
    "en": "Park, about 1 ha, dogs on leash (City open data).",
    "fr": "Parc, environ 1 ha, chiens en laisse (données ouvertes de la Ville).",
-   "es": "Parque, unas 1 ha, perros con correa (datos abiertos de la Ciudad).",
+   "es": "Parque, aproximadamente 1 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 1헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約1ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約1ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6394,7 +6527,7 @@
    "fr": "Parc, environ 2 ha, aire canine sans laisse sur place (données ouvertes de la Ville).",
    "es": "Parque, unas 2 ha, tiene zona para perros sin correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 2헥타르, 목줄 없는 반려견 구역 있음(시 공개 데이터).",
-   "ja": "公園，約2ヘクタール，リードなしのドッグエリアあり（市のオープンデータ）。"
+   "ja": "公園、約2ヘクタール、リードなしのドッグエリアあり（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6417,7 +6550,7 @@
    "fr": "Aire naturelle (surtout des sentiers), environ 10 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Área natural (sobre todo senderos), unas 10 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "자연 보호 구역(주로 산책로), 약 10헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "自然エリア（主に遊歩道），約10ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "自然エリア（主に遊歩道）、約10ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6440,7 +6573,7 @@
    "fr": "Parc, environ 7 ha, chiens en laisse (données ouvertes de la Ville).",
    "es": "Parque, unas 7 ha, perros con correa (datos abiertos de la Ciudad).",
    "ko": "공원, 약 7헥타르, 개는 목줄 필수(시 공개 데이터).",
-   "ja": "公園，約7ヘクタール，犬はリード着用（市のオープンデータ）。"
+   "ja": "公園、約7ヘクタール、犬はリード着用（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6463,7 +6596,7 @@
    "fr": "Parc régional, environ 9 ha, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque regional, unas 9 ha, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "광역 공원, 약 9헥타르, 개 출입 금지(시 공개 데이터).",
-   "ja": "広域公園，約9ヘクタール，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "広域公園、約9ヘクタール、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6490,7 +6623,7 @@
    "fr": "Parc, chiens interdits (données ouvertes de la Ville).",
    "es": "Parque, no se permiten perros (datos abiertos de la Ciudad).",
    "ko": "공원, 개 출입 금지(시 공개 데이터).",
-   "ja": "公園，犬の立ち入り禁止（市のオープンデータ）。"
+   "ja": "公園、犬の立ち入り禁止（市のオープンデータ）。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6510,7 +6643,7 @@
   "note": {
    "zh": "公交换乘站（6 个站台）；线路和时间见\"公交路线\"。",
    "en": "Bus exchange (6 bays); routes and times under Bus Routes.",
-   "fr": "Pôle d’échange d’autobus (6 quais) ; lignes et horaires dans « Lignes de bus ».",
+   "fr": "Pôle de correspondance d’autobus (6 quais) ; lignes et horaires dans « Lignes de bus ».",
    "es": "Intercambiador de autobuses (6 andenes); rutas y horarios en «Rutas de autobús».",
    "ko": "버스 환승장(승차장 6곳)입니다. 노선과 시간은 ‘버스 노선’에서 확인하세요.",
    "ja": "バス乗り換えターミナル（乗り場6か所）です。路線と時刻は「バス路線」をご覧ください。"
@@ -6532,7 +6665,7 @@
   "note": {
    "zh": "公交换乘站（2 个站台）；线路和时间见\"公交路线\"。",
    "en": "Bus exchange (2 bays); routes and times under Bus Routes.",
-   "fr": "Pôle d’échange d’autobus (2 quais) ; lignes et horaires dans « Lignes de bus ».",
+   "fr": "Pôle de correspondance d’autobus (2 quais) ; lignes et horaires dans « Lignes de bus ».",
    "es": "Intercambiador de autobuses (2 andenes); rutas y horarios en «Rutas de autobús».",
    "ko": "버스 환승장(승차장 2곳)입니다. 노선과 시간은 ‘버스 노선’에서 확인하세요.",
    "ja": "バス乗り換えターミナル（乗り場2か所）です。路線と時刻は「バス路線」をご覧ください。"
@@ -6556,8 +6689,8 @@
    "en": "Bus exchange (2 bays); routes and times under Bus Routes.",
    "fr": "Pôle de correspondance d’autobus (2 quais) ; lignes et horaires dans « Lignes de bus ».",
    "es": "Intercambiador de autobuses (2 andenes); rutas y horarios en «Rutas de autobús».",
-   "ko": "버스 환승장(승강장 2곳). 노선과 시간은 '버스 노선'에서 확인하세요.",
-   "ja": "バスターミナル（乗り場2か所）。路線と時刻は「バス路線」で確認できます。"
+   "ko": "버스 환승장(승차장 2곳)입니다. 노선과 시간은 ‘버스 노선’에서 확인하세요.",
+   "ja": "バス乗り換えターミナル（乗り場2か所）です。路線と時刻は「バス路線」をご覧ください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6578,8 +6711,8 @@
    "en": "Bus exchange (4 bays); routes and times under Bus Routes.",
    "fr": "Pôle de correspondance d’autobus (4 quais) ; lignes et horaires dans « Lignes de bus ».",
    "es": "Intercambiador de autobuses (4 andenes); rutas y horarios en «Rutas de autobús».",
-   "ko": "버스 환승장(승강장 4곳). 노선과 시간은 '버스 노선'에서 확인하세요.",
-   "ja": "バスターミナル（乗り場4か所）。路線と時刻は「バス路線」で確認できます。"
+   "ko": "버스 환승장(승차장 4곳)입니다. 노선과 시간은 ‘버스 노선’에서 확인하세요.",
+   "ja": "バス乗り換えターミナル（乗り場4か所）です。路線と時刻は「バス路線」をご覧ください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6601,7 +6734,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6653,7 +6786,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -6677,7 +6810,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6725,7 +6858,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -6749,7 +6882,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6776,7 +6909,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6800,7 +6933,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6827,7 +6960,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6878,7 +7011,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -6902,7 +7035,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -6953,7 +7086,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -6981,7 +7114,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -7009,7 +7142,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7036,7 +7169,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -7060,7 +7193,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first. Offers early French immersion.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district. Offre l’immersion française précoce.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito. Ofrece inmersión temprana en francés.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요. 초기 프랑스어 몰입 과정 운영.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。早期フレンチ・イマージョンあり。"
   },
   "src": "official",
@@ -7087,7 +7220,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7114,7 +7247,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7141,7 +7274,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7169,7 +7302,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7196,7 +7329,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7223,7 +7356,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7247,7 +7380,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7295,7 +7428,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7322,7 +7455,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7349,7 +7482,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7398,7 +7531,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7425,7 +7558,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7449,7 +7582,7 @@
    "en": "SD23 public elementary school. Which school your child attends depends on your home address — check the district’s catchment map first.",
    "fr": "École primaire publique du SD23. L’école de votre enfant dépend de votre adresse — consultez d’abord la carte des secteurs du district.",
    "es": "Escuela primaria pública del SD23. La escuela de su hijo depende de su dirección: consulte primero el mapa de zonas del distrito.",
-   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 학군의 학구(catchment) 지도를 확인하세요.",
+   "ko": "SD23 공립 초등학교. 어느 학교에 다니는지는 집 주소로 정해지니, 먼저 교육청의 학구(catchment) 지도를 확인하세요.",
    "ja": "SD23 の公立小学校。通う学校は住所で決まるので、まず学区の通学区域（catchment）を確認してください。"
   },
   "src": "official",
@@ -7862,7 +7995,7 @@
    ]
   },
   "note": {
-   "zh": "基洛纳主要的历史博物馆，介绍奥卡纳根河谷的形成、syilx（奥卡纳根原住民）文化和早期定居者历史，馆内还有中奥卡纳根体育名人堂和基洛纳公共档案馆。紧挨 Queensway 公交换乘站；每月第二个星期日可随意付费入场。",
+   "zh": "Kelowna 主要的历史博物馆，介绍奥卡纳根河谷的形成、syilx（奥卡纳根原住民）文化和早期定居者历史，馆内还有中奥卡纳根体育名人堂和 Kelowna 公共档案馆。紧挨 Queensway 公交换乘站；每月第二个星期日可随意付费入场。",
    "en": "Kelowna's main history museum, covering how the valley formed, syilx (Okanagan) culture and settler history, plus the Central Okanagan Sports Hall of Fame and the Kelowna Public Archives. It is right next to the Queensway transit exchange, and every second Sunday of the month you pay what you wish.",
    "fr": "Le principal musée d’histoire de Kelowna : formation de la vallée, culture syilx (Okanagan) et histoire des colons, avec en plus le Central Okanagan Sports Hall of Fame et les Kelowna Public Archives. Il est juste à côté du pôle de correspondance Queensway, et le deuxième dimanche de chaque mois, vous payez ce que vous voulez.",
    "es": "El principal museo de historia de Kelowna: cómo se formó el valle, la cultura syilx (Okanagan) y la historia de los colonos, además del Central Okanagan Sports Hall of Fame y los Kelowna Public Archives. Está justo al lado del intercambiador Queensway, y el segundo domingo de cada mes usted paga lo que quiera.",
@@ -7878,18 +8011,18 @@
    "indoor"
   ],
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "H",
-   "e",
-   "r"
+   "OHM",
+   "Kelowna",
+   "Museums",
+   "history",
+   "archives",
+   "Sports",
+   "Hall",
+   "Fame",
+   "博物馆",
+   "历史博物馆",
+   "奥卡纳根遗产博物馆",
+   "档案馆"
   ],
   "id": "a5bf1103",
   "w": "https://www.kelownamuseums.ca/plan-your-visit/"
@@ -7919,18 +8052,13 @@
    "indoor"
   ],
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "M",
-   "i",
-   "l"
+   "OMM",
+   "Kelowna",
+   "Museums",
+   "history",
+   "veterans",
+   "军事博物馆",
+   "博物馆"
   ],
   "sameComplex": [
    "5cca590c"
@@ -7971,18 +8099,14 @@
    "history"
   ],
   "alias": [
-   "L",
-   "a",
-   "u",
-   "r",
-   "e",
-   "l",
-   " ",
-   "P",
-   "a",
-   "c",
-   "k",
-   "i"
+   "BC",
+   "Industry",
+   "Kelowna",
+   "Museums",
+   "Square",
+   "果园博物馆",
+   "葡萄酒博物馆",
+   "包装厂"
   ],
   "id": "124180e9",
   "w": "https://www.kelownamuseums.ca/plan-your-visit/"
@@ -8058,18 +8182,14 @@
    "indoor"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "A",
-   "r",
-   "t",
-   " "
+   "KAG",
+   "museum",
+   "Cultural",
+   "District",
+   "美术馆",
+   "艺术馆",
+   "画廊",
+   "基洛纳美术馆"
   ],
   "id": "8cf5db85",
   "w": "https://kelownaartgallery.com/"
@@ -8107,18 +8227,12 @@
    "culture"
   ],
   "alias": [
-   "S",
-   "n",
-   "c",
-   "e",
-   "w",
-   "i",
-   "p",
-   "s",
-   " ",
-   "H",
-   "e",
-   "r"
+   "WFN",
+   "syilx",
+   "Indigenous",
+   "原住民博物馆",
+   "西岸原住民",
+   "博物馆"
   ],
   "sameComplex": [
    "164b9d95",
@@ -8154,7 +8268,7 @@
    ]
   },
   "note": {
-   "zh": "位于市中心文化区的社区艺术中心，有美术展厅、剧场以及面向各年龄的艺术课程。这里也可以购买基洛纳社区剧院演出的门票。",
+   "zh": "位于市中心文化区的社区艺术中心，有美术展厅、剧场以及面向各年龄的艺术课程。这里也可以购买 Kelowna 社区剧院演出的门票。",
    "en": "A community arts centre in the downtown cultural district with art galleries, a theatre and art classes for all ages. You can also buy tickets for Kelowna Community Theatre shows here.",
    "fr": "Centre des arts communautaire dans le quartier culturel du centre-ville, avec des galeries d’art, un théâtre et des cours d’art pour tous les âges. Vous pouvez aussi y acheter des billets pour les spectacles du Kelowna Community Theatre.",
    "es": "Centro comunitario de artes en el distrito cultural del centro, con galerías de arte, un teatro y clases de arte para todas las edades. Aquí también puede comprar entradas para los espectáculos del Kelowna Community Theatre.",
@@ -8169,18 +8283,16 @@
    "indoor"
   ],
   "alias": [
-   "R",
-   "o",
-   "t",
-   "a",
-   "r",
-   "y",
-   " ",
-   "C",
-   "e",
-   "n",
-   "t",
-   "r"
+   "RCA",
+   "theatre",
+   "gallery",
+   "classes",
+   "Cultural",
+   "District",
+   "艺术中心",
+   "扶轮艺术中心",
+   "剧场",
+   "艺术课"
   ],
   "id": "8039f01c",
   "w": "https://www.rotarycentreforthearts.com/"
@@ -8209,18 +8321,16 @@
    "indoor"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "C",
-   "o",
-   "m",
-   "m"
+   "KCT",
+   "Black",
+   "Box",
+   "theboxoffice.ca",
+   "tickets",
+   "concerts",
+   "剧院",
+   "社区剧院",
+   "演出",
+   "售票"
   ],
   "id": "475fe1ed",
   "w": "https://theatre.kelowna.ca/"
@@ -8273,18 +8383,17 @@
    "indoor"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "F",
-   "a",
-   "m",
-   "i"
+   "YMCA",
+   "Rutland",
+   "pool",
+   "swimming",
+   "gym",
+   "fitness",
+   "Hartman",
+   "游泳池",
+   "游泳馆",
+   "健身房",
+   "基督教青年会"
   ],
   "id": "33adbeff",
   "w": "https://www.ymcasibc.ca/Locations/Kelowna-Family-Y"
@@ -8298,7 +8407,7 @@
   "a": "5160 Chute Lake Rd",
   "p": "250-469-8800",
   "note": {
-   "zh": "位于 Upper Mission 的市立社区中心，举办列在基洛纳活动与课程指南中的季节性课程，也可以租用办活动。",
+   "zh": "位于 Upper Mission 的市立社区中心，举办列在 Kelowna 活动与课程指南中的季节性课程，也可以租用办活动。",
    "en": "A City community centre in the Upper Mission that hosts seasonal programs listed in Kelowna's Activity & Program Guide. It can also be rented for events.",
    "fr": "Centre communautaire de la Ville dans le secteur Upper Mission, qui accueille des programmes saisonniers présentés dans l’Activity & Program Guide de Kelowna. On peut aussi le louer pour des événements.",
    "es": "Centro comunitario municipal en Upper Mission con programas de temporada que aparecen en la Activity & Program Guide de Kelowna. También se puede alquilar para eventos.",
@@ -8311,18 +8420,11 @@
    "family"
   ],
   "alias": [
-   "C",
-   "e",
-   "d",
-   "a",
-   "r",
-   " ",
-   "C",
-   "r",
-   "e",
-   "e",
-   "k",
-   " "
+   "Upper",
+   "Mission",
+   "programs",
+   "社区中心",
+   "活动中心"
   ],
   "sameComplex": [
    "fab0ecd4"
@@ -8353,18 +8455,14 @@
    "indoor"
   ],
   "alias": [
-   "M",
-   "e",
-   "m",
-   "o",
-   "r",
-   "i",
-   "a",
-   "l",
-   " ",
-   "A",
-   "r",
-   "e"
+   "Kelowna",
+   "ice",
+   "rink",
+   "skating",
+   "hockey",
+   "冰场",
+   "滑冰",
+   "溜冰"
   ],
   "sameComplex": [
    "cf723f3f"
@@ -8395,18 +8493,19 @@
    "indoor"
   ],
   "alias": [
-   "M",
-   "N",
-   "P",
-   " ",
-   "P",
-   "l",
-   "a",
-   "c",
-   "e",
-   " ",
-   "C",
-   "a"
+   "Capital",
+   "News",
+   "Centre",
+   "arena",
+   "ice",
+   "rink",
+   "turf",
+   "running",
+   "track",
+   "Mission",
+   "冰场",
+   "体育馆",
+   "室内足球场"
   ],
   "sameComplex": [
    "6c9df47c",
@@ -8438,18 +8537,17 @@
    "indoor"
   ],
   "alias": [
-   "R",
-   "u",
-   "t",
-   "l",
-   "a",
-   "n",
-   "d",
-   " ",
-   "A",
-   "r",
-   "e",
-   "n"
+   "ice",
+   "rink",
+   "skating",
+   "skate",
+   "rental",
+   "Kelowna",
+   "Chiefs",
+   "冰场",
+   "滑冰",
+   "溜冰",
+   "租冰鞋"
   ],
   "sameComplex": [
    "d28b9905"
@@ -8479,18 +8577,13 @@
    "family"
   ],
   "alias": [
-   "R",
-   "u",
-   "t",
-   "l",
-   "a",
-   "n",
-   "d",
-   " ",
-   "A",
-   "c",
-   "t",
-   "i"
+   "Seniors",
+   "seniors",
+   "50+",
+   "community",
+   "活动中心",
+   "长者中心",
+   "老年活动中心"
   ],
   "id": "4a42649e",
   "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-activity-centre"
@@ -8528,18 +8621,15 @@
    "family"
   ],
   "alias": [
-   "P",
-   "a",
-   "r",
-   "k",
-   "i",
-   "n",
-   "s",
-   "o",
-   "n",
-   " ",
-   "A",
-   "c"
+   "Seniors",
+   "seniors",
+   "50+",
+   "tai",
+   "chi",
+   "community",
+   "长者活动中心",
+   "老年中心",
+   "太极"
   ],
   "id": "d2ff477f",
   "w": "https://www.kelowna.ca/parks-recreation/recreation-facilities/parkinson-activity-centre"
@@ -8566,18 +8656,11 @@
    "family"
   ],
   "alias": [
-   "S",
-   "a",
-   "r",
-   "s",
-   "o",
-   "n",
-   "s",
-   " ",
-   "A",
-   "c",
-   "t",
-   "i"
+   "Okanagan",
+   "Mission",
+   "seniors",
+   "活动中心",
+   "长者中心"
   ],
   "sameComplex": [
    "534cf166"
@@ -8612,7 +8695,7 @@
    ]
   },
   "note": {
-   "zh": "西基洛纳的公共游泳馆，有 25 米泳池、温水池、热水池、蒸汽房、滑梯和健身房；随到随付，不需要办会员。从 2027 年 1 月 1 日起改由 YMCA（南内陆卑诗）运营。",
+   "zh": "West Kelowna 的公共游泳馆，有 25 米泳池、温水池、热水池、蒸汽房、滑梯和健身房；随到随付，不需要办会员。从 2027 年 1 月 1 日起改由 YMCA（南内陆卑诗）运营。",
    "en": "West Kelowna's public pool with a 25-metre pool, warm soaking pool, hot tub, steam room, slides and a weight room; drop-in, no membership needed. The YMCA of Southern Interior BC takes over running it from January 1, 2027.",
    "fr": "La piscine publique de West Kelowna, avec un bassin de 25 mètres, un bassin chaud de détente, un spa, un bain de vapeur, des glissoires et une salle de musculation ; accès à la séance, sans abonnement. Le YMCA of Southern Interior BC en reprend la gestion à partir du 1er janvier 2027.",
    "es": "La piscina pública de West Kelowna, con piscina de 25 metros, piscina templada para relajarse, jacuzzi, baño de vapor, toboganes y sala de pesas; se paga por visita, sin necesidad de ser socio. El YMCA of Southern Interior BC pasa a administrarla a partir del 1 de enero de 2027.",
@@ -8626,18 +8709,16 @@
    "indoor"
   ],
   "alias": [
-   "J",
-   "o",
-   "h",
-   "n",
-   "s",
-   "o",
-   "n",
-   " ",
-   "B",
-   "e",
-   "n",
-   "t"
+   "JBMAC",
+   "West",
+   "Kelowna",
+   "pool",
+   "swimming",
+   "weight",
+   "room",
+   "西基洛纳游泳馆",
+   "游泳池",
+   "健身房"
   ],
   "id": "dff6dbc7",
   "w": "https://www.westkelownacity.ca/parks-recreation-facilities/johnson-bentley-memorial-aquatic-centre/"
@@ -8651,7 +8732,7 @@
   "a": "2760 Cameron Road",
   "p": "778-797-2265",
   "note": {
-   "zh": "西基洛纳的主要冰场，有两块标准冰面（Royal LePage Place 和相邻的 Jim Lind Arena），还有免费的室内步行跑道。滑冰时间请查市政府的公众滑冰时间表。",
+   "zh": "West Kelowna 的主要冰场，有两块标准冰面（Royal LePage Place 和相邻的 Jim Lind Arena），还有免费的室内步行跑道。滑冰时间请查市政府的公众滑冰时间表。",
    "en": "West Kelowna's main arena with two NHL-size ice sheets (Royal LePage Place and the adjacent Jim Lind Arena) and a free indoor walking track. Check the City's public skate schedule for times.",
    "fr": "Le principal aréna de West Kelowna, avec deux surfaces de glace de dimensions NHL (Royal LePage Place et le Jim Lind Arena voisin) et une piste de marche intérieure gratuite. Consultez l’horaire de patinage public de la Ville pour les heures.",
    "es": "La principal arena de West Kelowna, con dos pistas de hielo de tamaño NHL (Royal LePage Place y el Jim Lind Arena contiguo) y una pista interior para caminar gratuita. Consulte el horario de patinaje público de la Ciudad.",
@@ -8666,18 +8747,17 @@
    "indoor"
   ],
   "alias": [
-   "R",
-   "o",
-   "y",
-   "a",
-   "l",
-   " ",
-   "L",
-   "e",
-   "P",
-   "a",
-   "g",
-   "e"
+   "West",
+   "Kelowna",
+   "ice",
+   "rink",
+   "skating",
+   "walking",
+   "track",
+   "冰场",
+   "滑冰",
+   "西基洛纳冰场",
+   "室内步道"
   ],
   "id": "c192b052",
   "w": "https://www.westkelownacity.ca/parks-recreation-facilities/all-facilities/royal-lepage-place-arena/"
@@ -8702,11 +8782,11 @@
    ]
   },
   "note": {
-   "zh": "加拿大皇家银行（RBC）基洛纳市中心主分行（分行号 2400）。RBC 为永久居民、外国劳工和国际学生提供新来加拿大的银行套餐，包括无需加拿大信用记录即可申请的信用卡。",
-   "en": "RBC's main downtown Kelowna branch (transit 2400). RBC advertises newcomer banking for permanent residents, foreign workers and international students, including a first credit card without Canadian credit history.",
+   "zh": "加拿大皇家银行（RBC）Kelowna 市中心主分行（分行号 2400）。RBC 为永久居民、外国劳工和国际学生提供新来加拿大的银行套餐，包括无需加拿大信用记录即可申请的信用卡。",
+   "en": "RBC's main downtown Kelowna branch (branch transit no. 2400). RBC advertises newcomer banking for permanent residents, foreign workers and international students, including a first credit card without Canadian credit history.",
    "fr": "La principale succursale de RBC au centre-ville de Kelowna (numéro de transit 2400). RBC annonce une offre bancaire pour les personnes arrivées récemment au Canada — résidents permanents, travailleurs étrangers et étudiants étrangers —, y compris une première carte de crédit sans antécédents de crédit canadiens.",
    "es": "La sucursal principal de RBC en el centro de Kelowna (número de tránsito 2400). RBC anuncia servicios bancarios para personas recién llegadas a Canadá —residentes permanentes, trabajadores extranjeros y estudiantes internacionales—, incluida una primera tarjeta de crédito sin historial crediticio canadiense.",
-   "ko": "다운타운에 있는 RBC의 Kelowna 본점(지점 번호 2400)입니다. RBC는 영주권자, 외국인 근로자, 유학생 등 캐나다에 새로 온 사람을 위한 은행 서비스를 안내하고 있으며, 캐나다 신용 기록 없이 만들 수 있는 첫 신용카드도 포함됩니다.",
+   "ko": "다운타운에 있는 RBC의 Kelowna 주요 지점(지점 번호 2400)입니다. RBC는 영주권자, 외국인 근로자, 유학생 등 캐나다에 새로 온 사람을 위한 은행 서비스를 안내하고 있으며, 캐나다 신용 기록 없이 만들 수 있는 첫 신용카드도 포함됩니다.",
    "ja": "ダウンタウンにあるRBCのKelowna本店（支店番号2400）です。RBCは永住者、外国人労働者、留学生など、カナダに来て間もない人向けの銀行サービスを案内しており、カナダでの信用履歴がなくても作れる最初のクレジットカードもあります。"
   },
   "src": "official",
@@ -8715,18 +8795,11 @@
    "life"
   ],
   "alias": [
-   "R",
-   "B",
-   "C",
-   " ",
-   "R",
-   "o",
-   "y",
-   "a",
-   "l",
-   " ",
-   "B",
-   "a"
+   "Ellis",
+   "皇家银行",
+   "加拿大皇家银行",
+   "银行",
+   "开户"
   ],
   "id": "32fa8e5d",
   "w": "https://maps.rbcroyalbank.com/BC-KELOWNA-branch-2400"
@@ -8779,12 +8852,12 @@
    ]
   },
   "note": {
-   "zh": "道明银行（TD）基洛纳市中心分行（分行号 277），离 Queensway 公交换乘站步行不远。TD 有\"新到加拿大\"银行套餐，另有面向持学签国际学生的套餐。",
+   "zh": "道明银行（TD）Kelowna 市中心分行（分行号 277），离 Queensway 公交换乘站步行不远。TD 有\"新到加拿大\"银行套餐，另有面向持学签国际学生的套餐。",
    "en": "TD's downtown Kelowna branch (branch 277), a short walk from the Queensway exchange. TD advertises a New to Canada package and a separate package for international students with a study permit.",
    "fr": "La succursale de TD au centre-ville de Kelowna (succursale 277), à quelques pas du pôle de correspondance Queensway. TD annonce un forfait New to Canada et un forfait distinct pour les étudiants internationaux titulaires d’un permis d’études.",
    "es": "La sucursal de TD en el centro de Kelowna (sucursal 277), a poca distancia a pie del intercambiador Queensway. TD anuncia un paquete New to Canada y otro paquete aparte para estudiantes internacionales con permiso de estudios.",
    "ko": "Queensway 환승장에서 걸어서 금방인 TD의 Kelowna 다운타운 지점(지점 번호 277)입니다. TD는 New to Canada 패키지와, 학업 허가를 가진 유학생을 위한 별도 패키지를 안내하고 있습니다.",
-   "ja": "Queenswayのバスターミナルから歩いてすぐの、TDのKelownaダウンタウン支店（支店番号277）です。TDはNew to Canadaパッケージと、学生許可を持つ留学生向けの別のパッケージを案内しています。"
+   "ja": "Queenswayのバスターミナルから歩いてすぐの、TDのKelownaダウンタウン支店（支店番号277）です。TDはNew to Canadaパッケージと、就学許可（study permit）を持つ留学生向けの別のパッケージを案内しています。"
   },
   "src": "official",
   "v": "2026-10",
@@ -8792,18 +8865,12 @@
    "life"
   ],
   "alias": [
-   "T",
-   "D",
-   " ",
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "T",
-   "r"
+   "Bank",
+   "downtown",
+   "bank",
+   "道明银行",
+   "银行",
+   "开户"
   ],
   "id": "f23ad848",
   "w": "https://www.td.com/ca/en/personal-banking/branch-locator"
@@ -8857,7 +8924,7 @@
   },
   "note": {
    "zh": "丰业银行（Scotiabank）位于 Bernard 大道的市中心分行（分行号 80150），职员还会说印地语、古吉拉特语和马拉地语。丰业银行的 StartRight 计划面向永久居民、国际学生和外国劳工。",
-   "en": "Scotiabank's downtown branch on Bernard Avenue (transit 80150), where staff also speak Hindi, Gujarati and Marathi. Scotiabank's StartRight program is for permanent residents, international students and foreign workers.",
+   "en": "Scotiabank's downtown branch on Bernard Avenue (branch transit no. 80150), where staff also speak Hindi, Gujarati and Marathi. Scotiabank's StartRight program is for permanent residents, international students and foreign workers.",
    "fr": "La succursale de Scotiabank au centre-ville, sur Bernard Avenue (numéro de transit 80150), où le personnel parle aussi hindi, gujarati et marathi. Le programme StartRight de Scotiabank s’adresse aux résidents permanents, aux étudiants étrangers et aux travailleurs étrangers.",
    "es": "La sucursal de Scotiabank en el centro, en Bernard Avenue (número de tránsito 80150), donde el personal también habla hindi, guyaratí y maratí. El programa StartRight de Scotiabank es para residentes permanentes, estudiantes internacionales y trabajadores extranjeros.",
    "ko": "Bernard Avenue에 있는 Scotiabank 다운타운 지점(지점 번호 80150)으로, 직원들이 힌디어, 구자라트어, 마라티어도 합니다. Scotiabank의 StartRight 프로그램은 영주권자, 유학생, 외국인 근로자를 위한 것입니다.",
@@ -8870,18 +8937,14 @@
    "multi"
   ],
   "alias": [
-   "S",
-   "c",
-   "o",
-   "t",
-   "i",
-   "a",
-   "b",
-   "a",
-   "n",
-   "k",
-   " ",
-   "B"
+   "Nova",
+   "Bernard",
+   "downtown",
+   "StartRight",
+   "丰业银行",
+   "银行",
+   "开户",
+   "Hindi"
   ],
   "sameComplex": [
    "9834d147"
@@ -8937,11 +9000,11 @@
    ]
   },
   "note": {
-   "zh": "蒙特利尔银行（BMO）基洛纳市中心总分行（分行号 07210），职员会说法语、荷兰语、约鲁巴语和南非荷兰语。BMO 的 NewStart 计划面向来加拿大五年内的永久居民和外国劳工。",
-   "en": "BMO's main downtown Kelowna branch (transit 07210), with staff who speak French, Dutch, Yoruba and Afrikaans. BMO's NewStart program is for permanent residents and foreign workers in their first five years in Canada.",
+   "zh": "蒙特利尔银行（BMO）Kelowna 市中心总分行（分行号 07210），职员会说法语、荷兰语、约鲁巴语和南非荷兰语。BMO 的 NewStart 计划面向来加拿大五年内的永久居民和外国劳工。",
+   "en": "BMO's main downtown Kelowna branch (branch transit no. 07210), with staff who speak French, Dutch, Yoruba and Afrikaans. BMO's NewStart program is for permanent residents and foreign workers in their first five years in Canada.",
    "fr": "La principale succursale de BMO au centre-ville de Kelowna (numéro de transit 07210), avec du personnel qui parle français, néerlandais, yoruba et afrikaans. Le programme NewStart de BMO s’adresse aux résidents permanents et aux travailleurs étrangers pendant leurs cinq premières années au Canada.",
    "es": "La sucursal principal de BMO en el centro de Kelowna (número de tránsito 07210), con personal que habla francés, neerlandés, yoruba y afrikáans. El programa NewStart de BMO es para residentes permanentes y trabajadores extranjeros en sus primeros cinco años en Canadá.",
-   "ko": "BMO의 Kelowna 다운타운 본점(지점 번호 transit 07210)으로, 프랑스어, 네덜란드어, 요루바어, 아프리칸스어를 하는 직원이 있습니다. BMO의 NewStart 프로그램은 캐나다에 온 지 5년 이내의 영주권자와 외국인 근로자를 위한 것입니다.",
+   "ko": "BMO의 Kelowna 다운타운 주요 지점(지점 번호 07210)으로, 프랑스어, 네덜란드어, 요루바어, 아프리칸스어를 하는 직원이 있습니다. BMO의 NewStart 프로그램은 캐나다에 온 지 5년 이내의 영주권자와 외국인 근로자를 위한 것입니다.",
    "ja": "BMOのKelownaダウンタウンの主要支店（支店番号 transit 07210）で、フランス語、オランダ語、ヨルバ語、アフリカーンス語を話すスタッフがいます。BMOのNewStartプログラムは、カナダに来て5年以内の永住者と外国人労働者が対象です。"
   },
   "src": "official",
@@ -8951,18 +9014,12 @@
    "multi"
   ],
   "alias": [
-   "B",
-   "M",
-   "O",
-   " ",
-   "B",
-   "a",
-   "n",
-   "k",
-   " ",
-   "o",
-   "f",
-   " "
+   "Bernard",
+   "NewStart",
+   "蒙特利尔银行",
+   "满地可银行",
+   "银行",
+   "开户"
   ],
   "id": "fc95de07",
   "w": "https://branches.bmo.com/bc/kelowna/b0721/"
@@ -9016,10 +9073,10 @@
   },
   "note": {
    "zh": "加拿大帝国商业银行（CIBC）位于 Bernard 大道的市中心全功能分行（分行号 00160）。CIBC 为永久居民以及持 12 个月以上工签的人提供新来加拿大的账户。",
-   "en": "CIBC's downtown full-service branch on Bernard Avenue (transit 00160). CIBC advertises a newcomer account for permanent residents and for workers with a work permit of 12 months or more.",
+   "en": "CIBC's downtown full-service branch on Bernard Avenue (branch transit no. 00160). CIBC advertises a newcomer account for permanent residents and for workers with a work permit of 12 months or more.",
    "fr": "La succursale à service complet de CIBC au centre-ville, sur Bernard Avenue (numéro de transit 00160). CIBC annonce un compte pour les personnes arrivées récemment au Canada, destiné aux résidents permanents et aux travailleurs ayant un permis de travail de 12 mois ou plus.",
    "es": "La sucursal de servicio completo de CIBC en el centro, en Bernard Avenue (número de tránsito 00160). CIBC anuncia una cuenta para personas recién llegadas a Canadá, dirigida a residentes permanentes y a trabajadores con un permiso de trabajo de 12 meses o más.",
-   "ko": "Bernard Avenue에 있는 CIBC의 다운타운 종합 지점입니다(지점 번호 transit 00160). CIBC는 영주권자와 12개월 이상 취업 허가를 가진 근로자를 위한, 캐나다에 새로 온 사람용 계좌를 안내하고 있습니다.",
+   "ko": "Bernard Avenue에 있는 CIBC의 다운타운 종합 지점입니다(지점 번호 00160). CIBC는 영주권자와 12개월 이상 취업 허가를 가진 근로자를 위한, 캐나다에 새로 온 사람용 계좌를 안내하고 있습니다.",
    "ja": "Bernard AvenueにあるCIBCのダウンタウンのフルサービス支店です（支店番号 transit 00160）。CIBCは、永住者と12か月以上の就労許可を持つ労働者向けに、カナダに来て間もない人のための口座を案内しています。"
   },
   "src": "official",
@@ -9028,18 +9085,14 @@
    "life"
   ],
   "alias": [
-   "C",
-   "I",
-   "B",
-   "C",
-   " ",
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "i",
-   "a"
+   "Canadian",
+   "Imperial",
+   "Commerce",
+   "downtown",
+   "帝国商业银行",
+   "加拿大帝国商业银行",
+   "银行",
+   "开户"
   ],
   "id": "c49bc182",
   "w": "https://locations.cibc.com/bc/kelowna/00160"
@@ -9105,18 +9158,15 @@
    "life"
   ],
   "alias": [
-   "V",
-   "a",
-   "l",
-   "l",
-   "e",
-   "y",
-   " ",
-   "F",
-   "i",
-   "r",
-   "s",
-   "t"
+   "West",
+   "Credit",
+   "Union",
+   "credit",
+   "union",
+   "Bernard",
+   "信用合作社",
+   "信用社",
+   "银行"
   ],
   "id": "43df7e62",
   "w": "https://www.trucooperativebank.ca/valley-first/help-support/find-a-branch-atm"
@@ -9168,7 +9218,7 @@
    ]
   },
   "note": {
-   "zh": "位于 Lower Mission 的加拿大邮政直营邮局，只在工作日开放。根据加拿大邮政自己的名单，基洛纳其他地方没有直营邮局柜台，其余邮政点都设在商店和药房里。",
+   "zh": "位于 Lower Mission 的加拿大邮政直营邮局，只在工作日开放。根据加拿大邮政自己的名单，Kelowna 其他地方没有直营邮局柜台，其余邮政点都设在商店和药房里。",
    "en": "A Canada Post-run post office in the Lower Mission, open on weekdays only. Canada Post's own list shows no corporate post office counter elsewhere in Kelowna; other outlets are inside shops and pharmacies.",
    "fr": "Bureau de poste exploité par Canada Post dans le secteur Lower Mission, ouvert en semaine seulement. Selon la liste de Canada Post elle-même, il n’y a pas d’autre comptoir postal exploité directement par la société ailleurs à Kelowna ; les autres points postaux se trouvent dans des commerces et des pharmacies.",
    "es": "Una oficina de correos gestionada por Canada Post en Lower Mission, abierta solo entre semana. Según la propia lista de Canada Post, no hay ningún otro mostrador propio de la empresa en Kelowna; los demás puntos de correos están dentro de tiendas y farmacias.",
@@ -9181,18 +9231,16 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "id": "ec37864a",
   "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
@@ -9264,18 +9312,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "6888f5cf",
@@ -9358,18 +9405,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "b632d5d0",
@@ -9452,18 +9498,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "4d296ae3",
@@ -9547,18 +9592,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "5b55bc09",
@@ -9634,18 +9678,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "0117754e",
@@ -9728,18 +9771,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "13a6333d",
@@ -9822,18 +9864,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "sameComplex": [
    "b3551a68",
@@ -9917,18 +9958,17 @@
    "life"
   ],
   "alias": [
-   "C",
-   "a",
-   "n",
-   "a",
-   "d",
-   "a",
-   " ",
-   "P",
-   "o",
-   "s",
-   "t",
-   " "
+   "office",
+   "postal",
+   "outlet",
+   "mail",
+   "parcel",
+   "stamps",
+   "邮局",
+   "加拿大邮政",
+   "邮政",
+   "寄包裹",
+   "邮票"
   ],
   "id": "b5cc7385",
   "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
@@ -9998,9 +10038,9 @@
    ]
   },
   "note": {
-   "zh": "基洛纳市中心主要的大型超市，有药房和面包房，每天营业到晚上 11 点，从 Queensway 公交换乘站步行可达。",
+   "zh": "Kelowna 市中心主要的大型超市，有药房和面包房，每天营业到晚上 11 点，从 Queensway 公交换乘站步行可达。",
    "en": "The main full-size supermarket in downtown Kelowna, with a pharmacy and bakery, open until 11 p.m. every day. It is a short walk from the Queensway transit exchange.",
-   "fr": "Le principal supermarché de grande taille du centre-ville de Kelowna, avec pharmacie et boulangerie, ouvert tous les jours jusqu'à 23 h. Il est à quelques minutes à pied du point de correspondance d'autobus Queensway (Queensway transit exchange).",
+   "fr": "Le principal supermarché de grande taille du centre-ville de Kelowna, avec pharmacie et boulangerie, ouvert tous les jours jusqu'à 23 h. Il est à quelques minutes à pied du pôle de correspondance d'autobus Queensway (Queensway transit exchange).",
    "es": "El principal supermercado grande del centro de Kelowna, con farmacia y panadería, abierto todos los días hasta las 23:00. Está a poca distancia a pie del intercambiador de autobuses Queensway (Queensway transit exchange).",
    "ko": "Kelowna 시내의 주요 대형 슈퍼마켓으로, 약국과 베이커리가 있으며 매일 오후 11시까지 영업합니다. Queensway 버스 환승장(transit exchange)에서 걸어서 금방입니다.",
    "ja": "Kelowna のダウンタウンにある主な大型スーパーで、薬局とベーカリーがあり、毎日 23 時まで営業しています。Queensway のバス乗り換え場所（transit exchange）から歩いてすぐです。"
@@ -10011,18 +10051,14 @@
    "life"
   ],
   "alias": [
-   "S",
-   "a",
-   "f",
-   "e",
-   "w",
-   "a",
-   "y",
-   " ",
-   "D",
-   "o",
-   "w",
-   "n"
+   "supermarket",
+   "grocery",
+   "Bernard",
+   "pharmacy",
+   "超市",
+   "西夫韦",
+   "食品店",
+   "药房"
   ],
   "id": "c0075c91",
   "w": "https://www.safeway.ca/stores/safeway-downtown-kelowna"
@@ -10049,7 +10085,7 @@
   "note": {
    "zh": "位于 Rutland 区 Plaza 33 购物中心的大型超市，每天从早到晚营业，靠近 Rutland 公交换乘站。",
    "en": "A large supermarket in the Plaza 33 shopping centre in Rutland, open every day from early morning to late evening. It is close to the Rutland transit exchange.",
-   "fr": "Grand supermarché dans le centre commercial Plaza 33 à Rutland, ouvert tous les jours du petit matin jusqu’en fin de soirée. Il est près du pôle d’échange d’autobus de Rutland.",
+   "fr": "Grand supermarché dans le centre commercial Plaza 33 à Rutland, ouvert tous les jours du petit matin jusqu’en fin de soirée. Il est près du pôle de correspondance d’autobus de Rutland.",
    "es": "Gran supermercado en el centro comercial Plaza 33 de Rutland, abierto todos los días desde temprano por la mañana hasta tarde por la noche. Está cerca del intercambiador de autobuses de Rutland.",
    "ko": "Rutland의 Plaza 33 쇼핑센터에 있는 대형 슈퍼마켓으로, 매일 이른 아침부터 늦은 저녁까지 엽니다. Rutland 버스 환승장과 가깝습니다.",
    "ja": "RutlandのショッピングセンターPlaza 33にある大型スーパーで、毎日早朝から夜遅くまで営業しています。Rutlandのバス乗り換えターミナルの近くです。"
@@ -10060,18 +10096,13 @@
    "life"
   ],
   "alias": [
-   "S",
-   "a",
-   "v",
-   "e",
-   "-",
-   "O",
-   "n",
-   "-",
-   "F",
-   "o",
-   "o",
-   "d"
+   "Save-On-Foods",
+   "Plaza",
+   "33",
+   "supermarket",
+   "grocery",
+   "超市",
+   "食品店"
   ],
   "sameComplex": [
    "4d296ae3",
@@ -10114,18 +10145,15 @@
    "life"
   ],
   "alias": [
-   "S",
-   "a",
-   "v",
-   "e",
-   "-",
-   "O",
-   "n",
-   "-",
-   "F",
-   "o",
-   "o",
-   "d"
+   "Save-On-Foods",
+   "Mission",
+   "Park",
+   "supermarket",
+   "grocery",
+   "pharmacy",
+   "超市",
+   "食品店",
+   "药房"
   ],
   "id": "9c4a407d",
   "w": "https://www.saveonfoods.com/store-information/lakeshore-centre/932"
@@ -10205,18 +10233,15 @@
    "life"
   ],
   "alias": [
-   "N",
-   "o",
-   " ",
-   "F",
-   "r",
-   "i",
-   "l",
-   "l",
-   "s",
-   " ",
-   "N",
-   "O"
+   "discount",
+   "supermarket",
+   "grocery",
+   "cheap",
+   "Lawson",
+   "平价超市",
+   "便宜",
+   "超市",
+   "食品店"
   ],
   "id": "6bd1a60b",
   "w": "https://www.nofrills.ca/en/store-locator/details/7953"
@@ -10254,18 +10279,17 @@
    "life"
   ],
   "alias": [
-   "N",
-   "e",
-   "s",
-   "t",
-   "e",
-   "r",
-   "s",
-   " ",
-   "M",
-   "a",
-   "r",
-   "k"
+   "Food",
+   "Pier",
+   "Mac",
+   "Way",
+   "Quail",
+   "Ridge",
+   "UBCO",
+   "grocery",
+   "超市",
+   "食品店",
+   "学生"
   ],
   "sameComplex": [
    "dc6f06ff",
@@ -10294,7 +10318,7 @@
    ]
   },
   "note": {
-   "zh": "位于西基洛纳 Westbank 区 Dobbin 路的大型超市，附设药房，每天营业。",
+   "zh": "位于 West Kelowna Westbank 区 Dobbin 路的大型超市，附设药房，每天营业。",
    "en": "A large supermarket with a pharmacy on Dobbin Road in Westbank, West Kelowna, open every day.",
    "fr": "Grand supermarché avec pharmacie sur Dobbin Road, à Westbank (West Kelowna), ouvert tous les jours.",
    "es": "Un gran supermercado con farmacia en Dobbin Road, en Westbank, West Kelowna, abierto todos los días.",
@@ -10307,18 +10331,16 @@
    "life"
   ],
   "alias": [
-   "S",
-   "a",
-   "v",
-   "e",
-   "-",
-   "O",
-   "n",
-   "-",
-   "F",
-   "o",
-   "o",
-   "d"
+   "Save-On-Foods",
+   "Kelowna",
+   "Dobbin",
+   "supermarket",
+   "grocery",
+   "pharmacy",
+   "西基洛纳",
+   "超市",
+   "食品店",
+   "药房"
   ],
   "sameComplex": [
    "b3551a68",
@@ -10351,61 +10373,26 @@
    "multi"
   ],
   "alias": [
-   "F",
-   "r",
-   "u",
-   "i",
-   "t",
-   "i",
-   "c",
-   "a",
-   "n",
-   "a",
-   " ",
-   "S"
+   "South",
+   "Asian",
+   "Indian",
+   "Punjabi",
+   "grocery",
+   "spices",
+   "atta",
+   "dal",
+   "Crossing",
+   "印度超市",
+   "南亚超市",
+   "旁遮普",
+   "香料",
+   "印度食品"
   ],
   "id": "f4c238b9",
   "w": "https://www.fruiticana.com/storefinder?city=Kelowna",
   "sameComplex": [
    "c89e4405"
   ]
- },
- {
-  "n": "Sabzi Mandi Supermarket (Rutland)",
-  "c": "asian",
-  "g": "rt",
-  "lat": 49.8892673,
-  "lng": -119.3908649,
-  "a": "284 Highway 33 W",
-  "note": {
-   "zh": "位于 Rutland 区的南亚超市，属于总部在素里（Surrey）的连锁店，出售香料、印度特色食品和蔬果。",
-   "en": "A South Asian supermarket in Rutland, part of a Surrey-based chain, selling spices, Indian specialty products and produce.",
-   "fr": "Supermarché sud-asiatique à Rutland, membre d’une chaîne basée à Surrey, avec des épices, des produits indiens spécialisés et des fruits et légumes.",
-   "es": "Un supermercado del sur de Asia en Rutland, parte de una cadena con sede en Surrey, que vende especias, productos indios especiales y frutas y verduras.",
-   "ko": "Rutland에 있는 남아시아 슈퍼마켓으로, Surrey에 본사를 둔 체인점이며 향신료, 인도 특산 식품, 채소·과일을 팝니다.",
-   "ja": "Rutlandにある南アジア系スーパーで、Surreyに本社があるチェーンの店舗です。スパイス、インドの特産品、野菜・果物を売っています。"
-  },
-  "src": "opendata",
-  "v": "2026-10",
-  "t": [
-   "life",
-   "multi"
-  ],
-  "alias": [
-   "S",
-   "a",
-   "b",
-   "z",
-   "i",
-   " ",
-   "M",
-   "a",
-   "n",
-   "d",
-   "i",
-   " "
-  ],
-  "id": "e2c31cfc"
  },
  {
   "n": "Punjab Spice World and Produce Market",
@@ -10416,7 +10403,7 @@
   "a": "C-120 Dougall Rd N",
   "note": {
    "zh": "位于 Rutland 区的印度食品杂货店，在市政府的营业执照中登记为印度食品店。",
-   "en": "An East Indian grocery store in Rutland, licensed by the City as an East Indian grocery.",
+   "en": "A South Asian (Indian) grocery store in Rutland.",
    "fr": "Épicerie indienne à Rutland, enregistrée comme épicerie indienne dans son permis d’affaires de la Ville.",
    "es": "Tienda de comestibles indios en Rutland, registrada por la Ciudad en su licencia como tienda de comestibles indios.",
    "ko": "Rutland에 있는 인도 식료품점으로, 시의 영업 허가에도 인도 식료품점으로 등록되어 있습니다.",
@@ -10429,18 +10416,16 @@
    "multi"
   ],
   "alias": [
-   "P",
-   "u",
-   "n",
-   "j",
-   "a",
-   "b",
-   " ",
-   "S",
-   "p",
-   "i",
-   "c",
-   "e"
+   "East",
+   "Indian",
+   "grocery",
+   "Punjabi",
+   "spices",
+   "Rutland",
+   "Dougall",
+   "印度食品店",
+   "旁遮普",
+   "香料"
   ],
   "id": "17217475"
  },
@@ -10477,18 +10462,18 @@
    "life"
   ],
   "alias": [
-   "B",
-   "a",
-   "c",
-   "h",
-   "h",
-   "a",
-   "t",
-   " ",
-   "B",
-   "a",
-   "z",
-   "a"
+   "Okanagan",
+   "Wholesale",
+   "Cash",
+   "Carry",
+   "discount",
+   "grocery",
+   "Rutland",
+   "Hollywood",
+   "Road",
+   "平价",
+   "食品店",
+   "超市"
   ],
   "id": "e2ab8b95",
   "w": "https://bachhatbazaar.ca/"
@@ -10515,18 +10500,14 @@
    "multi"
   ],
   "alias": [
-   "F",
-   "a",
-   "r",
-   "a",
-   "h",
-   " ",
-   "M",
-   "i",
-   "d",
-   "d",
-   "l",
-   "e"
+   "halal",
+   "Arabic",
+   "Syrian",
+   "grocery",
+   "Rutland",
+   "中东食品",
+   "清真",
+   "阿拉伯"
   ],
   "id": "19f5e7fa",
   "sameComplex": [
@@ -10555,18 +10536,19 @@
    "multi"
   ],
   "alias": [
-   "I",
-   "n",
-   " ",
-   "N",
-   " ",
-   "O",
-   "u",
-   "t",
-   " ",
-   "A",
-   "r",
-   "a"
+   "Middle",
+   "Eastern",
+   "halal",
+   "Turkish",
+   "Persian",
+   "grocery",
+   "Harvey",
+   "Landmark",
+   "中东食品",
+   "清真",
+   "阿拉伯",
+   "土耳其",
+   "波斯"
   ],
   "id": "d66ab587"
  },
@@ -10603,18 +10585,12 @@
    "multi"
   ],
   "alias": [
-   "T",
-   "h",
-   "e",
-   " ",
-   "H",
-   "a",
-   "l",
-   "a",
-   "l",
-   " ",
-   "B",
-   "u"
+   "meat",
+   "Rutland",
+   "Asher",
+   "清真",
+   "肉店",
+   "牛羊肉"
   ],
   "id": "472381f1"
  },
@@ -10640,18 +10616,14 @@
    "multi"
   ],
   "alias": [
-   "S",
-   "a",
-   "m",
-   "p",
-   "a",
-   "g",
-   "u",
-   "i",
-   "t",
-   "a",
-   " ",
-   "a"
+   "Filipino",
+   "grocery",
+   "Pinoy",
+   "Harvey",
+   "Ishop",
+   "Pinas",
+   "菲律宾食品",
+   "菲律宾超市"
   ],
   "id": "4587155a"
  },
@@ -10696,18 +10668,15 @@
    "multi"
   ],
   "alias": [
-   "S",
-   "a",
-   "n",
-   "'",
-   "s",
-   " ",
-   "L",
-   "a",
-   "t",
-   "i",
-   "n",
-   " "
+   "American",
+   "Mexican",
+   "grocery",
+   "tortillas",
+   "Cooper",
+   "Road",
+   "拉美食品",
+   "墨西哥食品",
+   "西班牙语"
   ],
   "id": "6a0f1623",
   "w": "https://www.sanslatinmarket.ca/"
@@ -10734,18 +10703,11 @@
    "multi"
   ],
   "alias": [
-   "T",
-   "a",
-   "m",
-   "m",
-   " ",
-   "L",
-   "a",
-   "t",
-   "i",
-   "n",
-   " ",
-   "M"
+   "American",
+   "Mexican",
+   "grocery",
+   "拉美食品",
+   "墨西哥食品"
   ],
   "id": "bf46a404"
  },
@@ -10757,7 +10719,7 @@
   "lng": -119.4168689,
   "a": "2-2575 Highway 97 N",
   "note": {
-   "zh": "基洛纳开业多年的亚洲食品超市，位于 97 号公路旁，有中国、日本、韩国、东南亚等亚洲食品。",
+   "zh": "Kelowna 开业多年的亚洲食品超市，位于 97 号公路旁，有中国、日本、韩国、东南亚等亚洲食品。",
    "en": "Kelowna's long-standing Asian grocery store on Highway 97, with Chinese, Japanese, Korean, Southeast Asian and other Asian foods.",
    "fr": "Épicerie asiatique établie depuis longtemps à Kelowna, sur la Highway 97, avec des produits chinois, japonais, coréens, d’Asie du Sud-Est et d’autres pays d’Asie.",
    "es": "La tienda de alimentos asiáticos de toda la vida en Kelowna, en la Highway 97, con productos chinos, japoneses, coreanos, del Sudeste Asiático y de otros países asiáticos.",
@@ -10771,18 +10733,19 @@
    "multi"
   ],
   "alias": [
-   "O",
-   "r",
-   "i",
-   "e",
-   "n",
-   "t",
-   "a",
-   "l",
-   " ",
-   "S",
-   "u",
-   "p"
+   "Asian",
+   "grocery",
+   "Chinese",
+   "Korean",
+   "Japanese",
+   "Filipino",
+   "Highway",
+   "97",
+   "亚洲超市",
+   "中国超市",
+   "华人超市",
+   "韩国食品",
+   "日本食品"
   ],
   "id": "a2181776"
  },
@@ -10808,18 +10771,13 @@
    "multi"
   ],
   "alias": [
-   "R",
-   "u",
-   "s",
-   "s",
-   "i",
-   "a",
-   "n",
-   " ",
-   "U",
-   "k",
-   "r",
-   "a"
+   "Eastern",
+   "European",
+   "food",
+   "Springfield",
+   "乌克兰食品",
+   "俄罗斯食品",
+   "东欧"
   ],
   "id": "0f40437c"
  },
@@ -10832,7 +10790,7 @@
   "a": "1111 Rutland Rd N",
   "p": "250-765-7477",
   "note": {
-   "zh": "基洛纳的锡克教庙（Gurdwara），由奥卡纳根锡克庙与文化协会管理，每天早晚有祈祷，周日有集体活动；周日和节日提供免费的社区餐（langar）。",
+   "zh": "Kelowna 的锡克教庙（Gurdwara），由奥卡纳根锡克庙与文化协会管理，每天早晚有祈祷，周日有集体活动；周日和节日提供免费的社区餐（langar）。",
    "en": "Kelowna's gurdwara, run by the Okanagan Sikh Temple and Cultural Society, with daily morning and evening prayers and a Sunday program. Free community meals (langar) are served on Sundays and special days.",
    "fr": "Le gurdwara de Kelowna, géré par l’Okanagan Sikh Temple and Cultural Society, avec des prières chaque matin et chaque soir et un programme le dimanche. Des repas communautaires gratuits (langar) sont servis le dimanche et les jours spéciaux.",
    "es": "El gurdwara de Kelowna, a cargo de la Okanagan Sikh Temple and Cultural Society, con oraciones cada mañana y cada tarde y un programa los domingos. Los domingos y en días especiales se sirven comidas comunitarias gratuitas (langar).",
@@ -10845,24 +10803,16 @@
    "multi"
   ],
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "S",
-   "i",
-   "k"
+   "Rutland",
+   "langar",
+   "Punjabi",
+   "锡克庙",
+   "锡克教",
+   "旁遮普",
+   "谒师所"
   ],
   "id": "bd10da91",
-  "w": "https://www.kelownasikhtemple.ca/",
-  "sameComplex": [
-   "d42d42dc"
-  ]
+  "w": "https://www.kelownasikhtemple.ca/"
  },
  {
   "n": "Kelowna Islamic Center (BCMA Kelowna Branch)",
@@ -10873,7 +10823,7 @@
   "a": "1120 Highway 33",
   "p": "250-979-1370",
   "note": {
-   "zh": "基洛纳的清真寺，由卑诗穆斯林协会（BCMA）管理，有每日五次礼拜、周五聚礼、开斋节礼拜和周末学校。礼拜时间请看官网。",
+   "zh": "Kelowna 的清真寺，由卑诗穆斯林协会（BCMA）管理，有每日五次礼拜、周五聚礼、开斋节礼拜和周末学校。礼拜时间请看官网。",
    "en": "Kelowna's mosque, run by the BC Muslim Association, holding the five daily prayers, Friday Jumu'ah, Eid prayers and a weekend school. Check the website for current prayer times.",
    "fr": "La mosquée de Kelowna, gérée par la BC Muslim Association, avec les cinq prières quotidiennes, la Jumu’ah du vendredi, les prières de l’Aïd et une école de fin de semaine. Consultez le site Web pour les heures de prière actuelles.",
    "es": "La mezquita de Kelowna, a cargo de la BC Muslim Association, con las cinco oraciones diarias, la Jumu'ah de los viernes, las oraciones del Eid y una escuela de fin de semana. Consulte el sitio web para ver los horarios de oración actuales.",
@@ -10886,18 +10836,17 @@
    "multi"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "I",
-   "s",
-   "l",
-   "a"
+   "Centre",
+   "Masjid",
+   "mosque",
+   "Muslim",
+   "Jumuah",
+   "Friday",
+   "prayer",
+   "清真寺",
+   "穆斯林",
+   "礼拜",
+   "伊斯兰"
   ],
   "id": "db95c7db",
   "w": "http://org.thebcma.com/kelowna"
@@ -10924,18 +10873,16 @@
    "multi"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "B",
-   "u",
-   "d",
-   "d"
+   "Society",
+   "Jodo",
+   "Shinshu",
+   "Pure",
+   "Land",
+   "Buddhism",
+   "佛寺",
+   "佛教",
+   "寺庙",
+   "净土真宗"
   ],
   "id": "9e5639c9",
   "w": "https://kbtemple.ca/"
@@ -10986,18 +10933,14 @@
    "multi"
   ],
   "alias": [
-   "I",
-   "m",
-   "m",
-   "a",
-   "c",
-   "u",
-   "l",
-   "a",
-   "t",
-   "e",
-   " ",
-   "C"
+   "church",
+   "Mass",
+   "downtown",
+   "Sutherland",
+   "天主教堂",
+   "天主教",
+   "弥撒",
+   "教堂"
   ],
   "sameComplex": [
    "ebe74ad0",
@@ -11015,12 +10958,12 @@
   "a": "1346 Gordon Drive",
   "p": "250-762-2587",
   "note": {
-   "zh": "位于 Gordon 路与 Fuller 大道交口的天主教堂区。韩国天主教团体每周六上午在这里聚会。",
-   "en": "A central Catholic parish at Gordon Drive and Fuller Avenue. The Korean Catholic Community gathers here every Saturday morning.",
-   "fr": "Paroisse catholique du centre, à l’angle de Gordon Drive et de Fuller Avenue. La Korean Catholic Community (communauté catholique coréenne) s’y réunit tous les samedis matin.",
-   "es": "Parroquia católica céntrica en la esquina de Gordon Drive y Fuller Avenue. La Korean Catholic Community (comunidad católica coreana) se reúne aquí todos los sábados por la mañana.",
-   "ko": "Gordon Drive와 Fuller Avenue 교차로에 있는 시내 중심가의 가톨릭 성당입니다. Korean Catholic Community(한인 가톨릭 공동체)가 매주 토요일 오전에 이곳에서 모입니다.",
-   "ja": "Gordon DriveとFuller Avenueの角にある、市の中心部のカトリック教会です。Korean Catholic Community（韓国人カトリック共同体）が毎週土曜の午前にここで集まります。"
+   "zh": "位于 Gordon 路与 Fuller 大道交口的天主教堂区。韩国天主教团体每月第三个星期日中午 12:30 在这里的 Fr. Martin Room 聚会。",
+   "en": "A central Catholic parish at Gordon Drive and Fuller Avenue. The Korean Catholic Community meets here every third Sunday of the month at 12:30 pm, in the Fr. Martin Room.",
+   "fr": "Paroisse catholique du centre, à l’angle de Gordon Drive et de Fuller Avenue. La Korean Catholic Community (communauté catholique coréenne) s’y réunit le troisième dimanche de chaque mois à 12 h 30, dans la salle Fr. Martin Room.",
+   "es": "Parroquia católica céntrica en la esquina de Gordon Drive y Fuller Avenue. La Korean Catholic Community (comunidad católica coreana) se reúne aquí el tercer domingo de cada mes a las 12:30, en la sala Fr. Martin Room.",
+   "ko": "Gordon Drive와 Fuller Avenue 교차로에 있는 시내 중심가의 가톨릭 성당입니다. Korean Catholic Community(한인 가톨릭 공동체)가 매월 셋째 주 일요일 낮 12시 30분에 Fr. Martin Room에서 모입니다.",
+   "ja": "Gordon DriveとFuller Avenueの角にある、市の中心部のカトリック教会です。Korean Catholic Community（韓国人カトリック共同体）が毎月第3日曜の12時30分に、Fr. Martin Roomで集まります。"
   },
   "src": "official",
   "v": "2026-10",
@@ -11028,18 +10971,13 @@
    "multi"
   ],
   "alias": [
-   "S",
-   "t",
-   ".",
-   " ",
-   "P",
-   "i",
-   "u",
-   "s",
-   " ",
-   "X",
-   " ",
-   "C"
+   "church",
+   "Mass",
+   "한인",
+   "성당",
+   "天主教堂",
+   "韩国天主教",
+   "弥撒"
   ],
   "id": "0324a6a4",
   "w": "https://spxbc.com/"
@@ -11082,18 +11020,14 @@
    "multi"
   ],
   "alias": [
-   "C",
-   "o",
-   "r",
-   "p",
-   "u",
-   "s",
-   " ",
-   "C",
-   "h",
-   "r",
-   "i",
-   "s"
+   "church",
+   "Rutland",
+   "Tagalog",
+   "Vietnamese",
+   "天主教堂",
+   "菲律宾弥撒",
+   "越南",
+   "弥撒"
   ],
   "id": "a49d7f91",
   "w": "https://www.nelsondiocese.org/apps/pages/index.jsp?uREC_ID=1069739&type=d&pREC_ID=1358566"
@@ -11140,18 +11074,11 @@
    "multi"
   ],
   "alias": [
-   "S",
-   "t",
-   ".",
-   " ",
-   "C",
-   "h",
-   "a",
-   "r",
-   "l",
-   "e",
-   "s",
-   " "
+   "church",
+   "Benvoulin",
+   "Mass",
+   "天主教堂",
+   "弥撒"
   ],
   "id": "441f21f5",
   "w": "https://stcharlesgarnier.ca/"
@@ -11181,7 +11108,7 @@
    ]
   },
   "note": {
-   "zh": "西基洛纳的天主教堂区，周末和平日都有弥撒。",
+   "zh": "West Kelowna 的天主教堂区，周末和平日都有弥撒。",
    "en": "The Catholic parish in West Kelowna, with weekend and daily Masses.",
    "fr": "La paroisse catholique de West Kelowna, avec des messes la fin de semaine et des messes quotidiennes.",
    "es": "La parroquia católica de West Kelowna, con misas los fines de semana y misas diarias.",
@@ -11194,18 +11121,13 @@
    "multi"
   ],
   "alias": [
-   "O",
-   "u",
-   "r",
-   " ",
-   "L",
-   "a",
-   "d",
-   "y",
-   " ",
-   "o",
-   "f",
-   " "
+   "church",
+   "Westbank",
+   "Hebert",
+   "Mass",
+   "天主教堂",
+   "西基洛纳",
+   "弥撒"
   ],
   "sameComplex": [
    "ba40a908",
@@ -11245,18 +11167,14 @@
    "multi"
   ],
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "C",
-   "h",
-   "i"
+   "OCBC",
+   "Cantonese",
+   "Mandarin",
+   "华人教会",
+   "中文教会",
+   "粤语",
+   "普通话",
+   "基督教"
   ],
   "id": "380f9d36",
   "w": "https://ocbckelowna.org/"
@@ -11291,18 +11209,11 @@
    "multi"
   ],
   "alias": [
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " ",
-   "K",
-   "o",
-   "r",
-   "e"
+   "KKPC",
+   "한인교회",
+   "韩国教会",
+   "韩人教会",
+   "基督教"
   ],
   "id": "905767e6",
   "w": "https://thekkpc.com/"
@@ -11332,7 +11243,7 @@
    ]
   },
   "note": {
-   "zh": "基洛纳的乌克兰天主教堂区，周日有英语和乌克兰语的圣礼（Divine Liturgy），是本地乌克兰社区的聚会场所。",
+   "zh": "Kelowna 的乌克兰天主教堂区，周日有英语和乌克兰语的圣礼（Divine Liturgy），是本地乌克兰社区的聚会场所。",
    "en": "The Ukrainian Catholic parish in Kelowna, with Sunday Divine Liturgy in English and in Ukrainian. It is a gathering place for the local Ukrainian community.",
    "fr": "La paroisse catholique ukrainienne de Kelowna, avec la Divine Liturgie le dimanche en anglais et en ukrainien. C’est un lieu de rassemblement pour la communauté ukrainienne locale.",
    "es": "La parroquia católica ucraniana de Kelowna, con Divina Liturgia los domingos en inglés y en ucraniano. Es un punto de encuentro para la comunidad ucraniana local.",
@@ -11345,18 +11256,11 @@
    "multi"
   ],
   "alias": [
-   "D",
-   "o",
-   "r",
-   "m",
-   "i",
-   "t",
-   "i",
-   "o",
-   "n",
-   " ",
-   "o",
-   "f"
+   "Coronation",
+   "community",
+   "乌克兰天主教堂",
+   "乌克兰",
+   "教堂"
   ],
   "id": "974a56f4",
   "w": "https://kelowna.nweparchy.ca/"
@@ -11384,7 +11288,7 @@
    "zh": "救世军在 Rutland 的二手店，出售捐赠的衣物和其他家居用品，收入用于本地救世军的服务项目。周日不营业。",
    "en": "A Salvation Army thrift store in Rutland selling donated clothing and other household goods; sales support local Salvation Army programs. Closed Sundays.",
    "fr": "Friperie de la Salvation Army (Armée du Salut) à Rutland, qui vend des vêtements et d'autres articles ménagers donnés; les ventes financent les programmes locaux de la Salvation Army. Fermé le dimanche.",
-   "es": "Tienda de segunda mano de la Salvation Army (Ejército de Salvación) en Rutland, que vende ropa donada y otros artículos para el hogar; las ventas apoyan los programas locales de la Salvation Army. Cerrado los domingos.",
+   "es": "Tienda de segunda mano de la Salvation Army (Ejército de Salvación) en Rutland, que vende ropa donada y otros artículos para el hogar; las ventas apoyan los programas locales de la Salvation Army. Cerrada los domingos.",
    "ko": "Rutland에 있는 Salvation Army(구세군) 중고 매장으로, 기부받은 의류와 기타 생활용품을 판매합니다. 판매 수익은 지역 Salvation Army 프로그램에 쓰입니다. 일요일은 휴무입니다.",
    "ja": "Rutland にある Salvation Army（救世軍）のリサイクルショップで、寄付された衣類やその他の日用品を販売しています。売上は地元の Salvation Army の活動に使われます。日曜日は休みです。"
   },
@@ -11394,18 +11298,15 @@
    "free"
   ],
   "alias": [
-   "S",
-   "a",
-   "l",
-   "v",
-   "a",
-   "t",
-   "i",
-   "o",
-   "n",
-   " ",
-   "A",
-   "r"
+   "second-hand",
+   "used",
+   "clothing",
+   "furniture",
+   "救世军",
+   "二手店",
+   "旧货",
+   "二手家具",
+   "二手衣服"
   ],
   "id": "9603af74",
   "w": "https://www.kelownasalvationarmy.ca/location-hours/",
@@ -11433,7 +11334,7 @@
    ]
   },
   "note": {
-   "zh": "救世军在西基洛纳 Westbank 的二手店，出售二手衣物和家居用品。周日不营业。",
+   "zh": "救世军在 West Kelowna Westbank 的二手店，出售二手衣物和家居用品。周日不营业。",
    "en": "The Salvation Army thrift store in Westbank, West Kelowna, selling used clothing and household goods. Closed Sundays.",
    "fr": "Le magasin d’occasion de la Salvation Army à Westbank (West Kelowna) : vêtements et articles ménagers usagés. Fermé le dimanche.",
    "es": "La tienda de segunda mano de la Salvation Army en Westbank, West Kelowna, con ropa y artículos para el hogar usados. Cerrada los domingos.",
@@ -11446,18 +11347,12 @@
    "free"
   ],
   "alias": [
-   "S",
-   "a",
-   "l",
-   "v",
-   "a",
-   "t",
-   "i",
-   "o",
-   "n",
-   " ",
-   "A",
-   "r"
+   "Kelowna",
+   "second-hand",
+   "used",
+   "救世军",
+   "二手店",
+   "西基洛纳"
   ],
   "id": "bc8be723",
   "w": "https://www.kelownasalvationarmy.ca/location-hours/",
@@ -11505,18 +11400,16 @@
    "free"
   ],
   "alias": [
-   "V",
-   "a",
-   "l",
-   "u",
-   "e",
-   " ",
-   "V",
-   "i",
-   "l",
-   "l",
-   "a",
-   "g"
+   "Savers",
+   "thrift",
+   "store",
+   "second-hand",
+   "used",
+   "clothing",
+   "Aurora",
+   "二手店",
+   "二手衣服",
+   "旧货"
   ],
   "id": "d814c766",
   "w": "https://stores.savers.com/bc/kelowna/valuevillage-thrift-store-2004.html"
@@ -11561,18 +11454,13 @@
    "free"
   ],
   "alias": [
-   "V",
-   "a",
-   "l",
-   "u",
-   "e",
-   " ",
-   "V",
-   "i",
-   "l",
-   "l",
-   "a",
-   "g"
+   "Savers",
+   "thrift",
+   "Kelowna",
+   "Louie",
+   "Drive",
+   "二手店",
+   "西基洛纳"
   ],
   "id": "f7c4a7c6",
   "w": "https://stores.savers.com/bc/westbank/valuevillage-thrift-store-2149.html"
@@ -11645,18 +11533,14 @@
    "free"
   ],
   "alias": [
-   "M",
-   "C",
-   "C",
-   " ",
-   "T",
-   "h",
-   "r",
-   "i",
-   "f",
-   "t",
-   " ",
-   "S"
+   "Mennonite",
+   "Central",
+   "Committee",
+   "second-hand",
+   "Rutland",
+   "二手店",
+   "门诺",
+   "旧货"
   ],
   "id": "0259da40",
   "w": "https://mccthrift.com/locations/kelowna-mcc-thrift-shop"
@@ -11694,18 +11578,17 @@
    "free"
   ],
   "alias": [
-   "H",
-   "a",
-   "b",
-   "i",
-   "t",
-   "a",
-   "t",
-   " ",
-   "f",
-   "o",
-   "r",
-   " "
+   "furniture",
+   "appliances",
+   "building",
+   "materials",
+   "second-hand",
+   "Enterprise",
+   "Way",
+   "仁人家园",
+   "二手家具",
+   "二手电器",
+   "建材"
   ],
   "id": "88c81bb2",
   "w": "https://www.habitatforhumanityokanagan.ca/restore/"
@@ -11730,7 +11613,7 @@
    ]
   },
   "note": {
-   "zh": "仁人家园在西基洛纳的 ReStore 商店，低价出售家具、电器、建材和家居用品。",
+   "zh": "仁人家园在 West Kelowna 的 ReStore 商店，低价出售家具、电器、建材和家居用品。",
    "en": "Habitat for Humanity's West Kelowna ReStore, selling low-cost furniture, appliances, building materials and housewares.",
    "fr": "Le ReStore de Habitat for Humanity à West Kelowna, qui vend à bas prix des meubles, des électroménagers, des matériaux de construction et des articles de maison.",
    "es": "El ReStore de Habitat for Humanity en West Kelowna, que vende a bajo precio muebles, electrodomésticos, materiales de construcción y artículos para el hogar.",
@@ -11743,18 +11626,13 @@
    "free"
   ],
   "alias": [
-   "H",
-   "a",
-   "b",
-   "i",
-   "t",
-   "a",
-   "t",
-   " ",
-   "f",
-   "o",
-   "r",
-   " "
+   "Ross",
+   "Road",
+   "furniture",
+   "second-hand",
+   "仁人家园",
+   "二手家具",
+   "西基洛纳"
   ],
   "id": "0b69860a",
   "w": "https://www.habitatforhumanityokanagan.ca/restore/"
@@ -11872,7 +11750,7 @@
    ]
   },
   "note": {
-   "zh": "Interior Health 在西基隆拿的公共卫生中心：疫苗、孕期和产后支持、母乳喂养帮助、儿童牙齿检查。有免费停车，请打电话预约。",
+   "zh": "Interior Health 在 West Kelowna 的公共卫生中心：疫苗、孕期和产后支持、母乳喂养帮助、儿童牙齿检查。有免费停车，请打电话预约。",
    "en": "Interior Health public health centre in West Kelowna, for vaccines, pregnancy and new-baby support, breastfeeding help and child dental checks. Free parking. Call to book.",
    "fr": "Centre de santé publique d’Interior Health à West Kelowna : vaccins, soutien pendant la grossesse et après la naissance du bébé, aide à l’allaitement et examens dentaires pour enfants. Stationnement gratuit. Appelez pour prendre rendez-vous.",
    "es": "Centro de salud pública de Interior Health en West Kelowna: vacunas, apoyo durante el embarazo y con el recién nacido, ayuda con la lactancia y revisiones dentales para niños. Estacionamiento gratuito. Llame para pedir cita.",
@@ -11925,7 +11803,7 @@
   "note": {
    "zh": "Interior Health 的性与生殖健康诊所，保密、不评判：性病检测与治疗、验孕、紧急避孕、免费安全套。拨打 1-844-862-4467 预约。",
    "en": "Confidential, non-judgmental Interior Health clinic for STI testing and treatment, pregnancy tests, emergency contraception and free condoms. Call 1-844-862-4467 to book.",
-   "fr": "Clinique d’Interior Health confidentielle et sans jugement : dépistage et traitement des infections transmissibles sexuellement (STI), tests de grossesse, contraception d’urgence et condoms gratuits. Appelez le 1-844-862-4467 pour prendre rendez-vous.",
+   "fr": "Clinique d’Interior Health confidentielle et sans jugement : dépistage et traitement des infections transmissibles sexuellement (ITS), tests de grossesse, contraception d’urgence et condoms gratuits. Appelez le 1-844-862-4467 pour prendre rendez-vous.",
    "es": "Clínica de Interior Health confidencial y sin juicios: pruebas y tratamiento de infecciones de transmisión sexual (STI), pruebas de embarazo, anticoncepción de emergencia y condones gratuitos. Llame al 1-844-862-4467 para pedir cita.",
    "ko": "비밀이 보장되고 편견 없이 대하는 Interior Health 클리닉으로, 성병(STI) 검사와 치료, 임신 검사, 응급 피임, 무료 콘돔을 제공합니다. 예약은 1-844-862-4467로 전화하세요.",
    "ja": "秘密が守られ、批判されることのないInterior Healthのクリニックで、性感染症（STI）の検査と治療、妊娠検査、緊急避妊、無料のコンドームを提供しています。予約は1-844-862-4467に電話してください。"
@@ -11974,7 +11852,7 @@
    ]
   },
   "note": {
-   "zh": "Interior Health 在西基隆拿的保密性健康诊所，位于 West Kelowna Health Centre 内。拨打 1-844-862-4467 预约。",
+   "zh": "Interior Health 在 West Kelowna 的保密性健康诊所，位于 West Kelowna Health Centre 内。拨打 1-844-862-4467 预约。",
    "en": "Interior Health's confidential sexual health clinic in West Kelowna, in the West Kelowna Health Centre. Call 1-844-862-4467 to book.",
    "fr": "Clinique de santé sexuelle confidentielle d’Interior Health à West Kelowna, dans le West Kelowna Health Centre. Appelez le 1-844-862-4467 pour prendre rendez-vous.",
    "es": "Clínica de salud sexual confidencial de Interior Health en West Kelowna, dentro del West Kelowna Health Centre. Llame al 1-844-862-4467 para pedir cita.",
@@ -12234,7 +12112,7 @@
    ]
   },
   "note": {
-   "zh": "Foundry 在西基隆拿的青少年服务（12–24 岁），每周一和周五在儿童青少年心理健康办公室提供免费、保密的心理咨询。",
+   "zh": "Foundry 在 West Kelowna 的青少年服务（12–24 岁），每周一和周五在儿童青少年心理健康办公室提供免费、保密的心理咨询。",
    "en": "Foundry youth counselling for ages 12-24 in West Kelowna, on Mondays and Fridays at the Child & Youth Mental Health office. Free and confidential.",
    "fr": "Counseling jeunesse de Foundry pour les 12 à 24 ans à West Kelowna, le lundi et le vendredi au bureau Child & Youth Mental Health. Gratuit et confidentiel.",
    "es": "Consejería juvenil de Foundry para jóvenes de 12 a 24 años en West Kelowna, los lunes y viernes en la oficina de Child & Youth Mental Health. Gratuita y confidencial.",
@@ -12350,7 +12228,7 @@
   "note": {
    "zh": "UBCO 的免预约心理支持（每次最多 30 分钟），18 岁以上任何 BC 居民都可以用，不限学生；收费低，具体费用视情况而定。9 月至次年 6 月的每周二、周四上午 10 点至下午 3 点可直接去。由注册心理师督导的硕士和博士研究生提供，每学年 1–3 次。不是危机服务，也不开药、不做诊断。",
    "en": "Brief (up to 30 min) drop-in mental health support at UBCO, open to anyone in BC aged 18+, not only students; low-cost, and fees vary. Walk in on Tuesdays and Thursdays, 10 a.m. to 3 p.m., September to June. Sessions are with master's and PhD students supervised by registered psychologists, 1–3 sessions per academic year. Not a crisis service, and no prescriptions or diagnoses.",
-   "fr": "Soutien bref en santé mentale (jusqu'à 30 min), sans rendez-vous, à UBCO, ouvert à toute personne en C.-B. âgée de 18 ans et plus, pas seulement aux étudiants; à faible coût, et les frais varient. Présentez-vous le mardi et le jeudi, de 10 h à 15 h, de septembre à juin. Les séances sont données par des étudiants à la maîtrise et au doctorat, supervisés par des psychologues agréés, 1–3 séances par année universitaire. Ce n'est pas un service d'aide en situation de crise, et il n'y a ni ordonnance ni diagnostic.",
+   "fr": "Soutien bref en santé mentale (jusqu'à 30 min), sans rendez-vous, à UBCO, ouvert à toute personne en C.-B. âgée de 18 ans et plus, pas seulement aux étudiants; à faible coût, et les frais varient. Présentez-vous le mardi et le jeudi, de 10 h à 15 h, de septembre à juin. Les séances sont données par des étudiants à la maîtrise et au doctorat, supervisés par des psychologues agréés, 1 à 3 séances par année universitaire. Ce n'est pas un service d'aide en situation de crise, et il n'y a ni ordonnance ni diagnostic.",
    "es": "Apoyo breve de salud mental (hasta 30 min) sin cita en UBCO, abierto a cualquier persona en BC de 18 años o más, no solo a estudiantes; de bajo costo, y las tarifas varían. Acuda los martes y jueves, de 10:00 a 15:00, de septiembre a junio. Las sesiones son con estudiantes de maestría y doctorado supervisados por psicólogos registrados, 1–3 sesiones por año académico. No es un servicio de crisis, y no se dan recetas ni diagnósticos.",
    "ko": "UBCO에서 예약 없이 받을 수 있는 짧은(최대 30분) 정신 건강 지원으로, 학생뿐 아니라 BC 주에 있는 18세 이상 누구나 이용할 수 있습니다. 비용이 저렴하며 요금은 경우에 따라 다릅니다. 9월부터 6월까지 매주 화요일과 목요일 오전 10시–오후 3시에 직접 방문하세요. 공인 심리학자의 지도를 받는 석사·박사 과정 학생이 상담하며, 학년도당 1–3회입니다. 위기 상담 서비스가 아니며, 처방이나 진단은 하지 않습니다.",
    "ja": "UBCO で予約なしで受けられる短時間（最大 30 分）のメンタルヘルス支援で、学生だけでなく、BC 州にいる 18 歳以上の誰でも利用できます。費用は低額で、料金は場合によって異なります。9 月から 6 月まで、毎週火曜日と木曜日の 10 時〜15 時に直接来てください。登録心理士の指導を受ける修士・博士課程の学生が担当し、1 学年度に 1〜3 回です。危機対応のサービスではなく、処方や診断は行いません。"
@@ -12392,7 +12270,7 @@
    "en": "On-campus clinic for UBCO students only, with doctors, a nurse practitioner and nurses, by appointment with some same-day spots. Bring your health card or PHN; international students use iMED or MSP.",
    "fr": "Clinique sur le campus réservée aux étudiants de UBCO, avec des médecins, une infirmière praticienne et des infirmières, sur rendez-vous, avec quelques places le jour même. Apportez votre carte santé ou votre PHN ; les étudiants étrangers utilisent iMED ou MSP.",
    "es": "Clínica en el campus solo para estudiantes de UBCO, con médicos, una enfermera practicante y enfermeras, con cita y algunos turnos para el mismo día. Traiga su tarjeta de salud o su PHN; los estudiantes internacionales usan iMED o MSP.",
-   "ko": "UBCO 학생만 이용할 수 있는 캠퍼스 내 클리닉으로, 의사, 전문간호사, 간호사가 있습니다. 예약제이며 당일 자리도 일부 있습니다. 건강 카드나 PHN을 가져오세요. 유학생은 iMED나 MSP를 사용합니다.",
+   "ko": "UBCO 학생만 이용할 수 있는 캠퍼스 내 클리닉으로, 의사, 전문간호사, 간호사가 있습니다. 예약제이며 당일 자리도 일부 있습니다. 건강보험카드나 PHN을 가져오세요. 유학생은 iMED나 MSP를 사용합니다.",
    "ja": "UBCOの学生専用のキャンパス内クリニックで、医師、ナースプラクティショナー、看護師がいます。予約制で、当日枠も少しあります。ヘルスカードかPHNを持参してください。留学生はiMEDかMSPを使います。"
   },
   "src": "official",
@@ -12478,12 +12356,12 @@
   "a": "Health Science Centre, 1000 KLO Road",
   "p": "250-862-5424",
   "note": {
-   "zh": "牙科助理学生提供的超低价洗牙、检查、涂氟和窝沟封闭，每年只在 5 月开放。只收现金，16 岁以上需先做初筛。",
-   "en": "Very low-cost cleanings, exams, fluoride and sealants done by dental assisting students, only in May each year. Cash only, and ages 16+ need a pre-screening.",
-   "fr": "Nettoyages, examens, fluorure et scellants à très bas prix, faits par des étudiants en assistance dentaire, seulement en mai chaque année. Argent comptant seulement ; à partir de 16 ans, un dépistage préalable est nécessaire.",
-   "es": "Limpiezas, revisiones, flúor y selladores a muy bajo costo, hechos por estudiantes de asistencia dental, solo en mayo de cada año. Solo efectivo; las personas de 16 años o más necesitan una evaluación previa.",
-   "ko": "치과 보조 과정 학생들이 아주 저렴한 비용으로 스케일링, 검진, 불소 도포, 실란트를 해 줍니다. 매년 5월에만 운영합니다. 현금만 받으며, 16세 이상은 사전 검사가 필요합니다.",
-   "ja": "歯科助手コースの学生が、とても安い料金でクリーニング、検診、フッ素塗布、シーラントを行います。毎年5月だけです。現金のみで、16歳以上は事前のスクリーニングが必要です。"
+   "zh": "牙科助理学生提供的超低价牙齿抛光、检查、涂氟和窝沟封闭（初筛日可做少量洁治），每年只在 5 月开放。只收现金，16 岁以上需先做初筛。",
+   "en": "Very low-cost polishing, exams, fluoride and sealants (and limited scaling on screening days) done by dental assisting students, only in May each year. Cash only, and ages 16+ need a pre-screening.",
+   "fr": "Polissage, examens, fluorure et scellants à très bas prix (et détartrage limité les jours de dépistage), faits par des étudiants en assistance dentaire, seulement en mai chaque année. Argent comptant seulement ; à partir de 16 ans, un dépistage préalable est nécessaire.",
+   "es": "Pulido, revisiones, flúor y selladores a muy bajo costo (y raspado limitado en los días de evaluación), hechos por estudiantes de asistencia dental, solo en mayo de cada año. Solo efectivo; las personas de 16 años o más necesitan una evaluación previa.",
+   "ko": "치과 보조 과정 학생들이 아주 저렴한 비용으로 치아 연마, 검진, 불소 도포, 실란트를 해 줍니다(사전 검사일에는 제한적인 스케일링도 가능). 매년 5월에만 운영합니다. 현금만 받으며, 16세 이상은 사전 검사가 필요합니다.",
+   "ja": "歯科助手コースの学生が、とても安い料金で歯の研磨、検診、フッ素塗布、シーラントを行います（スクリーニング日には限られた歯石除去も）。毎年5月だけです。現金のみで、16歳以上は事前のスクリーニングが必要です。"
   },
   "src": "official",
   "v": "2026-10",
@@ -12525,12 +12403,12 @@
    ]
   },
   "note": {
-   "zh": "家庭诊所，为没有家庭医生的人提供需预约的“免排队”门诊名额。必须先在网上预约，不能直接上门。",
+   "zh": "家庭诊所，为没有家庭医生的人提供需预约的“walk-in”（临时就诊）名额。必须先在网上预约，不能直接上门。",
    "en": "Family practice with booked 'walk-in' appointments for people without a family doctor. Book online first; you cannot just walk in.",
    "fr": "Cabinet de médecine familiale qui offre des places de type « sans rendez-vous » à réserver, pour les personnes sans médecin de famille. Réservez d’abord en ligne ; vous ne pouvez pas simplement vous présenter.",
    "es": "Consultorio de medicina familiar con citas de tipo «walk-in» que se reservan, para personas sin médico de familia. Reserve primero en línea; no puede simplemente presentarse.",
    "ko": "가정의가 없는 사람을 위해 예약제 'walk-in' 진료를 하는 가정의원입니다. 먼저 온라인으로 예약하세요. 그냥 찾아가서는 진료받을 수 없습니다.",
-   "ja": "かかりつけ医がいない人向けに、予約制の「ウォークイン」枠がある家庭医のクリニックです。まずオンラインで予約してください。予約なしで行っても受診できません。"
+   "ja": "かかりつけ医がいない人向けに、予約制の「ウォークイン」枠があるかかりつけ医（ファミリードクター）のクリニックです。まずオンラインで予約してください。予約なしで行っても受診できません。"
   },
   "src": "official",
   "v": "2026-10",
@@ -12603,11 +12481,11 @@
   },
   "note": {
    "zh": "看小病小伤的门诊，周六和法定假日也开。必须先打电话或网上预约，不接待直接上门。",
-   "en": "Same-day-style clinic for minor illness and injury, open Saturdays and statutory holidays. You must book first by phone or online; walk-ins are not accepted.",
+   "en": "Clinic with same-day appointments for minor illness and injury, open Saturdays and statutory holidays. You must book first by phone or online; walk-ins are not accepted.",
    "fr": "Clinique de type « même jour » pour les maladies et blessures mineures, ouverte le samedi et les jours fériés. Vous devez d’abord réserver par téléphone ou en ligne ; les patients sans rendez-vous ne sont pas acceptés.",
    "es": "Clínica de atención en el mismo día para enfermedades y lesiones leves, abierta los sábados y feriados oficiales. Tiene que reservar primero por teléfono o en línea; no se atiende sin cita.",
    "ko": "가벼운 질병과 부상을 당일 진료 방식으로 보는 클리닉으로, 토요일과 법정 공휴일에도 엽니다. 반드시 전화나 온라인으로 먼저 예약해야 하며, 예약 없이 방문하면 진료받을 수 없습니다.",
-   "ja": "軽い病気やけがを当日診療に近い形で診るクリニックで、土曜日と法定休日も開いています。まず電話かオンラインで予約が必要で、予約なしの来院は受け付けていません。"
+   "ja": "軽い病気やけがを当日診療に近い形で診るクリニックで、土曜日と法定祝日も開いています。まず電話かオンラインで予約が必要で、予約なしの来院は受け付けていません。"
   },
   "src": "official",
   "v": "2026-10",
@@ -12634,8 +12512,8 @@
   "a": "109-975 Academy Way",
   "p": "250-765-0544",
   "note": {
-   "zh": "有 MSP 的人都可以预约当天视频看诊，由 BC 执照医生看诊。拨打 250-765-0544（每天 10:00–16:00），需要时可安排面诊。诊所总机 250-300-3284。",
-   "en": "Mostly same-day video visits with a BC doctor for anyone with MSP, by calling 250-765-0544 (10am-4pm daily), with in-person visits if needed. Main office line is 250-300-3284.",
+   "zh": "有 MSP 的人都可以预约视频看诊，大多数可当天看，由 BC 执照医生看诊。拨打 250-765-0544（每天 10:00–16:00），需要时可安排面诊。诊所总机 250-300-3284。",
+   "en": "Mostly same-day video visits with a BC doctor for anyone with MSP, by calling 250-765-0544 (10 a.m.–4 p.m. daily), with in-person visits if needed. Main office line is 250-300-3284.",
    "fr": "Surtout des consultations vidéo le jour même avec un médecin de la C.-B., pour toute personne qui a le MSP, en appelant le 250-765-0544 (tous les jours de 10 h à 16 h), avec des visites en personne au besoin. Le numéro principal du bureau est le 250-300-3284.",
    "es": "Sobre todo videoconsultas el mismo día con un médico de BC para cualquier persona con MSP, llamando al 250-765-0544 (todos los días de 10:00 a 16:00), con visitas en persona si hace falta. La línea principal de la oficina es el 250-300-3284.",
    "ko": "MSP가 있는 사람은 누구나 BC주 의사에게 대개 당일 화상 진료를 받을 수 있습니다. 250-765-0544로 전화하세요(매일 10:00–16:00). 필요하면 대면 진료도 합니다. 대표 전화는 250-300-3284입니다.",
@@ -12683,7 +12561,7 @@
   },
   "note": {
    "zh": "非营利团队诊所（医生、护士、药剂师、社工），专为刚到加拿大的人、原住民和需要女性健康服务的人设立，所有服务都可以提供翻译。新病人请打电话或直接到诊所登记。",
-   "en": "Not-for-profit team clinic (doctors, nurses, pharmacists, social workers) set up for newcomers to Canada, Indigenous people and women's health, with translation for all services. New patients call or walk in to register.",
+   "en": "Not-for-profit team clinic (doctors, nurses, pharmacists, social workers) set up to serve newcomers to Canada, Indigenous people and women's health needs, with translation for all services. New patients call or walk in to register.",
    "fr": "Clinique d’équipe sans but lucratif (médecins, infirmières, pharmaciens, travailleurs sociaux) créée pour les personnes arrivées récemment au Canada, les Autochtones et la santé des femmes, avec traduction pour tous les services. Les nouveaux patients appellent ou se présentent sur place pour s’inscrire.",
    "es": "Clínica de equipo sin fines de lucro (médicos, enfermeras, farmacéuticos, trabajadores sociales) creada para personas recién llegadas a Canadá, personas indígenas y la salud de las mujeres, con traducción en todos los servicios. Los pacientes nuevos pueden llamar o ir en persona para inscribirse.",
    "ko": "캐나다에 새로 온 사람, 원주민, 여성 건강을 위해 만든 비영리 팀 진료소(의사, 간호사, 약사, 사회복지사)로, 모든 서비스에서 통역·번역을 받을 수 있습니다. 새 환자는 전화하거나 직접 방문해 등록하세요.",
@@ -12731,7 +12609,7 @@
    ]
   },
   "note": {
-   "zh": "西基隆拿的家庭诊所，也通过网上预约接待临时病人（选择“walk-in patient”）。没有 MSP 也可以看，但需要自费。",
+   "zh": "West Kelowna 的家庭诊所，也通过网上预约接待临时病人（选择“walk-in patient”）。没有 MSP 也可以看，但需要自费。",
    "en": "West Kelowna family clinic that also takes walk-in patients through its online booking (choose 'walk-in patient'). It will see people without MSP, but they pay a private fee.",
    "fr": "Clinique familiale de West Kelowna qui accepte aussi les patients sans rendez-vous par sa réservation en ligne (choisissez « walk-in patient »). Elle reçoit les personnes sans MSP, mais elles paient des frais privés.",
    "es": "Clínica familiar de West Kelowna que también atiende a pacientes sin cita a través de su reserva en línea (elija «walk-in patient»). Atiende a personas sin MSP, pero estas pagan una tarifa privada.",
@@ -12780,10 +12658,10 @@
   },
   "note": {
    "zh": "Interior Health 在市中心的初级保健中心（医生、执业护士、护士、社工），也提供减害和监督使用服务。可预约或直接上门，工作日 10:00–16:00。",
-   "en": "Interior Health drop-in primary care centre downtown (doctors, nurse practitioners, nurses, social workers), which also offers harm reduction and supervised consumption services. Book or drop in, weekdays 10-4.",
+   "en": "Interior Health drop-in primary care centre downtown (doctors, nurse practitioners, nurses, social workers), which also offers harm reduction and supervised consumption services. Book or drop in, weekdays 10 a.m.–4 p.m..",
    "fr": "Centre de soins primaires d’Interior Health au centre-ville, sans rendez-vous (médecins, infirmières praticiennes, infirmières, travailleurs sociaux), qui offre aussi des services de réduction des méfaits et de consommation supervisée. Avec ou sans rendez-vous, en semaine de 10 h à 16 h.",
    "es": "Centro de atención primaria de Interior Health en el centro, sin cita (médicos, enfermeras practicantes, enfermeras, trabajadores sociales), que también ofrece servicios de reducción de daños y de consumo supervisado. Con cita o sin cita, entre semana de 10:00 a 16:00.",
-   "ko": "다운타운에 있는 Interior Health의 방문형 1차 진료 센터(의사, 전문간호사, 간호사, 사회복지사)로, 위해 감소(harm reduction)와 감독하 약물 사용 서비스도 제공합니다. 예약하거나 바로 방문하세요. 평일 10:00–16:00.",
+   "ko": "다운타운에 있는 Interior Health의 예약 없이 방문할 수 있는(drop-in) 1차 진료 센터(의사, 전문간호사, 간호사, 사회복지사)로, 위해 감소(harm reduction)와 감독하 약물 사용 서비스도 제공합니다. 예약하거나 바로 방문하세요. 평일 10:00–16:00.",
    "ja": "ダウンタウンにあるInterior Healthの、予約なしでも行けるプライマリケアセンター（医師、ナースプラクティショナー、看護師、ソーシャルワーカー）です。ハームリダクション（害の低減）や監視下での薬物使用のサービスも行っています。予約しても、直接行っても大丈夫です。平日10:00–16:00。"
   },
   "src": "official",
@@ -12831,7 +12709,7 @@
    "zh": "市中心药房，周一至周六营业到晚上 9 点，周日营业到下午 6 点。在 BC，药剂师可以治疗 21 种常见小病、开避孕药并续开很多处方，有 PHN 就免费。",
    "en": "Downtown pharmacy, open until 9 p.m. Monday to Saturday and until 6 p.m. on Sundays. In BC, pharmacists can treat 21 minor ailments, prescribe birth control and renew many prescriptions, free with a PHN.",
    "fr": "Pharmacie du centre-ville, ouverte jusqu’à 21 h du lundi au samedi et jusqu’à 18 h le dimanche. En C.-B., les pharmaciens peuvent traiter 21 problèmes de santé mineurs, prescrire la contraception et renouveler de nombreuses ordonnances, gratuitement avec un PHN (numéro personnel de santé).",
-   "es": "Farmacia del centro, abierta hasta las 21 h de lunes a sábado y hasta las 18 h los domingos. En BC, los farmacéuticos pueden tratar 21 problemas de salud menores, recetar anticonceptivos y renovar muchas recetas, gratis con un PHN (número personal de salud).",
+   "es": "Farmacia del centro, abierta hasta las 21:00 de lunes a sábado y hasta las 18:00 los domingos. En BC, los farmacéuticos pueden tratar 21 problemas de salud menores, recetar anticonceptivos y renovar muchas recetas, gratis con un PHN (número personal de salud).",
    "ko": "다운타운 약국으로, 월~토요일은 밤 9시까지, 일요일은 오후 6시까지 엽니다. BC주에서는 약사가 21가지 가벼운 질환을 치료하고, 피임약을 처방하고, 많은 처방전을 갱신할 수 있으며, PHN(개인 건강 번호)이 있으면 무료입니다.",
    "ja": "ダウンタウンの薬局で、月〜土曜は午後9時まで、日曜は午後6時まで営業しています。BC州では薬剤師が21種類の軽い病気の治療、避妊薬の処方、多くの処方箋の更新をしてくれ、PHN（個人健康番号）があれば無料です。"
   },
@@ -13088,7 +12966,7 @@
    ]
   },
   "note": {
-   "zh": "西基隆拿的药妆店。这里显示的是药房柜台的时间（来自 HealthLinkBC），商店本身营业得更晚。去之前请打药房电话确认。",
+   "zh": "West Kelowna 的药妆店。这里显示的是药房柜台的时间（来自 HealthLinkBC），商店本身营业得更晚。去之前请打药房电话确认。",
    "en": "West Kelowna drugstore. The hours shown are the pharmacy counter's (from HealthLinkBC); the store itself stays open later. Call the pharmacy line to confirm before you go.",
    "fr": "Pharmacie-magasin à West Kelowna. Les heures indiquées sont celles du comptoir de la pharmacie (selon HealthLinkBC); le magasin lui-même reste ouvert plus tard. Appelez la ligne de la pharmacie pour confirmer avant d'y aller.",
    "es": "Farmacia y tienda en West Kelowna. El horario que se muestra es el del mostrador de la farmacia (según HealthLinkBC); la tienda en sí cierra más tarde. Llame a la línea de la farmacia para confirmar antes de ir.",
@@ -13144,7 +13022,7 @@
   },
   "note": {
    "zh": "离 UBCO 和机场最近的药房，但不开到很晚，周日休息。晚上买药请去 Glenmore 的 Shoppers（Kane Road，营业到晚上 10 点）。",
-   "en": "Closest pharmacy found to UBCO and the airport. Not open late or on Sundays; for evenings use the 10 p.m. Shoppers on Kane Road in Glenmore.",
+   "en": "Closest pharmacy found to UBCO and the airport. Not open late or on Sundays; for evenings use the Shoppers Drug Mart on Kane Road in Glenmore (open until 10 p.m.).",
    "fr": "La pharmacie la plus proche de UBCO et de l’aéroport que nous avons trouvée. Elle n’ouvre pas tard ni le dimanche ; le soir, allez au Shoppers de Kane Road à Glenmore, ouvert jusqu’à 22 h.",
    "es": "La farmacia más cercana a UBCO y al aeropuerto que encontramos. No abre hasta tarde ni los domingos; por la noche, vaya al Shoppers de Kane Road en Glenmore, abierto hasta las 22:00.",
    "ko": "찾아본 약국 중 UBCO와 공항에서 가장 가까운 곳입니다. 늦게까지 열지 않고 일요일에도 쉽니다. 저녁에는 Glenmore의 Kane Road에 있는, 밤 10시까지 여는 Shoppers를 이용하세요.",
@@ -13174,7 +13052,7 @@
  },
  {
   "n": "KCR Community Resources – Free Tax Clinic (CVITP)",
-  "c": "support",
+  "c": "gov",
   "g": "dt",
   "lat": 49.8847385,
   "lng": -119.4895809,
@@ -13183,7 +13061,7 @@
   "note": {
    "zh": "收入不高、报税情况简单的人可以请培训过的志愿者免费、保密地帮你报税。工作日可以把材料送过来（代办），大约 4–8 周完成。夏季停办，去之前请打电话确认是否已经恢复。",
    "en": "Trained volunteers do your tax return for free and in confidence if your income is modest and your taxes are simple. You can drop off your papers on weekdays; it takes 4–8 weeks. The clinic closes over the summer, so call to check it has reopened.",
-   "fr": "Des bénévoles formés préparent votre déclaration de revenus gratuitement et en toute confidentialité si votre revenu est modeste et votre situation fiscale simple. Vous pouvez déposer vos documents en semaine; il faut compter 4–8 semaines. Le comptoir ferme pendant l'été; appelez pour vérifier qu'il a rouvert.",
+   "fr": "Des bénévoles formés préparent votre déclaration de revenus gratuitement et en toute confidentialité si votre revenu est modeste et votre situation fiscale simple. Vous pouvez déposer vos documents en semaine; il faut compter 4 à 8 semaines. Le comptoir ferme pendant l'été; appelez pour vérifier qu'il a rouvert.",
    "es": "Voluntarios capacitados preparan su declaración de impuestos de forma gratuita y confidencial si sus ingresos son modestos y su situación fiscal es sencilla. Puede dejar sus documentos entre semana; el trámite tarda 4–8 semanas. La clínica cierra durante el verano, así que llame para comprobar si ya volvió a abrir.",
    "ko": "소득이 많지 않고 세금 상황이 간단하다면, 교육받은 자원봉사자가 무료로, 비밀을 지켜 세금 신고를 해 드립니다. 평일에 서류를 맡길 수 있으며, 4–8주가 걸립니다. 여름에는 문을 닫으니, 다시 열었는지 전화로 확인하세요.",
    "ja": "収入が多くなく、税金の状況が簡単な人のために、研修を受けたボランティアが無料・秘密厳守で税金の申告書を作成します。平日に書類を預けることができ、4〜8 週間かかります。夏の間は休止するので、再開しているかどうか電話で確認してください。"
@@ -13289,7 +13167,7 @@
   "note": {
    "zh": "为 19 岁以上的成年人免费配一对一志愿英语辅导老师，可以针对工作、学习、CELPIP 考试、入籍考试或驾照笔试来学。一般每周共 1–2 小时、分 1–2 天，最长 2 年。持打工度假签证或访客签证的人不能参加。",
    "en": "A free one-to-one volunteer English tutor for adults 19+, for work, school, CELPIP, the citizenship test or the driver's licence test. Lessons are usually 1–2 hours a week, on 1–2 days, for up to 2 years. Working Holiday and visitor visa holders do not qualify.",
-   "fr": "Un tuteur bénévole d'anglais gratuit, en tête-à-tête, pour les adultes de 19 ans et plus, pour le travail, les études, le CELPIP, l'examen de citoyenneté ou l'examen du permis de conduire. Les leçons durent habituellement 1–2 heures par semaine, sur 1–2 jours, pendant 2 ans au maximum. Les titulaires d'un permis Working Holiday (Vacances-Travail) ou d'un visa de visiteur ne sont pas admissibles.",
+   "fr": "Un tuteur bénévole d'anglais gratuit, en tête-à-tête, pour les adultes de 19 ans et plus, pour le travail, les études, le CELPIP, l'examen de citoyenneté ou l'examen du permis de conduire. Les leçons durent habituellement 1 à 2 heures par semaine, sur 1 ou 2 jours, pendant 2 ans au maximum. Les titulaires d'un permis Working Holiday (Vacances-Travail) ou d'un visa de visiteur ne sont pas admissibles.",
    "es": "Un tutor voluntario de inglés gratuito e individual para adultos de 19 años o más, para el trabajo, los estudios, el CELPIP, el examen de ciudadanía o el examen de la licencia de conducir. Las clases suelen ser de 1–2 horas por semana, en 1–2 días, durante un máximo de 2 años. Las personas con visa Working Holiday o visa de visitante no cumplen los requisitos.",
    "ko": "19세 이상 성인을 위한 무료 일대일 자원봉사 영어 튜터로, 직장, 학업, CELPIP, 시민권 시험, 운전면허 시험을 위해 공부할 수 있습니다. 수업은 보통 주 1–2시간, 1–2일에 나누어, 최대 2년까지 진행됩니다. Working Holiday 비자나 방문자 비자 소지자는 대상이 아닙니다.",
    "ja": "19 歳以上の大人を対象に、無料でマンツーマンのボランティア英語チューターがつきます。仕事、学校、CELPIP、市民権テスト、運転免許の試験のために学べます。レッスンは通常、週 1〜2 時間、1〜2 日に分けて、最長 2 年間です。Working Holiday ビザや訪問者ビザを持っている人は対象外です。"
@@ -13312,12 +13190,12 @@
   "a": "3261 Gordon Dr",
   "p": "250-762-0682",
   "note": {
-   "zh": "教会开办的免费英语班，每周三个上午，教听说读写和加拿大文化。不提供托儿。",
-   "en": "Free church-run English classes three mornings a week, covering speaking, listening, reading, writing and Canadian culture. No childcare.",
-   "fr": "Cours d’anglais gratuits offerts par l’église trois matins par semaine : expression orale, compréhension orale, lecture, écriture et culture canadienne. Pas de garde d’enfants.",
-   "es": "Clases de inglés gratuitas organizadas por la iglesia tres mañanas a la semana: expresión oral, comprensión auditiva, lectura, escritura y cultura canadiense. No hay cuidado de niños.",
-   "ko": "교회에서 운영하는 무료 영어 수업으로, 일주일에 세 번 오전에 말하기, 듣기, 읽기, 쓰기와 캐나다 문화를 배웁니다. 아이 돌봄은 없습니다.",
-   "ja": "教会が開く無料の英語クラスで、週3回の午前に、話す・聞く・読む・書くとカナダの文化を学びます。託児はありません。"
+   "zh": "教会开办的免费英语班，每周三个上午，教听说读写和加拿大文化。不提供托儿。2026 年秋季班已满，可以申请排队候补。",
+   "en": "Free church-run English classes three mornings a week, covering speaking, listening, reading, writing and Canadian culture. No childcare. The fall 2026 term is full — ask to join the waitlist.",
+   "fr": "Cours d’anglais gratuits offerts par l’église trois matins par semaine : expression orale, compréhension orale, lecture, écriture et culture canadienne. Pas de garde d’enfants. La session d’automne 2026 est complète — demandez à être inscrit sur la liste d’attente.",
+   "es": "Clases de inglés gratuitas organizadas por la iglesia tres mañanas a la semana: expresión oral, comprensión auditiva, lectura, escritura y cultura canadiense. No hay cuidado de niños. El trimestre de otoño de 2026 está lleno: pida que le pongan en la lista de espera.",
+   "ko": "교회에서 운영하는 무료 영어 수업으로, 일주일에 세 번 오전에 말하기, 듣기, 읽기, 쓰기와 캐나다 문화를 배웁니다. 아이 돌봄은 없습니다. 2026년 가을 학기는 마감되었습니다 — 대기자 명단에 올려 달라고 요청하세요.",
+   "ja": "教会が開く無料の英語クラスで、週3回の午前に、話す・聞く・読む・書くとカナダの文化を学びます。託児はありません。2026年秋学期は満員です — キャンセル待ちに登録できるか聞いてください。"
   },
   "src": "official",
   "v": "2026-10",
@@ -13340,7 +13218,7 @@
   "a": "1460 Inkar Rd",
   "p": "778-484-6222",
   "note": {
-   "zh": "多元文化社区协会（原奥肯那根华人协会），为刚到加拿大的人提供帮助：中英文求助热线、Access Pro Bono 志愿律师的免费法律咨询、会员免费英语班、报税协助和就业项目。",
+   "zh": "多元文化社区协会（原奥卡纳根华人协会），为刚到加拿大的人提供帮助：中英文求助热线、Access Pro Bono 志愿律师的免费法律咨询、会员英语班（ESL）、报税协助和就业项目。",
    "en": "A multicultural community association that helps newcomers: a Mandarin/English helpline, free legal advice from Access Pro Bono volunteer lawyers, ESL classes for members, tax-filing help and job programs.",
    "fr": "Association communautaire multiculturelle qui aide les personnes arrivées récemment au Canada : ligne d’aide en mandarin et en anglais, conseils juridiques gratuits d’avocats bénévoles d’Access Pro Bono, cours d’anglais langue seconde (ESL) pour les membres, aide pour les déclarations d’impôts et programmes d’emploi.",
    "es": "Asociación comunitaria multicultural que ayuda a personas recién llegadas a Canadá: línea de ayuda en mandarín e inglés, asesoría legal gratuita de abogados voluntarios de Access Pro Bono, clases de inglés (ESL) para socios, ayuda con la declaración de impuestos y programas de empleo.",
@@ -13401,7 +13279,7 @@
    ]
   },
   "note": {
-   "zh": "法语文化中心有专门为讲法语的刚到加拿大的人服务的安置专员（住房、医疗、上学、找工作、权利等），还有英语会话工作坊、TEF 法语考试和法语图书馆。",
+   "zh": "法语文化中心有专门为讲法语的刚到加拿大的人服务的定居服务专员（住房、医疗、上学、找工作、权利等），还有英语会话工作坊、TEF 法语考试和法语图书馆。",
    "en": "The francophone cultural centre has a settlement agent for French-speaking newcomers (housing, health, schools, jobs, rights), plus English conversation workshops, TEF exam sessions and a French library.",
    "fr": "Le centre culturel francophone a un agent d’établissement pour les personnes francophones arrivées récemment au Canada (logement, santé, écoles, emploi, droits), ainsi que des ateliers de conversation en anglais, des sessions d’examen TEF et une bibliothèque en français.",
    "es": "El centro cultural francófono tiene un agente de asentamiento para personas francófonas recién llegadas a Canadá (vivienda, salud, escuelas, empleo, derechos), además de talleres de conversación en inglés, sesiones del examen TEF y una biblioteca en francés.",
@@ -13418,34 +13296,6 @@
   "w": "https://www.leccfo.org/fr/immigrer/"
  },
  {
-  "n": "Okanagan Sikh Temple & Cultural Society (Gurdwara)",
-  "c": "commctr",
-  "g": "rt",
-  "lat": 49.9032835,
-  "lng": -119.3854925,
-  "a": "1111 Rutland Rd N",
-  "p": "250-765-7477",
-  "note": {
-   "zh": "位于 Rutland 的锡克教谒师所，也是旁遮普社区的聚集地。这里的 langar（共享厨房）免费供餐。",
-   "en": "A Sikh gurdwara and Punjabi community hub in Rutland. Its langar is a free community kitchen.",
-   "fr": "Gurdwara sikh et lieu de rassemblement de la communauté pendjabie à Rutland. Son langar est une cuisine communautaire gratuite.",
-   "es": "Un gurdwara sij y punto de encuentro de la comunidad panyabí en Rutland. Su langar es una cocina comunitaria gratuita.",
-   "ko": "Rutland에 있는 시크교 구르드와라이자 펀자브 공동체의 중심지입니다. 이곳의 langar는 무료 공동 부엌입니다.",
-   "ja": "Rutlandにあるシク教のグルドワラで、パンジャーブ系コミュニティの拠点でもあります。ここのlangarは無料の共同キッチンです。"
-  },
-  "src": "official",
-  "v": "2026-10",
-  "t": [
-   "family",
-   "free"
-  ],
-  "sameComplex": [
-   "bd10da91"
-  ],
-  "id": "d42d42dc",
-  "w": "https://www.kelownasikhtemple.ca/"
- },
- {
   "n": "Ukrainian Orthodox Parish of Sts Peter & Paul",
   "c": "commctr",
   "g": "dt",
@@ -13454,7 +13304,7 @@
   "a": "1935 Barlee Rd",
   "p": "250-860-7384",
   "note": {
-   "zh": "这个乌克兰东正教堂区表示会帮助来到基隆拿的乌克兰难民：支持接待他们的家庭，建立友好关系，帮助他们融入社区。",
+   "zh": "这个教堂区表示会帮助来到 Kelowna 的乌克兰难民：支持接待他们的家庭，建立友好关系，帮助他们融入社区。",
    "en": "This parish says it helps welcome refugees from Ukraine to Kelowna by supporting their hosts, building welcoming relationships and helping them settle into the community.",
    "fr": "Cette paroisse indique qu’elle aide à accueillir à Kelowna les réfugiés venus d’Ukraine : elle soutient les familles qui les hébergent, crée des liens chaleureux et les aide à s’installer dans la communauté.",
    "es": "Esta parroquia dice que ayuda a recibir en Kelowna a refugiados de Ucrania: apoya a quienes los acogen, crea relaciones de acogida y les ayuda a integrarse en la comunidad.",
@@ -13496,7 +13346,7 @@
    ]
   },
   "note": {
-   "zh": "基隆拿的原住民友谊中心，对所有人开放：有儿童与家庭项目、长者服务、心理健康支持、住房与外展服务，还为领残障援助或低收入的人免费报税（最多可补报 10 年）。",
+   "zh": "Kelowna 的原住民友谊中心，对所有人开放：有儿童与家庭项目、长者服务、心理健康支持、住房与外展服务，还为领残障援助或低收入的人免费报税（最多可补报 10 年）。",
    "en": "Kelowna's Indigenous friendship centre, open to everyone: child and family programs, Elder services, mental-health supports, housing and outreach, and free tax preparation (up to 10 years back) for people on disability assistance or low income.",
    "fr": "Le centre d’amitié autochtone de Kelowna, ouvert à tous : programmes pour les enfants et les familles, services aux aînés (Elders), soutien en santé mentale, logement et services d’approche, et préparation gratuite des déclarations de revenus (jusqu’à 10 ans en arrière) pour les personnes qui reçoivent de l’aide pour personnes handicapées ou qui ont un faible revenu.",
    "es": "El centro de amistad indígena de Kelowna, abierto a todos: programas para niños y familias, servicios para Ancianos (Elders), apoyo de salud mental, vivienda y servicios de alcance comunitario, y preparación gratuita de impuestos (hasta 10 años atrás) para personas que reciben asistencia por discapacidad o tienen ingresos bajos.",
@@ -13521,7 +13371,7 @@
   "a": "515 Hwy 97 (Lindley Building)",
   "p": "250-769-4999",
   "note": {
-   "zh": "西岸原住民（Westbank First Nation）的主要政府办公室。WFN 是自治的原住民族，其土地上也住着很多非成员居民。一般问题找这里；WFN 税务部门电话 250-769-2400。",
+   "zh": "Westbank 原住民族（Westbank First Nation）的主要政府办公室。WFN 是自治的原住民族，其土地上也住着很多非成员居民。一般问题找这里；WFN 税务部门电话 250-769-2400。",
    "en": "Main office of Westbank First Nation, a self-governing First Nation whose lands include many non-Member residents. General inquiries go here; WFN Taxation is 250-769-2400.",
    "fr": "Bureau principal de la Westbank First Nation, une Première Nation autonome dont les terres comptent de nombreux résidents qui n’en sont pas membres. Adressez-vous ici pour les questions générales ; WFN Taxation (taxes) : 250-769-2400.",
    "es": "Oficina principal de Westbank First Nation, una Primera Nación autónoma en cuyas tierras viven muchos residentes que no son miembros. Las consultas generales se hacen aquí; WFN Taxation (impuestos): 250-769-2400.",
@@ -13580,7 +13430,7 @@
    ]
   },
   "note": {
-   "zh": "奥肯那根族联盟（Okanagan Nation Alliance）总部，为 Syilx 奥肯那根族服务——基隆拿就位于他们未割让的传统土地上。可咨询 Syilx 相关项目、文化和活动。",
+   "zh": "奥卡纳根族联盟（Okanagan Nation Alliance）总部，为 Syilx 奥卡纳根族服务——Kelowna 就位于他们未割让的传统土地上。可咨询 Syilx 相关项目、文化和活动。",
    "en": "Main office of the Okanagan Nation Alliance, which works for the Syilx Okanagan Nation — the people on whose unceded territory Kelowna stands. Contact for general inquiries about Syilx programs, culture and events.",
    "fr": "Bureau principal de l’Okanagan Nation Alliance, qui travaille pour la Syilx Okanagan Nation — le peuple sur le territoire non cédé duquel se trouve Kelowna. Contactez-le pour toute question générale sur les programmes, la culture et les événements Syilx.",
    "es": "Oficina principal de la Okanagan Nation Alliance, que trabaja para la Syilx Okanagan Nation, el pueblo en cuyo territorio no cedido se encuentra Kelowna. Contáctela para consultas generales sobre programas, cultura y eventos Syilx.",
@@ -13597,7 +13447,7 @@
  },
  {
   "n": "Central Okanagan United Church – Thursday Free Tax Clinic (CVITP)",
-  "c": "support",
+  "c": "gov",
   "g": "dt",
   "lat": 49.8861197,
   "lng": -119.4882102,
@@ -13621,7 +13471,7 @@
  },
  {
   "n": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
-  "c": "support",
+  "c": "gov",
   "g": "pm",
   "lat": 49.8804079,
   "lng": -119.4890393,
@@ -13977,7 +13827,23 @@
    "free"
   ],
   "id": "a36f2dbe",
-  "w": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us"
+  "w": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us",
+  "alias": [
+   "employer",
+   "unpaid wages",
+   "wages",
+   "boss not paying",
+   "labour standards",
+   "工资",
+   "欠薪",
+   "老板不给钱",
+   "임금",
+   "체불",
+   "給料",
+   "未払い",
+   "salaire",
+   "salario"
+  ]
  },
  {
   "n": "Workers' Advisers Office – Kelowna",
@@ -14227,18 +14093,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "O",
-   "r",
-   "c",
-   "h",
-   "a",
-   "r",
-   "d",
-   " ",
-   "P",
-   "a",
-   "r",
-   "k"
+   "mall",
+   "Harvey",
+   "购物中心",
+   "商场",
+   "购物",
+   "基洛纳",
+   "基隆拿",
+   "奥查德公园"
   ],
   "sameComplex": [
    "b632d5d0",
@@ -14265,18 +14127,17 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "M",
-   "i",
-   "s",
-   "s",
-   "i",
-   "o",
-   "n",
-   " ",
-   "P",
-   "a",
-   "r",
-   "k"
+   "mall",
+   "Lakeshore",
+   "KLO",
+   "South",
+   "Pandosy",
+   "exchange",
+   "购物中心",
+   "商场",
+   "购物",
+   "基洛纳",
+   "基隆拿"
   ],
   "sameComplex": [
    "756e406f",
@@ -14303,18 +14164,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "C",
-   "a",
-   "p",
-   "r",
-   "i",
-   " ",
-   "C",
-   "e",
-   "n",
-   "t",
-   "r",
-   "e"
+   "Shops",
+   "Gordon",
+   "Harvey",
+   "购物中心",
+   "商场",
+   "卡普里",
+   "基洛纳",
+   "基隆拿"
   ],
   "sameComplex": [
    "6888f5cf",
@@ -14356,18 +14213,19 @@
    "life"
   ],
   "alias": [
-   "S",
-   "a",
-   "v",
-   "e",
-   "-",
-   "O",
-   "n",
-   "-",
-   "F",
-   "o",
-   "o",
-   "d"
+   "Save-On-Foods",
+   "Kane",
+   "Brandt's",
+   "Creek",
+   "supermarket",
+   "grocery",
+   "pharmacy",
+   "超市",
+   "食品店",
+   "药房",
+   "格伦莫尔",
+   "基洛纳",
+   "基隆拿"
   ],
   "sameComplex": [
    "ae8338ed",
@@ -14409,18 +14267,13 @@
    "life"
   ],
   "alias": [
-   "I",
-   "G",
-   "A",
-   " ",
-   "K",
-   "e",
-   "l",
-   "o",
-   "w",
-   "n",
-   "a",
-   " "
+   "supermarket",
+   "grocery",
+   "超市",
+   "食品店",
+   "格伦莫尔",
+   "基洛纳",
+   "基隆拿"
   ],
   "sameComplex": [
    "a7994d33"
@@ -14468,18 +14321,14 @@
    "life"
   ],
   "alias": [
-   "D",
-   "y",
-   "c",
-   "k",
-   "'",
-   "s",
-   " ",
-   "P",
-   "h",
-   "a",
-   "r",
-   "m"
+   "Summit",
+   "pharmacy",
+   "drugstore",
+   "药房",
+   "药店",
+   "格伦莫尔",
+   "基洛纳",
+   "基隆拿"
   ],
   "sameComplex": [
    "4a5a9b7f"
@@ -14527,18 +14376,13 @@
    "life"
   ],
   "alias": [
-   "P",
-   "h",
-   "a",
-   "r",
-   "m",
-   "a",
-   "s",
-   "a",
-   "v",
-   "e",
-   " ",
-   "G"
+   "pharmacy",
+   "drugstore",
+   "药房",
+   "药店",
+   "格伦莫尔",
+   "基洛纳",
+   "基隆拿"
   ],
   "id": "3b959121",
   "w": "https://pharmasave.com/store/kelowna-glenmore/"
@@ -14601,18 +14445,16 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "C",
-   "e",
-   "n",
-   "t",
-   "r",
-   "a",
-   "l",
-   " ",
-   "V",
-   "a",
-   "l",
-   "l"
+   "clinic",
+   "Kane",
+   "Glenmore",
+   "pet",
+   "dog",
+   "cat",
+   "兽医",
+   "宠物医院",
+   "动物医院",
+   "格伦莫尔"
   ],
   "sameComplex": [
    "7738557e"
@@ -14657,18 +14499,16 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "V",
-   "e",
-   "t"
+   "Sexsmith",
+   "North",
+   "Kelowna",
+   "pet",
+   "dog",
+   "cat",
+   "兽医",
+   "宠物医院",
+   "动物医院",
+   "北基洛纳"
   ],
   "id": "7e3d2405",
   "w": "https://www.okanaganveterinaryhospital.com/"
@@ -14695,18 +14535,12 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "F",
-   "a",
-   "i",
-   "r",
-   "f",
-   "i",
-   "e",
-   "l",
-   "d",
-   " ",
-   "A",
-   "n"
+   "Kirschner",
+   "pet",
+   "宠物急诊",
+   "24小时",
+   "兽医",
+   "动物医院"
   ],
   "id": "22d68943",
   "w": "https://www.fairfieldanimalhospital.ca/"
@@ -14748,18 +14582,15 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "S",
-   "p",
-   "i",
-   "n",
-   " ",
-   "C",
-   "i",
-   "t",
-   "y",
-   " ",
-   "L",
-   "a"
+   "laundry",
+   "coin",
+   "Mission",
+   "Park",
+   "KLO",
+   "洗衣店",
+   "自助洗衣",
+   "投币洗衣",
+   "洗衣房"
   ],
   "id": "4ef71f53",
   "w": "https://www.spincitylaundromat.ca/"
@@ -14801,18 +14632,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "T",
-   "h",
-   "e",
-   " ",
-   "L",
-   "a",
-   "u",
-   "n",
-   "d",
-   "r",
-   "y",
-   " "
+   "laundromat",
+   "Pandosy",
+   "wash",
+   "fold",
+   "洗衣店",
+   "自助洗衣",
+   "投币洗衣",
+   "洗衣房"
   ],
   "id": "e158b024",
   "w": "https://laundryroomkelowna.com/"
@@ -14847,18 +14674,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "W",
-   "a",
-   "s",
-   "h",
-   "W",
-   "e",
-   "r",
-   "k",
-   " ",
-   "K",
-   "e",
-   "l"
+   "laundromat",
+   "coin",
+   "Highway",
+   "97",
+   "洗衣店",
+   "自助洗衣",
+   "投币洗衣",
+   "洗衣房"
   ],
   "sameComplex": [
    "f4c238b9"
@@ -14885,18 +14708,16 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "C",
-   "l",
-   "o",
-   "t",
-   "h",
-   "e",
-   "s",
-   " ",
-   "P",
-   "i",
-   "n",
-   " "
+   "ClothesPin",
+   "laundry",
+   "Westbank",
+   "West",
+   "Kelowna",
+   "洗衣店",
+   "自助洗衣",
+   "干洗",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "id": "95492d7b",
   "w": "https://misstulipsgreendrycleaner.com/"
@@ -14920,18 +14741,17 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "A",
-   "l",
-   "l",
-   " ",
-   "W",
-   "e",
-   "a",
-   "t",
-   "h",
-   "e",
-   "r",
-   " "
+   "lessons",
+   "ICBC",
+   "GLP",
+   "road",
+   "test",
+   "Kent",
+   "Road",
+   "驾校",
+   "学车",
+   "驾驶课",
+   "路考"
   ],
   "id": "639305f2",
   "w": "https://allweatherdrivingschool.com/"
@@ -14955,18 +14775,17 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "Y",
-   "o",
-   "u",
-   "n",
-   "g",
-   " ",
-   "D",
-   "r",
-   "i",
-   "v",
-   "e",
-   "r"
+   "YD",
+   "driving",
+   "school",
+   "ICBC",
+   "GLP",
+   "road",
+   "test",
+   "驾校",
+   "学车",
+   "驾驶课",
+   "路考"
   ],
   "id": "4014ca5a",
   "w": "https://yd.com/locations/bc/kelowna"
@@ -14990,18 +14809,12 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "L",
-   "a",
-   "n",
-   "d",
-   "m",
-   "a",
-   "r",
-   "k",
-   " ",
-   "C",
-   "i",
-   "n"
+   "movie",
+   "theatre",
+   "McCurdy",
+   "电影院",
+   "看电影",
+   "影院"
   ],
   "sameComplex": [
    "54a572db"
@@ -15028,18 +14841,15 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "C",
-   "i",
-   "n",
-   "e",
-   "p",
-   "l",
-   "e",
-   "x",
-   " ",
-   "O",
-   "r",
-   "c"
+   "movie",
+   "theatre",
+   "Cooper",
+   "Road",
+   "Famous",
+   "Players",
+   "电影院",
+   "看电影",
+   "影院"
   ],
   "id": "083c626a",
   "w": "https://www.cineplex.com/theatre/cineplex-cinemas-orchard-plaza"
@@ -15073,7 +14883,7 @@
   "note": {
    "zh": "位于 Enterprise Way 的室内儿童游乐场，适合 10 岁及以下儿童；单次票最多可玩 3 小时。也办营地和生日会。家长须陪同看护。",
    "en": "Indoor playground for children 10 and under on Enterprise Way; a drop-in pass gives up to three hours of play. Also camps and birthday parties. Parents stay and supervise.",
-   "fr": "Terrain de jeux intérieur pour les enfants de 10 ans et moins, sur Enterprise Way; un laissez-passer à l'entrée (drop-in) donne droit à un maximum de trois heures de jeu. Aussi des camps et des fêtes d'anniversaire. Les parents restent sur place et surveillent.",
+   "fr": "Aire de jeux intérieure pour les enfants de 10 ans et moins, sur Enterprise Way; un laissez-passer à l'entrée (drop-in) donne droit à un maximum de trois heures de jeu. Aussi des camps et des fêtes d'anniversaire. Les parents restent sur place et surveillent.",
    "es": "Parque infantil cubierto para niños de 10 años o menos, en Enterprise Way; un pase por visita (drop-in) permite jugar hasta tres horas. También hay campamentos y fiestas de cumpleaños. Los padres se quedan y supervisan.",
    "ko": "Enterprise Way에 있는 10세 이하 어린이를 위한 실내 놀이터로, 1회 입장권(drop-in pass)으로 최대 3시간까지 놀 수 있습니다. 캠프와 생일 파티도 있습니다. 부모가 함께 머물며 지켜봐야 합니다.",
    "ja": "Enterprise Way にある、10 歳以下の子ども向けの屋内遊び場です。ドロップインパス（1 回券）で最大 3 時間遊べます。キャンプや誕生日パーティーもあります。保護者はその場に残って見守ります。"
@@ -15081,18 +14891,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "P",
-   "l",
-   "a",
-   "y",
-   " ",
-   "A",
-   "r",
-   "e",
-   "a",
-   " ",
-   "K",
-   "e"
+   "kids",
+   "centre",
+   "Enterprise",
+   "Way",
+   "室内游乐场",
+   "儿童乐园",
+   "遛娃",
+   "放电"
   ],
   "id": "b117dbd0",
   "w": "https://playarea.ca/"
@@ -15116,18 +14922,20 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "E",
-   "n",
-   "e",
-   "r",
-   "g",
-   "y",
-   "p",
-   "l",
-   "e",
-   "x",
-   " ",
-   "i"
+   "indoor",
+   "play",
+   "kids",
+   "zone",
+   "laser",
+   "tag",
+   "arcade",
+   "climbing",
+   "McCurdy",
+   "室内游乐场",
+   "儿童乐园",
+   "遛娃",
+   "激光枪战",
+   "攀岩"
   ],
   "sameComplex": [
    "536fa555"
@@ -15154,18 +14962,19 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "W",
-   "i",
-   "l",
-   "d",
-   " ",
-   "K",
-   "i",
-   "d",
-   "z",
-   " ",
-   "i",
-   "n"
+   "indoor",
+   "playground",
+   "play",
+   "centre",
+   "Westbank",
+   "West",
+   "Kelowna",
+   "Bering",
+   "室内游乐场",
+   "儿童乐园",
+   "遛娃",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "id": "d1d57885",
   "w": "https://wildkidz.ca/"
@@ -15200,18 +15009,18 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "F",
-   "u",
-   "n",
-   "S",
-   "p",
-   "a",
-   "c",
-   "e",
-   " ",
-   "K",
-   "i",
-   "d"
+   "indoor",
+   "playground",
+   "play",
+   "centre",
+   "West",
+   "Kelowna",
+   "Carrington",
+   "室内游乐场",
+   "儿童乐园",
+   "遛娃",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "id": "f0be0178",
   "w": "https://funspacekids.com/"
@@ -15241,18 +15050,12 @@
    "student"
   ],
   "alias": [
-   "U",
-   "B",
-   "C",
-   " ",
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n"
+   "UBCO",
+   "dorm",
+   "学生宿舍",
+   "校内宿舍",
+   "住宿",
+   "宿舍"
   ],
   "id": "8fbf7c34",
   "w": "https://okanagan.housing.ubc.ca/"
@@ -15290,18 +15093,18 @@
    "student"
   ],
   "alias": [
-   "O",
-   "k",
-   "a",
-   "n",
-   "a",
-   "g",
-   "a",
-   "n",
-   " ",
-   "C",
-   "o",
-   "l"
+   "student",
+   "residence",
+   "KLO",
+   "Home",
+   "School",
+   "Skaha",
+   "Place",
+   "dorm",
+   "学生宿舍",
+   "校内宿舍",
+   "奥卡纳根学院",
+   "住宿"
   ],
   "id": "d94b8fff",
   "w": "https://www.okanagancollege.ca/housing/campus-housing-in-kelowna"
@@ -15339,18 +15142,17 @@
    "student"
   ],
   "alias": [
-   "V",
-   "E",
-   "D",
-   "A",
-   " ",
-   "L",
-   "i",
-   "v",
-   "i",
-   "n",
-   "g",
-   " "
+   "housing",
+   "off-campus",
+   "Apex",
+   "Sunset",
+   "Ridge",
+   "Pines",
+   "Lakeview",
+   "Place",
+   "学生公寓",
+   "校外住宿",
+   "租房"
   ],
   "id": "30dee110",
   "w": "https://vedaliving.ca/"
@@ -15374,18 +15176,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "I",
-   "v",
-   "y",
-   " ",
-   "W",
-   "a",
-   "l",
-   "k",
-   " ",
-   "I",
-   "v",
-   "y"
+   "rentals",
+   "Academy",
+   "Way",
+   "UBCO",
+   "租房",
+   "公寓",
+   "学生",
+   "校外住宿"
   ],
   "id": "4d9d15c0",
   "w": "https://www.missiongroup.ca/rent/ivy-hall-ivy-walk/"
@@ -15427,18 +15225,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "G",
-   "l",
-   "e",
-   "n",
-   "m",
-   "o",
-   "r",
-   "e",
-   " ",
-   "C",
-   "e",
-   "n"
+   "Valley",
+   "Road",
+   "Summit",
+   "rental",
+   "租房",
+   "公寓",
+   "出租公寓",
+   "格伦莫尔"
   ],
   "id": "0ee119c8",
   "w": "https://www.realstar.ca/apartments/bc/kelowna/glenmore-central/"
@@ -15462,18 +15256,13 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "L",
-   "i",
-   "n",
-   "d",
-   "g",
-   "r",
-   "e",
-   "n",
-   " ",
-   "M",
-   "a",
-   "n"
+   "Valley",
+   "Glenmore",
+   "rental",
+   "租房",
+   "公寓",
+   "出租公寓",
+   "格伦莫尔"
   ],
   "id": "0482ea5b",
   "w": "https://www.broadstreet.ca/british-columbia/kelowna/lindgren-manor"
@@ -15497,18 +15286,13 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "T",
-   "R",
-   "I",
-   "O",
-   " ",
-   "a",
-   "p",
-   "a",
-   "r",
-   "t",
-   "m",
-   "e"
+   "Drysdale",
+   "Glenmore",
+   "rental",
+   "租房",
+   "公寓",
+   "出租公寓",
+   "格伦莫尔"
   ],
   "id": "deead411",
   "w": "https://www.cpliving.com/apartments/trio"
@@ -15532,18 +15316,12 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "A",
-   "s",
-   "s",
-   "o",
-   "c",
-   "i",
-   "a",
-   "t",
-   "e",
-   "d",
-   " ",
-   "P"
+   "rentals",
+   "manager",
+   "物业管理",
+   "租房",
+   "中介",
+   "房源"
   ],
   "id": "af41a75a",
   "w": "https://associatedpm.ca/residential-property-listings/"
@@ -15581,18 +15359,18 @@
    "life"
   ],
   "alias": [
-   "F",
-   "r",
-   "e",
-   "s",
-   "h",
-   "C",
-   "o",
-   " ",
-   "K",
-   "e",
-   "l",
-   "o"
+   "Kelowna",
+   "Highway",
+   "discount",
+   "supermarket",
+   "grocery",
+   "pharmacy",
+   "平价超市",
+   "超市",
+   "食品店",
+   "药房",
+   "基洛纳",
+   "基隆拿"
   ],
   "id": "80a0b6af",
   "w": "https://www.freshco.com/stores/freshco-hwy-97-leckie"
@@ -15616,18 +15394,14 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "L",
-   "a",
-   "n",
-   "d",
-   "m",
-   "a",
-   "r",
-   "k",
-   " ",
-   "C",
-   "i",
-   "n"
+   "Westbank",
+   "movie",
+   "theatre",
+   "电影院",
+   "看电影",
+   "影院",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "sameComplex": [
    "53dfad06",
@@ -15654,18 +15428,15 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "W",
-   "e",
-   "s",
-   "t",
-   "b",
-   "a",
-   "n",
-   "k",
-   " ",
-   "H",
-   "u",
-   "b"
+   "shopping",
+   "mall",
+   "Carrington",
+   "Kelowna",
+   "购物中心",
+   "商场",
+   "购物",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "id": "cc61c44b",
   "w": "https://www.gwlraleasing.com/commercial-property/ca/bc/west-kelowna/westbank-hub-centre/"
@@ -15710,18 +15481,14 @@
    "life"
   ],
   "alias": [
-   "W",
-   "a",
-   "l",
-   "m",
-   "a",
-   "r",
-   "t",
-   " ",
-   "p",
-   "h",
-   "a",
-   "r"
+   "Louie",
+   "Drive",
+   "supercentre",
+   "药房",
+   "药店",
+   "沃尔玛",
+   "西基洛纳",
+   "西基隆拿"
   ],
   "id": "fa52f8a0",
   "w": "https://www.healthlinkbc.ca/clinic/walmart-canada-1"
@@ -15763,18 +15530,21 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "l",
-   "i",
-   "q",
-   "u",
-   "o",
-   "r",
-   " ",
-   "s",
-   "t",
-   "o",
-   "r",
-   "e"
+   "store",
+   "alcohol",
+   "beer",
+   "wine",
+   "spirits",
+   "government",
+   "Dilworth",
+   "酒",
+   "酒类",
+   "买酒",
+   "啤酒",
+   "葡萄酒",
+   "烈酒",
+   "政府酒类商店",
+   "酒类专卖店"
   ],
   "id": "ea3f677a",
   "w": "https://www.bcliquorstores.com/store/locator/167"
@@ -15816,18 +15586,22 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "l",
-   "i",
-   "q",
-   "u",
-   "o",
-   "r",
-   " ",
-   "s",
-   "t",
-   "o",
-   "r",
-   "e"
+   "store",
+   "alcohol",
+   "beer",
+   "wine",
+   "spirits",
+   "government",
+   "Lakeshore",
+   "Lower",
+   "酒",
+   "酒类",
+   "买酒",
+   "啤酒",
+   "葡萄酒",
+   "烈酒",
+   "政府酒类商店",
+   "酒类专卖店"
   ],
   "sameComplex": [
    "756e406f",
@@ -15873,18 +15647,22 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "l",
-   "i",
-   "q",
-   "u",
-   "o",
-   "r",
-   " ",
-   "s",
-   "t",
-   "o",
-   "r",
-   "e"
+   "store",
+   "alcohol",
+   "beer",
+   "wine",
+   "spirits",
+   "government",
+   "Dobbin",
+   "西基洛纳",
+   "酒",
+   "酒类",
+   "买酒",
+   "啤酒",
+   "葡萄酒",
+   "烈酒",
+   "政府酒类商店",
+   "酒类专卖店"
   ],
   "sameComplex": [
    "b3551a68",
@@ -15903,12 +15681,12 @@
   "a": "5-3312 Appaloosa Rd",
   "p": "250-762-2222",
   "note": {
-   "zh": "Kelowna 规模最大的持牌出租车公司，有轮椅无障碍出租车；电话 250-762-2222（西岸 West Kelowna 一侧：250-762-4444），也可用其 App 叫车。Kelowna 机场（YLW）航站楼正门路边有出租车候客，没有公交车时很有用。",
-   "en": "The largest licensed taxi company in Kelowna, with wheelchair-accessible taxis; call 250-762-2222 (West Kelowna side: 250-762-4444) or use its app. Taxis wait at the front curb of Kelowna airport (YLW), which helps when no bus is running.",
-   "fr": "La plus grande compagnie de taxis autorisée de Kelowna, avec des taxis accessibles en fauteuil roulant; appelez le 250-762-2222 (côté West Kelowna : 250-762-4444) ou utilisez son application. Des taxis attendent le long du trottoir devant l'aéroport de Kelowna (YLW), ce qui est utile quand aucun autobus ne circule.",
-   "es": "La compañía de taxis con licencia más grande de Kelowna, con taxis accesibles para sillas de ruedas; llame al 250-762-2222 (lado de West Kelowna: 250-762-4444) o use su aplicación. Hay taxis esperando junto a la acera frente al aeropuerto de Kelowna (YLW), lo que ayuda cuando no hay autobuses.",
-   "ko": "Kelowna에서 가장 큰 면허 택시 회사로, 휠체어 탑승이 가능한 택시가 있습니다. 250-762-2222(West Kelowna 쪽: 250-762-4444)로 전화하거나 앱을 이용하세요. Kelowna 공항(YLW) 정문 앞 도로변에 택시가 대기하고 있어, 버스가 다니지 않을 때 유용합니다.",
-   "ja": "Kelowna 最大の認可タクシー会社で、車いすで乗れるタクシーもあります。250-762-2222（West Kelowna 側：250-762-4444）に電話するか、アプリを使ってください。Kelowna 空港（YLW）の正面の歩道沿いでタクシーが待っているので、バスが走っていないときに便利です。"
+   "zh": "持牌出租车公司，有轮椅无障碍出租车；电话 250-762-2222（西岸 West Kelowna 一侧：250-762-4444），也可用其 App 叫车。也接送 Kelowna 机场（YLW），没有公交车时很有用。",
+   "en": "A licensed taxi company with wheelchair-accessible taxis; call 250-762-2222 (West Kelowna side: 250-762-4444) or use its app. It also serves Kelowna airport (YLW), which helps when no bus is running.",
+   "fr": "Compagnie de taxis autorisée, avec des taxis accessibles en fauteuil roulant; appelez le 250-762-2222 (côté West Kelowna : 250-762-4444) ou utilisez son application. Elle dessert aussi l'aéroport de Kelowna (YLW), ce qui est utile quand aucun autobus ne circule.",
+   "es": "Compañía de taxis con licencia, con taxis accesibles para sillas de ruedas; llame al 250-762-2222 (lado de West Kelowna: 250-762-4444) o use su aplicación. También da servicio al aeropuerto de Kelowna (YLW), lo que ayuda cuando no hay autobuses.",
+   "ko": "면허를 받은 택시 회사로, 휠체어 탑승이 가능한 택시가 있습니다. 250-762-2222(West Kelowna 쪽: 250-762-4444)로 전화하거나 앱을 이용하세요. Kelowna 공항(YLW)도 운행해 버스가 다니지 않을 때 유용합니다.",
+   "ja": "認可タクシー会社で、車いすで乗れるタクシーもあります。250-762-2222（West Kelowna 側：250-762-4444）に電話するか、アプリを使ってください。Kelowna 空港（YLW）にも対応しているので、バスが走っていないときに便利です。"
   },
   "src": "official",
   "v": "2026-10",
@@ -15916,18 +15694,17 @@
    "student"
   ],
   "alias": [
-   "t",
-   "a",
-   "x",
-   "i",
-   " ",
-   "c",
-   "a",
-   "b",
-   " ",
-   "K",
-   "e",
-   "l"
+   "taxi",
+   "airport",
+   "YLW",
+   "wheelchair",
+   "accessible",
+   "出租车",
+   "打车",
+   "的士",
+   "叫车",
+   "机场",
+   "轮椅出租车"
   ],
   "id": "433b39a0",
   "w": "https://www.kelownacabs.ca/"
@@ -15954,18 +15731,18 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "t",
-   "a",
-   "x",
-   "i",
-   " ",
-   "c",
-   "a",
-   "b",
-   " ",
-   "W",
-   "e",
-   "s"
+   "taxi",
+   "Kelowna",
+   "Westbank",
+   "airport",
+   "YLW",
+   "wheelchair",
+   "出租车",
+   "打车",
+   "的士",
+   "叫车",
+   "西基洛纳",
+   "机场"
   ],
   "sameComplex": [
    "bf5643ab"
@@ -15984,8 +15761,8 @@
   "note": {
    "zh": "孩子必须先在 busconnect.sd23.bc.ca 网上申请并被分配到线路后才能坐校车；5 月 31 日之后提交的申请会进入候补名单。符合资格的学生住处离其英语学区学校至少 3 公里（小学）、4 公里（初中）或 4.8 公里（高中）；校车按年收费，经济困难的家庭可申请费用减免。",
    "en": "Your child can ride the school bus only after you apply online at busconnect.sd23.bc.ca and they are assigned to a route; applications sent after May 31 go on a waitlist. Eligible students live at least 3 km (elementary), 4 km (middle) or 4.8 km (high school) from their English catchment school, a yearly fee applies, and families in financial hardship can apply for a subsidy.",
-   "fr": "Votre enfant peut prendre l'autobus scolaire seulement après que vous avez fait une demande en ligne sur busconnect.sd23.bc.ca et qu'il a été assigné à un trajet; les demandes envoyées après le 31 mai sont mises sur une liste d'attente. Les élèves admissibles habitent à au moins 3 km (primaire), 4 km (intermédiaire) ou 4.8 km (secondaire) de leur école de secteur anglophone (English catchment school); des frais annuels s'appliquent, et les familles en difficulté financière peuvent demander une subvention.",
-   "es": "Su hijo solo puede usar el autobús escolar después de que usted haga la solicitud en línea en busconnect.sd23.bc.ca y se le asigne una ruta; las solicitudes enviadas después del 31 de mayo pasan a una lista de espera. Pueden usarlo los estudiantes que viven a por lo menos 3 km (primaria), 4 km (escuela media) o 4.8 km (secundaria) de su escuela de zona del programa en inglés (English catchment school); se cobra una tarifa anual, y las familias con dificultades económicas pueden solicitar un subsidio.",
+   "fr": "Votre enfant peut prendre l'autobus scolaire seulement après que vous avez fait une demande en ligne sur busconnect.sd23.bc.ca et qu'il a été assigné à un trajet; les demandes envoyées après le 31 mai sont mises sur une liste d'attente. Les élèves admissibles habitent à au moins 3 km (primaire), 4 km (intermédiaire) ou 4,8 km (secondaire) de leur école de secteur anglophone (English catchment school); des frais annuels s'appliquent, et les familles en difficulté financière peuvent demander une subvention.",
+   "es": "Su hijo solo puede usar el autobús escolar después de que usted haga la solicitud en línea en busconnect.sd23.bc.ca y se le asigne una ruta; las solicitudes enviadas después del 31 de mayo pasan a una lista de espera. Pueden usarlo los estudiantes que viven a por lo menos 3 km (primaria), 4 km (escuela intermedia) o 4,8 km (secundaria) de su escuela de zona del programa en inglés (English catchment school); se cobra una tarifa anual, y las familias con dificultades económicas pueden solicitar un subsidio.",
    "ko": "busconnect.sd23.bc.ca에서 온라인으로 신청하고 노선을 배정받은 후에만 자녀가 스쿨버스를 탈 수 있습니다. 5월 31일 이후에 보낸 신청은 대기자 명단에 올라갑니다. 대상 학생은 영어 과정 학군 학교(English catchment school)에서 최소 3km(초등학교), 4km(중학교), 4.8km(고등학교) 떨어진 곳에 사는 학생입니다. 연간 요금이 있으며, 경제적으로 어려운 가정은 보조금을 신청할 수 있습니다.",
    "ja": "busconnect.sd23.bc.ca でオンライン申請をし、ルートが割り当てられた後でなければ、お子さんはスクールバスに乗れません。5 月 31 日より後に出した申請は順番待ちリストに入ります。対象は、英語プログラムの学区の学校（English catchment school）から少なくとも 3 km（小学校）、4 km（ミドルスクール）、4.8 km（高校）離れて住む生徒です。年間料金がかかり、経済的に困っている家庭は補助を申請できます。"
   },
@@ -15995,18 +15772,18 @@
    "student"
   ],
   "alias": [
-   "s",
-   "c",
-   "h",
-   "o",
-   "o",
-   "l",
-   " ",
-   "b",
-   "u",
-   "s",
-   " ",
-   "S"
+   "transportation",
+   "registration",
+   "busconnect",
+   "courtesy",
+   "rider",
+   "catchment",
+   "校车",
+   "校车申请",
+   "学区",
+   "交通",
+   "接送",
+   "上学"
   ],
   "id": "39e99908",
   "w": "https://www.sd23.bc.ca/transportation-services-programsservices"
@@ -16029,18 +15806,17 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "w",
-   "a",
-   "t",
-   "e",
-   "r",
-   " ",
-   "p",
-   "a",
-   "r",
-   "k",
-   " ",
-   "s"
+   "splash",
+   "pad",
+   "spray",
+   "downtown",
+   "kids",
+   "戏水",
+   "水上乐园",
+   "儿童戏水池",
+   "喷水池",
+   "夏天",
+   "市中心"
   ],
   "sameComplex": [
    "2a35ed8d"
@@ -16069,18 +15845,18 @@
    "free"
   ],
   "alias": [
-   "w",
-   "a",
-   "t",
-   "e",
-   "r",
-   " ",
-   "p",
-   "a",
-   "r",
-   "k",
-   " ",
-   "s"
+   "splash",
+   "pad",
+   "spray",
+   "Rutland",
+   "kids",
+   "free",
+   "戏水",
+   "水上乐园",
+   "儿童戏水池",
+   "喷水池",
+   "免费",
+   "夏天"
   ],
   "sameComplex": [
    "6cdb3bf7"
@@ -16106,18 +15882,18 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "s",
-   "p",
-   "l",
-   "a",
-   "s",
-   "h",
-   " ",
-   "p",
-   "a",
-   "r",
-   "k",
-   " "
+   "pad",
+   "spray",
+   "water",
+   "Kettle",
+   "Valley",
+   "Upper",
+   "Mission",
+   "kids",
+   "戏水",
+   "儿童戏水池",
+   "喷水池",
+   "夏天"
   ],
   "sameComplex": [
    "a8f8d541"
@@ -16144,18 +15920,17 @@
   "src": "official",
   "v": "2026-10",
   "alias": [
-   "s",
-   "p",
-   "r",
-   "a",
-   "y",
-   " ",
-   "p",
-   "a",
-   "r",
-   "k",
-   " ",
-   "s"
+   "splash",
+   "pad",
+   "Julia's",
+   "Junction",
+   "Kelowna",
+   "喷水池",
+   "戏水",
+   "水上乐园",
+   "儿童",
+   "西基洛纳",
+   "无障碍游乐场"
   ],
   "id": "46e8ce68",
   "w": "https://www.westkelownacity.ca/parks-and-facilities/parks-facilities-details-page/?facilityId=TNT-COW-00000407-99664498-6711-4289-913D-051A688C8BCF"
@@ -16207,18 +15982,20 @@
    "indoor"
   ],
   "alias": [
-   "g",
-   "y",
-   "m",
-   " ",
-   "f",
-   "i",
-   "t",
-   "n",
-   "e",
-   "s",
-   "s",
-   " "
+   "gym",
+   "fitness",
+   "centre",
+   "Doyle",
+   "weight",
+   "room",
+   "yoga",
+   "cycle",
+   "健身房",
+   "健身中心",
+   "市中心",
+   "基督教青年会",
+   "锻炼",
+   "瑜伽"
   ],
   "sameComplex": [
    "a55b7531",

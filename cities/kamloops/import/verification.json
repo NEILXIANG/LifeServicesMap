@@ -1,0 +1,3683 @@
+{
+ "00a41fbe": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Largest park in the city' not stated; City's main entrance is Hillside Drive (Home Depot is one of four trailheads); no water in the park"
+  ],
+  "method": "desk",
+  "remarks": "'There is no water or telephone currently available in the park.' Over 55 km of trails; dogs off leash under control; trails not cleared of snow in winter.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/kenna-cartwright-nature-park"
+  ]
+ },
+ "021d4e94": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Hours are from the HealthLinkBC pharmacy directory listing (gov), which lists pharmacy hours; I could not confirm separately whether the dispensary hours differ from store hours because the Shoppers store page did not render. Call to confirm pharmacist availability late evening.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.shoppersdrugmart.ca/en/stores/277-shoppers-drug-mart-columbia-place/",
+   "https://www.healthlinkbc.ca/clinic/shoppers-drug-mart-127"
+  ]
+ },
+ "029a48b5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "The website publishes no store hours; the daily 10-5 on file is unsupported.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.shopstation10.com"
+  ]
+ },
+ "0379415c": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "phone → local post office line",
+   "src places → official",
+   "website → store page"
+  ],
+  "method": "browser",
+  "remarks": "2026-10-04 browser: London Drugs store page — post office Mon–Fri 9–9, Sat 9–7, Sun 10–4, holidays closed; 250-852-6200",
+  "result": "corrected",
+  "urls": [
+   "https://www.lansdownevillagecentre.com/directory/london-drugs",
+   "https://www.londondrugs.com/stores/lansdowne-village/s/035"
+  ]
+ },
+ "041c39ce": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Hours are lesson-booking hours, not an office counter. Sunday lessons by phone request.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamidriving.ca/"
+  ]
+ },
+ "046b81d1": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Otter Co-op's official 'All Locations' page lists only the Dallas Drive Gas Bar (7750 Dallas Dr, 250-573-4420) among Kamloops gas bars — the 1815 Trans-Canada Hwy E site is not listed there. Directories (YellowPages, GasBuddy — not acceptable) show 'Co-op Gas Bar / Valleyview Gas Bar', 1815 Trans-Canada Hwy E, V2C 3Z7, 250-372-8911, 6 a.m.–11 p.m. daily (one says 24 h). Operator not confirmed. src 'places'; still unverified.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.otterco-op.crs/sites/otter/local/detail/all-locations",
+   "https://www.otterco-op.crs/sites/otter/local/detail/our-newest-gas-bar-in-kamloops-is-now-open"
+  ]
+ },
+ "04d4f0da": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Official store hours are 8 am–10 pm daily, not 8–9; pharmacy closes at 6 pm"
+  ],
+  "method": "desk",
+  "remarks": "saveonfoods.com returns 403 to direct fetching; values from the official store page as indexed by search (two searches agree on 8AM–10PM). Pharmacy phone 250-579-5218.",
+  "result": "corrected",
+  "urls": [
+   "https://www.saveonfoods.com/store-information/westsyde/2210"
+  ]
+ },
+ "04e9b0f0": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Site shows Café Jasette conversation evenings, beginner French classes (Tuesdays Oct 6 - Nov 24, 2026), links for Garderie and École Collines-d'or, a job-seeking section ('Vous cherchez un emploi ?'), and year-round events. The school (École Collines-d'or) is a separate francophone school, linked from the site.",
+  "result": "confirmed",
+  "urls": [
+   "https://francokamloops.org/",
+   "https://francokamloops.org/contactez-nous/",
+   "https://francokamloops.org/activites-regulieres/cafe-jasette-afk/"
+  ]
+ },
+ "050b5d80": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/facilities/riverside-park-beach",
+   "src places → official",
+   "note corrected (P1): Concerts are nightly through the summer (no 'from July'); Scoopz unverifiable; official swimming rules (roped area, lifeguards not always on"
+  ],
+  "method": "desk",
+  "remarks": "src was 'places'; now confirmed by kamloops.ca. Official: 'Swimming at Riverside Park is only permitted within the roped area of the beach. Lifeguards are available during the summer months but may not always be on duty.' Strong currents and drop-offs warned. No dogs in the park (except on-leash on the south part of Rivers Trail). City phone 250-828-3311 could be added.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/riverside-park-beach",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park"
+  ]
+ },
+ "05687b96": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration document list confirmed on SD73 register-for-school page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/rayleigh",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "0624bb6f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://find.shell.com/ca/fuel/13054771-848-8th-st"
+  ]
+ },
+ "0657d432": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Toll-free 877-361-2720.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kfgt.ca"
+  ]
+ },
+ "070b0c64": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): BC Transit: children 12 and under ride free (note said under 12); added official handyDART number and lost-item holding period"
+  ],
+  "method": "desk",
+  "remarks": "On-file Mon–Fri 8:30–4:30 is not published anywhere for this office; consider removing or using handyDART office hours. handyDART has its own number 250-376-7525. Call ahead for lost items.",
+  "result": "corrected",
+  "urls": [
+   "https://www.bctransit.com/kamloops/contact",
+   "https://www.bctransit.com/kamloops/how-to-pay/where-to-buy",
+   "https://www.bctransit.com/kamloops/customer-service/lost-and-found"
+  ]
+ },
+ "08c3204e": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Saturday opening confirmed. Online booking via allydvm.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamloopsveterinaryclinic.com/"
+  ]
+ },
+ "090a6b85": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Official limit is a set value of items per visit, not 'a small basket'"
+  ],
+  "method": "desk",
+  "remarks": "Phone is the E. Fry society office (827 Seymour St, weekdays 9–4, closed 12–12:30), not a store line. Email admin@kamloopsefry.com.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopsefry.com/rise-renew-thrift-store-kamloops/",
+   "https://kamloopsefry.com/lizzys-closet/",
+   "https://kamloopsefry.com/contact/"
+  ]
+ },
+ "0976dd56": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Recently refurbished' and card payment not on the website; replaced with listed services"
+  ],
+  "method": "desk",
+  "remarks": "Second location: #3 1200 Summit Drive. Offers self-serve, drop-off wash-dry-fold and pick-up/delivery. Site does not say whether the hours apply to both locations; it lists one set.",
+  "result": "confirmed",
+  "urls": [
+   "https://thelaundryguys.ca/"
+  ]
+ },
+ "099ea2fb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): '30-day cancellation notice' not on official page; 'wide choice' is opinion"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.goldsgym.com/locations/bc/kamloops/"
+  ]
+ },
+ "0a856b7a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "canadiantire.ca store page returns 403 to all fetching, so store phone and store hours could not be read. Canadian Tire's roadside-assistance microsite lists this store with '8:00 AM - 5:00 PM Monday through Saturday, 8:30 AM - 5:00 PM Sunday' and the national 1-888-727-7478 — those look like auto-service-centre hours, not retail hours, so not used. On-file phone 250-374-9747 and hours (Mon–Fri 9–7, Sat–Sun 9–6) remain unverified; check the store page in a browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.canadiantire.ca/en/store-details/bc/kamloops-south-bc-355.html",
+   "https://roadsideassistance.canadiantire.ca/products/kamloops-s-british-columbia-roadside-assistance"
+  ]
+ },
+ "0aa34748": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Grades 9–12.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/brocksec"
+  ]
+ },
+ "0bd3fb26": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Directories (not evidence) list Yellow Cabs (Kamloops) Ltd, 1100 Ord Road, (250) 374-3333, toll-free 1-877-894-8294. A taxi record with no phone is of little use — have a human confirm the booking number.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.yellowcabs.ca/",
+   "https://yellowcabskamloops.webbooker.icabbi.com/",
+   "https://yellowcabskamloops.com"
+  ]
+ },
+ "0c9c5387": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Courtwork programme (duty counsel, paperwork, court clothes) is not offered anywhere on the current site; Rent Bank details confirmed"
+  ],
+  "method": "desk",
+  "remarks": "Rent Bank pre-assessment is done online via BC Rent Bank; EFry offers free phone consultation.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopsefry.com/contact-us/",
+   "https://kamloopsefry.com/rent-bank/",
+   "https://kamloopsefry.com/services/"
+  ]
+ },
+ "0cb7122b": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Verify address/phone and staffed hours in a browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.anytimefitness.com/en-ca/locations/kamloops-british-columbia-3807"
+  ]
+ },
+ "0dbc2ac6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Highly rated', cheap bread and cheaper fuel are subjective; replaced with services the store lists"
+  ],
+  "method": "desk",
+  "remarks": "Family-run since 2008; also hunting/fishing licences (8–4 weekdays, 8–2 weekends), key cuts, halal fried chicken 11–5.",
+  "result": "corrected",
+  "urls": [
+   "https://hastymartesso.com/",
+   "https://www.esso.ca/en-ca/find-station/kamloops-bc-esso-200327266"
+  ]
+ },
+ "0e24eb77": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Run by the Kamloops Film Society; films incl. international cinema, Met Opera Live in HD, National Theatre Live; also external bookings for concerts and live performances. Tickets: thekfs.ca/buy-tickets/.",
+  "result": "confirmed",
+  "urls": [
+   "https://thekfs.ca/paramount/"
+  ]
+ },
+ "0f8460bd": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official: 'Accueillant des élèves de la maternelle à la 8ème' (K–8), part of the Conseil scolaire francophone (CSF). The CSF's 'Secondaire de Kamloops' is listed with it (Collines-d'or / secondaire de Kamloops) for older grades. Email ecole_collines_dor@csf.bc.ca. Site also offers pre-kindergarten/daycare (Petite Enfance).",
+  "result": "confirmed",
+  "urls": [
+   "https://collinesdor.csf.bc.ca/contactez-nous/"
+  ]
+ },
+ "1127fbc6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents match SD73 register-for-school page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/westmount",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "11fca8d6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "SD73 register page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'. Catchment-based; School Board Office 250-374-0679.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/ghilliard",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "12093f3a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Canada Post finder is JavaScript-only; not verifiable. Directories list a Canada Post outlet in Northills Centre at 70-700 Tranquille Road (one names it 'McGoos Smokes N Stuff', unit 70 rather than #74B), with hours Mon-Wed 9:30-5:30, Thu-Fri 9:30-8, Sat 9:30-5:30, Sun 12-5 - these differ from the file (file: opens 9:00, Mon-Wed to 5:30, Thu-Fri to 7, Sun 12-4). Unit number and hours need a manual check in the Canada Post finder.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+  ]
+ },
+ "1306a55b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours replaced from official text"
+  ],
+  "method": "desk",
+  "remarks": "Closes 4:30 pm, not 5 pm. Operating since 2001.",
+  "result": "corrected",
+  "urls": [
+   "https://www.hansonsauto.com/",
+   "https://www.hansonsauto.com/contact-us"
+  ]
+ },
+ "13af4289": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://locations.cibc.com/bc/kamloops/00050"
+  ]
+ },
+ "14d26485": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Independent pharmacy; site publishes a single set of 'Hours of Business' (no separate dispensary hours — the store is the pharmacy). Closed statutory holidays. 'Free delivery services, 7 days a week, within city limits'; compounding, travel medicine/vaccination, injection services listed. BC Services Card/insurance card advice is generic, not on site.",
+  "result": "confirmed",
+  "urls": [
+   "https://kippmallery.ca/contact/",
+   "https://kippmallery.ca/"
+  ]
+ },
+ "1619555b": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website found; only Yelp/directories (which give 'Kamloops Gurudwara Sahib Society', 1345 Ord Road, V2B 7B5, phone 250-554-3871 — not acceptable evidence). Not in the City business licence directory (places of worship are typically not licensed). BC Registry society search could confirm the legal name. No service times found.",
+  "result": "unresolved",
+  "urls": []
+ },
+ "172f9aae": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Highest rated locally' is a rating; emergency same-day appointments confirmed"
+  ],
+  "method": "desk",
+  "remarks": "Emergency same-day appointments offered; call the office first.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.riversidedentalclinic.ca/"
+  ]
+ },
+ "17b01a14": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page lists 'Wheelchair Access'; studio from $1,115, 1BR from $1,435, 2BR from $1,730; water and garbage collection included; cats allowed; near Valleyview Shopping Centre.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/bonnie-lee-apartments-in-kamloops"
+  ]
+ },
+ "180e6466": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Studio from $925, 1BR from $1075, 2BR from $1275 (subject to change); water included; 'allows cats and dogs (under 20lbs)'; 'City bus service is located directly in front of the building'. Toll-free (844) 776-5831.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/ronald-adam-manor-apartments-in-kamloops"
+  ]
+ },
+ "18502439": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Themed swim and deep-water slide schedules not on official pages; facility has an annual full closure for maintenance (2026: Sept 8–Oct 11) "
+  ],
+  "method": "desk",
+  "remarks": "IMPORTANT: 'September 8–October 11 - Annual Facility Maintenance — Full facility closed'; October 12 stat closed; fall schedule starts October 13. Email swim@kamloops.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/westsyde-pool-fitness-centre",
+   "https://www.kamloops.ca/recreation-culture/aquatics/pool-schedules-hours"
+  ]
+ },
+ "18523a8a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Esso's own name for the station is 'Halston Bridge Esso'. Salish Rd is on Tk'emlúps te Secwépemc reserve land (postal code V2H).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.esso.ca/en-ca/find-station/esso-kamloops-bc-esso-200303929"
+  ]
+ },
+ "186001cd": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "'Apex Kamloops is located in the Sahali Mall.' Weekend 9–11 am is Toddler Time; Friday 8–10 pm is Club APEX.",
+  "result": "confirmed",
+  "urls": [
+   "https://apexadventureplex.com/kamloops/",
+   "https://apexadventureplex.com/kamloops/contact-us/"
+  ]
+ },
+ "193c31d7": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "On-file 8 am–10 pm daily matches the STORE hours. The official store page's pharmacy-hours block is empty, so dispensary hours could not be confirmed — the pharmacy counter may close earlier; phone 250-376-9010 to check.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.shoppersdrugmart.ca/en/stores/286-shoppers-drug-mart-north-hills-shopping-centre/"
+  ]
+ },
+ "1ab92ece": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Good reputation' is opinion"
+  ],
+  "method": "desk",
+  "remarks": "The business's own website staytunedauto.ca no longer resolves (DNS not found); only Facebook and directories remain, which are not acceptable evidence. Directories (Yelp, BBB, canpages) agree on Stay Tuned Auto Repair Ltd, 8-1121 12th St, Kamloops V2B 8A7, 250-554-2277, Mon–Fri 8–5 — consistent with file but not officially confirmed. Website field on file is a Facebook page.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.facebook.com/staytunedautorepair/",
+   "https://www.staytunedauto.ca/"
+  ]
+ },
+ "1ad386ea": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/todd-hill-park",
+   "src places → official",
+   "note corrected (P1): City lists only a soccer field, dogs on leash and free parking; playground, courts and sledding hill unsupported"
+  ],
+  "method": "desk",
+  "remarks": "Neighbourhood park.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/todd-hill-park"
+  ]
+ },
+ "1b1b6bf2": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Teller and advisor services; languages listed include English, Persian, Turkish, Hindi, Punjabi, Italian and others.",
+  "result": "confirmed",
+  "urls": [
+   "https://locator.scotiabank.com/branch/81620"
+  ]
+ },
+ "1b1b6deb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://cancopetroleum.ca/",
+   "src places → official",
+   "note corrected (P1): Official locator lists convenience store, ATM and propane — no car wash or free air; 'lower prices' is opinion"
+  ],
+  "method": "desk",
+  "remarks": "Canco's own data has no phone for this site. Third-party listings give 250-376-1710 (not verified).",
+  "result": "confirmed",
+  "urls": [
+   "https://cancopetroleum.ca/",
+   "https://api.services.cancopetroleum.ca/api/canco/store/"
+  ]
+ },
+ "1e15ef28": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "K–7 school.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/juniper-ridge"
+  ]
+ },
+ "1e3e329a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Tertiary referral hospital for Interior Health.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/royal-inland-hospital"
+  ]
+ },
+ "1f0f5451": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Outdoor pool confirmed; studio/1BR/2BR; Battle St at 4th Ave bus stop 'a short 2-minute walk'. Prices from $1,400 (studio).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/the-oaks-apartments"
+  ]
+ },
+ "1f7d74f4": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Shoppers' page publishes only store hours; its separate pharmacy hours block is empty, and its FAQ says 'pharmacy counter hours may differ'. HealthLinkBC lists 8–22 every day for the pharmacy, but the store itself does not open until 9 a.m. on Sunday, so on-file Sunday 8 a.m. opening is wrong — use Sunday 9 a.m.–10 p.m. Pharmacy counter hours not separately confirmed; call to confirm late-evening pharmacist availability.",
+  "result": "corrected",
+  "urls": [
+   "https://www.shoppersdrugmart.ca/en/stores/261-shoppers-drug-mart-valleyview-square-s-c/",
+   "https://www.healthlinkbc.ca/clinic/shoppers-drug-mart-120"
+  ]
+ },
+ "1fb066c7": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): StrongStart is not drop-in/no-waitlist: families register (one day a week holds a spot for the year) with birth certificate and care card co"
+  ],
+  "method": "desk",
+  "remarks": "StrongStart ('Eagles' Nest StrongStart') runs Monday to Friday 8:45am–11:30am on the school calendar; a separate Pre-School Program runs 12:15–2:15pm. Contact: mlaroche@sd73.bc.ca.",
+  "result": "corrected",
+  "urls": [
+   "https://www.sd73.bc.ca/beattie",
+   "https://www.sd73.bc.ca/beattie/strongstart",
+   "https://www.sd73.bc.ca/skss/feeder-schools"
+  ]
+ },
+ "21d814b5": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.standrewslutheran.ca/services",
+   "https://www.standrewslutheran.ca/contact"
+  ]
+ },
+ "21d9050d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Full Service Banking Centre; wheelchair access, free parking. Closed Mon Oct 12 2026 (Thanksgiving). Page fetched with certificate check disabled.",
+  "result": "confirmed",
+  "urls": [
+   "https://locations.cibc.com/bc/kamloops/07050"
+  ]
+ },
+ "23f3d048": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/moose-park",
+   "src places → official",
+   "note corrected (P2): City describes it only as a neighbourhood tot lot with playground; nothing about the river"
+  ],
+  "method": "desk",
+  "remarks": "City type: Tot Lot, with playground. No hours published on its page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/moose-park",
+   "https://maps.kamloops.ca/Parks/htmlpages/MOOSE%20PARK.html"
+  ]
+ },
+ "24eff2af": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://maps.kamloops.ca/Parks/htmlpages/JUNIPER%20WEST%20PARK.html",
+   "src places → official",
+   "name Juniper Ridge Park → Juniper West Park (City name; old name kept as a search word)",
+   "note corrected (P1): No City park called Juniper Ridge Park — City name is Juniper West Park (different from Juniper Park at 2150 Qu'Appelle); amenities unsuppor"
+  ],
+  "method": "desk",
+  "remarks": "The City names the park at 1940 Qu'Appelle Blvd 'Juniper West Park'; there is no City park called 'Juniper Ridge Park' (Juniper Ridge is the neighbourhood). A different 'Juniper Park' (community park, multi-purpose court) is at 2150 Qu'Appelle Blvd — make sure the pin is the intended one. No park hours on the City record.",
+  "result": "corrected",
+  "urls": [
+   "https://maps.kamloops.ca/Parks/htmlpages/JUNIPER%20WEST%20PARK.html",
+   "https://maps.kamloops.ca/Parks/htmlpages/JUNIPER%20PARK.html",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/juniper-park"
+  ]
+ },
+ "251dd9d0": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address 1655 Island Pkwy → 1525 -1580 Island Pky",
+   "note corrected (P1): Trail length, 'free' mini golf and wild deer not stated; City rules (no dogs, no alcohol, no swimming) omitted"
+  ],
+  "method": "desk",
+  "remarks": "1655 Island Pkwy on file is not the park's listed address (the Sport & Event Centre is 1665). Park regulations: No Dogs, no alcohol, no swimming (river hazards). Boat launch closed for 2026 season.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcarthur-island-park"
+  ]
+ },
+ "25cf033e": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "theseed.ca blocks automated fetching (Cloudflare 403); values come from the search index text of theseed.ca/emergency-shelter and theseed.ca/harbourhouse: 30 beds, men and women, 24/7, food, clothing, hot showers, hygiene supplies, advocacy, counselling, health care assistance; Harbour House 12 beds for women, same address, 825.401.2870, 24/7. The on-file website is a 211 directory page — replace with https://theseed.ca/emergency-shelter. Human browser recheck advisable.",
+  "result": "confirmed",
+  "urls": [
+   "https://bc.211.ca/agency-details/the-mustard-seed-9490188/",
+   "https://theseed.ca/emergency-shelter",
+   "https://theseed.ca/harbourhouse"
+  ]
+ },
+ "260312fd": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Amenities confirmed: rooftop patio, fitness room, yoga studio, in-suite washer/dryer, underground parking; 1BR and 2BR. No prices on site. Address on file is the management office in the Fortune Shopping Centre, not necessarily the building's own door. Emergencies: call main number and press 1.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.ashviewapartments.ca",
+   "https://www.ashviewapartments.ca/contact"
+  ]
+ },
+ "28fd0361": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Only directories (Yelp, etc.) found - not acceptable evidence. They consistently show 'Cheng Kwong Grocery', 864B 8th Street, Kamloops V2B 2X3, phone 250-554-2272, and hours that differ from file (one directory: Mon-Fri & Sun 10-6, Tue 10-5, Sat 10-6 - i.e. possibly open Sunday, file says Mon-Sat). Needs an in-person or phone check.",
+  "result": "unresolved",
+  "urls": []
+ },
+ "29917426": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Good reputation' is opinion; keep loyalty-card tip"
+  ],
+  "method": "desk",
+  "remarks": "Store page blocks automated fetch (403); data from Save-On-Foods' own store-data API used by their website (store id 2211).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.saveonfoods.com/store-information/lansdowne/2211",
+   "https://storefrontgateway.saveonfoods.com/api/stores?take=500"
+  ]
+ },
+ "29977f1d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Official page says about a 10-minute walk to TRU, not 5–10"
+  ],
+  "method": "desk",
+  "remarks": "Units: 1 Bedroom, 2 Bedroom, 2 Bedroom 2 Bath. 'Cats & dogs under 40 lbs welcome'. Air conditioner in suites.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/stetson-place-apartments-in-kamloops"
+  ]
+ },
+ "2b25c9c2": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 24-hour opening not confirmed by any official source (one report says it closes at 10 pm); note told readers to rely on it 'in a pinch'"
+  ],
+  "method": "desk",
+  "remarks": "Petro-Canada's station locator returns 403 to fetch tools (needs a browser). Directories list Petro-Canada, 411 10 Ave, Kamloops V2C 6J8, 250-372-1734. Because the note tells people this is the one to remember 'in a pinch', the 24-hour claim is the most important thing to verify (browser check of petro-canada.ca locator).",
+  "result": "unresolved",
+  "urls": [
+   "https://www.petro-canada.ca/en/personal/gas-station-locations"
+  ]
+ },
+ "2b34314d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/brocklehurst-park",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Official page: playground, 3 mini soccer fields, tennis, pickleball, basketball, dogs on leash, next to Brocklehurst Arena and Brock Pool. Park hours not stated on this page (McArthur Island page states 5:00 am - 11:00 pm).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/brocklehurst-park"
+  ]
+ },
+ "2c219c80": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Convenience store, 94 octane, diesel, washrooms, air. Non-official listings call it 'Valleyview Chevron Town Pantry', phone 250-374-1338 (not on the official page).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.journie.ca/on-the-run-ca/on-en/locations/43058"
+  ]
+ },
+ "2c52857d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://csikamloops.ca/seniorscentre.htm",
+   "src places → official",
+   "name North Shore Community Centre → Kamloops Seniors Community Centre (CSI Kamloops; the old society dissolved); phone 778-470-6000 (ext. 301); unverified hours removed",
+   "note corrected (P1): The old North Shore Community Centre Society is gone; 730 Cottonwood Ave is now the Kamloops Seniors Community Centre run by CSI Kamloops — "
+  ],
+  "method": "desk",
+  "remarks": "Email kscc@csikamloops.ca. Parking at the back of the building. Old phone 250-376-4777 belongs to the former society (cottonwoodmanor.ca page appears stale). Events calendar on csikamloops.ca.",
+  "result": "corrected",
+  "urls": [
+   "https://csikamloops.ca/seniorscentre.htm",
+   "https://cottonwoodmanor.ca/community-centre/"
+  ]
+ },
+ "2c686174": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Interpretation/translation is a paid service, not free; LINC is free only for eligible clients (PR, refugees, some temporary residents); chi"
+  ],
+  "method": "desk",
+  "remarks": "Also 1-866-672-0855 toll-free. Childminding needs pre-registration via a Settlement Counsellor.",
+  "result": "corrected",
+  "urls": [
+   "https://immigrantservices.ca",
+   "https://immigrantservices.ca/immigration-kamloops-services/translation-interpretation/",
+   "https://immigrantservices.ca/learn-english/"
+  ]
+ },
+ "2c8f9d3b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Route list could not be confirmed and appears incomplete (other routes such as 4, 8, 11, 16 may use the exchange); dropped the explicit list"
+  ],
+  "method": "desk",
+  "remarks": "Phone is BC Transit's Kamloops system line (operator Transdev, 1460 Ord Rd), not an exchange office. handyDART 250-376-7525; Umo 877-380-8181. Recommend dropping the explicit route list or re-checking it in the route overview.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.bctransit.com/kamloops",
+   "https://www.bctransit.com/kamloops/contact/"
+  ]
+ },
+ "2c97f43a": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Address is now on gov.bc.ca, so the 'directory' caveat is obsolete; offices have no local phone (1-866-866-0800) and there is a second offic"
+  ],
+  "method": "desk",
+  "remarks": "gov.bc.ca lists a second Kamloops office at 726B Sydney Ave (North Shore, V2B 1M9). Offices have no local phone; use 1-866-866-0800.",
+  "result": "confirmed",
+  "urls": [
+   "https://www2.gov.bc.ca/gov/content/family-social-supports/income-assistance/access-services"
+  ]
+ },
+ "2d7b4fa3": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P0): 'Self-referral is accepted' and 'any gender' unsupported — CMHA says residents most often transition from a lower-barrier shelter; added off"
+  ],
+  "method": "desk",
+  "remarks": "On-file 250-312-2954 does not appear on any official page; CMHA lists (250) 374-0440, toll-free BC 1-888-674-0440. BC Housing release (2022) says land leased for 3 years with option to extend 2 more — site may be time-limited; confirm still operating.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloops.cmha.bc.ca/programs/moira-house/",
+   "https://bchousing.org/news/releases/moira-house-opens-adding-40-new-shelter-beds-in-kamloops/"
+  ]
+ },
+ "316d05b2": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Perfect rating' is third-party; showers and 'new facilities' not stated; boxing supported (chartered BC Boxing club)"
+  ],
+  "method": "desk",
+  "remarks": "Address unit is 1216C (file has 1216 without unit letter — add 'C'). Also has café/pro shop.",
+  "result": "corrected",
+  "urls": [
+   "https://totemfitness.ca/"
+  ]
+ },
+ "33daddfb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page also lists other events at 4:00PM and 6:00PM at 454 Columbia Street (not regular Sunday worship).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.firstbaptistkamloops.org/"
+  ]
+ },
+ "34b0871f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://maps.kamloops.ca/Parks/htmlpages/AVIATION%20WAY%20DOG%20PARK.html",
+   "src places → official",
+   "note corrected (P1): 'Better for small dogs/quieter' is opinion; the 4 km trail is not part of the park per City (Rivers Trail only passes nearby)"
+  ],
+  "method": "desk",
+  "remarks": "City description: 'Large grassed area for exercising your dog.' No hours published for this park.",
+  "result": "confirmed",
+  "urls": [
+   "https://maps.kamloops.ca/Parks/htmlpages/AVIATION%20WAY%20DOG%20PARK.html",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/dog-parks"
+  ]
+ },
+ "34c74ae9": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "RBC calls it the Sahali branch.",
+  "result": "confirmed",
+  "urls": [
+   "https://maps.rbcroyalbank.com/BC-KAMLOOPS-branch-2360"
+  ]
+ },
+ "35a610c9": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "src places → official",
+   "note corrected (P1): Goat-feeding farm and winter skating not among City amenities; dogs are not allowed inside the park (only below/on the dike)"
+  ],
+  "method": "desk",
+  "remarks": "Water park is closed for 2026 (closed Sept 15). Amenities per City: water park, playground, pump track, disc golf, lacrosse/tennis/basketball courts, washrooms.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/westsyde-centennial-park"
+  ]
+ },
+ "362f2221": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website found (Facebook page only — not acceptable evidence). Search snippets from that Facebook page give 209-1414 Victoria St, Kamloops V2C 1Z5, phone 778-921-0098, tsftutoring@gmail.com, math and science tutoring since 2013 — a different address from the file (689 Tranquille Rd). Recommend dropping the record or confirming by phone before publishing an address. src 'places'.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.facebook.com/TheSuccessFormula/"
+  ]
+ },
+ "3644cc5b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Good service reputation' is opinion; branch page lists booking, languages and Saturday closure"
+  ],
+  "method": "desk",
+  "remarks": "Languages spoken listed: English, Hindi. Closed Saturdays.",
+  "result": "confirmed",
+  "urls": [
+   "https://maps.rbcroyalbank.com/BC-KAMLOOPS-branch-2320"
+  ]
+ },
+ "36785c07": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Formats listed: UltraAVX, RealD 3D, Dolby Atmos. Box-office hours not published (showtime-driven); on-file opening times unverifiable.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.cineplex.com/theatre/cineplex-cinemas-aberdeen-mall"
+  ]
+ },
+ "37e19c24": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Individual tenants (Shoppers, BC Liquor, A&W, Earls) keep their own hours; consider dropping mall hours.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.bcliquorstores.com/store/locator/79"
+  ]
+ },
+ "398960ab": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "TD branch locator is JS-only. TD's own 2012 opening release gave phone 250-314-5077 and hours Mon–Wed 8–6, Thu–Fri 8–8, Sat 8–4, Sun 12–4 (open seven days) — this conflicts with on-file Mon–Fri 9–6 / weekends closed, but is 14 years old, so current hours are unconfirmed. Recommend adding the phone and re-checking hours on td.com in a browser.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.td.com/ca/en/personal-banking/branch-locator",
+   "https://stories.td.com/ca/en/news/2012-02-01-media-advisory---td-canada-trust-branch-grand-opening-in-kam",
+   "https://stories.td.com/ca/en/news/2012-02-04-get-a-panoramic-view-at-td-canada-trust-27s-newest-branch-in-k"
+  ]
+ },
+ "3a28ab47": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Eco-friendly dry cleaning, wash & fold service and alterations.",
+  "result": "confirmed",
+  "urls": [
+   "https://thompsoncleaners.ca/"
+  ]
+ },
+ "3aa4eac6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Fraser Institute ranking is a third-party rating, not an official source"
+  ],
+  "method": "desk",
+  "remarks": "Office hours 7:00-4:30 on file are not published on the school site; classes run 8:30-2:59.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/skss",
+   "https://www.sd73.bc.ca/skss/bell-schedule",
+   "https://www.sd73.bc.ca/skss/feeder-schools",
+   "https://sites.google.com/gedu.sd73.bc.ca/skss-course-selection/home"
+  ]
+ },
+ "3baa3f69": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "TD's branch locator is a JavaScript app that could not be read with fetch tools (no browser allowed in this pass). Directories (YellowPages, Yelp — not acceptable evidence) list TD Canada Trust, 700 Tranquille Rd Unit 29 (Northills Centre), V2B 3H9, phone 250-376-7774, Mon–Wed 9:00–5:30, Thu–Fri 9:00–6:00, Sat 9:00–4:00 — matching hours on file. No phone on file; 250-376-7774 is a candidate pending official check.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.td.com/ca/en/personal-banking/branch-locator",
+   "https://northills.ca/store/td-canada-trust/"
+  ]
+ },
+ "3bdd3fce": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Currently leasing: Amadeus, The Innova, The Confluence (all North Shore) and Tumbleweeds (Dallas). Email info@interiorpm.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloopsrentals.ca"
+  ]
+ },
+ "3e53014e": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Official site: the Children's Museum is a hands-on exhibit on the first floor, not a play area downstairs"
+  ],
+  "method": "desk",
+  "remarks": "Confirmed: name/address/phone/hours; only the note's location wording ('downstairs') should change to 'first floor' (Children's Museum). Museum's own site is kamloopsmuseum.ca.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/culture-heritage/kamloops-museum-archives",
+   "https://www.kamloopsmuseum.ca/"
+  ]
+ },
+ "3edea4d7": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.sbsinvestments.ca/portfolio/",
+   "src places → official",
+   "note corrected (P1): Unit types, size, pet/smoking/lease terms only from third-party listings ('2BR only' may be wrong); 'private landlord' contradicted — owned "
+  ],
+  "method": "desk",
+  "remarks": "Owner: SBS Investments (sbsinvestments.ca). No official leasing page found; consider dropping the unit-type / landlord claims from the note.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sbsinvestments.ca/portfolio/"
+  ]
+ },
+ "3ee66c48": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Large' and 'no lighting' not stated; City lists fenced, benches, bag dispensers, off leash under control"
+  ],
+  "method": "desk",
+  "remarks": "Phone on file is the City switchboard (250-828-3311); the dog-parks page lists Community Services (Bylaws) 250-828-3409 as the contact. Park hours not published on the page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/ord-road-dog-park",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/dog-parks"
+  ]
+ },
+ "3fe222fe": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Main North Shore supermarket, similar to Superstore' is subjective; online pickup and in-store pharmacy confirmed"
+  ],
+  "method": "desk",
+  "remarks": "Store page is a JS app; data came from the PC Express pickup-location feed behind the official store page. Sunday hours match the on-file 7–22; other days not seen. Has an in-store pharmacy.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.yourindependentgrocer.ca/en/store-locator/details/5488",
+   "https://api.pcexpress.ca/pcx-bff/api/v1/pickup-locations/5488"
+  ]
+ },
+ "400c006c": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Office weekdays 9-1' is not published anywhere on the official site"
+  ],
+  "method": "desk",
+  "remarks": "Email colombo@telus.net. Also rents hall for weddings/events.",
+  "result": "corrected",
+  "urls": [
+   "https://www.colombolodge.com/",
+   "https://www.colombolodge.com/become-a-member",
+   "https://www.colombolodge.com/society"
+  ]
+ },
+ "41710fc6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Dogs allowed on-leash only on the southern portion of the Rivers Trail through Riverside Park.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/rivers-trail-park-place",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park"
+  ]
+ },
+ "41b6f4f9": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official page URL (search index): https://www.petro-canada.ca/en/personal/gas-station-locations/704-sydney-avenue-kamloops — check in a browser. Directories (not evidence) show Mon–Sat 6–10 pm, Sun 7–10 pm, phone 250-376-1131 — Sunday may differ from on-file daily 6–22.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.petro-canada.ca",
+   "https://www.petro-canada.ca/en/personal/gas-station-locations/704-sydney-avenue-kamloops"
+  ]
+ },
+ "420c09d8": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Hours on file (Mon–Fri 8:30–5) match the drop-in/self-referral hours; the office itself is open later Mon–Thu (to 6 p.m., Thursday to 8 p.m.). Main office phone 250-377-6500 could be added. Crisis line 1-888-353-2273 confirmed (24/7).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/kamloops-mental-health-substance-use"
+  ]
+ },
+ "4255fba1": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents confirmed on https://www.sd73.bc.ca/register-for-school: \"child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable\" (stated for Kindergarten registration). School page publishes no office hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/ralph-bell",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "42b06f2f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Offers precision lumber cutting, door shop, curbside pick-up and delivery.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.windsorplywood.com/pages/kamloops"
+  ]
+ },
+ "4304512a": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): FreshCo is not in the official mall directory; Ebus is the intercity bus; city routes 7 and 9 run beside the mall"
+  ],
+  "method": "desk",
+  "remarks": "The mall website publishes no street address and no mall hours, so the Mon-Sat 9:30-5:30 hours on file are unsupported. 250-374-3033 is the management office, not a customer info line.",
+  "result": "corrected",
+  "urls": [
+   "https://sahalicentremall.com/",
+   "https://www.sahalicentremall.com/contact-us",
+   "https://www.sahalicentremall.com/directory"
+  ]
+ },
+ "43418df3": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "RBC calls this the 'North Shore' branch.",
+  "result": "confirmed",
+  "urls": [
+   "https://maps.rbcroyalbank.com/BC-KAMLOOPS-branch-3520"
+  ]
+ },
+ "43a22995": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "SD73 register-for-school page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/dthompson",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "4466a800": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Post office counter is inside the Rexall pharmacy. Canada Post's own locator is JS-only; hours from Rexall's official store page. Rexall store is open 8 am–10 pm but the postal counter keeps the shorter hours above.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.rexall.ca/storelocator/store/7122",
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
+  ]
+ },
+ "44ebd37f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Licensed; infant/toddler program and two 3–5 programs. Closed PD days, first week of Spring Break, Christmas Break, stat holidays.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.colourmyworldchildcare.ca/"
+  ]
+ },
+ "45b579e5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcarthur-island-park",
+   "src places → official",
+   "note corrected (P2): 'New large' not stated; park rules (no dogs) added"
+  ],
+  "method": "desk",
+  "remarks": "Park rules: No Dogs, No Smoking, No Alcohol; No Swimming (river hazards). Boat launch closed for 2026.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcarthur-island-park"
+  ]
+ },
+ "472010d4": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "phone None → 236-425-3568",
+   "note corrected (P2): 'Excellent reputation' is opinion; menu shows 12 kinds of momo"
+  ],
+  "method": "desk",
+  "remarks": "Phone missing on file - official 236-425-3568. Nepali, Indian & Indo-Chinese cuisine.",
+  "result": "corrected",
+  "urls": [
+   "https://www.himalayankitchenandbar.com/contact.html",
+   "https://www.himalayankitchenandbar.com/menu.html"
+  ]
+ },
+ "4757f870": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Highest-rated' is a rating; official site gives two conflicting sets of hours"
+  ],
+  "method": "desk",
+  "remarks": "The official site contradicts itself: footer says 11:30 AM-9:00 PM seven days a week; banner says 'Now Open: Tuesday – Sunday | 5 PM – 11 PM'. File matches the footer. Call before going, especially Monday or lunchtime.",
+  "result": "confirmed",
+  "urls": [
+   "https://wasabimodernkitchen.com/"
+  ]
+ },
+ "49a6e924": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/parks-recreation/parks/westsyde-centennial-dog-park",
+   "src places → official",
+   "note corrected (P1): 'Best in the city', soccer-field size, shade and paddling pool unsupported; City's actual leash rules (not inside the park) omitted"
+  ],
+  "method": "desk",
+  "remarks": "The City dog park page gives only name and address. Dogs are not allowed in the main Westsyde Centennial Park area (fields, water park).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/parks-recreation/parks/westsyde-centennial-dog-park",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/westsyde-centennial-park"
+  ]
+ },
+ "4b2bef1d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Women's only zone ('ladies only second floor'), yoga sanctuary (hot yoga) and bootcamp room all confirmed.",
+  "result": "confirmed",
+  "urls": [
+   "https://nolimitsfitness.ca/",
+   "https://www.nolimitsfitness.ca/the-gym/"
+  ]
+ },
+ "4d701537": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Discounted wash when you fuel up' not on the official station page"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.esso.ca/en-ca/find-station/kamloops-bc-esso-200302440"
+  ]
+ },
+ "4e06e328": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Teaching Tuesday classes Sept 22 – Nov 17, 2026, 6:45–8:15 pm.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.christcommunitykamloops.com/",
+   "https://www.christcommunitykamloops.com/about/"
+  ]
+ },
+ "4e13201f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email parkcrest-office@exc.sd73.bc.ca. SD73 registration page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'; find catchment school with the School Locator.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/parkcrest",
+   "https://www.sd73.bc.ca/parkcrest/contact-us",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "4e467f97": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'The city's largest' not stated; 27 buildings confirmed"
+  ],
+  "method": "desk",
+  "remarks": "Vacancies shown per building on the website; 'Notify Me' sign-up for full buildings.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/cities/kamloops"
+  ]
+ },
+ "4e6f3a0f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Website field is just the corporate home page; needs a specific station URL and browser verification of hours (on file 6:00–22:00).",
+  "result": "unresolved",
+  "urls": [
+   "https://www.petro-canada.ca",
+   "https://www.petro-canada.ca/sitemap_petrocanada_en.xml"
+  ]
+ },
+ "4f4f0be9": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/pineview-valley-park",
+   "src places → official",
+   "note corrected (P1): City lists Python Lake, playground, trails, dogs on leash, free parking — basketball, hockey rink, washrooms and creek not listed"
+  ],
+  "method": "desk",
+  "remarks": "Neighbourhood park; phone on file is City switchboard.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/pineview-valley-park"
+  ]
+ },
+ "4ff9ad95": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Official Rider's Guide lists TRU Exchange routes 4/5/7/9/10; route 16 not shown serving it"
+  ],
+  "method": "desk",
+  "remarks": "250-376-1216 is the Kamloops Transit info line (Transdev, 1460 Ord Rd). 900 McGill Rd is TRU's old campus address; the exchange itself is on University Drive.",
+  "result": "corrected",
+  "urls": [
+   "https://www.bctransit.com/kamloops/contact/",
+   "https://lite.bctransit.com/wp-content/uploads/2025/10/2025-09-02-KAM-RG.pdf",
+   "https://www.bctransit.com/kamloops/schedules-and-maps"
+  ]
+ },
+ "507845f0": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Contact page: 'In-person visits by appointment only'. The home page footer also shows an old address variant '109 Victoria St. V2C1Z4' in one layout; the contact page gives #7-231 Victoria Street.",
+  "result": "confirmed",
+  "urls": [
+   "https://volunteerkamloops.org/",
+   "https://volunteerkamloops.org/contact/"
+  ]
+ },
+ "50c8f348": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Services list includes 'Social Insurance Number Application' and 'Passport Services' (20 business days delivery by mail), plus biometrics. Closed Thanksgiving Monday Oct 12, 2026. SIN toll-free line 1-866-274-6627. Page fetched with certificate check disabled (site certificate chain issue).",
+  "result": "confirmed",
+  "urls": [
+   "https://offices.service.canada.ca/en/Office/5986"
+  ]
+ },
+ "51c509c6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "BMO calls it 'Kamloops Main Office'; transit #07200.",
+  "result": "confirmed",
+  "urls": [
+   "https://branches.bmo.com/bc/kamloops/b0720/"
+  ]
+ },
+ "52958f58": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email sahali-office@exc.sd73.bc.ca. On-file office hours (Mon–Fri 8:00–3:30) not published on the school site; plausible given 3:04 dismissal but unverified.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/sahali",
+   "https://www.sd73.bc.ca/sahali/contact-us",
+   "https://www.sd73.bc.ca/sahali/bell-schedule"
+  ]
+ },
+ "5308dd0d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website not set: the page that confirmed it is not the place's own (plan / fare page / news)",
+   "note corrected (P0): Cooney Bay is on the privately owned Tranquille on the Lake property, not a public beach; note presented informal access as usable without s"
+  ],
+  "method": "desk",
+  "remarks": "Consider removing from the beach category or stating clearly that it is on private land and access is not guaranteed. Third-party sources (not evidence) describe it as a private beach on the Tranquille property.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/sites/default/files/2022-01/12-08-21-tranquilleonthelakeneighbourhoodplan_0.pdf"
+  ]
+ },
+ "532fdf9c": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email kay-bingham-office@exc.sd73.bc.ca. SD73 registration page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'; find catchment school with the School Locator.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/kay-bingham",
+   "https://www.sd73.bc.ca/kay-bingham/contact-us",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "54085508": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Record has no phone; a possible office number 250-572-4043 appeared in a search snippet — verify before adding. On-file office hours Mon–Fri 9–5 unverified.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.theviewapartments.ca/",
+   "https://www.theviewapartments.ca/floorplans",
+   "https://www.mainlineliving.ca/"
+  ]
+ },
+ "552242cb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Directories (not evidence) list 795 McGill Rd #103, phone 778-538-2222, and reduced hours (Mon–Fri 12–8 pm, closed weekends as of Aug 2026). Website lapse may signal changes — verify by visit/phone before keeping.",
+  "result": "unresolved",
+  "urls": [
+   "https://frasercart.ca/pages/contact-us"
+  ]
+ },
+ "564ef9cb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Children's bikes/skates/snowboards not itemised; site describes consignment sports gear with skate sharpening and bike services"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://consignorsports.com/",
+   "https://consignorsports.com/contact"
+  ]
+ },
+ "585dce71": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Toll-free (250 area) 250-299-2262; email info@askwellness.ca. Pathways is at 142 Tranquille Rd.",
+  "result": "confirmed",
+  "urls": [
+   "https://askwellness.ca/",
+   "https://askwellness.ca/contact/",
+   "https://askwellness.ca/streets/pathways/"
+  ]
+ },
+ "58653e2a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Pool line 250-828-3655. Full fieldhouse closures on some dates (e.g. Oct 8–9, 2026 for TRU convocation) — check the schedule page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/tournament-capital-centre-tcc",
+   "https://www.kamloops.ca/recreation-culture/tournament-capital-centre-tcc/hours-schedule",
+   "https://www.kamloops.ca/recreation-culture/tournament-capital-centre-tcc/facility-details"
+  ]
+ },
+ "5948e4b6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Self-employment, credential-recognition funding and disability services not on this centre's site; résumé not required — proof of ID, BC res"
+  ],
+  "method": "desk",
+  "remarks": "Resource Centre open to anyone in BC; full Employment Services need BC residency, proof of ID and legal eligibility to work in BC.",
+  "result": "corrected",
+  "urls": [
+   "https://workbccentre-kamloops-tranquille.ca/",
+   "https://workbccentre-kamloops-tranquille.ca/eligibility/"
+  ]
+ },
+ "5bbda2fd": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Verify in a browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.rona.ca/en/store/british-columbia/kamloops/rona-kamloops-61310"
+  ]
+ },
+ "5c3b3970": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://local.churchofjesuschrist.org/en/ca/bc/kamloops/2165-parkcrest-avenue",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Two wards share the building, confirmed. Weekdays: 'By appointment only Monday through Saturday'. Website: https://local.churchofjesuschrist.org/en/ca/bc/kamloops/2165-parkcrest-avenue",
+  "result": "confirmed",
+  "urls": [
+   "https://local.churchofjesuschrist.org/en/ca/bc/kamloops/2165-parkcrest-avenue",
+   "https://local.churchofjesuschrist.org/en/units/ca/bc/kamloops-1st-ward",
+   "https://local.churchofjesuschrist.org/en/units/ca/bc/kamloops-2nd-ward"
+  ]
+ },
+ "5d960bb5": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "On-file hours (Mon–Fri 9–7, Sat–Sun 10–2) are wrong. Official: Mon–Sat 8 a.m.–8 p.m., Sun noon–4 p.m. Postal counter inside Shoppers Drug Mart Valleyview Square.",
+  "result": "corrected",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+   "https://pub.geo.canadapost-postescanada.ca/server/rest/services/Hosted/FPO_FLEX_FACILITY_RETAIL_POINT/FeatureServer/0/query?where=site%3D%27A404%27&outFields=*&f=json"
+  ]
+ },
+ "5dd6a8f7": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Better website: https://www.journie.ca/on-the-run-ca/on-en/locations/40144 (Chevron/On the Run location page).",
+  "result": "confirmed",
+  "urls": [
+   "https://journie.ca/chevron/bc-en/locations",
+   "https://www.journie.ca/on-the-run-ca/on-en/locations/40144"
+  ]
+ },
+ "600d0f4c": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://bcparks.ca/paul-lake-park/",
+   "src places → official",
+   "note corrected (P2): 'Top summer choice' is opinion; picnicking unsupported; BC Parks says within 30 minutes; pets restricted to a signed area"
+  ],
+  "method": "desk",
+  "remarks": "BC Parks page lists no day-use hours or operating season, so the 8am-10pm hours on file are unsupported - consider removing them. Pets on the beach restricted to a signed area near the east end of the parking lot. Park operator: Shuswap Adams Parks Ltd. (souththompson@campbc.ca).",
+  "result": "confirmed",
+  "urls": [
+   "https://bcparks.ca/paul-lake-park/"
+  ]
+ },
+ "61154281": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Cheapest tier locally' is an unverified price ranking; keep the cancellation-terms advice"
+  ],
+  "method": "desk",
+  "remarks": "planetfitness.ca is behind a Cloudflare bot check (403) — needs a browser. Directories (not acceptable) agree with file: 945 Columbia St W #350, 250-277-1747, Mon–Thu 5 a.m.–11 p.m., Fri 5 a.m.–9 p.m., Sat–Sun 7 a.m.–7 p.m.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.planetfitness.ca/gyms/kamloops-bc"
+  ]
+ },
+ "61d1c228": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address 501 McDonald Ave → 262 King St (McDonald Park)",
+   "note corrected (P1): McDonald Park has pickleball (not basketball), dogs on leash only (no dog park), no art market; season June 1–Labour Day confirmed"
+  ],
+  "method": "desk",
+  "remarks": "Season June 1 - Labour Day confirmed; daily 10-8 hours on file not stated for this specific spray park.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/mcdonald-park-spray-park",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcdonald-park"
+  ]
+ },
+ "61f2ca0d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page: 'Cash accessible via ATM. For teller services not available at this location, please visit one of our nearby Banking Centres.' Closed Mon Oct 12 (Thanksgiving).",
+  "result": "confirmed",
+  "urls": [
+   "https://locations.cibc.com/bc/kamloops/02950"
+  ]
+ },
+ "649bfc20": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Retail postal outlet inside Shoppers Drug Mart #2121; open Saturdays, closed Sundays. Data from the GIS layer behind Canada Post's official locator (the locator page itself is a JS app).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+   "https://pub.geo.canadapost-postescanada.ca/server/rest/services/Hosted/FPO_FLEX_FACILITY_RETAIL_POINT/FeatureServer/0/query?where=site%3D%27A997%27&outFields=*&f=json"
+  ]
+ },
+ "6a7c7694": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Family-run since 1980; strata, commercial and residential management, plus residential rentals listings.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.cmlproperties.ca"
+  ]
+ },
+ "6bf24b9b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/juniper-park",
+   "src places → official",
+   "note corrected (P1): City lists only a multi-purpose court and water fountain; playground/tennis/basketball/soccer/bike park unsupported; dog park confirmed"
+  ],
+  "method": "desk",
+  "remarks": "No park hours given on City page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/juniper-park",
+   "https://www.kamloops.ca/parks-recreation/parks/juniper-dog-park"
+  ]
+ },
+ "6c036ec5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "homehardware.ca is behind a Cloudflare bot check (403). A search-engine summary of the official page gives 1325 Josep Way, Kamloops V2H 1N6, 250-377-7234, Mon–Fri 7am–6pm, Sat 8am–6pm, Sun 9am–5pm — matching the file — but I could not open the page itself. Note: some directories list Mon–Sat 8–6, so the 7 a.m. weekday opening needs a browser check.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.homehardware.ca/en/store/55461"
+  ]
+ },
+ "6c853164": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/aberdeen-hills-park",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Dog park page: 'Dogs off leash, under control', 'Fenced', 'Separate, fenced-in area for small dogs', bag dispensers, free on-street parking. In the main park: 'Dogs on leash, not at the playground'. 250-828-3311 is the City's general line, not on the park page. Better website: https://www.kamloops.ca/recreation-culture/parks-sports-fields/aberdeen-hills-dog-park",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/aberdeen-hills-park",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/aberdeen-hills-dog-park",
+   "https://kamloops.civicweb.net/document/80087/BL_35-94.pdf?handle=3DB0C42B3C644E3D892F40211E29653F"
+  ]
+ },
+ "6cf9171d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "North Shore Community Police Office 915 7th Street, 250-376-5099, Mon–Fri 8:30–4:30. Service in English and French.",
+  "result": "confirmed",
+  "urls": [
+   "https://rcmp.ca/en/bc/kamloops/contact"
+  ]
+ },
+ "6d8ff33f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address Batchelor Heights → 1750 Batchelor Dr"
+  ],
+  "method": "desk",
+  "remarks": "City: 'Nature park with green space' / 'Green space for wildlife overlooking North Kamloops'. Give the street address 1750 Batchelor Dr instead of just 'Batchelor Heights'. No hours on the City page.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/batchelor-nature-park",
+   "https://maps.kamloops.ca/Parks/htmlpages/BATCHELOR%20NATURE%20PARK.html"
+  ]
+ },
+ "6ee0378d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): NorKam is only a candidate school for IB MYP (not authorised); 'only IB school' not stated; DP has a fee and application deadline"
+  ],
+  "method": "desk",
+  "remarks": "Office hours not published; block rotation days run 8:30 AM – 3:30 PM. IB DP costs $1,200 over two years; application deadline Feb 1, 2027.",
+  "result": "corrected",
+  "urls": [
+   "https://www.sd73.bc.ca/nkss",
+   "https://www.sd73.bc.ca/nkss/international-baccalaureate-programme"
+  ]
+ },
+ "6f693d79": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P0): Capacity is 50 not 49; pet policy, 'no maximum stay', 'any gender' and most listed services unsupported (City says shelters are generally sh"
+  ],
+  "method": "desk",
+  "remarks": "Address is not confidential (publicly listed by CMHA and BC gov). Recommend softening the detailed service list or confirming by phone with CMHA (236-425-0341), and noting the lease uncertainty.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/our-community/housing-homelessness/resources-people-experiencing-homelessness",
+   "https://kamloops.cmha.bc.ca/contact/",
+   "https://kamloops.cmha.bc.ca/shelter/merit-place/",
+   "https://archive.news.gov.bc.ca/releases/news_releases_2020-2024/2022AG0017-000177.htm",
+   "https://www.bchousing.org/news/releases/future-of-safe-shelter-secured-in-kamloops"
+  ]
+ },
+ "6fe0fc40": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website not set: the page that confirmed it is not the place's own (plan / fare page / news)",
+   "note corrected (P1): 6 am–10 pm hours have no official source (directories disagree); vendor list does not itemise monthly passes/Umo cards — official wording is"
+  ],
+  "method": "desk",
+  "remarks": "Hours on file (Mon–Sat 6–22, Sun 7–22) come from a third-party listing and are unverified. Directories give phone 250-579-5885 (unverified).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.bctransit.com/kamloops/fares/where-to-buy"
+  ]
+ },
+ "7008bb05": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Bread is cheap' is subjective"
+  ],
+  "method": "desk",
+  "remarks": "Note: the companion Hasty Mart record (0dbc2ac6) has weekend hours 7–22 which conflict with these daily 6–22 hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.esso.ca/en-ca/find-station/kamloops-bc-esso-200327266",
+   "https://hastymartesso.com/"
+  ]
+ },
+ "7162c470": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email aberdeen-office@exc.sd73.bc.ca. SD73 registration page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'; find catchment school with the School Locator.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/aberdeen",
+   "https://www.sd73.bc.ca/aberdeen/contact-us",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "718a712f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official site: 'The Tk̓emlúpsemc, \"the people of the confluence\"' — consistent with the note's 'meeting of the rivers'. Some TteS documents show a 12–1 lunch closure; call ahead.",
+  "result": "confirmed",
+  "urls": [
+   "https://tkemlups.ca/",
+   "https://tkemlups.ca/contact/",
+   "https://tkemlups.ca/wp-content/uploads/2026/06/Revised-Media-Release-June-5th-2026.pdf"
+  ]
+ },
+ "71a7b929": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website found. daytoday.ca lists only a Surrey store (7843 128 St) — possibly unrelated or a sister store; no Kamloops location there. The store's only web presence is Instagram (@daytodaykamloops, not acceptable evidence); search snippets say 363 Tranquille Rd, 9 a.m.–10 p.m., South Asian grocery. Record remains unverified (src 'places'); no phone on file.",
+  "result": "unresolved",
+  "urls": [
+   "https://daytoday.ca/locations",
+   "https://www.instagram.com/daytodaykamloops/"
+  ]
+ },
+ "71e5f941": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Weekdays 9-4' not published; clubhouse is at a different address (857 Seymour St)"
+  ],
+  "method": "desk",
+  "remarks": "Site header says 'NEED HELP NOW? Call 310-6789 BC'. Toll-free BC 1-888-674-0440. Main line has a phone tree. Shelters (Emerald Centre, Merit Place, Moira House) are at other addresses, as the note says.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamloops.cmha.bc.ca/",
+   "https://kamloops.cmha.bc.ca/contact/"
+  ]
+ },
+ "72a232e1": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Office hours not published; school day roughly 8:28 AM – 2:55 PM per calendar.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/wss"
+  ]
+ },
+ "72b24279": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/valleyview-centennial-park",
+   "src places → official",
+   "note corrected (P2): City lists one soccer field and a tennis/multi-purpose court; washrooms and 'no pets' not stated"
+  ],
+  "method": "desk",
+  "remarks": "Website: https://www.kamloops.ca/recreation-culture/parks-sports-fields/valleyview-centennial-park",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/valleyview-centennial-park"
+  ]
+ },
+ "72d243e6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "browser",
+  "remarks": "2026-10-04 browser: theseed.ca/services/kamloopswc — services, Mon–Fri 9–12 & 1–4, 181 Victoria St W, 1-833-448-4673 match",
+  "result": "confirmed",
+  "urls": [
+   "https://theseed.ca/services/kamloopswc",
+   "https://theseed.ca/contact-us",
+   "https://find.healthlinkbc.ca/ResourceView2.aspx?org=53965&agencynum=24010273"
+  ]
+ },
+ "752036cd": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Goat-feeding farm and skating not on City page (possibly wrong park); replaced with City amenity list and river warning"
+  ],
+  "method": "desk",
+  "remarks": "Amenities per City: soccer fields, slo-pitch diamond, pump track, multi-purpose arena, basketball, tennis, water park, disc golf, playground, dog park, picnic tables, washrooms. River: no swimming (strong currents).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/westsyde-centennial-park"
+  ]
+ },
+ "75440a0f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Roomy' is opinion; official site: closed Tuesdays"
+  ],
+  "method": "desk",
+  "remarks": "Closed Tuesdays. Happy hour 2–5 pm & 8 pm–close.",
+  "result": "confirmed",
+  "urls": [
+   "https://manilasocial.ca/"
+  ]
+ },
+ "76537f5f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Free street parking. No hours on the City page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/valleyview-nature-park",
+   "https://maps.kamloops.ca/Parks/htmlpages/VALLEYVIEW%20NATURE%20PARK.html"
+  ]
+ },
+ "76e4e7cb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Canada Post's post-office finder renders only with JavaScript; no official data could be read. Directories (not acceptable evidence) agree with the file: Kamloops PO, 217 Seymour St, V2C 2G0, Mon-Fri 9-5, closed weekends, 1-866-607-6301 (Canada Post national line). Needs a manual check in the Canada Post finder.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+   "https://www.canadapost-postescanada.ca/cpotools/apps/fpo/personal/findPostOfficeList?searchAddress=V2C2G0&lang=en"
+  ]
+ },
+ "77435918": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address 1034 Sherbrooke Ave → 1026 Sherbrooke Ave",
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/sherbrooke-park",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Address is 1026 Sherbrooke Ave (not 1034). City classes it as a 'Tot Lot' with picnic and playground, which supports 'designed for toddlers'. Dogs not allowed. src was 'places'. No hours on the page.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/sherbrooke-park",
+   "https://maps.kamloops.ca/arcgis/rest/services/FeatureDataset/GIS_Parks_2/MapServer/10/query?where=NAME%3D%27SHERBROOKE%20PARK%27&outFields=*&f=json"
+  ]
+ },
+ "775d4cc1": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Site gives no street address, only directions: from Hwy 5 north turn right on Shuswap Rd, first right onto Powwow Trail at the Petro Canada, past Sk'elep School and the yellow gate; parking at the Powwow Arbour. Admission: Adult $16, Elder $10, Youth $12, under 7 free (+GST); TteS members free. Archives currently closed to external research.",
+  "result": "confirmed",
+  "urls": [
+   "https://secwepemcmuseum.ca/",
+   "https://secwepemcmuseum.ca/visit-overview/",
+   "https://secwepemcmuseum.ca/contact/"
+  ]
+ },
+ "78386973": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Appointments required, no walk-ins; 'Phone lines open at 10 a.m.' Page also lists 250-314-2421. 'Same-day slots go fast' is advice, not stated on page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/kamloops-south-shore-urgent-primary-care-learning-centre"
+  ]
+ },
+ "7e4469ca": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Sandbar and eagles only from hiking blogs; City map shows this as the Rivers Trail along Aviation Way"
+  ],
+  "method": "desk",
+  "remarks": "No City page for 'Airport Trail'. The City's Rivers Trail map (Mar 2025) shows the Rivers Trail along Aviation Way with an 'Aviation Way Dog Park'; the name 'Airport Trail' and street number 2755 Aviation Way were not found on an official source. Consider renaming to 'Rivers Trail (Aviation Way)'.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.kamloops.ca/sites/default/files/2025-04/PKS_RiversTrail_MapKiosks_48x24_Mar2025_FINAL-WEB.pdf"
+  ]
+ },
+ "7e5b1086": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Very highly rated' is a rating; replaced with booking facts from the official site"
+  ],
+  "method": "desk",
+  "remarks": "Website shows only 'Open today' hours, so only Sunday 9:30-6:30 could be confirmed; other days assumed same, not verified. Booking by appointment online; 'Cancellations accepted up to 2 hours before the scheduled service.'",
+  "result": "confirmed",
+  "urls": [
+   "https://cleancutzbarbershop.com/"
+  ]
+ },
+ "7ef85e45": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Hours wrong: City Contact Us page gives 8:00–4:00 weekdays; 9–4 / 8:30–3:30 appear nowhere for City Hall"
+  ],
+  "method": "desk",
+  "remarks": "On-file 9:00–16:00 should be 8:00–16:00 per main Contact Us page. The 8:30–3:30 figure appears to be the TCC payment counter, not City Hall. Municipal services emergencies 8–4: 250-828-3461; after hours 250-372-1710.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/city-hall/contact-us",
+   "https://www.kamloops.ca/city-hall/contact-us/contact-database/city-hall",
+   "https://www.kamloops.ca/city-services/property-taxes/payment-options",
+   "https://www.kamloops.ca/public-safety/community-services/parking-services/parking-faqs"
+  ]
+ },
+ "7f3150f8": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registered patients only, by appointment; no walk-ins.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/kamloops-primary-care-clinic"
+  ]
+ },
+ "804f8117": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "SD73 'Schools of Choice': 'LEARNING THROUGH THE ARTS: Dance, drama, music, singing, and visual arts are integrated into academic instruction ... offered Kindergarten to grade 12 — Kamloops School of the Arts'. Entry is by application form; Schools of Choice kindergarten registration is not first-come — a random draw is held if oversubscribed (window for 2026 is closed).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/ksa",
+   "https://www.sd73.bc.ca/ksa/registration",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "80e697e8": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/overlanders-park",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Official: 'Beach (no swimming allowed...)'; water safety: 'No Swimming, Drowning Risk, Unstable Riverbanks, Strong Currents, Drop Offs'. Dogs are not allowed in the park except on the beach, where they may be off leash. Beach volleyball, washrooms. src was 'places'; now confirmed.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/overlanders-park"
+  ]
+ },
+ "810f1fee": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P0): 'At no cost to the family' is wrong: there is a daily rate for a stay set by the Ministry of Health, with a reduced rate for those who quali"
+  ],
+  "method": "desk",
+  "remarks": "Hospice home (Marjorie Willoughby Snowden Memorial Hospice Home) has 12 beds. Official site publishes no office hours; on-file Mon–Fri 9–4 unverified (bc211 directory says 8:30–4:30). Per-diem changes every January.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopshospice.com/",
+   "https://www.kamloopshospice.com/contact/",
+   "https://kamloopshospice.com/our-home/"
+  ]
+ },
+ "8114d27f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "'Adult only residents 55+'; 1BR from $1,250, 2BR from $1,700, 3BR from $1,800; heat and water included; cats and small dogs allowed.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/jason-adam-manor-apartments-in-kamloops"
+  ]
+ },
+ "814cc8b6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "freshco.com returns 403 to automated fetches (both WebFetch and curl), so no official confirmation. Directories (not acceptable evidence) agree with file: FreshCo Columbia & Summit, 945 W Columbia St, 250-374-2811, Mon-Sun 7am-10pm. Note: the official Sahali Mall directory (sahalicentremall.com/directory) does NOT list FreshCo - worth a human check that the store is still open / in that mall.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.freshco.com/stores/freshco-columbia-summit",
+   "https://www.sahalicentremall.com/directory"
+  ]
+ },
+ "8172374d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Volunteer: 'Apply in person at the Thrift Seller on Victoria Street. Speak to the manager or assistant manager.' Criminal Records Check consent required (no fee). Donations drop-off at back entrance on Lansdowne St, Mon–Fri 9–3, Sat 9–2.",
+  "result": "confirmed",
+  "urls": [
+   "https://rih-auxiliary.com/thrift.html",
+   "https://rih-auxiliary.com/volunteer.html"
+  ]
+ },
+ "8244ba59": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Official page mentions grocery shopping and a Shoppers Drug Mart within walking distance, but does not name Coopers Foods"
+  ],
+  "method": "desk",
+  "remarks": "Toll free (844) 422-3848. Half-month deposit for all suite types.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/valleyview-manor-apartments-in-kamloops"
+  ]
+ },
+ "8457405d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Opening time (11 a.m. daily) matches; the site gives no closing time, so the on-file 9 p.m. close is unconfirmed (file already flags it as approximate). Lunch & dinner; weekend brunch.",
+  "result": "confirmed",
+  "urls": [
+   "https://mittzkitchen.com/",
+   "https://mittzkitchen.com/contact"
+  ]
+ },
+ "85cdbdb6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page states this office does not offer income assistance or ICBC driver licensing.",
+  "result": "confirmed",
+  "urls": [
+   "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc/service-bc-location-hours/kamloops"
+  ]
+ },
+ "85fabbf7": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "No official website found. Directories show 'Oriental Express Restaurant', 1166 8th St, V2B 2Y2, phone 778-470-2060; one gives Mon-Fri 11-9 and Sun 12-9 (differs from file's daily 11-9). Needs phone check.",
+  "result": "unresolved",
+  "urls": []
+ },
+ "867acd77": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Vehicle insurance is not arranged at a driver licensing office (Autoplan brokers sell it)"
+  ],
+  "method": "desk",
+  "remarks": "Wednesday opens at 9:00 a.m., not 8:30. Locator shows hours as structured data, not prose. Book knowledge tests/road tests online.",
+  "result": "corrected",
+  "urls": [
+   "https://www.icbc.com/locators",
+   "https://icbc.com/driver-licensing/visit-dl-office"
+  ]
+ },
+ "872c0058": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://cuttingedgestudio.ca/"
+  ]
+ },
+ "87f4ff34": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Waterfall not on City page; 'popular' is opinion; added City-listed trailheads and dog rule"
+  ],
+  "method": "desk",
+  "remarks": "Trail heads: Glenfair Drive, Chancellor Drive, and east of Summit Drive. Dog friendly (off leash, under control). Picnic area, free parking. City page gives no park hours (5am-11pm on file unsupported).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/peterson-creek-nature-park"
+  ]
+ },
+ "8839dee9": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "src places → official",
+   "note corrected (P2): 'Free' and 'plenty of shade' not stated; replaced with City-listed amenities"
+  ],
+  "method": "desk",
+  "remarks": "Amenities: accessible water park (new 2025), accessible playground, washrooms, change rooms, free parking. Currently closed for the season (since Sept 15, 2026).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks"
+  ]
+ },
+ "8857cba0": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P0): 'Immigration status is not screened' is not stated by the food bank; Friday and Saturday are open to both household groups; official frequen"
+  ],
+  "method": "desk",
+  "remarks": "On-file Mon–Sat 8:00–14:30 is a summary; Mon/Fri seniors start 7:30, families start 8:30 on Mon/Fri. Frequency: bread/produce/dairy/meat twice per calendar month, non-perishable hamper once per calendar month. Midday pause 11:45–12:30.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopsfoodbank.org/clients/",
+   "https://kamloopsfoodbank.org/"
+  ]
+ },
+ "88a72602": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Public skating at this arena not listed on its page (points to City schedule); parking is free"
+  ],
+  "method": "desk",
+  "remarks": "Ice surface 85 ft x 190 ft, seats 200. Page text mentions a seasonal ice surface converting to dry floor in summer (wording refers to 'Memorial Arena', likely a template error) — skating likely not available in summer; check the recreation schedule.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/valleyview-arena"
+  ]
+ },
+ "89c4efee": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours replaced from official text",
+   "Sunday left out: the same page says open Monday to Friday — phone to confirm"
+  ],
+  "method": "desk",
+  "remarks": "Mon–Fri hours match. The official hours table lists Sunday 9:00 AM–6:00 PM (file has Sunday closed), but the same page also says 'Open Weekdays ... Monday to Friday', so the Sunday line may be a website template error. Do not add Sunday without phoning to confirm. Booking is online.",
+  "result": "corrected",
+  "urls": [
+   "https://manhandlerbarbers.com/"
+  ]
+ },
+ "8a2ef538": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Both the Provincial Court and Supreme Court of BC list 455 Columbia Street with registry phone 250-828-4344. Registry is Room 223 (per BC gov courthouse listing).",
+  "result": "confirmed",
+  "urls": [
+   "https://provincialcourt.bc.ca/court-locations/kamloops",
+   "https://supremecourtbc.ca/court-locations/455-columbia-street",
+   "https://www.bceid.ca/register/POS/details.aspx?officeId=25"
+  ]
+ },
+ "8b5beceb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Water and 'suits small and medium dogs' not on City page; fenced, benches, bag dispensers confirmed"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/river-street-dog-park",
+   "https://kamloops.civicweb.net/document/80087/BL_35-94.pdf?handle=3DB0C42B3C644E3D892F40211E29653F"
+  ]
+ },
+ "8cc8a65f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Official page says to call or come to the Kamloops Youth Shelter (staffed 24/7) or email — not to phone this admin number"
+  ],
+  "method": "desk",
+  "remarks": "Office hours are not published (on-file Mon–Fri 8:30–4:30 not confirmed). Volunteer page confirms Meals on Wheels, Better at Home (grocery shopping, transportation, light housekeeping for seniors) and Mount Paul Community Food Centre (volunteer info 236-421-1011). Volunteer applications can be dropped at 765 Tranquille Rd.",
+  "result": "confirmed",
+  "urls": [
+   "https://interiorcommunityservices.bc.ca/",
+   "https://interiorcommunityservices.bc.ca/contact/",
+   "https://interiorcommunityservices.bc.ca/volunteer-kamloops/",
+   "https://interiorcommunityservices.bc.ca/programs/",
+   "https://interiorcommunityservices.bc.ca/programs/kamloops-youth-shelter/"
+  ]
+ },
+ "8d4da008": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page: 'fitness centre, pool, hot tub, sauna, group fitness and aquatic programs, child minding and programs for children and youth'. Membership required.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.ymcabc.ca/locations/kamloops-downtown-ymca"
+  ]
+ },
+ "8dcc3591": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Address on file '1790 Tranquille & Desmond' is an intersection-style string; store URL slug suggests '1790 Tranquille Rd'. Verify in a browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.7-eleven.ca/locations/bc/kamloops/1790-tranquille-rd-29991"
+  ]
+ },
+ "8fef0c70": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "TNRL lends board games ('Board Game Kits ... Borrow one of our games'). Closed statutory holidays.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.tnrl.ca/using-the-library/locations/north-kamloops-library/",
+   "https://www.tnrl.ca/?s=board+games"
+  ]
+ },
+ "909bec00": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): School page shows it offers French Immersion (useful to families); feeder claim not on school page but not contradicted"
+  ],
+  "method": "desk",
+  "remarks": "School offers French Immersion (page links 'French Immersion'). Absence line 1-844-350-2647.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/south-sahali"
+  ]
+ },
+ "90fb1610": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'The most affordable prices' is opinion; PC Optimum and other services confirmed in store data"
+  ],
+  "method": "desk",
+  "remarks": "Store page is a JavaScript app; data read from the Loblaw store API that feeds it. Only the current day's hours were exposed (Sunday 7–10 pm matches file); weekday hours not independently seen. Store has pharmacy, gas bar, passport photos, PC Optimum. No phone on file; 250-371-6418 is the store's order contact number.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.realcanadiansuperstore.ca/en/store-locator/details/1522",
+   "https://api.pcexpress.ca/pcx-bff/api/v1/pickup-locations/1522"
+  ]
+ },
+ "92f6d936": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "On file has 6:30–23:00 every day; official Sunday closes 10 pm and Fri–Sat midnight. Brunch: Mon–Fri 6:30–11 am, Sat–Sun 6:30 am–2 pm.",
+  "result": "corrected",
+  "urls": [
+   "https://moxies.ca/restaurants/kamloops/"
+  ]
+ },
+ "935659ad": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Cheapest in the city (6–10 cents/litre less)' not stated by Costco"
+  ],
+  "method": "desk",
+  "remarks": "Closed Thanksgiving (Oct 12, 2026). Phone is the warehouse main line.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.costco.ca/w/-/bc/kamloops/161"
+  ]
+ },
+ "96f6a732": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Local favourite; expect a queue' is opinion; official site: breakfast and lunch only"
+  ],
+  "method": "desk",
+  "remarks": "Breakfast and lunch only. No phone published on the site.",
+  "result": "confirmed",
+  "urls": [
+   "https://chookeatery.ca/"
+  ]
+ },
+ "9a37f240": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "freshco.com returns 403 to direct fetching; hours taken from the official store page as indexed by search. Address and phone could not be read from the official page — re-check in a browser.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.freshco.com/stores/freshco-valleyview-east-kamloops"
+  ]
+ },
+ "9b1e48e3": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Site states 'Canadian Dental Care Plan Accepted'. The eligibility conditions in the note (tax return, income limit, no private dental insurance) are general federal CDCP rules, not stated on the clinic page. Occasional Saturdays by appointment.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloopsdentalcentre.ca/"
+  ]
+ },
+ "9bc02891": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours replaced from official text",
+   "note corrected (P1): Not a Legal Aid BC staff office: it is a contracted intake location in the courthouse (Murray Armstrong, Barrister & Solicitor); open Mon–Th"
+  ],
+  "method": "desk",
+  "remarks": "Email Intake.Kamloops@legalaid.bc.ca. Inside the Kamloops courthouse (455 Columbia St, 2nd floor) — expect courthouse security screening. Province-wide intake line can be used on Fridays.",
+  "result": "corrected",
+  "urls": [
+   "https://legalaid.bc.ca/location-map/00141",
+   "https://legalaid.bc.ca/services/legal-aid-locations"
+  ]
+ },
+ "9cd78455": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Office closed 12–1 for lunch. Satellite sites in Chase, Logan Lake and Ashcroft. On-file 'call during the day' could be replaced with Mon–Fri 8:30–12, 1–4:30.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.ksacc.ca/"
+  ]
+ },
+ "9ce4c55a": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Free puppet shows' not on official page; 'neighbourhood favourite' is opinion"
+  ],
+  "method": "desk",
+  "remarks": "Playground, washrooms, free on-street parking.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/prince-charles-park"
+  ]
+ },
+ "9db87af4": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'The largest mall' not stated officially; Cineplex in directory"
+  ],
+  "method": "desk",
+  "remarks": "The site's meta description shows older, garbled hours ('Mon: 10:00am - 9:00pm ...') — ignore it; the live hours data matches the file. Individual stores and Cineplex keep their own hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.aberdeenmall.ca",
+   "https://api.mallmaverick.com/properties/29/hours",
+   "https://api.mallmaverick.com/properties/29"
+  ]
+ },
+ "9e0a9b54": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Site is a JavaScript app; details read from its page bundle.",
+  "result": "confirmed",
+  "urls": [
+   "https://citycentreautoservice.com/"
+  ]
+ },
+ "a014ca8f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page: storage of 'up to 50 pounds of personal belongings in a clear plastic bag ... items stored must be checked on once a week'; laundry, mail using the facility address, 'public bathroom and a shower', meals, referrals. Note says 'showers' (plural) — page says 'a shower'; minor. Closed stat holidays. Email msmanager@kafs.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kafs.ca/program/mini-storage"
+  ]
+ },
+ "a41504d6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Reputation claims are opinion; replaced with official inquiry hours and toll-free number"
+  ],
+  "method": "desk",
+  "remarks": "On-file admin-office hours 8–4 not found; TRU's general-inquiry line and counter are 9–4 weekdays. Toll-free 1-800-663-9711.",
+  "result": "corrected",
+  "urls": [
+   "https://www.tru.ca/contact.html",
+   "https://www.tru.ca/current/enrolment-services/contact.html"
+  ]
+ },
+ "a5d0f9dc": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Past closures (smoke, staffing) not stated on facility page; softened to a check-before-you-go warning"
+  ],
+  "method": "desk",
+  "remarks": "No season dates or swim times on the facility page (on-file 'summer only' consistent but not stated). Adjacent to Brocklehurst Arena and Park.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/brocklehurst-pool"
+  ]
+ },
+ "a60de679": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): History wrong: City bought the church in 1991 and restoration began in 1997 (no 'saved from demolition', no 1996); architectural style unsup"
+  ],
+  "method": "desk",
+  "remarks": "Street address not printed on the City page (159 Seymour St unverified there). Managed by the City; booking-based use.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/culture-heritage/heritage-buildings/st-andrews-square"
+  ]
+ },
+ "a77e0cd2": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "'All Aboard is a licensed, play based centre'; programs: Infant/Toddler, 3-5 year old / preschool, school-age. Part of BC fee-reduction (opt-in); infant $976/month, toddler $772/month after opt-in. Has a waitlist; tours by request.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.allaboardchildcare.ca/",
+   "https://www.allaboardchildcare.ca/contact-us/",
+   "https://www.allaboardchildcare.ca/programs/",
+   "https://www.allaboardchildcare.ca/about-us/"
+  ]
+ },
+ "a7eedf5e": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Events listed include 'Learn to Speak Japanese', taiko drumming; site has educational resources. 'Exhibitions' not specifically stated.",
+  "result": "confirmed",
+  "urls": [
+   "https://kjca.ca/"
+  ]
+ },
+ "a85857d3": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours set to pharmacy counter (L-024)",
+   "phone → pharmacy line",
+   "note: store vs counter hours"
+  ],
+  "method": "browser",
+  "remarks": "Pharmacy counter hours could not be verified — a human should open londondrugs.com store 035 in a browser and read the Pharmacy hours tab. Non-official listings show a different main number (250-372-3445); not used as evidence. | 2026-10-04 browser: store page — pharmacy Mon–Fri 9–7, Sat 9–5, Sun & holidays 10–6; pharmacy 250-372-3445",
+  "result": "corrected",
+  "urls": [
+   "https://www.londondrugs.com/stores/lansdowne-village/s/035",
+   "https://www.londondrugs.com/store-locator",
+   "https://www.lansdownevillagecentre.com/directory/london-drugs"
+  ]
+ },
+ "a93d3146": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Free sharing table not on official page; discounted produce boxes are seasonal only (May–September)"
+  ],
+  "method": "desk",
+  "remarks": "Operated by Interior Community Services (email cfc@interiorcommunityservices.bc.ca per directory listing). Produce boxes only May–September.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.mountpaulcommunityfoodcentre.com",
+   "https://www.mountpaulcommunityfoodcentre.com/contact",
+   "https://www.mountpaulcommunityfoodcentre.com/food-access"
+  ]
+ },
+ "aa911974": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Verify in a browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.safeway.ca/stores/safeway-fortune"
+  ]
+ },
+ "aaf9cd69": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Omitted that admission is free on Thursdays"
+  ],
+  "method": "desk",
+  "remarks": "Free admission on Thursdays.",
+  "result": "confirmed",
+  "urls": [
+   "https://kag.bc.ca"
+  ]
+ },
+ "aafe1ce6": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)",
+   "existence confirmed in the City business licence directory (June 2025); src stays \"places\" — opendata is kept for imported government datasets"
+  ],
+  "method": "desk",
+  "remarks": "Only official evidence is the City of Kamloops business licence directory (June 19, 2025), which lists the business at 3-643 Fortune Dr. No website or phone found; on-file hours come from a third-party listing and are unverified. The licence directory lists phone 250-682-5196 — may be an owner's contact rather than a shop line; record currently has no phone.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/sites/default/files/docs/BL-Directory_JUNE-19-2025.pdf"
+  ]
+ },
+ "aaff4edf": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Site describes serving urban Indigenous people and being 'status-free'; explicit status/non-status/Métis/Inuit list not found"
+  ],
+  "method": "desk",
+  "remarks": "Office hours not published on the home page; call first.",
+  "result": "confirmed",
+  "urls": [
+   "https://kafs.ca/"
+  ]
+ },
+ "ac053adb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email summit-office@exc.sd73.bc.ca. SD73 registration page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'; find catchment school with the School Locator.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/summit",
+   "https://www.sd73.bc.ca/summit/contact-us",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "ac2c236f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Official GTFS shows route 2 Parkcrest also serves the exchange"
+  ],
+  "method": "desk",
+  "remarks": "250-376-1216 is BC Transit Kamloops customer information (listed on the Kamloops contact page; office hours given there Mon-Fri 7 a.m.-7 p.m.).",
+  "result": "corrected",
+  "urls": [
+   "https://www.bctransit.com/kamloops/",
+   "https://www.bctransit.com/kamloops/contact/",
+   "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=46"
+  ]
+ },
+ "ac947bd3": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page: 'New to SD73 and need more information about riding a bus? Contact the Transportation Office at (250) 372-5853.' Eligible students get a School Bus Registration Card by mail showing bus number, bus stop and AM/PM times; eligibility per Board Policy 17 Transportation of Students. District main line is 250-374-0679.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/register-for-busing"
+  ]
+ },
+ "ae3bec89": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Slurpees/pizza not confirmed; official listing shows hot foods, coffee bar and ATM"
+  ],
+  "method": "desk",
+  "remarks": "7-eleven.ca returns 403 to direct fetching; values taken from the official store page as indexed by the search engine (title '964 - 8Th Street in KAMLOOPS, BC'). Re-check in a browser if needed.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.7-eleven.ca/locations/bc/kamloops/964-8th-street-27024"
+  ]
+ },
+ "b0355e5f": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Email dallas-office@exc.sd73.bc.ca. SD73 registration page: 'Parents will be required to provide child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable'; find catchment school with the School Locator.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/dallas",
+   "https://www.sd73.bc.ca/dallas/contact-us",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "b08eb3fe": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P0): Intake line 250-299-7936 is only on a directory (official access contact is k.bradley@askwellness.ca); acceptance of people who have been dr"
+  ],
+  "method": "desk",
+  "remarks": "Official ASK Wellness page asks people to contact k.bradley@askwellness.ca 'to access services'. 'Low-barrier' wording itself is not on the current official page. BC Housing March 2026 letter: temporary use permit was due to expire July 2026 and an extension was requested; news (not official) reports a 20-month extension to early 2028 — confirm status. Address is public on official pages (not confidential).",
+  "result": "corrected",
+  "urls": [
+   "https://askwellness.ca/streets/pathways/",
+   "https://askwellness.ca/ask-wellness-societys-new-pathways-shelter-and-access-hub-set-to-open/",
+   "https://askwellness.ca/pathways-opening/",
+   "https://www.bchousing.org/sites/default/files/media/documents/Kamloops-142-Tranquille-Road-Temporary-Use-Permit-Neighbour-Letter-March-2026.pdf",
+   "https://askwellness.ca/contact/"
+  ]
+ },
+ "b0a1cfe8": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Highest rated' is a third-party rating; 'rice-noodle ingredients' not stated; site advertises steamed buns, fresh bakery and hot-pot ingred"
+  ],
+  "method": "desk",
+  "remarks": "Closed Mondays and statutory holidays. Two minutes from TRU.",
+  "result": "confirmed",
+  "urls": [
+   "https://eastuffgrocery.com/"
+  ]
+ },
+ "b0d195d6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents confirmed on https://www.sd73.bc.ca/register-for-school: \"child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable\" (stated for Kindergarten registration). School page publishes no office hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/dufferin",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "b11c5ed0": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents confirmed on https://www.sd73.bc.ca/register-for-school: \"child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable\" (stated for Kindergarten registration). School page publishes no office hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/westsyde",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "b240c0e9": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Legal name Rough Country Auto Sales Ltd., Dealer #40070; also has a service centre.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.countryautokamloops.ca/"
+  ]
+ },
+ "b29c9af7": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page: 'If you do not have a family doctor/nurse practitioner, or you are unable to get an appointment with your care provider that day, you can visit the UPCC.' Phone given with ext. 6. Open on statutory holidays.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/kamloops-north-shore-urgent-and-primary-care-centre-upcc"
+  ]
+ },
+ "b2a28b45": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents match SD73 register-for-school page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/rl-clemitson",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "b353ea62": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Appointment only, no drop-in interviews. Operates 'throughout the year when classes are in session at TRU'. Small claims limit stated as under $35,000. Low-income financial eligibility applies.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.tru.ca/law/students/outreach/legal-clinic.html"
+  ]
+ },
+ "b3973cbd": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Main mosque for the area' not stated; omitted that the site has no bus service and the mosque plans to relocate"
+  ],
+  "method": "desk",
+  "remarks": "Mosque says the Knutsford site 'lacks municipal services such as water, sewage, and transit' (no bus service) and is fundraising to relocate within city limits (land bought May 2024) — address may change in future. Email admin@ayeshamosque.com.",
+  "result": "confirmed",
+  "urls": [
+   "https://ayeshamosque.com/",
+   "https://ayeshamosque.com/prayers"
+  ]
+ },
+ "b4d3cd9d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Official page says a 10-minute walk to TRU (5–10 minutes is the drive downtown)"
+  ],
+  "method": "desk",
+  "remarks": "1BR from $1,599, 2BR from $1,975 (Oct 2026); half-month deposit; water included; cats allowed; fitness room confirmed. Toll-free (844) 368-5812.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kelsongroup.com/residential/dufferin-terrace-apartments-in-kamloops"
+  ]
+ },
+ "b7096197": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): StrongStart is not drop-in/no-waitlist: families must register (one day a week, spot held for the year) with birth certificate and care card"
+  ],
+  "method": "desk",
+  "remarks": "Registration documents confirmed on https://www.sd73.bc.ca/register-for-school: \"child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable\" (stated for Kindergarten registration). School page publishes no office hours. StrongStart page: 'runs Monday-Friday (aligned with the School Calendar) from 9:00–11:30 am'; 'Families can register for one day a week to secure their spot for the school year'; registration form + copy of birth certificate and care card required.",
+  "result": "corrected",
+  "urls": [
+   "https://www.sd73.bc.ca/mschilling",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "b91cf687": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Page header elsewhere says 'Mon - Fri 9am - 7pm' but the location block says Monday 9am–5pm (matches file); 'Walk-ins welcome', booking available.",
+  "result": "confirmed",
+  "urls": [
+   "https://straight8barbershop.ca/north-shore-kamloops/"
+  ]
+ },
+ "b9319875": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/albert-mcgowan-park",
+   "src places → official",
+   "note corrected (P2): 'Trails' and 'no pets' not on City page; replaced with listed amenities"
+  ],
+  "method": "desk",
+  "remarks": "City page lists no general park hours (5am-11pm on file unsupported for this park). Amenities: Hal Rogers Centre, water park, 3 slo-pitch fields, mini soccer fields, playground, pond, washrooms, change rooms.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/albert-mcgowan-park"
+  ]
+ },
+ "ba87e7fb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official page: 1BR (497–674 sq ft) from $1,625/mo, 2BR (826 sq ft) from $1,950/mo; 'Water Included'; pets 'Cats'; walking distance to Canadian Superstore and Sahali Mall; 5–10 min walk to TRU. Prices change — do not publish.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/college-manor-apartments-in-kamloops"
+  ]
+ },
+ "bad51e3f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Destinations (Vancouver/Calgary/Victoria) not listed on the airport page; carriers are Air Canada, Air North, Pacific Coastal and WestJet; n"
+  ],
+  "method": "desk",
+  "remarks": "Car rentals Budget, Enterprise, National; taxis Kami Cabs 250-374-5151, Yellow Cabs 250-374-3333. Air North seasonal Kamloops–Vancouver service from May 2027.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamloopsairport.com/",
+   "https://kamloopsairport.com/about-us/contact/",
+   "https://kamloopsairport.com/to-from/car-rentals-transportation/",
+   "https://kamloopsairport.com/flights/airline-charter-service/"
+  ]
+ },
+ "bcd8c88c": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/saddleback-park",
+   "src places → official",
+   "note corrected (P2): 'Good for learning to ride a bike' is opinion; City describes a tot lot with playground"
+  ],
+  "method": "desk",
+  "remarks": "City: 'Neighbourhood tot lot park with playground'; free street parking. No hours published on its page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/saddleback-park",
+   "https://maps.kamloops.ca/Parks/htmlpages/SADDLEBACK%20PARK.html"
+  ]
+ },
+ "bdaed97e": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Directories (not evidence) list Victoria Oriental Restaurant, 1138 Victoria St, 250-377-6886, daily 11 am–10 pm (on file 11–22, consistent), known for dim sum. Consider adding website https://www.victoriaoriental.ca and having a human read the image.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.victoriaoriental.ca"
+  ]
+ },
+ "bdb6ff9c": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Store has a pharmacy (department hours differ; not checked as this is a grocery record).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.walmart.ca/en/store/3040"
+  ]
+ },
+ "be11d8ef": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.costco.ca/w/-/bc/kamloops/161"
+  ]
+ },
+ "beee7266": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration documents confirmed on https://www.sd73.bc.ca/register-for-school: \"child's BC Services Card, proof of address, child's birth certificate, and custody agreement if applicable\" (stated for Kindergarten registration). School page publishes no office hours.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/astevenson",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "bf216456": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Highest-rated', wildlife and route durations not on official page; replaced with City amenities"
+  ],
+  "method": "desk",
+  "remarks": "Official amenities: 'Dog friendly (off leash, under control)', trails, picnic area, wetland, washrooms, free parking. No hours published on the page (on-file 5 am–11 pm not confirmed).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/dallas-barnhartvale-nature-park"
+  ]
+ },
+ "bf78c2a2": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Booking rules more specific: trips to the airport need a reservation (suggested at least a day ahead); arrivals are walk-on, first come firs"
+  ],
+  "method": "desk",
+  "remarks": "Street address 1093 Norview Rd is not published on the official site (business address only 'Kamloops, BC'); consider not showing it. Rates from $11; serves Air Canada and WestJet flights.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloopsairportshuttle.ca/",
+   "https://kamloopsairport.com/to-from/car-rentals-transportation/"
+  ]
+ },
+ "bfd3954a": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "1BR from $1390, 2BR from $1640 (subject to change); half-month deposit; Utilities Included: Water; Pets: Cats; elevators; across from Northills Mall. Toll-free (844) 776-5834.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/central-apartments-in-kamloops"
+  ]
+ },
+ "c1752c5e": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/kinsmen-north-park",
+   "src places → official",
+   "note corrected (P2): 'Recently renovated' unverifiable; City classes it as a tot lot where dogs are not allowed"
+  ],
+  "method": "desk",
+  "remarks": "City classes it as a 'Tot Lot' (small playground park); dogs not allowed (City GIS). src was 'places'. No hours on the page. 250-828-3311 is the City's main line, not shown on the park page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/kinsmen-north-park"
+  ]
+ },
+ "c1a44615": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://heavymetalgym.ca/",
+   "src places → official",
+   "note corrected (P2): 'Very well equipped' is opinion; replaced with access facts (24/7 is members-only card access)"
+  ],
+  "method": "desk",
+  "remarks": "Official website exists (heavymetalgym.ca) - can be added to the record. 24/7 access is for members (card lock); staffed office hours are shorter.",
+  "result": "confirmed",
+  "urls": [
+   "https://heavymetalgym.ca/"
+  ]
+ },
+ "c3cd9b1b": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "'Kamloops Alliance Church is part of the Christian and Missionary Alliance Denomination in Canada.' 'Large, long-established' not stated but not contradicted. Email hello@kac.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://kac.ca/",
+   "https://kac.ca/contact/",
+   "https://kac.ca/about/who-we-are/"
+  ]
+ },
+ "c597c849": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Opened in 2023, 352 sq ft, 'the tiniest of all TNRL locations'. Holds lockers (purple/green) just outside the library entrance, usable during mall hours with card number and PIN.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.tnrl.ca/using-the-library/locations/aberdeen-tiny-library/"
+  ]
+ },
+ "c8e62dff": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Studio, 1 Bedroom, 2 Bedroom listed; 'Water Included'; 'Cat friendly' (no dogs); 'No Smoking'. Toll-free 844-368-5815 also listed. Apply online or call.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/columbia-manor-apartments-in-kamloops"
+  ]
+ },
+ "c8eaba85": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Manages Aberdeen Manor, Ashview Apartments, Juniper Village (residential) plus The Fortune Shopping Centre. Email info@sundenmanagement.com. After-hours emergencies: call main number, press 1.",
+  "result": "confirmed",
+  "urls": [
+   "http://sundenmanagement.com/homepage/",
+   "https://www.ashviewapartments.ca/contact"
+  ]
+ },
+ "c92d454d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Toll-free 1-888-764-3663. Also covers companion animal property division.",
+  "result": "confirmed",
+  "urls": [
+   "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-services-division/family-justice-centres/locations/kamloops"
+  ]
+ },
+ "ca0d16db": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.journie.ca/on-the-run-ca/on-en/locations/40144",
+   "src places → official"
+  ],
+  "method": "desk",
+  "remarks": "Amenities: convenience store, 94 octane, diesel, washrooms, air. Non-official listings give phone 250-376-4111 (not on official page).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.journie.ca/on-the-run-ca/on-en/locations/40144"
+  ]
+ },
+ "ca483553": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official: 'Built in 1909, this beautifully preserved three-story heritage building ... a vibrant hub for arts, culture, and community events'; 'maintained and managed by the City of Kamloops'; available for rental 7:00 am–11:30 pm, capacity 125, wheelchair accessible. The page does not print a street address (7 Seymour St W not confirmed there). No public opening hours — consistent with the note's 'check before going'. Bookings/inquiries: museum@kamloops.ca or 250-828-3576 (Tue–Sat 9:30–4:30).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/culture-heritage/heritage-buildings/old-courthouse"
+  ]
+ },
+ "ca7e5fe2": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Largest' and 'prices run higher' are opinion; it is also a donation centre"
+  ],
+  "method": "desk",
+  "remarks": "Also a donation centre.",
+  "result": "confirmed",
+  "urls": [
+   "https://stores.savers.com/bc/kamloops/valuevillage-thrift-store-2051.html"
+  ]
+ },
+ "caa84d26": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Office hours are not published — on-file Mon–Fri 8–5 is unsupported; consider removing. Page says 'this is a training facility only' (classroom). In-car lesson pickups: Aberdeen Mall Sport Chek entrance or Plaza Hotel parking lot (405 Victoria St). Toll-free 1-888-932-3748; Kamloops@YoungDrivers.com. Adult GLP course from $1,649. Many classes are virtual.",
+  "result": "confirmed",
+  "urls": [
+   "https://yd.com/locations/bc/kamloops"
+  ]
+ },
+ "ccee929d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Directories (not evidence) show 102-301 Victoria St, 250-314-5035, Mon–Fri 9–5 but disagree with each other on hours. Needs a human to check td.com branch locator in a browser. The website field points at the generic locator, not a branch page.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.td.com/ca/en/personal-banking/branch-locator",
+   "https://advisors.td.com/kamloops/office-locations.htm"
+  ]
+ },
+ "cd6c74fd": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website not set: the page that confirmed it is not the place's own (plan / fare page / news)"
+  ],
+  "method": "desk",
+  "remarks": "Seasonal only. The City's 'Current Shelter Capacity' table (updated September 2026) does not list the Yacht Club, so it is not confirmed open for winter 2026/27; meanwhile The Mustard Seed's new 40-bed year-round Solace Shelter at 1055 Glenfair Drive is 'Opening Fall 2026' (City + BC Housing). Mustard Seed's site (theseed.ca) blocks automated access (403). Non-official listings give phone 250-571-0469. Calling 2-1-1 first, as the note says, is right. Recommend re-checking in November.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/our-community/news-events/city-stories/extra-measures-continued-collaboration-during-extreme-cold",
+   "https://www.kamloops.ca/our-community/news-events/city-stories/cold-weather-response-compassionate-support-unsheltered",
+   "https://www.kamloops.ca/our-community/housing-homelessness/resources-people-experiencing-homelessness",
+   "https://theseed.ca/services"
+  ]
+ },
+ "ce9ce292": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park-outdoor-skating-facility",
+   "src places → official",
+   "note corrected (P1): Skate rental not mentioned on the official page; official safety rules (unsupervised, under-12s with an adult) omitted"
+  ],
+  "method": "desk",
+  "remarks": "Unsupervised; children under 12 must be with an adult; helmets strongly recommended; no pets/bikes/strollers on ice. In summer it is a roller-skating/cycling/walking loop. Better website: the kamloops.ca facility page above.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park-outdoor-skating-facility",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park"
+  ]
+ },
+ "cea8b106": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours replaced from official text",
+   "website https://www.healthlinkbc.ca/clinic/aberdeen-medical-centre",
+   "src places → official",
+   "note corrected (P1): 'Must register as a patient first' not supported; official listing shows only a family practice clinic"
+  ],
+  "method": "desk",
+  "remarks": "No own website found; HealthLinkBC (gov) listing used. Opening time is 8:30, not 8:00. It is a family practice clinic (category 'hospital' may mislead). Non-official listings mention on-site lab 8-4 weekdays (not verified).",
+  "result": "corrected",
+  "urls": [
+   "https://www.healthlinkbc.ca/clinic/aberdeen-medical-centre"
+  ]
+ },
+ "cff4134d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "kamloopshonda.ca blocks automated fetching (403); details come from search-engine extracts of the dealer's own pages, including a 'Honda Certified Used Program @ Kamloops Honda' page. Hours shown are general; sales vs service hours may differ. Toll free (888) 575-1648.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloopshonda.ca/",
+   "https://www.kamloopshonda.ca/contact/",
+   "https://www.kamloopshonda.ca/honda-certified-used-program/"
+  ]
+ },
+ "d0715e84": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Locator id 'abm0720-1' is an ABM (ATM) listing. The BMO branch at the same address is a separate listing.",
+  "result": "confirmed",
+  "urls": [
+   "https://branches.bmo.com/bc/kamloops/abm0720-1/"
+  ]
+ },
+ "d0fcb1f2": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Registration document list confirmed on SD73 register-for-school page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/mcgowan",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "d1aa9dda": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/pacificway"
+  ]
+ },
+ "d2b51035": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Scene+ listed among loyalty programs.",
+  "result": "confirmed",
+  "urls": [
+   "https://find.shell.com/ca/fuel/10053468-transcanada-hwy-e-comazetto"
+  ]
+ },
+ "d30d0e25": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Great kitchenware, often 25% off' not on official site; replaced with stated purpose"
+  ],
+  "method": "desk",
+  "remarks": "Proceeds support the Kamloops Hospice Association.",
+  "result": "confirmed",
+  "urls": [
+   "https://flutterbuysthriftstore.com/",
+   "https://www.kamloops.ca/sites/default/files/docs/BL-Directory_JUNE-19-2025.pdf"
+  ]
+ },
+ "d31dbd56": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "CIBC names it 'Sahali Banking Centre'. Notice: closed Monday October 12 for Thanksgiving.",
+  "result": "confirmed",
+  "urls": [
+   "https://locations.cibc.com/bc/kamloops/07150"
+  ]
+ },
+ "d3b8e26b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Last stop before the Vancouver run' and washrooms not verified; A&W indicated by official listing"
+  ],
+  "method": "desk",
+  "remarks": "Evidence is limited: petro-canada.ca blocks automated fetching (403); address, postal code, phone 250-374-6263 and A&W were seen in search-result extracts of the official Petro-Pass page. Phone is missing on file - consider adding 250-374-6263. Hours not confirmed (directories say 24h).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.petro-canada.ca/en/business/petro-pass-near-me/1885-west-transcanada-hwy-kamloops",
+   "https://www.petro-canada.ca/en/personal/in-store/a-and-w-locations"
+  ]
+ },
+ "d4b9d5c8": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Clinic states its services are free; 'free or low-cost' implied a possible fee"
+  ],
+  "method": "desk",
+  "remarks": "Site also lists 236-425-9120. Covers family law, income assistance, provincial disability, federal income security, EI, debt and residential tenancy. No office hours published.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.bclegalclinic.com"
+  ]
+ },
+ "d5d9e41f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): It is a K-7 French Immersion school, not a regular neighbourhood school; 'well-regarded' is opinion"
+  ],
+  "method": "desk",
+  "remarks": "Feeds into South Kamloops Secondary (SKSS feeder list). Note should say French Immersion K-7.",
+  "result": "corrected",
+  "urls": [
+   "https://www.sd73.bc.ca/lg",
+   "https://www.sd73.bc.ca/skss/feeder-schools"
+  ]
+ },
+ "d7140b2d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.moonwok.ca/",
+   "src places → official",
+   "note corrected (P2): 'Dim sum sets' not found on site; 'generous portions' is opinion; site lists languages and no MSG"
+  ],
+  "method": "desk",
+  "remarks": "Record has no website — official site is https://www.moonwok.ca/. Languages: English, Cantonese, Mandarin. Semi-private room for up to 30 at North Shore. No MSG.",
+  "result": "corrected",
+  "urls": [
+   "https://www.moonwok.ca/",
+   "https://www.moonwok.ca/contact-us"
+  ]
+ },
+ "d72e1296": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'Bring résumé and ID' not stated — the page says job seekers need a BCeID to receive service; eligibility wording, disability services and s"
+  ],
+  "method": "desk",
+  "remarks": "Page states 'as of April 1, 2019, all job seekers will need a BCeID in order to receive service at Work BC' — worth telling newcomers to set up a BCeID first.",
+  "result": "confirmed",
+  "urls": [
+   "https://workbccentre-kamloops-lansdowne.ca"
+  ]
+ },
+ "d7aa2f6d": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No website; not found in the City business licence directory (June 2025) under that name or address. Only Facebook ('One Stop #502 Tranquille Market', suggesting a Canco One Stop) and directories (which give 250-554-0718 and '24 hours') — not acceptable evidence. Keep 'call ahead' framing.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.kamloops.ca/sites/default/files/docs/BL-Directory_JUNE-19-2025.pdf"
+  ]
+ },
+ "d81c4205": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website found (only a Facebook page, not acceptable). Non-official listings give 700 Cambridge Cres, Kamloops V2B 5B6, phone 250-376-1454. No service times found.",
+  "result": "unresolved",
+  "urls": []
+ },
+ "d85cee48": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "On-file office hours (Mon–Fri 8:00–3:30) are not published by the school; classes run 8:29 a.m.–2:58 p.m. Hockey Skills Academy confirmed (primarily for catchment students; out-of-catchment transfers by application from March 1; total cost $900). School pages list Indigenous Education and Indigenous Graduation. Also a Digital Arts and Technology Academy.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/vss",
+   "https://www.sd73.bc.ca/vss/contact-us",
+   "https://www.sd73.bc.ca/vss/bell-schedules",
+   "https://www.sd73.bc.ca/vss/hockey-skills-academy"
+  ]
+ },
+ "d860b505": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): 'First stop'/'reasonable prices' are opinion; viewings and pick-ups are by appointment (no published opening hours)"
+  ],
+  "method": "desk",
+  "remarks": "Official site publishes no opening hours; contact page says viewings and pickups are 'by appointment' with flexible scheduling — on-file daily 10–6 is unverified (directories conflict). Also a U-Haul supplies dealer.",
+  "result": "confirmed",
+  "urls": [
+   "https://valuefurnitures.ca/",
+   "https://valuefurnitures.ca/contact"
+  ]
+ },
+ "d9e32c2a": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Uber operates here; Lyft does not' not confirmed on an official page; kept confirmed facts (since 1973, 24-hour, licensed airport pick-up)"
+  ],
+  "method": "desk",
+  "remarks": "The website does not publish a street address (209 Leigh Rd unconfirmed) — a dispatch office address matters little for a taxi. Also offers parcel delivery, jump starts and out-of-town trips.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamicabs.ca/",
+   "https://www.uber.com/global/en/cities/kamloops/",
+   "https://www.lyft.com/rider/cities/kamloops-bc"
+  ]
+ },
+ "da6014c5": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Shell lists the station as 'HUGH ALLAN DR - PACIFIC.' (likely a Pacific/retailer-operated site).",
+  "result": "confirmed",
+  "urls": [
+   "https://find.shell.com/ca/fuel/10052959"
+  ]
+ },
+ "da9d2eab": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Website on file (best.sd73.bc.ca/en/index.aspx) no longer resolves; current official page is https://www.sd73.bc.ca/best — update the website field.",
+  "result": "corrected",
+  "urls": [
+   "https://best.sd73.bc.ca/en/index.aspx",
+   "https://www.sd73.bc.ca/best"
+  ]
+ },
+ "dba1a245": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "hours replaced from official text",
+   "note corrected (P2): 'Known for fish and chips' not on site; site highlights in-house smoked meats and scratch-made food"
+  ],
+  "method": "desk",
+  "remarks": "Open until 10 pm on Friday and Saturday (on file says 9 pm every day).",
+  "result": "corrected",
+  "urls": [
+   "https://swpublichouse.ca/"
+  ]
+ },
+ "dc0b303d": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Official features: 50 m pool, 1/3 m boards + 5 m tower, a waterslide, leisure pool (not 25 m short-course), one hot tub; 210 ft spiral slide"
+  ],
+  "method": "desk",
+  "remarks": "All users need a City Recreation Account. Schedules on city 'Pool Schedules and Hours' page.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/aquatics/pool-facilities",
+   "https://www.kamloops.ca/recreation-culture/tournament-capital-centre-tcc/facility-details"
+  ]
+ },
+ "dd122395": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Canada Post outlet page is JS-only; post-office hours taken from the official Canada Post outlet page (outletId 0000105941) as indexed by search. Shoppers store page confirms address 1210 Summit Drive (store open 8 am–10 pm). On-file 1-866-607-6301 is a Canada Post line; not shown on these pages — 1-800-267-1177 is Canada Post's general number.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/information/app/fpo/personal/findpostofficedetailprint?outletId=0000105941",
+   "https://www.shoppersdrugmart.ca/en/stores/277/"
+  ]
+ },
+ "dd2098c4": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "Needs browser check on td.com locator for branch hours and phone (likely 250-314-3000).",
+  "result": "unresolved",
+  "urls": [
+   "https://www.td.com/ca/en/personal-banking/branch-locator",
+   "https://financialplanners.td.com/hunter.capostinsky/office-locations.htm",
+   "https://smallbusinessadvisors.td.com/bc/kamloops/600-500-notre-dame-drive"
+  ]
+ },
+ "dd440908": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Last admission is 4:30 in summer (3:30 only off-season); park is weekends/holidays only in late autumn and Jan–Feb; train and water play not"
+  ],
+  "method": "desk",
+  "remarks": "URGENT: from Oct 13, 2026 the park is weekends/holidays only until Dec 10. Seasonal schedule changes several times a year — encode as seasonal or say 'check website'.",
+  "result": "corrected",
+  "urls": [
+   "https://bcwildlife.org",
+   "https://bcwildlife.org/plan.htm"
+  ]
+ },
+ "dd6680fb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Appointments needed' and hearing services not stated on the location page; softened to 'phone first' (foreign vaccine records kept — standa"
+  ],
+  "method": "desk",
+  "remarks": "Fax 250-851-7301. Wheelchair accessible.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.interiorhealth.ca/locations/kamloops-public-health-unit"
+  ]
+ },
+ "dd819a8a": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "src places → official",
+   "name Centennial Water Park → Riverside Park Water Park (City name for the water park at 100 Lorne St; Westsyde Centennial is a different park)",
+   "note corrected (P1): City calls it the Riverside Park (accessible) water park; 'Centennial' risked confusion with the Westsyde Centennial water park; 'free' not "
+  ],
+  "method": "desk",
+  "remarks": "2026: 'All City water parks... will close for the season on Tuesday, September 15, 2026.'",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park"
+  ]
+ },
+ "ddf53e97": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Record has no phone; official site lists 250-372-3020 — consider adding. Sunday worship 10:00 AM. Affirming Congregation since 1996.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloopsunited.ca"
+  ]
+ },
+ "de3a3b49": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Clinic site says 'CDCP patients are welcome' and asks patients to say so when booking. The CDCP eligibility summary in the note (filed tax return, income limit, no private dental insurance) is the federal rule on canada.ca, not stated on the clinic site.",
+  "result": "confirmed",
+  "urls": [
+   "https://rivieradentalclinic.com/",
+   "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/qualify.html"
+  ]
+ },
+ "deffcefb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "On file had Saturday to 9 pm and Sunday 8–8; official is Saturday 7–8 pm and Sunday 8 am–6 pm. Tool Rental 250-371-4306.",
+  "result": "corrected",
+  "urls": [
+   "https://stores.homedepot.ca/bc/kamloops/home-improvement-kamloops-bc-7144.html"
+  ]
+ },
+ "df64d05e": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): Only one official schedule now (Mon & Wed 9–11:45am, every 60 days); 'two schedules' claim stale; first-visit documents are income AND expen"
+  ],
+  "method": "desk",
+  "remarks": "Hours on file are 'call' (hCall) - acceptable, but the official schedule is Mon & Wed 9-11:45am, once every 60 days. Programs overview lists 250-554-1611 ext. 200 for the food bank.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopssalvationarmy.ca/programs/emergency-food-bank",
+   "https://kamloopssalvationarmy.ca/",
+   "https://kamloopssalvationarmy.ca/programs/programs-overview"
+  ]
+ },
+ "df9426cb": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "7-eleven.ca page is behind a bot check; confirmed on Esso's official station page: 24 hours, carwash, Esso fuel incl. diesel.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.7-eleven.ca/locations/bc/kamloops/1120-rogers-way-37774",
+   "https://www.esso.ca/en-ca/find-station/kamloops-bc-esso-200302702"
+  ]
+ },
+ "e0ffb44f": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address 501 McDonald Ave → 262 King St",
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcdonald-park",
+   "src places → official",
+   "note corrected (P1): Not an off-leash dog park (dogs on leash); pickleball not basketball; Sunday art market unsupported"
+  ],
+  "method": "desk",
+  "remarks": "City lists the address as 262 King St (North Shore), not 501 McDonald Ave. No park hours on page.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/mcdonald-park",
+   "https://www.kamloops.ca/sites/default/files/dogparkdirectorymap.pdf"
+  ]
+ },
+ "e252ea96": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Curling and family skating not stated on these pages; skating times are on the City's Skate Hours page"
+  ],
+  "method": "desk",
+  "remarks": "The arenas page lists phone 250 828 3335 (arena line); 250 828 3600 is on the facility page. Licensed lounge seats 250.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/mcarthur-island-sport-event-centre",
+   "https://www.kamloops.ca/recreation-culture/facilities/mcarthur-island-sport-event-centre-1"
+  ]
+ },
+ "e29773f6": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Studio $1,500+, 1BR $1,675+, 2BR $1,850+; garbage collection included; cats allowed; close to Royal Inland Hospital and downtown; bus stop Battle St & 3rd Ave about 2 min walk.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kelsongroup.com/residential/the-pines-apartments"
+  ]
+ },
+ "e35017c0": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "No official website; only Instagram/Facebook and directories (not acceptable). Directories agree on 234 Victoria St but give hours that CONFLICT with the file: Mon 11–5, Tue & Wed closed, Thu–Sun 11–6 (file: daily 11–5). Treat on-file hours as unreliable; consider showing 'call/check Instagram' instead. src 'places'.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.instagram.com/lyssthriftandvintage/",
+   "https://www.facebook.com/p/lyssthriftandvintage-100083359051572/"
+  ]
+ },
+ "e3a1f254": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Beem branch pages (find-us, about-us/valleyview) are behind bot protection and render no branch data. The only official Beem page readable lists the Valleyview INSURANCE office at 1-2101 Trans-Canada Hwy, 250-374-7552, 'Mon-Fri 9am–5pm, Sat 9am–1pm' (a search snippet of the same domain gave Mon/Tue/Wed/Fri 9–4:30, Thu 9–5, Sat 9–3 — inconsistent). On-file branch hours (Mon–Fri 9–5:30, Sat 9–3) unverified. Record has no phone; consider adding 250-374-7552 after a human check.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.beemcreditunion.ca/",
+   "https://beemcreditunion.ca/find-us",
+   "https://beemcreditunion.ca/about-us/valleyview",
+   "https://beemcreditunion.ca/personal/insure/insurance/interior-savings-insurance"
+  ]
+ },
+ "e3d813ad": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Home child-care 'register and train here' not explicit; page lists licensing information, consultations, workforce support and professional "
+  ],
+  "method": "desk",
+  "remarks": "All YMCA CCRR offices closed Saturday Oct 10 and Monday Oct 12 2026 (Thanksgiving). Email kamloopsccrr@ymcabc.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.ymcabc.ca/child-care-resource-referral"
+  ]
+ },
+ "e7514fcc": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Scotiabank's site links 'StartRight program for Newcomers' (national program; offered at branches).",
+  "result": "confirmed",
+  "urls": [
+   "https://locator.scotiabank.com/branch/10140",
+   "https://startright.scotiabank.com/ca/en.html"
+  ]
+ },
+ "e758e383": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Church Office Hours: Tues-Thurs 9:30 am - 1:30 pm. Thrift Store open Fridays 9:30-1:30. Wednesday 10 am service could be added. Email stpaulscathedraloffice@gmail.com.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamloopsanglicancathedral.com/",
+   "https://kamloopsanglicancathedral.com/worship/"
+  ]
+ },
+ "e7a06546": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P1): StrongStart is not drop-in/no-waitlist: families register with a form and a copy of the birth certificate"
+  ],
+  "method": "desk",
+  "remarks": "Arthur Hatton became K-7 in September 2024 (per SD73 news). Bell schedule on the school page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/ahatton",
+   "https://www.sd73.bc.ca/ahatton/strongstart"
+  ]
+ },
+ "e7ae063e": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Branch transit #08060. Official branch name is 'Fortune Shopping Centre'.",
+  "result": "confirmed",
+  "urls": [
+   "https://branches.bmo.com/bc/kamloops/b0806/"
+  ]
+ },
+ "ea43f8fb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Named stalls not on official page (site says 10 restaurants in one spot)"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://yewstreetfoodhall.com/"
+  ]
+ },
+ "eadd6c75": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/juniper-dog-park",
+   "src places → official",
+   "note corrected (P2): Water source and nearby trails not listed by City; fenced with a separate small-dog area confirmed"
+  ],
+  "method": "desk",
+  "remarks": "src was 'places'; name/address now confirmed by kamloops.ca. Official amenities: 'Dog friendly (off leash, under control)', fenced, benches, separate small-dog area, bag dispensers, free on-street parking. No park hours published on this page (on-file 5 am–11 pm is the City's usual park hours but not stated here). Dogs are NOT allowed in the adjoining Juniper Park (same address) — only in the dog park.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/juniper-dog-park",
+   "https://maps.kamloops.ca/arcgis/rest/services/FeatureDataset/GIS_Parks_2/MapServer/10/query?where=NAME%3D%27JUNIPER%20DOG%20PARK%27&outFields=*&f=json"
+  ]
+ },
+ "ebfed693": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address Batchelor Heights → 810 Ord Rd (pin is ~380 m from it; Batchelor Nature Park is a separate record)",
+   "note corrected (P1): City does not call it Batchelor Heights' community park; 810 Ord Rd is open space used as an off-leash dog area (the playground park is Batc"
+  ],
+  "method": "desk",
+  "remarks": "On-file address 'Batchelor Heights' is not a street address. Use the map pin to decide which park is meant, then set the address (810 Ord Rd or 1750 Batchelor Dr). src was 'places'. No hours published.",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/batchelor-park",
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/batchelor-nature-park",
+   "https://maps.kamloops.ca/arcgis/rest/services/FeatureDataset/GIS_Parks_2/MapServer/10/query?where=NAME%20like%20%27%25BATCHELOR%25%27&outFields=*&f=json"
+  ]
+ },
+ "ef414ca5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'New machines, duvets, friendly staff' not on official site; replaced with stated last-load rule and second location"
+  ],
+  "method": "desk",
+  "remarks": "Last load 60 minutes before closing. Second location at 301 Tranquille Rd.",
+  "result": "confirmed",
+  "urls": [
+   "https://thelaundryguys.ca/"
+  ]
+ },
+ "ef7c19b3": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Consider removing the mall-wide hours; they are store-dependent. Scotiabank Sahali branch (record 1b1b6bf2) is in this centre.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.mcdonalds.com/ca/en-ca/location/kamloops/columbia-square/500-notre-dame-drive/21808.html",
+   "https://locator.scotiabank.com/branch/81620"
+  ]
+ },
+ "ef8db6fb": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note removed (opinion / unsupported only)"
+  ],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://k-spoon.ca/"
+  ]
+ },
+ "f08a5865": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): Sharing a building with the art gallery not stated (library is in the TNRD Civic building); added confirmed services"
+  ],
+  "method": "desk",
+  "remarks": "Email kamlib@tnrd.ca. Also offers exam invigilation and public meeting rooms.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.tnrl.ca/using-the-library/locations/kamloops-library/"
+  ]
+ },
+ "f22f4fe4": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Parking is tight' is opinion; City says paid on-site and street parking"
+  ],
+  "method": "desk",
+  "remarks": "Box office hours (Mon-Fri 9-5 on file) are not published on the City's official pages (only on third-party ticket sites). Box office phone is 250-828-3339 (toll-free 1-855-985-5000); 250-828-3492 is the facility line. Tickets via Ticketmaster.ca. sandmancentre.com now redirects to kamloops.ca.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/facilities/sandman-centre-0",
+   "https://www.kamloops.ca/recreation-culture/facility-parks-sports-fields/sandman-centre/contact-sandman-centre"
+  ]
+ },
+ "f3673cfc": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Official page describes it as 'a co-ed, low barrier shelter' with 42 beds; only address printed is CMHA head office 651 Victoria St (main office 250-374-0440). Street address 271 Victoria St W not on an official page — keep the 'phone first' caveat.",
+  "result": "confirmed",
+  "urls": [
+   "https://kamloops.cmha.bc.ca/programs/homeless-shelter/"
+  ]
+ },
+ "f449c4d5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/pioneer-park",
+   "src places → official",
+   "note corrected (P2): 'Sandy' and 'quieter than Riverside' are opinion; replaced with City amenities, dog rule and water-safety reason"
+  ],
+  "method": "desk",
+  "remarks": "City page: 'Beach (no swimming allowed...)', washrooms, boat launch, picnic tables. 'Dogs are allowed to be off leash on Pioneer Park beach, but must be kept under control'. Water safety: drowning risk, strong currents, drop offs. Record name is 'Pioneer Park Beach'; the City calls the park 'Pioneer Park'. Phone 250-828-3311 is the City's general line, not shown on the park page.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/pioneer-park",
+   "https://maps.kamloops.ca/Parks/htmlpages/PIONEER%20PARK.html"
+  ]
+ },
+ "f4c1c1d7": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Inclusive playground, beach with roped swim area (lifeguards in summer, not always on duty), accessible water park 10am-9pm June 1-Labour Day, 'Music in the Park held nightly throughout the summer at the Rotary Bandshell'. Dogs not allowed except on leash on the southern Rivers Trail section.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/riverside-park"
+  ]
+ },
+ "f87b7fca": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "",
+  "result": "confirmed",
+  "urls": [
+   "https://drivehubauto.com/"
+  ]
+ },
+ "f88705d8": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "website https://www.healthlinkbc.ca/clinic/freshco-9",
+   "src places → official",
+   "note corrected (P2): 'Highest rated; patient staff' is review opinion; replaced with official fact (free naloxone kits)"
+  ],
+  "method": "desk",
+  "remarks": "src was 'places'; now confirmed against HealthLinkBC (gov). These are pharmacy counter hours. FreshCo's own store page (403 to fetchers) reportedly lists the grocery store at 250-374-2811, 7 a.m.–10 p.m. — the grocery store, not the pharmacy. Offers free naloxone kits.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.healthlinkbc.ca/clinic/freshco-9",
+   "https://www.freshco.com/stores/freshco-columbia-summit"
+  ]
+ },
+ "f98091ac": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Member temple of the Jodo Shinshu Buddhist Temples of Canada; everyone welcome. Page is hosted on the Kelowna temple's site.",
+  "result": "confirmed",
+  "urls": [
+   "https://kbtemple.ca/kamloops/"
+  ]
+ },
+ "fa4fbeb5": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "address 1355 Dominion Crescent → 1351 Dominion Cres",
+   "website https://www.kamloops.ca/recreation-culture/parks-sports-fields/dominion-park",
+   "src places → official",
+   "note corrected (P2): City classes it as a tot lot; 'swings for every age' and 'quiet' unsupported"
+  ],
+  "method": "desk",
+  "remarks": "Website: https://www.kamloops.ca/recreation-culture/parks-sports-fields/dominion-park",
+  "result": "corrected",
+  "urls": [
+   "https://www.kamloops.ca/recreation-culture/parks-sports-fields/dominion-park"
+  ]
+ },
+ "fb43944b": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "note corrected (P2): 'Drop-in, no waitlist' not stated (other SD73 StrongStart centres require registration); softened to ask the school"
+  ],
+  "method": "desk",
+  "remarks": "Registration docs per SD73: BC Services Card, proof of address, birth certificate, custody agreement if applicable.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.sd73.bc.ca/aeperry",
+   "https://www.sd73.bc.ca/aeperry/strongstart",
+   "https://www.sd73.bc.ca/register-for-school"
+  ]
+ },
+ "fd4022c9": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Phone on file is the national toll-free line; a local number may exist. Verify in browser.",
+  "result": "unresolved",
+  "urls": [
+   "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+   "https://www.canadapost-postescanada.ca/cpotools/apps/fpo/personal/findPostOfficeList"
+  ]
+ },
+ "fdb04752": {
+  "checked": "2026-10-04",
+  "fixed": [
+   "phone None → 250-319-9044"
+  ],
+  "method": "desk",
+  "remarks": "Phone missing on file - official number 250-319-9044 (all campuses). Address should include unit 201. Hours on file are null; official program hours 7:30 am-5:30 pm for full-day care. Registration by email sandra@kamloopskidz.com.",
+  "result": "corrected",
+  "urls": [
+   "https://kamloopskidz.com/",
+   "https://kamloopskidz.com/contact",
+   "https://kamloopskidz.com/orchards-walk-campus"
+  ]
+ },
+ "ffdd8aff": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Listed by the Roman Catholic Diocese of Kamloops (rcdk.org) as its cathedral. Confessions Wed 9:30–10:30 am & 5:15–6:15 pm, Sat 9:30–10:30 am & 6:30–6:45 pm, Sun before Masses. Parish site: sacredheartkamloops.org.",
+  "result": "confirmed",
+  "urls": [
+   "https://www.rcdk.org/sacred-heart-cathedral",
+   "https://www.sacredheartkamloops.org/"
+  ]
+ },
+ "ws00007": {
+  "checked": "2026-10-04",
+  "fixed": [],
+  "method": "desk",
+  "remarks": "Same 3435 Westsyde Rd plaza as Save-On-Foods (#1).",
+  "result": "confirmed",
+  "urls": [
+   "https://www.bcliquorstores.com/store/locator/147"
+  ]
+ }
+}

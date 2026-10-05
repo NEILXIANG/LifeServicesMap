@@ -143,6 +143,9 @@ function renderTaskBuckets(){
       +Math.round(stepsN/Math.max(stepsAll,1)*100)+'%"></span></div><span class="task-pc">'
       +esc(u.taskProgress(doneN,TASKS.length))+' · '+esc(u.stepProgress(stepsN,stepsAll))+'</span></div>';
   }
+  // 2026-10-04 (newcomer test): "abuse" or "shelter" typed here used to end in "call 2-1-1" — a weekday
+  // daytime line. A crisis word gets the 24-hour lines first, whatever the cards match.
+  if(_taskQ&&isCrisisQuery(_taskQ))h+=crisisHtml();
   let any=0;
   TASK_BUCKETS.forEach(b=>{
     let items=TASKS.filter(t=>t.when===b&&taskMatches(t,_taskQ));
@@ -182,7 +185,7 @@ function renderTaskBuckets(){
     });
     h+='</div>';
   });
-  if(!any&&_taskQ)h+='<p class="task-none">'+esc(u.taskSearchNone)+'</p>';
+  if(!any&&_taskQ&&!isCrisisQuery(_taskQ))h+='<p class="task-none">'+esc(u.taskSearchNone)+'</p>';
   if(doneN===TASKS.length){
     // The last tick used to be the end of the road. It is the start of the
     // part the app cannot do for you.

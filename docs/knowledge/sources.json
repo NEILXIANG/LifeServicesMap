@@ -1113,7 +1113,7 @@
    "id": "ih-home-community-care",
    "level": "region:interior-health",
    "name": "Interior Health – Home and Community Care",
-   "url": "https://www.interiorhealth.ca/services/home-and-community-care",
+   "url": "https://www.interiorhealth.ca/health-and-wellness/home-and-community-care",
    "licence": "none (reference only)",
    "kind": "official-page",
    "fields": "Kelowna 办事卡 eldercare 的 src（Kamloops 用 Interior Community Services）",
@@ -1121,7 +1121,7 @@
    "usedBy": [
     "kelowna"
    ],
-   "gotchas": "两城 eldercare 来源不同：Kamloops 指向非政府机构。",
+   "gotchas": "两城 eldercare 来源不同：Kamloops 指向非政府机构。 2026-10-04: the old /services/home-and-community-care address returns 404; intake line 1-800-707-8550.",
    "evidence": "cities/kelowna/tasks.json"
   },
   {

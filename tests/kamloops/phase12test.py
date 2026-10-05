@@ -71,7 +71,8 @@ async def main():
         h = await hits('en', 'bank')
         check('"bank": the banks come first', h and h[0]['c'] in ('bank', 'foodbank'), h[:2])
         # things that should stay empty
-        for q in ('xyzzy', 'dentistt', 'coffee'):
+        # 2026-10-04: 'coffee' dropped — 7-Eleven's checked note now says it has a coffee bar, a real answer
+        for q in ('xyzzy', 'dentistt'):
             h = await hits('en', q)
             check('"%s" still finds nothing' % q, not h, [x['n'] for x in h][:3])
         # the crisis path is untouched

@@ -3560,6 +3560,216 @@
      "marker": "部署、推送、对外发布、给合作方发邮件：先征得 Neil 同意"
     }
    ]
+  },
+  {
+   "id": "L-118",
+   "title": "复核结果用工具应用：能自动改的改，要人判断的列清单",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kelowna 243 条复核结果是一次性手写脚本套用的；Kamloops 307 条又要做一遍。自动套用时还会把\"PDF、新闻页\"当成地点官网，把检查员写的说明当成地址。",
+   "rule": "用 scripts/apply_verification.py：电话、地址、能完全解析的营业时间、来源升级自动应用并记入 verification.json；改名、关门、备注里的错误说法、看不懂的营业时间进人工清单；官网只认地点自己的页面（不认 PDF、新闻、别的机构页面）。应用后抽查改动。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "307 条复核；网址和地址的误用"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/apply_verification.py",
+     "marker": "What goes to the review list instead"
+    }
+   ]
+  },
+  {
+   "id": "L-119",
+   "title": "测试里写死的事实也要复核",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "MSP 卡写\"COPR 不被接受\"，回归测试就断言这句话存在；省 MSP 申请表其实明列 COPR。错误被测试保护了一个月。",
+   "rule": "事实复核时，把测试里断言的事实文字也列进去；测试改断言时写明依据（官方出处）和日期。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "测试断言了\"COPR 不被接受\""
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase5test.py",
+     "marker": "'COPR is not accepted' was itself wrong"
+    }
+   ]
+  },
+  {
+   "id": "L-120",
+   "title": "危机求助要按人真正会打的话来认",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "深夜逃离家暴的人搜 \"safe place\"\"women shelter\"\"he hit me\" 得到超市和酒吧；\"怎么办\"卡片里的搜索遇到危机词只说\"打 2-1-1\"（白天工作日）。",
+   "rule": "危机词表收人在害怕时会打的说法（六语），危机热线显示在一切结果之上（不替换结果）；每个搜索入口都要处理危机词；通用\"庇护所\"词留给地点搜索（validate 禁止危机词进同义词表）。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "危机搜索得到超市和酒吧"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/30-analytics.js",
+     "marker": "safe[ ](?:place|house|home)"
+    },
+    {
+     "kind": "engine",
+     "path": "app/engine/js/25-icons-task-ui.js",
+     "marker": "if(_taskQ&&isCrisisQuery(_taskQ))h+=crisisHtml();"
+    }
+   ]
+  },
+  {
+   "id": "L-121",
+   "title": "导入字段的类型要校验：字符串当列表用不会报错",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "调研文件的 alias 是一串空格分隔的字符串，导入时按列表切片 [:12]，113 个地点的搜索词变成单个字母；没有任何检查报错，界面测试才发现。",
+   "rule": "导入工具对每个字段检查类型（字符串拆分成列表）；validate 拒绝单个拉丁字母的搜索词。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "113 个地点的搜索词变成单个字母"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "one-letter search words"
+    },
+    {
+     "kind": "importer",
+     "path": "scripts/importers/research_merge.py",
+     "marker": "research files give alias as ONE space-separated string"
+    }
+   ]
+  },
+  {
+   "id": "L-122",
+   "title": "短的英文缩写按词首匹配",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "搜 \"SIN\" 出来 ICBC、洗衣房和学生公寓——\"sin\" 是 Licensing、Housing、Crossing 的一部分；Service Canada 反而没有。",
+   "rule": "三个字母以内的英文查询只在词首匹配（名称、别名、分类、地址、区域、主题）；查询正好是办事卡关键词时，把卡片放在结果上方。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "SIN 匹配到 Licensing"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/60-search.js",
+     "marker": "function _wordStart(t,q)"
+    }
+   ]
+  },
+  {
+   "id": "L-123",
+   "title": "回退逻辑要同时测\"该出现\"和\"该消失\"",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "为\"卡片一闪就消失\"加的回退，在新搜索时把旧卡片重新打开，读者关掉了也会回来；原测试只验证了会打开。新测试第一版也测不出这个错——去掉修复它照样通过。",
+   "rule": "每个回退或兜底逻辑：测它在需要时出现，也测它在不该出现时（换搜索、读者关闭）不出现；写完测试先去掉修复跑一次，确认它会失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "旧卡片在新搜索里反复出现"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_popup_lifecycle.py",
+     "marker": "a card opened on the map itself closes when a search excludes its place"
+    }
+   ]
+  },
+  {
+   "id": "L-124",
+   "title": "译文检查不能只看数字：每种语言要有懂的人看意思",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "数字、电话六语全部一致，但 26 处意思反了或丢了（押金卡\"房东付你双倍\"→\"你被判付双倍\"；UPCC 被叫成\"急诊中心\"；\"担保人\"被译成贷款保证人）。",
+   "rule": "上线前每种语言做一次\"母语者读意思\"的审读（代理或人），重点是权利、费用、谁付给谁、急诊与非急诊；机器检查只负责数字和电话。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "26 处意思反了，数字全对"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "marker": "数字检查抓不到意思反了"
+    }
+   ]
+  },
+  {
+   "id": "L-125",
+   "title": "官网拦截自动读取时，安全相关的用真浏览器补核",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops 复核有 38 条网站拦截自动读取；其中援助中心、药房用真浏览器打开就核实了（药房柜台时间与商店不同）。",
+   "rule": "复核留下的\"无法读取\"：安全相关的立刻用浏览器核实（不绕过需要交互的人机验证），其余列进台账打电话；药房一律记柜台时间（L-024）。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
+     "what": "援助中心和药房用浏览器核实"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "records/data-quality-log.md",
+     "marker": "独立复核（官网对照）之后"
+    }
+   ]
   }
  ],
  "assets": [
@@ -3934,6 +4144,15 @@
    "reuse": "所有城市",
    "paths": [
     "scripts/README.md"
+   ]
+  },
+  {
+   "name": "复核结果应用",
+   "type": "工具",
+   "use": "把官网独立复核的结果应用到城市数据：自动改电话、地址、营业时间、来源；其余列人工清单",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/apply_verification.py"
    ]
   }
  ]

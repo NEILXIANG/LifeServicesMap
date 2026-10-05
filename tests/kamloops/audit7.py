@@ -193,8 +193,10 @@ async def main():
             r13:BR['13'].l, r1:BR['1'].l, r9:BR['9'].l,
             card:TASKS.find(t=>t.id==='hardship').note.en}}""")
         check('Brocklehurst pool phone is the City number 250-554-1747', fx['pool'] == '250-554-1747', fx['pool'])
-        check('West End Shelter links to its Kamloops listing and says 30 beds (card too)',
-              'bc.211.ca' in fx['seedw'] and '30 beds' in fx['seed'] and '9890 (30 beds' in fx['card'], fx)
+        # 2026-10-04: bed counts change month to month (City list, Sept 2026: 22) — the note and the card no longer
+        # state one; the link and the shelter line are what must stay
+        check('West End Shelter links to its Kamloops listing; no stale bed count in its note or the card',
+              'bc.211.ca' in fx['seedw'] and '30 beds' not in fx['seed'] and '250-372-9890' in fx['card'], fx)
         check('Family Justice Centre links to the Kamloops page', fx['fjc'].endswith('/locations/kamloops'), fx['fjc'])
         check('bus last trips come from regular service (13 Yellowhead 20:46, 1 Tranquille 01:14)', fx['r13'] == '20:46' and fx['r1'] == '25:14' and fx['r9'] == '26:16', fx)
         dist = lambda a, b: math.hypot((a[0]-b[0])*111000, (a[1]-b[1])*70500)

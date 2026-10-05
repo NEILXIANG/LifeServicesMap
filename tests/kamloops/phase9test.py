@@ -37,7 +37,8 @@ async def main():
         check('Salvation Army points at its food bank page', w['sa'] == 'https://kamloopssalvationarmy.ca/programs/emergency-food-bank', w['sa'])
         check('Canada Games Aquatic Centre points at the pool facilities page', (w['cg'] or '').endswith('/aquatics/pool-facilities'), w['cg'])
         check('every TD branch points at the Canadian branch locator', w['td'] and all('/ca/en/' in u for u in w['td']), w['td'])
-        check('every post office with a website points at Find a post office', len([u for u in w['post'] if u]) == 7 and all(u.endswith('find-a-post-office.page') for u in w['post'] if u), w['post'])
+        # 2026-10-04: '>= 7', not '== 7' — the London Drugs counter gained a link when it was confirmed (no hard-coded counts, L-046)
+        check('every post office with a website points at Find a post office', len([u for u in w['post'] if u]) >= 7 and all(u.endswith('find-a-post-office.page') for u in w['post'] if u), w['post'])
         check('Chevron entries point at the Chevron BC station finder', len(w['chev']) == 2 and all('journie.ca/chevron/bc-en' in u for u in w['chev']), w['chev'])
         check('Costco warehouse points at the Kamloops warehouse page', w['costco'] == 'https://www.costco.ca/w/-/bc/kamloops/161', w['costco'])
         for l in ('en', 'fr', 'es', 'zh', 'ko', 'ja'):

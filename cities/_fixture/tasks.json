@@ -237,12 +237,12 @@
     "ja": "到着した週に申請しましょう — オンラインなら約15分です。"
    },
    {
-    "en": "Upload a document showing your name, date of birth and status: a PR card, record of landing, or a work, study or visitor permit (a Canadian passport for citizens). A foreign passport or a COPR is not accepted. JPG or PNG, at least 1000 × 1500 pixels.",
-    "fr": "Téléversez un document indiquant votre nom, votre date de naissance et votre statut : carte de RP, fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur (passeport canadien pour les citoyens). Un passeport étranger ou une CRP n’est pas accepté. JPG ou PNG, au moins 1000 × 1500 pixels.",
-    "es": "Suba un documento con su nombre, fecha de nacimiento y estatus: tarjeta de RP, constancia de llegada (record of landing) o permiso de trabajo, estudio o visitante (pasaporte canadiense para ciudadanos). No se acepta un pasaporte extranjero ni la COPR. JPG o PNG, al menos 1000 × 1500 píxeles.",
-    "zh": "上传一份写有姓名、出生日期和身份的文件：PR 卡、落地纸（record of landing），或工签、学签、访客许可（公民用加拿大护照）。外国护照和 COPR 不被接受。格式为 JPG 或 PNG，至少 1000 × 1500 像素。",
-    "ko": "이름, 생년월일, 체류 신분이 나온 서류를 올리세요: 영주권 카드, 랜딩 기록(record of landing), 또는 취업·학생·방문 허가서(시민은 캐나다 여권). 외국 여권이나 COPR은 인정되지 않습니다. JPG 또는 PNG, 최소 1000 × 1500 픽셀.",
-    "ja": "氏名、生年月日、在留資格が分かる書類をアップロード：PRカード、ランディング記録（record of landing）、または就労・学生・訪問者許可（市民はカナダのパスポート）。外国のパスポートやCOPRは不可。JPGかPNGで、1000 × 1500ピクセル以上。"
+    "en": "Upload a document showing your name, date of birth and status: a PR card, Confirmation of Permanent Residence (COPR) or record of landing, or a work, study or visitor permit (a Canadian passport for citizens). A foreign passport on its own is not enough. JPG or PNG, at least 1000 × 1500 pixels.",
+    "fr": "Téléversez un document indiquant votre nom, votre date de naissance et votre statut : carte de RP, confirmation de résidence permanente (CRP) ou fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur (passeport canadien pour les citoyens). Un passeport étranger seul ne suffit pas. JPG ou PNG, au moins 1000 × 1500 pixels.",
+    "es": "Suba un documento con su nombre, fecha de nacimiento y estatus: tarjeta de RP, Confirmación de Residencia Permanente (COPR) o constancia de llegada (record of landing), o permiso de trabajo, estudio o visitante (pasaporte canadiense para ciudadanos). Un pasaporte extranjero por sí solo no basta. JPG o PNG, al menos 1000 × 1500 píxeles.",
+    "zh": "上传一份写有姓名、出生日期和身份的文件：PR 卡、永久居民确认书（COPR）或落地纸（record of landing），或工签、学签、访客许可（公民用加拿大护照）。只有外国护照不够。格式为 JPG 或 PNG，至少 1000 × 1500 像素。",
+    "ko": "이름, 생년월일, 체류 신분이 나온 서류를 올리세요: 영주권 카드, 영주권 확인서(COPR) 또는 랜딩 기록(record of landing), 또는 취업·학생·방문 허가서(시민은 캐나다 여권). 외국 여권만으로는 안 됩니다. JPG 또는 PNG, 최소 1000 × 1500 픽셀.",
+    "ja": "氏名、生年月日、在留資格が分かる書類をアップロード：PRカード、永住権確認書（COPR）またはランディング記録（record of landing）、または就労・学生・訪問者許可（市民はカナダのパスポート）。外国のパスポートだけでは不可。JPGかPNGで、1000 × 1500ピクセル以上。"
    },
    {
     "en": "Cover the wait with private insurance — during it you pay the full cost of any care.",
@@ -285,16 +285,16 @@
    "ko": "Health Insurance BC · 1-800-663-7100 · 월–금 8:00–16:30",
    "ja": "Health Insurance BC · 1-800-663-7100 · 月–金 8:00–16:30"
   },
-  "place": "85cdbdb6",
+  "place": "867acd77",
   "src": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp",
   "srcName": "Government of BC — MSP",
   "bring": {
-   "en": "A document showing your name, date of birth and immigration status — a PR card, record of landing, or a work, study or visitor permit. Not a foreign passport, not a COPR. You upload a photo of it (JPG or PNG).",
-   "fr": "Un document indiquant votre nom, votre date de naissance et votre statut d’immigration — carte de RP, fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur. Pas de passeport étranger ni de CRP. Vous en téléversez une photo (JPG ou PNG).",
-   "es": "Un documento con su nombre, fecha de nacimiento y estatus migratorio: tarjeta de RP, constancia de llegada, o permiso de trabajo, estudio o visitante. No sirve el pasaporte extranjero ni la COPR. Se sube una foto (JPG o PNG).",
-   "zh": "一份写有姓名、出生日期和移民身份的文件——PR 卡、落地纸，或工签、学签、访客许可。外国护照和 COPR 不行。上传它的照片（JPG 或 PNG）。",
-   "ko": "이름, 생년월일, 이민 신분이 나온 서류 — 영주권 카드, 랜딩 기록, 또는 취업·학생·방문 허가서. 외국 여권과 COPR은 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
-   "ja": "氏名、生年月日、在留資格が分かる書類 — PRカード、ランディング記録、または就労・学生・訪問者許可。外国のパスポートやCOPRは不可。写真（JPGかPNG）でアップロードします。"
+   "en": "A document showing your name, date of birth and immigration status — a PR card, COPR or record of landing, or a work, study or visitor permit. A foreign passport on its own is not enough. You upload a photo of it (JPG or PNG).",
+   "fr": "Un document indiquant votre nom, votre date de naissance et votre statut d’immigration — carte de RP, CRP ou fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur. Un passeport étranger seul ne suffit pas. Vous en téléversez une photo (JPG ou PNG).",
+   "es": "Un documento con su nombre, fecha de nacimiento y estatus migratorio: tarjeta de RP, COPR o constancia de llegada, o permiso de trabajo, estudio o visitante. Un pasaporte extranjero por sí solo no basta. Se sube una foto (JPG o PNG).",
+   "zh": "一份写有姓名、出生日期和移民身份的文件——PR 卡、COPR 或落地纸，或工签、学签、访客许可。只有外国护照不够。上传它的照片（JPG 或 PNG）。",
+   "ko": "이름, 생년월일, 이민 신분이 나온 서류 — 영주권 카드, COPR 또는 랜딩 기록, 또는 취업·학생·방문 허가서. 외국 여권만으로는 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
+   "ja": "氏名、生年月日、在留資格が分かる書類 — PRカード、COPRまたはランディング記録、または就労・学生・訪問者許可。外国のパスポートだけでは不可。写真（JPGかPNG）でアップロードします。"
   },
   "deadline": {
    "en": "Apply now",
@@ -374,12 +374,12 @@
     "ja": "国によっては無試験で交換でき、それ以外は筆記試験と路上試験が必要です。筆記試験は12言語で受けられます。"
    },
    {
-    "en": "If your licence is not in English, have it translated first — an untranslated one puts the application on hold.",
-    "fr": "Si votre permis n’est pas en anglais, faites-le traduire d’abord — sinon la demande est suspendue.",
-    "es": "Si su licencia no está en inglés, tradúzcala antes — sin traducción la solicitud queda en espera.",
-    "zh": "驾照不是英文的，先做翻译——没翻译申请会被搁置。",
-    "ko": "면허증이 영어가 아니면 먼저 번역하세요 — 번역이 없으면 신청이 보류됩니다.",
-    "ja": "免許証が英語でない場合は先に翻訳を — 未翻訳だと申請は保留になります。"
+    "en": "If your licence is not in English, check whether ICBC needs a translation. If it does, it must be done by an ICBC-approved translator (list on icbc.com) — a translation from anyone else is not accepted, and the application waits until it is done.",
+    "fr": "Si votre permis n’est pas en anglais, vérifiez si ICBC exige une traduction. Si c’est le cas, elle doit être faite par un traducteur approuvé par ICBC (liste sur icbc.com) — une traduction faite par quelqu’un d’autre n’est pas acceptée, et la demande reste en attente jusqu’à ce qu’elle soit faite.",
+    "es": "Si su licencia no está en inglés, compruebe si ICBC necesita una traducción. Si la necesita, debe hacerla un traductor aprobado por ICBC (lista en icbc.com) — no se acepta la traducción de ninguna otra persona, y la solicitud queda en espera hasta que esté hecha.",
+    "zh": "驾照不是英文的，先查一下 ICBC 是否要求翻译。如果要求，必须由 ICBC 认可的翻译员来翻（名单在 icbc.com）——其他人翻的不被接受，翻译做好之前申请会一直搁置。",
+    "ko": "면허증이 영어가 아니면 ICBC가 번역을 요구하는지 확인하세요. 요구한다면 ICBC가 승인한 번역사(icbc.com에 명단 있음)가 번역해야 합니다 — 다른 사람이 한 번역은 인정되지 않으며, 번역이 끝날 때까지 신청은 보류됩니다.",
+    "ja": "免許証が英語でない場合は、ICBCが翻訳を求めているか確認してください。求められる場合は、ICBC認定の翻訳者（一覧はicbc.com）に依頼する必要があります — それ以外の人の翻訳は受け付けられず、翻訳ができるまで申請は保留になります。"
    }
   ],
   "note": {
@@ -431,7 +431,6 @@
    "免許",
    "换驾照",
    "换驾驶证",
-   "运전면허",
    "運転免許",
    "運転免許証",
    "驾照",
@@ -439,7 +438,15 @@
    "驾驶证",
    "면허",
    "운전면허",
-   "운전면허증"
+   "운전면허증",
+   "driver's license",
+   "drivers license",
+   "driver's licence",
+   "drivers licence",
+   "driving licence",
+   "driving license",
+   "driver licence",
+   "driver license"
   ]
  },
  {
@@ -506,12 +513,12 @@
    "ja": "身分証2点: 1点は氏名と住所、もう1点は氏名と生年月日が分かるもの — 外国のパスポート、カナダ政府発行の身分証、公共料金の請求書、銀行の明細書などが使えます。または1点＋銀行が認める保証人。"
   },
   "note": {
-   "en": "A bank can still refuse for a few reasons — for example false information, fraud in the past seven years, or harassing staff — but not for being new or broke. These rights apply to banks; credit unions follow provincial rules.",
-   "fr": "Une banque peut encore refuser pour quelques raisons — par exemple de fausses informations, une fraude au cours des sept dernières années ou du harcèlement envers le personnel — mais pas parce que vous êtes nouveau ou sans argent. Ces droits s’appliquent aux banques ; les coopératives de crédit suivent les règles provinciales.",
-   "es": "Un banco todavía puede negarse por algunos motivos —por ejemplo información falsa, fraude en los últimos siete años o acoso al personal—, pero no por ser nuevo o no tener dinero. Estos derechos se aplican a los bancos; las cooperativas de crédito siguen normas provinciales.",
-   "zh": "银行仍可以因少数原因拒绝——比如提供虚假信息、过去七年内有欺诈记录、骚扰员工——但不能因为你刚来或没钱就拒绝。这些权利适用于银行；信用合作社按省里的规定。",
-   "ko": "은행은 몇 가지 이유 — 예를 들어 허위 정보, 최근 7년 내 사기 이력, 직원 괴롭힘 — 로는 거절할 수 있지만, 새로 왔거나 돈이 없다는 이유로는 거절할 수 없습니다. 이 권리는 은행에 적용되며, 신용협동조합은 주 규정을 따릅니다.",
-   "ja": "銀行は、虚偽の情報、過去7年以内の詐欺、職員への嫌がらせなど、いくつかの理由では断れますが、来たばかりだから、お金がないからという理由では断れません。この権利は銀行に適用され、信用組合は州のルールに従います。"
+   "zh": "银行仍可以因少数原因拒绝——比如提供虚假信息、过去七年内有欺诈记录、骚扰员工——但不能因为你刚来或没钱就拒绝。这些权利适用于银行和联邦信用合作社；受省监管的信用合作社按省里的规定。",
+   "en": "A bank can still refuse for a few reasons — for example false information, fraud in the past seven years, or harassing staff — but not for being new or broke. These rights apply to banks and federal credit unions; provincially regulated credit unions follow provincial rules.",
+   "fr": "Une banque peut encore refuser pour quelques raisons — par exemple de fausses informations, une fraude au cours des sept dernières années ou du harcèlement envers le personnel — mais pas parce que vous êtes nouveau ou sans argent. Ces droits s’appliquent aux banques et aux coopératives de crédit fédérales ; les coopératives de crédit sous réglementation provinciale suivent les règles provinciales.",
+   "es": "Un banco todavía puede negarse por algunos motivos —por ejemplo información falsa, fraude en los últimos siete años o acoso al personal—, pero no por ser nuevo o no tener dinero. Estos derechos se aplican a los bancos y a las cooperativas de crédito federales; las cooperativas de crédito reguladas por la provincia siguen normas provinciales.",
+   "ko": "은행은 몇 가지 이유 — 예를 들어 허위 정보, 최근 7년 내 사기 이력, 직원 괴롭힘 — 로는 거절할 수 있지만, 새로 왔거나 돈이 없다는 이유로는 거절할 수 없습니다. 이 권리는 은행과 연방 신용협동조합에 적용되며, 주 정부가 규제하는 신용협동조합은 주 규정을 따릅니다.",
+   "ja": "銀行は、虚偽の情報、過去7年以内の詐欺、職員への嫌がらせなど、いくつかの理由では断れますが、来たばかりだから、お金がないからという理由では断れません。この権利は銀行と連邦の信用組合に適用され、州の規制を受ける信用組合は州のルールに従います。"
   },
   "place": "e7514fcc",
   "src": "https://www.canada.ca/en/financial-consumer-agency/services/banking/opening-bank-account.html",
@@ -1003,12 +1010,12 @@
     "ja": "緊急でない・判断に迷うときは8-1-1へ — 無料・24時間・看護師対応、通訳もあります。"
    },
    {
-    "en": "Needs seeing today: in this city there is effectively one walk-in door — North Shore UPCC (Tranquille Rd). Go early; they fill the day’s list and then close. Do not walk into other clinics expecting to be seen: South Shore UPCLC is appointment-only (call 250-314-2256 from 10 am) and the pharmacy “clinics” are virtual.",
-    "zh": "今天就得看：这座城市实际上只有一扇能直接走进去的门——North Shore UPCC（Tranquille Rd）。要去早，当天名额满了就关门。别去别的诊所白跑：South Shore UPCLC 只接预约（上午 10 点起打 250-314-2256），药房里的“诊所”是视频问诊。",
-    "fr": "À voir aujourd’hui : dans cette ville il n’y a en pratique qu’une seule porte sans rendez-vous — le North Shore UPCC (Tranquille Rd). Allez-y tôt ; la liste du jour se remplit, puis on ferme. N’entrez pas ailleurs en espérant être vu : le South Shore UPCLC est sur rendez-vous seulement (appelez le 250-314-2256 dès 10 h) et les « cliniques » des pharmacies sont virtuelles.",
-    "es": "Necesita atención hoy: en esta ciudad hay en la práctica una sola puerta sin cita — el North Shore UPCC (Tranquille Rd). Vaya temprano; la lista del día se llena y cierran. No entre a otras clínicas esperando que lo atiendan: el South Shore UPCLC es solo con cita (llame al 250-314-2256 desde las 10 am) y las «clínicas» de las farmacias son virtuales.",
-    "ko": "오늘 꼭 진료가 필요하면: 이 도시에서 예약 없이 바로 들어갈 수 있는 곳은 사실상 한 곳 — North Shore UPCC(Tranquille Rd)뿐입니다. 일찍 가세요. 그날 정원이 차면 문을 닫습니다. 다른 클리닉에 가서 헛걸음하지 마세요: South Shore UPCLC는 예약 전용(오전 10시부터 250-314-2256), 약국의 “클리닉”은 화상 진료입니다.",
-    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（Tranquille Rd）だけです。早めに行ってください。その日の枠が埋まると閉まります。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256）、薬局の「クリニック」はオンライン診療です。"
+    "en": "Needs seeing today: in this city there is effectively one walk-in door — North Shore UPCC (700 Tranquille Rd), open 7:30 am–6:30 pm every day including holidays. Go early to avoid a long wait. Do not walk into other clinics expecting to be seen: South Shore UPCLC is appointment-only (call 250-314-2256 from 10 am) and the pharmacy “clinics” are virtual.",
+    "zh": "今天就得看：这座城市实际上只有一扇能直接走进去的门——North Shore UPCC（700 Tranquille Rd），每天 7:30–18:30 开放，节假日也开。要去早，免得等很久。别去别的诊所白跑：South Shore UPCLC 只接预约（上午 10 点起打 250-314-2256），药房里的“诊所”是视频问诊。",
+    "fr": "À voir aujourd’hui : dans cette ville il n’y a en pratique qu’une seule porte sans rendez-vous — le North Shore UPCC (700 Tranquille Rd), ouvert de 7 h 30 à 18 h 30 tous les jours, y compris les jours fériés. Allez-y tôt pour éviter une longue attente. N’entrez pas ailleurs en espérant être vu : le South Shore UPCLC est sur rendez-vous seulement (appelez le 250-314-2256 dès 10 h) et les « cliniques » des pharmacies sont virtuelles.",
+    "es": "Necesita atención hoy: en esta ciudad hay en la práctica una sola puerta sin cita — el North Shore UPCC (700 Tranquille Rd), abierto de 7:30 a 18:30 todos los días, incluidos los festivos. Vaya temprano para evitar una larga espera. No entre a otras clínicas esperando que lo atiendan: el South Shore UPCLC es solo con cita (llame al 250-314-2256 desde las 10 am) y las «clínicas» de las farmacias son virtuales.",
+    "ko": "오늘 꼭 진료가 필요하면: 이 도시에서 예약 없이 바로 들어갈 수 있는 곳은 사실상 한 곳 — North Shore UPCC(700 Tranquille Rd)뿐이며, 공휴일을 포함해 매일 오전 7시 30분–오후 6시 30분에 엽니다. 오래 기다리지 않으려면 일찍 가세요. 다른 클리닉에 가서 헛걸음하지 마세요: South Shore UPCLC는 예약 전용(오전 10시부터 250-314-2256), 약국의 “클리닉”은 화상 진료입니다.",
+    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（700 Tranquille Rd）だけで、祝日も含め毎日7:30–18:30に開いています。長く待たないよう、早めに行ってください。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256）、薬局の「クリニック」はオンライン診療です。"
    },
    {
     "en": "Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the hospital emergency department.",
@@ -1261,18 +1268,18 @@
    "食品银行"
   ],
   "note": {
-   "en": "Need a bed tonight? Kamloops has four shelters: The Mustard Seed West End Shelter 250-372-9890 (30 beds, walk-ins any time), Merit Place Shelter 236-425-0341 (49 pods, walk-ins any time; one pet at a time; beds are given out at the 9:30 pm curfew), Pathways Shelter and Access Hub 250-299-7936 (44 beds, North Shore, low-barrier — call the intake line), and Emerald Centre 250-372-3031 (42 beds — call before you go). If one is full, try another — no single call is the end of the road. Women leaving violence, with or without children: Y Women’s Emergency Shelter, call 250-374-6162 or text 250-682-7931, 24 hours, free, no referral. In the colder months The Mustard Seed also opens a winter shelter at 1140 River St.",
-   "fr": "Besoin d’un lit ce soir ? Kamloops compte quatre refuges : The Mustard Seed West End Shelter 250-372-9890 (30 lits, accueil sans rendez-vous à toute heure), Merit Place Shelter 236-425-0341 (49 capsules, accueil à toute heure ; un animal à la fois ; les lits sont attribués au couvre-feu de 21 h 30), Pathways Shelter and Access Hub 250-299-7936 (44 lits, rive nord, bas seuil — appelez la ligne d’accueil) et Emerald Centre 250-372-3031 (42 lits — appelez avant d’y aller). Si l’un est plein, essayez-en un autre — un seul appel n’est jamais la fin. Femmes qui fuient la violence, avec ou sans enfants : Y Women’s Emergency Shelter, appel au 250-374-6162 ou texto au 250-682-7931, 24 h sur 24, gratuit, sans référence. Pendant les mois froids, The Mustard Seed ouvre aussi un refuge d’hiver au 1140 River St.",
-   "es": "¿Necesita una cama esta noche? Kamloops tiene cuatro albergues: The Mustard Seed West End Shelter 250-372-9890 (30 camas, sin cita a cualquier hora), Merit Place Shelter 236-425-0341 (49 cápsulas, sin cita a cualquier hora; una mascota a la vez; las camas se asignan en el toque de queda de las 21:30), Pathways Shelter and Access Hub 250-299-7936 (44 camas, ribera norte, bajo umbral — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (42 camas — llame antes de ir). Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
-   "zh": "今晚需要床位？Kamloops 有四家庇护所：The Mustard Seed West End Shelter 250-372-9890（30 张床位，随时可直接去），Merit Place Shelter 236-425-0341（49 个独立床舱，随时可直接去；每次可带一只宠物；床位在晚上 9:30 门禁时分配），Pathways Shelter and Access Hub 250-299-7936（44 张床位，北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（42 张床位——去之前先打电话）。一家满了就试另一家——一个电话打不通不是走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
-   "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops에는 쉼터가 네 곳 있습니다: The Mustard Seed West End Shelter 250-372-9890(30병상, 언제든 방문 가능), Merit Place Shelter 236-425-0341(개별 포드 49개, 언제든 방문 가능, 반려동물 한 마리까지, 침상은 밤 9시 30분 통금 때 배정), Pathways Shelter and Access Hub 250-299-7936(44병상, 노스쇼어, 저문턱 — 입소 전화로 연락), Emerald Centre 250-372-3031(42병상 — 가기 전에 전화). 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 전화 한 통으로 끝나는 게 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
-   "ja": "今夜寝る場所が必要ですか？Kamloopsには4つのシェルターがあります：The Mustard Seed West End Shelter 250-372-9890（30床、いつでも直接行ける）、Merit Place Shelter 236-425-0341（個室ポッド49、いつでも直接行ける、ペットは1匹まで、ベッドは21時30分の門限時に割り当て）、Pathways Shelter and Access Hub 250-299-7936（44床、ノースショア、ローバリア — 入所の電話へ）、Emerald Centre 250-372-3031（42床 — 行く前に電話を）。1か所が満員でも別の所を試してください — 電話1本で終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
+   "en": "Need a bed tonight? Emergency shelters in Kamloops include The Mustard Seed 250-372-9890 (walk-ins any time; its Harbour House is for women only), Merit Place 236-425-0341 (walk-ins any time; beds are given out at the 9:30 pm curfew; one pet allowed), Pathways Shelter and Access Hub 250-299-7936 (North Shore, low-barrier — call the intake line) and Emerald Centre 250-372-3031 (call before you go). The City of Kamloops keeps the current list. If one is full, try another — no single call is the end of the road. Women leaving violence, with or without children: Y Women’s Emergency Shelter, call 250-374-6162 or text 250-682-7931, 24 hours, free, no referral. In the colder months The Mustard Seed also opens a winter shelter at 1140 River St.",
+   "fr": "Besoin d’un lit ce soir ? Parmi les refuges d’urgence de Kamloops : The Mustard Seed 250-372-9890 (accueil sans rendez-vous à toute heure ; sa Harbour House est réservée aux femmes), Merit Place 236-425-0341 (accueil à toute heure ; les lits sont attribués au couvre-feu de 21 h 30 ; un animal accepté), Pathways Shelter and Access Hub 250-299-7936 (rive nord, bas seuil — appelez la ligne d’accueil) et Emerald Centre 250-372-3031 (appelez avant d’y aller). La City of Kamloops tient la liste à jour. Si l’un est plein, essayez-en un autre — un seul appel n’est jamais la fin. Femmes qui fuient la violence, avec ou sans enfants : Y Women’s Emergency Shelter, appel au 250-374-6162 ou texto au 250-682-7931, 24 h sur 24, gratuit, sans référence. Pendant les mois froids, The Mustard Seed ouvre aussi un refuge d’hiver au 1140 River St.",
+   "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan en el toque de queda de las 21:30; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, bajo umbral — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
+   "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一个电话打不通不是走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
+   "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 저문턱 — 입소 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 전화 한 통으로 끝나는 게 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
+   "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、ローバリア — 入所の電話へ）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 電話1本で終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
   },
   "also": {
    "en": "The three food programs run on different days, so if one doesn't fit today, another might: Kamloops Food Bank (families and singles attend on separate days), Mount Paul Community Food Centre (free community meals Mondays and Thursdays, an affordable produce market Tuesdays and Thursdays), and The Salvation Army (emergency hampers — its website shows two different schedules, so call 250-554-1611 first).",
    "fr": "Les trois programmes alimentaires fonctionnent des jours différents, donc si l’un ne convient pas aujourd’hui, un autre pourrait : Kamloops Food Bank (familles et personnes seules à des jours différents), Mount Paul Community Food Centre (repas communautaires gratuits les lundis et jeudis, marché de fruits et légumes abordable les mardis et jeudis), et The Salvation Army (paniers d’urgence — son site affiche deux horaires différents, appelez d’abord le 250-554-1611).",
    "es": "Los tres programas de alimentos funcionan en días distintos, así que si uno no le sirve hoy, otro podría: Kamloops Food Bank (familias y personas solas en días distintos), Mount Paul Community Food Centre (comidas comunitarias gratuitas lunes y jueves, mercado de productos asequible martes y jueves), y The Salvation Army (despensas de emergencia — su sitio muestra dos horarios distintos, llame antes al 250-554-1611).",
-   "zh": "这三家食物机构开放的日子各不相同，今天这家不合适，也许另一家可以：Kamloops Food Bank（家庭与单身人士分不同日子领取）、Mount Paul Community Food Centre（周一、周四免费社区午餐，周二、周四平价果蔔市集）、The Salvation Army（紧急食物包——它的网站上有两套不同的时间，先打 250-554-1611 确认）。",
+   "zh": "这三家食物机构开放的日子各不相同，今天这家不合适，也许另一家可以：Kamloops Food Bank（家庭与单身人士分不同日子领取）、Mount Paul Community Food Centre（周一、周四免费社区午餐，周二、周四平价果蔬市集）、The Salvation Army（紧急食物包——它的网站上有两套不同的时间，先打 250-554-1611 确认）。",
    "ko": "세 곳의 식품 지원 프로그램은 요일이 서로 달라서, 오늘 한 곳이 맞지 않으면 다른 곳이 맞을 수 있습니다: Kamloops Food Bank(가족과 1인 가구가 다른 요일에 방문), Mount Paul Community Food Centre(월·목 무료 커뮤니티 식사, 화·목 저렴한 농산물 마켓), The Salvation Army(긴급 식료품 꾸러미 — 웹사이트에 일정이 두 가지로 나와 있으니 먼저 250-554-1611로 전화).",
    "ja": "3つの食料支援は開催日がそれぞれ違うので、今日一つが合わなくても別の一つが合うかもしれません：Kamloops Food Bank（家族と単身者で利用日が異なる）、Mount Paul Community Food Centre（月・木の無料コミュニティ食事、火・木の手頃な青果マーケット）、The Salvation Army（緊急食料パック — サイトに2つの異なる日程があるので、先に250-554-1611へ電話を）。"
   }
@@ -1364,12 +1371,12 @@
    "차별"
   ],
   "also": {
-   "en": "Kamloops Immigrant Services' SPOKE program offers free short-term counselling and legal referrals, especially for women, girls and gender-diverse newcomers — you do not have to do this alone.",
-   "fr": "Le programme SPOKE de Kamloops Immigrant Services offre du counseling gratuit à court terme et des orientations juridiques, en particulier pour les femmes, les filles et les personnes de diversité de genre nouvellement arrivées — vous n'avez pas à traverser cela seul(e).",
-   "es": "El programa SPOKE de Kamloops Immigrant Services ofrece asesoría gratuita a corto plazo y derivaciones legales, especialmente para mujeres, niñas y personas de diversidad de género recién llegadas — no tiene que enfrentarlo solo.",
-   "zh": "Kamloops Immigrant Services 的 SPOKE 项目提供免费的短期心理辅导和法律转介，尤其面向女性、女孩和性别多元新移民——你不用一个人面对这件事。",
-   "ko": "Kamloops Immigrant Services의 SPOKE 프로그램은 무료 단기 상담과 법률 연계를 제공합니다. 특히 여성, 소녀, 성 다양성을 지닌 신규 이민자를 위한 것입니다 — 혼자 감당하지 않아도 됩니다.",
-   "ja": "Kamloops Immigrant ServicesのSPOKEプログラムは、無料の短期カウンセリングと法律相談先の紹介を提供しています。特に女性、少女、性の多様な新規移住者向けです——一人で抱え込む必要はありません。"
+   "en": "Kamloops Immigrant Services' Women's Empowerment program offers free one-to-one counselling and help connecting to legal services for immigrant and refugee women, girls and gender-diverse people — you do not have to do this alone.",
+   "fr": "Le programme Women's Empowerment de Kamloops Immigrant Services offre du counseling individuel gratuit et de l'aide pour accéder à des services juridiques aux femmes, aux filles et aux personnes de diversité de genre immigrantes et réfugiées — vous n'avez pas à traverser cela seul(e).",
+   "es": "El programa Women's Empowerment de Kamloops Immigrant Services ofrece asesoría individual gratuita y ayuda para acceder a servicios legales a mujeres, niñas y personas de diversidad de género inmigrantes y refugiadas — no tiene que enfrentarlo solo.",
+   "zh": "Kamloops Immigrant Services 的 Women's Empowerment 项目为移民和难民中的女性、女孩和性别多元人士提供免费的一对一心理辅导，并帮忙联系法律服务——你不用一个人面对这件事。",
+   "ko": "Kamloops Immigrant Services의 Women's Empowerment 프로그램은 이민자·난민 여성, 소녀, 성 다양성을 지닌 사람들에게 무료 일대일 상담과 법률 서비스 연계를 제공합니다 — 혼자 감당하지 않아도 됩니다.",
+   "ja": "Kamloops Immigrant ServicesのWomen's Empowermentプログラムは、移民・難民の女性、少女、性の多様な人を対象に、無料の個別カウンセリングと法律サービスにつなぐ手助けを提供しています——一人で抱え込む必要はありません。"
   }
  },
  {
@@ -1441,7 +1448,15 @@
    "法律",
    "법률",
    "변호사"
-  ]
+  ],
+  "note": {
+   "en": "For tenancy, debt, EI or disability-benefit problems, the free Okanagan Thompson Legal Clinic (on the map) can help.",
+   "zh": "租房、债务、就业保险（EI）或残障福利方面的问题，可以找免费的 Okanagan Thompson Legal Clinic（地图上有）帮忙。",
+   "fr": "Pour les problèmes de logement locatif, de dettes, d’assurance-emploi (EI) ou de prestations d’invalidité, l’Okanagan Thompson Legal Clinic, gratuite (sur la carte), peut vous aider.",
+   "es": "Para problemas de alquiler, deudas, seguro de empleo (EI) o prestaciones por discapacidad, la Okanagan Thompson Legal Clinic, gratuita (en el mapa), puede ayudarle.",
+   "ko": "임대차, 채무, 고용보험(EI), 장애 수당 문제는 무료로 운영되는 Okanagan Thompson Legal Clinic(지도에 있음)이 도와줄 수 있습니다.",
+   "ja": "賃貸、借金、雇用保険（EI）、障害給付の問題は、無料のOkanagan Thompson Legal Clinic（地図に掲載）が相談に乗ってくれます。"
+  }
  },
  {
   "id": "doctor",
@@ -1694,12 +1709,12 @@
     "ja": "今すぐオンラインでEIを申請 — 離職票（Record of Employment）を待つ必要はなく、書類は後から出せます。SIN、振込用の口座情報、過去52週の雇用主の情報を用意。（9で始まるSINの人は在留書類と就労許可も必要。）1週間の無給の待機期間があります。"
    },
    {
-    "en": "Check your final pay. If your employer ended your job, everything owed is due within 48 hours (within 6 days if you quit). After more than 3 months in the job you are owed written notice or pay instead: 1 week, 2 weeks after a year, 3 weeks after three years, then one more week for each further year — unless it was for just cause.",
-    "fr": "Vérifiez votre dernière paie. Si l’employeur a mis fin à l’emploi, tout ce qui vous est dû doit être payé dans les 48 heures (6 jours si vous avez démissionné). Après plus de 3 mois, vous avez droit à un préavis écrit ou à une indemnité : 1 semaine, 2 semaines après un an, 3 semaines après trois ans, puis une semaine de plus par année supplémentaire — sauf congédiement pour motif valable.",
-    "es": "Revise su último pago. Si el empleador terminó el empleo, todo lo que le deben vence en 48 horas (6 días si usted renunció). Con más de 3 meses en el puesto, le corresponde aviso por escrito o pago en su lugar: 1 semana, 2 semanas tras un año, 3 semanas tras tres años y una semana más por cada año adicional, salvo despido con causa justa.",
-    "zh": "核对最后一笔工资。如果是雇主解雇你，欠你的钱必须在 48 小时内付清（你自己辞职的是 6 天内）。工作超过 3 个月，你有权得到书面提前通知或相应的补偿：1 周；满 1 年 2 周；满 3 年 3 周，之后每多 1 年再加 1 周——因正当理由（just cause）被解雇的除外。",
-    "ko": "마지막 급여를 확인하세요. 고용주가 해고했다면 밀린 돈은 48시간 안에(스스로 그만뒀다면 6일 안에) 모두 지급해야 합니다. 3개월 넘게 일했다면 서면 예고나 그만큼의 수당을 받을 권리가 있습니다: 1주, 1년 넘으면 2주, 3년 넘으면 3주, 이후 1년마다 1주씩 추가 — 정당한 사유에 의한 해고는 제외.",
-    "ja": "最後の給与を確認。雇用主から解雇された場合、未払い分はすべて48時間以内（自分で辞めた場合は6日以内）に支払われる決まりです。3か月を超えて働いていれば、書面の予告か代わりの手当を受け取れます：1週間、1年を超えると2週間、3年を超えると3週間、その後は1年ごとに1週間追加 — 正当な理由による解雇を除く。"
+    "zh": "核对最后一笔工资。如果是雇主解雇你，欠你的钱必须在 48 小时内付清（你自己辞职的是 6 天内）。工作超过 3 个月，你有权得到书面提前通知或相应的补偿：1 周；满 1 年 2 周；满 3 年 3 周，之后每多 1 年再加 1 周，最多 8 周——因正当理由（just cause）被解雇的除外。",
+    "en": "Check your final pay. If your employer ended your job, everything owed is due within 48 hours (within 6 days if you quit). After more than 3 months in the job you are owed written notice or pay instead: 1 week, 2 weeks after a year, 3 weeks after three years, then one more week for each further year, up to 8 weeks — unless it was for just cause.",
+    "fr": "Vérifiez votre dernière paie. Si l’employeur a mis fin à l’emploi, tout ce qui vous est dû doit être payé dans les 48 heures (6 jours si vous avez démissionné). Après plus de 3 mois, vous avez droit à un préavis écrit ou à une indemnité : 1 semaine, 2 semaines après un an, 3 semaines après trois ans, puis une semaine de plus par année supplémentaire, jusqu’à 8 semaines — sauf congédiement pour motif valable.",
+    "es": "Revise su último pago. Si el empleador terminó el empleo, todo lo que le deben vence en 48 horas (6 días si usted renunció). Con más de 3 meses en el puesto, le corresponde aviso por escrito o pago en su lugar: 1 semana, 2 semanas tras un año, 3 semanas tras tres años y una semana más por cada año adicional, hasta 8 semanas, salvo despido con causa justa.",
+    "ko": "마지막 급여를 확인하세요. 고용주가 해고했다면 밀린 돈은 48시간 안에(스스로 그만뒀다면 6일 안에) 모두 지급해야 합니다. 3개월 넘게 일했다면 서면 예고나 그만큼의 수당을 받을 권리가 있습니다: 1주, 1년 넘으면 2주, 3년 넘으면 3주, 이후 1년마다 1주씩 추가, 최대 8주 — 정당한 사유에 의한 해고는 제외.",
+    "ja": "最後の給与を確認。雇用主から解雇された場合、未払い分はすべて48時間以内（自分で辞めた場合は6日以内）に支払われる決まりです。3か月を超えて働いていれば、書面の予告か代わりの手当を受け取れます：1週間、1年を超えると2週間、3年を超えると3週間、その後は1年ごとに1週間追加（最長8週間） — 正当な理由による解雇を除く。"
    },
    {
     "en": "If you have no other money coming, apply for BC income assistance through My Self Serve or at 1-866-866-0800. In most cases you first show a three-week work search.",
