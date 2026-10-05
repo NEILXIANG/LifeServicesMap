@@ -6,10 +6,10 @@
 #
 # What it does:
 #   1. Reads the city data (cities/<city>/, via kamdata), scans every POI's `v` (YYYY-MM). Anything older
-#      than 180 days lands in data/stale-POIs-YYYY-MM.md, grouped by age bucket.
+#      than 180 days lands in records/stale-POIs-YYYY-MM.md, grouped by age bucket.
 #   2. Re-checks every link in the dataset (deep URLs are the ones that rot first
-#      and dominate this output). Each run writes data/check-links-YYYY-MM-DD.log.
-#   3. Appends a dated summary block to data/data-quality-log.md so the next
+#      and dominate this output). Each run writes records/check-links-YYYY-MM-DD.log.
+#   3. Appends a dated summary block to records/data-quality-log.md so the next
 #      reviewer can scan one file instead of grepping two.
 #
 # Why a shell script and not cron-trigger on the Cloudflare Worker:
@@ -31,9 +31,9 @@ PY="python3"
 TODAY="$("$PY" -c 'import sys;sys.path.insert(0,".");import kamdata;print(kamdata.today())' 2>/dev/null || date +%Y-%m-%d)"
 STAMP="${TODAY%-*}"
 # 2026-10-04: every city has its own file names and log, so a run for one city never overwrites another's.
-# Kamloops keeps the original names (data/data-quality-log.md, check-links-<date>.*).
-if [[ "$CITY" == "kamloops" ]]; then SUF=""; QLOG="$HERE/data/data-quality-log.md"
-else SUF="-$CITY"; QLOG="$HERE/data/data-quality-log-$CITY.md"; fi
+# Kamloops keeps the original names (records/data-quality-log.md, check-links-<date>.*).
+if [[ "$CITY" == "kamloops" ]]; then SUF=""; QLOG="$HERE/records/data-quality-log.md"
+else SUF="-$CITY"; QLOG="$HERE/records/data-quality-log-$CITY.md"; fi
 
 echo "== monthly-quality-check @ $TODAY =="
 
@@ -54,9 +54,9 @@ echo "[TIME-01] $STALE_NOTE (rc=$STALE_RC)"
 # 2. Deep-link health check (TIME-02).
 # 计数从 --json 读，不再 grep 正文：正文格式一改（缩进、只打印异常）计数就
 # 全变 0，而且是静默的——这个月度巡检曾经连续几个月报"0 OK / 0 DEAD"。
-LINK_JSON="$HERE/data/check-links$SUF-$TODAY.json"
+LINK_JSON="$HERE/records/check-links$SUF-$TODAY.json"
 "$PY" "$HERE/scripts/check-links.py" --city "$CITY" --deep-only --json "$LINK_JSON" \
-      >"$HERE/data/check-links$SUF-$TODAY.log" 2>&1
+      >"$HERE/records/check-links$SUF-$TODAY.log" 2>&1
 LINK_RC=$?
 COUNTS="$("$PY" - "$LINK_JSON" <<'PYCOUNT'
 import json, sys, collections
@@ -86,7 +86,7 @@ cat >>"$QLOG" <<EOF
 
 - stale: $STALE_NOTE
 - 深链: $LINK_NOTE
-- 完整 log: data/check-links$SUF-$TODAY.log（计数取自同名 .json）
+- 完整 log: records/check-links$SUF-$TODAY.log（计数取自同名 .json）
 EOF
 
 echo "== done =="

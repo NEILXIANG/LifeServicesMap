@@ -2413,7 +2413,7 @@
    "evidence": [
     {
      "city": "Kamloops",
-     "ref": "data/analytics-log.md",
+     "ref": "records/analytics-log.md",
      "section": "## 四期数据",
      "what": "第 2 期，主题开着搜索全是 0"
     }
@@ -2421,7 +2421,7 @@
    "encoded": [
     {
      "kind": "doc",
-     "path": "data/analytics-log.md",
+     "path": "records/analytics-log.md",
      "marker": "搜索时暂停主题还没做"
     }
    ]
@@ -2463,7 +2463,7 @@
    "scope": "all",
    "phase": "维护",
    "lesson": "已发给合作机构的 PDF 仍写着人权投诉倒计时、红色热线条、\"已核实地点\"、14 张卡——功能改了，对外文字没跟；PDF 上的版本号也可能是没部署的。",
-   "rule": "对外文字用占位符从数据现取；功能改动时检查 docs/source/content；builddocs.py 构建前对照线上版本，不一致就拒绝。",
+   "rule": "对外文字用占位符从数据现取；功能改动时检查 outreach/pdf/content；builddocs.py 构建前对照线上版本，不一致就拒绝。",
    "status": "tool",
    "evidence": [
     {
@@ -2476,7 +2476,7 @@
    "encoded": [
     {
      "kind": "tool",
-     "path": "docs/source/builddocs.py",
+     "path": "outreach/pdf/builddocs.py",
      "marker": "--allow-undeployed"
     }
    ]
@@ -2488,7 +2488,7 @@
    "scope": "all",
    "phase": "维护",
    "lesson": "访问记录原本是周报模板，里面的示例数字后来被当成真实基线引用；数据质量台账也有虚构的示例条目。",
-   "rule": "data/ 只记真实发生的事；模板和示例放在手册里，并明确标为示例。",
+   "rule": "records/（运营台账，原名 data/）只记真实发生的事；模板和示例放在手册里，并明确标为示例。",
    "status": "doc",
    "evidence": [
     {
@@ -2501,7 +2501,7 @@
    "encoded": [
     {
      "kind": "doc",
-     "path": "data/README.md",
+     "path": "records/README.md",
      "marker": "模板和示例不放在台账里"
     }
    ]
@@ -2551,7 +2551,7 @@
    "encoded": [
     {
      "kind": "doc",
-     "path": "data/README.md",
+     "path": "records/README.md",
      "marker": "help_open"
     }
    ]
@@ -2691,7 +2691,7 @@
     },
     {
      "city": "Kamloops",
-     "ref": "data/data-quality-log.md",
+     "ref": "records/data-quality-log.md",
      "section": "### 2026-09-21 · 按 TNRL 回复核实补充，并顺查同类遗漏",
      "what": "机构办公室地址不是收容所地址"
     }
@@ -3474,6 +3474,36 @@
      "marker": "knowledge.py --brief"
     }
    ]
+  },
+  {
+   "id": "L-115",
+   "title": "目录名要说出里面是什么，同一种东西放一处",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "骨架",
+   "lesson": "运营台账放在 data/，读起来像页面数据（页面数据在 cities/），说明文件第一句只能先澄清；会生成 PDF 的脚本和截图混在 docs/ 里，传单脚本和标志散在根目录。",
+   "rule": "目录按种类分：引擎、数据、构建、工具、测试、部署、运营台账（records/）、对外材料（outreach/）、文档（docs/ 只放文档）；改名前列出所有按路径找它的地方（脚本、部署探针、经验库标记、外部任务），用 git mv 保留历史，改完跑 knowledge --check 和 check-all；旧路径写进 docs/archive/README.md 的对照表。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 20 轮：项目目录整理",
+     "what": "data/ 误导；docs/ 里混着脚本"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "README.md",
+     "marker": "Nine kinds of things, each in one place"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/archive/README.md",
+     "marker": "## 路径变化（读旧文档时对照）"
+    }
+   ]
   }
  ],
  "assets": [
@@ -3605,7 +3635,7 @@
    "reuse": "BC",
    "paths": [
     "scripts/bc_geocode.py",
-    "data/geocode-cache.json"
+    "provinces/bc/geocode-cache.json"
    ]
   },
   {
@@ -3827,8 +3857,8 @@
    "use": "content/*.txt → 对外 HTML/PDF，数字用占位符现取；只在部署后构建（对照线上版本）",
    "reuse": "目前只做 Kamloops（网址写死，换城市要加参数）",
    "paths": [
-    "docs/source/builddocs.py",
-    "docs/source/content"
+    "outreach/pdf/builddocs.py",
+    "outreach/pdf/content"
    ]
   },
   {
@@ -3837,8 +3867,8 @@
    "use": "印刷传单、海报、二维码",
    "reuse": "目前只做 Kamloops（网址写死）",
    "paths": [
-    "flyers/buildflyer.py",
-    "flyers/mapart.py"
+    "outreach/flyers/buildflyer.py",
+    "outreach/flyers/mapart.py"
    ]
   },
   {

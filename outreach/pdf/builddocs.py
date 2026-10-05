@@ -7,11 +7,11 @@ builddocs.py — 从 content/*.txt 重新生成对外说明材料（HTML + PDF�
 在构建时从 cities/kamloops/（经 kamdata）和 public/index.html 现取，改完跑一次就全部同步。
 
 用法：
-    python3 docs/source/builddocs.py                 # 全部重建
-    python3 docs/source/builddocs.py zh-complete     # 只建一份（按文件名前缀）
-    python3 docs/source/builddocs.py --html-only     # 只出 HTML，不调 Chromium
-    python3 docs/source/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
-    python3 docs/source/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
+    python3 outreach/pdf/builddocs.py                 # 全部重建
+    python3 outreach/pdf/builddocs.py zh-complete     # 只建一份（按文件名前缀）
+    python3 outreach/pdf/builddocs.py --html-only     # 只出 HTML，不调 Chromium
+    python3 outreach/pdf/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
+    python3 outreach/pdf/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
 
 输出目录：<运营资料目录>/public/YYYY-MM-DD（默认是仓库同级的 "<仓库名> - ops"），同一天的第二批自动变成 …-DDb、…-DDc，
 从不覆盖已有目录。

@@ -149,7 +149,7 @@ def promise_html():
 
 MAP_SVG = '<svg viewBox="0 0 %d %d" preserveAspectRatio="xMidYMid slice" class="mapart">%s</svg>' % (MAP_W, MAP_H, MAP_COLOUR)
 
-_logo = io.open(os.path.join(kamdata.ROOT, 'logo.svg'), encoding='utf-8').read()
+_logo = io.open(os.path.join(kamdata.ROOT, 'outreach', 'logo.svg'), encoding='utf-8').read()
 LOGO_SVG = _logo[_logo.index('<svg'):]
 def logo(size):
     return LOGO_SVG.replace('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192"',

@@ -38,7 +38,7 @@
 | `importers/apply_hours.py`、`importers/hours.py` | 营业时间原文 → 引擎格式 |
 | `importers/apply_translations.py` | 套用 `import/translations.json` |
 | `importers/tasks_from.py` | 从别的城市生成办事卡（`--from`）+ `import/task-overrides.json` |
-| `bc_geocode.py` | BC 政府地址定位（带缓存 `data/geocode-cache.json`；得分 ≥ 95 才用） |
+| `bc_geocode.py` | BC 政府地址定位（带缓存 `provinces/bc/geocode-cache.json`；得分 ≥ 95 才用） |
 
 各来源的网址、许可、要注意的地方：[`docs/knowledge/数据来源目录.md`](../docs/knowledge/数据来源目录.md)。
 
@@ -53,16 +53,16 @@
 
 | 脚本 | 做什么 | 城市 | 输出 |
 |---|---|---|---|
-| `monthly-quality-check.sh` | 每月：过期记录 + 链接检查 + 台账小结 | 位置参数 `[城市]`，默认 kamloops | `data/` 下的报告和台账 |
-| `check-links.py` | 网址与深链检查 | `--city`，默认 kamloops | `data/check-links[-<城市>]-<日期>.log/.json` |
-| `export-open.py` | 开放数据导出 + 超过 180 天未核实的记录 | `--city`，默认 kamloops | `build/`、`data/stale-POIs-*.md` |
+| `monthly-quality-check.sh` | 每月：过期记录 + 链接检查 + 台账小结 | 位置参数 `[城市]`，默认 kamloops | `records/` 下的报告和台账 |
+| `check-links.py` | 网址与深链检查 | `--city`，默认 kamloops | `records/check-links[-<城市>]-<日期>.log/.json` |
+| `export-open.py` | 开放数据导出 + 超过 180 天未核实的记录 | `--city`，默认 kamloops | `build/`、`records/stale-POIs-*.md` |
 
 ### 统计（`analytics/`）
 
 | 脚本 | 做什么 |
 |---|---|
 | `analytics/query-events.py` | 查询线上统计（预设：tasks、links、calls、help…）；`--city` 按城市筛 |
-| `analytics/export-events.py` | 导出最近 N 天原始事件到 `data/exports/`（不入库） |
+| `analytics/export-events.py` | 导出最近 N 天原始事件到 `records/exports/`（不入库） |
 | `analytics/summarize-export.py` | 导出文件的一页摘要 |
 | `analytics/analyze-events.py` | 分析浏览器 `?debug=1` 的本地导出（调试用） |
 
@@ -72,8 +72,8 @@
 
 | 脚本 | 做什么 |
 |---|---|
-| `docs/source/builddocs.py` | 对外 PDF；只在部署后构建（对照线上版本号） |
-| `flyers/buildflyer.py`、`flyers/mapart.py` | 传单、海报、地图插画（目前只做 Kamloops） |
+| `outreach/pdf/builddocs.py` | 对外 PDF；只在部署后构建（对照线上版本号） |
+| `outreach/flyers/buildflyer.py`、`outreach/flyers/mapart.py` | 传单、海报、地图插画（目前只做 Kamloops） |
 | `deploy.sh` | 构建 → 校验（带 `--city`）→ wrangler → 线上探针；`--city`、`--dry-run`、`--verify-only` |
 | `worker.js` | 线上：`/api/event` 写统计、给所有响应加安全头（所有城市共用） |
 

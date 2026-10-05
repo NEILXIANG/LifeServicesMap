@@ -8,7 +8,7 @@
 Rule (docs/guides/新城市扩展方法论与标准.md, coordinates): a result is *trusted* when
 its score is >= 95 and it matched a civic number or a site; anything weaker is
 returned with trusted=False so the caller marks the record precision:'low' or keeps
-it off the map. Answers are cached in data/geocode-cache.json so re-runs are cheap
+it off the map. Answers are cached in provinces/bc/geocode-cache.json so re-runs are cheap
 and reproducible, and the public API is called at most once a second.
 
 API: https://geocoder.api.gov.bc.ca/ (no key needed for this volume; Open
@@ -20,7 +20,7 @@ _r = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(_r)
 if ROOT not in sys.path: sys.path.insert(0, ROOT)
 import kamdata
-CACHE = os.path.join(ROOT, 'data', 'geocode-cache.json')
+CACHE = os.path.join(ROOT, 'provinces', 'bc', 'geocode-cache.json')   # BC-wide; was data/ until 2026-10-04
 API = 'https://geocoder.api.gov.bc.ca/addresses.json'
 TRUSTED_PRECISION = {'CIVIC_NUMBER', 'SITE', 'UNIT', 'OCCUPANT'}
 _last = [0.0]

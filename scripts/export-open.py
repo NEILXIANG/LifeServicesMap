@@ -121,7 +121,7 @@ def main():
                 bucketed['90\u2013180d'].append((p, age, age_str))
             else:
                 bucketed['<90d'].append((p, age, age_str))
-        out_dir = os.path.join(HERE, 'data')
+        out_dir = os.path.join(HERE, 'records')
         os.makedirs(out_dir, exist_ok=True)
         out_name = 'stale-POIs-%s%s.md' % ('' if a.city == 'kamloops' else a.city + '-',
                                            today.strftime('%Y-%m'))

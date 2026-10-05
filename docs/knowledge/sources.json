@@ -403,7 +403,7 @@
     "kamloops",
     "kelowna"
    ],
-   "gotchas": "只认 score ≥ 95 且门牌级（CIVIC_NUMBER/SITE/UNIT/OCCUPANT）；与数据集自带坐标相差 150 m 内才替换，否则 precision:'low'；安全相关地点不允许大致位置。每秒最多 1 次，结果缓存 data/geocode-cache.json。python.org 版 macOS Python 缺根证书，要 certifi。OSM 只能把 Kelowna 急诊中心匹配到街道，改用本服务后 40 个点修正、最多偏 1.9 km；Kamloops 曾偏 6 km（Honda）。",
+   "gotchas": "只认 score ≥ 95 且门牌级（CIVIC_NUMBER/SITE/UNIT/OCCUPANT）；与数据集自带坐标相差 150 m 内才替换，否则 precision:'low'；安全相关地点不允许大致位置。每秒最多 1 次，结果缓存 provinces/bc/geocode-cache.json。python.org 版 macOS Python 缺根证书，要 certifi。OSM 只能把 Kelowna 急诊中心匹配到街道，改用本服务后 40 个点修正、最多偏 1.9 km；Kamloops 曾偏 6 km（Honda）。",
    "evidence": "scripts/bc_geocode.py"
   },
   {

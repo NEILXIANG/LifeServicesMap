@@ -36,6 +36,17 @@
 | `comprehensive-analysis-2026-09-07.md` 的 E-14 | 引用了埋点周报模板里的**示例数字**当基线（模板已删，见 `data/analytics-log.md`） |
 | 两份 09-06 全面自查（`全面项目自查`、`外部审查报告核查与分析`） | 互相矛盾：一份根据隐私文案判定"零埋点"，实际埋点早已上线——审查要看代码，不看文案（经验库 L-066） |
 
+## 路径变化（读旧文档时对照）
+
+| 旧路径 | 现在 |
+|---|---|
+| `data/`（运营台账） | `records/`（2026-10-04 改名：`data/` 读起来像页面数据） |
+| `data/geocode-cache.json` | `provinces/bc/geocode-cache.json` |
+| `docs/source/`（对外文档源文件与 `builddocs.py`） | `outreach/pdf/` |
+| `flyers/`、根目录 `logo.svg` | `outreach/flyers/`、`outreach/logo.svg` |
+| `src/engine.html`、`src/data-kamloops.js` | `app/engine/`、`cities/kamloops/`（2026-10-03 多城市改造） |
+| `tests/phaseN*.py`、`tests/regress.py` | `tests/kamloops/` |
+
 ## 内容去了哪里（2026-10-04 归档前搬走的）
 
 | 内容 | 现在在 |

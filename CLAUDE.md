@@ -31,7 +31,8 @@ python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城�
 - `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头；城市无关，所有城市共用。
 - 部署：每座城市一个 Worker（决策 D1），设置在 `city.json` 的 `deploy` 段；`app/pwa/` 是 sw.js / manifest / 图标模板，
   构建时按城市渲染到部署目录（Kamloops 是 `public/`，网址永久不变、不跳转）。统计按 `blob5` 区分城市，查询加 `--city`。
-- 运营资料（外联邮件、对外 PDF）不在仓库里，在同级目录 `../Guide to Life in Canada - ops/`。
+- `records/` 运营台账（访问、数据质量、反馈、商业假设；2026-10-04 前叫 `data/`）；`outreach/` 对外材料的源文件与构建脚本（PDF、传单、标志）；`docs/` 只放文档。
+- 对外成品（外联邮件、PDF）不在仓库里，在同级目录 `../Guide to Life in Canada - ops/`。
 
 ## 知识库与工作循环（每次都要做，不是可选）
 

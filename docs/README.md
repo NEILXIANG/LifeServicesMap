@@ -14,13 +14,15 @@
 | 找官方数据来源 | [`knowledge/数据来源目录.md`](knowledge/数据来源目录.md)（按联邦 / 省 / 区域 / 市，网址、许可、导入工具、要注意的地方） | |
 | 找某个脚本 | [`../scripts/README.md`](../scripts/README.md)（用途、`--city`、谁调用、输出到哪里） | |
 | 改引擎 | 根目录 `CLAUDE.md`（规则） | [`../tests/README.md`](../tests/README.md)（测试）、[`knowledge/经验库.md`](knowledge/经验库.md)（为什么有这些检查） |
-| 维护线上城市 | [`../data/README.md`](../data/README.md)（台账与每月巡检） | [`guides/埋点与日志查看分析手册.md`](guides/埋点与日志查看分析手册.md)（看统计） |
+| 维护线上城市 | [`../records/README.md`](../records/README.md)（台账与每月巡检） | [`guides/埋点与日志查看分析手册.md`](guides/埋点与日志查看分析手册.md)（看统计） |
 | 让代理去调研、翻译、复核 | [`knowledge/prompts/`](knowledge/prompts/) | |
 | 想产品方向 | [`guides/新移民画像与需求.md`](guides/新移民画像与需求.md)、[`guides/多方视角与产品方向.md`](guides/多方视角与产品方向.md)（第八节是待办总表） | [`reports/2026-10-04-三方视角缺点与改进.md`](reports/2026-10-04-三方视角缺点与改进.md) |
 | 知道某个决定为什么这样定 | [`plans/2026-10-03-多城市工程化计划.md`](plans/2026-10-03-多城市工程化计划.md)（文首状态核对 + 决策记录 D1–D5） | |
 | 做对外材料（PDF、传单） | 本页第四节 | 运营资料目录 `../Guide to Life in Canada - ops/` |
 
 ## 二、目录
+
+`docs/` 只放文档。对外材料的源文件和构建脚本在 `../outreach/`，运营台账在 `../records/`，脚本说明在 `../scripts/README.md`。
 
 | 目录 | 放什么 | 性质 |
 |---|---|---|
@@ -29,7 +31,6 @@
 | `plans/` | 多城市工程化计划（含状态核对与决策记录）、城市差异建模分析 | **现行**（计划随进度更新） |
 | `reports/` | 仍在使用的报告：Kamloops 经验总结、Kelowna 扩城迭代日志、三方视角分析、交接与发展方案、Kelowna 审核清单（生成的）、本次文档审计 | **证据**，不改正文，只追加 |
 | `archive/` | 历史：上线前后的审计和方案、2026-09 的报告（`archive/reports/`）、跑过一次的脚本、旧传单 | **历史**，只读，见 [`archive/README.md`](archive/README.md) |
-| `source/` | 对外材料的源文件（`content/*.txt`）和构建脚本 `builddocs.py` | 现行（目前只有 Kamloops） |
 
 **reports/ 里的文件**
 
@@ -49,23 +50,23 @@
 3. **生成的文件不手改**：`knowledge/经验库.md`、`knowledge/资产清单.md`、`knowledge/数据来源目录.md`、`reports/<城市>审核清单.md`、`public/index.html`。
 4. **现行文档与代码不符就改现行文档**；证据和历史文档不改正文——要更正，在现行文档里写，或在 `archive/README.md` 里加一行说明。
 5. **归档时不改文件名**（经验总结用 R0910、CA 这类缩写引用它们）；归档前把文中仍有用的内容搬进现行文档，并在 `archive/README.md` 的"内容去了哪里"登记。
-6. 台账（`data/`）只记真实发生的事，不放示例。
+6. 台账（`records/`）只记真实发生的事，不放示例。
 7. 每轮迭代结束：迭代日志加一轮 → 新经验进 `lessons.json` → `python3 scripts/knowledge.py` → `./scripts/check-all.sh --quick`。
 
 ## 四、对外材料（PDF）怎么做
 
-正文写在 `source/content/*.txt`（纯文本，一个文档一个文件），**不要直接改 PDF**。数字用占位符，构建时从城市数据和页面现取：
+正文写在 `../outreach/pdf/content/*.txt`（纯文本，一个文档一个文件），**不要直接改 PDF**。数字用占位符，构建时从城市数据和页面现取：
 `{PLACES}` `{TASKS}` `{CATS}` `{AREAS}` `{ROUTES}` `{STOPS}` `{APPROX}` `{THEMES}` `{VERSION}` `{VERIFIED}` `{PREPARED}` `{PREPARED_ZH}` `{URL}` `{EMAIL}`。
 
 ```bash
-python3 docs/source/builddocs.py               # 全部重建 → ../Guide to Life in Canada - ops/public/<日期>/
-python3 docs/source/builddocs.py zh-complete   # 只建一份
-python3 docs/source/builddocs.py --html-only   # 只出 HTML（docs/source/_build/），不需要 Playwright，也不查线上版本
+python3 outreach/pdf/builddocs.py               # 全部重建 → ../Guide to Life in Canada - ops/public/<日期>/
+python3 outreach/pdf/builddocs.py zh-complete   # 只建一份
+python3 outreach/pdf/builddocs.py --html-only   # 只出 HTML（outreach/pdf/_build/），不需要 Playwright，也不查线上版本
 ```
 
 - **只在部署之后建 PDF**：脚本会读线上版本号，与 `public/index.html` 不一致就拒绝（PDF 上印的版本必须是读者能打开的）；草稿可加 `--allow-undeployed`，但不要发出去。
 - 改了功能，就检查对外文字（2026-10-04 发现已发出的 PDF 仍写着"人权投诉倒计时"和"红色热线条"，见本次文档审计）。
-- 变更说明写在那一批的 `CHANGES.md` 里，不进 PDF。截图（`source/assets/img_*.png`）跟随界面改版重拍。
+- 变更说明写在那一批的 `CHANGES.md` 里，不进 PDF。截图（`../outreach/pdf/assets/img_*.png`）跟随界面改版重拍。
 
 ## 五、写脚本时读写数据
 

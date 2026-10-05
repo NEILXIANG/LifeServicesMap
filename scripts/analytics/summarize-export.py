@@ -3,7 +3,7 @@
 summarize-export.py — 读 export-events.py 导出的 JSON，给出一页"真实用户"摘要。
 
 用法（项目根目录）：
-    python3 scripts/analytics/summarize-export.py                  # 读 data/exports/ 里最新的导出
+    python3 scripts/analytics/summarize-export.py                  # 读 records/exports/ 里最新的导出
     python3 scripts/analytics/summarize-export.py path/to/file.json
     python3 scripts/analytics/summarize-export.py --keep-bots      # 不过滤扫描器 / 链接预览
 
@@ -37,9 +37,9 @@ def load(path):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--')]
     keep_bots = '--keep-bots' in sys.argv
-    path = args[0] if args else (sorted(glob.glob(os.path.join(ROOT, 'data', 'exports', 'events-*.json'))) or [None])[-1]
+    path = args[0] if args else (sorted(glob.glob(os.path.join(ROOT, 'records', 'exports', 'events-*.json'))) or [None])[-1]
     if not path:
-        sys.exit('✗ data/exports/ 里没有导出文件，先跑 scripts/analytics/export-events.py')
+        sys.exit('✗ records/exports/ 里没有导出文件，先跑 scripts/analytics/export-events.py')
     rows = load(path)
     S = defaultdict(list)
     for r in rows:

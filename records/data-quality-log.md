@@ -58,7 +58,7 @@ python3 export-open.py --stale-threshold 180 > data/stale-2026-09.md
 
 ### 2026-09-05 · 深链巡检（`check-links.py`）
 
-**执行**：`python3 check-links.py > data/check-links-2026-09-05.log`
+**执行**：`python3 check-links.py > records/check-links-2026-09-05.log`
 
 **结果**：BLOCKED 24 · DEAD 11 · MOVED 29 · OK 86
 （BLOCKED = 网络层超时/CAPTCHA，非真死链；MOVED = 301/302 重定向到新 URL；
@@ -74,7 +74,7 @@ DEAD = host 不解析或 HTTP 404 — 真正需要 follow-up）
 | Lil' Monkey's Treehouse | https://www.lilmonkeystreehouse.com/ | DEAD (DNS) |
 | Scotiabank(Victoria St) | https://www.scotiabank.com/ca/en/... | DEAD (404) |
 
-**29 个 MOVED** 全部有 `→` 指向正确新 URL，可批量替换。已在 data/check-links-2026-09-05.log 完整保留。
+**29 个 MOVED** 全部有 `→` 指向正确新 URL，可批量替换。已在 records/check-links-2026-09-05.log 完整保留。
 
 **下一步**：
 1. 把 11 个 DEAD 中能电话核实"真的关门了"的改成 `null` 或加 `note: "已停业"` 标记
@@ -145,37 +145,37 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 0 OK, 0 MOVED, 0 DEAD, 1 BLOCKED
-- 完整 log: data/check-links-2026-09-05.log
+- 完整 log: records/check-links-2026-09-05.log
 
 ### 2026-09-07 · 月度巡检
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 0 OK, 0 MOVED, 0 DEAD, 1 BLOCKED
-- 完整 log: data/check-links-2026-09-07.log
+- 完整 log: records/check-links-2026-09-07.log
 
 ### 2026-09-16 · 月度巡检
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 0 OK, 0 MOVED, 0 DEAD, 56 BLOCKED（共 56 条）
-- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+- 完整 log: records/check-links-2026-09-16.log（计数取自同名 .json）
 
 ### 2026-09-16 · 月度巡检
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 46 OK, 2 MOVED, 2 DEAD, 6 BLOCKED（共 56 条）
-- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+- 完整 log: records/check-links-2026-09-16.log（计数取自同名 .json）
 
 ### 2026-09-16 · 月度巡检
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 36 OK, 2 MOVED, 2 DEAD, 16 BLOCKED（共 56 条）
-- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+- 完整 log: records/check-links-2026-09-16.log（计数取自同名 .json）
 
 ### 2026-09-16 · 月度巡检
 
 - stale: 0 POI over 180d. nothing to do this cycle.
 - 深链: 46 OK, 2 MOVED, 2 DEAD, 6 BLOCKED（共 56 条）
-- 完整 log: data/check-links-2026-09-16.log（计数取自同名 .json）
+- 完整 log: records/check-links-2026-09-16.log（计数取自同名 .json）
 
 ### 2026-09-16 · 深链巡检结果处理
 

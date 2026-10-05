@@ -6,7 +6,7 @@ Check that every website in the data still resolves.
     python3 check-links.py              # check them all
     python3 check-links.py --deep-only  # only the links with a path, which rot fastest
     python3 check-links.py --json out.json
-    python3 check-links.py --pages data/link-pages.json
+    python3 check-links.py --pages records/link-pages.json
                                         # every link in the page (places, task cards,
                                         # guide text, seasonal notes): status, final URL,
                                         # title and heading, so a human can check that
