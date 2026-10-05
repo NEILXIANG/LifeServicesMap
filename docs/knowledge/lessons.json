@@ -1,0 +1,2625 @@
+{
+ "lessons": [
+  {
+   "id": "L-001",
+   "title": "瓶颈在分发，不在功能",
+   "area": "分发与运营",
+   "scope": "all",
+   "phase": "立项",
+   "lesson": "Kamloops 的产品和数据做得很深，分发几乎为零：冷邮件 30 封只有 1 封回复，传单和 Facebook 带来的访问一直是 0，维护者自己的访问占 57–66%。Kelowna 也证实收集已经不是瓶颈（1.5 天收齐），核实和分发才是。",
+   "rule": "扩城门槛\"先证明有人用\"；新城市上线前必须有分发计划和至少一个当地合作方；扩城速度跟维护和分发能力匹配。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 6. 推广与运营、访问数据",
+     "what": "30 封冷邮件 1 封回复；传单渠道访问为 0"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/guides/新城市扩展方法论与标准.md",
+     "section": "### 什么快、什么慢",
+     "what": "收集 1.5 天，剩下全是人的工作"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "先证明有人用"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "收集已经不是瓶颈"
+    }
+   ]
+  },
+  {
+   "id": "L-002",
+   "title": "渠道归因要端到端验证",
+   "area": "分发与运营",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "三批传单的二维码都带 ?src=，但这个参数从未被记录（地址栏被先改写了），印了几百张，效果数据为零。",
+   "rule": "每个渠道一个 ?src=，上线前在线上统计里亲眼看到它被记录；引擎在改写地址栏之前读取来源。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "?src= 从来没被记录"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/65-empty-state-quickpicks.js",
+     "marker": "const LANDED_SRC="
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase9test.py",
+     "marker": "new tracking events"
+    }
+   ]
+  },
+  {
+   "id": "L-003",
+   "title": "维护者自己的访问要排除",
+   "area": "分发与运营",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "维护者的手机和电脑占了 57–66% 的\"用户\"事件；邮件扫描和链接预览也会虚增访问，示例数字还被当成过基线。",
+   "rule": "维护者设备打 ?maintainer=1；导出统计时排除维护者、会话 id 为 invalid 的扫描器、0–5 秒的被动会话；看中位数。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "维护者访问占 57–66%"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/30-analytics.js",
+     "marker": "?maintainer=1 marks this browser"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/analytics/summarize-export.py",
+     "marker": "维护者流量"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase10test.py",
+     "marker": "maintainer-device flag"
+    }
+   ]
+  },
+  {
+   "id": "L-004",
+   "title": "当面合作胜过冷邮件；机构最在意谁在维护",
+   "area": "分发与运营",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "与安置机构当面见面后才谈出交接方案；机构不敢推荐\"说不清谁在维护\"的网站；TNRL 回信指出漏了一个分馆——机构是最好的审核者。",
+   "rule": "先当面找一个合作方；外联前先核对对方自己的条目；公开纠错方式和处理时限（5 个工作日）。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 6. 推广与运营、访问数据",
+     "what": "只有 TNRL 回复；与 KIS 当面后才有交接方案"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "机构是最好的审核者"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "至少一个当地合作方"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/多方视角与产品方向.md",
+     "marker": "机构自己的信息由机构确认"
+    }
+   ]
+  },
+  {
+   "id": "L-005",
+   "title": "机构确认标记与季度确认",
+   "area": "分发与运营",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "机构希望\"自己的信息由自己说了算\"，并要求写清楚谁能用；这是它们愿意推荐的前提。",
+   "rule": "地点显示\"由本机构于某月确认\"，每季度给合作机构发一份它们条目的确认清单（与电话核实表同一个工具）。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 7 轮",
+     "what": "机构最在意自己的信息由自己确认"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-04-三方视角缺点与改进.md",
+     "section": "## 二、移民服务中心的角度",
+     "what": "机构的信息机构说了不算"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-04-三方视角缺点与改进.md",
+     "marker": "机构确认标记"
+    }
+   ]
+  },
+  {
+   "id": "L-006",
+   "title": "政府和官方数据优先，来源分级从第一条记录开始",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "Kamloops 起步时 39.8% 来自 Google Places，抽样错误率约 36%，还有条款风险。Kelowna 从政府开放数据和机构官网起步，没有一条第三方数据。",
+   "rule": "每个字段按\"政府开放数据 → 机构官网 → 第三方\"取值；记录写明 src；第三方数据标\"收录于\"不标\"已核实\"；不把第三方做成静态数据。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "第三方数据错误率约 36%"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 2 轮",
+     "what": "有政府定位服务就不用第三方"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3c. provenance"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "政府和官方数据优先"
+    }
+   ]
+  },
+  {
+   "id": "L-007",
+   "title": "核实日期必须如实",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops 有 249 条记录的核实月份是批量写的，亲自核实的 0 条——日期冒充了核实。",
+   "rule": "只有地址、电话、时间全部核过才改 v；v 超过 6 个月警告、12 个月失败；全局核对日期落后版本 45 天失败；办事卡核对日期不超过 60 天。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "249 条 v 批量写成 2026-08"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "17. data has a shelf life"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "16b. the three clocks agree"
+    }
+   ]
+  },
+  {
+   "id": "L-008",
+   "title": "说错比说\"不知道\"更伤信任",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "\"营业中\"说错了，比显示\"不知道\"更伤信任；Kamloops 全量核对 291 条只有 81 条完全正确、47 条严重错误。",
+   "rule": "不推测：时间、电话、网址、坐标查不到就不写；如实标\"大致位置\"\"营业时间未知\"；可疑记录进 QUARANTINE（不显示但保留理由）。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "291 条中 47 条严重错误"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "说错比说不知道更糟"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "18. quarantine stays out"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "不猜。"
+    }
+   ]
+  },
+  {
+   "id": "L-009",
+   "title": "每一条事实都需要第二个读者",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kelowna 243 条非政府数据由另一个读者对照官网复核，改了 55 条：药房柜台时间其实是商店时间、佛寺电话是义卖订购电话、博物馆抄了官网笔误、Service BC 不办收入援助。第一个读者在 verify_notes 里怀疑过其中两处，却还是用了。",
+   "rule": "上线前，所有非政府数据的记录由没参与调研的读者逐字段复核，结果写进 verification.json；审核清单统计复核覆盖率。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "232 条改 54 条，加上新增 11 条共 243 条改 55 条"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/review_checklist.py",
+     "marker": "非政府数据的地点都经过独立复核"
+    },
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/官网独立复核.md",
+     "marker": "Never guess"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/DATA-SCHEMA.md",
+     "marker": "Desk checks (2026-10-04)"
+    }
+   ]
+  },
+  {
+   "id": "L-010",
+   "title": "城市设置里的事实也要复核",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kelowna 的独立复核只覆盖\"地点\"；本地危机热线、城市指南、办事卡里的本地事实不在批次里。手工核对时发现女性庇护所的\"免费\"官网没写。",
+   "rule": "复核批次自动包含 CITY.localLines、localCrisis、police、城市指南里的电话和地址、办事卡的本地覆盖内容。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "本地危机热线不是\"地点\"，不在复核名单里"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "marker": "本地危机热线不是\"地点\""
+    }
+   ]
+  },
+  {
+   "id": "L-011",
+   "title": "安全相关地点电话核实后才能上线",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops 实地抽查 28 条查出 9 条错误、3 条根本不存在；网页对得上不等于还在营业。",
+   "rule": "医疗、药房、庇护所与危机、安置与政府、食物、法律、警察类地点，上线前全部电话核实（src: own）；核实表按后果排序并印出复核留下的问题。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "抽查 28 条 9 条错"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 14 轮",
+     "what": "可打印电话核实表"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/review_checklist.py",
+     "marker": "安全相关地点电话核实"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/verify_sheet.py",
+     "marker": "官网复核后要电话确认的"
+    }
+   ]
+  },
+  {
+   "id": "L-012",
+   "title": "政府数据也会错",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "省 K-12 数据把 4 所中学标成\"小学\"；博物馆官网自己写\"凌晨 0 点开门\"；三所中学的官方名称少了 École。",
+   "rule": "导入时打印\"跳过了什么、改了什么\"并逐条看；以更可靠的字段（校名、学区名单）为准；把错误反馈给数据方。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 5 轮",
+     "what": "省数据把 4 所学校标成小学"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "博物馆抄了官网自己的笔误"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_schools.py",
+     "marker": "level override (report to DataBC)"
+    },
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_schools.py",
+     "marker": "the district's own name for a school wins"
+    }
+   ]
+  },
+  {
+   "id": "L-013",
+   "title": "用官方全集补齐覆盖",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "Kamloops 手工收集时小学 25 所只收了 10 所、持牌托儿 128 家只收了 4 家；Kelowna 直接导入省托儿和学校全集。",
+   "rule": "先拿官方全集比对（省 K-12、Child Care Map）；上线前看\"分类 × 区域\"；参照城市有的分类，这里有就要收，没有或不收的写明理由。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "覆盖失衡"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 15 轮",
+     "what": "缺 13 类 14 轮没人发现"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3b6. where the data is thin"
+    },
+    {
+     "kind": "check",
+     "path": "scripts/review_checklist.py",
+     "marker": "categoriesNotCollected"
+    },
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_childcare.py",
+     "marker": "Licensed GROUP facilities only"
+    }
+   ]
+  },
+  {
+   "id": "L-014",
+   "title": "链接要核对页面内容，不只是能打开",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops 约 50 条链到连锁总部首页，TD 跳到美国站，Mustard Seed 链到卡尔加里的庇护所——这些链接都\"能打开\"。",
+   "rule": "链接检查核对页面上的电话、门牌、名称；搬家的链接（MOVED）改成新地址；被反爬挡住的（BLOCKED）由复核人在浏览器里读。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "链接错：总部首页、美国站、外地庇护所"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "13 个搬家的链接改成新地址"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/check-links.py",
+     "marker": "--pages"
+    }
+   ]
+  },
+  {
+   "id": "L-015",
+   "title": "没有官网的小商户用营业执照核实",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "调研",
+   "lesson": "Kelowna 9 家族裔食品店没有官网，但市政府营业执照数据能确认名称和地址。",
+   "rule": "营业执照不能直接导入（是公司注册名），但可以确认\"这家店确实在这里营业\"，按 opendata 收录。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 13 轮",
+     "what": "9 家族裔食品店用营业执照确认"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "营业执照数据"
+    }
+   ]
+  },
+  {
+   "id": "L-016",
+   "title": "\"免费\"\"谁能用\"这类说法必须有官方原文",
+   "area": "数据来源与核实",
+   "scope": "all",
+   "phase": "调研",
+   "lesson": "复核发现多处没有依据的说法：UBCO 心理诊所写\"免费\"（官方是\"低收费\"），出租车\"无障碍\"、税务诊所\"随到随办\"、庇护所\"免费\"等；庇护所的年龄和戒酒要求原来都没写。",
+   "rule": "备注里每个关于资格、费用、预约的说法都要能在官方页面找到原文；找不到就删，宁可少说。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "庇护所的年龄限制、登记时间和地点原来都没写"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/官网独立复核.md",
+     "marker": "every factual claim in note_en"
+    }
+   ]
+  },
+  {
+   "id": "L-017",
+   "title": "坐标用政府地址定位，只认门牌级",
+   "area": "坐标与地址",
+   "scope": "BC",
+   "phase": "导入",
+   "lesson": "OpenStreetMap 只能把 Kelowna 的急诊中心匹配到街道；改用 BC Address Geocoder 后 40 个地点被修正，最多偏了 1.9 公里。",
+   "rule": "政府定位得分 ≥ 95 且门牌级才采用；与数据集自带坐标相差 150 米内才算一致；否则标 precision: low。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 2 轮",
+     "what": "40 个地点修正，最多偏 1.9 km"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "Honda 偏 6 km、清真寺偏 5.2 km"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/bc_geocode.py",
+     "marker": ">= 95"
+    },
+    {
+     "kind": "importer",
+     "path": "scripts/importers/common.py",
+     "marker": "def locate"
+    }
+   ]
+  },
+  {
+   "id": "L-018",
+   "title": "安全相关地点不许\"大致位置\"",
+   "area": "坐标与地址",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "急诊类地点坐标不可靠时，宁可不上图（Kelowna 市中心 UPCC 一度暂缓）。",
+   "rule": "\"大致位置\"不超过 10%，且不含任何安全相关地点。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "急诊类地点坐标不可靠"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3b5. coordinate precision"
+    },
+    {
+     "kind": "check",
+     "path": "scripts/review_checklist.py",
+     "marker": "\"大致位置\" ≤ 10%"
+    }
+   ]
+  },
+  {
+   "id": "L-019",
+   "title": "坐标错误要用几何规律去抓",
+   "area": "坐标与地址",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops Victoria St 上 5 个点偏了 260–779 米，另 21 个点偏 0.3–4.8 km，因为导航按地址走，错坐标一直没暴露。",
+   "rule": "同一条直街上门牌与坐标近似成直线，用迭代剔除法拟合找离群点；不可能的坐标（出界、在湖里）直接失败；改坐标要连区域一起改。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "Victoria St 坐标偏离"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3c4. coordinates vs street geometry"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3c3. impossible coordinates"
+    }
+   ]
+  },
+  {
+   "id": "L-020",
+   "title": "分区用锚点，不用\"附近投票\"",
+   "area": "坐标与地址",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "按\"附近已有地点投票\"分区，会让手工地点少的区域（Glenmore）一家托儿都分不到。",
+   "rule": "每个区域写 3–5 个锚点，按最近锚点分区；有市镇字段的按市镇。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 4 轮",
+     "what": "Glenmore 一家托儿都没分到"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/common.py",
+     "marker": "areaAnchors"
+    }
+   ]
+  },
+  {
+   "id": "L-021",
+   "title": "私人住址和保密地址永不公开",
+   "area": "坐标与地址",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "家庭式托儿是住宅地址；女性庇护所地址保密。",
+   "rule": "只收持牌集体托儿；地址为空或写明保密的记录不上图，只给电话（进城市热线）。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 4 轮",
+     "what": "家庭式托儿是私人住址，不上图"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "家庭式托儿有意不收"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_childcare.py",
+     "marker": "providers run out of private homes"
+    },
+    {
+     "kind": "importer",
+     "path": "scripts/importers/research_merge.py",
+     "marker": "A confidential address is never published"
+    }
+   ]
+  },
+  {
+   "id": "L-022",
+   "title": "只转换完全看得懂的营业时间",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "调研",
+   "lesson": "解析器把大写\"PM\"读成上午时，\"只转完全看得懂的\"规则让它返回\"不知道\"，错误因此暴露。",
+   "rule": "官网原文单独存（hours.json），解析器只转换完全理解的写法；仅预约、季节性、课程表、每日变化的礼拜时间留给人。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 11 轮",
+     "what": "PM 被读成上午"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 14 轮",
+     "what": "解析器又学会 7 种写法"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/importers/hours.py",
+     "marker": "def parse_hours"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/importers/apply_hours.py",
+     "marker": "left for a person"
+    }
+   ]
+  },
+  {
+   "id": "L-023",
+   "title": "假日、仅预约、户外地点要特殊处理",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kamloops：法定假日照平日营业；仅预约的地点亮绿灯；户外地点标 24 小时，实际受条例限制；没有时间的地点在\"现在营业\"下悄悄消失。",
+   "rule": "BC 法定假日表到期前提醒；仅预约不亮\"营业中\"；户外地点禁止 24 小时；关门时间不晚于 24:00。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "营业时间显示错（2）"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3b3. what"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "4. structured hours"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase3test.py",
+     "marker": "appointment-only places"
+    }
+   ]
+  },
+  {
+   "id": "L-024",
+   "title": "药房要记柜台时间，不是商店时间",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "两家 London Drugs 记的是商店时间，药房柜台早 3 小时关门——晚上去拿药的人会白跑。",
+   "rule": "药房、诊所类地点记录服务柜台时间（官方来源如 HealthLinkBC）；商店时间写进备注。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "药房柜台早 3 小时关门"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "marker": "两家 London Drugs 记的是商店时间"
+    }
+   ]
+  },
+  {
+   "id": "L-025",
+   "title": "关键事实藏在原始数据里：公交时间用当期 GTFS",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "Kamloops 13 路末班写成 01:43，实际 20:46——取了跨年夜加班车。Kelowna 机场周日没有公交，正是从 GTFS 查出来的。",
+   "rule": "用运营方当期 GTFS，取\"第一个普通的星期三\"作服务日、剔除特殊日期；\"落地第一天\"按星期几分别核实——最要紧的事实（周日机场没有公交）只在原始数据里。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "公交末班时间错"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 13 轮",
+     "what": "周日没有公交停靠机场航站楼"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/gtfs_routes.py",
+     "marker": "first ordinary Wednesday"
+    }
+   ]
+  },
+  {
+   "id": "L-026",
+   "title": "指标要和参照城市同口径",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "\"营业时间 60%\"对托儿和学校不公平（政府数据本身没有时间，Kamloops 也一样），会把\"数据源没有\"误判成\"我们没做\"。",
+   "rule": "与参照城市按同一口径比较：露天、托儿、学校两边都不计。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 14 轮",
+     "what": "营业时间指标改为同口径"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/review_checklist.py",
+     "marker": "no_hours = {'park'"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "比较要同口径"
+    }
+   ]
+  },
+  {
+   "id": "L-027",
+   "title": "\"可重跑\"要实测：全部导入连跑两遍",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "第一次真正重跑就暴露三个问题：译文在 id 确定前套用（全部丢失）、跨类按电话判重删了托儿、英语角又变回单独的点。",
+   "rule": "导入可重跑、与先后顺序无关；改了规则就全部连跑两遍，places.json 必须逐字节相同。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 13 轮",
+     "what": "重跑暴露三个问题"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市操作手册.md",
+     "marker": "连跑两遍"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "逐字节相同"
+    }
+   ]
+  },
+  {
+   "id": "L-028",
+   "title": "一键连跑两遍并比对的脚本",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "\"连跑两遍\"现在靠人手敲命令，忘了就会漏。",
+   "rule": "一个脚本按固定顺序跑全部导入两遍、比对哈希，接进 check-all。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 13 轮",
+     "what": "每次改导入规则后连跑两遍"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市操作手册.md",
+     "marker": "连跑两遍"
+    }
+   ]
+  },
+  {
+   "id": "L-029",
+   "title": "合并规则按后果设计：安全服务永远独立",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "按电话合并曾把男子庇护所并进牙科诊所、把公共卫生中心并进心理健康服务——安全服务被藏起来。",
+   "rule": "医疗、药房、牙科、庇护所与危机、食物、法律、警察永远独立成点；只有图书馆和校园可以把项目并进备注；调研合并不按电话判重。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 12 轮",
+     "what": "庇护所被并进牙科诊所"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/research_merge.py",
+     "marker": "SAFETY = {'hospital'"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "规则按后果设计"
+    }
+   ]
+  },
+  {
+   "id": "L-030",
+   "title": "查重：同类、名字包含；同楼不同机构互标",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "\"同类 40 米内就是重复\"会删掉同一栋楼里的不同机构；跨类按电话判重删掉过一家持牌托儿；\"⭐⭐\"前缀让精确比较漏掉同名。",
+   "rule": "同类别、400 米内名字互相包含才算重复；同楼不同机构都保留并用 sameComplex 双向互标；按电话判重只限同类；先归一化再比较名字。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 4 轮",
+     "what": "同楼不同机构被误删"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "KIS 出现两次"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/common.py",
+     "marker": "self.phone_dedupe = True"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3c2. sameComplex is symmetric"
+    }
+   ]
+  },
+  {
+   "id": "L-031",
+   "title": "译文和营业时间单独存储，英文变了译文自动失效",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "数据重导时译文丢失；英文改了，旧译文却还在显示。",
+   "rule": "译文存 translations.json 并记录所译的英文（src_en），英文一变就失效；官网营业时间原文存 hours.json；两者都在 id 确定后叠加。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 13 轮",
+     "what": "译文在记录还没有 id 时就套用"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/importers/apply_translations.py",
+     "marker": "src_en"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/importers/apply_hours.py",
+     "marker": "hours.json"
+    }
+   ]
+  },
+  {
+   "id": "L-032",
+   "title": "数据只经 kamdata 读写，不用全局替换",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "入库时法、西语重音被剥掉（años 变 anos）；全局替换 newcomer→resident 造出错句；用正则解析 const P= 不可靠。",
+   "rule": "数据一律经 kamdata.py 做括号配平解析读写；禁止全局替换；补丁先断言原值\"恰好出现一次\"。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "脚本损坏文字"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "kamdata.py",
+     "marker": "def save"
+    }
+   ]
+  },
+  {
+   "id": "L-033",
+   "title": "每个一次性脚本都写成可复用工具",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "Kamloops 当年的公交构建脚本没留下来，Kelowna 只能重写；Kelowna 写成的 10 个导入工具，下一座城市能直接用。",
+   "rule": "导入、核实、审核的脚本都放进 scripts/importers/ 或 scripts/，接受 --city，可重跑。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 6 轮",
+     "what": "Kamloops 的公交脚本没留下来"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "一次性的脚本，写成工具"
+    }
+   ]
+  },
+  {
+   "id": "L-034",
+   "title": "城市事实会藏在界面文字里，要按\"事实\"查",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "Kelowna 页面曾显示 Kamloops 的警察电话、法律援助电话和诊所地址、票价、\"来源为 Google Places\"；健康提示绑定了 Kamloops 一家 UPCC 的编号，在 Kelowna 静默消失。校验恰好把界面文字排除在外。",
+   "rule": "这些都由城市提供（police、upcc、noteCoverage、legalLocal、busFareText）；校验扫描整个引擎的本地电话和任何城市的地点编号；城市界面测试在六语页面里搜索参照城市的事实。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "引擎里藏着的 Kamloops 事实比上次找到的更多"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 1 轮",
+     "what": "只按城市名搜索会漏掉"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "ENGINE_NUMBERS_OK"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "place id(s) hard-coded in the engine"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "9b. city facts the engine used to hold"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "FORBIDDEN = ["
+    }
+   ]
+  },
+  {
+   "id": "L-035",
+   "title": "引擎不含城市数据，数据不回流引擎",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "Kamloops 的 RCMP 电话、票价、14 张办事卡都在引擎代码里，validate 却全绿；直接复制成 Kelowna 版会让人打 Kamloops 的电话。",
+   "rule": "引擎里出现 const P=/TASKS=/CITY= 等即失败；城市耦合只能经 CITY 设置。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 1. 数据层面的坑",
+     "what": "城市事实写死在引擎里"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "16. the split stays buildable"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "15. city coupling stays in CITY"
+    }
+   ]
+  },
+  {
+   "id": "L-036",
+   "title": "新城市从草稿开始，TODO 不清不过",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "骨架",
+   "lesson": "半成品城市一旦被部署，没核实的数据会拖垮信誉。",
+   "rule": "city.json \"status\": \"draft\"：上线类规则只警告、deploy.sh 拒绝部署；骨架里的 TODO: 没清完 validate 失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "draft 状态的城市不能部署"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "gate",
+     "path": "deploy.sh",
+     "marker": "还是草稿"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "DRAFT = CITY_META.get('status') == 'draft'"
+    }
+   ]
+  },
+  {
+   "id": "L-037",
+   "title": "有或没有的东西做成可选模块",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "有的城市没有公交、没有校园、没有本地危机小组；引擎里不能写\"如果是某城市\"。",
+   "rule": "数据里有就显示，没有就整块不出现（例：没有公交数据时公交按钮隐藏）；空城市测试保证全新城市能加载。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/guides/新城市扩展方法论与标准.md",
+     "section": "### 1. 三类差异，三种办法",
+     "what": "可选模块"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_empty_city.py",
+     "marker": "must still load and work"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "可选模块"
+    }
+   ]
+  },
+  {
+   "id": "L-038",
+   "title": "测试城市用引擎默认值，证明默认值可用",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "Testville 原来复制 Kamloops 的全部文字，引擎默认值从没被看过。",
+   "rule": "测试城市去掉参照城市的城市文字，显示引擎的通用默认值；票价和警察电话用明显虚构的值。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "引擎只留通用说法"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/make-fixture-city.py",
+     "marker": "Testville shows the engine's generic defaults"
+    },
+    {
+     "kind": "test",
+     "path": "tests/engine/test_fixture_city.py"
+    }
+   ]
+  },
+  {
+   "id": "L-039",
+   "title": "存储键、网址、id 不绑定城市",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "骨架",
+   "lesson": "Kamloops 的存储键带城市专属前缀（kamloopsVisits、KAM1:）；网址带开发者名字。",
+   "rule": "存储前缀由 city.json 提供；每城一个 Worker，Kamloops 网址永久保留不跳转（决策 D1）。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "存储键要去掉城市专属前缀"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/plans/2026-10-03-多城市工程化计划.md",
+     "section": "### D1 部署形态",
+     "what": "每个城市一个 Worker"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "build.py",
+     "marker": "storagePrefix"
+    }
+   ]
+  },
+  {
+   "id": "L-040",
+   "title": "外省、美国城市之前先建省包或国家包",
+   "area": "引擎与城市分离",
+   "scope": "CA",
+   "phase": "立项",
+   "lesson": "加拿大和 BC 的内容（全国指南、BC 指南、911、加元、时区）还写在引擎里；在 BC 内没问题，换省就错。",
+   "rule": "第一个外省城市之前建省包，第一座美国城市之前建国家包，把这些内容搬出引擎。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/guides/新城市扩展方法论与标准.md",
+     "section": "## 二、分层模型",
+     "what": "现状"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "第一个外省城市之前建省包"
+    }
+   ]
+  },
+  {
+   "id": "L-041",
+   "title": "\"全绿\"不等于正确：门禁本身也要被测试",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "validate 校验的是旧构建产物，连续 3 次\"全部通过\"；链接巡检几个月报\"0 失效\"其实是计数 grep 错了；Service Worker 从未装成功却上报成功。",
+   "rule": "数据源比构建产物新时直接报错；计数从 JSON 读，不 grep 正文；每个门禁至少有一个会让它失败的测试。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "静默失败清单"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "_built_t = os.path.getmtime(PATH)"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/monthly-quality-check.sh",
+     "marker": "计数从 --json 读"
+    }
+   ]
+  },
+  {
+   "id": "L-042",
+   "title": "写在标准里、却没有检查的规则，等于没有",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "上线标准早就写了\"参照城市有的分类要收录\"，但没有工具检查，Kelowna 缺了 13 类，14 轮没人发现。",
+   "rule": "能自动检查的就写成检查（validate、审核清单、一致性检查、界面测试）；经验库里\"只有文档\"的经验每轮消化几条。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 15 轮",
+     "what": "写在标准里、却没有检查的规则，等于没有"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/knowledge.py",
+     "marker": "status auto but nothing of kind validate/test/check/gate"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "能自动检查的，就写成检查"
+    }
+   ]
+  },
+  {
+   "id": "L-043",
+   "title": "测试要按真实用户的顺序做事",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "\"先搜几次、再点在地图上看\"，卡片闪一下就消失（Kamloops 也有）；单独测这个按钮从来通过，完整测试时机器更忙反而先暴露。",
+   "rule": "城市界面测试按一个用户会话的顺序写；\"打开\"之后检查\"过一会儿还开着\"；不稳定的测试要找根因，不放宽。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "严格界面测试抓到一个引擎 bug"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "stays open"
+    },
+    {
+     "kind": "engine",
+     "path": "app/engine/js/55-markers-sidebar.js",
+     "marker": "the same card stays open at the place instead"
+    }
+   ]
+  },
+  {
+   "id": "L-044",
+   "title": "版本号没改就拒绝部署",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "新版上线后上报的版本号仍是旧的，新旧数据分不开。",
+   "rule": "deploy.sh 发现内容变了、版本号没变就拒绝；页面内容一变就改 DATA_VERSION。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "版本号与文档漂移"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "gate",
+     "path": "deploy.sh",
+     "marker": "页面内容变了，但版本号仍是"
+    }
+   ]
+  },
+  {
+   "id": "L-045",
+   "title": "语法底线和\"hidden 属性陷阱\"",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "用了 ES2018 的 \\p{L}，旧浏览器整页白屏；hidden 属性被作者样式覆盖，只在触屏手机上暴露。",
+   "rule": "validate 禁止 ES2018 及以后语法；检查 hidden 元素的样式覆盖。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "旧浏览器整页白屏"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "hidden 属性被覆盖"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "21. the ES2017 syntax floor"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "14. hidden-attribute traps"
+    }
+   ]
+  },
+  {
+   "id": "L-046",
+   "title": "补丁与测试纪律",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "按位置保存的勾选会被增删步骤打乱；写死数量的测试在数据增长后误报。",
+   "rule": "每阶段一个补丁脚本，先断言原值恰好出现一次；行为按设计改变时改断言并写理由，不放松测试；不写死数量；办事卡步骤只改文字不增删。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "补丁与测试纪律"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "marker": "不写死数量"
+    }
+   ]
+  },
+  {
+   "id": "L-047",
+   "title": "独立重算期望值的审计",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "从旧测试派生的新测试会继承同样的盲点。",
+   "rule": "定期写一份从零开始的审计：用原始数据在 Python 或纯 JS 里重算期望值，再和页面对比。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "audit7：独立重算期望值"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/audit7.py",
+     "marker": "independent functional audit"
+    }
+   ]
+  },
+  {
+   "id": "L-048",
+   "title": "六种语言要么全译、要么不译",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "回退链会在缺译时悄悄显示英文；一个语言有、邻居没有，比整齐回退更糟。",
+   "rule": "法、西、韩、日四种语言的备注要么都有、要么都没有；语言列表从 LANGS 生成，不写死（曾漏掉日文）。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "要么全译、要么不译"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 10 轮",
+     "what": "validate.py 的一项检查漏了日文"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "5. i18n parity"
+    }
+   ]
+  },
+  {
+   "id": "L-049",
+   "title": "每种语言用自己的标点",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "先写中文导致英文界面出现\"Tue、Thu\"，韩文里出现全角冒号和中文破折号。",
+   "rule": "分隔符和括号是每种语言自己的 UI 键；拼句代码里出现中日韩标点即失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "标点串语言"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "5b. one language's punctuation"
+    }
+   ]
+  },
+  {
+   "id": "L-050",
+   "title": "跨语言的数字和电话必须一致",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "Kelowna 翻译时三次发现中英文不一致（药房周日时间、儿童弥撒时间、游乐场年龄限制）；翻译这一步本身就是核对。",
+   "rule": "各语言备注里的数字（含 12/24 小时换算）、电话一致；草稿城市严格执行；发现不一致回到官方原文改，不在译文里折中。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 14 轮",
+     "what": "翻译这一步本身是一道很好的核对"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/consistency_check.py",
+     "marker": "def numbers(text, words=False)"
+    },
+    {
+     "kind": "check",
+     "path": "scripts/check-all.sh",
+     "marker": "consistency_check.py --city"
+    }
+   ]
+  },
+  {
+   "id": "L-051",
+   "title": "没有未替换的占位符和 undefined",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "Kamloops 曾在多种语言里出现 undefined、NaN、未替换的 {TEMPLATE}。",
+   "rule": "审计和城市界面测试检查所有语言的渲染结果。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "占位符与格式"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/audit7.py"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "GARBAGE = re.compile"
+    }
+   ]
+  },
+  {
+   "id": "L-052",
+   "title": "地名、地址、机构名保持英文",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "问路和导航都要用原名；地址里夹中文会让人找不到。",
+   "rule": "地址不含 CJK；译文保留机构、街道、项目名，可加括号释义。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "不翻译的部分"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3b2. addresses are read by everyone"
+    },
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/翻译.md",
+     "marker": "Keep proper names in English"
+    }
+   ]
+  },
+  {
+   "id": "L-053",
+   "title": "不用\"新移民\"指称读者",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "把读者叫作\"新移民\"不尊重人；但机构描述自己服务对象时可以用。",
+   "rule": "页面文字不用\"新移民\"指称读者（引用机构名称时除外）；译文同样避免 nouveaux arrivants 等说法。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "措辞"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "3b4. house wording"
+    }
+   ]
+  },
+  {
+   "id": "L-054",
+   "title": "三种手机宽度 × 六种语言都要看",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "法语区域说明在 390 px 宽溢出 70 px；320 px 下语言按钮折行。",
+   "rule": "320 / 390 / 430（及平板、桌面）× 六种语言检查横向滚动，页面和指南都要。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "排版"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "J1 no horizontal scroll"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase18test.py",
+     "marker": "six languages end to end"
+    }
+   ]
+  },
+  {
+   "id": "L-055",
+   "title": "翻译交付要做结构校验",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "并行翻译的任务报告\"全部完成\"，结构却不完整（缺键、缺语言）。",
+   "rule": "套用译文时检查每条都有四种语言；只信文件，不信报告。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "翻译交付"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/importers/apply_translations.py",
+     "marker": "all(t.get(l) for l in LANG4)"
+    }
+   ]
+  },
+  {
+   "id": "L-056",
+   "title": "为扩展和替换语言预留",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "Kelowna 家中最常用的非英语语言是旁遮普语；语言列表散在多处，加一种语言要补约 156 个键、改 30 多个函数。",
+   "rule": "新代码不写死语言列表；样式用不分左右的写法；将来建语言注册表、按城市选语言、回退规则。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 10 轮",
+     "what": "方法论加\"多语言的扩展与替换\""
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "维护成本"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "## 二之二、多语言的扩展与替换"
+    }
+   ]
+  },
+  {
+   "id": "L-057",
+   "title": "搜索按真实用户的说法设计",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "walk in clinic、daycare 曾 0 结果；用户会把问题直接打进搜索框（\"医疗卡\"\"我需要学前班\"）。",
+   "rule": "六语同义词表（零结果从 40 降到 10）；问句去掉功能词；每座城市补本地叫法（地名、机构简称）。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 2. 新移民真正需要什么",
+     "what": "walk in clinic 搜到 0 个结果"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "20. the search synonym table"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase12test.py",
+     "marker": "search synonym table"
+    }
+   ]
+  },
+  {
+   "id": "L-058",
+   "title": "子串误匹配要有回归集",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "食物银行→开银行账户，rent→parents，ER→worker，Nursery→nurse。",
+   "rule": "三段匹配；约 2,400 条查询的回归；中日韩至少 2 字、拉丁至少 4 字母才做前缀。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 4. 多语言",
+     "what": "子串误匹配"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/regress.py"
+    }
+   ]
+  },
+  {
+   "id": "L-059",
+   "title": "搜索时暂停分类筛选",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "一位家长在\"亲子\"快捷选择开着时搜 hospital、grocery 全是 0，点了 6 次\"清除筛选\"。",
+   "rule": "搜索时暂停分类；区域、主题、现在营业、附近仍生效；空状态分清\"没有\"\"没收录\"\"被筛掉\"。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 2. 新移民真正需要什么",
+     "what": "残留的筛选会悄悄挡住后面的搜索"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase13test.py",
+     "marker": "a search pauses the category filter"
+    }
+   ]
+  },
+  {
+   "id": "L-060",
+   "title": "看病类搜索直接给答案",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "刚来的人最先找的是看病；搜\"医生\"该直接告诉他今天去哪、开没开。",
+   "rule": "健康类搜索显示答案框：城市的 UPCC（可多家，各自显示是否开着）、8-1-1、药剂师、911。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 2. 新移民真正需要什么",
+     "what": "看病类搜索直接给出答案框"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "搜\"看病\"现在列出三家 UPCC"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/65-empty-state-quickpicks.js",
+     "marker": "function _upccs()"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase11test.py",
+     "marker": "health answer box"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "lists all three UPCCs"
+    }
+   ]
+  },
+  {
+   "id": "L-061",
+   "title": "\"搜了没结果\"就是内容缺口清单",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "search_empty 事件直接指出缺什么数据。",
+   "rule": "每月看 search_empty，进下一轮调研清单；搜索词上传前去掉数字、截到 24 字。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 2. 新移民真正需要什么",
+     "what": "search_empty 事件就是一份内容缺口清单"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/85-search-box-sheets.js",
+     "marker": "trackEvent('search_empty'"
+    }
+   ]
+  },
+  {
+   "id": "L-062",
+   "title": "新人要的是任务，不是分类数据库",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "\"先选区域\"恰恰是新人做不到的；51 个分类、10 个主题、9 个预设太多。",
+   "rule": "办事卡（控制在 20 张以内）加到达日倒计时；\"在我附近\"是唯一不需要本地知识的入口。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 2. 新移民真正需要什么",
+     "what": "新人要的是\"任务\""
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新移民画像与需求.md"
+    }
+   ]
+  },
+  {
+   "id": "L-063",
+   "title": "危机词六语直达热线",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "搜\"自杀\"\"家暴\"曾得到\"检查拼写\"。",
+   "rule": "六语危机词显示热线（统计里只记 [crisis]）；页头常驻求助按钮，可立即离开、清除本机记录；搜索词不进地址栏。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "危机路径"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase1test.py",
+     "marker": "safety and trust"
+    },
+    {
+     "kind": "test",
+     "path": "tests/kelowna/guitest.py",
+     "marker": "crisis"
+    }
+   ]
+  },
+  {
+   "id": "L-064",
+   "title": "热线只放在真正需要的地方",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "点\"现在营业\"会挂出自杀热线：下午找药房的人看到一排热线，既不相关又吓人。",
+   "rule": "热线只出现在求助、危机搜索、相关办事卡三处。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "热线只出现在三个地方"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/kamloops/phase19test.py",
+     "marker": "is an errand filter"
+    }
+   ]
+  },
+  {
+   "id": "L-065",
+   "title": "不计算法律时限、不判断移民资格",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "人权投诉时限曾按到达日计算（应按事发日）；报税卡把 CCB 申请条件写错。",
+   "rule": "没有参照日期就不计算法律时限；只说\"去哪里问\"，不判断资格；写机构自己公布的条件。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "最危险的几处错误"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "不提供法律或移民建议"
+    }
+   ]
+  },
+  {
+   "id": "L-066",
+   "title": "承诺必须和代码一致",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "隐私声明写\"不收集任何数据\"，实际在上报事件；重写时又漏了第三方信标。",
+   "rule": "修代码兑现承诺，而不是把承诺改弱；隐私说明逐项对照代码和第三方脚本；搜索词上传前去掉个人信息。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "承诺必须和代码一致"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/30-analytics.js",
+     "marker": "function _sanitiseQuery"
+    }
+   ]
+  },
+  {
+   "id": "L-067",
+   "title": "开放数据按许可注明出处",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "Kelowna 的版权说明还写着 Kamloops 的\"Google Places\"；BC Transit 条款要求注明数据来源。",
+   "rule": "每座城市在 licenceData 里六语列出用到的数据集和许可；用了开放数据却没写即失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 8 轮",
+     "what": "法律要求能变成自动检查的，就写成检查"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "15c. open data carries its attribution"
+    }
+   ]
+  },
+  {
+   "id": "L-068",
+   "title": "原住民内容请当地 Nation 审阅",
+   "area": "安全、法律与隐私",
+   "scope": "city",
+   "phase": "上线",
+   "lesson": "称谓和历史不能套用（Kamloops 是 Secwépemc，Kelowna 是 syilx）；Kamloops 曾把 Powwow 月份写错。",
+   "rule": "原住民内容上线前请当地 Nation 审阅；博物馆、机构名称以其自己的说法为准（Sncəwips）。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 3. 内容与信任",
+     "what": "原住民内容"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "Sncəwips"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "cities/kelowna/PROFILE.md",
+     "marker": "Westbank First Nation"
+    }
+   ]
+  },
+  {
+   "id": "L-069",
+   "title": "\"谁能用\"要成为正式字段",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "服务对象只写在部分备注里，不能按身份筛选——刚来的人白跑最常见的原因（例：康乐补贴只给公民和永久居民）。",
+   "rule": "加 who 字段（所有人 / 永久居民 / 临时居民 / 学生 / 难民申请人 / 年龄），只写机构自己公布的条件。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-04-三方视角缺点与改进.md",
+     "section": "## 一、新移民的角度",
+     "what": "\"谁能用\"不是正式字段"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-04-三方视角缺点与改进.md",
+     "marker": "\"谁能用\"字段"
+    }
+   ]
+  },
+  {
+   "id": "L-070",
+   "title": "只发布白名单目录，敏感路径要探针",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "曾把整个项目文件夹上传，.git/config 和商业假设文档都能公开访问。",
+   "rule": "只发布部署目录；部署探针要求敏感路径全部 404；运营资料不入库（放在 ops 目录）。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "部署事故"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "gate",
+     "path": "deploy.sh",
+     "marker": "敏感路径应全 404"
+    },
+    {
+     "kind": "doc",
+     "path": "docs/plans/2026-10-03-多城市工程化计划.md",
+     "marker": "### D4 运营资料"
+    }
+   ]
+  },
+  {
+   "id": "L-071",
+   "title": "每月数据质量检查",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "数据会过期、链接会坏；没人看就慢慢变错。",
+   "rule": "每月跑过期记录和失效链接检查；每季度复核安全相关地点；GTFS 出新版就重跑公交导入。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 5. 工程与流程",
+     "what": "月度巡检"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/monthly-quality-check.sh",
+     "marker": "Monthly data-quality check"
+    }
+   ]
+  },
+  {
+   "id": "L-072",
+   "title": "先分析城市，再动手",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "画像",
+   "lesson": "Kelowna 与 Kamloops 的差异（移民来源更分散、房租贵但空置率高、单桥、两校区分处两端、灾害更重、机场周日无车）决定了数据重点。",
+   "rule": "任何数据收集前先写城市画像，每个数字带官方出处和年份，并对照上一座城市写出差异和\"由此决定\"。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 3 轮",
+     "what": "画像必须先于数据"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "先分析城市，再动手"
+    },
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/城市画像.md",
+     "marker": "CITY PROFILE"
+    }
+   ]
+  },
+  {
+   "id": "L-073",
+   "title": "设计前置：用户体验、人文关怀、法律",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "画像",
+   "lesson": "每个功能、每类数据，动手前先过三关；四个视角（新移民、政府、安置机构、公益组织）复查。",
+   "rule": "每一步结束过三关并写进迭代日志。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 7 轮",
+     "what": "设计前置三关"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "设计前置"
+    }
+   ]
+  },
+  {
+   "id": "L-074",
+   "title": "调研代理：只用官网、边做边写、记录疑问",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "调研",
+   "lesson": "一个代理在第 105/110 条卡住，因为要求它边做边写文件，进度没丢；代理的总结里混有常识性表述。",
+   "rule": "只用官网或政府名单；每条回答\"谁能用、语言、是否免费、要不要预约、带什么、时间原文\"；不确定写进 verify_notes；边做边写文件。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 14 轮",
+     "what": "因为要求它\"边做边写文件\"，进度没丢"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 2 轮",
+     "what": "代理的总结里混有常识性表述"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/官网调研.md",
+     "marker": "Write the file after every"
+    }
+   ]
+  },
+  {
+   "id": "L-075",
+   "title": "并行代理不能共用浏览器标签，也不能下载文件",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "调研",
+   "lesson": "复核时一个代理导航了别的代理的标签页；打开 PDF 在用户屏幕上弹出了保存对话框。",
+   "rule": "需要浏览器的代理各开自己的标签页、用完关闭；不下载文件，PDF 直接读取。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 16 轮",
+     "what": "独立复核"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "prompt",
+     "path": "docs/knowledge/prompts/官网独立复核.md",
+     "marker": "own new browser tab"
+    }
+   ]
+  },
+  {
+   "id": "L-076",
+   "title": "每轮写迭代日志，每条发现落到一个地方",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "只写在日志里的经验，下一座城市会忘；同一条经验写在三处会互相不一致。",
+   "rule": "每轮：做了什么 → 发现 → 改了什么 → 三关复查；每条发现进经验库（编号、状态、落在哪里），由 knowledge.py 对照代码核实。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/guides/新城市扩展方法论与标准.md",
+     "section": "## 十一、自我进化",
+     "what": "每条发现都要落到一个地方"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/knowledge.py",
+     "marker": "def check(data)"
+    },
+    {
+     "kind": "check",
+     "path": "scripts/check-all.sh",
+     "marker": "knowledge.py --check"
+    }
+   ]
+  },
+  {
+   "id": "L-077",
+   "title": "一次只扩一座城，让当地人做数据",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "立项",
+   "lesson": "半核实的数据会拖垮整体信誉；成本全在数据（核实和维护），不在代码。",
+   "rule": "一次只扩一座城；validate 当准入门槛；核实和分发的人手决定扩城速度。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kamloops经验总结.md",
+     "section": "## 8. Kamloops 特有",
+     "what": "扩城纪律"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/guides/新城市扩展方法论与标准.md",
+     "marker": "一次只扩一座城"
+    }
+   ]
+  },
+  {
+   "id": "L-078",
+   "title": "政府数据里有刚来的人最需要、却还没用上的字段",
+   "area": "数据来源与核实",
+   "scope": "BC",
+   "phase": "导入",
+   "lesson": "省持牌托儿数据写了工作人员会讲的语言、收的年龄、是否参加减费（CCFRI）——对刚来的家长最关键，Kamloops 导入时没用上；学区还有欢迎中心和校园安置服务（SWIS）。",
+   "rule": "导入政府数据时，逐个字段问\"对刚来的人有没有用\"；托儿备注六语写出语言、年龄、减费；Kamloops 的托儿记录回补这三项。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 4 轮",
+     "what": "省数据里有语言、年龄、减费"
+    },
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 5 轮",
+     "what": "SD23 欢迎中心和 SWIS"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_childcare.py",
+     "marker": "For a newcomer parent those three facts decide whether to call at all"
+    }
+   ]
+  }
+ ],
+ "assets": [
+  {
+   "name": "构建与数据读写",
+   "type": "工具",
+   "use": "引擎 + 城市数据合成单个页面；数据统一经 kamdata 读写",
+   "reuse": "所有城市",
+   "paths": [
+    "build.py",
+    "kamdata.py",
+    "app/engine/parts.txt"
+   ]
+  },
+  {
+   "name": "新城市骨架",
+   "type": "工具",
+   "use": "生成城市目录，城市特有部分标 TODO:，默认草稿",
+   "reuse": "BC（其他省需省包）",
+   "paths": [
+    "scripts/new-city.py"
+   ]
+  },
+  {
+   "name": "校验门禁",
+   "type": "检查",
+   "use": "约 140 条规则：数据形状、来源、坐标、时间、多语言、引擎与城市分离、许可、语法底线",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/validate.py",
+    "schemas/place.schema.json"
+   ]
+  },
+  {
+   "name": "一键检查",
+   "type": "检查",
+   "use": "构建 + 校验 + 一致性 + 经验库 + 全部浏览器测试",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/check-all.sh"
+   ]
+  },
+  {
+   "name": "导入框架",
+   "type": "导入",
+   "use": "可重跑、出处记录、政府坐标、锚点分区、查重、同楼互标、译文与时间叠加",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/importers/common.py"
+   ]
+  },
+  {
+   "name": "省持牌托儿",
+   "type": "导入",
+   "use": "语言、年龄、减费；不收家庭式托儿",
+   "reuse": "BC",
+   "paths": [
+    "scripts/importers/bc_childcare.py"
+   ]
+  },
+  {
+   "name": "省 K-12 学校",
+   "type": "导入",
+   "use": "学校 + 学区官网与电话 + 学区官方校名",
+   "reuse": "BC",
+   "paths": [
+    "scripts/importers/bc_schools.py"
+   ]
+  },
+  {
+   "name": "公园与市政设施",
+   "type": "导入",
+   "use": "ArcGIS 开放数据（字段写在城市配置）",
+   "reuse": "用 ArcGIS 的加美城市",
+   "paths": [
+    "scripts/importers/arcgis_parks.py"
+   ]
+  },
+  {
+   "name": "公交",
+   "type": "导入",
+   "use": "GTFS 线路、站点、换乘站（普通工作日为服务日）",
+   "reuse": "有 GTFS 的加美城市",
+   "paths": [
+    "scripts/importers/gtfs_routes.py"
+   ]
+  },
+  {
+   "name": "官网调研合并",
+   "type": "导入",
+   "use": "安全服务不合并、项目并入图书馆或校园、保密地址不上图",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/importers/research_merge.py"
+   ]
+  },
+  {
+   "name": "营业时间解析与套用",
+   "type": "导入",
+   "use": "官网原文 → 引擎格式，只转完全看得懂的；礼拜时间",
+   "reuse": "所有城市（英文原文）",
+   "paths": [
+    "scripts/importers/hours.py",
+    "scripts/importers/apply_hours.py"
+   ]
+  },
+  {
+   "name": "译文套用",
+   "type": "导入",
+   "use": "译文单独存储，英文变了自动失效",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/importers/apply_translations.py"
+   ]
+  },
+  {
+   "name": "办事卡生成",
+   "type": "导入",
+   "use": "从已有城市的办事卡 + 本地覆盖生成，拒绝源城市残留",
+   "reuse": "同省城市",
+   "paths": [
+    "scripts/importers/tasks_from.py"
+   ]
+  },
+  {
+   "name": "政府地址定位",
+   "type": "工具",
+   "use": "BC Address Geocoder，得分 ≥ 95 且门牌级，带缓存",
+   "reuse": "BC",
+   "paths": [
+    "scripts/bc_geocode.py",
+    "data/geocode-cache.json"
+   ]
+  },
+  {
+   "name": "审核清单与上线差距",
+   "type": "检查",
+   "use": "上线差距表（含分类覆盖、独立复核、同口径营业时间）+ 按后果排序的审核清单",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/review_checklist.py"
+   ]
+  },
+  {
+   "name": "电话核实表",
+   "type": "工具",
+   "use": "可打印，每处一张卡，附英文话术和复核留下的问题",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/verify_sheet.py"
+   ]
+  },
+  {
+   "name": "跨语言一致性检查",
+   "type": "检查",
+   "use": "各语言备注的数字、电话、24 小时、别城名字、区号",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/consistency_check.py"
+   ]
+  },
+  {
+   "name": "链接检查与月度巡检",
+   "type": "工具",
+   "use": "链接（含页面内容核对）、过期记录、质量日志",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/check-links.py",
+    "scripts/monthly-quality-check.sh",
+    "scripts/export-open.py"
+   ]
+  },
+  {
+   "name": "统计查询",
+   "type": "工具",
+   "use": "访问事件导出与分析（排除维护者、扫描器、预览）",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/analytics/summarize-export.py",
+    "scripts/analytics/query-events.py"
+   ]
+  },
+  {
+   "name": "部署",
+   "type": "门禁",
+   "use": "按城市部署；拒绝草稿；版本号没改拒绝；敏感路径探针",
+   "reuse": "所有城市",
+   "paths": [
+    "deploy.sh",
+    "worker.js",
+    "app/pwa"
+   ]
+  },
+  {
+   "name": "经验库检查与生成",
+   "type": "检查",
+   "use": "经验登记表的状态对照代码核实，生成经验库和资产清单",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/knowledge.py",
+    "docs/knowledge/lessons.json"
+   ]
+  },
+  {
+   "name": "引擎测试",
+   "type": "测试",
+   "use": "测试城市（引擎默认值）、空城市",
+   "reuse": "所有城市",
+   "paths": [
+    "tests/engine/test_fixture_city.py",
+    "tests/engine/test_empty_city.py",
+    "tests/make-fixture-city.py"
+   ]
+  },
+  {
+   "name": "Kamloops 回归",
+   "type": "测试",
+   "use": "约 466 项主回归 + 19 个阶段测试 + 两份审计",
+   "reuse": "Kamloops（方法通用）",
+   "paths": [
+    "tests/kamloops/regress.py",
+    "tests/kamloops/README.md"
+   ]
+  },
+  {
+   "name": "城市严格界面测试",
+   "type": "测试",
+   "use": "六语、全部弹窗与办事卡、搜索、危机词、布局、别城事实；换禁用词表即可复用",
+   "reuse": "所有城市（模板）",
+   "paths": [
+    "tests/kelowna/guitest.py",
+    "tests/kelowna/README.md"
+   ]
+  },
+  {
+   "name": "城市数据与导入记录",
+   "type": "数据",
+   "use": "出处、复核记录、译文库、营业时间原文库、调研原始结果、区域锚点与配置",
+   "reuse": "Kelowna（结构通用）",
+   "paths": [
+    "cities/kelowna/import/provenance.json",
+    "cities/kelowna/import/verification.json",
+    "cities/kelowna/import/translations.json",
+    "cities/kelowna/import/hours.json",
+    "cities/kelowna/import/config.json",
+    "cities/kelowna/import/research"
+   ]
+  },
+  {
+   "name": "城市画像",
+   "type": "文档",
+   "use": "画像与数据计划，下一座城市的模板",
+   "reuse": "所有城市（模板）",
+   "paths": [
+    "cities/kelowna/PROFILE.md"
+   ]
+  },
+  {
+   "name": "提示词模板",
+   "type": "提示词",
+   "use": "城市画像、官网调研、营业时间、独立复核、翻译、经验提取",
+   "reuse": "所有城市",
+   "paths": [
+    "docs/knowledge/prompts"
+   ]
+  },
+  {
+   "name": "方法论与操作手册",
+   "type": "文档",
+   "use": "原则、标准、流程；每一步的命令和检查",
+   "reuse": "所有城市",
+   "paths": [
+    "docs/guides/新城市扩展方法论与标准.md",
+    "docs/guides/新城市操作手册.md",
+    "docs/guides/DATA-SCHEMA.md"
+   ]
+  },
+  {
+   "name": "设计依据",
+   "type": "文档",
+   "use": "新移民画像与需求；四方视角与产品方向",
+   "reuse": "所有城市",
+   "paths": [
+    "docs/guides/新移民画像与需求.md",
+    "docs/guides/多方视角与产品方向.md"
+   ]
+  },
+  {
+   "name": "历史与证据",
+   "type": "文档",
+   "use": "Kamloops 经验总结（每条有出处）；Kelowna 迭代日志（16 轮）；工程计划与决策记录",
+   "reuse": "所有城市",
+   "paths": [
+    "docs/reports/2026-10-03-Kamloops经验总结.md",
+    "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+    "docs/plans/2026-10-03-多城市工程化计划.md"
+   ]
+  }
+ ]
+}

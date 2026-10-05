@@ -36,6 +36,8 @@ for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities()
   python3 build.py --city "$c" >"$LOGDIR/build-$c.log" 2>&1 || { cat "$LOGDIR/build-$c.log"; exit 1; }
   run "validate-$c" python3 scripts/validate.py --city "$c"
 done
+# 2026-10-04: the knowledge base — every lesson's claimed check/tool must still exist, and the pages are current
+run knowledge python3 scripts/knowledge.py --check
 # 2026-10-04: cross-language numbers, phones and other cities' names inside each city's notes. A city still
 # being compiled (draft) must be clean; for a live city the report is listed but does not block.
 for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities() if not c.startswith("_")))'); do

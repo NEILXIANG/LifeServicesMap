@@ -32,6 +32,11 @@ python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城�
   构建时按城市渲染到部署目录（Kamloops 是 `public/`，网址永久不变、不跳转）。统计按 `blob5` 区分城市，查询加 `--city`。
 - 运营资料（外联邮件、对外 PDF）不在仓库里，在同级目录 `../Guide to Life in Canada - ops/`。
 
+## 知识库
+
+扩城经验、规则、工具、提示词的入口：`docs/knowledge/README.md`。每轮迭代结束，把新发现登记进 `docs/knowledge/lessons.json`
+（证据、规则、落在哪里、状态），运行 `python3 scripts/knowledge.py`；`check-all` 会核对登记的检查是否真的存在。
+
 ## 规则
 
 - 页面内容一变，`app/engine/js/20-versions-templates-tasks.js` 里的 `DATA_VERSION` 必须改（`deploy.sh` 会拦）。
