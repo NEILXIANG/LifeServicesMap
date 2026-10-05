@@ -30,6 +30,10 @@ PY="python3"
 # 日期按 Kamloops 当地算，不看跑这个脚本的机器在哪个时区
 TODAY="$("$PY" -c 'import sys;sys.path.insert(0,".");import kamdata;print(kamdata.today())' 2>/dev/null || date +%Y-%m-%d)"
 STAMP="${TODAY%-*}"
+# 2026-10-04: every city has its own file names and log, so a run for one city never overwrites another's.
+# Kamloops keeps the original names (data/data-quality-log.md, check-links-<date>.*).
+if [[ "$CITY" == "kamloops" ]]; then SUF=""; QLOG="$HERE/data/data-quality-log.md"
+else SUF="-$CITY"; QLOG="$HERE/data/data-quality-log-$CITY.md"; fi
 
 echo "== monthly-quality-check @ $TODAY =="
 
@@ -50,9 +54,9 @@ echo "[TIME-01] $STALE_NOTE (rc=$STALE_RC)"
 # 2. Deep-link health check (TIME-02).
 # 计数从 --json 读，不再 grep 正文：正文格式一改（缩进、只打印异常）计数就
 # 全变 0，而且是静默的——这个月度巡检曾经连续几个月报"0 OK / 0 DEAD"。
-LINK_JSON="$HERE/data/check-links-$TODAY.json"
+LINK_JSON="$HERE/data/check-links$SUF-$TODAY.json"
 "$PY" "$HERE/scripts/check-links.py" --city "$CITY" --deep-only --json "$LINK_JSON" \
-      >"$HERE/data/check-links-$TODAY.log" 2>&1
+      >"$HERE/data/check-links$SUF-$TODAY.log" 2>&1
 LINK_RC=$?
 COUNTS="$("$PY" - "$LINK_JSON" <<'PYCOUNT'
 import json, sys, collections
@@ -76,13 +80,13 @@ echo "[TIME-02] deep links: $LINK_NOTE (rc=$LINK_RC)"
 # 3. Append a dated summary to the long-running quality log. We write before
 #    the next step so the audit trail is preserved even if the script crashes
 #    later (it doesn't, but defensive logging matches the rest of the project).
-cat >>"$HERE/data/data-quality-log.md" <<EOF
+cat >>"$QLOG" <<EOF
 
-### $TODAY · 月度巡检
+### $TODAY · 月度巡检（$CITY）
 
 - stale: $STALE_NOTE
 - 深链: $LINK_NOTE
-- 完整 log: data/check-links-$TODAY.log（计数取自同名 .json）
+- 完整 log: data/check-links$SUF-$TODAY.log（计数取自同名 .json）
 EOF
 
 echo "== done =="

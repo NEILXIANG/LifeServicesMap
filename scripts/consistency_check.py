@@ -24,8 +24,10 @@ _r = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(_r))
 import kamdata
 
-LANGS = ['zh', 'en', 'fr', 'es', 'ko', 'ja']
-AREA_OK = {'250', '778', '236', '604', '672', '800', '833', '844', '855', '866', '877', '888'}
+LANGS = kamdata.LANGS
+# BC area codes + toll-free. A city outside BC sets its own in city.json "validate": {"areaCodes": [...]}
+AREA_BC = {'250', '778', '236', '604', '672'}
+TOLL_FREE = {'800', '833', '844', '855', '866', '877', '888'}
 PHONE = re.compile(r'(?<!\d)(?:1[-. ]?)?\(?(\d{3})\)?[-. ]?(\d{3})[-. ](\d{4})(?!\d)')
 
 WORDS = {'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
@@ -71,6 +73,7 @@ def main():
     others = [c for c in kamdata.cities() if c != a.city and not c.startswith('_')]
     other_names = {kamdata.city_meta(c)['title'].replace(' Life Guide', '') for c in others}
     kamdata.use(a.city)
+    AREA_OK = set(kamdata.city_meta().get('validate', {}).get('areaCodes') or AREA_BC) | TOLL_FREE
     P = kamdata.load('P')
     found = []
     def flag(p, kind, msg): found.append((kind, p['id'], p['n'], msg))

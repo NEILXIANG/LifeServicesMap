@@ -1,5 +1,5 @@
 # 每次推送 / PR：构建 + 静态校验 + 构建产物与入库的 public/index.html 一致性。
-# 浏览器测试（tests/）耗时较长，阶段 3 整理完后再接入。
+# 浏览器测试（tests/）耗时约 25 分钟，只在本机用 scripts/check-all.sh 跑（见 tests/README.md）。
 name: check
 on:
   push:
@@ -19,5 +19,9 @@ jobs:
         run: python3 scripts/validate.py build/kamloops.html
       - name: 测试城市（cities/_fixture）构建 + 校验——证明引擎不依赖 Kamloops
         run: python3 build.py --city _fixture && python3 scripts/validate.py --city _fixture
+      - name: 草稿城市 Kelowna 构建 + 校验 + 跨语言一致性（草稿城市严格执行）
+        run: python3 build.py --city kelowna --no-sync-public && python3 scripts/validate.py --city kelowna && python3 scripts/consistency_check.py --city kelowna --strict
+      - name: 知识库——经验登记表声称的检查必须真的存在，生成的页面必须是最新的
+        run: python3 scripts/knowledge.py --check
       - name: public/（Kamloops 部署目录：页面、sw.js、manifest、图标）必须与构建结果一致
         run: git diff --exit-code --stat public/ && test -z "$(git status --porcelain public/)"

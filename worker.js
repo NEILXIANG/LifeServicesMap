@@ -1,4 +1,4 @@
-// worker.js — Kamloops Life Map edge worker
+// worker.js — Life Guide edge worker (one per city, same code; the city is in each event's blob5)
 //
 // Two responsibilities:
 //   1. POST /api/event   →  validate payload, write a row to Analytics Engine

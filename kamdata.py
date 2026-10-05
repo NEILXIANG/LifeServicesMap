@@ -33,17 +33,32 @@ data_text() 把它们展开回原来的完整 JS（与拆分前逐字节相同�
 """
 import datetime, json, os, re
 
-def today():
-    """Kamloops 当地日期。
+def today(city=None):
+    """城市当地日期（时区取 city.json 的 "timezone"，不写就是 America/Vancouver）。
 
     构建和巡检可能跑在任何时区的机器上（云端容器是 UTC），
     用机器的 date 会在当地傍晚之后跳到第二天——目录名和报告名都因此错过一次。
+
+    2026-10-04：BC 从 2026-11-01 起全年夏令时（不再回拨，UTC-7）。机器的时区数据如果还是旧的，
+    会在那天之后退回 UTC-8，这里按 UTC-7 纠正（与引擎 15-time-open-now.js 同一规则）。
     """
     try:
+        tz = city_meta(city).get('timezone') or 'America/Vancouver'
+    except Exception:
+        tz = 'America/Vancouver'
+    try:
         from zoneinfo import ZoneInfo
-        return datetime.datetime.now(ZoneInfo('America/Vancouver')).date()
+        now = datetime.datetime.now(ZoneInfo(tz))
+        cutover = datetime.datetime(2026, 11, 1, 9, tzinfo=datetime.timezone.utc)
+        if tz == 'America/Vancouver' and now >= cutover and now.utcoffset() == datetime.timedelta(hours=-8):
+            now = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=-7)))
+        return now.date()
     except Exception:
         return datetime.date.today()
+
+def month(city=None):
+    """核实月份 v 的格式（YYYY-MM），按城市当地日期。"""
+    return today(city).strftime('%Y-%m')
 
 def root(start=None):
     """向上找到项目根（放着 app/engine/parts.txt 的那一层），不写死层级。"""
@@ -211,6 +226,90 @@ def save(name, value, engine=False):
     return path
 
 # --- 数据约定：写在这里，让别的脚本可以引用，而不是各自记一遍 -----------------
+# 2026-10-04（脚本审计）：六种语言、导入文件路径、运营目录、证书、User-Agent 原来各脚本各写一份
+# （六语列表 15 份，其中一份顺序不同；证书 4 种写法；运营目录 2 种算法）。新脚本一律用这里的。
+LANGS = ['zh', 'en', 'fr', 'es', 'ko', 'ja']
+USER_AGENT = 'Mozilla/5.0 (lifeguide-tools)'   # 不带 Mozilla 前缀时 workers.dev 回 403（builddocs 撞过）
+
+def category_tiers():
+    """schemas/category-tiers.json：安全相关、可不收的商业类、没有官方营业时间的类别（审核和导入脚本共用）。"""
+    return json.load(open(os.path.join(ROOT, 'schemas', 'category-tiers.json'), encoding='utf-8'))
+
+def city_obj(city=None):
+    """城市的 CITY 设置（data.js 里的 JS 对象），用 node 求值。"""
+    import subprocess
+    js = ('const UI=new Proxy({},{get:(t,k)=>t[k]||(t[k]={})});' + data_text(city) +
+          ';process.stdout.write(JSON.stringify(CITY))')
+    r = subprocess.run(['node', '-'], input=js, capture_output=True, text=True)   # stdin: data is too big for argv
+    if r.returncode != 0:
+        raise SystemExit('node could not evaluate CITY for %s: %s' % (city or CITY, r.stderr[:300]))
+    return json.loads(r.stdout)
+
+_GENERIC_AREAS = {'Other', 'Suburbs', 'Downtown', 'North', 'South', 'East', 'West', 'Central', 'Rural', 'Outskirts'}
+
+def fingerprint(city):
+    """一座城市独有的字样：城市名、区域名、地标和 UPCC 的名字、本地电话、CITY.examples，加上 city.json 的
+    "leakMarkers"（自动取不到的，如校名缩写、票价）。用来查"别城的事实"有没有漏进另一座城市（L-034）。
+
+    2026-10-04：原来每座城市的测试手写一份别城禁用词，城市一多就是 N×(N−1) 份，漏一份就是 L-034。"""
+    meta = city_meta(city); C = city_obj(city)
+    out = {meta['title'].replace(' Life Guide', '')}
+    out |= set(meta.get('leakMarkers', []))
+    prev = CITY
+    use(city)
+    try:
+        P = {p['id']: p['n'] for p in load('P')}
+        for r in load('RI').values():
+            for part in re.split(r'/', r.get('en', '').split(' (')[0]):
+                if part.strip() and part.strip() not in _GENERIC_AREAS: out.add(part.strip())
+        for i in load('LANDMARKS') + list(C.get('upcc') or []):
+            if i in P: out.add(P[i])
+    finally:
+        use(prev)
+    phones = [C.get('police'), (C.get('help') or {}).get('settle'), (C.get('localCrisis') or {}).get('n')]
+    phones += [l.get('n') for l in C.get('localLines') or []]
+    out |= {p for p in phones if p}
+    out |= {v for v in (C.get('examples') or {}).values() if isinstance(v, str)}
+    return sorted(out)
+
+def leak_markers(target, others=None):
+    """别的城市指纹里、target 自己的指纹里没有的字样（两城共有的如 Downtown、全区域电话自动排除）。
+    不按 target 的数据排除：已经漏进 target 数据里的别城事实，正是要抓的。
+    真正两城都该有的字样写进 target 的 city.json "leakAllow"。"""
+    mine = set(fingerprint(target)) | set(city_meta(target).get('leakAllow', []))
+    out = set()
+    for c in (others if others is not None else [x for x in cities() if x != target]):
+        out |= set(fingerprint(c)) - mine
+    return sorted(out)
+
+def import_path(name, city=None):
+    """cities/<city>/import/<name>（导入、核实、复核的中间文件）。"""
+    return os.path.join(city_dir(city), 'import', name)
+
+def load_import(name, default=None, city=None):
+    p = import_path(name, city)
+    if not os.path.exists(p):
+        return default
+    return json.load(open(p, encoding='utf-8'))
+
+def ops_dir():
+    """运营资料目录（仓库外，决策 D4）：环境变量 LIFEGUIDE_OPS，默认同级的 "<仓库名> - ops"。"""
+    return os.environ.get('LIFEGUIDE_OPS') or os.path.join(os.path.dirname(ROOT), os.path.basename(ROOT) + ' - ops')
+
+_SSL = []
+def ssl_context():
+    """HTTPS 证书：python.org 版 Python 在 macOS 上不带系统根证书（2026-09-16 月度巡检所有链接都报 BLOCKED）。
+    依次试 certifi、/etc/ssl/cert.pem、默认。只建一次。"""
+    if not _SSL:
+        import ssl
+        ctx = None
+        for cafile in (lambda: __import__('certifi').where(), lambda: '/etc/ssl/cert.pem'):
+            try:
+                ctx = ssl.create_default_context(cafile=cafile()); break
+            except Exception:
+                pass
+        _SSL.append(ctx or ssl.create_default_context())
+    return _SSL[0]
 V_RE = re.compile(r'^\d{4}-\d{2}$')   # 核实日期只到月：YYYY-MM
 
 def bad_v(places):

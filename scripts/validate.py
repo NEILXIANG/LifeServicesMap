@@ -127,6 +127,37 @@ def _city_obj():
     return json.loads(r.stdout) if r.returncode == 0 else {}
 CITYOBJ = _city_obj()
 
+# 2026-10-04: province-wide settings live once in provinces/<prov>/province.json; every city in that
+# province must match it, so a fix made in one city cannot leave the others behind (holidays, hotlines,
+# 2-1-1 and the winter notice were identical copies in two data.js files with nothing keeping them equal).
+_prov_id = CITY_META.get('province')
+_prov_file = os.path.join(_kd.ROOT, 'provinces', _prov_id or '-', 'province.json')
+if CITYOBJ and _prov_id and os.path.exists(_prov_file):
+    _prov = json.load(open(_prov_file, encoding='utf-8'))
+    def _strip(o):
+        if isinstance(o, dict): return {k: _strip(v) for k, v in o.items() if not k.startswith('_')}
+        if isinstance(o, list): return [_strip(v) for v in o]
+        return o
+    _rel = os.path.relpath(_prov_file, _kd.ROOT)
+    if CITYOBJ.get('holidays') != _prov['holidays']:
+        fail('CITY.holidays differs from %s — regenerate with python3 scripts/holidays.py --apply' % _rel)
+    if CITYOBJ.get('hotlines') != _prov['hotlines']:
+        fail('CITY.hotlines differs from %s — a province-wide line changed in one city only?' % _rel)
+    if (CITYOBJ.get('help') or {}).get('info') != _prov['helpInfo']:
+        fail('CITY.help.info differs from %s helpInfo' % _rel)
+    _seasons = {x.get('id'): x for x in CITYOBJ.get('seasons') or []}
+    for _sid, _ref in _strip(_prov.get('seasons', {})).items():
+        _mine = _seasons.get(_sid)
+        if not _mine:
+            fail('CITY.seasons has no "%s" notice (%s has one for every city in the province)' % (_sid, _rel)); continue
+        for _k, _v in _ref.items():
+            if _k == 'links':
+                _have = [l.get('u') for l in _mine.get('links', [])]
+                _lost = [l['u'] for l in _v if l['u'] not in _have]
+                if _lost: fail('CITY.seasons "%s" is missing the provincial link(s) %s (%s)' % (_sid, _lost, _rel))
+            elif _mine.get(_k) != _v:
+                fail('CITY.seasons "%s".%s differs from %s' % (_sid, _k, _rel))
+
 # scripts/new-city.py marks every value only a person can fill in with "TODO:".
 # A city that still has one is a skeleton, not something to build for readers.
 _todo = [l.strip()[:90] for l in _kd.data_text().splitlines() if 'TODO:' in l]
@@ -915,7 +946,8 @@ if len(_serr) > 20:
 # the BC Transit open data terms require attribution; the engine no longer carries any.
 if any(p.get('src') == 'opendata' for p in P) or len(BR):
     for lang in LANGS:
-        _ld = re.search(r"UI\.%s\.licenceData='([^']*)'" % lang, html)
+        # the engine's default is empty; only a non-empty text from the city counts (2026-10-04)
+        _ld = [x for x in re.findall(r"UI\.%s\.licenceData='([^']*)'" % lang, html) if x.strip()]
         if not _ld:
             fail('%s: the city uses open data but has no licenceData attribution in data.js' % lang)
 
@@ -979,6 +1011,12 @@ else:
              % (_vd, (_dd - _vd).days, _dd))
     if _vd > _dd:
         fail('VERIFIED (%s) is later than DATA_VERSION (%s)' % (_vd, _dd))
+    # (2026-10-04, lesson L-104) every version has a CHANGELOG entry: the file once stopped at 2026.09.08a while 70
+    # commits and three deployed versions went by, and nobody could say what the live page contained.
+    _ver = re.search(r"const DATA_VERSION='([^']+)'", html).group(1)
+    _cl = os.path.join(_kd.ROOT, 'CHANGELOG.md')
+    if os.path.exists(_cl) and _ver not in open(_cl, encoding='utf-8').read():
+        fail('DATA_VERSION %s has no entry in CHANGELOG.md — write what changed before building for readers' % _ver)
     # (2026-09-13) the task cards carry their own check date (CITY.tasksChecked),
     # shown at the foot of every card. Same rule: it must exist and not go stale.
     _tm = re.search(r"tasksChecked:'(\d{4})-(\d{2})-(\d{2})'", html)
@@ -1000,8 +1038,8 @@ else:
         _hd = re.findall(r"'(\d{4}-\d{2}-\d{2})'", _hm.group(1))
         if not _hd or _hd != sorted(_hd):
             fail('CITY.holidays is empty or out of order')
-        elif (_dt2.date.fromisoformat(_hd[-1]) - _dt2.date.today()).days < 120:
-            warn('CITY.holidays ends %s — add the next year before then (p3_patch.py generates it)' % _hd[-1])
+        elif (_dt2.date.fromisoformat(_hd[-1]) - _kd.today()).days < 120:
+            warn('CITY.holidays ends %s — add the next years before then (python3 scripts/holidays.py)' % _hd[-1])
 # (2026-09-13) the map imagery host must be one whose terms allow a public app, and
 # the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
 _tile = re.search(r"tiles:\{url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", html)
@@ -1024,7 +1062,7 @@ else:
 # past six months is a warning, past twelve is a failure — "stale" becomes
 # something the build says out loud rather than something someone remembers.
 import datetime as _dt
-_today = _dt.date.today()
+_today = _kd.today()   # city-local date, not the machine's (kamdata.today)
 def _months_old(v):
     m = re.match(r'^(\d{4})-(\d{2})', str(v or ''))
     if not m: return None

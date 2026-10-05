@@ -36,6 +36,10 @@ def city_block(cid, name, lat, lng, dlat, dlng):
         (r"schoolDistrict:\{name:'SD73', url:'[^']*'\}", "schoolDistrict:{name:'TODO: school district (e.g. SD23)', url:'TODO: catchment finder URL'}"),
         (r"tasksChecked:'[^']*'", "tasksChecked:'TODO: YYYY-MM-DD the task cards were checked'"),
         (r"help:\{settle:'[^']*'", "help:{settle:'TODO: settlement agency phone'"),
+        # 2026-10-04: these three are city facts too, and used to be copied silently (the docs audit ran this script)
+        (r"examples:\{campus:'[^']*', stop:'[^']*'\}", "examples:{campus:'TODO: main campus short name (or remove campus)', stop:'TODO: main downtown bus exchange'}"),
+        (r"police:'[^']*'", "police:'TODO: local police non-emergency line'"),
+        (r"upcc:\[[^\]]*\],", "upcc:[],   // TODO: ids of the city's urgent and primary care centres (places.json), once imported"),
     ]
     for pat, new in rep:
         c, n = re.subn(pat, new, c, count=1)
@@ -46,6 +50,8 @@ def city_block(cid, name, lat, lng, dlat, dlng):
     c = re.sub(r"  localCrisis:\{.*?\}\}\n\};", "  localCrisis:null   // TODO: local non-police crisis team, if there is one\n};", c, count=1, flags=re.S)
     # the wildfire season links to Kamloops' own alert page: keep the season, drop that link
     c = re.sub(r"\n\s*\{u:'https://www\.kamloops\.ca/[^\n]*", '', c)
+    # Kamloops' explanatory comments name Kamloops places (TRU, KAFS…); field meanings live in DATA-SCHEMA.md
+    c = '\n'.join(l for l in c.splitlines() if not l.lstrip().startswith('//') or 'TODO' in l)
     if 'kamloops' in c.lower():
         left = [l.strip()[:80] for l in c.splitlines() if 'kamloops' in l.lower()]
         sys.exit('new-city.py: Kamloops-specific text left in CITY: %s' % left)
@@ -77,8 +83,10 @@ def main():
         'siteUrl': 'https://%s.neilxiang.workers.dev/' % worker,
         'storagePrefix': a.id,
         'searchStopwords': [a.id, 'bc'],
+        'leakMarkers': [],            # this city's facts no derived fingerprint catches (school-district code, fare, campus abbreviation)
         'status': 'draft',            # remove when the city is reviewed and ready to launch
         'validate': {'minPlaces': 0},
+        'review': {'reference': 'kamloops'},   # add "targetPlaces" once PROFILE.md 由此决定 sets it
         'deploy': {
             'worker': worker, 'wranglerEnv': a.id, 'assetsDir': 'deploy/%s' % a.id, 'basePath': '/',
             'swCache': '%s-v1.0.0' % worker, 'pwaLabel': '%s Life Guide' % a.name,
@@ -91,12 +99,28 @@ def main():
     body = tpl[tpl.index('const RI='):]
     body = re.sub(r'const FAV_MIGRATE=\{.*?\};', 'const FAV_MIGRATE={};', body, flags=re.S)
     body = re.sub(r'const LANDMARK_GLOSS=\{.*?\n\};', 'const LANDMARK_GLOSS={};', body, flags=re.S)
+    # 2026-10-04: Kamloops' own texts and bus provenance are city facts — drop them so the engine's generic
+    # defaults apply until this city writes its own (fares and bus coverage are required once it has routes,
+    # licenceData once it uses open data; validate.py says so at that point)
+    body = re.sub(r'const BUS_SOURCE=\{.*?\};\n', '', body, flags=re.S)
+    body = re.sub(r"^UI\.(zh|en|fr|es|ko|ja)\.(busCoverage|busFareText|licenceData|noteCoverage|noteThirdParty|legalLocal|hcUpcc)=.*\n",
+                  '', body, flags=re.M)
     # drop Kamloops' commentary between the blocks; keep the statements
     body = '\n'.join(l for l in body.splitlines() if not l.startswith('//')) + '\n'
     head = ('// %s city data. Created by scripts/new-city.py from the BC-wide parts of Kamloops.\n'
             '// Field reference: docs/guides/DATA-SCHEMA.md. Every TODO must go before validate.py passes.\n' % a.name)
-    open(os.path.join(d, 'data.js'), 'w', encoding='utf-8').write(
-        head + city_block(a.id, a.name, lat, lng, dlat, dlng) + '\n\n' + body)
+    out = head + city_block(a.id, a.name, lat, lng, dlat, dlng) + '\n\n' + body
+    # refuse to hand over a skeleton that still carries a known Kamloops fact (police, legal aid, UPCC, fares,
+    # data source, campus, district, the UPCC's place id)
+    # 2026-10-04: plus everything in Kamloops' derived fingerprint (kamdata.fingerprint: areas, landmarks, UPCCs,
+    # local phones, city.json leakMarkers), so a fact added to Kamloops later is caught without editing this list
+    marks = set(kamdata.fingerprint('kamloops')) | {'828-3000', '314-1900', '425-9121', 'KAFS', 'Google Places', '2.25',
+                                                   'b29c9af7', 'Secw'}
+    leaks = sorted(t for t in marks if re.search(r'(?<![\w$])%s(?!\w)' % re.escape(t), out[len(head):]))   # the header names its source
+    if leaks:
+        import shutil; shutil.rmtree(d)
+        sys.exit('new-city.py: Kamloops facts would be copied (%s) — update this script' % ', '.join(leaks))
+    open(os.path.join(d, 'data.js'), 'w', encoding='utf-8').write(out)
 
     def dump(name, value):
         with open(os.path.join(d, name), 'w', encoding='utf-8') as f:
@@ -111,14 +135,59 @@ def main():
         open(os.path.join(d, 'guide', l + '.html'), 'w', encoding='utf-8').write(
             '\n<h3>{CITY}</h3>\n<p>TODO: the "About this city" section of the guide (%s).</p>\n' % l)
 
+    # 2026-10-04: the profile skeleton (methodology §4). Copying Kelowna's PROFILE.md as a template left its numbers in.
+    open(os.path.join(d, 'PROFILE.md'), 'w', encoding='utf-8').write(PROFILE % {'name': a.name, 'id': a.id, 'today': kamdata.today().isoformat()})
+
     print('created cities/%s/  (Worker %s, storage prefix %s)' % (a.id, worker, a.id))
     print('''
 next:
+  0. city profile first: cities/%(id)s/PROFILE.md (prompt: docs/knowledge/prompts/城市画像.md)
   1. fill every TODO in cities/%(id)s/data.js, regions.json and guide/*.html
   2. add places to places.json (schema: schemas/place.schema.json)
   3. python3 build.py --city %(id)s && python3 scripts/validate.py --city %(id)s
   4. open build/%(id)s.html in a browser
   5. before the first deploy: add [env.%(id)s] to wrangler.toml (template at its end)''' % {'id': a.id})
+
+PROFILE = """# %(name)s 城市画像（%(today)s 开始）
+
+> 方法论第一步（`docs/guides/新城市扩展方法论与标准.md` 第四节，每张表该有哪些行见那里）；资料收集用 `docs/knowledge/prompts/城市画像.md`。
+> 每个数字写出处（官方优先：统计局、省统计局、IRCC、CMHC、市政府）；没有官方出处的标"非官方"，写进对外内容前再查。
+> 完整出处网址放 `cities/%(id)s/import/research/`。对照对象：Kamloops（必要时加 Kelowna）。
+
+## 一、人口与人群
+
+| 项 | %(name)s | Kamloops | 说明 |
+|---|---|---|---|
+| TODO | | | |
+
+## 二、经济与生活成本
+
+| 项 | %(name)s | Kamloops | 说明 |
+|---|---|---|---|
+| TODO | | | |
+
+## 三、地方与特色
+
+TODO：区域划分（每个区域一句地理提示）、原住民称谓（向当地确认，不套用别城）、地标、季节与灾害（雪、山火、洪水……）。
+
+## 四、门户、交通、教育、医疗、安置
+
+TODO：机场与长途交通、公交运营方、学区与高校、医院与 UPCC、安置机构。
+
+## 官方来源清单
+
+TODO：这座城市要用的市级、区域级（健康局、学区、区域警报）来源；省级和联邦来源见 `docs/knowledge/数据来源目录.md`，不在这里重复。
+
+## 对人群和需求的含义
+
+TODO：按 `docs/guides/新移民画像与需求.md` 逐节写这座城市的情况（规模信号、本地缺口、特别之处）。
+
+## 五、由此决定
+
+TODO：地点目标（写进 city.json `review.targetPlaces`）、优先类别、哪些商业类不收（`schemas/category-tiers.json`）、语言优先级、办事卡要本地改写哪些（操作手册第 6 步）。
+
+已导入的数据不在这里手写数字：运行 `python3 scripts/review_checklist.py --city %(id)s`。
+"""
 
 if __name__ == '__main__':
     main()

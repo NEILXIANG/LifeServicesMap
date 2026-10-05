@@ -1,17 +1,17 @@
 #!/usr/bin/env python3
 """
-builddocs.py — 从 content/*.txt 重新生成 docs/for-the-city 下的说明材料（HTML + PDF）。
+builddocs.py — 从 content/*.txt 重新生成对外说明材料（HTML + PDF），输出到运营资料目录（见下）。目前只做 Kamloops。
 
 为什么存在：这批 PDF 原来是手工排版、没有源文件，改一句话都要动 PDF 内部。
 现在正文写在 content/ 里的纯文本源里，数字（地点数、办事卡数、版本号、核实日期）
 在构建时从 cities/kamloops/（经 kamdata）和 public/index.html 现取，改完跑一次就全部同步。
 
 用法：
-    python3 docs/builddocs.py                 # 全部重建
-    python3 docs/builddocs.py zh-complete     # 只建一份（按文件名前缀）
-    python3 docs/builddocs.py --html-only     # 只出 HTML，不调 Chromium
-    python3 docs/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
-    python3 docs/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
+    python3 docs/source/builddocs.py                 # 全部重建
+    python3 docs/source/builddocs.py zh-complete     # 只建一份（按文件名前缀）
+    python3 docs/source/builddocs.py --html-only     # 只出 HTML，不调 Chromium
+    python3 docs/source/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
+    python3 docs/source/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
 
 输出目录：<运营资料目录>/public/YYYY-MM-DD（默认是仓库同级的 "<仓库名> - ops"），同一天的第二批自动变成 …-DDb、…-DDc，
 从不覆盖已有目录。
@@ -34,8 +34,7 @@ ASSETS = os.path.join(HERE, 'assets')
 BUILDDIR = os.path.join(HERE, '_build')      # 中间产物 HTML，不进对外目录
 # 2026-10-03（决策 D4）：对外成品移出代码仓库，放到同级的运营资料目录。
 # 可用环境变量 LIFEGUIDE_OPS 指向别处（比如 iCloud 里的文件夹）。
-OPS_DIR = os.environ.get('LIFEGUIDE_OPS') or os.path.join(
-    os.path.dirname(ROOT), os.path.basename(ROOT) + ' - ops')
+OPS_DIR = kamdata.ops_dir()
 PUBDIR = os.path.join(OPS_DIR, 'public')
 
 def today():
@@ -76,7 +75,10 @@ def live_values():
     # 只数真正有地点的分类：CI 里可能留着尚无地点的分类（如 cafe），
     # 说"地点分为 N 个分类"时把空分类算进去是不准的。
     cats = len({p['c'] for p in P if p.get('c')} & set(defined))
+    d = kamdata.today()
+    months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     return dict(PLACES=str(places), TASKS=str(tasks), VERSION=version, VERIFIED=verified,
+                PREPARED='%s %d' % (months[d.month - 1], d.year), PREPARED_ZH='%d 年 %d 月' % (d.year, d.month),
                 CATS=str(cats), AREAS=str(areas), ROUTES=str(len(BR)), STOPS=str(stops),
                 APPROX=str(approx), THEMES=str(themes),
                 URL='https://kamloops-lifemap.neilxiang.workers.dev',
@@ -399,9 +401,28 @@ def main():
             skip.add(v)
     args = [a for a in sys.argv[1:] if not a.startswith('--') and a not in skip]
     html_only = '--html-only' in sys.argv
-    outdir = out_dir(_opt('--date'), _opt('--into'))
     vals = live_values()
+    # 2026-10-04: the version printed on a PDF must be one a reader can actually open. public/index.html is a build,
+    # not necessarily what is deployed (on 2026-10-04 it was 2026.10.04a while the site served 2026.09.24b).
+    # Checked before anything is written; if the live version cannot be read, PDFs are not built (fail closed).
+    if not html_only and '--allow-undeployed' not in sys.argv:
+        import urllib.request, ssl
+        try:
+            import certifi; ctx = ssl.create_default_context(cafile=certifi.where())
+        except ImportError:
+            ctx = ssl.create_default_context(cafile='/etc/ssl/cert.pem') if os.path.exists('/etc/ssl/cert.pem') else None
+        try:
+            req = urllib.request.Request(vals['URL'] + '/', headers={'User-Agent': 'Mozilla/5.0 (builddocs version check)'})
+            live = urllib.request.urlopen(req, timeout=15, context=ctx).read().decode('utf-8', 'replace')
+            lv = re.search(r"DATA_VERSION='([^']+)'", live)
+        except Exception as e:
+            sys.exit('builddocs: could not read the live version (%s); PDFs not built. Pass --allow-undeployed for a draft '
+                     'that will not be handed out' % e)
+        if not lv or lv.group(1) != vals['VERSION']:
+            sys.exit('builddocs: public/index.html is %s but the live site serves %s — deploy first, or pass '
+                     '--allow-undeployed for a draft that will not be handed out' % (vals['VERSION'], lv.group(1) if lv else '?'))
     print('live values:', vals)
+    outdir = out_dir(_opt('--date'), _opt('--into'))
     if not html_only:
         print('out dir:', os.path.relpath(outdir, ROOT))
     names = sorted(f[:-4] for f in os.listdir(CONTENT) if f.endswith('.txt'))

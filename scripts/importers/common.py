@@ -26,7 +26,8 @@ sys.path.insert(0, os.path.dirname(_here))
 import kamdata
 from bc_geocode import geocode
 
-TODAY = datetime.date.today()
+# local date of the city being imported (kamdata.today), not the machine's: MONTH goes into every record's `v`
+TODAY = kamdata.today()
 MONTH = TODAY.strftime('%Y-%m')
 
 def norm(s):
@@ -71,7 +72,7 @@ def similar(a, b, words=True):
 LANG4 = ('fr', 'es', 'ko', 'ja')
 
 def translations_path(city):
-    return os.path.join(kamdata.city_dir(city), 'import', 'translations.json')
+    return kamdata.import_path('translations.json', city)
 
 def load_translations(city):
     """cities/<city>/import/translations.json: {id: {"src_en": <English it was made from>, "fr", "es", "ko", "ja"}}.
@@ -92,7 +93,7 @@ def apply_translation(rec, translations):
     return True
 
 def hours_path(city):
-    return os.path.join(kamdata.city_dir(city), 'import', 'hours.json')
+    return kamdata.import_path('hours.json', city)
 
 def load_hours(city):
     """cities/<city>/import/hours.json: {id: {"hours_text", "services_text", "source_url", "fetched"}} —

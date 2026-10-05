@@ -1,7 +1,9 @@
 # 数据质量审查日志
 
-> 数据本身的问题清单——**准确、及时、覆盖**是产品信任的根本。
-> 已知保留问题同步自《UX审计四》《UX审计五》。
+> 数据本身的问题清单——**准确、及时、覆盖**是产品信任的根本。**只记 Kamloops**（线上城市）；草稿城市的问题在
+> `docs/reports/<城市>审核清单.md`（由 `scripts/review_checklist.py` 生成）。
+> 2026-10-04 整理：删除了"示例"一节（虚构的记录不放在真实日志里，L-003）；待补充改为真实缺口；
+> 9 月 16 日以前月度巡检的"0 OK / 0 DEAD"是计数错误（grep 匹配不到带缩进的行），**不是真实结果**，已于 09-16 修复。
 
 ---
 
@@ -9,7 +11,8 @@
 
 | ID | 分类 | 问题描述 | 来源 | 优先级 | 状态 | 修复日期 |
 |---|---|---|---|---|---|---|
-| `xxx01` | — | — | 自查 / 用户反馈 | P0/P1/P2 | 待修 / 已修 / 搁置 | — |
+| `success-formula` | tutor | Success Formula 的地址待核实 | 2026-09-24 学校与托儿补全 | P2 | 待修 | — |
+| 救世军食物银行 | foodbank | 营业时间待按官网核实 | 2026-09-24 学校与托儿补全 | P1 | 待修 | — |
 
 > ID 用地点前 5 字符或前 8 字符 ID 简称，例如 `rbc001` 指 `Royal Bank` 类条目第一项。
 
@@ -19,7 +22,15 @@
 
 | 分类 / 区域 | 缺什么 | 优先级 | 状态 |
 |---|---|---|---|
-| 例：`apt` / 北Thompson | 缺 3 家公寓楼 | P2 | 待补 |
+| `school` | 5 所私立学校（省 K-12 数据里有、地图上没有） | P2 | 待补 |
+| `daycare` | 搜 `montessori school` 只出 1 家，实有 11 家（整名匹配问题，搜索层修复） | P1 | 待修 |
+| 2SLGBTQ+ | 本地支持资源（2026-09-21 全面检查列为缺口） | P1 | 待补 |
+| Brocklehurst | 没有超市、药房、医疗点（区域覆盖偏少） | P2 | 待补 |
+| `religious` | 缺印度教、东正教、非英语教会（2026-09-10 从零自查） | P2 | 待补 |
+| 办事卡 rights | 歧视理由列表漏了性别认同、家庭状况、原住民身份（2026-09-21） | P1 | 待核实 |
+| `daycare`（84 条） | 只有 4 条有网址：09-24 的一次性导入（`p25_patch.py`）认为省托儿数据"没有网址"，其实数据有 WEBSITE 列；也没写 Kelowna 已有的工作人员语言、收的年龄、是否减费（CCFRI）。用 `scripts/importers/bc_childcare.py --city kamloops` 重导并对照（L-078）；Kamloops 没有 `import/` 目录，要先建出处记录（2026-10-04 来源目录整理时发现） | P1 | 待补 |
+| 公交 | 仓库里只记了 BC Transit 的运营方编号（`operatorIds=46`，`p11_patch.py` 说明里），没有完整的 GTFS 下载地址；下次重导前写进 `cities/kamloops/import/config.json` | P2 | 待补 |
+| 办事卡 eldercare | 来源指向非政府机构 Interior Community Services；Kelowna 用的是 Interior Health 的 Home and Community Care 页面，两城都适用——下次核实办事卡时考虑统一 | P2 | 待核实 |
 
 ---
 
@@ -84,26 +95,9 @@ DEAD = host 不解析或 HTTP 404 — 真正需要 follow-up）
 
 ---
 
-## 示例（仅供参考）
+## 自查记录
 
-#### 待修复
-
-| ID | 分类 | 问题描述 | 来源 | 优先级 | 状态 |
-|---|---|---|---|---|---|
-| `rbc01` | bank | RBC 地址写的是旧址（已搬迁）| 用户反馈 | P0 | 待修 |
-| `wal03` | supermarket | Walmart Westsyde 周日营业时间与官方不符 | 自查 | P1 | 待修 |
-| `lib01` | library | Thompson-Nicola 区域图书馆无 phone 字段 | 自查 | P2 | 待补 |
-
-#### 待补充
-
-| 分类 / 区域 | 缺什么 | 优先级 | 状态 |
-|---|---|---|---|
-| `pharm` / 南Kamloops | 缺 Shoppers Drug Mart Aberdeen 分店 | P2 | 待补 |
-| `vet` | 整个分类缺 | P1 | 待补 |
-
-#### 自查记录
-
-### 2026-09-04 · 首次代码层自查（`validate.py`）
+### 2026-09-04 · 首次代码层自查（`validate.py`；历史记录，当时的文件名和路径已变）
 
 **执行**：本地 `python3 validate.py Kamloops生活服务地图.html`
 
@@ -214,7 +208,7 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 结果 10 OK / 1 BLOCKED，那 1 条还是本轮第一个请求撞上残留窗口，随后即恢复。
 **结论：11 条链接全部有效，无需改动。** 教训是巡检本身必须对小站有礼貌。
 
-**本轮同时修掉的两个巡检自身的缺陷**（详见 `docs/reports/2026-09-16-脚本全面分析与优化.md`）
+**本轮同时修掉的两个巡检自身的缺陷**（详见 `docs/archive/reports/2026-09-16-脚本全面分析与优化.md`）
 
 1. HEAD 请求失败时直接下结论 —— 对 HEAD 回 404 的站点（Wix/Shopify/部分 WordPress 常见）误判为 DEAD。已改为任何 HEAD 失败都用 GET 复核。
 2. 没有按域名节流 —— 56 条深链集中在 27 个域名，其中 `kamloops.ca` 14 条、`kelsongroup.com` 11 条，6 个并发一起打过去把对方打到限流，报告里看起来像"这家网站挂了"。已改为同域名串行、间隔 1.5 秒，并发只跨域名。
@@ -246,7 +240,7 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 
 ## 2026-09-22 按 9-21 全面检查结论修复（7 个阶段）
 
-依据：`docs/reports/2026-09-21-全面检查报告-功能与数据.md`，以及当时 6 批逐条核对与办事卡核对的原始结论（运营方官网 / 市政府 / 省政府页面）。每个阶段都跑了 `build.py`、`validate.py`、`tests/regress.py`、`soci2`、`tasktest`、`audit6`，并新增了该阶段自己的测试 `tests/phaseNtest.py`。所有补丁脚本保存在 `docs/archive/scripts/fixes-2026-09-21/`，每条改动都在脚本注释里写了出处。
+依据：`docs/archive/reports/2026-09-21-全面检查报告-功能与数据.md`，以及当时 6 批逐条核对与办事卡核对的原始结论（运营方官网 / 市政府 / 省政府页面）。每个阶段都跑了 `build.py`、`validate.py`、`tests/kamloops/regress.py`、`soci2`、`tasktest`、`audit6`，并新增了该阶段自己的测试 `tests/kamloops/phaseNtest.py`。所有补丁脚本保存在 `docs/archive/scripts/fixes-2026-09-21/`，每条改动都在脚本注释里写了出处。
 
 1. **安全与信任**
    - 搜索危机词（6 种语言）时，结果上方显示热线，统计里只记为 `[crisis]`。
@@ -297,7 +291,7 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 
 ## 2026-09-24 学校与托儿数据补全、同义词与图标（p20–p26）
 
-依据：省 K-12 学校开放数据、省 Child Care Map（OGL-BC）、BC Address Geocoder、SD73 各校官网。每个阶段都跑了 `build.py`、`validate.py`、`tests/regress.py`、`soci2`、`tasktest`、`audit6`、`audit7`，并新增了该阶段自己的测试。补丁脚本在 `docs/archive/scripts/fixes-2026-09-21/`。
+依据：省 K-12 学校开放数据、省 Child Care Map（OGL-BC）、BC Address Geocoder、SD73 各校官网。每个阶段都跑了 `build.py`、`validate.py`、`tests/kamloops/regress.py`、`soci2`、`tasktest`、`audit6`、`audit7`，并新增了该阶段自己的测试。补丁脚本在 `docs/archive/scripts/fixes-2026-09-21/`。
 
 1. **搜不到幼儿园 / 托儿（p20、p22）**
    - kindergarten 指向小学（BC 的 K 年级在小学里），preschool、child minding、유치원、幼稚園、学前班、préscolaire、preescolar 指向托儿。
@@ -313,7 +307,7 @@ YYYY-MM-DD | 渠道 | 地域 | 反馈内容摘要 | 已处理？
 5. **小学时间不再瞎写（p24）**
    - 删掉未经核实的 8:30–15:30；25 所小学统一在备注里说明"各校时间不同、每年变动，去之前打电话或看学校页面"。
 6. **图标审查（p26）**
-   - 见 `docs/archive/scripts/fixes-2026-09-21/README.md` 的 p26 一行；配套测试 `tests/phase16test.py`。
+   - 见 `docs/archive/scripts/fixes-2026-09-21/README.md` 的 p26 一行；配套测试 `tests/kamloops/phase16test.py`。
 
 **数据规模**：292 → 387 个地点；来源分布 official 251 / opendata 80 / places 56；22 个近似位置。
 

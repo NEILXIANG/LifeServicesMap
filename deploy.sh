@@ -219,7 +219,8 @@ VALIDATE_PY="${PROJECT_ROOT}/scripts/validate.py"
 if [[ ! -f "$VALIDATE_PY" ]]; then
   fail "找不到 ${VALIDATE_PY} — 这道闸门不能跳过"
 fi
-if ! python3 "$VALIDATE_PY" "$INDEX_FILE"; then
+# --city (2026-10-04): without it validate.py read Kamloops' city.json (minPlaces, status…) for any city
+if ! python3 "$VALIDATE_PY" --city "$CITY" "$INDEX_FILE"; then
   fail "validate.py 未通过，已中止部署（要临时跳过：VALIDATE_SKIP=1 ./deploy.sh，仅限你清楚后果时）"
 fi
 ok "校验通过"

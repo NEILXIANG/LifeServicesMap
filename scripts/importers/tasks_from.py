@@ -33,7 +33,7 @@ def main():
     a = ap.parse_args()
     kamdata.use(a.src); base = kamdata.load('TASKS'); src_places = kamdata.load('P')
     kamdata.use(a.city); places = kamdata.load('P')
-    ov = json.load(open(os.path.join(kamdata.city_dir(a.city), 'import', 'task-overrides.json'), encoding='utf-8'))
+    ov = json.load(open(kamdata.import_path('task-overrides.json', a.city), encoding='utf-8'))
     missing = {}
     # any English sentence that already exists in the source cards keeps its six-language text
     known = {}

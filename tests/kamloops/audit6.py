@@ -130,3 +130,5 @@ order={'P0':0,'P1':1,'P2':2,'info':3}
 F.sort(key=lambda x:(order[x[0]],x[1]))
 for sev,area,msg in F: print("  %-4s %-6s %s" % (sev,area,msg))
 print("\n  %d findings: %s" % (len(F), dict(collections.Counter(f[0] for f in F))))
+# 2026-10-04: a P0 finding fails the run (check-all used to show PASS whatever this printed)
+if any(f[0] == 'P0' for f in F): sys.exit(1)

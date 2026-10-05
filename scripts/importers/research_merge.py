@@ -76,8 +76,7 @@ def main():
             if NON_EN.search(r.get('languages') or '') and 'multi' not in t: t.append('multi')
             if re.search(r'student', r.get('who') or '', re.I) and 'student' not in t: t.append('student')
             rec = {'n': name, 'c': r['c'], 'lat': lat, 'lng': lng, 'a': re.sub(r',?\s*(West )?Kelowna.*$', '', addr),
-                   'note': note, 'v': kamdata.MONTH if hasattr(kamdata, 'MONTH') else None}
-            rec.pop('v')
+                   'note': note}
             ph = phone(r.get('p'))
             if ph: rec['p'] = ph
             h = parse_hours(r.get('hours_text'))
@@ -96,7 +95,7 @@ def main():
             # the host: a library or campus within 40 m answering on the same number
             host = next((q for q in imp.places + imp.new if q['c'] in ('library', 'school') and rec.get('p')
                          and q.get('p') == rec.get('p') and dist_m(lat, lng, q['lat'], q['lng']) < 40), None)
-            SAFETY = {'hospital', 'pharmacy', 'dental', 'support', 'foodbank', 'legal', 'police'}
+            SAFETY = set(kamdata.category_tiers()['ownPin'])
             if host and (rec['c'] in SAFETY or host['c'] in SAFETY):
                 host = None      # safety-critical services always keep their own pin (a shelter is never a footnote)
             if host and host['c'] not in ('library', 'school'):

@@ -77,6 +77,10 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     meta.pop('_comment', None)
     meta.pop('validate', None)      # validate.py's settings; the page never needs them
     meta.pop('status', None)        # "draft" gates validate.py and deploy.sh, not the page
+    meta.pop('review', None)        # review_checklist.py's settings (place target, reference city)
+    meta.pop('leakMarkers', None)   # kamdata.fingerprint(): words that must not leak into another city
+    meta.pop('leakAllow', None); meta.pop('_leakAllow', None)
+    meta.pop('timezone', None)      # kamdata.today(); the engine has its own CITY_TZ
     deploy = meta.pop('deploy', None)  # deploy settings; used below, not shipped in the page
     for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
         if k not in meta:
@@ -95,7 +99,7 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     if inline_libs:
         html = inline_dependencies(html)
 
-    html = html.replace('{{BUILT}}', datetime.date.today().isoformat())
+    html = html.replace('{{BUILT}}', kamdata.today(city).isoformat())   # city-local date
 
     out_path = out_path or os.path.join(HERE, 'build', '%s.html' % city)
     # build/ is gitignored, so a fresh clone does not have it yet — create it

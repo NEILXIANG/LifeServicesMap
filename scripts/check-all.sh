@@ -15,12 +15,13 @@ QUICK=0; [[ "${1:-}" == "--quick" ]] && QUICK=1
 LOGDIR="$(mktemp -d -t check-all.XXXXXX)"
 FAILED=()
 
-run() {  # run <名字> <命令...>
+run() {  # run <名字> <命令...>；每项带耗时（2026-10-04：先量出哪一项慢，再决定要不要并行或合并）
   local name="$1"; shift
+  local t0=$SECONDS
   if "$@" >"$LOGDIR/$name.log" 2>&1; then
-    printf '  PASS  %s\n' "$name"
+    printf '  PASS  %-22s %4ss\n' "$name" "$((SECONDS - t0))"
   else
-    printf '  FAIL  %s   (日志：%s)\n' "$name" "$LOGDIR/$name.log"
+    printf '  FAIL  %-22s %4ss   (日志：%s)\n' "$name" "$((SECONDS - t0))" "$LOGDIR/$name.log"
     FAILED+=("$name")
   fi
 }
@@ -56,6 +57,7 @@ if [[ $QUICK -eq 0 ]]; then
   echo "▸ 浏览器测试（$PY）"
   run engine-fixture "$PY" tests/engine/test_fixture_city.py
   run engine-empty "$PY" tests/engine/test_empty_city.py
+  run engine-bc-time "$PY" tests/engine/test_bc_permanent_dst.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
   for t in tests/*/guitest.py; do   # each city's own strict GUI run (2026-10-04: Kelowna)
     [[ -f "$t" ]] && run "gui-$(basename "$(dirname "$t")")" "$PY" "$t"

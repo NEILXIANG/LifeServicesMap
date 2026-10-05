@@ -10,9 +10,27 @@ const TORDER=["life","family","fun","scenic","history","culture","free","multi",
 // reader's device: someone planning from abroad, or a phone still on its old
 // time zone, should see the same answer as someone standing outside the door.
 const CITY_TZ='America/Vancouver';
+// 2026-10-04: B.C. moved to permanent daylight time — on 2026-11-01 the clocks do not fall back (Province of
+// B.C., news.gov.bc.ca 2026CITZ0009). A phone whose time-zone data predates that still turns America/Vancouver
+// back to UTC-8 and would put every "open now" an hour wrong. From the moment the old rule would have fallen
+// back (2026-11-01 09:00 UTC), when the device still reports UTC-8 the city clock is computed as UTC-7 instead.
+// Devices with current data already report UTC-7 and are left alone.
+const _BC_PERMANENT_DST_AT=Date.UTC(2026,10,1,9);
+function _cityClockDate(){
+  const now=new Date();
+  if(CITY_TZ!=='America/Vancouver'||now.getTime()<_BC_PERMANENT_DST_AT)return {date:now,zone:CITY_TZ};
+  try{
+    const p=new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(now);
+    const h=parseInt((p.find(x=>x.type==='hour')||{}).value,10)%24,mi=parseInt((p.find(x=>x.type==='minute')||{}).value,10);
+    const off=((h*60+mi)-(now.getUTCHours()*60+now.getUTCMinutes())+1440*2)%1440;   // the device's offset, in minutes mod a day
+    if(off===16*60)return {date:new Date(now.getTime()-7*3600000),zone:'UTC'};      // still UTC-8 → read the clock as UTC-7
+  }catch(e){}
+  return {date:now,zone:CITY_TZ};
+}
 function cityNow(){
   // weekday 1..7 (Mon..Sun) and minutes since midnight, in the city's zone
-  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+  const c=_cityClockDate();
+  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:c.zone,weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(c.date);
   const g=k=>(parts.find(x=>x.type===k)||{}).value;
   const wd={Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6,Sun:7}[g('weekday')]||1;
   return {d:wd,m:(parseInt(g('hour'),10)%24)*60+parseInt(g('minute'),10)};
@@ -23,14 +41,14 @@ function cityNow(){
 // "closed" sends someone home from an open door.
 // Month in the city's zone, for seasonal hours.
 function cityMonth(){
-  try{return parseInt(new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,month:'numeric'}).format(new Date()),10);}catch(e){return new Date().getMonth()+1;}
+  try{const c=_cityClockDate();return parseInt(new Intl.DateTimeFormat('en-CA',{timeZone:c.zone,month:'numeric'}).format(c.date),10);}catch(e){return new Date().getMonth()+1;}
 }
 // 2026-09-21: the city's own date, cached for a minute — openState runs for
 // every place on every filter tap.
 let _isoAt=0,_iso='';
 function cityISODate(){
   const t=Date.now();
-  if(t-_isoAt>60000){_isoAt=t;try{_iso=new Intl.DateTimeFormat('en-CA',{timeZone:CITY_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}catch(e){_iso='';}}
+  if(t-_isoAt>60000){_isoAt=t;try{const c=_cityClockDate();_iso=new Intl.DateTimeFormat('en-CA',{timeZone:c.zone,year:'numeric',month:'2-digit',day:'2-digit'}).format(c.date);}catch(e){_iso='';}}
   return _iso;
 }
 function isHolidayToday(){return !!(CITY.holidays&&CITY.holidays.indexOf(cityISODate())>=0);}

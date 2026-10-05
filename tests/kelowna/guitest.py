@@ -34,11 +34,14 @@ def check(name, ok, info=None):
     else:
         F_ += 1; FAILS.append(name); print('  FAIL', name, ' —', str(info)[:600])
 
-# Kamloops facts that must never reach a Kelowna reader (B)
-FORBIDDEN = [r'Kamloops', r'\bTRU\b', r'Thompson Rivers', r'Lansdowne', r'Sahali', r'North Shore',
-             r'Tranquille', r'Westsyde', r'Valleyview', r'Brocklehurst', r'Juniper Ridge', r'Barnhartvale',
-             r'Secw[eé]pemc', r'Tk.?eml[uú]ps', r'SD ?73', r'Royal Inland', r'828-3000', r'2508283000', r'314-1900',
-             r'425-9121', r'\$2\.25', r'2,25 ?\$', r'Google Places', r'301 Victoria', r'Columbia St']
+# Other cities' facts that must never reach a Kelowna reader (B). 2026-10-04: derived from every other
+# city's data (kamdata.leak_markers: area names, landmarks, UPCCs, local phones, city.json leakMarkers) instead of a
+# hand-written Kamloops list, so a third city is covered without editing this file. Below: spellings and
+# formats that cannot be derived (digit-only phones, French price format, retired wording).
+sys.path.insert(0, ROOT)
+import kamdata
+FORBIDDEN = [r'(?<![\w$])' + re.escape(t) + r'(?!\w)' for t in kamdata.leak_markers('kelowna')]
+FORBIDDEN += [r'Kamloops', r'\bTRU\b', r'Secw[eé]pemc', r'Tk.?eml[uú]ps', r'2508283000', r'2,25 ?\$', r'Google Places', r'Columbia St']
 FORB = re.compile('|'.join(FORBIDDEN))
 GARBAGE = re.compile(r'\{[A-Z_]{2,}\}|\bundefined\b|\bNaN\b|\[object Object\]|\bTODO\b')
 

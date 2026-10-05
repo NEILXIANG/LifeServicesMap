@@ -3,6 +3,8 @@
 
     python3 scripts/knowledge.py            # check, then (re)write docs/knowledge/经验库.md and 资产清单.md
     python3 scripts/knowledge.py --check    # check only; fails if anything is wrong or the pages are stale
+    python3 scripts/knowledge.py --brief 导入   # before a step: every rule for that phase (立项 调研 画像 骨架 导入 核实 翻译 城市内容 引擎 上线 维护)
+    python3 scripts/knowledge.py --todo     # lessons still only written down or not in place: the hardening backlog
 
 Source of truth: docs/knowledge/lessons.json — {"lessons": [...], "assets": [...]}.
 
@@ -26,6 +28,13 @@ KB = os.path.join(ROOT, 'docs', 'knowledge')
 SRC = os.path.join(KB, 'lessons.json')
 OUT_LESSONS = os.path.join(KB, '经验库.md')
 OUT_ASSETS = os.path.join(KB, '资产清单.md')
+# 2026-10-04: the data-source catalogue — same pattern (registry checked against the repo, page generated)
+SOURCES = os.path.join(KB, 'sources.json')
+OUT_SOURCES = os.path.join(KB, '数据来源目录.md')
+LEVEL_RE = re.compile(r'^(federal|province:[a-z]+|region:[a-z0-9-]+|operator:[a-z0-9-]+|municipal:[a-z0-9-]+|first-nation:[a-z0-9-]+)$')
+LEVEL_ORDER = ['federal', 'province', 'region', 'operator', 'municipal', 'first-nation']
+LEVEL_NAME = {'federal': '联邦', 'province': '省', 'region': '区域（健康局、学区、区域政府）', 'operator': '运营方',
+              'municipal': '市', 'first-nation': '原住民政府'}
 
 AREAS = ['分发与运营', '数据来源与核实', '坐标与地址', '营业时间', '导入与合并', '引擎与城市分离', '测试与门禁',
          '多语言', '搜索与交互', '安全、法律与隐私', '部署与运维', '方法与流程']
@@ -77,10 +86,62 @@ def check(data):
         t = _read(rel) or ''
         for ref in sorted(set(re.findall(r'\bL-\d{3}\b', t)) - known):
             errs.append('%s cites %s, which is not in the registry' % (rel, ref))
+    # 2026-10-04 (closing the loop): every round of an iteration log must have produced at least one lesson —
+    # a round whose findings never reach the registry is a lesson the next city has to learn again.
+    # A round that genuinely taught nothing new says so in its heading: "（无新经验）".
+    cited_sections = {e.get('section', '') for l in data['lessons'] for e in l.get('evidence', [])}
+    for logf in sorted(f for f in os.listdir(os.path.join(ROOT, 'docs', 'reports')) if f.endswith('迭代日志.md')):
+        rel = os.path.join('docs', 'reports', logf)
+        for h in re.findall(r'^## 第 \d+ 轮[^\n]*', _read(rel) or '', re.M):
+            key = h.split('：')[0]
+            if '无新经验' in h: continue
+            if not any(c == key or c.startswith(key + '：') for c in cited_sections):
+                errs.append('%s "%s": no lesson cites this round — add its lessons to lessons.json' % (rel, h))
     for a in data.get('assets', []):
         for p in a.get('paths', []):
             if not os.path.exists(os.path.join(ROOT, p)): errs.append('asset %r: %s not found' % (a.get('name'), p))
     return errs
+
+def check_sources(src):
+    errs = []
+    ids = [s.get('id') for s in src.get('sources', [])]
+    for i, n in collections.Counter(ids).items():
+        if n > 1: errs.append('source %s: id used %d times' % (i, n))
+    for s in src.get('sources', []):
+        sid = s.get('id', '?')
+        for k in ('name', 'level', 'url', 'licence', 'kind', 'usedBy', 'evidence'):
+            if not s.get(k): errs.append('source %s: missing %s' % (sid, k))
+        if not LEVEL_RE.match(s.get('level', '')): errs.append('source %s: bad level %r' % (sid, s.get('level')))
+        t = _read(s.get('evidence', ''))
+        if t is None: errs.append('source %s: evidence file missing: %s' % (sid, s.get('evidence')))
+        elif s.get('url') not in (None, 'unknown'):
+            joined = re.sub(r"['\"]\s*\n\s*['\"]", '', t)        # a URL split over two string literals
+            if s['url'] not in t and s['url'] not in joined:
+                errs.append('source %s: url not found in %s' % (sid, s['evidence']))
+        if s.get('importer') and not os.path.exists(os.path.join(ROOT, s['importer'])):
+            errs.append('source %s: importer %s not found' % (sid, s['importer']))
+    return errs
+
+def render_sources(src):
+    S = src.get('sources', [])
+    out = ['# 数据来源目录', '',
+           '> 由 `python3 scripts/knowledge.py` 从 `docs/knowledge/sources.json` 生成，**不要手改本文件**；每个网址由脚本核对仍写在出处文件里。',
+           '> 两座城市实际用过的官方和开放数据来源，按层级。下一座 BC 城市只需要补"区域"和"市"两层；外省城市照"省"这一组逐项找对应来源。',
+           '> 只收政府和官方机构；机构自己的官网、新闻不在这里。许可写 unknown 的，用于对外内容之前先查清。', '',
+           '共 %d 个：%s。' % (len(S), '，'.join('%s %d' % (LEVEL_NAME[g], sum(s['level'].split(':')[0] == g for s in S)) for g in LEVEL_ORDER
+                                                if any(s['level'].split(':')[0] == g for s in S)))]
+    def cell(x): return (x or '').replace('|', '／').replace('\n', ' ')
+    for g in LEVEL_ORDER:
+        group = [s for s in S if s['level'].split(':')[0] == g]
+        if not group: continue
+        out += ['', '## %s' % LEVEL_NAME[g]]
+        for lv in sorted({s['level'] for s in group}):
+            out += ['', '### `%s`' % lv, '', '| 来源 | 类型 | 许可 | 用了什么 | 导入工具 | 城市 | 注意 |', '|---|---|---|---|---|---|---|']
+            for s in sorted((x for x in group if x['level'] == lv), key=lambda x: x['name']):
+                name = '[%s](%s)' % (cell(s['name']), s['url']) if s['url'].startswith('http') else cell(s['name'])
+                out.append('| %s | %s | %s | %s | %s | %s | %s |' % (name, s['kind'], cell(s['licence']), cell(s.get('fields')),
+                           '`%s`' % s['importer'] if s.get('importer') else '', ', '.join(s['usedBy']), cell(s.get('gotchas'))))
+    return '\n'.join(out) + '\n'
 
 def render_lessons(data):
     L = data['lessons']
@@ -129,24 +190,50 @@ def render_assets(data):
         out.append('| %s | %s | %s | %s | %s |' % (a['name'], a['type'], a['use'], a['reuse'], '<br>'.join('`%s`' % p for p in a['paths'])))
     return '\n'.join(out) + '\n'
 
+PHASES = ['立项', '调研', '画像', '骨架', '导入', '核实', '翻译', '城市内容', '引擎', '上线', '维护']
+
+def brief(data, phase):
+    """Before a step: the rules that apply to it, the ones nothing enforces first (those are the ones people forget)."""
+    if phase not in PHASES:
+        sys.exit('phase must be one of: ' + ' '.join(PHASES))
+    order = {'todo': 0, 'doc': 1, 'tool': 2, 'auto': 3}
+    L = sorted((l for l in data['lessons'] if l.get('phase') == phase), key=lambda l: (order[l['status']], l['id']))
+    print('# %s：%d 条经验（先列靠人记的，再列已有工具和检查兜底的）\n' % (phase, len(L)))
+    for l in L:
+        print('%s %s %s\n   规则：%s' % (STATUS[l['status']].split()[0], l['id'], l['title'], l['rule']))
+    print('\n全文：docs/knowledge/经验库.md；开工前必读：docs/knowledge/README.md 第三节。')
+
+def todo(data):
+    L = [l for l in data['lessons'] if l['status'] in ('todo', 'doc')]
+    print('# 待加固：%d 条经验还只靠人记或还没落实。每轮挑一两条变成检查或工具（改 status 和 encoded）。\n' % len(L))
+    for l in sorted(L, key=lambda l: (l['status'] != 'todo', l['area'], l['id'])):
+        print('%s %s [%s] %s' % (STATUS[l['status']].split()[0], l['id'], l['area'], l['title']))
+
 def main():
+    if '--brief' in sys.argv or '--todo' in sys.argv:
+        data = json.load(open(SRC, encoding='utf-8'))
+        if '--todo' in sys.argv: todo(data)
+        else: brief(data, sys.argv[sys.argv.index('--brief') + 1] if len(sys.argv) > sys.argv.index('--brief') + 1 else '')
+        return
     only_check = '--check' in sys.argv
     data = json.load(open(SRC, encoding='utf-8'))
-    errs = check(data)
-    pages = {OUT_LESSONS: render_lessons(data), OUT_ASSETS: render_assets(data)}
+    src = json.load(open(SOURCES, encoding='utf-8'))
+    errs = check(data) + check_sources(src)
+    pages = {OUT_LESSONS: render_lessons(data), OUT_ASSETS: render_assets(data), OUT_SOURCES: render_sources(src)}
     if only_check:
         for p, txt in pages.items():
             cur = _read(os.path.relpath(p, ROOT))
             if cur != txt: errs.append('%s is stale — run python3 scripts/knowledge.py' % os.path.relpath(p, ROOT))
     for e in errs: print('  ✗ ' + e)
     c = collections.Counter(l['status'] for l in data['lessons'])
-    print('knowledge: %d lessons (%s), %d assets, %d problem(s)' % (
-        len(data['lessons']), ', '.join('%s %d' % (s, c.get(s, 0)) for s in STATUS), len(data.get('assets', [])), len(errs)))
+    print('knowledge: %d lessons (%s), %d assets, %d sources, %d problem(s)' % (
+        len(data['lessons']), ', '.join('%s %d' % (s, c.get(s, 0)) for s in STATUS), len(data.get('assets', [])),
+        len(src.get('sources', [])), len(errs)))
     if errs: sys.exit(1)
     if not only_check:
         for p, txt in pages.items():
             open(p, 'w', encoding='utf-8').write(txt)
-        print('wrote %s, %s' % (os.path.relpath(OUT_LESSONS, ROOT), os.path.relpath(OUT_ASSETS, ROOT)))
+        print('wrote ' + ', '.join(os.path.relpath(p, ROOT) for p in pages))
 
 if __name__ == '__main__':
     main()

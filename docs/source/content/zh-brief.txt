@@ -5,12 +5,12 @@ out: Kamloops生活指南-介绍-简洁版-中文
 title: Kamloops 生活指南
 eyebrow: 介绍文档 ・ 一览版
 lead: 一个免费、六种语言的指南——像一位早就摸清 Kamloops 门道的朋友，耐心地告诉你遇到事情怎么办、去哪里办、要带什么。给刚到这里安家的人，也给帮助他们的工作人员、志愿者和邻居。
-meta: 网址：{URL} ・ 版本 {VERSION} ・ 地点最近一次整体核对 {VERIFIED} ・ 2026 年 9 月编写
+meta: 网址：{URL} ・ 版本 {VERSION} ・ 地点最近一次整体核对 {VERIFIED} ・ {PREPARED_ZH}编写
 foot: Kamloops 生活指南 · kamloops-lifemap.neilxiang.workers.dev · 个人整理的非商业参考 · 非官方来源
 
 @stats
 {TASKS} | 张按步骤写的办事卡
-{PLACES} | 个核实过的地点，标在地图上
+{PLACES} | 个地点标在地图上，每个都标明来源
 6 | 种语言：<<英・法・西・中・韩・日>>
 $0 | 不注册、无广告、不收集个人信息
 

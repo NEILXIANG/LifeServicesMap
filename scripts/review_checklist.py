@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a city's review checklist and launch-readiness report from its data.
 
-    python3 scripts/review_checklist.py --city kelowna [--out docs/reports/<date>-<City>审核清单.md]
+    python3 scripts/review_checklist.py --city kelowna [--out <file>]   # default: docs/reports/<City>审核清单.md
 
 What it does (methodology §8 上线标准):
 1. Launch-readiness: checks the city against the launch standard — safety-critical coverage, categories,
@@ -17,41 +17,44 @@ _r = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(_r))
 import kamdata
 
-SAFETY = ['hospital', 'pharmacy', 'support', 'gov', 'foodbank', 'legal', 'police', 'dental']
-L6 = ['zh', 'en', 'fr', 'es', 'ko', 'ja']
+TIERS = kamdata.category_tiers()
+SAFETY = TIERS['safety']
+L6 = kamdata.LANGS
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--city', required=True); ap.add_argument('--out')
+    ap.add_argument('--ref', help='reference city for category coverage and hours share (default: city.json review.reference, else kamloops)')
     a = ap.parse_args()
     kamdata.use(a.city)
     meta = kamdata.city_meta()
     P = kamdata.load('P'); T = kamdata.load('TASKS'); BR = kamdata.load('BR'); LM = kamdata.load('LANDMARKS')
-    prov = {}
-    try: prov = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'provenance.json'), encoding='utf-8'))
-    except FileNotFoundError: pass
+    review = meta.get('review', {})
+    ref = a.ref or review.get('reference') or 'kamloops'
+    target = review.get('targetPlaces')
+    refname = kamdata.city_meta(ref)['title'].replace(' Life Guide', '')
+    prov = kamdata.load_import('provenance.json', {})
     # desk checks (2026-10-04): an independent second reader against the official page — not a phone check
-    try: ver = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'verification.json'), encoding='utf-8'))
-    except FileNotFoundError: ver = {}
+    ver = kamdata.load_import('verification.json', {})
     held = []
     for f in sorted(glob.glob(os.path.join(kamdata.city_dir(), 'import', 'research', '*.json'))):
         d = json.load(open(f, encoding='utf-8'))
         held += [(x.get('n'), x.get('verify_notes', '')) for x in d.get('_held_for_review', [])]
-    today = datetime.date.today().isoformat()
+    today = kamdata.today().isoformat()
     name = meta['title'].replace(' Life Guide', '')
     n = len(P)
     six = sum(all(l in p.get('note', {}) for l in L6) for p in P)
     # open-air places have no hours; child care and schools are left out on both sides of the
     # comparison because the government datasets they come from carry no hours (Kamloops: 3/84, 6/33)
-    no_hours = {'park', 'trail', 'beach', 'dogpark', 'splash', 'daycare', 'elem', 'school'}
+    no_hours = set(TIERS['noOfficialHours'])
     hours_base = [p for p in P if p['c'] not in no_hours]
     with_h = sum('h' in p for p in hours_base)
-    kamdata.use('kamloops'); KP = kamdata.load('P'); kamdata.use(a.city)
+    kamdata.use(ref); KP = kamdata.load('P'); kamdata.use(a.city)
     # methodology §8: a category the reference city has must be collected here too if it exists here;
     # one that does not exist (or is deliberately left out) is explained in import/config.json
-    try: absent = json.load(open(os.path.join(kamdata.city_dir(), 'import', 'config.json'), encoding='utf-8')).get('categoriesNotCollected', {})
-    except FileNotFoundError: absent = {}
+    # commercial categories (schemas/category-tiers.json) may be left out without a reason
+    absent = kamdata.load_import('config.json', {}).get('categoriesNotCollected', {})
     absent = {k: v for k, v in absent.items() if not k.startswith('_')}
-    missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent))
+    missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent) - set(TIERS['commercialOptional']))
     kb = [p for p in KP if p['c'] not in no_hours]; kref = 100.0 * sum('h' in p for p in kb) / max(1, len(kb))
     approx = [p for p in P if p.get('precision') == 'low']
     approx_safety = [p for p in approx if p['c'] in SAFETY]
@@ -63,16 +66,17 @@ def main():
     def row(ok, item, detail):
         return '| %s | %s | %s |' % ('✅' if ok is True else '❌' if ok is False else '⚠️', item, detail)
     rows = [
-        row(n >= 450, '地点数量（目标见 PROFILE.md）', '%d' % n),
+        row(bool(target) and n >= target, '地点数量（目标在 city.json review.targetPlaces，依据见 PROFILE.md）',
+            '%d / 目标 %s' % (n, target or '未设')),
         row(six == n, '六种语言', '%d / %d' % (six, n)),
-        row(100.0 * with_h / max(1, len(hours_base)) >= kref - 0.5, '有营业时间（不含露天、托儿、学校；目标不低于 Kamloops 同口径）',
-            '%d / %d（%.0f%%）；Kamloops 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), kref)),
+        row(100.0 * with_h / max(1, len(hours_base)) >= kref - 0.5, '有营业时间（不含露天、托儿、学校；目标不低于 %s 同口径）' % refname,
+            '%d / %d（%.0f%%）；%s 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), refname, kref)),
         row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
         row(all(p['id'] in ver for p in P if p.get('src') != 'opendata'), '非政府数据的地点都经过独立复核（对照官网）',
             '%d / %d；其中安全相关 %d / %d' % (sum(p['id'] in ver for p in P if p.get('src') != 'opendata'), sum(p.get('src') != 'opendata' for p in P),
                                           sum(p['id'] in ver for p in safety), len(safety))),
         row(own >= len(safety), '安全相关地点电话核实（src: own）', '已核实 %d / 安全相关 %d' % (own, len(safety))),
-        row(not missing, 'Kamloops 有的分类这里也有（不存在的写进 config.json 的 categoriesNotCollected）',
+        row(not missing, '%s 有的分类这里也有（商业类可不收；其余不存在的写进 config.json 的 categoriesNotCollected）' % refname,
             ('缺 %d 类：%s' % (len(missing), '、'.join(missing))) if missing else '齐全' + ('（%d 类已说明不收）' % len(absent) if absent else '')),
         row(len(T) > 0, '办事卡', '%d 张' % len(T)),
         row(None if not BR else True, '公交（运营方 GTFS）', '%d 条线路' % len(BR)),
@@ -103,7 +107,9 @@ def main():
     out += ['', '## 四、暂不上地图、需要先确认的（%d 个）' % len(held), '']
     out += ['- **%s**：%s' % (h, (v or '').replace('\n', ' ')[:300]) for h, v in held] or ['（无）']
     out += ['', '## 五、各类别数量', '', '、'.join('%s %d' % (k, v) for k, v in cats.most_common()), '']
-    path = a.out or os.path.join(kamdata.ROOT, 'docs', 'reports', '%s-%s审核清单.md' % (today, name))
+    # 2026-10-04: one current file per city, overwritten on every run (the date is inside). A dated file per run
+    # left three Kelowna checklists in docs/reports/, two of them stale; git keeps every earlier version.
+    path = a.out or os.path.join(kamdata.ROOT, 'docs', 'reports', '%s审核清单.md' % name)
     open(path, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
     print('wrote %s' % os.path.relpath(path, kamdata.ROOT))
     for r in rows: print('  ' + r)

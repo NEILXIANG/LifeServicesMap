@@ -1,5 +1,5 @@
 {
-  "_comment": "构建期城市配置（阶段 1，2026-10-03）。build.py 用它填 引擎（app/engine/）里的 {{CITY_*}} 占位符，并注入 CITY_META。运行期的城市数据仍在 src/data-kamloops.js。",
+  "_comment": "构建期城市配置（阶段 1，2026-10-03）。build.py 用它填 引擎（app/engine/）里的 {{CITY_*}} 占位符，并注入 CITY_META。运行期的城市数据在同目录的 data.js（2026-10-03 起）。",
   "id": "kamloops",
   "country": "ca",
   "province": "bc",
@@ -10,6 +10,21 @@
   "searchStopwords": [
     "kamloops",
     "bc"
+  ],
+  "leakMarkers": [
+    "Thompson Rivers",
+    "Secwépemc",
+    "Secwepemc",
+    "Tk'emlúps",
+    "Tk̓emlúps",
+    "SD73",
+    "SD 73",
+    "Tranquille",
+    "Juniper Ridge",
+    "Barnhartvale",
+    "$2.25",
+    "301 Victoria",
+    "Columbia St"
   ],
   "validate": {
     "minPlaces": 240

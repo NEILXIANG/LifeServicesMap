@@ -12,8 +12,28 @@
     "kelowna",
     "bc"
   ],
+  "leakMarkers": [
+    "Syilx",
+    "SD23",
+    "Okanagan College",
+    "KCR",
+    "Westbank First Nation",
+    "Alertable",
+    "Bernard Ave",
+    "Route 90",
+    "Umo"
+  ],
+  "leakAllow": [
+    "Aberdeen"
+  ],
+  "_leakAllow": "Words another city's fingerprint has that are also real here: Aberdeen Hall Preparatory School (Kamloops has an Aberdeen area).",
   "validate": {
     "minPlaces": 0
+  },
+  "review": {
+    "_comment": "review_checklist.py: place target decided in PROFILE.md (由此决定); reference city for category coverage and hours share.",
+    "targetPlaces": 450,
+    "reference": "kamloops"
   },
   "deploy": {
     "worker": "kelowna-lifemap",

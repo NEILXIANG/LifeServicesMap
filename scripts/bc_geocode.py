@@ -18,22 +18,14 @@ import json, os, re, sys, time, urllib.parse, urllib.request
 
 _r = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(_r)
+if ROOT not in sys.path: sys.path.insert(0, ROOT)
+import kamdata
 CACHE = os.path.join(ROOT, 'data', 'geocode-cache.json')
 API = 'https://geocoder.api.gov.bc.ca/addresses.json'
 TRUSTED_PRECISION = {'CIVIC_NUMBER', 'SITE', 'UNIT', 'OCCUPANT'}
 _last = [0.0]
 
-def _ssl_ctx():
-    """python.org's Python on macOS ships without the system root certificates
-    (same issue as check-links.py): use certifi if installed, else the system bundle."""
-    import ssl
-    for cafile in (lambda: __import__('certifi').where(), lambda: '/etc/ssl/cert.pem'):
-        try:
-            return ssl.create_default_context(cafile=cafile())
-        except Exception:
-            pass
-    return ssl.create_default_context()
-SSL_CTX = _ssl_ctx()
+SSL_CTX = kamdata.ssl_context()     # certifi / system bundle (macOS python.org builds ship without roots)
 
 def _load():
     try:

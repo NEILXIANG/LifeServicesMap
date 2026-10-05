@@ -5,12 +5,12 @@ out: Kamloops-Life-Guide-Introduction-Brief-EN
 title: Kamloops Life Guide
 eyebrow: Introduction · At a glance
 lead: A free, six-language guide for anyone settling into Kamloops — the kind of steady, patient answer you would want from a friend who already knows how things work here. Built for newcomers, and for the staff, volunteers and neighbours who help them.
-meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared September 2026
+meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared {PREPARED}
 foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a personal, non-commercial reference · not an official source
 
 @stats
 {TASKS} | step-by-step task cards
-{PLACES} | verified places on a map
+{PLACES} | places on a map, each showing its source
 6 | languages: <<EN · FR · ES · 中文 · 한국어 · 日本語>>
 $0 | no sign-up, no ads, no personal data
 

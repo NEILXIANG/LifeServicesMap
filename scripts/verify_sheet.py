@@ -18,7 +18,7 @@ _r = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(_r))
 import kamdata
 
-SAFETY = ['hospital', 'pharmacy', 'support', 'gov', 'foodbank', 'legal', 'police', 'dental']
+SAFETY = kamdata.category_tiers()['safety']
 LABEL = {'hospital': '医疗', 'pharmacy': '药房', 'support': '庇护所与危机支持', 'gov': '安置与政府办事',
          'foodbank': '食物', 'legal': '法律', 'police': '警察', 'dental': '牙科'}
 DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
@@ -44,7 +44,7 @@ def main():
     except FileNotFoundError: ver = {}
     order = {c: i for i, c in enumerate(SAFETY)}
     rows = sorted([p for p in P if p['c'] in SAFETY], key=lambda p: (order[p['c']], p['n']))
-    today = datetime.date.today().isoformat()
+    today = kamdata.today().isoformat()
     e = html.escape
     cards = []
     for i, p in enumerate(rows, 1):
@@ -94,8 +94,7 @@ def main():
 <p>如果对方不方便：记下"打不通 / 请回电"，换下一个。不要在电话里留个人信息。</p></div>
 %(cards)s
 </body></html>''' % {'city': e(city), 'today': today, 'n': len(rows), 'cards': '\n'.join(cards)}
-    out = a.out or os.path.join(os.path.dirname(kamdata.ROOT), os.path.basename(kamdata.ROOT) + ' - ops',
-                                'verification', '%s-%s-核实表.html' % (today, city))
+    out = a.out or os.path.join(kamdata.ops_dir(), 'verification', '%s-%s-核实表.html' % (today, city))
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8').write(page)
     print('wrote %s (%d places)' % (out, len(rows)))

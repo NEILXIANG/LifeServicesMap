@@ -23,7 +23,7 @@ def main():
         for i, e in json.load(open(f, encoding='utf-8')).items():
             if i in ids and (e.get('hours_text') or e.get('services_text')):
                 H[i] = {k: e.get(k) for k in ('hours_text', 'services_text', 'source_url', 'notes')}
-                H[i]['fetched'] = datetime.date.today().isoformat()
+                H[i]['fetched'] = kamdata.today().isoformat()
     json.dump(H, open(hours_path(a.city), 'w', encoding='utf-8'), ensure_ascii=False, indent=1, sort_keys=True)
     done = 0; left = []
     for p in P:

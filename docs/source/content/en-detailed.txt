@@ -4,8 +4,8 @@ density: tight
 out: Kamloops-Life-Guide-Introduction-Detailed-EN
 title: Kamloops Life Guide
 eyebrow: Introduction · Detailed
-lead: A free, six-language guide to settling in Kamloops: {TASKS} step-by-step task cards and a map of {PLACES} verified places, made for newcomers doing a dozen unfamiliar things at once — and for everyone who helps them.
-meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared September 2026
+lead: A free, six-language guide to settling in Kamloops: {TASKS} step-by-step task cards and a map of {PLACES} places, made for newcomers doing a dozen unfamiliar things at once — and for everyone who helps them.
+meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared {PREPARED}
 foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a personal, non-commercial reference · not an official source
 
 @qr img_77a170d641.png | Scan to open the guide on a phone.
@@ -26,30 +26,33 @@ foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a persona
 @p Each card starts from the resident's own question rather than the program's name, and answers it the same way every time: why it matters · the steps · what to bring · where to go (address, phone, hours, map pin) · cost · how long it takes · the deadline · what to say at the counter · what to do if you get stuck · the official source it was checked against, with the date. A card can be ticked as done, shared as a link, printed on one page, or (where there is a deadline) added to a phone calendar.
 
 @table
-First weeks | The question it answers
+Just arrived — do these first | The question it answers
 Sit down with a settlement worker | "I do not know what I do not know — who can walk me through it?"
 Get a Social Insurance Number (SIN) | "I need to be able to work and be paid"
 Apply for MSP and get a BC Services Card | "I need health coverage — and I might get sick before it starts"
 Switch to a BC driver's licence | "I want to drive here — and I heard there is a deadline"
 Open a bank account | "I need a bank account, but I have no job here yet"
 Register a child for school (SD73) | "I need to get my child into school"
+Get on the list for a family doctor | "I don't have a family doctor"
+Rent a place safely | "I need a place to rent and I'm worried about scams"
 
 @table
-Ongoing | The question it answers
+Once you are settled — and for long-time residents | The question it answers
 File a tax return — especially on a low income | "I earned little or nothing — do I still have to file taxes?"
 Meet people in this city | "I do not know anyone here"
 Get help caring for an older relative | "My parent is getting older and needs help at home"
 
 @table
-When something goes wrong | The question it answers
+When you need help | The question it answers
 Get care without a family doctor | "I am sick and I do not have a family doctor"
 Get your deposit back | "My landlord is keeping my deposit, or charging fees I doubt"
 Get help when money runs out | "I cannot cover food or rent this month"
 File a human rights complaint | "I was treated unfairly because of who I am"
 Get free legal help | "I have a legal problem and cannot afford a lawyer"
+After a job loss: money, your rights, the next job | "I lost my job"
 
-@h3 The map: {PLACES} verified places
-@p Every place carries its address, phone, website, opening hours (with an "open now" state computed for Kamloops time), a short note in six languages, the date it was last checked and the kind of source it was checked against. Places are grouped into {CATS} categories (government and immigration, medical, dental, pharmacies, schools, daycare, libraries, groceries, Asian markets, food bank, legal aid, thrift stores, transit, banks, post, housing, community centres, religious sites, parks, pools, trails, Indigenous services, crisis support…) across {AREAS} areas of the city, and tagged with {THEMES} themes such as Free & Low-cost, Kids & Family, Indoor / Winter and Multicultural. {ROUTES} BC Transit routes are drawn on the map with every stop named. The six emergency and support lines (911, 811, 211, 310-6789, 1-800-784-2433, 9-8-8) are one tap away from every screen.
+@h3 The map: {PLACES} places
+@p Every place carries its address, phone, website, opening hours (with an "open now" state computed for Kamloops time), a short note in six languages, the date it was last checked and the kind of source it was checked against. Places are grouped into {CATS} categories (government and immigration, medical, dental, pharmacies, schools, daycare, libraries, groceries, Asian markets, food bank, legal aid, thrift stores, transit, banks, post, housing, community centres, religious sites, parks, pools, trails, Indigenous services, crisis support…) across {AREAS} areas of the city, and tagged with {THEMES} themes such as Free & Low-cost, Kids & Family, Indoor / Winter and Multicultural. {ROUTES} BC Transit routes are drawn on the map with every stop named. The 24-hour emergency and support lines (911, 310-6789, 1-800-784-2433, 9-8-8, 811, VictimLinkBC and the KUU-US Indigenous crisis line) are one tap away from every screen, behind 📞 Help now.
 
 @phone img_7ba06bdea1.png | A task card on a phone.
 @figure img_001d82a7d7.png | The guide entrance and the map, on a desktop browser.
@@ -57,7 +60,7 @@ Get free legal help | "I have a legal problem and cannot afford a lawyer"
 
 @h2 3. How it is made and kept honest
 @marks
-**Sources.** Task cards are written from the official program pages (Service Canada, Service BC / ICBC, Health Insurance BC, SD73, CRA, the Residential Tenancy Branch, the BC Human Rights Tribunal, Legal Aid BC…) and re-read against them; the check date is printed at the foot of every card. Place facts come from the organisations' own websites and Google Places; each record shows its own date.
+**Sources.** Task cards are written from the official program pages (Service Canada, Service BC / ICBC, Health Insurance BC, SD73, CRA, the Residential Tenancy Branch, the BC Human Rights Tribunal, Legal Aid BC…) and re-read against them; the check date is printed at the foot of every card. Place facts come from the organisations' own websites and the Province of BC's open data (schools, licensed child care); a few rest on third-party map data and are labelled "listed". Each record shows its own source and date.
 **Verification rules.** A place whose hours cannot be established is shown as "hours unknown", never as "open" or "closed". {APPROX} places whose exact building could not be confirmed from two independent sources are flagged "approximate location" and navigation uses the street address, not the pin. Records that could not be confirmed at all are held back rather than shown.
 **Corrections.** Anyone — a resident, an organisation that is listed, a City department — can email a correction. Errors are fixed, and an organisation that does not wish to be listed is removed, within five working days.
 **Freshness.** The whole set was last checked on {VERIFIED}; the version number ({VERSION}) is printed in the page footer so a printed card can be matched to what was live that day.
