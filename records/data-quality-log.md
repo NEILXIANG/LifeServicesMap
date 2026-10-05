@@ -28,7 +28,7 @@
 | Brocklehurst | 没有超市、药房、医疗点（区域覆盖偏少） | P2 | 待补 |
 | `religious` | 缺印度教、东正教、非英语教会（2026-09-10 从零自查） | P2 | 待补 |
 | 办事卡 rights | 歧视理由列表漏了性别认同、家庭状况、原住民身份（2026-09-21） | P1 | 待核实 |
-| `daycare`（84 条） | 只有 4 条有网址：09-24 的一次性导入（`p25_patch.py`）认为省托儿数据"没有网址"，其实数据有 WEBSITE 列；也没写 Kelowna 已有的工作人员语言、收的年龄、是否减费（CCFRI）。用 `scripts/importers/bc_childcare.py --city kamloops` 重导并对照（L-078）；Kamloops 没有 `import/` 目录，要先建出处记录（2026-10-04 来源目录整理时发现） | P1 | 待补 |
+| `daycare`（80 条，省数据导入） | ~~缺网址和语言、年龄、减费信息~~ **2026-10-04 已处理**：用 `bc_childcare.py --city kamloops --enrich` 对照当天的省数据，80 条全部匹配，id 和本地那句转介不变；备注补上"参加托儿费减免计划（CCFRI）"（90 家全部参加），2 家补上年龄或语言（省数据里这两项对大多数机构是空的）。**网址那条是误报**：省数据里 Kamloops 90 家的 WEBSITE 全是空的，09-24 的导入说得对 | P1 | 已完成 2026-10-04 |
 | 公交 | 仓库里只记了 BC Transit 的运营方编号（`operatorIds=46`，`p11_patch.py` 说明里），没有完整的 GTFS 下载地址；下次重导前写进 `cities/kamloops/import/config.json` | P2 | 待补 |
 | 办事卡 eldercare | 来源指向非政府机构 Interior Community Services；Kelowna 用的是 Interior Health 的 Home and Community Care 页面，两城都适用——下次核实办事卡时考虑统一 | P2 | 待核实 |
 

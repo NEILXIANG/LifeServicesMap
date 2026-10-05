@@ -2546,6 +2546,12 @@
      "ref": "docs/reports/2026-10-04-文档审计与整理.md",
      "section": "## 二、逐个目录的结论与动作",
      "what": "求助面板说法有误"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 21 轮：自主决定待定事项、补全 Kamloops 托儿、部署",
+     "what": "代理把\"有这一列\"读成\"有值\""
     }
    ],
    "encoded": [
@@ -3502,6 +3508,31 @@
      "kind": "doc",
      "path": "docs/archive/README.md",
      "marker": "## 路径变化（读旧文档时对照）"
+    }
+   ]
+  },
+  {
+   "id": "L-116",
+   "title": "补全已上线的数据：先核对数据源里有没有，只补不改",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "一份审计说\"Kamloops 84 家托儿缺网址\"，对照原数据才发现省数据里 Kamloops 的网址列全是空的——差点去\"修\"一个不存在的问题；Kamloops 的备注在通用句后面加了本地转介，\"整句相等才更新\"一条也不会更新。",
+   "rule": "补全线上数据前，先用原数据统计这个字段到底有多少有值；用 --enrich 这类\"只补不改\"的模式：匹配不到的不动，不加记录，不改 id（收藏和勾选按 id 存，L-105），手写内容和本地句子保留，只在通用部分里插入新信息；改动的记录更新核实月份。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 21 轮：自主决定待定事项、补全 Kamloops 托儿、部署",
+     "what": "缺网址是误报；整句相等一条不更新"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "importer",
+     "path": "scripts/importers/bc_childcare.py",
+     "marker": "def enrich(a):"
     }
    ]
   }

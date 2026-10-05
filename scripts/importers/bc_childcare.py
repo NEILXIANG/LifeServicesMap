@@ -2,6 +2,11 @@
 """Licensed GROUP child care for any BC city, from the Province's Child Care Map data.
 
     python3 scripts/importers/bc_childcare.py --city kelowna
+    python3 scripts/importers/bc_childcare.py --city kamloops --enrich --localities KAMLOOPS
+        # 2026-10-04: refresh records already on the map (imported before this script existed) from the current
+        # data: website if missing, and the languages / ages / fee-reduction note. Never adds a record, never
+        # changes an id (favourites and task ticks are stored by id, L-105); only touches records whose note is
+        # still the plain generated one, so a hand-written note is never overwritten.
 
 Source: "Child Care Map Data", Province of British Columbia (catalogue.data.gov.bc.ca,
 dataset child-care-map-data), updated daily, Open Government Licence – British Columbia.
@@ -83,7 +88,11 @@ def building(a):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument('--city', required=True)
     ap.add_argument('--csv', help='use a downloaded copy instead of fetching')
+    ap.add_argument('--enrich', action='store_true', help='update matching records already on the map; add nothing')
+    ap.add_argument('--localities', help='comma-separated CSV CITY values (needed with --enrich when the city has no import/config.json)')
     a = ap.parse_args()
+    if a.enrich:
+        return enrich(a)
     imp = CityImport(a.city, 'bc-childcare-map')
     imp.name_suffix = 'child care'
     cfg = json.load(open(os.path.join(imp.dir, 'import', 'config.json'), encoding='utf-8'))['bc_childcare']
@@ -128,6 +137,55 @@ def main():
         if approx: rec['precision'] = 'low'
         imp.add(rec, r['FAC_PARTY_ID'], loc)
     imp.save()
+
+def _fetch(a):
+    if a.csv:
+        return open(a.csv, encoding='utf-8-sig').read()
+    with urllib.request.urlopen(URL, timeout=120, context=bc_geocode.SSL_CTX) as r:
+        return r.read().decode('utf-8-sig')
+
+def enrich(a):
+    import math
+    sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+    import kamdata
+    kamdata.use(a.city)
+    locs = {x.strip().upper() for x in (a.localities or a.city).split(',')}
+    rows = [r for r in csv.DictReader(io.StringIO(_fetch(a)))
+            if r['CITY'].strip().upper() in locs and r['SERVICE_TYPE_CD'] == 'Licensed Group' and not yes(r.get('IS_DUPLICATE'))]
+    P = kamdata.load('P')
+    def dist(p, r):
+        try: la, ln = float(r['LATITUDE']), float(r['LONGITUDE'])
+        except ValueError: return 1e9
+        return math.hypot((p['lat'] - la) * 111000, (p['lng'] - ln) * 111000 * math.cos(math.radians(la)))
+    def digits(x): return re.sub(r'\D', '', x or '')[-10:]
+    month = kamdata.month(a.city)
+    stats = {'matched': 0, 'note': 0, 'web': 0, 'unmatched': []}
+    for p in P:
+        if p['c'] != 'daycare' or p.get('src') != 'opendata': continue
+        cand = [r for r in rows if dist(p, r) < 250 and (
+                (digits(p.get('p')) and digits(p.get('p')) == digits(r.get('PHONE'))) or
+                norm(base_name(tidy(r['NAME']))) == norm(re.sub(r'\s*\(.*\)$', '', p['n'])))]
+        if not cand:
+            stats['unmatched'].append(p['n']); continue
+        r = min(cand, key=lambda r: dist(p, r)); stats['matched'] += 1
+        changed = False
+        # the generated note, possibly followed by a city's own sentence (Kamloops adds the local Child Care
+        # Resource & Referral line): put the languages / ages / CCFRI after the generated part, keep the rest
+        if all((p['note'].get(l) or '').startswith(BASE[l]) for l in L6):
+            gen = note_for(r)
+            new = {l: gen[l] + p['note'][l][len(BASE[l]):] for l in L6}
+            if any(gen[l] != BASE[l] for l in L6) and not any(LANG_LEAD[l] in p['note'][l] or AGE_LEAD[l] in p['note'][l] for l in L6):
+                p['note'] = new; stats['note'] += 1; changed = True
+        w = (r.get('WEBSITE') or '').strip()
+        w = w if re.match(r'^https?://\S+\.\S+$', w) else ('https://' + w if re.match(r'^www\.\S+\.\S+$', w) else '')
+        if w and not p.get('w'): p['w'] = w; stats['web'] += 1; changed = True
+        if changed: p['v'] = month          # re-checked against today's provincial data
+    kamdata.save('P', P)
+    print('%s: %d licensed group rows; %d of our records matched; %d notes now give languages/ages/CCFRI; %d websites added'
+          % (a.city, len(rows), stats['matched'], stats['note'], stats['web']))
+    if stats['unmatched']:
+        print('not matched (left as they are — closed, renamed or moved? check by phone): %d' % len(stats['unmatched']))
+        for n in stats['unmatched']: print('   ', n)
 
 if __name__ == '__main__':
     main()
