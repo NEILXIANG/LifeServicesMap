@@ -590,6 +590,16 @@ for k in CI:
 # every UI key referenced in code must exist in every language
 used = set(re.findall(r'\bu\.([A-Za-z0-9_]+)', script)) | set(re.findall(r'UI\[[^\]]+\]\.([A-Za-z0-9_]+)', script))
 known = base | post['zh']
+# 2026-10-05: the province pack (provinces/<province>/guide/<lang>.html, injected as PROVINCE.guide) defines
+# guideProv at load time; it must exist in all six languages, and the engine itself must not carry it
+_pm = re.search(r'const PROVINCE=(\{.*?\});\n', html)
+_prov_guide = json.loads(_pm.group(1).replace('<\\/', '</'))['guide'] if _pm else {}
+if _prov_guide:
+    known = known | {'guideProv'}
+    _miss = [l for l in ('zh', 'en', 'fr', 'es', 'ko', 'ja') if not (_prov_guide.get(l) or '').strip()]
+    if _miss: fail('province guide chapter missing in %s (provinces/<province>/guide/<lang>.html)' % _miss)
+if re.search(r'UI\.[a-z]{2}\.guideProv\s*=', _kd.engine_text()):
+    fail('the engine defines guideProv — the province chapter belongs in provinces/<province>/guide/')
 # `u` is also used as a local Set/Array in a couple of places
 SHADOW = {'add','delete','has','size','clear','forEach','map','filter','push','join','d'}
 for k in sorted(used - known - SHADOW):

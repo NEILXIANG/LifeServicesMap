@@ -62,6 +62,11 @@ def main():
         if ad.get('ok') is False and ad.get('official') and p.get('a'):
             fixed.append('address %s → %s' % (p['a'], ad['official'])); p['a'] = ad['official']
         hr = field('hours')
+        # 2026-10-05: "the official source publishes no hours" is a finding too — recorded so the review checklist
+        # can tell a place nobody looked up from one whose page simply has none (the page then says "call first")
+        if not hr.get('official_text') and st in ('confirmed', 'corrected') and not p.get('h') and p['id'] not in hours:
+            hours[p['id']] = {'none': True, 'fetched': today, 'why': (r.get('remarks') or '')[:240],
+                              'source_url': (r.get('checked_urls') or [None])[0]}
         if hr.get('official_text'):
             hours[p['id']] = {'hours_text': hr['official_text'], 'source_url': (r.get('checked_urls') or [None])[0], 'fetched': today}
             if hr.get('ok') is False or not p.get('h'):

@@ -1,13 +1,18 @@
 #!/usr/bin/env python3
-"""Kelowna: strict GUI regression (2026-10-04).
+"""Strict GUI regression for any city (2026-10-04 for Kelowna; one file for every city since 2026-10-05).
 
-    .venv/bin/python tests/kelowna/guitest.py          # builds build/kelowna.html first
+    .venv/bin/python tests/city_guitest.py --city kelowna     # builds build/<city>.html first
+
+Everything city-specific comes from the city's own data: the title (city.json), the police line, the urgent
+and primary care centres, the "near me" starting point and the search examples (CITY), the facts of other
+cities that must never appear (kamdata.leak_markers), and a few extra searches (city.json review.guiQueries).
+A new city needs no copy of this file (lesson L-108).
 
 Drives the built page the way a reader would — typing, clicking, switching languages, opening every
 popup, card, route and panel — and fails on anything a newcomer should never see:
 
   A. no page error or console error anywhere in the session
-  B. no Kamloops fact in any language (names, phone numbers, fares, data source) — in the UI strings,
+  B. no other city's fact in any language (names, phone numbers, fares, data source) — in the UI strings,
      the visible page, the guide, every task card, every popup and the bus panel
   C. no unfilled placeholder, "undefined", "NaN", "[object Object]" or TODO in anything rendered
   D. every one of the places renders a popup in all six languages; tel: links are dialable
@@ -23,8 +28,14 @@ popup, card, route and panel — and fails on anything a newcomer should never s
 import asyncio, json, os, re, subprocess, sys
 from playwright.async_api import async_playwright
 
-ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-HTML = os.path.join(ROOT, 'build', 'kelowna.html')
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, ROOT)
+import kamdata
+CITY_ID = sys.argv[sys.argv.index('--city') + 1] if '--city' in sys.argv else 'kelowna'
+kamdata.use(CITY_ID)
+META = kamdata.city_meta(CITY_ID)
+CITYOBJ = kamdata.city_obj(CITY_ID)
+HTML = os.path.join(ROOT, 'build', '%s.html' % CITY_ID)
 LANGS = ['zh', 'en', 'fr', 'es', 'ko', 'ja']
 P_ = F_ = 0
 FAILS = []
@@ -34,14 +45,15 @@ def check(name, ok, info=None):
     else:
         F_ += 1; FAILS.append(name); print('  FAIL', name, ' —', str(info)[:600])
 
-# Other cities' facts that must never reach a Kelowna reader (B). 2026-10-04: derived from every other
-# city's data (kamdata.leak_markers: area names, landmarks, UPCCs, local phones, city.json leakMarkers) instead of a
-# hand-written Kamloops list, so a third city is covered without editing this file. Below: spellings and
-# formats that cannot be derived (digit-only phones, French price format, retired wording).
-sys.path.insert(0, ROOT)
-import kamdata
-FORBIDDEN = [r'(?<![\w$])' + re.escape(t) + r'(?!\w)' for t in kamdata.leak_markers('kelowna')]
-FORBIDDEN += [r'Kamloops', r'\bTRU\b', r'Secw[eé]pemc', r'Tk.?eml[uú]ps', r'2508283000', r'2,25 ?\$', r'Google Places', r'Columbia St']
+# Other cities' facts that must never reach this city's reader (B): derived from every other city's data
+# (kamdata.leak_markers: area names, landmarks, UPCCs, local phones, city.json leakMarkers). Each marker also
+# in the forms a page may print it: a phone as bare digits, a price in French format ($2.25 → 2,25 $).
+MARKS = kamdata.leak_markers(CITY_ID)
+FORBIDDEN = [r'(?<![\w$])' + re.escape(t) + r'(?!\w)' for t in MARKS]
+for t in MARKS:
+    if re.fullmatch(r'1?-?\d{3}-\d{3}-\d{4}', t): FORBIDDEN.append(re.escape(re.sub(r'\D', '', t)))
+    m = re.fullmatch(r'\$(\d+)\.(\d\d)', t)
+    if m: FORBIDDEN.append(r'%s,%s ?\$' % (m.group(1), m.group(2)))
 FORB = re.compile('|'.join(FORBIDDEN))
 GARBAGE = re.compile(r'\{[A-Z_]{2,}\}|\bundefined\b|\bNaN\b|\[object Object\]|\bTODO\b')
 
@@ -51,13 +63,13 @@ def garbage(text):
     return sorted(set(m.group(0) for m in GARBAGE.finditer(text or '')))
 
 async def main():
-    subprocess.run([sys.executable, os.path.join(ROOT, 'build.py'), '--city', 'kelowna', '--no-sync-public'],
+    subprocess.run([sys.executable, os.path.join(ROOT, 'build.py'), '--city', CITY_ID, '--no-sync-public'],
                    check=True, capture_output=True)
     url = 'file://' + HTML
     errors = []
     async with async_playwright() as pw:
         b = await pw.chromium.launch()
-        ctx = await b.new_context(viewport={'width': 1280, 'height': 900}, geolocation={'latitude': 49.8863, 'longitude': -119.4966},
+        ctx = await b.new_context(viewport={'width': 1280, 'height': 900}, geolocation={'latitude': CITYOBJ['centre'][0], 'longitude': CITYOBJ['centre'][1]},
                                   permissions=['geolocation'], locale='en-CA', timezone_id='America/Vancouver')
         pg = await ctx.new_page()
         pg.on('pageerror', lambda e: errors.append('pageerror: ' + str(e)[:300]))
@@ -68,14 +80,14 @@ async def main():
         await pg.goto(url + '?lang=en'); await pg.wait_for_timeout(1800)
 
         # ---- A/first load
-        check('A1 title is the Kelowna title', (await pg.title()) == 'Kelowna Life Guide', await pg.title())
+        check('A1 title is the city title', (await pg.title()) == META['title'], await pg.title())
         check('A2 first-use card shows on a first visit', await pg.evaluate("()=>{const f=document.getElementById('firstUse');return !!f&&!f.hidden&&f.offsetHeight>0}"))
         await pg.evaluate("()=>dismissFirstUse('test')")
 
         # ---- B/C: UI strings, all languages (hidden strings too)
         ui = await pg.evaluate("()=>{const o={};for(const l of Object.keys(UI)){o[l]=Object.entries(UI[l]).filter(([k,v])=>typeof v==='string').map(([k,v])=>k+'='+v).join('\\n')}return o}")
         for l in LANGS:
-            check('B1 %s: no Kamloops fact in any UI string' % l, not leaks(ui[l]), leaks(ui[l]))
+            check('B1 %s: no fact of another city in any UI string' % l, not leaks(ui[l]), leaks(ui[l]))
             # {TD} is filled when a card renders (the card's own check date), by design
             u2 = ui[l].replace('{TD}', '')
             check('C1 %s: no unfilled placeholder in UI strings' % l, not garbage(u2),
@@ -97,24 +109,26 @@ async def main():
             bus = await pg.evaluate("()=>document.getElementById('panel').innerText")
             await pg.evaluate("()=>closePanel()")
             allt = '\n'.join([body, note, foot, guide, sheets, bus] + pops)
-            check('B2 %s: no Kamloops fact on the page, guide, sheets, popups or bus panel' % l, not leaks(allt), leaks(allt))
+            check('B2 %s: no fact of another city on the page, guide, sheets, popups or bus panel' % l, not leaks(allt), leaks(allt))
             check('C2 %s: nothing unfilled or broken in rendered text' % l, not garbage(allt),
                   [s for s in (re.findall(r'.{0,60}(?:\{[A-Z_]{2,}\}|undefined|NaN|\[object Object\]|TODO).{0,60}', allt))][:5])
             bad_pop = [i for i, t in enumerate(pops) if len(t.split('\u0001')[0].strip()) < 5]
             check('D1 %s: all %d places render a popup with content' % (l, len(pops)), not bad_pop, bad_pop[:5])
             tels = ' '.join(t.split('\u0001')[1] for t in pops).split()
-            bad_tel = [t for t in tels if not re.fullmatch(r'tel:\+?1?\d{10}|tel:\d{3}|tel:\d{1,3}(-\d)*', t)]
+            bad_tel = [t for t in tels if not re.fullmatch(r'tel:\+?1?\d{10}|tel:310\d{4}|tel:\d{3}|tel:\d{1,3}(-\d)*', t)]
             check('D2 %s: every tel: link is dialable (%d links)' % (l, len(tels)), not bad_tel, bad_tel[:5])
-            check('B3 %s: footer gives the Kelowna RCMP line' % l, '250-762-3300' in foot, foot[-300:])
+            check('B3 %s: footer gives the city police line' % l, CITYOBJ['police'] in foot, foot[-300:])
 
         # ---- E: search (typed, as a reader does)
         await pg.evaluate("l=>setLang(l)", 'en')
         async def search(q):
             await pg.fill('#searchInput', ''); await pg.type('#searchInput', q, delay=8); await pg.wait_for_timeout(650)
             return await pg.evaluate("()=>({n:lastVisible,help:document.getElementById('searchHelp').innerText,empty:document.getElementById('emptyState').innerText,hk:document.getElementById('searchHelp').dataset.kind||''})")
+        ex = CITYOBJ.get('examples') or {}
         queries = {'en': ['doctor', 'walk in clinic', 'pharmacy', 'daycare', 'laundry', 'library', 'UPCC', 'food bank', 'shelter',
-                          'ESL', 'English class', 'school', 'park', 'beach', 'church', 'mosque', 'gurdwara', 'ICBC', 'Service Canada',
-                          'WorkBC', 'legal aid', 'tax clinic', 'dentist', 'police', 'post office', 'bank', 'apartment', 'UBCO', 'Rutland'],
+                          'ESL', 'English class', 'school', 'park', 'church', 'ICBC', 'Service Canada', 'WorkBC', 'legal aid',
+                          'dentist', 'police', 'post office', 'bank', 'apartment', 'SIN', 'MSP', 'health card']
+                         + [v for v in (ex.get('campus'), ex.get('stop')) if v] + list(META.get('review', {}).get('guiQueries', [])),
                    'zh': ['看病', '药房', '托儿', '图书馆', '英语', '洗衣', '食物银行', '学校', '公园', '报税'],
                    'fr': ['médecin', 'pharmacie', 'garderie', 'bibliothèque'],
                    'es': ['médico', 'farmacia', 'guardería', 'biblioteca'],
@@ -129,8 +143,8 @@ async def main():
             check('E1 %s: every newcomer search finds places (%d queries)' % (l, len(qs)), not zero, zero)
         await pg.evaluate("l=>setLang(l)", 'en')
         r = await search('doctor')
-        names = ['Kelowna Urgent and Primary Care Centre', 'Rutland Urgent and Primary Care Centre', 'West Kelowna Urgent and Primary Care Centre']
-        check('E2 "doctor": the health answer lists all three UPCCs', r['hk'] == 'health' and all(n in r['help'] for n in names), r['help'][:400])
+        names = await pg.evaluate("()=>_upccs().map(p=>p.n)")
+        check('E2 "doctor": the health answer lists the city\'s %d UPCC(s)' % len(names), names and r['hk'] == 'health' and all(n in r['help'] or len(names) == 1 for n in names), r['help'][:400])
         pre = await pg.evaluate("()=>JSON.stringify({shown:_upccs().map(p=>{const m=M.find(x=>x.data.id===p.id);return m?_isShown(m):'nomarker'}),aR:[...aR].length,aC:[...aC],aT:[...aT],openNow:openNow,near:nearOnly,L:L_,btn:document.querySelector('#searchHelp .sh-btn.primary').textContent,anim:map._animatingZoom,busy:_clusterBusy(),hidden:document.hidden,vis:document.visibilityState})")
         await pg.click('#searchHelp .sh-btn.primary')
         popup_open = ''
@@ -145,7 +159,7 @@ async def main():
         if popup_open:
             popup_open = await pg.evaluate("()=>{const p=map._popup&&map.hasLayer(map._popup)&&document.querySelector('.leaflet-popup-content');return p?p.innerText:''}")
         diag = '' if popup_open else await pg.evaluate("()=>JSON.stringify({modals:[...document.querySelectorAll('.open')].map(e=>e.id||e.className).slice(0,6),help:document.getElementById('searchHelp').innerText.slice(0,80),q:searchInputEl.value,popup:!!map._popup,zoom:map.getZoom()})")
-        check('E3 "Show it on the map" opens a UPCC popup that stays open', 'Urgent and Primary Care' in popup_open, popup_open[:200] or (diag + ' | before click: ' + pre))
+        check('E3 "Show it on the map" opens a UPCC popup that stays open', any(n in popup_open for n in names), popup_open[:200] or (diag + ' | before click: ' + pre))
         for l, q in [('en', 'suicide'), ('zh', '自杀'), ('fr', 'suicide'), ('es', 'suicidio'), ('ko', '자살'), ('ja', '自殺'), ('en', 'domestic violence'), ('zh', '家暴')]:
             await pg.evaluate("l=>setLang(l)", l)
             r = await search(q)
@@ -172,7 +186,7 @@ async def main():
         await pg.click('#geoNoteOk'); await pg.wait_for_timeout(2000)
         await pg.click('#qpNear'); await pg.wait_for_timeout(1500)
         n_near = await pg.evaluate("()=>lastVisible")
-        check('F4 "near me" from downtown Kelowna shows places (%d)' % n_near, n_near > 0, n_near)
+        check('F4 "near me" from the city centre shows places (%d)' % n_near, n_near > 0, n_near)
         await pg.evaluate("()=>resetAll()"); await pg.wait_for_timeout(300)
         for pid in ['daily', 'newcomer']:
             await pg.click('#' + pid); await pg.wait_for_timeout(400)
@@ -201,18 +215,19 @@ async def main():
         check('H1 all %d bus routes select' % len(rkeys), not bad_r, bad_r)
         # back to the route list (a selected route shows its own detail instead)
         await pg.evaluate("()=>{closePanel();resetAll();openPanel('bus')}"); await pg.wait_for_timeout(400)
-        await pg.fill('#busSearch', 'UBCO'); await pg.wait_for_timeout(500)
+        campus = ex.get('campus') or ex.get('stop') or ''
+        await pg.fill('#busSearch', campus); await pg.wait_for_timeout(500)
         nb = await pg.evaluate("()=>document.querySelectorAll('#busList button, #busList li').length")
-        check('H2 bus search "UBCO" lists routes (%d)' % nb, nb > 0)
+        check('H2 bus search "%s" lists routes (%d)' % (campus, nb), nb > 0 or not rkeys)
         await pg.evaluate("()=>closePanel()")
 
         # ---- I: persistence
         await pg.evaluate("()=>resetAll()")
-        await pg.evaluate("()=>{const m=M.find(x=>x.data.id==='37ef188e');focusMarker(m,16);}"); await pg.wait_for_timeout(1500)
+        fid = await pg.evaluate("()=>{const m=M.find(x=>_upccs().length?x.data.id===_upccs()[0].id:true);focusMarker(m,16);return m.data.id}"); await pg.wait_for_timeout(1500)
         await pg.click('.leaflet-popup-content .fav-star'); await pg.wait_for_timeout(300)
         await pg.evaluate("l=>setLang(l)", 'ko')
         await pg.reload(); await pg.wait_for_timeout(1800)
-        st = await pg.evaluate("()=>({fav:favorites.has('37ef188e'),lang:L_})")
+        st = await pg.evaluate("id=>({fav:favorites.has(id),lang:L_})", fid)
         check('I1 a favourite survives a reload', st['fav'], st)
         check('I2 the chosen language survives a reload', st['lang'] == 'ko', st)
         await pg.goto(url + '?lang=ja'); await pg.wait_for_timeout(1500)

@@ -562,7 +562,26 @@
    "free"
   ],
   "id": "5b4fbf06",
-  "w": "https://cofoodbank.com/get-food/"
+  "w": "https://cofoodbank.com/get-food/",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     540,
+     690,
+     0
+    ],
+    [
+     1,
+     6,
+     720,
+     900,
+     0
+    ]
+   ],
+   "q": "qAppt"
+  }
  },
  {
   "n": "Kelowna RCMP Detachment",
@@ -5372,7 +5391,7 @@
    "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
+   "ja": "湖のビーチ公園（オカナガン湖）、犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -5626,7 +5645,7 @@
    "fr": "Parc-plage (lac Okanagan), environ 4 ha (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), unas 4 ha (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 약 4헥타르(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約4ヘクタール（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
+   "ja": "湖のビーチ公園（オカナガン湖）、約4ヘクタール（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6287,7 +6306,7 @@
    "fr": "Parc-plage (lac Okanagan), environ 2 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), unas 2 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 약 2헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約2ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
+   "ja": "湖のビーチ公園（オカナガン湖）、約2ヘクタール、犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6406,7 +6425,7 @@
    "fr": "Parc-plage (lac Okanagan), environ 1 ha, chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), aproximadamente 1 ha, no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 약 1헥타르, 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없는 곳에서는 조심해서 수영하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），約1ヘクタール，犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
+   "ja": "湖のビーチ公園（オカナガン湖）、約1ヘクタール、犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -6480,7 +6499,7 @@
    "fr": "Parc-plage (lac Okanagan), chiens interdits (données ouvertes de la Ville). Très fréquenté l’été pour la baignade ; là où il n’y a pas de sauveteur, baignez-vous prudemment et gardez les enfants à portée de main.",
    "es": "Parque de playa (lago Okanagan), no se permiten perros (datos abiertos de la Ciudad). Muy concurrido para nadar en verano; si no hay socorrista, nade con cuidado y mantenga a los niños a su alcance.",
    "ko": "호숫가 해변 공원(오카나간 호수), 개 출입 금지(시 공개 데이터). 여름에 수영하는 사람이 많습니다. 안전요원이 없을 때는 조심하고, 아이는 손 닿는 곳에 두세요.",
-   "ja": "湖のビーチ公園（オカナガン湖），犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
+   "ja": "湖のビーチ公園（オカナガン湖）、犬の立ち入り禁止（市のオープンデータ）。夏は泳ぐ人で混みます。監視員がいない場所では十分注意して泳ぎ、子どもは手の届く範囲にいさせてください。"
   },
   "src": "opendata",
   "v": "2026-10",
@@ -8064,7 +8083,27 @@
    "5cca590c"
   ],
   "id": "cf723f3f",
-  "w": "https://www.kelownamuseums.ca/plan-your-visit/"
+  "w": "https://www.kelownamuseums.ca/plan-your-visit/",
+  "h": {
+   "r": [
+    [
+     2,
+     3,
+     600,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ]
+   ],
+   "se": "winter",
+   "q": "qSeasonSite"
+  }
  },
  {
   "n": "Laurel Packinghouse — Okanagan Wine and Orchard Museum",
@@ -8333,7 +8372,19 @@
    "售票"
   ],
   "id": "475fe1ed",
-  "w": "https://theatre.kelowna.ca/"
+  "w": "https://theatre.kelowna.ca/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     600,
+     900,
+     0
+    ]
+   ],
+   "q": "qBoxOffice"
+  }
  },
  {
   "n": "Kelowna Family Y",
@@ -10392,7 +10443,18 @@
   "w": "https://www.fruiticana.com/storefinder?city=Kelowna",
   "sameComplex": [
    "c89e4405"
-  ]
+  ],
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     540,
+     1260,
+     0
+    ]
+   ]
+  }
  },
  {
   "n": "Punjab Spice World and Produce Market",
@@ -10812,7 +10874,67 @@
    "谒师所"
   ],
   "id": "bd10da91",
-  "w": "https://www.kelownasikhtemple.ca/"
+  "w": "https://www.kelownasikhtemple.ca/",
+  "h": {
+   "s": [
+    [
+     1,
+     330
+    ],
+    [
+     2,
+     330
+    ],
+    [
+     3,
+     330
+    ],
+    [
+     4,
+     330
+    ],
+    [
+     5,
+     330
+    ],
+    [
+     6,
+     330
+    ],
+    [
+     7,
+     330
+    ],
+    [
+     1,
+     1110
+    ],
+    [
+     2,
+     1110
+    ],
+    [
+     3,
+     1110
+    ],
+    [
+     4,
+     1110
+    ],
+    [
+     5,
+     1110
+    ],
+    [
+     6,
+     1110
+    ],
+    [
+     7,
+     1110
+    ]
+   ]
+  }
  },
  {
   "n": "Kelowna Islamic Center (BCMA Kelowna Branch)",
@@ -10849,7 +10971,15 @@
    "伊斯兰"
   ],
   "id": "db95c7db",
-  "w": "http://org.thebcma.com/kelowna"
+  "w": "http://org.thebcma.com/kelowna",
+  "h": {
+   "s": [
+    [
+     5,
+     810
+    ]
+   ]
+  }
  },
  {
   "n": "Kelowna Buddhist Temple",
@@ -10980,7 +11110,43 @@
    "弥撒"
   ],
   "id": "0324a6a4",
-  "w": "https://spxbc.com/"
+  "w": "https://spxbc.com/",
+  "h": {
+   "s": [
+    [
+     2,
+     540
+    ],
+    [
+     3,
+     540
+    ],
+    [
+     4,
+     540
+    ],
+    [
+     5,
+     540
+    ],
+    [
+     6,
+     960
+    ],
+    [
+     7,
+     510
+    ],
+    [
+     7,
+     690
+    ],
+    [
+     7,
+     1080
+    ]
+   ]
+  }
  },
  {
   "n": "Corpus Christi Parish (Catholic) — Filipino Mass",
@@ -12255,7 +12421,10 @@
    "6644e12d"
   ],
   "id": "9080e12c",
-  "w": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/"
+  "w": "https://psych.ok.ubc.ca/psychology-clinic/walk-in-wellness/",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "UBC Okanagan Student Health Clinic (Student Wellness)",
@@ -12295,7 +12464,25 @@
    "9080e12c"
   ],
   "id": "6644e12d",
-  "w": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/"
+  "w": "https://students.ok.ubc.ca/health-wellness/student-health-clinic/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     750,
+     0
+    ],
+    [
+     1,
+     5,
+     810,
+     960,
+     0
+    ]
+   ]
+  }
  },
  {
   "n": "Okanagan College Counselling Services (Kelowna campus)",
@@ -12538,7 +12725,10 @@
    "机场"
   ],
   "id": "7764a8e2",
-  "w": "https://academyhillmedical.com/"
+  "w": "https://academyhillmedical.com/",
+  "h": {
+   "k": "hCall"
+  }
  },
  {
   "n": "Rutland Community Clinic (for newcomers, Indigenous people, and women's health)",
@@ -13075,7 +13265,10 @@
    "dc2a5fe4"
   ],
   "id": "f2933ab1",
-  "w": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/"
+  "w": "https://kcr.ca/community-services/community-volunteer-income-tax-program-cvitp/",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "KCR Community Resources – Career Paths for Skilled Immigrants",
@@ -13207,7 +13400,10 @@
    "3379f1cd"
   ],
   "id": "36cfbf1f",
-  "w": "https://evangelkelowna.com/esl"
+  "w": "https://evangelkelowna.com/esl",
+  "h": {
+   "k": "hSite"
+  }
  },
  {
   "n": "OCCA Communities Association (formerly Okanagan Chinese Canadian Association)",
@@ -13236,7 +13432,10 @@
    "ca8447e9"
   ],
   "id": "479aeb0c",
-  "w": "https://occabc.ca/"
+  "w": "https://occabc.ca/",
+  "h": {
+   "k": "hCall"
+  }
  },
  {
   "n": "Centre culturel francophone de l'Okanagan (CCFO)",
@@ -13317,7 +13516,10 @@
    "family"
   ],
   "id": "042ee9a9",
-  "w": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help"
+  "w": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help",
+  "h": {
+   "k": "hSite"
+  }
  },
  {
   "n": "Ki-Low-Na Friendship Society",
@@ -13408,7 +13610,19 @@
    "culture"
   ],
   "id": "230597dc",
-  "w": "https://www.wfn.ca/health-wellness.htm"
+  "w": "https://www.wfn.ca/health-wellness.htm",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  }
  },
  {
   "n": "Okanagan Nation Alliance – Main Office",
@@ -13467,7 +13681,10 @@
    "free"
   ],
   "id": "19a2e8f6",
-  "w": "https://centralokanaganunitedchurch.com/"
+  "w": "https://centralokanaganunitedchurch.com/",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "Rotary Club of Kelowna Ogopogo – Free Tax Clinic at St Michael's Cathedral",
@@ -13491,7 +13708,10 @@
    "student"
   ],
   "id": "8ea5b030",
-  "w": "https://rotaryogopogo.org/page/tax-clinic-1"
+  "w": "https://rotaryogopogo.org/page/tax-clinic-1",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "Kelowna's Gospel Mission – Leon Shelter (men)",
@@ -13779,7 +13999,33 @@
    "free"
   ],
   "id": "daf09eae",
-  "w": "https://cofoodbank.com/get-food/"
+  "w": "https://cofoodbank.com/get-food/",
+  "h": {
+   "r": [
+    [
+     2,
+     2,
+     570,
+     750,
+     0
+    ],
+    [
+     3,
+     3,
+     990,
+     1170,
+     0
+    ],
+    [
+     4,
+     4,
+     570,
+     750,
+     0
+    ]
+   ],
+   "q": "qAppt"
+  }
  },
  {
   "n": "John Howard Society of Okanagan & Kootenay – Regional Office",
@@ -13843,7 +14089,10 @@
    "未払い",
    "salaire",
    "salario"
-  ]
+  ],
+  "h": {
+   "k": "hCall"
+  }
  },
  {
   "n": "Workers' Advisers Office – Kelowna",
@@ -14941,7 +15190,10 @@
    "536fa555"
   ],
   "id": "54a572db",
-  "w": "https://www.energyplex.ca/"
+  "w": "https://www.energyplex.ca/",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "Wild Kidz",
@@ -14977,7 +15229,18 @@
    "西基隆拿"
   ],
   "id": "d1d57885",
-  "w": "https://wildkidz.ca/"
+  "w": "https://wildkidz.ca/",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     600,
+     1020,
+     0
+    ]
+   ]
+  }
  },
  {
   "n": "FunSpace Kids",
@@ -15295,7 +15558,10 @@
    "格伦莫尔"
   ],
   "id": "deead411",
-  "w": "https://www.cpliving.com/apartments/trio"
+  "w": "https://www.cpliving.com/apartments/trio",
+  "h": {
+   "k": "hCall"
+  }
  },
  {
   "n": "Associated Property Management (APM) – Kelowna head office",
@@ -15786,7 +16052,10 @@
    "上学"
   ],
   "id": "39e99908",
-  "w": "https://www.sd23.bc.ca/transportation-services-programsservices"
+  "w": "https://www.sd23.bc.ca/transportation-services-programsservices",
+  "h": {
+   "k": "hCallSeason"
+  }
  },
  {
   "n": "City Park Waterpark",

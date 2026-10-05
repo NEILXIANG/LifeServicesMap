@@ -27,7 +27,7 @@ python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城�
 - `scripts/` 校验、链接检查、开放数据导出、统计分析、导入（`importers/`）、审核与核实工具；索引见 `scripts/README.md`。只读的脚本 `--city` 默认 kamloops（build、validate、check-links、export-open），会写数据的必须写 `--city`；`check-all.sh` 遍历全部城市。
 - 共用设置：`provinces/bc/province.json`（假日、热线、冬季提示，同省城市必须一致）；`schemas/category-tiers.json`（安全相关、可不收的商业类等）。脚本里的六语、当地日期、证书、导入路径一律从 `kamdata` 取。
 - `tests/engine/` 引擎测试，用测试城市 `cities/_fixture/`（Testville，由 `tests/make-fixture-city.py` 生成，不要手改）；
-  `tests/kamloops/` 线上城市的完整回归（索引见其 README）；`tests/<城市>/guitest.py` 每座城市的严格界面测试（check-all 自动跑）。
+  `tests/kamloops/` 线上城市的完整回归（索引见其 README）；`tests/city_guitest.py --city <城市>` 每座城市的严格界面测试（一个文件，城市的事实从数据取；check-all 对每座城市自动跑）。
 - `worker.js` 处理 `/api/event`（写 Analytics Engine）并给所有响应加安全头；城市无关，所有城市共用。
 - 部署：每座城市一个 Worker（决策 D1），设置在 `city.json` 的 `deploy` 段；`app/pwa/` 是 sw.js / manifest / 图标模板，
   构建时按城市渲染到部署目录（Kamloops 是 `public/`，网址永久不变、不跳转）。统计按 `blob5` 区分城市，查询加 `--city`。

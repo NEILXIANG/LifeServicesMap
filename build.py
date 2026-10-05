@@ -28,6 +28,7 @@ sys.path.insert(0, HERE)
 import kamdata
 MARKER = '/*__CITY_DATA__*/'
 META_MARKER = '/*__CITY_META__*/'
+PROV_MARKER = '/*__PROVINCE__*/'
 
 
 PWA = os.path.join(HERE, 'app', 'pwa')
@@ -85,6 +86,19 @@ def build(city, out_path=None, inline_libs=True, sync_public=True):
     for k in ('id', 'title', 'description', 'siteUrl', 'storagePrefix', 'searchStopwords'):
         if k not in meta:
             sys.exit('%s: missing "%s"' % (meta_path, k))
+    # 2026-10-05: the province pack — time zone and the guide's province chapter (provinces/<province>/)
+    prov_dir = os.path.join(HERE, 'provinces', meta.get('province') or '-')
+    if not os.path.exists(os.path.join(prov_dir, 'province.json')):
+        sys.exit('%s: no province pack at %s (province.json + guide/<lang>.html)' % (meta_path, prov_dir))
+    pj = json.load(open(os.path.join(prov_dir, 'province.json'), encoding='utf-8'))
+    guide = {}
+    gdir = os.path.join(prov_dir, 'guide')
+    for fn in sorted(os.listdir(gdir)) if os.path.isdir(gdir) else []:
+        if fn.endswith('.html'): guide[fn[:-5]] = open(os.path.join(gdir, fn), encoding='utf-8').read()
+    if PROV_MARKER not in html:
+        sys.exit('the engine (app/engine/) has lost its %s marker' % PROV_MARKER)
+    prov_js = json.dumps({'timezone': pj['timezone'], 'guide': guide}, ensure_ascii=False).replace('</', '<\\/')
+    html = html.replace(PROV_MARKER, prov_js, 1)
     if META_MARKER not in html:
         sys.exit('the engine (app/engine/) has lost its %s marker' % META_MARKER)
     html = html.replace(META_MARKER, json.dumps(meta, ensure_ascii=False), 1)

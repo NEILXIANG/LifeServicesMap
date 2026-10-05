@@ -360,6 +360,7 @@ function openTask(id,src){
     const m=M.find(x=>x.data.id===mb.dataset.pid);
     trackEvent('task_to_map',{id:id,place:mb.dataset.pid});
     closeModal(guideBackdropEl);
+    leaveTaskForMap(id);   // Back returns to this card (85-search-box-sheets.js)
     if(m)focusMarker(m,16);   // focusMarker moves the map; see the note there
   };
 }

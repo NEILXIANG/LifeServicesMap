@@ -48,7 +48,8 @@
  "0324a6a4": {
   "checked": "2026-10-04",
   "fixed": [
-   "note: Korean community meets 3rd Sunday 12:30, not every Saturday"
+   "note: Korean community meets 3rd Sunday 12:30, not every Saturday",
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
   ],
   "method": "desk",
   "remarks": "Fix the Korean community timing to third Sunday 12:30 pm. Our-invitation page says Confession 'Saturday 3pm – 4pm or by appointment'. Email spxkelowna@nelsondiocese.org. Masses also live-streamed on YouTube.",
@@ -407,7 +408,9 @@
  },
  "230597dc": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: hours entered from the official text (see remarks)"
+  ],
   "method": "desk",
   "remarks": "No building opening hours published; individual programs list Monday to Friday 8:30 a.m. to 4:30 p.m. (e.g. Addictions Counselling, Children and Youth Counselling, Home Care/Community Care/In-Home Care). Services 'support ... all who reside on WFN Lands'. Health & Wellness ext. 2. Early Years / Youth & Recreation are at 1880 Quail Lane (250 768 4838).",
   "result": "confirmed",
@@ -780,7 +783,9 @@
  },
  "475fe1ed": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "theatre.kelowna.ca is behind a Cloudflare JavaScript challenge (HTTP 403) so I could not read it directly (WebFetch and plain fetch both blocked; browser tools not allowed in this run). Search-engine index text of theatre.kelowna.ca/box-office and /contact-us says: box office Monday to Friday 10:00 AM to 3:00 PM; for events on weekends or statutory holidays the box office opens 3 hours before show time; general 250-469-8944, box office 250-469-8940; tickets online, by phone 250-469-8940, or in person at Kelowna Community Theatre or the Rotary Centre for the Arts (RCA box office Mon–Fri 1–4 p.m., 421 Cawston Ave). All consistent with the record — verify in a real browser before using the hours.",
   "result": "unresolved",
@@ -967,7 +972,9 @@
  },
  "5b4fbf06": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "Distribution by appointment only; register online first. ID: photo ID for all adults 18+, ID for all children, proof of current Kelowna or West Kelowna address. Closed BC statutory holidays.",
   "result": "confirmed",
@@ -1069,7 +1076,9 @@
  },
  "6644e12d": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "Hours carry an asterisk whose footnote I could not locate on the page. By appointment only, some same-day appointments; call 250-807-9270 (online booking only for STI screening and NP/physician telehealth). Must bring Care Card or PHN (BC or other province except QC) on first visit; international students use iMED until MSP eligible. No-show fees $30/$50.",
   "result": "confirmed",
@@ -2152,7 +2161,9 @@
  },
  "bd10da91": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "Site also says 'Gurdwara Sahib Langar Seva can be undertaken on Sunday(s), Sangrands and Gurpurabs.' Note: the Punjabi version of the daily times on the same page gives the evening as 5:30–8:00 pm while the English says 6:30–8:00 pm — English times used; doors close by 8 pm. Sunday program time is not stated (the page has a dynamic calendar that did not render). Phone (250) 765-7477; donations queries 250-717-7844; info@kelownasikhtemple.ca.",
   "result": "confirmed",
@@ -2343,7 +2354,9 @@
  },
  "cf723f3f": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: hours entered from the official text (see remarks)"
+  ],
   "method": "desk",
   "remarks": "Seasonal hours; winter hours apply now (after Labour Day): Tue, Wed, Sat 10am-5pm. Admission: Adult $5, Student/Senior $4, Youth (5-17) $3, Family $10, 5 & under free, Veterans free. Page also mentions the Vince Bezeau Military Archives and Library.",
   "result": "confirmed",
@@ -2353,7 +2366,9 @@
  },
  "d1d57885": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: hours entered from the official text (see remarks)"
+  ],
   "method": "desk",
   "remarks": "Same page elsewhere says 'drop in Monday through Sunday: 10:00 am to 5:00pm' — inconsistent weekend opening (9am vs 10am); use the banner text (Sat + Sun 9am) or say 'from 9 or 10am'. 'No Reservations Needed!'. Private event closures posted on social media.",
   "result": "confirmed",
@@ -2467,7 +2482,9 @@
  },
  "daf09eae": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "Serves people 'regardless of ... citizenship'. Need photo ID for all adults 18+, ID for all children, proof of current Kelowna or West Kelowna address; register online first; appointments only.",
   "result": "confirmed",
@@ -2489,7 +2506,9 @@
  },
  "db95c7db": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: structured hours entered by hand from the official text in import/hours.json"
+  ],
   "method": "desk",
   "remarks": "Daily prayer times change with the season — only Jummah (Friday) 1:30 PM is a stable time; link to the page for daily times. Page lists Weekend School/Madrasa. A July 2026 news item announced two Jummah prayers on one date (one-off). Email kelownamasjid@thebcma.com.",
   "result": "confirmed",
@@ -2818,7 +2837,9 @@
  },
  "f4c238b9": {
   "checked": "2026-10-04",
-  "fixed": [],
+  "fixed": [
+   "2026-10-05: hours entered from the official text (see remarks)"
+  ],
   "method": "desk",
   "remarks": "Store finder gives one daily range (no day breakdown); assume every day unless the store says otherwise. Chain has stores in BC and Alberta (Abbotsford, Calgary, Edmonton, etc.).",
   "result": "confirmed",

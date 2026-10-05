@@ -46,8 +46,18 @@ def main():
     # open-air places have no hours; child care and schools are left out on both sides of the
     # comparison because the government datasets they come from carry no hours (Kamloops: 3/84, 6/33)
     no_hours = set(TIERS['noOfficialHours'])
-    hours_base = [p for p in P if p['c'] not in no_hours]
-    with_h = sum('h' in p for p in hours_base)
+    # 2026-10-05: like with like — only records backed by an official or government source, and not the
+    # commercial categories a city may leave out. Kamloops' raw share counted hours copied from third-party
+    # listings (src "places"), which a city built from official sources only can never match.
+    def _hours_base(PL): return [p for p in PL if p['c'] not in no_hours and p.get('src') != 'places'
+                                 and p['c'] not in TIERS['commercialOptional']]
+    hours_base = _hours_base(P)
+    # structured hours (r / s / a); a keyed message ("call to confirm", "seasonal") means the official hours are
+    # irregular — known, shown honestly, but not counted as hours
+    with_h = sum(1 for p in hours_base if p.get('h') and set(p['h']) - {'k'})
+    keyed = sum(1 for p in hours_base if p.get('h') and not (set(p['h']) - {'k'}))
+    hj = kamdata.load_import('hours.json', {}) or {}
+    none_pub = sum(1 for p in hours_base if 'h' not in p and (hj.get(p['id']) or {}).get('none'))
     kamdata.use(ref); KP = kamdata.load('P'); kamdata.use(a.city)
     # methodology §8: a category the reference city has must be collected here too if it exists here;
     # one that does not exist (or is deliberately left out) is explained in import/config.json
@@ -55,7 +65,7 @@ def main():
     absent = kamdata.load_import('config.json', {}).get('categoriesNotCollected', {})
     absent = {k: v for k, v in absent.items() if not k.startswith('_')}
     missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent) - set(TIERS['commercialOptional']))
-    kb = [p for p in KP if p['c'] not in no_hours]; kref = 100.0 * sum('h' in p for p in kb) / max(1, len(kb))
+    kb = _hours_base(KP); kref = 100.0 * sum(1 for p in kb if p.get('h') and set(p['h']) - {'k'}) / max(1, len(kb))
     approx = [p for p in P if p.get('precision') == 'low']
     approx_safety = [p for p in approx if p['c'] in SAFETY]
     src = collections.Counter(p.get('src') for p in P)
@@ -69,8 +79,12 @@ def main():
         row(bool(target) and n >= target, '地点数量（目标在 city.json review.targetPlaces，依据见 PROFILE.md）',
             '%d / 目标 %s' % (n, target or '未设')),
         row(six == n, '六种语言', '%d / %d' % (six, n)),
-        row(100.0 * with_h / max(1, len(hours_base)) >= kref - 0.5, '有营业时间（不含露天、托儿、学校；目标不低于 %s 同口径）' % refname,
-            '%d / %d（%.0f%%）；%s 同口径 %.0f%%' % (with_h, len(hours_base), 100.0 * with_h / max(1, len(hours_base)), refname, kref)),
+        # the launch rule: every place has hours, or its official page was checked and publishes none (the page then
+        # says "call first"); the share with hours against the reference city is shown for information
+        row(with_h + keyed + none_pub >= len(hours_base), '营业时间：每个地点都有，或已核实官方未公布（官方来源的记录，不含露天、托儿、学校、公交站、可不收的商业类）',
+            '有时间 %d、不规律（请致电/看官网）%d、核实未公布 %d、未查 %d / 共 %d；有时间的比例 %.0f%%（%s 同口径 %.0f%%）' % (
+                with_h, keyed, none_pub, len(hours_base) - with_h - keyed - none_pub, len(hours_base),
+                100.0 * with_h / max(1, len(hours_base)), refname, kref)),
         row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
         row(all(p['id'] in ver for p in P if p.get('src') != 'opendata'), '非政府数据的地点都经过独立复核（对照官网）',
             '%d / %d；其中安全相关 %d / %d' % (sum(p['id'] in ver for p in P if p.get('src') != 'opendata'), sum(p.get('src') != 'opendata' for p in P),

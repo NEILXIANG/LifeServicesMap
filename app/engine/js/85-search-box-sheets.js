@@ -103,6 +103,16 @@ let lastFocused=null;
 // the entry itself so Back never has a stale sheet to return to.
 const _SHEET_KEY='kSheet';
 let _popSelf=false,_popSelfTimer=null;
+// 2026-10-05 (newcomer test): "Open it on the map" from a card closed the guide and took its history entries
+// with it, so the next Back left the site. It now leaves one entry behind; Back from the map reopens that card.
+const _FROM_TASK='kFromTask';
+let _afterPop=null,_onTaskMap=null;
+function leaveTaskForMap(id){
+  const st=Object.assign({},history.state||{});delete st[_SHEET_KEY];st[_FROM_TASK]=id;
+  _onTaskMap=id;
+  // closing the guide may still be stepping back through history: add the entry once that has landed
+  if(_popSelf)_afterPop=st;else{try{history.pushState(st,'',location.href);}catch(e){}}
+}
 function pushSheetState(id){
   try{
     if(history.state&&history.state[_SHEET_KEY]===id)return;
@@ -127,7 +137,12 @@ window.addEventListener('popstate',e=>{
   // Whatever entry we land on, the address bar must describe the filters as
   // they are now — the popped entry carries the URL from before the sheet
   // opened, and filters are usually changed *inside* the sheet.
-  if(_popSelf){_popSelf=false;clearTimeout(_popSelfTimer);writeURLState();return;}
+  if(_popSelf){_popSelf=false;clearTimeout(_popSelfTimer);writeURLState();
+    if(_afterPop){const st=_afterPop;_afterPop=null;try{history.pushState(st,'',location.href);}catch(err){}}
+    return;}
+  // Back from the map we reached through a card: return to that card
+  if(_onTaskMap&&!(e.state&&e.state[_FROM_TASK])){const id=_onTaskMap;_onTaskMap=null;
+    if(!guideBackdropEl.classList.contains('open')){try{map.closePopup();}catch(err){}openGuide('back',id);return;}}
   const id=(e.state&&e.state[_SHEET_KEY])||null;
   // Back from an open card returns to the list
   if(id==='guideBackdrop'&&guideBackdropEl.classList.contains('open')&&_taskOpen){renderTaskList();return;}

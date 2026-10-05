@@ -244,8 +244,8 @@
   "note": {
    "zh": "本市的大学。综合咨询电话和柜台工作日 9:00–16:00；免费电话 1-800-663-9711",
    "en": "The city's university. General inquiries by phone and at the counter weekdays 9–4; toll-free 1-800-663-9711",
-   "fr": "L'université de la ville. Renseignements généraux par téléphone et au comptoir en semaine 9h-16h; sans frais 1-800-663-9711",
-   "es": "La universidad de la ciudad. Información general por teléfono y en ventanilla entre semana de 9 a 16h; línea gratuita 1-800-663-9711",
+   "fr": "L'université de la ville. Renseignements généraux par téléphone et au comptoir en semaine de 9 h à 16 h ; sans frais 1-800-663-9711",
+   "es": "La universidad de la ciudad. Información general por teléfono y en ventanilla entre semana de 9 a 16 h; línea gratuita 1-800-663-9711",
    "ko": "이 도시의 대학교. 일반 문의는 전화와 창구 모두 평일 9-16시, 수신자 부담 1-800-663-9711",
    "ja": "市内の大学。一般の問い合わせは電話・窓口とも平日9〜16時、フリーダイヤル1-800-663-9711"
   },
@@ -302,7 +302,7 @@
   "p": "250-374-0608",
   "w": "https://www.sd73.bc.ca/beattie",
   "note": {
-   "zh": "SKSS 的对口小学（毕业后升入 SKSS）。这里有 StrongStart（Eagles' Nest StrongStart）：0–5 岁孩子和家长一起参加的免费早教活动，<b>需要先填表登记</b>（附孩子出生证明和医疗卡复印件）；每周登记一天，就能保住整个学年的名额。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "zh": "SKSS 的对口小学（毕业后升入 SKSS）。这里有 StrongStart（Eagles' Nest StrongStart）：0–5 岁孩子和家长或其他照顾者一起参加的免费早教活动，<b>需要先填表登记</b>（附孩子出生证明和医疗卡复印件）；每周登记一天，就能保住整个学年的名额。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
    "en": "Feeder school for SKSS (South Kamloops Secondary). Has a StrongStart centre (Eagles' Nest StrongStart): free early learning for children from birth to age 5 with their parent or caregiver. You must register with the form (plus copies of the birth certificate and care card); signing up for one day a week holds your spot for the school year. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
    "fr": "École nourricière de SKSS. Accueille un centre StrongStart (Eagles' Nest StrongStart) : éveil gratuit pour les enfants de la naissance à 5 ans avec leur parent ou gardien. Il faut s’inscrire avec le formulaire (et des copies de l’acte de naissance et de la carte santé) ; s’inscrire pour un jour par semaine réserve votre place pour l’année scolaire. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
    "es": "Sus alumnos pasan después a la secundaria SKSS. Tiene un centro StrongStart (Eagles' Nest StrongStart): aprendizaje temprano gratuito para niños desde el nacimiento hasta los 5 años con su padre, madre o cuidador. Hay que inscribirse con el formulario (y copias de la partida de nacimiento y de la tarjeta sanitaria); inscribirse para un día a la semana le asegura la plaza durante el año escolar. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
@@ -333,7 +333,7 @@
   "w": "https://www.sd73.bc.ca/south-sahali",
   "note": {
    "zh": "学生毕业后对口升入 SKSS；开设法语沉浸（French Immersion）课程。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
-   "en": "Feeder school for SKSS; offers French Immersion. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
+   "en": "Feeder school for SKSS (South Kamloops Secondary); offers French Immersion. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
    "fr": "École nourricière de SKSS ; offre l’immersion française. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
    "es": "Sus alumnos pasan después a SKSS; ofrece inmersión en francés. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
    "ko": "SKSS로 진학하는 학교로, 프랑스어 몰입(French Immersion) 과정이 있습니다. 사무실 운영 시간과 수업 시간은 학교마다 다르고 해마다 바뀝니다 — 가기 전에 학교에 전화하거나 홈페이지를 확인하세요.",
@@ -380,7 +380,7 @@
   "p": "250-376-7217",
   "w": "https://www.sd73.bc.ca/ahatton",
   "note": {
-   "zh": "NorKam 的对口小学（毕业后升入 NorKam）。这里有 StrongStart：0–5 岁孩子和家长一起参加的免费早教活动，<b>需要先登记</b>——填好报名表，连同孩子出生证明的复印件一起交来。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "zh": "NorKam 的对口小学（毕业后升入 NorKam）。这里有 StrongStart：0–5 岁孩子和家长或其他照顾者一起参加的免费早教活动，<b>需要先登记</b>——填好报名表，连同孩子出生证明的复印件一起交来。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
    "en": "Feeder school for NorKam (NorKam Senior Secondary). Has a StrongStart centre: free early learning for children from birth to age 5 with their parent or caregiver — register first with the form and a copy of your child’s birth certificate. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
    "fr": "École nourricière de NorKam. Accueille un centre StrongStart : éveil gratuit pour les enfants de la naissance à 5 ans avec leur parent ou gardien — inscrivez-vous d’abord avec le formulaire et une copie de l’acte de naissance de l’enfant. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
    "es": "Sus alumnos pasan después a la secundaria NorKam. Tiene un centro StrongStart: aprendizaje temprano gratuito para niños desde el nacimiento hasta los 5 años con su padre, madre o cuidador; primero hay que inscribirse con el formulario y una copia de la partida de nacimiento del niño. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
@@ -434,10 +434,10 @@
   "p": "250-376-6224",
   "w": "https://www.sd73.bc.ca/aeperry",
   "note": {
-   "zh": "SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）。这里有 StrongStart：0–5 岁孩子和家长一起参加的免费早教活动，怎么报名请问学校。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "zh": "SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）。这里有 StrongStart：0–5 岁孩子和家长或其他照顾者一起参加的免费早教活动，怎么报名请问学校。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
    "en": "SD73 elementary; to register, bring your child’s birth certificate, BC Services Card and proof of address (and a custody agreement if one applies). Has a StrongStart centre: free early learning for children from birth to age 5 with their parent or caregiver — ask the school how to sign up. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
    "fr": "École primaire du SD73 ; pour l’inscription, apportez l’acte de naissance de l’enfant, sa carte BC Services et une preuve d’adresse (et l’entente de garde, le cas échéant). Accueille un centre StrongStart : éveil gratuit pour les enfants de la naissance à 5 ans avec leur parent ou gardien — demandez à l’école comment s’y inscrire. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
-   "es": "Primaria del SD73; para inscribir, traiga la partida de nacimiento del niño, su BC Services Card y un comprobante de domicilio (y el acuerdo de custodia, si corresponde). Tiene un centro StrongStart: aprendizaje temprano gratuito para niños desde el nacimiento hasta los 5 años con su padre, madre o cuidador; pregunte en la escuela cómo apuntarse. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
+   "es": "Primaria del SD73; para inscribir, traiga la partida de nacimiento del niño, su BC Services Card y un comprobante de domicilio (y el acuerdo de custodia, si corresponde). Tiene un centro StrongStart: aprendizaje temprano gratuito para niños desde el nacimiento hasta los 5 años con su padre, madre o cuidador; pregunte en la escuela cómo inscribirse. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
    "ko": "SD73 초등학교. 등록 시 아이의 출생증명서, BC Services Card, 주소 증빙(해당 시 양육권 합의서)을 가져오세요. StrongStart 센터가 있습니다: 0~5세 아이가 부모나 보호자와 함께 참여하는 무료 조기 학습으로, 참여 방법은 학교에 문의하세요. 사무실 운영 시간과 수업 시간은 학교마다 다르고 해마다 바뀝니다 — 가기 전에 학교에 전화하거나 홈페이지를 확인하세요.",
    "ja": "SD73の小学校。登録には子どもの出生証明書、BC Services Card、住所の証明（該当する場合は親権の取り決め）を持参。StrongStartがあります：0〜5歳の子どもが親や保護者と一緒に参加できる無料の幼児教育で、参加方法は学校に問い合わせてください。事務室の受付時間や授業時間は学校ごとに異なり、年度によっても変わります — 行く前に学校に電話するか、学校のページで確認してください。"
   },
@@ -512,7 +512,7 @@
   "p": "250-372-2027",
   "w": "https://www.sd73.bc.ca/mschilling",
   "note": {
-   "zh": "SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）。这里有 StrongStart：0–5 岁孩子和家长一起参加的免费早教活动，<b>需要先填表登记</b>（附孩子出生证明和医疗卡复印件）；每周登记一天，就能保住整个学年的名额。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "zh": "SD73 学区小学；登记入学要带孩子的出生证明、BC Services Card、住址证明（有监护协议的也要带）。这里有 StrongStart：0–5 岁孩子和家长或其他照顾者一起参加的免费早教活动，<b>需要先填表登记</b>（附孩子出生证明和医疗卡复印件）；每周登记一天，就能保住整个学年的名额。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
    "en": "SD73 elementary; to register, bring your child’s birth certificate, BC Services Card and proof of address (and a custody agreement if one applies). Has a StrongStart centre: free early learning for children from birth to age 5 with their parent or caregiver. You must register with the form (plus copies of the birth certificate and care card); signing up for one day a week holds your spot for the school year. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
    "fr": "École primaire du SD73 ; pour l’inscription, apportez l’acte de naissance de l’enfant, sa carte BC Services et une preuve d’adresse (et l’entente de garde, le cas échéant). Accueille un centre StrongStart : éveil gratuit pour les enfants de la naissance à 5 ans avec leur parent ou gardien. Il faut s’inscrire avec le formulaire (et des copies de l’acte de naissance et de la carte santé) ; s’inscrire pour un jour par semaine réserve votre place pour l’année scolaire. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
    "es": "Primaria del SD73; para inscribir, traiga la partida de nacimiento del niño, su BC Services Card y un comprobante de domicilio (y el acuerdo de custodia, si corresponde). Tiene un centro StrongStart: aprendizaje temprano gratuito para niños desde el nacimiento hasta los 5 años con su padre, madre o cuidador. Hay que inscribirse con el formulario (y copias de la partida de nacimiento y de la tarjeta sanitaria); inscribirse para un día a la semana le asegura la plaza durante el año escolar. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
@@ -752,12 +752,12 @@
    ]
   },
   "note": {
-   "zh": "⭐有当天急诊预约，请先打电话",
+   "zh": "⭐提供当天牙科急诊预约，请先给诊所打电话",
    "en": "⭐ Offers same-day emergency appointments; call the office first",
    "fr": "⭐ Offre des rendez-vous d'urgence le jour même ; appelez d'abord le cabinet",
    "es": "⭐ Ofrece citas de urgencia el mismo día; llame primero a la clínica",
-   "ko": "⭐ 당일 응급 예약 가능, 먼저 전화하세요",
-   "ja": "⭐当日の緊急予約に対応、まず電話を"
+   "ko": "⭐ 당일 치과 응급 예약 가능, 먼저 치과에 전화하세요",
+   "ja": "⭐歯科の当日急患予約に対応。まず医院に電話を"
   },
   "src": "official",
   "v": "2026-10",
@@ -1156,7 +1156,7 @@
    "zh": "⭐Riverside Park 的无障碍戏水公园，紧邻融合式儿童游乐场；Riverside 停车收费。和 Westsyde Centennial Park 的戏水公园不是同一个",
    "en": "⭐ Riverside Park's accessible water park, right beside the inclusive playground; parking at Riverside is paid. Not the same as the water park in Westsyde Centennial Park",
    "fr": "⭐ Les jeux d'eau accessibles du parc Riverside, juste à côté du terrain de jeu inclusif ; stationnement payant à Riverside. À ne pas confondre avec les jeux d'eau du parc Westsyde Centennial",
-   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el aparcamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
+   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el estacionamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
    "ko": "⭐ Riverside Park의 무장애 물놀이 시설로, 통합 놀이터 바로 옆. Riverside 주차는 유료. Westsyde Centennial Park의 물놀이 시설과는 다른 곳",
    "ja": "⭐Riverside Parkのバリアフリー水遊び場、インクルーシブ・プレイグラウンドのすぐ隣。Riversideの駐車場は有料。Westsyde Centennial Parkの水遊び場とは別の場所"
   },
@@ -1204,7 +1204,7 @@
    "zh": "无障碍戏水公园（2025年新建），旁边是无障碍儿童游乐场；有洗手间、更衣室和免费停车",
    "en": "Accessible water park (new in 2025) beside an accessible playground, with washrooms, change rooms and free parking",
    "fr": "Jeux d'eau accessibles (nouveaux en 2025) à côté d'un terrain de jeu accessible, avec toilettes, vestiaires et stationnement gratuit",
-   "es": "Parque acuático accesible (nuevo en 2025) junto a una zona de juegos accesible, con baños, vestuarios y aparcamiento gratuito",
+   "es": "Parque acuático accesible (nuevo en 2025) junto a una zona de juegos accesible, con baños, vestuarios y estacionamiento gratuito",
    "ko": "무장애 물놀이 시설(2025년 신설)과 무장애 놀이터, 화장실·탈의실·무료 주차",
    "ja": "バリアフリーの水遊び場（2025年新設）とバリアフリーのプレイグラウンド、トイレ、更衣室、無料駐車場あり"
   },
@@ -1283,7 +1283,7 @@
    "q": "qSeasonSite"
   },
   "note": {
-   "zh": "位于Westsyde Centennial Park内，同园有儿童游乐场、pump track、飞盘高尔夫和球场。公园内不允许带狗（狗只能在堤坝下方不拴绳、堤坝上拴绳）",
+   "zh": "位于Westsyde Centennial Park内，同园有儿童游乐场、自行车泵道（pump track）、飞盘高尔夫和球场。公园内不允许带狗（狗只能在堤坝下方不拴绳、堤坝上拴绳）",
    "en": "Inside Westsyde Centennial Park, which also has a playground, pump track, disc golf and sports courts. Dogs are not allowed inside the park (off leash below the dike, on leash on the dike only)",
    "fr": "Dans le parc Westsyde Centennial, qui compte aussi un terrain de jeu, une piste à bosses (pump track), du disc golf et des terrains de sport. Chiens interdits dans le parc (sans laisse sous la digue, en laisse sur la digue seulement)",
    "es": "Dentro del Westsyde Centennial Park, que también tiene zona de juegos, pump track, disc golf y canchas deportivas. No se permiten perros dentro del parque (solo sin correa debajo del dique y con correa sobre el dique)",
@@ -1624,7 +1624,7 @@
    "zh": "免费停车；公众滑冰时段请查市政府的康乐时间表",
    "en": "Free parking; check the City's recreation schedule for public skating times",
    "fr": "Stationnement gratuit ; consultez l'horaire des loisirs de la Ville pour le patinage public",
-   "es": "Aparcamiento gratuito; consulte el horario de recreación de la Ciudad para el patinaje público",
+   "es": "Estacionamiento gratuito; consulte el horario de recreación de la Ciudad para el patinaje público",
    "ko": "무료 주차, 일반 스케이팅 시간은 시의 레크리에이션 일정표를 확인하세요",
    "ja": "駐車無料、一般スケートの時間は市のレクリエーション予定表で確認"
   },
@@ -1662,7 +1662,7 @@
    "fr": "⭐ Pataugeoire l'été, terrain de jeu et toilettes",
    "es": "⭐ Piscina infantil en verano, zona de juegos y baños",
    "ko": "⭐ 여름 물놀이장, 놀이터, 화장실",
-   "ja": "⭐夏の浅瀬プール、プレイグラウンド、トイレ"
+   "ja": "⭐夏の子ども用の浅いプール、プレイグラウンド、トイレ"
   },
   "src": "official",
   "v": "2026-10",
@@ -1810,7 +1810,7 @@
    ]
   },
   "note": {
-   "zh": "⭐戏水公园、儿童游乐场、足球场和球场、pump track、飞盘高尔夫和狗公园。河里不能游泳（水流湍急）。",
+   "zh": "⭐戏水公园、儿童游乐场、运动场和球场、自行车泵道（pump track）、飞盘高尔夫和狗公园。河里不能游泳（水流湍急）。",
    "en": "⭐ Water park, playground, sports fields and courts, a pump track, disc golf and a dog park. No swimming in the river (strong currents).",
    "fr": "⭐ Jeux d'eau, terrain de jeu, terrains et courts de sport, piste à bosses (pump track), disc golf et parc à chiens. Baignade interdite dans la rivière (forts courants).",
    "es": "⭐ Parque acuático, zona de juegos, campos y canchas deportivas, pump track, disc golf y parque canino. No se puede nadar en el río (corrientes fuertes).",
@@ -1952,7 +1952,7 @@
    ]
   },
   "note": {
-   "zh": "社区小型儿童游乐公园，有儿童游乐场",
+   "zh": "社区小公园，有适合幼儿的儿童游乐场",
    "en": "A small neighbourhood park with a playground for young children",
    "fr": "Un petit parc de quartier avec un terrain de jeu pour jeunes enfants",
    "es": "Un pequeño parque de barrio con zona de juegos para niños pequeños",
@@ -2054,7 +2054,7 @@
   "a": "2110 Grasslands Blvd",
   "p": "250-828-3311",
   "note": {
-   "zh": "社区小型儿童游乐公园，有儿童游乐场（无洗手间）",
+   "zh": "社区小公园，有适合幼儿的儿童游乐场（无洗手间）",
    "en": "A small neighbourhood park with a playground for young children (no washrooms)",
    "fr": "Un petit parc de quartier avec un terrain de jeu pour jeunes enfants (pas de toilettes)",
    "es": "Un pequeño parque de barrio con zona de juegos para niños pequeños (sin baños)",
@@ -2257,7 +2257,7 @@
    "zh": "足球场1块、网球/多功能球场，免费停车；旁边是 Valleyview Community Hall",
    "en": "One soccer field, a tennis/multi-purpose court and free parking; Valleyview Community Hall is beside it",
    "fr": "Un terrain de soccer, un court de tennis/multisport et stationnement gratuit ; la salle Valleyview Community Hall est à côté",
-   "es": "Un campo de fútbol, una cancha de tenis/multiuso y aparcamiento gratuito; al lado está el Valleyview Community Hall",
+   "es": "Un campo de fútbol, una cancha de tenis/multiuso y estacionamiento gratuito; al lado está el Valleyview Community Hall",
    "ko": "축구장 1면, 테니스·다목적 코트, 무료 주차. 옆에 Valleyview Community Hall이 있음",
    "ja": "サッカー場1面、テニス・多目的コート、無料駐車場。隣にValleyview Community Hallあり"
   },
@@ -2283,7 +2283,7 @@
    "zh": "⭐Python Lake 小湖、儿童游乐场和步道；狗需拴绳；免费停车",
    "en": "⭐ Python Lake, a playground and trails; dogs on leash; free parking",
    "fr": "⭐ Le lac Python, un terrain de jeu et des sentiers ; chiens en laisse ; stationnement gratuit",
-   "es": "⭐ Python Lake, zona de juegos y senderos; perros con correa; aparcamiento gratuito",
+   "es": "⭐ Python Lake, zona de juegos y senderos; perros con correa; estacionamiento gratuito",
    "ko": "⭐ Python Lake, 놀이터, 산책로. 반려견은 목줄 필수, 무료 주차",
    "ja": "⭐Python Lake、プレイグラウンド、トレイル。犬はリード着用、駐車無料"
   },
@@ -2370,7 +2370,7 @@
    "zh": "足球场1块；狗需拴绳；免费停车",
    "en": "One soccer field; dogs on leash; free parking",
    "fr": "Un terrain de soccer ; chiens en laisse ; stationnement gratuit",
-   "es": "Un campo de fútbol; perros con correa; aparcamiento gratuito",
+   "es": "Un campo de fútbol; perros con correa; estacionamiento gratuito",
    "ko": "축구장 1면, 반려견은 목줄 필수, 무료 주차",
    "ja": "サッカー場1面、犬はリード着用、駐車無料"
   },
@@ -2510,7 +2510,7 @@
   "a": "40 7th Ave",
   "p": "250-828-3311",
   "note": {
-   "zh": "河滩，有洗手间、野餐桌和船只下水坡道；狗可以在海滩上不拴绳，但要看管好。这里禁止游泳（水流湍急、水深骤变）。",
+   "zh": "河滩，有洗手间、野餐桌和船只下水坡道；狗可以在河滩上不拴绳，但要看管好。这里禁止游泳（水流湍急、水深骤变）。",
    "en": "River beach with washrooms, picnic tables and a boat launch; dogs may be off leash on the beach if kept under control. Swimming is not allowed here (strong currents and drop-offs).",
    "fr": "Plage de rivière avec toilettes, tables de pique-nique et rampe de mise à l’eau ; les chiens peuvent être sans laisse sur la plage s’ils restent sous contrôle. La baignade y est interdite (forts courants et fonds qui tombent brusquement).",
    "es": "Playa de río con baños, mesas de picnic y rampa para botes; los perros pueden ir sin correa en la playa si están bajo control. Aquí no se permite nadar (corrientes fuertes y desniveles bruscos).",
@@ -2562,7 +2562,7 @@
    "zh": "⭐湖泊游泳（400 米沙滩，有浮标围起的游泳区）和划独木舟/皮划艇，车程 30 分钟以内。狗只能在停车场东端附近的指定区域。",
    "en": "⭐ Lake swimming (a 400 m sandy beach with a buoyed swim area) and canoeing or kayaking, within a 30-minute drive. Dogs only in the signed area near the east end of the parking lot.",
    "fr": "⭐ Baignade en lac (plage de sable de 400 m avec zone de baignade balisée) et canot ou kayak, à moins de 30 minutes en voiture. Chiens seulement dans la zone indiquée près de l’extrémité est du stationnement.",
-   "es": "⭐ Baño en el lago (playa de arena de 400 m con zona de baño delimitada con boyas) y canoa o kayak, a menos de 30 minutos en coche. Perros solo en la zona señalizada cerca del extremo este del aparcamiento.",
+   "es": "⭐ Baño en el lago (playa de arena de 400 m con zona de baño delimitada con boyas) y canoa o kayak, a menos de 30 minutos en coche. Perros solo en la zona señalizada cerca del extremo este del estacionamiento.",
    "ko": "⭐ 호수 수영(부표로 구역을 표시한 400m 모래 해변)과 카누·카약, 차로 30분 이내. 반려견은 주차장 동쪽 끝 근처 표지 구역에서만 허용됩니다.",
    "ja": "⭐湖での水泳（ブイで区切られた遊泳エリアのある400mの砂浜）とカヌー・カヤック、車で30分以内。犬は駐車場東端近くの表示されたエリアのみ可。"
   },
@@ -3374,7 +3374,7 @@
    "zh": "⭐记得办 More Rewards 会员卡",
    "en": "⭐ Get the More Rewards loyalty card",
    "fr": "⭐ Prenez la carte de fidélité More Rewards",
-   "es": "⭐ Hágase con la tarjeta de fidelidad More Rewards",
+   "es": "⭐ Obtenga la tarjeta de fidelidad More Rewards",
    "ko": "⭐ More Rewards 멤버십 카드를 만들어 두세요",
    "ja": "⭐More Rewards会員カードを作っておきましょう"
   },
@@ -5873,7 +5873,7 @@
    ]
   },
   "note": {
-   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供居民安顿、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
+   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供定居安顿支持、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
    "en": "⭐⭐ Free LINC English classes for eligible clients (permanent residents, refugees, and temporary residents on a pathway to PR), free childminding for preschool children while you study (pre-register through a Settlement Counsellor), job-search help and a free citizenship practice test. Also settlement support, language assessment and employment counselling. Interpretation and translation (including Cantonese and Mandarin) is a paid service",
    "fr": "⭐⭐ Cours d'anglais LINC gratuits pour les clients admissibles (résidents permanents, réfugiés et résidents temporaires en voie d'obtenir la résidence permanente), halte-garderie gratuite pour les enfants d'âge préscolaire pendant les cours (inscription préalable auprès d'un conseiller en établissement), aide à la recherche d'emploi et un test de pratique gratuit pour la citoyenneté. Également accompagnement à l'installation, évaluation linguistique et orientation professionnelle. L'interprétation et la traduction (y compris en cantonais et en mandarin) sont des services payants",
    "es": "⭐⭐ Clases de inglés LINC gratuitas para clientes que cumplan los requisitos (residentes permanentes, refugiados y residentes temporales en camino a la residencia permanente), cuidado gratuito de niños en edad preescolar mientras estudia (con inscripción previa a través de un consejero de asentamiento), apoyo en la búsqueda de empleo y una prueba de práctica gratuita para la ciudadanía. También acompañamiento en el asentamiento, evaluación lingüística y orientación laboral. La interpretación y la traducción (incluidos cantonés y mandarín) son servicios de pago",
@@ -6084,7 +6084,7 @@
    "zh": "Kamloops Seniors Community Centre，由 CSI Kamloops（The Centre for Seniors Information）运营的长者中心，每周七天都有身心健康活动。停车场在楼后；活动日历见 csikamloops.ca",
    "en": "Kamloops Seniors Community Centre, a seniors' centre run by CSI Kamloops (The Centre for Seniors Information), with physical and mental wellness activities seven days a week. Parking is at the back of the building; events calendar at csikamloops.ca",
    "fr": "Kamloops Seniors Community Centre, un centre pour aînés géré par CSI Kamloops (The Centre for Seniors Information), avec des activités de bien-être physique et mental sept jours sur sept. Stationnement à l'arrière du bâtiment ; calendrier des activités sur csikamloops.ca",
-   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Aparcamiento detrás del edificio; calendario de actividades en csikamloops.ca",
+   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Estacionamiento detrás del edificio; calendario de actividades en csikamloops.ca",
    "ko": "Kamloops Seniors Community Centre — CSI Kamloops(The Centre for Seniors Information)가 운영하는 노인 센터로, 주 7일 몸과 마음의 건강 활동이 있습니다. 주차장은 건물 뒤편, 행사 일정은 csikamloops.ca에서 확인하세요",
    "ja": "Kamloops Seniors Community Centre — CSI Kamloops（The Centre for Seniors Information）が運営するシニアセンターで、心身の健康のための活動が週7日あります。駐車場は建物の裏、イベント予定はcsikamloops.caで"
   },
@@ -6871,7 +6871,7 @@
    "zh": "⭐Kamloops主体育馆，WHL冰球队Kamloops Blazers主场，也办演唱会。有收费停车场和路边停车，门票在 Ticketmaster.ca 购买",
    "en": "⭐ The city's main arena, home of the WHL's Kamloops Blazers, and a concert venue. Paid on-site parking and street parking; tickets through Ticketmaster.ca",
    "fr": "⭐ L'aréna principal de la ville, domicile des Blazers de Kamloops (WHL) et salle de spectacle. Stationnement payant sur place et dans la rue ; billets sur Ticketmaster.ca",
-   "es": "⭐ El pabellón principal de la ciudad, sede de los Kamloops Blazers (WHL) y recinto de conciertos. Aparcamiento de pago en el recinto y en la calle; entradas en Ticketmaster.ca",
+   "es": "⭐ El pabellón principal de la ciudad, sede de los Kamloops Blazers (WHL) y recinto de conciertos. Estacionamiento de pago en el recinto y en la calle; entradas en Ticketmaster.ca",
    "ko": "⭐ 시내 주요 경기장으로 WHL 소속 Kamloops Blazers의 홈이자 공연장. 유료 주차장과 노상 주차가 있으며, 표는 Ticketmaster.ca에서 삽니다",
    "ja": "⭐市内メインアリーナ、WHL Kamloops Blazersの本拠地、コンサート会場としても利用。有料駐車場と路上駐車あり、チケットはTicketmaster.caで"
   },
@@ -7130,12 +7130,12 @@
   "p": "778-765-5493",
   "w": "https://www.kelsongroup.com/residential/stetson-place-apartments-in-kamloops",
   "note": {
-   "zh": "距TRU步行约10分钟，1BR／2BR户型（租金以官网/致电为准）猫狗（40磅以下）可养，有地下停车+空调",
+   "zh": "距TRU步行约10分钟，1BR／2BR户型（租金以官网/致电为准），猫狗（40磅以下）可养，有地下停车+空调",
    "en": "About a 10-minute walk to TRU. 1BR and 2BR units (rent via the website or by phone); cats and dogs under 40 lb allowed, underground parking and air conditioning",
-   "fr": "À environ 10 minutes à pied de TRU. Logements de 1 et 2 chambres (location par le site web ou par téléphone); chats et chiens de moins de 18 kg admis, stationnement souterrain et climatisation",
-   "es": "A unos 10 minutos a pie de TRU. Apartamentos de 1 y 2 dormitorios (alquiler por la web o por teléfono); se admiten gatos y perros de menos de 18 kg, estacionamiento subterráneo y aire acondicionado",
-   "ko": "TRU까지 도보 약 10분. 방 1~2개 유닛(임대료는 웹사이트나 전화로 확인), 고양이와 18kg 미만 반려견 가능, 지하 주차장과 에어컨",
-   "ja": "TRUまで徒歩約10分、1BR、2BRあり（賃料は公式サイトまたは電話で確認）、猫、40 lb未満の犬可、地下駐車場、エアコンあり"
+   "fr": "À environ 10 minutes à pied de TRU. Logements de 1 et 2 chambres (location par le site web ou par téléphone) ; chats et chiens de moins de 40 lb (environ 18 kg) admis, stationnement souterrain et climatisation",
+   "es": "A unos 10 minutos a pie de TRU. Apartamentos de 1 y 2 dormitorios (alquiler por la web o por teléfono); se admiten gatos y perros de menos de 40 lb (unos 18 kg), estacionamiento subterráneo y aire acondicionado",
+   "ko": "TRU까지 도보 약 10분. 방 1~2개 유닛(임대료는 웹사이트나 전화로 확인), 고양이와 40파운드(약 18kg) 미만 반려견 가능, 지하 주차장과 에어컨",
+   "ja": "TRUまで徒歩約10分、1BR、2BRあり（賃料は公式サイトまたは電話で確認）、猫、40ポンド（約18kg）未満の犬可、地下駐車場、エアコンあり"
   },
   "src": "official",
   "v": "2026-10",
@@ -7151,9 +7151,9 @@
   "p": "778-765-5492",
   "w": "https://www.kelsongroup.com/residential/dufferin-terrace-apartments-in-kamloops",
   "note": {
-   "zh": "距TRU步行约10分钟，1BR／2BR户型（租金以官网/致电为准）水费全包，有健身室，可养猫",
+   "zh": "距TRU步行约10分钟，1BR／2BR户型（租金以官网/致电为准），水费全包，有健身室，可养猫",
    "en": "About a 10-minute walk to TRU. 1BR and 2BR units (rent via the website or by phone); water included, fitness room, cats allowed",
-   "fr": "À environ 10 minutes à pied de TRU. Logements de 1 et 2 chambres (location par le site web ou par téléphone); eau incluse, salle de sport, chats admis",
+   "fr": "À environ 10 minutes à pied de TRU. Logements de 1 et 2 chambres (location par le site web ou par téléphone) ; eau incluse, salle de sport, chats admis",
    "es": "A unos 10 minutos a pie de TRU. Apartamentos de 1 y 2 dormitorios (alquiler por la web o por teléfono); agua incluida, sala de ejercicio, se admiten gatos",
    "ko": "TRU까지 도보 약 10분. 방 1~2개 유닛(임대료는 웹사이트나 전화로 확인), 수도 요금 포함, 피트니스룸, 고양이 가능",
    "ja": "TRUまで徒歩約10分、1BR、2BRあり（賃料は公式サイトまたは電話で確認）、水道代込み、フィットネスルームあり、猫可"
@@ -7172,9 +7172,9 @@
   "p": "778-765-5823",
   "w": "https://www.kelsongroup.com/residential/valleyview-manor-apartments-in-kamloops",
   "note": {
-   "zh": "Studio／1BR／2BR户型（租金以官网/致电为准）可养猫，步行可到超市和Shoppers Drug Mart",
+   "zh": "Studio／1BR／2BR户型（租金以官网/致电为准），可养猫，步行可到超市和Shoppers Drug Mart",
    "en": "Studio, 1BR and 2BR units (rent via the website or by phone). Cats allowed; walking distance to grocery shopping and a Shoppers Drug Mart",
-   "fr": "Studios et logements de 1 et 2 chambres (location par le site web ou par téléphone). Chats admis; à distance de marche d'épiceries et d'un Shoppers Drug Mart",
+   "fr": "Studios et logements de 1 et 2 chambres (location par le site web ou par téléphone). Chats admis ; à distance de marche d'épiceries et d'un Shoppers Drug Mart",
    "es": "Estudios y apartamentos de 1 y 2 dormitorios (alquiler por la web o por teléfono). Se admiten gatos; a poca distancia a pie de tiendas de comestibles y de un Shoppers Drug Mart",
    "ko": "스튜디오와 방 1~2개 유닛(임대료는 웹사이트나 전화로 확인). 고양이 가능, 식료품점과 Shoppers Drug Mart까지 도보 거리",
    "ja": "ワンルーム、1BR、2BRあり（賃料は公式サイトまたは電話で確認）、猫可、スーパーとShoppers Drug Martまで徒歩圏内"
@@ -7760,7 +7760,7 @@
    "zh": "机场接驳车，服务 Air Canada 和 WestJet 航班。去机场需要预约，建议至少提前一天；从机场出发不用预约，先到先上",
    "en": "Airport shuttle for Air Canada and WestJet flights. Trips to the airport need a reservation, ideally at least a day ahead; from the airport it is walk-on, first come, first served",
    "fr": "Navette aéroport pour les vols d'Air Canada et de WestJet. Les trajets vers l'aéroport exigent une réservation, idéalement au moins un jour à l'avance ; au départ de l'aéroport, sans réservation, premier arrivé, premier servi",
-   "es": "Lanzadera al aeropuerto para vuelos de Air Canada y WestJet. Los viajes al aeropuerto requieren reserva, idealmente al menos un día antes; desde el aeropuerto se sube sin reserva, por orden de llegada",
+   "es": "Servicio de traslado (shuttle) al aeropuerto para vuelos de Air Canada y WestJet. Los viajes al aeropuerto requieren reserva, idealmente al menos un día antes; desde el aeropuerto se sube sin reserva, por orden de llegada",
    "ko": "Air Canada와 WestJet 항공편을 위한 공항 셔틀. 공항으로 갈 때는 예약이 필요하며 최소 하루 전 예약을 권장합니다. 공항에서 나올 때는 예약 없이 선착순 탑승",
    "ja": "Air CanadaとWestJet便に対応する空港シャトル。空港行きは予約が必要で、前日までの予約がおすすめ。空港発は予約不要で先着順"
   },
@@ -8513,9 +8513,9 @@
   "p": "236-425-9121",
   "w": "https://www.bclegalclinic.com",
   "note": {
-   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、EI、债务、租房纠纷等；具体是否收案请致电确认",
+   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、就业保险（EI）、债务、租房纠纷等；具体是否收案请致电确认",
    "en": "A free legal clinic covering family law, income assistance and disability benefits, EI, debt and tenancy disputes; call to confirm whether they can take your case",
-   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs; appelez pour savoir s'ils peuvent prendre votre dossier",
+   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs ; appelez pour savoir s'ils peuvent prendre votre dossier",
    "es": "Una clínica jurídica gratuita que cubre derecho de familia, asistencia social y prestaciones por discapacidad, seguro de empleo, deudas y conflictos de alquiler; llame para saber si pueden aceptar su caso",
    "ko": "가족법·소득 지원과 장애 지원·고용보험·채무·임대 분쟁을 다루는 무료 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
    "ja": "家族法、生活保護（Income Assistance）、障害者給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料の法律クリニック、案件を受けられるか電話で確認を"
@@ -8615,7 +8615,7 @@
    "zh": "⭐ 面向有需要的家庭发放食物，需出示家中每位成员的一件身份证件。周一至周四家庭/单亲与单身/夫妇分在不同日子领取，周五和周六两类都可以来；60岁以上长者有更早的时段，中午有休息时间。不易腐食品包每个自然月可领一次，面包、蔬果、奶制品和肉类每月两次。当期时段请以官网或电话为准。",
    "en": "⭐ Food for households in need; bring a piece of ID for every person in your household. Families/single parents and singles/couples come on different days from Monday to Thursday, and either group can come on Friday and Saturday; there is an earlier slot for seniors 60+ and a break over midday. A non-perishable hamper once per calendar month; bread, produce, dairy and meat twice a month. Confirm current times on the website or by phone.",
    "fr": "⭐ Nourriture pour les ménages dans le besoin ; apportez une pièce d'identité pour chaque personne du ménage. Du lundi au jeudi, familles et parents seuls d'un côté, personnes seules et couples de l'autre, viennent à des jours différents ; le vendredi et le samedi, les deux groupes peuvent venir. Plage plus tôt pour les 60 ans et plus et pause le midi. Un panier de denrées non périssables une fois par mois civil ; pain, fruits et légumes, produits laitiers et viande deux fois par mois. Confirmez les heures sur le site ou par téléphone.",
-   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias y padres solos por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
+   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias (incluidas las monoparentales) por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
    "ko": "⭐ 도움이 필요한 가구에 식품을 제공하며, 가구 구성원 모두의 신분증을 한 가지씩 가져오세요. 월~목요일에는 가족·한부모 가구와 1인·부부 가구가 서로 다른 요일에 방문하고, 금·토요일에는 두 그룹 모두 올 수 있습니다. 60세 이상 노인은 더 이른 시간대가 있고 점심 무렵 휴식 시간이 있습니다. 비부패성 식품 꾸러미는 달력상 한 달에 한 번, 빵·농산물·유제품·육류는 한 달에 두 번 받을 수 있습니다. 정확한 시간은 홈페이지나 전화로 확인하세요.",
    "ja": "⭐生活に困っている世帯への食料支援です。世帯全員それぞれの身分証を1点ずつ持参してください。月〜木は家族・ひとり親世帯と単身・カップル世帯で利用日が分かれ、金・土はどちらも利用できます。60歳以上のシニアには早い時間帯があり、昼は休止時間があります。保存食のパックは暦月に1回、パン・青果・乳製品・肉は月2回。最新の時間帯は公式サイトまたは電話で確認してください。"
   },
@@ -8694,10 +8694,10 @@
   "p": "250-376-1296",
   "w": "https://kafs.ca/",
   "note": {
-   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论身份（status-free），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
+   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论是否具有原住民身份（status），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
    "en": "A friendship centre serving urban Indigenous people in Kamloops since 1972, whatever their status, with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
-   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes et du soutien ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
-   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
+   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes et du soutien ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
+   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas y apoyo culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
    "ko": "1972년부터 신분(status)과 관계없이 캄루프스 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
    "ja": "1972年から、ステータスの有無を問わずカムループスの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
   },
@@ -8873,7 +8873,7 @@
    "zh": "免费社区午餐，周一和周四 12:00–13:00，任何人都可以来吃，不需要证明什么。另有平价果蔬市集（周二、周四 10:00–14:00），以及只在 5 月至 9 月供应的优惠果蔬箱。",
    "en": "Free community meals, Mondays and Thursdays 12-1pm, and everyone is eligible — you are not asked to prove anything. Also an affordable produce market (Tue and Thu 10-2), and discounted produce boxes, available seasonally from May to September.",
    "fr": "Repas communautaires gratuits, les lundis et jeudis de 12 h à 13 h, ouverts à tous — on ne vous demande rien à prouver. Aussi un marché de fruits et légumes abordables (mar. et jeu. 10 h–14 h), et des paniers de fruits et légumes à prix réduit, offerts de mai à septembre seulement.",
-   "es": "Comidas comunitarias gratuitas, lunes y jueves de 12 a 13h, y todo el mundo puede participar — no le piden demostrar nada. Además un mercado de verduras asequible (mar. y jue. 10-14h), y cajas de fruta y verdura a precio reducido, solo de mayo a septiembre.",
+   "es": "Comidas comunitarias gratuitas, lunes y jueves de 12 a 13 h, y todo el mundo puede participar — no le piden demostrar nada. Además un mercado de frutas y verduras a precios asequibles (mar. y jue., de 10 a 14 h), y cajas de fruta y verdura a precio reducido, solo de mayo a septiembre.",
    "ko": "무료 커뮤니티 식사, 월요일과 목요일 12-13시. 누구나 참여할 수 있고 무엇을 증명할 필요도 없습니다. 저렴한 농산물 마켓(화·목 10-14시)과, 5월부터 9월까지만 나오는 할인 농산물 박스도 있습니다.",
    "ja": "無料のコミュニティ食事、月曜と木曜の12〜13時。誰でも参加でき、何かを証明する必要はありません。手頃な価格の青果マーケット（火・木10〜14時）と、5月から9月の季節限定の割安な青果ボックスもあります。"
   },
@@ -9049,7 +9049,7 @@
    "zh": "<b>租金银行</b>（Kamloops Rent Bank）为遇到突发状况、住房受到威胁的租户提供<b>无息贷款</b>，可用于房租、押金或水电费——面向 Kamloops 及整个 TNRD 地区的中低收入者。预评估在 BC Rent Bank 网站上线上完成，协会也提供免费电话咨询。另有住房支持、女性住房支持、青少年项目和家长互助小组。工作日 9:00–16:00，12:00–12:30 午休。",
    "en": "The Kamloops Rent Bank gives interest-free loans for rent, a damage deposit or a utility bill when an unexpected emergency threatens your housing — for low- and moderate-income renters in Kamloops and across the TNRD. The pre-assessment is done online through BC Rent Bank, and the society offers a free phone consultation. It also runs housing support, women's housing support, a youth program and a parent support group. Weekdays 9-4, closed 12-12:30.",
    "fr": "La banque de loyer (Kamloops Rent Bank) offre des prêts sans intérêt pour le loyer, un dépôt de garantie ou une facture de services publics quand une urgence imprévue menace votre logement — pour les locataires à revenu faible ou modeste de Kamloops et de tout le TNRD. La pré-évaluation se fait en ligne par BC Rent Bank, et la société offre une consultation téléphonique gratuite. Elle offre aussi du soutien au logement, du soutien au logement pour femmes, un programme jeunesse et un groupe de soutien aux parents. En semaine 9 h–16 h, fermé 12 h–12 h 30.",
-   "es": "El banco de alquiler (Kamloops Rent Bank) da préstamos sin intereses para el alquiler, un depósito o una factura de servicios cuando una emergencia imprevista amenaza su vivienda — para inquilinos de ingresos bajos o moderados de Kamloops y de todo el TNRD. La evaluación previa se hace en línea a través de BC Rent Bank, y la sociedad ofrece una consulta telefónica gratuita. También ofrece apoyo de vivienda, apoyo de vivienda para mujeres, un programa juvenil y un grupo de apoyo para padres. Entre semana 9-16h, cerrado 12-12:30.",
+   "es": "El banco de alquiler (Kamloops Rent Bank) da préstamos sin intereses para el alquiler, un depósito o una factura de servicios cuando una emergencia imprevista amenaza su vivienda — para inquilinos de ingresos bajos o moderados de Kamloops y de todo el TNRD. La evaluación previa se hace en línea a través de BC Rent Bank, y la sociedad ofrece una consulta telefónica gratuita. También ofrece apoyo de vivienda, apoyo de vivienda para mujeres, un programa juvenil y un grupo de apoyo para padres. Entre semana de 9 a 16 h, cerrado de 12 a 12:30.",
    "ko": "렌트뱅크(Kamloops Rent Bank)는 예기치 못한 위기로 주거가 위태로울 때 월세, 보증금, 공과금에 쓸 수 있는 무이자 대출을 제공합니다 — Kamloops와 TNRD 전역의 중·저소득 세입자가 대상입니다. 사전 평가는 BC Rent Bank를 통해 온라인으로 하며, 협회에서 무료 전화 상담도 해 줍니다. 주거 지원, 여성 주거 지원, 청소년 프로그램, 부모 지원 모임도 운영합니다. 평일 9-16시, 12-12시 30분 휴게.",
    "ja": "レントバンク（Kamloops Rent Bank）は、予期せぬ出来事で住まいが危うくなったときに、家賃・敷金・光熱費に使える無利子の融資を行います — KamloopsとTNRD全域の中低所得の借家人が対象です。事前審査はBC Rent Bankからオンラインで行い、協会では無料の電話相談も受けられます。住居支援、女性の住居支援、青少年プログラム、親のサポートグループもあります。平日9〜16時、12時〜12時30分は休憩。"
   },
@@ -9103,8 +9103,8 @@
   "note": {
    "zh": "申请社会救助（income assistance）或残障补助（disability assistance）的地方，适用于失业、就业不足、等待其他收入或无法工作的人。工作日 9:00–12:00、13:00–16:00 开放，<b>中午休息</b>。大部分申请在 myselfserve.gov.bc.ca 线上完成，这个办公室处理必须当面办的部分。办公室没有本地电话，请打 <b>1-866-866-0800</b>。北岸 726B Sydney Ave 还有一个办公室。",
    "en": "Where to apply for income assistance or disability assistance if you are out of work, underemployed, waiting on other income, or unable to work. Open weekdays 9-12 and 1-4 — closed over lunch. Most of the application is done online at myselfserve.gov.bc.ca; this office is for the parts that need a person. The offices have no local phone — call 1-866-866-0800. There is a second office on the North Shore at 726B Sydney Ave.",
-   "fr": "Où demander l'aide au revenu ou l'aide aux personnes handicapées si vous êtes sans emploi, sous-employé, en attente d'un autre revenu ou inapte au travail. Ouvert en semaine 9 h–12 h et 13 h–16 h — fermé le midi. L'essentiel de la demande se fait en ligne à myselfserve.gov.bc.ca; ce bureau sert aux étapes qui exigent une personne. Les bureaux n'ont pas de numéro local : appelez le 1-866-866-0800. Un deuxième bureau se trouve sur la rive nord, au 726B Sydney Ave.",
-   "es": "Dónde solicitar asistencia de ingresos o por discapacidad si está sin trabajo, subempleado, esperando otro ingreso o no puede trabajar. Abierto entre semana de 9 a 12 y de 13 a 16 — cerrado al mediodía. La mayor parte se hace en línea en myselfserve.gov.bc.ca; esta oficina es para lo que requiere una persona. Las oficinas no tienen teléfono local: llame al 1-866-866-0800. Hay una segunda oficina en la ribera norte, en 726B Sydney Ave.",
+   "fr": "Où demander l'aide au revenu ou l'aide aux personnes handicapées si vous êtes sans emploi, sous-employé, en attente d'un autre revenu ou inapte au travail. Ouvert en semaine 9 h–12 h et 13 h–16 h — fermé le midi. L'essentiel de la demande se fait en ligne à myselfserve.gov.bc.ca ; ce bureau sert aux étapes qui exigent une personne. Les bureaux n'ont pas de numéro local : appelez le 1-866-866-0800. Un deuxième bureau se trouve sur la rive nord, au 726B Sydney Ave.",
+   "es": "Dónde solicitar asistencia social (income assistance) o asistencia por discapacidad si está sin trabajo, subempleado, esperando otro ingreso o no puede trabajar. Abierto entre semana de 9 a 12 y de 13 a 16 — cerrado al mediodía. La mayor parte se hace en línea en myselfserve.gov.bc.ca; esta oficina es para lo que requiere una persona. Las oficinas no tienen teléfono local: llame al 1-866-866-0800. Hay una segunda oficina en la ribera norte, en 726B Sydney Ave.",
    "ko": "실직·불완전 취업·다른 소득 대기·근로 불가 상태일 때 소득 지원(income assistance)이나 장애 지원을 신청하는 곳입니다. 평일 9-12시, 13-16시 — 점심시간에는 닫습니다. 신청의 대부분은 myselfserve.gov.bc.ca에서 온라인으로 하며, 이 사무실은 사람이 필요한 절차를 위한 곳입니다. 사무실에는 지역 전화번호가 없으니 1-866-866-0800으로 전화하세요. 노스쇼어 726B Sydney Ave에 두 번째 사무실이 있습니다.",
    "ja": "失業中、就業が不十分、他の収入を待っている、または働けない場合に、生活保護（Income Assistance）や障害者支援を申請する場所です。平日9〜12時と13〜16時 — 昼は閉まります。申請の大部分はmyselfserve.gov.bc.caでオンラインででき、この事務所は人が必要な手続きのためのものです。事務所に地元の電話番号はないので、1-866-866-0800に電話してください。ノースショアの726B Sydney Aveにもう一つ事務所があります。"
   },
@@ -9177,7 +9177,7 @@
   },
   "note": {
    "zh": "北岸的 44 床位紧急庇护所，24 小时开放，由 ASK Wellness 运营。想问床位，可发邮件到 k.bradley@askwellness.ca，或打一般咨询电话 250-312-3881（ASK Wellness 办公室的号码只在工作日接听）。提供每日餐食、洗手间、淋浴和洗衣、安全存放随身物品的地方、文化活动、目标规划协助，以及护士和流动医疗诊所等健康服务。",
-   "en": "A 44-bed emergency shelter on the North Shore, open 24 hours, run by ASK Wellness. To ask about a bed, email k.bradley@askwellness.ca or call general inquiries at 250-312-3881 (the ASK Wellness office number is weekdays only). Daily meals, washrooms, showers and laundry, secure storage for your belongings, cultural programming, help setting goals, and health care through nurses and a mobile health clinic.",
+   "en": "A 44-bed emergency shelter on the North Shore, open 24 hours, run by ASK Wellness. To ask about a bed, email k.bradley@askwellness.ca or call general inquiries at 250-312-3881 (an ASK Wellness office line, answered weekdays only). Daily meals, washrooms, showers and laundry, secure storage for your belongings, cultural programming, help setting goals, and health care through nurses and a mobile health clinic.",
    "fr": "Refuge d’urgence de 44 lits sur la rive nord, ouvert 24 heures, géré par ASK Wellness. Pour demander un lit, écrivez à k.bradley@askwellness.ca ou appelez les renseignements au 250-312-3881 (le numéro du bureau d’ASK Wellness ne répond qu’en semaine). Repas quotidiens, toilettes, douches et buanderie, rangement sécurisé pour vos affaires, programmes culturels, aide à se fixer des objectifs et soins de santé grâce à des infirmières et à une clinique mobile.",
    "es": "Albergue de emergencia con 44 camas en la ribera norte, abierto 24 horas, gestionado por ASK Wellness. Para preguntar por una cama, escriba a k.bradley@askwellness.ca o llame a consultas al 250-312-3881 (el número de la oficina de ASK Wellness solo atiende entre semana). Comidas diarias, baños, duchas y lavandería, almacenamiento seguro para sus cosas, programación cultural, ayuda para fijar metas y atención de salud con enfermeras y una clínica móvil.",
    "ko": "노스쇼어에 있는 44병상 응급 쉼터로 24시간 운영하며 ASK Wellness가 운영합니다. 자리를 문의하려면 k.bradley@askwellness.ca로 이메일을 보내거나 일반 문의 250-312-3881로 전화하세요(ASK Wellness 사무실 번호는 평일에만 받습니다). 매일 식사, 화장실·샤워·세탁 시설, 소지품 안전 보관, 문화 프로그램, 목표 설정 지원, 간호사와 이동 진료소를 통한 의료 서비스가 있습니다.",
@@ -9381,7 +9381,7 @@
    "zh": "一家二手店，同时也是<b>处于经济困难中的女性可以免费拿走衣物与生活必需品</b>的地方，不需要任何证明——每次可拿的物品有固定金额上限，通常一年四次，工作人员可酌情放宽。到柜台说一声即可。周二至周六 10:00–16:00。（它取代了 2026 年 5 月关闭的 Lizzy's Closet。）",
    "en": "A thrift store, and also a place where a woman in financial hardship can take clothing and essentials free, with no paperwork — items up to a set value each visit, generally four times a year, more at staff discretion. Just ask at the counter. Tuesday to Saturday 10-4. (This replaced Lizzy's Closet, which closed in May 2026.)",
    "fr": "Une friperie, et aussi un endroit où une femme en difficulté financière peut prendre des vêtements et des articles essentiels gratuitement, sans paperasse — des articles jusqu’à une valeur fixe par visite, généralement quatre fois par an, davantage à la discrétion du personnel. Il suffit de demander au comptoir. Du mardi au samedi 10 h–16 h. (Remplace Lizzy's Closet, fermé en mai 2026.)",
-   "es": "Una tienda de segunda mano, y también un lugar donde una mujer en dificultad económica puede llevarse ropa y artículos esenciales gratis, sin papeleo — artículos hasta un valor fijo por visita, en general cuatro veces al año, más a criterio del personal. Solo pregunte en el mostrador. De martes a sábado de 10 a 16h. (Sustituyó a Lizzy's Closet, cerrada en mayo de 2026.)",
+   "es": "Una tienda de segunda mano, y también un lugar donde una mujer en dificultad económica puede llevarse ropa y artículos esenciales gratis, sin papeleo — artículos hasta un valor fijo por visita, en general cuatro veces al año, más a criterio del personal. Solo pregunte en el mostrador. De martes a sábado de 10 a 16 h. (Sustituyó a Lizzy's Closet, cerrada en mayo de 2026.)",
    "ko": "중고매장이자, 경제적으로 어려운 여성이 서류 없이 의류와 생필품을 무료로 가져갈 수 있는 곳입니다 — 한 번에 정해진 금액 한도까지, 보통 연 4회이며 직원 재량으로 더 받을 수도 있습니다. 카운터에서 말씀하시면 됩니다. 화-토 10-16시. (2026년 5월 문을 닫은 Lizzy's Closet을 대신합니다.)",
    "ja": "古着店であり、経済的に困っている女性が書類なしで衣類や生活必需品を無料で持ち帰れる場所でもあります — 1回につき決められた金額分まで、通常は年4回、スタッフの判断でそれ以上も。カウンターで声をかけるだけです。火〜土10〜16時。（2026年5月に閉店したLizzy's Closetの後継です。）"
   },
@@ -9473,10 +9473,10 @@
   "note": {
    "zh": "心理健康支持、会所项目（Kamloops Clubhouse，在 857 Seymour Street）、信息与转介，也是本市最容易开始做义工的地方之一（布展、宣讲、活动）。这里是总部，它运营的庇护所在别的地址。<b>如果你现在就需要有人说话</b>，BC 省心理健康支持热线是 <b>310-6789</b>（不需要区号，24 小时）。",
    "en": "Mental health support, a clubhouse programme (Kamloops Clubhouse, at 857 Seymour Street), information and referral, and one of the easier places in town to start volunteering — displays, presentations, events. This is the head office; the shelters it runs are at other addresses. If you need to talk to someone right now instead, the BC mental health support line is 310-6789, no area code, day or night.",
-   "fr": "Soutien en santé mentale, programme de club (Kamloops Clubhouse, au 857 Seymour Street), information et références, et l'un des endroits les plus faciles en ville pour commencer à faire du bénévolat — kiosques, présentations, événements. Ceci est le siège; les refuges qu'elle exploite sont à d'autres adresses. Si vous avez besoin de parler à quelqu'un tout de suite, la ligne de soutien en santé mentale de la C.-B. est le 310-6789, sans indicatif, jour et nuit.",
-   "es": "Apoyo en salud mental, un programa de club (Kamloops Clubhouse, en 857 Seymour Street), información y derivación, y uno de los lugares más fáciles de la ciudad para empezar a ser voluntario. Esta es la sede; los albergues que opera están en otras direcciones. Si necesita hablar con alguien ahora mismo, la línea de apoyo de salud mental de BC es el 310-6789, sin prefijo, de día o de noche.",
-   "ko": "정신건강 지원, 클럽하우스 프로그램(Kamloops Clubhouse, 857 Seymour Street), 정보와 연계를 제공하며, 이 도시에서 자원봉사를 시작하기 가장 수월한 곳 중 하나입니다. 여기는 본부이고 운영하는 쉼터는 다른 주소에 있습니다. 지금 당장 누군가와 이야기해야 한다면 BC주 정신건강 지원 전화는 310-6789입니다 — 지역번호 없이, 밤낮 없이.",
-   "ja": "メンタルヘルス支援、クラブハウス・プログラム（Kamloops Clubhouse、857 Seymour Street）、情報提供と紹介を行い、この街でボランティアを始めるのに最も入りやすい場所の一つです。ここは本部で、運営するシェルターは別の住所にあります。今すぐ誰かと話す必要があるなら、BC州のメンタルヘルス支援電話は310-6789です（市外局番不要、昼夜問わず）。"
+   "fr": "Soutien en santé mentale, programme de club (Kamloops Clubhouse, au 857 Seymour Street), information et références, et l'un des endroits les plus faciles en ville pour commencer à faire du bénévolat — kiosques, présentations, événements. Ceci est le siège ; les refuges qu'elle exploite sont à d'autres adresses. Si vous avez besoin de parler à quelqu'un tout de suite, la ligne de soutien en santé mentale de la C.-B. est le 310-6789, sans indicatif, jour et nuit.",
+   "es": "Apoyo en salud mental, un programa de club (Kamloops Clubhouse, en 857 Seymour Street), información y derivación, y uno de los lugares más fáciles de la ciudad para empezar a hacer voluntariado: exposiciones, presentaciones, eventos. Esta es la sede; los albergues que opera están en otras direcciones. Si necesita hablar con alguien ahora mismo, la línea de apoyo de salud mental de BC es el 310-6789, sin prefijo, de día o de noche.",
+   "ko": "정신건강 지원, 클럽하우스 프로그램(Kamloops Clubhouse, 857 Seymour Street), 정보와 연계를 제공하며, 이 도시에서 자원봉사를 시작하기 가장 수월한 곳 중 하나입니다(전시, 발표, 행사 등). 여기는 본부이고 운영하는 쉼터는 다른 주소에 있습니다. 지금 당장 누군가와 이야기해야 한다면 BC주 정신건강 지원 전화는 310-6789입니다 — 지역번호 없이, 밤낮 없이.",
+   "ja": "メンタルヘルス支援、クラブハウス・プログラム（Kamloops Clubhouse、857 Seymour Street）、情報提供と紹介を行い、この街でボランティアを始めるのに最も入りやすい場所の一つです（展示、説明会、イベントなど）。ここは本部で、運営するシェルターは別の住所にあります。今すぐ誰かと話す必要があるなら、BC州のメンタルヘルス支援電話は310-6789です（市外局番不要、昼夜問わず）。"
   },
   "src": "official",
   "v": "2026-10",
@@ -9568,7 +9568,7 @@
    "fr": "Un grand organisme local de services sociaux, et un bon premier arrêt si vous voulez faire du bénévolat là où vous retrouvez les mêmes personnes chaque semaine : livraison de la popote roulante, programme Mieux chez soi (conduire des aînés, aide à l'épicerie), et le centre alimentaire Mount Paul. Il gère aussi le Kamloops Youth Shelter pour les 13-18 ans — pour savoir s'il y a de la place, appelez ou présentez-vous au refuge, ou écrivez à adm@interiorcommunityservices.bc.ca.",
    "es": "Una gran agencia local de servicios sociales, y un buen primer paso si quiere ser voluntario en un lugar donde verá a las mismas personas cada semana: rutas de reparto de comida a domicilio, el programa Better at Home (llevar a mayores, ayuda con las compras) y el centro alimentario Mount Paul. También gestiona el Kamloops Youth Shelter para jóvenes de 13 a 18 años: para saber si hay plaza, llame o acuda al albergue, o escriba a adm@interiorcommunityservices.bc.ca.",
    "ko": "규모가 큰 지역 사회서비스 기관으로, 매주 같은 사람들을 만나는 방식의 자원봉사를 원한다면 좋은 출발점입니다: 도시락 배달 노선, Better at Home 프로그램(어르신 차량 지원, 장보기 도움), Mount Paul 푸드센터. 13-18세 청소년 쉼터인 Kamloops Youth Shelter도 운영합니다 — 자리가 있는지는 쉼터에 연락하거나 직접 가서 묻고, adm@interiorcommunityservices.bc.ca로 이메일을 보낼 수도 있습니다.",
-   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です: 配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
+   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です：配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
   },
   "src": "official",
   "v": "2026-10",
@@ -9611,7 +9611,7 @@
   "note": {
    "zh": "意大利文化中心与礼堂，可追溯到这座城市早期的意大利社群。欢迎希望把这份文化在本地延续下去的人加入；会员每年需承担至少十小时的志愿服务。礼堂也可租用办婚礼和活动。",
    "en": "The Italian cultural centre and hall, going back to the city's early Italian community. It takes new members who want to keep that culture going locally; members are asked for a minimum of ten volunteer hours a year. The hall can also be rented for weddings and events.",
-   "fr": "Le centre culturel et la salle italiens, issus de la première communauté italienne de la ville. Il accueille de nouveaux membres qui veulent faire vivre cette culture ici; on demande aux membres un minimum de dix heures de bénévolat par an. La salle se loue aussi pour des mariages et des événements.",
+   "fr": "Le centre culturel et la salle italiens, issus de la première communauté italienne de la ville. Il accueille de nouveaux membres qui veulent faire vivre cette culture ici ; on demande aux membres un minimum de dix heures de bénévolat par an. La salle se loue aussi pour des mariages et des événements.",
    "es": "El centro cultural y salón italiano, heredero de la primera comunidad italiana de la ciudad. Admite nuevos miembros que quieran mantener viva esa cultura aquí; se pide un mínimo de diez horas de voluntariado al año. El salón también se alquila para bodas y eventos.",
    "ko": "이 도시 초기 이탈리아 커뮤니티에서 이어져 온 이탈리아 문화센터이자 홀입니다. 그 문화를 지역에서 이어가고 싶은 신규 회원을 받으며, 회원에게는 연간 최소 열 시간의 자원봉사를 요청합니다. 홀은 결혼식이나 행사용으로 대여도 합니다.",
    "ja": "この街の初期のイタリア人コミュニティに遡るイタリア文化センターとホールです。その文化を地元で続けたい新しい会員を受け入れており、会員には年間最低10時間のボランティアが求められます。ホールは結婚式やイベント用に貸し出しもしています。"
@@ -9654,8 +9654,8 @@
   "note": {
    "zh": "临终关怀之家——为患者与家属提供生命末期照护。<b>入住需按天付费</b>，费率由卫生部（Ministry of Health）规定，符合条件的人可申请临时减免。这里也接收经过培训的志愿者，但需要提交申请并等待，不能直接上门。此处坐标精确到街区，不到门牌。",
    "en": "Hospice House — end-of-life care for people and their families. There is a daily rate for a stay, set by the Ministry of Health; a temporary reduced rate is available for those who qualify. Also one of the places in town that takes trained volunteers, though expect an application and a wait rather than a walk-in. The map pin is accurate to the block, not the exact door.",
-   "fr": "Maison de soins palliatifs — accompagnement de fin de vie pour les personnes et leurs familles. Un tarif quotidien s’applique au séjour, fixé par le ministère de la Santé ; un tarif réduit temporaire est offert aux personnes admissibles. Aussi l'un des endroits qui accueille des bénévoles formés, mais attendez-vous à une candidature et à un délai. La coordonnée ici est bonne à l'îlot près, pas à la porte.",
-   "es": "Casa de cuidados paliativos — atención al final de la vida para las personas y sus familias. La estancia tiene una tarifa diaria fijada por el Ministerio de Salud; hay una tarifa reducida temporal para quien cumpla los requisitos. También uno de los lugares que acepta voluntarios formados, aunque conlleva una solicitud y una espera. La ubicación en el mapa es exacta a nivel de cuadra, no de la puerta.",
+   "fr": "Maison de soins palliatifs — accompagnement de fin de vie pour les personnes et leurs familles. Un tarif quotidien s’applique au séjour, fixé par le ministère de la Santé ; un tarif réduit temporaire est offert aux personnes admissibles. C'est aussi l'un des endroits en ville qui accueillent des bénévoles formés, mais attendez-vous à une candidature et à un délai plutôt qu'à un accueil sans rendez-vous. La coordonnée ici est bonne à l'îlot près, pas à la porte.",
+   "es": "Casa de cuidados paliativos — atención al final de la vida para las personas y sus familias. La estancia tiene una tarifa diaria fijada por el Ministerio de Salud; hay una tarifa reducida temporal para quien cumpla los requisitos. También es uno de los lugares de la ciudad que aceptan voluntarios con formación, aunque hay que presentar una solicitud y esperar; no basta con presentarse. La ubicación en el mapa es exacta a nivel de cuadra, no de la puerta.",
    "ko": "호스피스 하우스 — 환자와 가족을 위한 임종 돌봄입니다. 입소 시 보건부(Ministry of Health)가 정한 일일 요금이 있으며, 자격이 되면 임시 감면 요금을 받을 수 있습니다. 교육을 받은 자원봉사자를 받는 곳이기도 하지만, 지원서와 대기가 필요하며 바로 방문하는 방식은 아닙니다. 여기 좌표는 구역 단위이며 출입구 단위는 아닙니다.",
    "ja": "ホスピスハウス — 本人とご家族のための終末期ケアです。滞在には保健省（Ministry of Health）が定める日額料金がかかり、条件を満たす人には一時的な減額があります。訓練を受けたボランティアを受け入れている場所でもありますが、申込と待機が必要で、飛び込みではありません。ここの座標は街区単位で、玄関の精度ではありません。"
   },
@@ -9934,7 +9934,7 @@
    "fr": "Services d'emploi gratuits financés par la province : recherche d'emploi, aide au CV, évaluation des compétences, accès à la formation et placement. Créez un BCeID avant d'y aller — le centre indique que les chercheurs d'emploi en ont besoin pour être servis. À l'étage de Lansdowne Village.",
    "es": "Servicios de empleo gratuitos financiados por la provincia: búsqueda de trabajo, ayuda con el currículum, evaluación de habilidades, acceso a formación y colocación laboral. Cree una cuenta BCeID antes de ir: el centro indica que quien busca empleo la necesita para recibir el servicio. En la planta alta de Lansdowne Village.",
    "ko": "주정부가 지원하는 무료 취업 서비스: 구직, 이력서 다듬기, 기술 평가, 훈련 연계, 취업 알선. 가기 전에 BCeID를 만들어 두세요 — 센터 안내에 따르면 구직자는 BCeID가 있어야 서비스를 받을 수 있습니다. Lansdowne Village 2층에 있습니다.",
-   "ja": "州の資金による無料の就労支援: 求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
+   "ja": "州の資金による無料の就労支援：求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
   },
   "src": "official",
   "v": "2026-10",
@@ -9998,10 +9998,10 @@
   "note": {
    "zh": "同一免费就业服务在北岸的分点：电脑和电话、简历制作、就业规划、技能评估、培训机会、工作实习安排，以及帮助保住工作。住北岸的居民来这里更近，电话和网上服务与市中心那家共用。资源中心对全省任何人开放；完整的就业服务需要是 BC 居民、出示身份证明，并有在 BC 合法工作的资格。",
    "en": "The North Shore branch of the same free employment service: computers and phones, résumé preparation, employment planning, skills assessment, access to training, work experience placements and help keeping a job. Closer for North Shore residents; phone and online services are shared with the downtown centre. The Resource Centre is open to anyone in BC; full Employment Services need BC residency, proof of ID and legal eligibility to work in BC.",
-   "fr": "La succursale de la rive nord du même service d'emploi gratuit : ordinateurs et téléphones, préparation du CV, planification d'emploi, évaluation des compétences, accès à la formation, stages en milieu de travail et aide pour garder un emploi. Plus proche pour les résidents de la rive nord; le téléphone et les services en ligne sont communs avec le centre-ville. Le centre de ressources est ouvert à tous en C.-B. ; les services d'emploi complets exigent la résidence en C.-B., une pièce d'identité et le droit de travailler en C.-B.",
+   "fr": "La succursale de la rive nord du même service d'emploi gratuit : ordinateurs et téléphones, préparation du CV, planification d'emploi, évaluation des compétences, accès à la formation, stages en milieu de travail et aide pour garder un emploi. Plus proche pour les résidents de la rive nord ; le téléphone et les services en ligne sont communs avec le centre-ville. Le centre de ressources est ouvert à tous en C.-B. ; les services d'emploi complets exigent la résidence en C.-B., une pièce d'identité et le droit de travailler en C.-B.",
    "es": "La sucursal de la ribera norte del mismo servicio de empleo gratuito: computadoras y teléfonos, preparación del currículum, planificación laboral, evaluación de habilidades, acceso a formación, prácticas laborales y ayuda para mantener el empleo. Más cerca para quien vive en la ribera norte; el teléfono y los servicios en línea se comparten con el centro. El centro de recursos está abierto a cualquier persona en BC; los servicios de empleo completos exigen residir en BC, identificación y permiso legal para trabajar en BC.",
    "ko": "같은 무료 취업 서비스의 노스쇼어 지점: 컴퓨터와 전화, 이력서 작성, 취업 계획, 기술 평가, 훈련 연계, 직장 체험 배치, 취업 유지 지원. 노스쇼어 주민에게 더 가깝고 전화와 온라인 서비스는 다운타운 센터와 공유합니다. 리소스 센터는 BC주에 있는 누구나 이용할 수 있고, 정식 취업 서비스는 BC주 거주, 신분 증명, BC주에서 합법적으로 일할 자격이 필요합니다.",
-   "ja": "同じ無料就労支援サービスのノースショア支所: パソコンと電話、履歴書作成、就職計画、スキル評価、訓練の利用、職場体験の紹介、就職後の定着支援。ノースショアの住民には近く、電話とオンラインのサービスはダウンタウンのセンターと共通です。リソースセンターはBC州にいる誰でも利用でき、正式な就労支援にはBC州在住、身分証明、BC州で合法的に働ける資格が必要です。"
+   "ja": "同じ無料就労支援サービスのノースショア支所：パソコンと電話、履歴書作成、就職計画、スキル評価、訓練の利用、職場体験の紹介、就職後の定着支援。ノースショアの住民には近く、電話とオンラインのサービスはダウンタウンのセンターと共通です。リソースセンターはBC州にいる誰でも利用でき、正式な就労支援にはBC州在住、身分証明、BC州で合法的に働ける資格が必要です。"
   },
   "src": "official",
   "v": "2026-10",
@@ -10047,10 +10047,10 @@
   "note": {
    "zh": "市政府的前台：交房产税（property tax）和市政水费账单、办狗牌和商业执照、停车证与罚单、报告路灯或垃圾收集问题。大部分事项可在 MyCity 账号里线上办理，专程来之前先试试。工作日 8:00–16:00。市议会会议对公众开放。",
    "en": "The city's front counter: property tax and utility bills, dog and business licences, parking permits and tickets, and reporting a streetlight or garbage problem. Most of it can be done online in a MyCity account, so try that first. Open weekdays 8–4. Council meetings are open to the public.",
-   "fr": "Le comptoir de la Ville : taxes foncières et factures de services, licences pour chiens et permis d'entreprise, vignettes et contraventions de stationnement, signalement d'un lampadaire ou d'une collecte manquée. La plupart de ces démarches se font en ligne dans un compte MyCity, essayez d'abord. Ouvert en semaine 8h-16h. Les séances du conseil sont publiques.",
-   "es": "La ventanilla del ayuntamiento: impuesto a la propiedad y facturas de servicios, licencias de perros y de negocios, permisos y multas de estacionamiento, y avisos de una farola o una recogida de basura fallida. Casi todo se puede hacer en línea con una cuenta MyCity, pruebe eso primero. Abierto entre semana de 8 a 16h. Las sesiones del concejo son públicas.",
+   "fr": "Le comptoir de la Ville : taxes foncières et factures de services, licences pour chiens et permis d'entreprise, vignettes et contraventions de stationnement, signalement d'un lampadaire ou d'une collecte manquée. La plupart de ces démarches se font en ligne dans un compte MyCity, essayez d'abord. Ouvert en semaine de 8 h à 16 h. Les séances du conseil sont publiques.",
+   "es": "La ventanilla del ayuntamiento: impuesto a la propiedad y facturas de servicios, licencias de perros y de negocios, permisos y multas de estacionamiento, y avisos de una farola o una recogida de basura fallida. Casi todo se puede hacer en línea con una cuenta MyCity, pruebe eso primero. Abierto entre semana de 8 a 16 h. Las sesiones del concejo son públicas.",
    "ko": "시청 민원 창구: 재산세와 수도·공과금 납부, 반려견 등록과 사업자 면허, 주차 허가증과 과태료, 가로등이나 쓰레기 수거 문제 신고. 대부분 MyCity 계정에서 온라인으로 처리할 수 있으니 먼저 시도해 보세요. 평일 8-16시. 시의회 회의는 누구나 방청할 수 있습니다.",
-   "ja": "市役所の窓口: 固定資産税や公共料金の支払い、犬の登録と事業許可、駐車許可証と違反金、街灯やごみ収集の問題の通報。多くはMyCityアカウントでオンライン手続きできるので、まずそちらを試してください。平日8〜16時。市議会は誰でも傍聴できます。"
+   "ja": "市役所の窓口：固定資産税や公共料金の支払い、犬の登録と事業許可、駐車許可証と違反金、街灯やごみ収集の問題の通報。多くはMyCityアカウントでオンライン手続きできるので、まずそちらを試してください。平日8〜16時。市議会は誰でも傍聴できます。"
   },
   "src": "official",
   "v": "2026-10",
@@ -10417,7 +10417,7 @@
   "note": {
    "zh": "Legal Aid BC 在法院大楼二楼的申请受理点，由一家本地律师事务所受托运营：在这里申请法律援助，看收入是否符合条件、能否获派律师。周一至周四 9:00–12:00、13:00–15:30 开放，<b>周五不开</b>——周五可打 Legal Aid BC 的全省受理电话。进法院要过安检。",
    "en": "Legal Aid BC’s intake location on the courthouse’s 2nd floor, run under contract by a local law office: apply here to find out whether your income qualifies you for a legal aid lawyer. Open Monday to Thursday 9–12 and 1–3:30, closed Fridays — on Fridays, use Legal Aid BC’s province-wide intake line. Expect courthouse security screening.",
-   "fr": "Point d’accueil de Legal Aid BC au 2e étage du palais de justice, géré par contrat par un cabinet d’avocats local : faites-y votre demande pour savoir si votre revenu vous donne droit à un avocat de l’aide juridique. Ouvert du lundi au jeudi 9h-12h et 13h-15h30, fermé le vendredi — le vendredi, utilisez la ligne d’accueil provinciale de Legal Aid BC. Prévoyez le contrôle de sécurité du palais de justice.",
+   "fr": "Point d’accueil de Legal Aid BC au 2e étage du palais de justice, géré par contrat par un cabinet d’avocats local : faites-y votre demande pour savoir si votre revenu vous donne droit à un avocat de l’aide juridique. Ouvert du lundi au jeudi de 9 h à 12 h et de 13 h à 15 h 30, fermé le vendredi — le vendredi, utilisez la ligne d’accueil provinciale de Legal Aid BC. Prévoyez le contrôle de sécurité du palais de justice.",
    "es": "Punto de admisión de Legal Aid BC en el 2.º piso del palacio de justicia, gestionado por contrato por un bufete local: solicite aquí para saber si sus ingresos le dan derecho a un abogado de asistencia legal. Abierto de lunes a jueves de 9 a 12 y de 13 a 15:30, cerrado los viernes; los viernes use la línea de admisión provincial de Legal Aid BC. Espere control de seguridad en el palacio de justicia.",
    "ko": "법원 건물 2층에 있는 Legal Aid BC 접수처로, 지역 법률사무소가 위탁 운영합니다. 여기서 신청하면 소득 기준으로 법률구조 변호사를 받을 수 있는지 알 수 있습니다. 월~목 9-12시, 13-15:30, 금요일 휴무 — 금요일에는 Legal Aid BC의 주 전체 접수 전화를 이용하세요. 법원 보안 검색이 있습니다.",
    "ja": "裁判所2階にあるLegal Aid BCの受付窓口で、地元の法律事務所が委託で運営しています。ここで申請すると、収入の条件で法律扶助の弁護士を付けてもらえるかがわかります。月〜木9〜12時、13〜15時30分、金曜休み — 金曜はLegal Aid BCの州全体の受付電話を利用してください。裁判所の保安検査があります。"

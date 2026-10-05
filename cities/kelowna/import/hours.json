@@ -23,6 +23,30 @@
   "hours_text": "Timing of Services: 5:30 PM Vespers on scheduled Saturdays; 9:30 AM Divine Liturgy on scheduled Sundays; 9:30 AM Divine Liturgy on scheduled Feast Days or Weekdays; Confession from 9:00-9:30 AM before all Liturgies, after Vespers or by appointment",
   "source_url": "https://www.stspeterandpaulkelowna.com/ukrainians-need-your-help"
  },
+ "0482ea5b": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.broadstreet.ca/british-columbia/kelowna/lindgren-manor",
+  "why": "No leasing-office hours published; viewings are booked online as 45-minute guided tours ('meet with the leasing agent five minutes prior to your appointment in our central leasing office'). 1-3 bedrooms, Pet Friendly, On-Site Management, 24"
+ },
+ "05520fc8": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.landmarkcinemas.com/showtimes/west-kelowna-xtreme",
+  "why": "No opening hours — hours follow showtimes. Official: 'Movies and showtimes are updated for online ticket purchase each Wednesday morning for the upcoming week (Friday to Thursday).' Senior's Day Monday 20% off; Movie Twosome Wednesdays."
+ },
+ "083c626a": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.cineplex.com/theatre/cineplex-cinemas-orchard-plaza",
+  "why": "No opening hours — hours follow showtimes online."
+ },
+ "0aea0666": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/sarsons-activity-centre",
+  "why": "No hours published. For community programs the page says call 250-469-8800; 250-469-8957 is the listed facility phone (rentals). Okanagan Mission Seniors Centre Society: 250-764-7642."
+ },
  "0b69860a": {
   "fetched": "2026-10-04",
   "hours_text": "Store Hours: Monday to Saturday: 9:30 AM – 5:00 PM",
@@ -37,6 +61,12 @@
   "services_text": null,
   "source_url": "https://www.realstar.ca/apartments/bc/kelowna/glenmore-central/"
  },
+ "0f40437c": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data ('DELICATESSEN AND RESTURANT'). rusukrdeli.com does not resolve; no official hours. Directories show 250-868-6080."
+ },
  "124180e9": {
   "fetched": "2026-10-04",
   "hours_text": "PUBLIC HOURS: Thursday – Saturday 12:00am – 5:00pm; Sunday – Wednesday Closed",
@@ -44,10 +74,34 @@
   "services_text": null,
   "source_url": "https://www.kelownamuseums.ca/plan-your-visit/"
  },
+ "13a6333d": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://missionparkshopping.ca/",
+  "why": "Official: 'Hours — Please visit store detail page for business hours.' (no centre-wide hours). 'Mission Park customers can enjoy ample free parking for up to 3 hours per visit.' 'Mission Park is home to the South Pandosy Exchange transit hu"
+ },
+ "17217475": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "No official website found; name/address and 'EAST INDIAN GROCERY STORE' description confirmed in City business-licence open data. No official hours or phone (directories show 250-765-1546 — unverified)."
+ },
+ "1777ee71": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.prospero.ca/properties/capri-centre/",
+  "why": "Landlord (Prospero) property page gives no mall hours. Location: intersection of Highway 97 and Gordon Drive. Tenants include Winners, Extra Foods, Shoppers Home Health Centre."
+ },
  "19a2e8f6": {
   "fetched": "2026-10-04",
   "hours_text": "Income Tax Clinic Thursday at 9am - Opening days vary outside tax season. Please call to confirm.",
   "source_url": "https://centralokanaganunitedchurch.com/"
+ },
+ "19f5e7fa": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data. farahmarket.ca does not resolve (domain dead), so no official hours/phone; 'started by a family who came from Syria' is from news coverage (Castanet), not an official source. Directories show 25"
  },
  "1ceef85e": {
   "fetched": "2026-10-04",
@@ -77,6 +131,12 @@
   "services_text": null,
   "source_url": "https://turningpoints.ngo/continuum-of-care/shelter"
  },
+ "3040279c": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit news 19 Feb 2026: upgrades to the Rutland Transit Exchange completed."
+ },
  "3143e19f": {
   "fetched": "2026-10-04",
   "hours_text": "General services: Monday to Friday 8:00 am to 4:30 pm",
@@ -97,6 +157,12 @@
   "notes": "Drop-in times on the Hub calendar. Official wording (desk check 2026-10-04): Services are available Monday-Friday, 9:00 am – 3:00 pm. Please check our Calendar for drop-in times and group activities, or, call, text or email for more information.",
   "services_text": null,
   "source_url": "https://cofh.ca/"
+ },
+ "36cec009": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (6) not verified from the guide text."
  },
  "36cfbf1f": {
   "fetched": "2026-10-04",
@@ -129,12 +195,42 @@
   "hours_text": "Office Hours Mon. to Fri. 6:30 a.m. - 5:00 p.m. (SEP - JUNE)",
   "source_url": "https://www.sd23.bc.ca/transportation-services-programsservices"
  },
+ "4014ca5a": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://yd.com/locations/bc/kelowna",
+  "why": "No office hours published; only class start times (e.g. classes starting Oct 5, Oct 7, Oct 17 (virtual Saturday), Oct 18 (Sunday in person)). Call (250) 868-1268."
+ },
+ "433b39a0": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelownacabs.ca/",
+  "why": "No service hours published on the homepage. Also offers senior and student discounts and advance online booking."
+ },
  "441f21f5": {
   "fetched": "2026-10-04",
   "hours_text": null,
   "notes": "Official wording (desk check 2026-10-04): Monday - Friday: 8:30 AM; Saturday (Sunday Mass): 5:00 PM; Sunday: 8:30 AM, 10:30 AM, 7:00 PM",
   "services_text": "Saturday: 5:00 p.m.; Sunday: 8:30 a.m., 10:30 a.m., 7:00 p.m.",
   "source_url": "https://stcharlesgarnier.ca/"
+ },
+ "44e684f8": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.okanagancollege.ca/notice/certified-dental-assisting-programs-direct-patient-care-clinic",
+  "why": "Seasonal: 'Every May'; this year's clinic ran May 9 to May 30 (year not printed; page copyright 2026). No daily hours published — book by phone 250-862-5424 or OCCDA@okanagan.bc.ca. Prices (cash only): screening-day scaling $15; exam, polis"
+ },
+ "4587155a": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data ('RETAIL SALES - FILIPINO GROCERIES'). No official website; no official hours. Some listings call it 'Ishop Pinas Filipino Store' at the same address (third-party, unverified); directories show 7"
+ },
+ "471a3df2": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://jhsok.ca/",
+  "why": "No office hours published. Email info@jhsok.ca. Programs listed: Cornerstone Shelter, STEP Place, Harvey House, supportive/community housing, Probation Outreach, Restorative Justice, Shoplifting Prevention, Home Share, employment programs."
  },
  "472381f1": {
   "fetched": "2026-10-04",
@@ -154,6 +250,12 @@
   "fetched": "2026-10-04",
   "hours_text": "Helpline: 8 am – 8 pm daily (English, Mandarin)",
   "source_url": "https://occabc.ca/"
+ },
+ "4a42649e": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-activity-centre",
+  "why": "City page publishes no hours. Joint-use facility of the Rutland Seniors Centre Society and the City; seniors programs for 50+ (rutlandseniors.com — no hours found there either)."
  },
  "4a5a9b7f": {
   "fetched": "2026-10-04",
@@ -190,6 +292,12 @@
   "services_text": null,
   "source_url": "https://www.shoppersdrugmart.ca/en/stores/2217-shoppers-drug-mart-rutland-plaza-33/"
  },
+ "4d9d15c0": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.missiongroup.ca/rent/ivy-hall-ivy-walk/",
+  "why": "No leasing-office hours published; contact ivy@missiongroup.ca. Caution: the displayed number 250.801.1899 is linked to tel:2363044547 on the page — the two differ; the displayed number matches our record, but a caller tapping the link woul"
+ },
  "4ef71f53": {
   "fetched": "2026-10-04",
   "hours_text": "Monday to Friday: 8:30 a.m. to 6:00 p.m.; Saturday and Sunday: 8:30 a.m. to 5:00 p.m.",
@@ -204,6 +312,18 @@
   "services_text": null,
   "source_url": "https://www.icbc.com/driver-licensing/visit-dl-office"
  },
+ "50c26906": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit: six bus bays, transit lanes on Alumni Avenue and Transit Way; integrates with RapidBus."
+ },
+ "536fa555": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.landmarkcinemas.com/showtimes/kelowna-grand-10",
+  "why": "No opening hours — hours follow showtimes (check online). 'Senior's Day - Monday: 20% Off Admission and Concessions'. Currently showing 'Drishyam: The Conclusion (Hindi w EST)' (English subtitles), confirming occasional Hindi films."
+ },
  "54a572db": {
   "fetched": "2026-10-04",
   "hours_text": "October: Monday - CLOSED. Tuesday, Wednesday, &Thursday: Kids Zone + Arcade + Laser Maze + Power Grid 10 AM - 6 PM; Rock Climbing + Laser Tag Closed; Lazy Lounge Bar Closed. Friday: Kids Zone + Arcade + Laser Maze + Power Grid 10 AM - 10 PM; Rock Climbing + Laser Tag 4 PM - 8:30 PM (last call at 8); Lazy Lounge Bar 4 PM - 10 PM. Saturday: Kids Zone etc. 10 AM - 10 PM; Rock Climbing + Laser Tag 11 AM - 8:30 PM; Lazy Lounge Bar 12 PM - 10 PM. Sunday: Kids Zone etc. 10 AM - 6 PM; Rock Climbing + Laser Tag 11 AM - 5:30 PM (last call at 5); Lazy Lounge Bar 12 PM - 6 PM.",
@@ -213,6 +333,24 @@
   "fetched": "2026-10-04",
   "hours_text": "Kelowna Distribution Hours — By Appointment Only — Monday – Saturday 9:00 AM – 11:30 AM, 12:00 PM – 3:00 PM; Tiny Bundles Appointments Fridays 9:00AM – 3:00 PM. Closed during BC Statutory Holidays.",
   "source_url": "https://cofoodbank.com/get-food/"
+ },
+ "5cca590c": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/memorial-arena",
+  "why": "No regular opening hours published; drop-in times via kelowna.ca/recreation and the public skating schedules page. Built 1945, capacity 2,600; home to Kelowna Minor Hockey and Okanagan College hockey leagues."
+ },
+ "6046fa00": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://kelownagospelmission.ca/dental-clinic/",
+  "why": "No clinic hours published; call 250-763-3737 or email. Services: cleanings, check-ups, X-rays, extractions, fillings. Staff support in English, Tagalog, Hindi and Punjabi. The dental page does not name the street address; 251 Leon Ave is KG"
+ },
+ "639305f2": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://allweatherdrivingschool.com/",
+  "why": "No office hours published; 'Please call the office to book' 250-763-6562."
  },
  "6644e12d": {
   "fetched": "2026-10-04",
@@ -261,6 +399,12 @@
   "services_text": null,
   "source_url": "https://turningpoints.ngo/continuum-of-care/shelter"
  },
+ "6f151299": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). BC Transit news 29 Apr 2026: 'Work is underway on major improvements to the Mission Recreation Transit Exchange... "
+ },
  "74718a21": {
   "fetched": "2026-10-04",
   "hours_text": "Monday: 10:00 am - 8:00 pm; Tuesday: 10:00 am - 8:00 pm; Wednesday: 10:00 am - 8:00 pm; Thursday: 10:00 am - 8:00 pm; Friday: 10:00 am - 5:30 pm; Saturday: 10:00 am - 5:00 pm; Sunday: 11:00 am - 4:00 pm",
@@ -306,6 +450,18 @@
   "services_text": null,
   "source_url": "https://www.freshco.com/stores/freshco-hwy-97-leckie"
  },
+ "83452699": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://kelownagospelmission.ca/services/",
+  "why": "Official: co-ed facility with space for meals, washrooms and case management services. No hours or bed count published. Address publicly listed by the operator."
+ },
+ "83d3651f": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). City of Kelowna: 'Under construction'; 'A temporary exchange will be in place during construction located on K.L.O."
+ },
  "83ec9d28": {
   "fetched": "2026-10-04",
   "hours_text": "Emergency Hours: Daily: 24 hours. Visiting Hours: Daily: 24 hours",
@@ -334,6 +490,12 @@
   "services_text": null,
   "source_url": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page?outletId=105935&detail=true"
  },
+ "8c512c24": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.interiorhealth.ca/locations/kelowna-community-health-services-centre",
+  "why": "The IH location page publishes no opening hours. Call 250-469-7070 to book. Site also lists harm reduction supplies, pharmacy services, public health dietitian services."
+ },
  "8ea416a5": {
   "fetched": "2026-10-04",
   "hours_text": "Monday to Sunday: 9:30 a.m. to 8:30 p.m.",
@@ -345,6 +507,12 @@
   "fetched": "2026-10-04",
   "hours_text": "2026 Clinics will be held as follow: Session 1 — Every Friday, From 9Am till Noon, Starting March 6th till April 24th. Session 2 — *by appointment only — First Friday of each month, From 9Am till Noon, Starting May 1st till December 4th. Walk-ins Welcome (For Session 1 only).",
   "source_url": "https://rotaryogopogo.org/page/tax-clinic-1"
+ },
+ "8eaac5d5": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.wfn.ca/programs-services.htm",
+  "why": "No general office hours published on WFN's contact page. Taxation T 250 769 2400 (confirmed). Email mail@wfn.ca. WFN homepage currently shows a boil water notice / watermain repair on IR9 (Oct 1, 2026) — one-off."
  },
  "8ef01232": {
   "fetched": "2026-10-04",
@@ -386,6 +554,12 @@
   "services_text": null,
   "source_url": "https://www.healthlinkbc.ca/clinic/orchard-medical-centre"
  },
+ "95492d7b": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://misstulipsgreendrycleaner.com/",
+  "why": "The site has a 'Location & Hours' menu item but no hours text is published (checked HTML and rendered text). Call ahead, as the note already says."
+ },
  "9603af74": {
   "fetched": "2026-10-04",
   "hours_text": "Shopping: Mon – Sat, 10 AM – 5 PM; Sunday Closed",
@@ -414,6 +588,12 @@
   "services_text": null,
   "source_url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc"
  },
+ "98f81277": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Rider's guide (effective April 27, 2025) shows Queensway Exchange as the downtown hub with many routes incl. 97."
+ },
  "9c4a407d": {
   "fetched": "2026-10-04",
   "hours_text": "Everyday 7AM to 10PM",
@@ -421,12 +601,42 @@
   "services_text": null,
   "source_url": "https://www.saveonfoods.com/store-information/lakeshore-centre/932"
  },
+ "9c5f8faa": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/mnp-place",
+  "why": "No facility opening hours published. MNP Place's own site (mnpplace.com, operated by Planet Ice) says the skate rental/sharpening shop is 'Open weekdays from 8am - 4pm and for all public skating sessions.' Features per City: two indoor turf"
+ },
+ "9e5639c9": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://kbtemple.ca/",
+  "why": "No fixed weekly service time published. Official: 'SUNDAY SERVICES — We celebrate our ancestors in monthly memorial services, and hold a series of special services throughout the year. Check the calendar for upcoming services.' Calendar is "
+ },
+ "9e9403c9": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Map label only; no street address in the guide."
+ },
  "9f3e043b": {
   "fetched": "2026-10-04",
   "hours_text": "Monday to Friday: 6:00 a.m. to 10:00 p.m.; Saturday and Sunday: 8:00 a.m. to 5:00 p.m.",
   "notes": "Facility hours; closes 9 p.m. weekdays in July and August. Official wording (desk check 2026-10-04): Mon-Fri, 6am-10pm (except July&August closing at 9pm); Sat-Sun, 8am-5pm; Closed Christmas and Boxing Day, modified holiday hours. Front Counter hours: Monday - Friday: 6 a.m. - 9:30 p.m., Saturday & Sunday 8 a.m. - 4:30 p.m. Phone hours (250-469-8800): Monday - Friday: 8 a.m. - 9 p.m., Saturday - Sunday: 9:30 a.m. - 4 p.m.",
   "services_text": null,
   "source_url": "https://www.kelowna.ca/parks-recreation/facilities-venues/parkinson-recreation-centre"
+ },
+ "a13a4fa3": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (4) not verified."
+ },
+ "a2181776": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data ('RETAIL AND WHOLESALE'). No official website found, so no official hours/phone; product-range and 'long-standing' claims unverifiable. Directories show 250-762-2395."
  },
  "a36f2dbe": {
   "fetched": "2026-10-04",
@@ -447,12 +657,30 @@
   "services_text": null,
   "source_url": "https://www.interiorhealth.ca/locations/kelowna-mental-health-substance-use"
  },
+ "a5710c96": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/rutland-arena",
+  "why": "No regular hours published; see the City's Rutland Arena public skating schedule. Two NHL-sized rinks, skate rentals; food concession currently unavailable; home of the Kelowna Chiefs (KIJHL)."
+ },
  "a5ed2320": {
   "fetched": "2026-10-04",
   "hours_text": "Monday to Friday: 9:00 a.m. to 5:30 p.m.; Saturday: 9:00 a.m. to 5:00 p.m.; Sunday: Closed",
   "notes": "Closed Sundays and holidays. Official wording (desk check 2026-10-04): Hours: Mon – Fri: 9:00 AM – 5:30 PM Sat: 9:00 AM – 5:00 PM Closed Sundays and Holidays",
   "services_text": null,
   "source_url": "https://www.dyckspharmacists.com/ida-glenmore/"
+ },
+ "ae917f01": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://welcomecentre.sd23.bc.ca",
+  "why": "No office hours shown on the pages I could read. A web-search snippet attributed to the Welcome Centre site said it 'can be called or emailed from 8:30AM - 3:00 PM Monday-Friday' (ext 3019), but I could not see that text on the fetched page"
+ },
+ "af41a75a": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://associatedpm.ca/residential-property-listings/",
+  "why": "No office hours published. Second Kelowna office: 103 1553 Harvey Avenue, Kelowna, BC V1Y 6G1, Tel 250-717-5010. Toll free 1-877-612-0025."
  },
  "b2079547": {
   "fetched": "2026-10-04",
@@ -467,6 +695,12 @@
   "notes": "Each day listed as '8:00 AM - 10:00 PM' under 'Store and Pharmacy'. Has a Canada Post office ('Post office hours may vary').",
   "services_text": null,
   "source_url": "https://www.shoppersdrugmart.ca/en/stores/2216-shoppers-drug-mart-west-kelowna/"
+ },
+ "b4e0069b": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.bclegalclinic.com/contact",
+  "why": "The official site publishes no office or intake hours; contact by phone 236-425-9120 or info@bclegalclinic.com. Areas listed: income assistance, provincial disability benefits, federal income security programs, employment insurance, debt, r"
  },
  "b632d5d0": {
   "fetched": "2026-10-04",
@@ -494,6 +728,18 @@
   "services_text": null,
   "source_url": "https://rcmp.ca/en/bc/kelowna/contact"
  },
+ "bf46a404": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data. tammrestaurant.com (Tamm Mexican Restaurant, 430 Harvey Ave) lists 'Our Hours: Sunday – Thursday: 10 AM – 8 PM; Friday & Saturday: 10 AM – 9 PM' but does not say which location these apply to an"
+ },
+ "c192b052": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.westkelownacity.ca/parks-recreation-facilities/all-facilities/royal-lepage-place-arena/",
+  "why": "No facility opening hours published; see the City's Public Skate Schedule. 778-797-2265 is the Recreation and Culture Department booking line. Indoor walking track is free; 'Closed during special events or other closures'. No skate sharpeni"
+ },
  "c7876aa2": {
   "fetched": "2026-10-04",
   "hours_text": "Monday: 8:30 am – 4:30 pm; Tuesday: 8:30 am – 5:30 pm; Wednesday: 8:30 am – 4:30 pm; Thursday: 8:30 am – 5:30 pm; Friday: 8:30 am – 4:30 pm",
@@ -508,6 +754,12 @@
   "services_text": null,
   "source_url": "https://washwerk.ca/"
  },
+ "cafc4b08": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.kelowna.ca/parks-recreation/recreation-facilities/cedar-creek-community-centre",
+  "why": "City page publishes no opening hours; it hosts seasonal programs in Kelowna's Activity & Program Guide. Rental inquiries 250-469-8957."
+ },
  "cba7e8e1": {
   "fetched": "2026-10-04",
   "hours_text": "Monday, Tuesday, Wednesday, Friday: 9:00am – 5:00pm; Thursday: 9:00am – 7:00pm",
@@ -521,6 +773,18 @@
   "notes": "Parish's own site. Official wording (desk check 2026-10-04): Holy Sacrifice of the Mass: Sunday - Rosary 8:30 am, Mass: 9:00 am, 11:00 am & 5:00 pm; Saturday - Rosary 8:30 am, Mass: 9:00 am & 5:00 pm (Vigil for Sunday); Monday - Friday - 7:30 am Rosary, Mass: 8:00 am; Long weekend Monday & Stat holidays - Rosary 8:30 am, Mass 9:00 am; + Wednesday - Rosary 4:30 pm - Mass 5:00 pm, Novena to Our Lady of Perpetual Help to follow; First Friday Devotions - Benediction/Adoration 3:00 pm, Mass 4:00 pm. Sacrament of Reconciliation: Saturday 10:00-11:00 am, 3:45-4:45 pm. TRADITIONAL LATIN MASS (diocese page): Sunday 1:00 p.m.; Mass on the First Friday of the Month at 7:00 p.m.; Mass on the First Saturday of the Month at 3:00 p.m.",
   "services_text": "Saturday: 9:00 a.m., 5:00 p.m.; Sunday: 9:00 a.m., 11:00 a.m., 5:00 p.m.",
   "source_url": "https://www.icckelowna.ca/"
+ },
+ "cc61c44b": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www.gwlraleasing.com/commercial-property/ca/bc/west-kelowna/westbank-hub-centre/",
+  "why": "Leasing page publishes no centre hours (stores keep their own hours, as the note says). Official: 'located in West Kelowna (Westbank) at the intersection of Butt Road and Highway 97'. A related listing on the same page is at 2130 Louie Driv"
+ },
+ "cc6dd518": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/personal-injury-and-workplace-safety",
+  "why": "No office hours published. Phone assistance: 604-335-5931 or toll free 1-800-663-4261; Kelowna office fax 250-717-2010. Official: 'part of the Ministry of Labour but is independent from WorkSafeBC'; provides free advice and sometimes repres"
  },
  "cf723f3f": {
   "fetched": "2026-10-04",
@@ -543,6 +807,12 @@
   "fetched": "2026-10-04",
   "hours_text": "Morning Nitnem 5:30 AM - 6:30 AM; Evening Rehras sahib , kirtan & sukhaasan 6.30 PM - 8.00 PM; Door Closed By 8: PM. Gurbani Kirtan: Weekly Program on every Sunday. Sukhmaini Sahib Path and Kirtan Sewa",
   "source_url": "https://www.kelownasikhtemple.ca/"
+ },
+ "d66ab587": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://services3.arcgis.com/FLJGTfiaM25hLKwC/arcgis/rest/services/Business_Licences/FeatureServer/0 (City of Kelowna open data 'Business Licences', via opendata.kelowna.ca)",
+  "why": "Confirmed in City business-licence open data. innoutarabicmarket.com does not resolve, so product/halal claims and hours cannot be checked against an official source. Directories show 250-717-3260 — unverified."
  },
  "d94b8fff": {
   "fetched": "2026-10-04",
@@ -574,6 +844,12 @@
   "notes": "KCR office hours for all locations (Employment Services at 620 Leon Ave, 1st floor). Closed on Stat Holidays; closed Dec 25 - Jan 1.",
   "services_text": null,
   "source_url": "https://kcr.ca/about-us/contact-us/"
+ },
+ "ddccef60": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://lite.bctransit.com/wp-content/uploads/2025/06/kel_rg_apr2025.pdf",
+  "why": "Transit exchange — no opening hours; service hours depend on each route (see BC Transit Kelowna Regional Transit schedules). Bay count (2) not verified."
  },
  "deead411": {
   "fetched": "2026-10-04",
@@ -631,5 +907,11 @@
   "fetched": "2026-10-04",
   "hours_text": "Store Hours 9:00 AM - 9:00 PM",
   "source_url": "https://www.fruiticana.com/storefinder?city=Kelowna"
+ },
+ "fac2727c": {
+  "fetched": "2026-10-04",
+  "none": true,
+  "source_url": "https://kelownagospelmission.ca/services/",
+  "why": "Official: 60 emergency beds for men, showers, laundry, hygiene supplies, three hot meals every day; for those trying to maintain sobriety while in shelter. No hours published (address is publicly listed by the operator)."
  }
 }

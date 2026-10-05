@@ -40,7 +40,8 @@ The JSON files are stored indented (one field per line, so a diff shows exactly 
 | `validate.minPlaces` | Floor for the number of places (default 1) |
 | `validate.areaCodes` | Optional: the local area codes `consistency_check.py` accepts (default: BC's 250/778/236/604/672; toll-free always accepted). Needed for a city outside BC |
 | `review.targetPlaces`, `review.reference` | Read by `review_checklist.py`: the place target decided in PROFILE.md, and the reference city for category coverage and hours share (default kamloops) |
-| `leakMarkers` | This city's facts that no derived fingerprint catches (campus abbreviation, school district code, fare, Indigenous names). Together with the derived ones (`kamdata.fingerprint`: area names, landmarks, UPCCs, local phones, `CITY.examples`) they must never appear on another city's page — checked by `tests/<city>/guitest.py` and `new-city.py` |
+| `review.guiQueries` | Extra searches the city's GUI test (`tests/city_guitest.py`) expects to find places for — words only this city has (a campus, an area, a place of worship) |
+| `leakMarkers` | This city's facts that no derived fingerprint catches (campus abbreviation, school district code, fare, Indigenous names). Together with the derived ones (`kamdata.fingerprint`: area names, landmarks, UPCCs, local phones, `CITY.examples`) they must never appear on another city's page — checked by `tests/city_guitest.py --city <id>` and `new-city.py` |
 | `leakAllow` | Words another city's fingerprint has that are genuinely also here (Kelowna: "Aberdeen", a school) |
 | `timezone` | Optional; `kamdata.today()` uses it (default America/Vancouver). The engine still has its own `CITY_TZ` |
 | `deploy.worker` | Cloudflare Worker name (= the `*.workers.dev` prefix) |
@@ -54,11 +55,11 @@ A city without a `deploy` block (the test city) only builds `build/<id>.html`. `
 ## `provinces/<province>/province.json` — settings every city in a province shares
 
 2026-10-04. Holidays, hotlines, the 2-1-1 line and the winter-driving notice were identical copies in two cities' `data.js`.
-The page still reads them from the city's `data.js`; this file is the reference, and `validate.py` fails when a city differs:
+Since 2026-10-05 the folder is also a **build input**: `build.py` injects `timezone` and `guide/<lang>.html` (the guide's province chapter — health card, licence, tenancy) as `PROVINCE`; the engine holds no province facts, and `validate.py` fails if it does. The shared values below are still read from each city's `data.js`; this file is the reference, and `validate.py` fails when a city differs:
 `holidays` (generate with `python3 scripts/holidays.py`; `--apply` writes them into every city of the province), `hotlines`,
 `helpInfo` (= `CITY.help.info`), and `seasons` — each listed notice must exist in the city with the same `text`, dates and icon
 and must keep every provincial link (the city adds its own local links, such as its emergency-alert sign-up).
-A build-time province pack (moving `guideProv` and `CITY_TZ` out of the engine) comes before the first city outside BC (lesson L-040).
+A city in another province needs its own `provinces/<code>/`: `province.json` (timezone, holidays, hotlines, helpInfo, seasons) and `guide/<lang>.html` in all six languages (lesson L-040).
 
 ## The objects in the data
 
@@ -377,5 +378,5 @@ Follow `docs/guides/新城市操作手册.md`. In short: `python3 scripts/new-ci
 creates the skeleton — BC-wide parts copied, every city fact (transit page, school district, police line, campus, settlement
 line, task-card check date, local lines) marked `TODO:`, the reference city's own texts removed so the engine defaults apply —
 and `validate.py` refuses the city until every TODO is gone. Then import, research, desk-check, translate and verify; check
-with `python3 scripts/validate.py --city <id>` and the city's own `tests/<id>/guitest.py`. A city in another province needs a
+with `python3 scripts/validate.py --city <id>` and `tests/city_guitest.py --city <id>`. A city in another province needs a
 province pack first (methodology §2).

@@ -578,19 +578,19 @@
   },
   "steps": [
    {
-    "en": "If your family holds documents from Immigration Canada (PR card, COPR, study or work permit, refugee documents), first book an appointment with the SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — you need the enrolment code they give you before the online application.",
-    "zh": "如果你们的身份文件来自加拿大移民部（永久居民卡、COPR、学签或工签、难民文件），先和 SD23 欢迎中心（SD23 Welcome Centre，1040 Hollywood Rd S，250-870-5155）预约——网上申请之前，需要先拿到他们给的入学代码（enrolment code）。",
-    "fr": "Si votre famille a des documents d’Immigration Canada (carte de résident permanent, COPR, permis d’études ou de travail, documents de réfugié), prenez d’abord rendez-vous avec le SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — il vous faut le code d’inscription (enrolment code) qu’on vous y donne avant de faire la demande en ligne.",
-    "es": "Si su familia tiene documentos de Immigration Canada (tarjeta de residente permanente, COPR, permiso de estudio o de trabajo, documentos de refugiado), primero pida una cita con el SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — necesita el código de inscripción (enrolment code) que le dan allí antes de hacer la solicitud en línea.",
-    "ko": "가족이 캐나다 이민부(Immigration Canada)에서 받은 서류(영주권 카드, COPR, 학업 허가나 취업 허가, 난민 서류)가 있다면, 먼저 SD23 Welcome Centre(1040 Hollywood Rd S, 250-870-5155)에 예약하세요 — 온라인 신청 전에 그곳에서 받는 등록 코드(enrolment code)가 필요합니다.",
-    "ja": "ご家族がカナダ移民省（Immigration Canada）発行の書類（永住権カード、COPR、就学許可や就労許可、難民の書類）をお持ちなら、まずSD23 Welcome Centre（1040 Hollywood Rd S、250-870-5155）に予約してください — オンライン申請の前に、そこで発行される登録コード（enrolment code）が必要です。"
+    "en": "If your family holds documents from Immigration, Refugees and Citizenship Canada (IRCC) (PR card, COPR, study or work permit, refugee documents), first book an appointment with the SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — you need the enrolment code they give you before the online application.",
+    "zh": "如果你们的身份文件来自加拿大移民、难民及公民部（IRCC）（永久居民卡、COPR、学签或工签、难民文件），先和 SD23 欢迎中心（SD23 Welcome Centre，1040 Hollywood Rd S，250-870-5155）预约——网上申请之前，需要先拿到他们给的入学代码（enrolment code）。",
+    "fr": "Si votre famille a des documents d’Immigration, Réfugiés et Citoyenneté Canada (IRCC) (carte de résident permanent, COPR, permis d’études ou de travail, documents de réfugié), prenez d’abord rendez-vous avec le SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — il vous faut le code d’inscription (enrolment code) qu’on vous y donne avant de faire la demande en ligne.",
+    "es": "Si su familia tiene documentos de Immigration, Refugees and Citizenship Canada (IRCC) (tarjeta de residente permanente, COPR, permiso de estudio o de trabajo, documentos de refugiado), primero pida una cita con el SD23 Welcome Centre (1040 Hollywood Rd S, 250-870-5155) — necesita el código de inscripción (enrolment code) que le dan allí antes de hacer la solicitud en línea.",
+    "ko": "가족이 캐나다 이민·난민·시민권부(IRCC)에서 받은 서류(영주권 카드, COPR, 학업 허가나 취업 허가, 난민 서류)가 있다면, 먼저 SD23 Welcome Centre(1040 Hollywood Rd S, 250-870-5155)에 예약하세요 — 온라인 신청 전에 그곳에서 받는 등록 코드(enrolment code)가 필요합니다.",
+    "ja": "ご家族がカナダ移民・難民・市民権省（IRCC）発行の書類（永住権カード、COPR、就学許可や就労許可、難民の書類）をお持ちなら、まずSD23 Welcome Centre（1040 Hollywood Rd S、250-870-5155）に予約してください — オンライン申請の前に、そこで発行される登録コード（enrolment code）が必要です。"
    },
    {
     "en": "Find your catchment school from your home address on the district’s catchment page.",
     "zh": "在学区的学区划分（catchment）页面，用家庭住址查到对应的学校。",
     "fr": "Trouvez votre école de secteur à partir de votre adresse, sur la page des secteurs scolaires (catchment) du district.",
     "es": "Encuentre la escuela de su zona según su domicilio, en la página de zonas escolares (catchment) del distrito.",
-    "ko": "학군의 catchment(학교 배정 구역) 페이지에서 집 주소로 배정 학교를 확인하세요.",
+    "ko": "교육청의 catchment(학교 배정 구역) 페이지에서 집 주소로 배정 학교를 확인하세요.",
     "ja": "学区のcatchment（通学区域）のページで、自宅住所から学区の学校を調べます。"
    },
    {
@@ -598,7 +598,7 @@
     "zh": "在网上填写学区的入学申请（同一页面有简短的视频教程）。",
     "fr": "Remplissez en ligne la demande d’inscription du district, l’Enrolment Application (une courte vidéo explicative se trouve sur la même page).",
     "es": "Complete en línea la solicitud de inscripción del distrito, la Enrolment Application (en la misma página hay un video tutorial corto).",
-    "ko": "학군의 온라인 Enrolment Application(입학 신청서)을 작성하세요(같은 페이지에 짧은 안내 동영상이 있습니다).",
+    "ko": "교육청의 온라인 Enrolment Application(입학 신청서)을 작성하세요(같은 페이지에 짧은 안내 동영상이 있습니다).",
     "ja": "学区のオンラインのEnrolment Application（入学申請）に記入します（同じページに短い説明動画があります）。"
    }
   ],

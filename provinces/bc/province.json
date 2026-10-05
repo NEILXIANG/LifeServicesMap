@@ -1,5 +1,5 @@
 {
- "_comment": "BC-wide settings every BC city shares. validate.py fails when a BC city's CITY differs from these (so a fix to one city cannot leave the others behind); new-city.py copies them. 2026-10-04: holidays, hotlines, the 2-1-1 line and the winter-driving notice were byte-identical copies in both cities' data.js. The page still reads them from the city's data.js — this file is the reference, not (yet) a build input (methodology: full province pack before the first city outside BC, lesson L-040).",
+ "_comment": "BC-wide settings. Build input since 2026-10-05: build.py injects `timezone` and guide/<lang>.html (the guide's province chapter) as PROVINCE. holidays, hotlines, helpInfo and seasons are still read from each city's data.js; validate.py fails when a BC city differs from them. A city in another province needs its own provinces/<code>/ (province.json + guide/<lang>.html).",
  "province": "bc",
  "timezone": "America/Vancouver",
  "holidays": [

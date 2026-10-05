@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # check-all.sh — 构建 + 全部检查，一条命令。多城市改造期间每一步都用它对照基线。
 #
-#   ./scripts/check-all.sh            # 构建 + validate + 一致性检查 + 全部浏览器测试（含各城市 tests/<城市>/guitest.py）
+#   ./scripts/check-all.sh            # 构建 + validate + 一致性检查 + 全部浏览器测试（含每座城市的 tests/city_guitest.py --city <城市>）
 #   ./scripts/check-all.sh --quick    # 只构建 + validate（不需要 Playwright）
 #
 # 浏览器测试需要 Playwright。优先用项目内的 .venv（见 CLAUDE.md），没有就用系统 python3。
@@ -59,9 +59,11 @@ if [[ $QUICK -eq 0 ]]; then
   run engine-empty "$PY" tests/engine/test_empty_city.py
   run engine-bc-time "$PY" tests/engine/test_bc_permanent_dst.py
   run engine-popup "$PY" tests/engine/test_popup_lifecycle.py
+  run engine-back "$PY" tests/engine/test_back_navigation.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
-  for t in tests/*/guitest.py; do   # each city's own strict GUI run (2026-10-04: Kelowna)
-    [[ -f "$t" ]] && run "gui-$(basename "$(dirname "$t")")" "$PY" "$t"
+  # every city's strict GUI run, one test file for all of them (2026-10-05)
+  for c in $(python3 -c "import kamdata;print(' '.join(kamdata.cities()))"); do
+    run "gui-$c" "$PY" tests/city_guitest.py --city "$c"
   done
   for t in tests/kamloops/phase*test.py tests/kamloops/audit*.py tests/kamloops/soci2.py tests/kamloops/tasktest.py; do
     [[ -f "$t" ]] || continue

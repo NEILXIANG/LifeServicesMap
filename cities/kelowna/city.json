@@ -20,8 +20,7 @@
     "Westbank First Nation",
     "Alertable",
     "Bernard Ave",
-    "Route 90",
-    "Umo"
+    "Route 90"
   ],
   "leakAllow": [
     "Aberdeen"
@@ -33,7 +32,15 @@
   "review": {
     "_comment": "review_checklist.py: place target decided in PROFILE.md (由此决定); reference city for category coverage and hours share.",
     "targetPlaces": 450,
-    "reference": "kamloops"
+    "reference": "kamloops",
+    "guiQueries": [
+      "mosque",
+      "gurdwara",
+      "UBCO",
+      "Rutland",
+      "tax clinic",
+      "beach"
+    ]
   },
   "deploy": {
     "worker": "kelowna-lifemap",

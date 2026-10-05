@@ -1105,7 +1105,7 @@
     },
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
+     "path": "tests/city_guitest.py",
      "marker": "FORBIDDEN = ["
     }
    ]
@@ -1268,7 +1268,7 @@
    "phase": "立项",
    "lesson": "加拿大和 BC 的内容（全国指南、BC 指南、911、加元、时区）还写在引擎里；在 BC 内没问题，换省就错。",
    "rule": "第一个外省城市之前建省包，第一座美国城市之前建国家包，把这些内容搬出引擎。",
-   "status": "todo",
+   "status": "auto",
    "evidence": [
     {
      "city": "Kelowna",
@@ -1279,9 +1279,19 @@
    ],
    "encoded": [
     {
-     "kind": "doc",
-     "path": "docs/guides/新城市扩展方法论与标准.md",
-     "marker": "第一个外省城市之前建省包"
+     "kind": "tool",
+     "path": "build.py",
+     "marker": "PROV_MARKER = '/*__PROVINCE__*/'"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "the engine defines guideProv"
+    },
+    {
+     "kind": "data",
+     "path": "provinces/bc/province.json",
+     "marker": "\"timezone\""
     }
    ]
   },
@@ -1370,7 +1380,7 @@
    "encoded": [
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
+     "path": "tests/city_guitest.py",
      "marker": "stays open"
     },
     {
@@ -1601,7 +1611,7 @@
     },
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
+     "path": "tests/city_guitest.py",
      "marker": "GARBAGE = re.compile"
     }
    ]
@@ -1681,7 +1691,7 @@
    "encoded": [
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
+     "path": "tests/city_guitest.py",
      "marker": "J1 no horizontal scroll"
     },
     {
@@ -1862,8 +1872,8 @@
     },
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
-     "marker": "lists all three UPCCs"
+     "path": "tests/city_guitest.py",
+     "marker": "the health answer lists the city\\'s"
     }
    ]
   },
@@ -1941,7 +1951,7 @@
     },
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
+     "path": "tests/city_guitest.py",
      "marker": "crisis"
     }
    ]
@@ -3291,6 +3301,12 @@
      "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
      "section": "## 第 19 轮：经验沉淀、抽象与脚本整理",
      "what": "三份互不相知的禁用词表；推导规则的两个误报"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 23 轮：自主补完——营业时间口径、返回手势、通用界面测试、省级包、译文第二轮",
+     "what": "通用界面测试首次跑 Kamloops：Google Places、Umo 规则本身错了"
     }
    ],
    "encoded": [
@@ -3301,8 +3317,8 @@
     },
     {
      "kind": "test",
-     "path": "tests/kelowna/guitest.py",
-     "marker": "kamdata.leak_markers('kelowna')"
+     "path": "tests/city_guitest.py",
+     "marker": "MARKS = kamdata.leak_markers(CITY_ID)"
     },
     {
      "kind": "gate",
@@ -3736,6 +3752,12 @@
      "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
      "section": "## 第 22 轮：新手视角测试、两城数据严格校验、六语测试",
      "what": "26 处意思反了，数字全对"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 23 轮：自主补完——营业时间口径、返回手势、通用界面测试、省级包、译文第二轮",
+     "what": "改写备注的译文：40 lb→18 kg、漏\"或照护者\""
     }
    ],
    "encoded": [
@@ -3768,6 +3790,61 @@
      "kind": "doc",
      "path": "records/data-quality-log.md",
      "marker": "独立复核（官网对照）之后"
+    }
+   ]
+  },
+  {
+   "id": "L-126",
+   "title": "营业时间的标准是\"有时间或已核实未公布\"，对比要同口径",
+   "area": "营业时间",
+   "scope": "all",
+   "phase": "核实",
+   "lesson": "Kelowna 有时间的比例 66% 被拿来和 Kamloops 83% 比——后者含第三方列表抄来的时间，而且公交站本来就没有营业时间；Kelowna 缺的地点大多是官网确实没公布。",
+   "rule": "上线标准：每个地点要么有结构化时间，要么核实过官网未公布（hours.json none），要么标\"不规律\"（k:hCall/hCallSeason/hSite）；比例对比只算官方来源、去掉没有营业时间的类别和可不收的商业类。apply_verification 自动记录\"官方未公布\"。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 23 轮：自主补完——营业时间口径、返回手势、通用界面测试、省级包、译文第二轮",
+     "what": "同口径 77% 对 75%；38 处官方未公布"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "scripts/review_checklist.py",
+     "marker": "def _hours_base(PL)"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/apply_verification.py",
+     "marker": "hours[p['id']] = {'none': True"
+    }
+   ]
+  },
+  {
+   "id": "L-127",
+   "title": "跳转到地图的操作要给返回手势留一条路",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "办事卡\"在地图上看\"关闭指南时连带删掉它的历史记录，读者按返回就离开了网站。",
+   "rule": "凡是从一个面板跳到地图的操作，留一条历史记录，返回时回到原来的卡片；用测试按真实返回手势走三层，并确认去掉修复时测试会失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kelowna",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 23 轮：自主补完——营业时间口径、返回手势、通用界面测试、省级包、译文第二轮",
+     "what": "返回手势离开网站"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_back_navigation.py",
+     "marker": "Back from the map returns to the same card"
     }
    ]
   }
@@ -3981,9 +4058,11 @@
    "use": "测试城市（引擎默认值）、空城市",
    "reuse": "所有城市",
    "paths": [
+    "tests/engine/test_back_navigation.py",
     "tests/engine/test_bc_permanent_dst.py",
     "tests/engine/test_empty_city.py",
     "tests/engine/test_fixture_city.py",
+    "tests/engine/test_popup_lifecycle.py",
     "tests/make-fixture-city.py"
    ]
   },
@@ -4000,11 +4079,10 @@
   {
    "name": "城市严格界面测试",
    "type": "测试",
-   "use": "六语、全部弹窗与办事卡、搜索、危机词、布局、别城事实；换禁用词表即可复用；别城禁用词由 kamdata.leak_markers 从各城数据推导",
-   "reuse": "所有城市（模板）",
+   "use": "每座城市一个命令：六语、别城事实（从数据推导）、全部弹窗与办事卡、布局；城市的事实从数据取，新城市不用复制",
+   "reuse": "所有城市（--city）",
    "paths": [
-    "tests/kelowna/guitest.py",
-    "tests/kelowna/README.md"
+    "tests/city_guitest.py"
    ]
   },
   {
@@ -4092,10 +4170,11 @@
   {
    "name": "省级共用设置",
    "type": "数据",
-   "use": "法定假日、热线、2-1-1、冬季与山火提示的省级部分；validate 要求同省城市一致",
+   "use": "时区和指南的省级一章（构建时注入）；法定假日、热线、2-1-1、季节提示的参照（validate 要求同省城市一致）",
    "reuse": "BC 省内城市（外省各建一份）",
    "paths": [
-    "provinces/bc/province.json"
+    "provinces/bc/province.json",
+    "provinces/bc/guide"
    ]
   },
   {
