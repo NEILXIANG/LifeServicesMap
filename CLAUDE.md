@@ -55,7 +55,7 @@ python3 scripts/new-city.py <id> --name <Name> --centre <lat>,<lng>   # 新城�
 - 数据记录要有来源分级 `src`（opendata / official / places / own）和核实月份 `v`，见 `docs/guides/DATA-SCHEMA.md`。
 - 引擎里不放任何城市事实（电话、地址、地点编号、票价）；城市的事实写在 `cities/<城市>/data.js`（`validate.py` 会检查）。
 - 改完至少跑 `./scripts/check-all.sh --quick`；改引擎行为要跑完整版。
-- 部署、推送、对外发布、给合作方发邮件：先征得 Neil 同意。
+- 部署、推送、对外发布、给合作方发邮件：先征得 Neil 同意。概括授权（"需要拍板的事你自主决定"）**不包括**部署和改 `main`——这两件每次单独问、等到明确的"可以"（2026-10-04 部署后被推翻，见经验 L-117）。`main` 保持不变，工作提交到 `multi-city`。
 
 ## 当前计划
 

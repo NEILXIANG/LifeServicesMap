@@ -3535,6 +3535,31 @@
      "marker": "def enrich(a):"
     }
    ]
+  },
+  {
+   "id": "L-117",
+   "title": "概括授权不包括上线和改 main",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "Neil 说\"需要拍板的事按专业判断自主决定\"，我据此部署了 Kamloops 并把 main 快进；Neil 随即说明不需要部署、main 保持不变，只好回滚线上、恢复 main。",
+   "rule": "部署、改 main、发邮件、对外发布：即使得到概括授权，也要单独问一次、得到明确的\"可以\"再做（CLAUDE.md 的规则不因概括授权失效）；自主决定的范围是方案、优先级和仓库内可回退的改动。先做后滚回会影响线上用户和合作方。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 21 轮：自主决定待定事项、补全 Kamloops 托儿、部署",
+     "what": "按概括授权部署后被推翻，回滚"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "CLAUDE.md",
+     "marker": "部署、推送、对外发布、给合作方发邮件：先征得 Neil 同意"
+    }
+   ]
   }
  ],
  "assets": [
