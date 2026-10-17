@@ -236,6 +236,30 @@ document.addEventListener('visibilitychange',()=>{
     if(guideBackdropEl.classList.contains('open')&&!_taskOpen)renderTaskBuckets();}catch(e){}
 });
 setInterval(()=>{try{if(openNow&&document.visibilityState==='visible')apply();}catch(e){}},60000);
+// 2026-10-16 (visit log): a phone kept a tab of 2026.09.24 open for three weeks — mobile browsers resume a tab
+// without reloading, so it went on showing three-week-old phone numbers and hours. When a tab that has been open
+// for hours comes back to the front, ask the server (a HEAD request, no body) whether the page has changed since
+// it loaded; if it has, offer a reload. Nothing happens on file:// or offline.
+let _pageStamp=null,_lastVerCheck=0;
+function _headStamp(){
+  if(!/^https?:$/.test(location.protocol))return Promise.resolve(null);
+  return fetch(location.pathname,{method:'HEAD',cache:'no-store'})
+    .then(r=>r.ok?(r.headers.get('etag')||r.headers.get('last-modified')):null).catch(()=>null);
+}
+setTimeout(()=>{_headStamp().then(s=>{_pageStamp=s;});},15000);
+const VER_CHECK_AFTER=6*3600e3;
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState!=='visible'||!_pageStamp)return;
+  const now=Date.now();
+  if(now-_sessionStartedAt<VER_CHECK_AFTER||now-_lastVerCheck<3600e3)return;
+  _lastVerCheck=now;
+  _headStamp().then(s=>{
+    if(!s||s===_pageStamp)return;
+    const u=UI[L_];
+    try{trackEvent('update_offer',{});}catch(e){}
+    showToast(u.updateAvail,{action:u.updateReload,ms:20000,onAction:()=>{try{trackEvent('update_reload',{});flushEvents();}catch(e){}location.reload();}});
+  });
+});
 // A reload with a sheet open leaves its marker in history.state; treat the
 // fresh page as having nothing open, or the next ✕ would navigate away.
 try{if(history.state&&history.state[_SHEET_KEY]){const st=Object.assign({},history.state);delete st[_SHEET_KEY];history.replaceState(st,'',location.href);}}catch(e){}

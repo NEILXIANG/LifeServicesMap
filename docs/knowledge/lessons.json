@@ -21,6 +21,12 @@
      "ref": "docs/guides/新城市扩展方法论与标准.md",
      "section": "### 什么快、什么慢",
      "what": "收集 1.5 天，剩下全是人的工作"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "records/analytics-log.md",
+     "section": "## 各期数据",
+     "what": "第 5 期：14 天 0 个外部访客，连续 22 天"
     }
    ],
    "encoded": [
@@ -2424,7 +2430,7 @@
     {
      "city": "Kamloops",
      "ref": "records/analytics-log.md",
-     "section": "## 四期数据",
+     "section": "## 各期数据",
      "what": "第 2 期，主题开着搜索全是 0"
     }
    ],
@@ -3847,6 +3853,36 @@
      "marker": "Back from the map returns to the same card"
     }
    ]
+  },
+  {
+   "id": "L-128",
+   "title": "一直开着的标签页要能知道有新版",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "访问日志里维护者的手机上一个标签页开了三周，一直跑旧版：手机浏览器恢复标签页不重新加载，网络优先的 Service Worker 只管新打开的页面。",
+   "rule": "页面开了几个小时、回到前台时向服务器发 HEAD 请求比较 ETag / Last-Modified，变了就提示刷新；看访问日志时按版本号分组，能发现停在旧版的设备。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 24 轮：访问日志分析（第 5 期）与旧标签页",
+     "what": "标签页三周跑旧版"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/85-search-box-sheets.js",
+     "marker": "function _headStamp()"
+    },
+    {
+     "kind": "test",
+     "path": "tests/engine/test_update_offer.py",
+     "marker": "after hours open, a changed page on the server offers a reload"
+    }
+   ]
   }
  ],
  "assets": [
@@ -4063,6 +4099,7 @@
     "tests/engine/test_empty_city.py",
     "tests/engine/test_fixture_city.py",
     "tests/engine/test_popup_lifecycle.py",
+    "tests/engine/test_update_offer.py",
     "tests/make-fixture-city.py"
    ]
   },
