@@ -257,7 +257,9 @@ const resultListMax=()=>window.matchMedia&&window.matchMedia('(max-width:600px)'
 function renderResultList(v,searching){
   const el=document.getElementById('resultList');if(!el)return;
   const q=searchRaw||searchTerm;
-  if(!searching||!v||v>30||isCrisisQuery(q)){el.hidden=true;el.innerHTML='';return;}
+  // a health question is answered by the box above it (who is open now, 8-1-1, 911); a list of every place in the
+  // health category under it repeated that, less well — "doctor" listed the hospice (launch review, 2026-10-20)
+  if(!searching||!v||v>30||isCrisisQuery(q)||_isHealthQuery(q)){el.hidden=true;el.innerHTML='';return;}
   const u=UI[L_];
   const shown=M.filter(m=>_isShown(m)).sort((a,b)=>(b.score||0)-(a.score||0));
   const top=shown.slice(0,resultListMax());
