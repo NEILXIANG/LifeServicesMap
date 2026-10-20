@@ -1209,6 +1209,28 @@ _bad_alias = [p['n'] for p in P if any(re.fullmatch(r'[A-Za-z0-9]', str(a).strip
 if _bad_alias:
     fail('%d place(s) have one-letter search words (alias) — a string was split into characters? e.g. %s' % (len(_bad_alias), _bad_alias[:3]))
 
+# (2026-10-20, L-139) Kindergarten is the first, free year of public school in Canada. The usual zh/ko/ja words
+# (幼儿园 / 유치원 / 幼稚園) mean an optional, often paid preschool — a parent reading them can miss the February
+# registration. Wherever the English says Kindergarten, those three must not use the preschool word.
+_KG = {'zh': ('幼儿园', '幼兒園'), 'ko': ('유치원',), 'ja': ('幼稚園',)}
+def _six(o):
+    if isinstance(o, dict):
+        if isinstance(o.get('en'), str) and any(isinstance(o.get(l), str) for l in _KG): yield o
+        for v in o.values(): yield from _six(v)
+    elif isinstance(o, list):
+        for v in o: yield from _six(v)
+_kg_bad = []
+for _o in list(_six(P)) + list(_six(_tasks if _tm else [])):
+    if 'Kindergarten' in _o['en']:
+        _kg_bad += ['%s: %s' % (l, w) for l, ws in _KG.items() for w in ws if w in (_o.get(l) or '')]
+if _kg_bad:
+    fail('Kindergarten translated as preschool (%d): %s — say it is the first, free year of public school' % (len(_kg_bad), _kg_bad[:4]))
+
+# (2026-10-20, L-143) a university filed under High Schools showed "🏫 High Schools" on its card in all six languages.
+_uni = [p['n'] for p in P if p['c'] in ('school', 'elem') and re.search(r'\b(University|College|Polytechnic)\b', p['n'])]
+if _uni:
+    fail('university/college filed as a school (use category "college"): %s' % _uni[:4])
+
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'
       % (len(P), len(CI), len(RI), len(BR), len(html.encode()) // 1024))

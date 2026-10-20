@@ -4153,6 +4153,131 @@
      "marker": "function keepPhonesWhole(html)"
     }
    ]
+  },
+  {
+   "id": "L-139",
+   "title": "Kindergarten 在中、韩、日不能译成\"幼儿园\"",
+   "area": "多语言",
+   "scope": "CA",
+   "phase": "翻译",
+   "lesson": "办事卡写\"下一年 9 月入学的幼儿园片区登记在 2 月初\"（韩文 유치원、日文 幼稚園）。在这三种语言里这个词指自愿、常收费的学前班；在加拿大 Kindergarten 是公立小学的第一年、免费。家长可能以为可去可不去，错过 2 月登记。英文、法文、西文没问题，三位母语审读里只有日文一位指出。",
+   "rule": "英文写 Kindergarten 的地方，中、韩、日写成 Kindergarten / 킨더가튼 / キンダーガーテン，并加一句\"公立小学的第一年，免费\"。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之三、上线前逐控件验收与母语审读（2026-10-20，main `2026.10.20b`）",
+     "what": "Kindergarten 被译成学前班"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "_KG = {'zh': ('幼儿园', '幼兒園')"
+    }
+   ]
+  },
+  {
+   "id": "L-140",
+   "title": "修一种语言，要证明其他语言一个字没变",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "上线前修法、韩、日审读意见时，很多修改落在共用代码（引擎里的正则、时间格式）或共用数据里，一处修改可能悄悄改了别的语言。日文把时间改成\"〜\"后，快照对比当场发现不断行的连接符丢了。",
+   "rule": "每批修改前后各拍一次六语文字快照（首页、每张办事卡和链接、地点卡样本），逐语言对比：没改的语言必须\"完全没变\"，目标语言只能在预期位置变化；然后跑全部界面测试，并加一条在旧代码上会失败的测试。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之三、上线前逐控件验收与母语审读（2026-10-20，main `2026.10.20b`）",
+     "what": "六语快照对比"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-19-线上走查报告.md",
+     "marker": "每一批修改都做六语文字快照对比"
+    }
+   ]
+  },
+  {
+   "id": "L-141",
+   "title": "官方链接要按读者语言给",
+   "area": "多语言",
+   "scope": "CA",
+   "phase": "城市内容",
+   "lesson": "法文读者在办事卡上点\"Page officielle\"，打开的是英文页面、英文机构名。联邦网站有法文版，但网址不能把 /en/ 换成 /fr/ 猜出来，要从英文页面上的 Français 链接取。",
+   "rule": "有官方其他语言版本的来源，在卡片里用 srcL / srcNameL 按语言填写；网址从原页面的语言切换链接取，并逐个确认能打开。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之三、上线前逐控件验收与母语审读（2026-10-20，main `2026.10.20b`）",
+     "what": "法文读者被带到英文官方页面"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/city_guitest.py",
+     "marker": "G4 task source links follow the language"
+    }
+   ]
+  },
+  {
+   "id": "L-142",
+   "title": "法文时间不能在行尾断开",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "法文写\"24 h sur 24\"\"16 h 30\"，空格是普通空格，手机上\"16 h\"和\"30\"会分在两行。",
+   "rule": "法文显示时把时间短语里的空格换成不换行空格（frSpaces）；测试读取前要等页面补完空格（异步）。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之三、上线前逐控件验收与母语审读（2026-10-20，main `2026.10.20b`）",
+     "what": "法文时间断行"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/city_guitest.py",
+     "marker": "G5 fr: times stay on one line"
+    }
+   ]
+  },
+  {
+   "id": "L-143",
+   "title": "大学不能放进\"中学\"类别",
+   "area": "导入与合并",
+   "scope": "all",
+   "phase": "导入",
+   "lesson": "TRU 被归在 school（中学）类，地点卡上六种语言都写着\"🏫 中学\"；搜\"大学 / university\"也找不到。",
+   "rule": "大学、学院用 college 类别；名字带 University / College 的地点不能在 school / elem。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之三、上线前逐控件验收与母语审读（2026-10-20，main `2026.10.20b`）",
+     "what": "TRU 在中学类"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "university/college filed as a school"
+    }
+   ]
   }
  ],
  "assets": [
