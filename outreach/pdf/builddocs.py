@@ -10,6 +10,7 @@ builddocs.py — 从 content/*.txt 重新生成对外说明材料（HTML + PDF�
     python3 outreach/pdf/builddocs.py                 # 全部重建
     python3 outreach/pdf/builddocs.py zh-complete     # 只建一份（按文件名前缀）
     python3 outreach/pdf/builddocs.py --html-only     # 只出 HTML，不调 Chromium
+    python3 outreach/pdf/builddocs.py --values        # 只核对 PDF 要印的每个数字都取得到（check-all 用）
     python3 outreach/pdf/builddocs.py --into 2026-09-16b   # 重建进已有的那一批（不新建目录）
     python3 outreach/pdf/builddocs.py --date 2026-09-16    # 指定日期（默认按 Kamloops 当地日期）
 
@@ -70,7 +71,11 @@ def live_values():
     themes = len({t for p in P for t in (p.get('t') or [])})
     page = open(os.path.join(ROOT, 'public', 'index.html'), encoding='utf-8').read()
     version = re.search(r"VERSION='([^']+)'", page).group(1)
-    verified = re.search(r"VERIFIED='([^']+)'", page).group(1)
+    # 2026-10-19: the engine split moved this into the city data (CITY.verified); the old page regex found nothing and
+    # the first PDF build after the split crashed. Read the fact where it lives now (L-131).
+    verified = kamdata.city_obj().get('verified') or ''
+    if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', verified):
+        sys.exit('builddocs: CITY.verified is %r, expected YYYY-MM-DD' % verified)
     defined = kamdata.load('CI', engine=True)
     # 只数真正有地点的分类：CI 里可能留着尚无地点的分类（如 cafe），
     # 说"地点分为 N 个分类"时把空分类算进去是不准的。
@@ -402,6 +407,8 @@ def main():
     args = [a for a in sys.argv[1:] if not a.startswith('--') and a not in skip]
     html_only = '--html-only' in sys.argv
     vals = live_values()
+    if '--values' in sys.argv:          # check-all: every value the PDFs print can still be read (no network, no files)
+        print('outreach values:', vals); return
     # 2026-10-04: the version printed on a PDF must be one a reader can actually open. public/index.html is a build,
     # not necessarily what is deployed (on 2026-10-04 it was 2026.10.04a while the site served 2026.09.24b).
     # Checked before anything is written; if the live version cannot be read, PDFs are not built (fail closed).

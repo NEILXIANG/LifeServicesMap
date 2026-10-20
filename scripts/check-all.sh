@@ -39,6 +39,9 @@ for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities()
 done
 # 2026-10-04: the knowledge base — every lesson's claimed check/tool must still exist, and the pages are current
 run knowledge python3 scripts/knowledge.py --check
+# 2026-10-19: the outreach PDFs read facts from the build and the city data; an engine change broke that unnoticed until
+# the first PDF build after a deploy (L-131). Only the values — no network, nothing written.
+run outreach-values python3 outreach/pdf/builddocs.py --values
 # 2026-10-04: cross-language numbers, phones and other cities' names inside each city's notes. A city still
 # being compiled (draft) must be clean; for a live city the report is listed but does not block.
 for c in $(python3 -c 'import kamdata;print(" ".join(c for c in kamdata.cities() if not c.startswith("_")))'); do
