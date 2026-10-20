@@ -9,7 +9,9 @@
 # that touches them hits a modify/delete conflict, which this script resolves by removing them again.
 # It only commits locally: pushing main and deploying stay Neil's decision, each time (lesson L-117).
 set -euo pipefail
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"; cd "$ROOT"
+# runs in whichever checkout it is called from (a worktree on main is fine); the list comes from the source branch,
+# since main does not have it until the first sync
+ROOT="$(git rev-parse --show-toplevel)"; cd "$ROOT"
 SRC="${1:-multi-city}"
 fail() { printf '✗ %s\n' "$*" >&2; exit 1; }
 
@@ -18,7 +20,7 @@ EXCL=()
 while IFS= read -r line; do
   line="${line%%#*}"; line="$(printf '%s' "$line" | sed 's/[[:space:]]*$//')"
   [[ -n "$line" ]] && EXCL+=("$line")
-done < scripts/main-excludes.txt
+done < <(git show "$SRC:scripts/main-excludes.txt")
 [[ ${#EXCL[@]} -gt 0 ]] || fail "scripts/main-excludes.txt lists nothing"
 
 git checkout -q main
