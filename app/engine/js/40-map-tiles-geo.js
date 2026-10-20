@@ -92,6 +92,9 @@ layer.on('tileerror',()=>{
   if(offlineEl&&offlineEl.dataset.yielded)return;
   if(offlineEl&&offlineEl.hidden)offlineShowExpanded();
 });
+// 2026-10-20 (final acceptance): Leaflet's own credit link opened in the same tab and took the reader out of the guide
+function _attrNewTab(){document.querySelectorAll('.leaflet-control-attribution a').forEach(a=>{a.target='_blank';a.rel='noopener';});}
+map.on('layeradd',()=>setTimeout(_attrNewTab,0));setTimeout(_attrNewTab,0);
 map.on('popupopen',e=>{
   // a phone has room for the card or the locate button, not both (it sat on the card's corner, 2026-10-20)
   document.getElementById('map').classList.add('pop-open');

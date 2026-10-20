@@ -271,7 +271,7 @@ function openTask(id,src){
       h+=row(u.taskDeadline,'<b>'+esc(n<0?u.dlPast:u.dlBy(fmtDate(dd,L_),n))+'</b>','task-dl');}
     // rights can never resolve to a computed date (see deadlineDate) — offering
     // "enter your arrival date" there would promise an exact date that never comes.
-    else h+=row(u.taskDeadline,esc(taskText(t.deadline))+(t.id==='rights'?'':' <button type="button" class="task-tool task-dl-set" id="taskDlSet">'+esc(u.dlSetArrival)+'</button>'));
+    else h+=row(u.taskDeadline,esc(taskText(t.deadline))+(!deadlineFromArrival(t)?'':' <button type="button" class="task-tool task-dl-set" id="taskDlSet">'+esc(u.dlSetArrival)+'</button>'));
   }
   // For a reader from a country where dealing with officials carries risk,
   // "go to a government office" is not neutral advice. Saying plainly who does
@@ -310,7 +310,7 @@ function openTask(id,src){
     +'<button type="button" class="task-fb-b" data-r="stuck">'+esc(u.taskStuck)+'</button></div>'
     +'<p class="task-local">'+esc(u.taskLocalOnly)+'</p></div>';
   if(t.src)h+='<p class="task-src"><a href="'+esc(t.src)+'" target="_blank" rel="noopener">'
-      +esc(u.taskSource)+': '+esc(t.srcName)+' ↗</a></p>';
+      +esc(u.taskSource)+u.colon+esc(t.srcName)+' ↗</a></p>';
   h+='<p class="task-src task-checked">'+esc(u.taskVerified.replace('{TD}',t.checked||CITY.tasksChecked||VERIFIED)   /* a card checked again later carries its own date (2026-10-20) */)
     +' · <a href="'+esc(transFixHref(t))+'">'+esc(u.taskTransFix)+'</a></p>';
   host.innerHTML=h;

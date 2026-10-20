@@ -80,7 +80,7 @@ const CITY={
           zh:'冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。',
           ko:'겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.',
           ja:'冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。'},
-    short:{en:'Winter tires required on most BC highways, Oct 1–Apr 30',fr:'Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.',es:'Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.',zh:'10月1日–4月30日：BC 大部分公路要求冬胎',ko:'10/1–4/30 BC주 고속도로 겨울 타이어 필수',ja:'10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要'},
+    short:{en:'Winter tires required Oct 1–Apr 30',fr:'Pneus d’hiver : 1er oct.–30 avr.',es:'Neumáticos de invierno: oct.–abr.',zh:'10/1–4/30：BC 公路须用冬胎',ko:'10/1–4/30 고속도로 겨울 타이어 필수',ja:'10/1〜4/30：幹線道路は冬用タイヤ'},
     links:[{u:'https://www.drivebc.ca/',t:{en:'Road conditions (DriveBC)',fr:'État des routes (DriveBC)',es:'Estado de las carreteras (DriveBC)',zh:'路况（DriveBC）',ko:'도로 상황(DriveBC)',ja:'道路状況（DriveBC）'}},
            {u:'https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes',t:{en:'Which routes',fr:'Quelles routes',es:'Qué rutas',zh:'哪些路段',ko:'해당 도로',ja:'対象の道路'}}]},
    {id:'wildfire',from:'07-01',to:'09-30',icon:'🔥',
@@ -90,7 +90,7 @@ const CITY={
           zh:'山火季：户外活动前先看空气质量，并登记市政府的紧急警报。',
           ko:'산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.',
           ja:'山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。'},
-    short:{en:'Wildfire season: check the air before going out',fr:'Saison des feux : vérifiez l’air avant de sortir',es:'Temporada de incendios: revise el aire antes de salir',zh:'山火季：出门前先看空气质量',ko:'산불 시즌: 외출 전 대기 질 확인',ja:'山火事シーズン：外出前に大気を確認'},
+    short:{en:'Wildfire season: check air quality',fr:'Feux de forêt : vérifiez l’air',es:'Incendios: revise la calidad del aire',zh:'山火季：出门前先看空气质量',ko:'산불 시즌: 외출 전 대기 질 확인',ja:'山火事シーズン：外出前に大気を確認'},
     links:[{u:'https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html',t:{en:'Air quality',fr:'Qualité de l’air',es:'Calidad del aire',zh:'空气质量',ko:'대기 질',ja:'大気の状態'}},
            {u:'https://www.kamloops.ca/public-safety/emergency-preparedness/emergency-alerts-orders/emergency-alert-notifications',t:{en:'Emergency alerts',fr:'Alertes d’urgence',es:'Alertas de emergencia',zh:'紧急警报',ko:'긴급 경보',ja:'緊急警報'}},
            {u:'https://www2.gov.bc.ca/gov/content/safety/wildfire-status',t:{en:'Wildfires now',fr:'Feux en cours',es:'Incendios activos',zh:'当前山火',ko:'현재 산불',ja:'現在の山火事'}}]}
@@ -112,7 +112,7 @@ const CITY={
       zh:'Y Women’s Emergency Shelter——逃离暴力的女性（带不带孩子都行）。24 小时，免费，不需要转介；地址保密。可发短信到 250-682-7931，或打电话：',
       ko:'Y Women’s Emergency Shelter — 폭력을 피해 나온 여성(자녀 동반 무관). 24시간, 무료, 의뢰 불필요, 주소는 비공개. 250-682-7931로 문자, 또는 전화:',
       ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。SMSは250-682-7931、電話は：'}},
-   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'先住民寄宿学校（Residential School）の生存者とその家族、24時間：'}},
+   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'原住民寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'先住民寄宿学校（Residential School）の生存者とその家族、24時間：'}},
    {n:'1-855-242-3310',note:{en:'Hope for Wellness (Indigenous peoples), 24 hours:',fr:'Espoir pour le mieux-être (Autochtones), 24 h sur 24 :',es:'Hope for Wellness (pueblos indígenas), 24 horas:',zh:'Hope for Wellness（原住民心理支持），24 小时：',ko:'Hope for Wellness(원주민 대상), 24시간:',ja:'Hope for Wellness（先住民向け）、24時間：'}},
    {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}},
   ],
@@ -227,7 +227,7 @@ UI.fr.noteThirdParty=' Les sites liés, le fond de carte et les données factuel
 UI.es.noteThirdParty=' Los sitios enlazados, las imágenes del mapa y los datos de hecho (direcciones, teléfonos) tomados de Google Places tienen cada uno sus propios términos; esta página no responde por ellos.';
 UI.ko.noteThirdParty=' 링크된 사이트, 지도 배경, Google Places에서 가져온 주소·전화 등 사실 정보는 각자의 약관을 따르며, 이 페이지가 책임지지 않습니다.';
 UI.ja.noteThirdParty='リンク先のサイト、地図の背景、Google Placesから得た住所・電話などの事実データは、それぞれの規約に従い、このページは責任を負いません。';
-UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，本地电话 <b>250-314-1900</b>，省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY}本地有一家实体法律诊所 <b>Okanagan Thompson Legal Clinic</b>（220-301 Victoria St，电话236-425-9121），提供家庭法协助、社会救助/伤残津贴、失业保险、债务、租房纠纷等方面的免费/低成本帮助（地图「分类 → 法律援助」可查看）。';
+UI.zh.legalLocal='<b>Legal Aid BC</b>（法律援助BC）覆盖家庭法、刑事辩护、移民/难民等收入受限人群的法律援助，本地电话 <b>250-314-1900</b>，省内热线 <b>1-866-577-2525</b>，官网legalaid.bc.ca；{CITY}本地有一家实体法律诊所 <b>Okanagan Thompson Legal Clinic</b>（220-301 Victoria St，电话236-425-9121），提供家庭法协助、社会救助/伤残津贴、就业保险（EI）、债务、租房纠纷等方面的免费/低成本帮助（地图「分类 → 法律援助」可查看）。';
 UI.en.legalLocal='<b>Legal Aid BC</b> covers family law, criminal defence, and immigration/refugee matters for income-qualified people — {CITY} line <b>250-314-1900</b>, provincial line <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} has a physical legal clinic, the <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offering free/low-cost help with family law, income assistance/disability benefits, EI, debt, and tenancy issues (see Category → Legal Aid on this map). ';
 UI.fr.legalLocal='<b>Legal Aid BC</b> couvre le droit de la famille, la défense criminelle et les questions d\'immigration/réfugiés pour les personnes à revenu limité — ligne de {CITY} <b>250-314-1900</b>, ligne provinciale <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} a une clinique juridique physique, l\'<b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), offrant une aide gratuite ou à faible coût en droit de la famille, aide au revenu/prestations d\'invalidité, assurance-emploi, dettes et questions de location (voir Catégorie → Aide juridique sur cette carte). ';
 UI.es.legalLocal='<b>Legal Aid BC</b> cubre derecho de familia, defensa criminal e inmigración/refugiados para personas que califican por ingresos — línea de {CITY} <b>250-314-1900</b>, línea provincial <b>1-866-577-2525</b>, legalaid.bc.ca. {CITY} tiene una clínica legal física, la <b>Okanagan Thompson Legal Clinic</b> (220-301 Victoria St, 236-425-9121), que ofrece ayuda gratuita o de bajo costo en derecho de familia, asistencia social/beneficios por discapacidad, Seguro de Empleo (EI), deudas y disputas de arrendamiento (vea Categoría → Ayuda legal en este mapa). ';

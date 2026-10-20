@@ -388,7 +388,7 @@
    "en": "Fewer than two years of non-learner driving experience puts you in the Graduated Licensing Program.",
    "fr": "Moins de deux ans d’expérience de conduite (hors apprenti) vous place dans le programme d’accès graduel.",
    "es": "Menos de dos años de experiencia (sin ser aprendiz) lo coloca en el Programa de Licencias Graduadas.",
-   "zh": "非实习驾龄不满两年的，需要进入 BC 的分级驾照计划（Graduated Licensing Program）。",
+   "zh": "正式驾龄（不含学习驾照期）不满两年的，需要进入 BC 的分级驾照计划（Graduated Licensing Program）。",
    "ko": "초보 단계를 제외한 운전 경력이 2년 미만이면 단계별 면허 제도(GLP)에 편입됩니다.",
    "ja": "仮免を除く運転経験が2年未満の場合、段階的免許制度（GLP）の対象になります。"
   },
@@ -399,7 +399,7 @@
    "en": "Bring your Canadian immigration document as primary ID, plus a second piece of ID, and every licence you hold — you must surrender them.",
    "fr": "Apportez votre document d’immigration canadien comme pièce principale, une deuxième pièce d’identité, et tous vos permis — vous devez les remettre.",
    "es": "Lleve su documento de inmigración canadiense como identificación principal, una segunda identificación y todas sus licencias — debe entregarlas.",
-   "zh": "主证件带加拿大移民身份文件，再加一份第二证件，以及你持有的所有驾照——都要上交。",
+   "zh": "主证件：加拿大移民身份文件；再加一份第二证件，以及你持有的所有驾照——都要上交。",
    "ko": "주 신분증으로 캐나다 이민 서류와 추가 신분증 1종을 가져가세요. 보유한 모든 운전면허증도 가져가세요 — 반납해야 합니다.",
    "ja": "主たる身分証としてカナダの在留資格書類、補助身分証1点、保有するすべての免許証（返納が必要）を持参します。"
   },
@@ -700,7 +700,7 @@
    "en": "Newcomers can apply for the child and grocery benefits as soon as they arrive — no need to wait until you file. After that, filing every year is what keeps the payments coming, even if you owe no tax.",
    "fr": "Les nouveaux arrivants peuvent demander les prestations pour enfants et pour l’épicerie dès leur arrivée — inutile d’attendre la déclaration. Ensuite, c’est la déclaration annuelle qui maintient les versements, même si vous ne devez aucun impôt.",
    "es": "Los recién llegados pueden solicitar las prestaciones por hijos y para alimentos en cuanto llegan, sin esperar a declarar. Después, declarar cada año es lo que mantiene los pagos, aunque no deba impuestos.",
-   "zh": "新移民一到加拿大就可以申请牛奶金和食品补助，不必等到报税。之后，每年报税才能让这些钱持续到账——即使你不欠税。",
+   "zh": "新移民一到加拿大就可以申请牛奶金（加拿大儿童福利金）和食品与生活必需品补助，不必等到报税。之后，每年报税才能让这些钱持续到账——即使你不欠税。",
    "ko": "신규 이민자는 도착하자마자 아동수당과 식료품 수당을 신청할 수 있습니다 — 세금 신고를 기다릴 필요가 없습니다. 그 후에는 내야 할 세금이 없어도 매년 신고해야 지급이 계속됩니다.",
    "ja": "新しく来た人は、到着後すぐに児童手当と食料品手当を申請できます — 確定申告を待つ必要はありません。その後は、納める税金がなくても毎年申告することで支給が続きます。"
   },
@@ -929,7 +929,7 @@
     "en": "If you are the one doing the caring, say so at each of these calls. Caregiver respite and support groups exist, and you are entitled to them.",
     "fr": "Si c’est vous qui prenez soin, dites-le à chaque appel. Le répit et les groupes de soutien pour proches aidants existent, et vous y avez droit.",
     "es": "Si es usted quien cuida, dígalo en cada llamada. Existen el respiro y los grupos de apoyo para cuidadores, y tiene derecho a ellos.",
-    "zh": "如果你就是照护者，每次打电话都说一声。照护者的喘息服务和互助小组是存在的，而且你有权使用。",
+    "zh": "如果你就是照护者，每次打电话都说一声。照护者也可以申请喘息服务（短期替班照护），参加互助小组。",
     "ko": "돌보는 사람이 본인이라면 전화할 때마다 말하세요. 돌봄 제공자를 위한 휴식 서비스와 지원 모임이 있고, 이용할 권리가 있습니다.",
     "ja": "介護しているのがあなた自身なら、電話のたびにそう伝えてください。介護者のためのレスパイトや支援グループがあり、利用する権利があります。"
    }
@@ -1017,12 +1017,12 @@
     "ja": "緊急でない・判断に迷うときは8-1-1へ — 無料・24時間・看護師対応、通訳もあります。"
    },
    {
-    "en": "Needs seeing today: in this city there is effectively one walk-in door — North Shore UPCC (700 Tranquille Rd), open 7:30 am–6:30 pm every day including holidays. Go early to avoid a long wait. Do not walk into other clinics expecting to be seen: South Shore UPCLC is appointment-only (call 250-314-2256 from 10 am) and the pharmacy “clinics” are virtual.",
-    "zh": "今天就得看：这座城市实际上只有一扇能直接走进去的门——North Shore UPCC（700 Tranquille Rd），每天 7:30–18:30 开放，节假日也开。要去早，免得等很久。别去别的诊所白跑：South Shore UPCLC 只接预约（上午 10 点起打 250-314-2256），药房里的“诊所”是视频问诊。",
-    "fr": "À voir aujourd’hui : dans cette ville il n’y a en pratique qu’une seule porte sans rendez-vous — le North Shore UPCC (700 Tranquille Rd), ouvert de 7 h 30 à 18 h 30 tous les jours, y compris les jours fériés. Allez-y tôt pour éviter une longue attente. N’entrez pas ailleurs en espérant être vu : le South Shore UPCLC est sur rendez-vous seulement (appelez le 250-314-2256 dès 10 h) et les « cliniques » des pharmacies sont virtuelles.",
-    "es": "Necesita atención hoy: en esta ciudad hay en la práctica una sola puerta sin cita — el North Shore UPCC (700 Tranquille Rd), abierto de 7:30 a 18:30 todos los días, incluidos los festivos. Vaya temprano para evitar una larga espera. No entre a otras clínicas esperando que le atiendan: el South Shore UPCLC es solo con cita (llame al 250-314-2256 desde las 10:00) y las «clínicas» de las farmacias son virtuales.",
-    "ko": "오늘 꼭 진료가 필요하면: 이 도시에서 예약 없이 바로 들어갈 수 있는 곳은 사실상 한 곳 — North Shore UPCC(700 Tranquille Rd)뿐이며, 공휴일을 포함해 매일 오전 7시 30분–오후 6시 30분에 엽니다. 오래 기다리지 않으려면 일찍 가세요. 다른 클리닉에 가서 헛걸음하지 마세요: South Shore UPCLC는 예약 전용(오전 10시부터 250-314-2256), 약국의 “클리닉”은 화상 진료입니다.",
-    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（700 Tranquille Rd）だけで、祝日も含め毎日7:30–18:30に開いています。長く待たないよう、早めに行ってください。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256）、薬局の「クリニック」はオンライン診療です。"
+    "en": "Needs seeing today: in this city there is effectively one walk-in door — North Shore UPCC (700 Tranquille Rd), open 7:30 am–6:30 pm every day including holidays. Go early to avoid a long wait. Do not walk into other clinics expecting to be seen: South Shore UPCLC is appointment-only (call 250-314-2256 from 10 am — the same number serves both clinics) and the pharmacy “clinics” are virtual.",
+    "zh": "今天就得看：这座城市实际上只有一扇能直接走进去的门——North Shore UPCC（700 Tranquille Rd），每天 7:30–18:30 开放，节假日也开。要去早，免得等很久。别去别的诊所白跑：South Shore UPCLC 只接预约（上午 10 点起打 250-314-2256，两家诊所共用这个号码），药房里的“诊所”是视频问诊。",
+    "fr": "À voir aujourd’hui : dans cette ville il n’y a en pratique qu’une seule porte sans rendez-vous — le North Shore UPCC (700 Tranquille Rd), ouvert de 7 h 30 à 18 h 30 tous les jours, y compris les jours fériés. Allez-y tôt pour éviter une longue attente. N’entrez pas ailleurs en espérant être vu : le South Shore UPCLC est sur rendez-vous seulement (appelez le 250-314-2256 dès 10 h — le même numéro sert aux deux cliniques) et les « cliniques » des pharmacies sont virtuelles.",
+    "es": "Necesita atención hoy: en esta ciudad hay en la práctica una sola puerta sin cita — el North Shore UPCC (700 Tranquille Rd), abierto de 7:30 a 18:30 todos los días, incluidos los festivos. Vaya temprano para evitar una larga espera. No entre a otras clínicas esperando que le atiendan: el South Shore UPCLC es solo con cita (llame al 250-314-2256 desde las 10:00; es el mismo número para las dos clínicas) y las «clínicas» de las farmacias son virtuales.",
+    "ko": "오늘 꼭 진료가 필요하면: 이 도시에서 예약 없이 바로 들어갈 수 있는 곳은 사실상 한 곳 — North Shore UPCC(700 Tranquille Rd)뿐이며, 공휴일을 포함해 매일 오전 7시 30분–오후 6시 30분에 엽니다. 오래 기다리지 않으려면 일찍 가세요. 다른 클리닉에 가서 헛걸음하지 마세요: South Shore UPCLC는 예약 전용(오전 10시부터 250-314-2256, 두 클리닉이 같은 번호를 씁니다), 약국의 “클리닉”은 화상 진료입니다.",
+    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（700 Tranquille Rd）だけで、祝日も含め毎日7:30–18:30に開いています。長く待たないよう、早めに行ってください。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256。両方のクリニック共通の番号です）、薬局の「クリニック」はオンライン診療です。"
    },
    {
     "en": "Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the hospital emergency department.",
@@ -1056,7 +1056,7 @@
    "en": "What you tell a nurse or doctor is confidential. Care is given regardless of your immigration status — bring what coverage you have, or none.",
    "fr": "Ce que vous dites à une infirmière ou à un médecin est confidentiel. Les soins sont donnés quel que soit votre statut d’immigration — apportez la couverture que vous avez, ou rien.",
    "es": "Lo que le dice a una enfermera o médico es confidencial. La atención se brinda sin importar su estatus migratorio: traiga la cobertura que tenga, o venga aunque no tenga ninguna.",
-   "zh": "你对护士或医生说的话是保密的。无论你的移民身份如何都会给你看病——有保险就带着，没有也照看。",
+   "zh": "你对护士或医生说的话是保密的。无论你的移民身份如何都会给你看病——有保险就带着，没有也照样给你看。",
    "ko": "간호사나 의사에게 한 말은 비밀이 보장됩니다. 이민 신분과 무관하게 진료를 받을 수 있습니다 — 보험이 있으면 가져가고, 없어도 됩니다.",
    "ja": "看護師や医師に話した内容は守秘されます。在留資格にかかわらず診療は受けられます — 保険があれば持参、なくても大丈夫です。"
   },
@@ -1135,7 +1135,7 @@
     "en": "If they do neither, apply to the Residential Tenancy Branch — they can be ordered to pay you double.",
     "fr": "S’il ne fait ni l’un ni l’autre, adressez-vous à la Residential Tenancy Branch — elle peut ordonner au propriétaire de vous payer le double.",
     "es": "Si el arrendador no hace ninguna de las dos cosas, acuda al Residential Tenancy Branch: se le puede ordenar al arrendador que le pague a usted el doble.",
-    "zh": "两样都没做，就向 RTB 申请——法定可以判房东双倍赔付。",
+    "zh": "两样都没做，就向住宅租赁管理处（RTB）申请——RTB 可依法判房东双倍返还押金。",
     "ko": "둘 다 하지 않으면 주택임대청(RTB)에 신청하세요 — 집주인에게 보증금의 두 배를 지급하라는 명령이 내려질 수 있습니다.",
     "ja": "どちらも行わない場合は住宅賃貸局（RTB）に申立てを — 大家があなたに2倍の額を支払うよう命じられることがあります。"
    }
@@ -1646,13 +1646,13 @@
   },
   "src": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy",
   "srcName": "BC Residential Tenancy Branch",
-  "say": "Hi, I rent my home and I have a problem with my landlord. Could someone help me understand my rights?",
+  "say": "Hi, I'm about to rent a place. Could someone help me understand my rights before I sign anything?",
   "sayGloss": {
-   "zh": "（意思：您好，我在租房，和房东之间有问题。能请人帮我弄清楚我的权利吗？）",
-   "fr": "(Sens : Bonjour, je suis locataire et j’ai un problème avec mon propriétaire. Quelqu’un pourrait-il m’aider à comprendre mes droits ?)",
-   "es": "(Significado: Hola, alquilo mi vivienda y tengo un problema con el propietario. ¿Alguien podría ayudarme a entender mis derechos?)",
-   "ko": "(뜻: 안녕하세요, 세 들어 사는데 집주인과 문제가 있어요. 제 권리가 무엇인지 알려 주실 분이 있을까요?)",
-   "ja": "（意味：こんにちは、賃貸に住んでいて、大家との間で問題があります。自分の権利について教えていただけますか？）"
+   "zh": "（意思：您好，我准备租房。签字之前，能请人帮我弄清楚我的权利吗？）",
+   "fr": "(Sens : Bonjour, je m’apprête à louer un logement. Quelqu’un pourrait-il m’aider à comprendre mes droits avant que je signe quoi que ce soit ?)",
+   "es": "(Significado: Hola, estoy por alquilar una vivienda. ¿Alguien podría ayudarme a entender mis derechos antes de firmar algo?)",
+   "ko": "(뜻: 안녕하세요, 곧 집을 빌리려고 합니다. 서명하기 전에 제 권리가 무엇인지 알려 주실 분이 있을까요?)",
+   "ja": "（意味：こんにちは、これから部屋を借ります。何かに署名する前に、自分の権利について教えていただけますか？）"
   },
   "alias": [
    "rent",
@@ -1705,7 +1705,7 @@
    "en": "Apply for Employment Insurance right away — applying more than four weeks after your last day can cost you benefits. This is what these programs are for; using them says nothing about you.",
    "fr": "Demandez l’assurance-emploi tout de suite — une demande faite plus de quatre semaines après votre dernier jour peut vous faire perdre des prestations. Ces programmes existent pour cela ; les utiliser ne dit rien de vous.",
    "es": "Solicite el seguro de empleo enseguida: pedirlo más de cuatro semanas después de su último día puede costarle prestaciones. Para eso existen estos programas; usarlos no dice nada de usted.",
-   "zh": "马上申请失业保险（EI）——最后一天工作后超过四周才申请，可能会少拿钱。这些项目本来就是为这种时候设的，用它不说明你有什么问题。",
+   "zh": "马上申请就业保险（EI）——最后一天工作后超过四周才申请，可能会少拿钱。这些项目本来就是为这种时候设的，用它不说明你有什么问题。",
    "ko": "고용보험(EI)은 바로 신청하세요 — 마지막 근무일로부터 4주가 지나서 신청하면 받을 금액을 잃을 수 있습니다. 이런 제도는 바로 이럴 때 쓰라고 있는 것이고, 이용하는 것은 전혀 부끄러운 일이 아닙니다.",
    "ja": "雇用保険（EI）はすぐに申請を — 最終勤務日から4週間を過ぎて申請すると、受け取れる額が減ることがあります。こうした制度はこういう時のためにあり、使うことはあなたの評価とは関係ありません。"
   },

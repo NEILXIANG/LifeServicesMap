@@ -215,6 +215,8 @@
      a wrapped line ("…(VictimLink)") jumped to the middle — and on a wide screen the block ran 1300px wide.
      The lines read as a list (left), the opening sentence stays centred. */
   .crisis-block .crisis-lead{text-align:center;}
+  /* under the crisis lines the button opens Help now: red like the header's Help, not the ordinary blue (2026-10-20) */
+  #emptyState .crisis-block ~ .empty-btn{background:#a11;}
   /* the result list (2026-10-20): what the search found, by name and area, one tap to the place's card. A card with
      the same gutter as the answer box above it; the name is never cut, the area sits under it. */
   .result-list{margin:10px 20px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}

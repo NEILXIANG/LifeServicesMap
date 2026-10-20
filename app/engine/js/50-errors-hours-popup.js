@@ -86,7 +86,13 @@ function phoneHtml(str){
   // exactly one number, which is why this went unnoticed until now.
   // 2026-10-19: a leading "1-" stayed outside the link and wrapped onto its own line ("1-" / "866-866-0800")
   str=glueTimes(str);
-  return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
+  // 2026-10-20 (final acceptance): a shelter's "or text …" number in the hardship card dialled a call. A number right after
+  // the word for "text" (six languages) becomes a text-message link — for someone leaving violence, texting can be
+  // the only safe way to reach the line.
+  const TXT=/(?:\btexto al|\btexto au|\btexto|\btext|短信|문자|\bSMS)\s*:?\s*$/i;
+  return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, (m,_g,off,all)=>{
+    const sms=TXT.test(all.slice(Math.max(0,off-24),off));
+    return '<a href="'+(sms?'sms:':'tel:')+m.replace(/[^\d]/g,'')+'">'+m+'</a>';});
 }
 // 2026-10-19 (re-walk, French footer: "1-800-" / "665-8779"): numbers written as text in the guide and the footer
 // broke across lines; only tel: links were kept whole. Wraps every full phone number found in text (never inside a tag).
@@ -230,7 +236,7 @@ function srcHTML(p,u){
   const kind=SRC_KINDS[p.src];
   if(!kind)return '';
   return '<span class="pv-src src-'+String(p.src).split('-')[0]+'" title="'+u[kind[1]].replace(/"/g,'&quot;')+'">'
-    +u.lSource+': '+u[kind[0]]+'</span> · ';
+    +u.lSource+u.colon+u[kind[0]]+'</span> · ';
 }
 function popup(p,idx){
   const u=UI[L_];

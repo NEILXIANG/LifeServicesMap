@@ -77,12 +77,12 @@
         "ja": "冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。"
       },
       "short": {
-        "en": "Winter tires required on most BC highways, Oct 1–Apr 30",
-        "fr": "Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.",
-        "es": "Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.",
-        "zh": "10月1日–4月30日：BC 大部分公路要求冬胎",
-        "ko": "10/1–4/30 BC주 고속도로 겨울 타이어 필수",
-        "ja": "10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要"
+        "en": "Winter tires required Oct 1–Apr 30",
+        "fr": "Pneus d’hiver : 1er oct.–30 avr.",
+        "es": "Neumáticos de invierno: oct.–abr.",
+        "zh": "10/1–4/30：BC 公路须用冬胎",
+        "ko": "10/1–4/30 고속도로 겨울 타이어 필수",
+        "ja": "10/1〜4/30：幹線道路は冬用タイヤ"
       },
       "links": [
         {
@@ -124,9 +124,9 @@
         "ja": "山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。"
       },
       "short": {
-        "en": "Wildfire season: check the air before going out",
-        "fr": "Saison des feux : vérifiez l’air avant de sortir",
-        "es": "Temporada de incendios: revise el aire antes de salir",
+        "en": "Wildfire season: check air quality",
+        "fr": "Feux de forêt : vérifiez l’air",
+        "es": "Incendios: revise la calidad del aire",
         "zh": "山火季：出门前先看空气质量",
         "ko": "산불 시즌: 외출 전 대기 질 확인",
         "ja": "山火事シーズン：外出前に大気を確認"

@@ -54,6 +54,9 @@ function updateGuideProgress(){
 // almost always happens after arrival, so that silently understated the real
 // time left and could show "past due" to someone who was not — see the
 // 2026-09 QA report. The card states the rule as text instead.
+// the cards whose deadline is counted from the arrival date — keep in step with deadlineDate below; only these offer
+// "enter your arrival date to get the exact date" (the MSP card offered it and could never show a date, 2026-10-20)
+function deadlineFromArrival(t){return t.id==='licence'||t.id==='tax';}
 function deadlineDate(t){
   const a=arrivalDate();if(!a)return null;
   const d=new Date(a+'T12:00:00');
