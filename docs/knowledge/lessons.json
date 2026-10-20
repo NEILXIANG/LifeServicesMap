@@ -3883,6 +3883,36 @@
      "marker": "after hours open, a changed page on the server offers a reload"
     }
    ]
+  },
+  {
+   "id": "L-129",
+   "title": "只带部分城市的分支：有意缺失要有清单",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "main 只含 Kamloops（D7）后，经验库检查有 158 处失败：来源和经验的出处在 Kelowna 的文件里。这些引用在 multi-city 上必须继续核对。",
+   "rule": "分支有意不带的路径写进 scripts/main-excludes.txt（唯一清单）；同步用 scripts/sync-main.sh；检查只在清单里的路径确实不存在时跳过，绝不为了通过而放宽全部分支的检查。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 25 轮：KIS 来信，main 只含 Kamloops 并部署",
+     "what": "main 去掉 Kelowna 后经验库检查 158 处失败"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/knowledge.py",
+     "marker": "def left_out(rel):"
+    },
+    {
+     "kind": "tool",
+     "path": "scripts/sync-main.sh",
+     "marker": "scripts/main-excludes.txt"
+    }
+   ]
   }
  ],
  "assets": [
@@ -4269,6 +4299,16 @@
    "reuse": "所有城市",
    "paths": [
     "scripts/apply_verification.py"
+   ]
+  },
+  {
+   "name": "main 同步",
+   "type": "工具",
+   "use": "把 multi-city 合进 main，去掉 main 不带的路径（main 只含已上线城市）",
+   "reuse": "所有城市",
+   "paths": [
+    "scripts/sync-main.sh",
+    "scripts/main-excludes.txt"
    ]
   }
  ]

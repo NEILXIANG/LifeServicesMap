@@ -1,0 +1,6 @@
+# Paths main does not carry (decision D7, 2026-10-19: "main 只要 Kamloops").
+# scripts/sync-main.sh removes them after merging multi-city; scripts/knowledge.py skips evidence under them
+# only where they are absent. One path per line; a directory covers everything under it.
+cities/kelowna
+docs/reports/2026-10-03-Kelowna扩城迭代日志.md
+docs/reports/Kelowna审核清单.md

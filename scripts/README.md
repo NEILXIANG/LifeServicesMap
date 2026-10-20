@@ -75,6 +75,7 @@
 | `outreach/pdf/builddocs.py` | 对外 PDF；只在部署后构建（对照线上版本号） |
 | `outreach/flyers/buildflyer.py`、`outreach/flyers/mapart.py` | 传单、海报、地图插画（目前只做 Kamloops） |
 | `deploy.sh` | 构建 → 校验（带 `--city`）→ wrangler → 线上探针；`--city`、`--dry-run`、`--verify-only` |
+| `sync-main.sh` | 把 `multi-city` 合进 `main`，去掉 `main-excludes.txt` 列出的路径（main 只含 Kamloops，决策 D7）；只在本地提交，推送和部署要 Neil 同意 |
 | `worker.js` | 线上：`/api/event` 写统计、给所有响应加安全头（所有城市共用） |
 
 ## 写脚本的约定

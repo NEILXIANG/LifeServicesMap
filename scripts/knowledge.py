@@ -43,6 +43,23 @@ AUTO_KINDS = {'validate', 'test', 'check', 'gate'}
 KINDS = AUTO_KINDS | {'importer', 'tool', 'engine', 'doc', 'prompt', 'data'}
 SCOPES = {'all': '所有城市', 'CA': '加拿大', 'BC': 'BC 省', 'city': '单个城市'}
 
+# 2026-10-19: main carries Kamloops only (decision D7). Paths listed in scripts/main-excludes.txt are left out of main
+# by scripts/sync-main.sh; evidence that lives under them is skipped *only where the path is absent*, so on multi-city
+# (where they exist) every reference is still checked.
+def _excludes():
+    t = _read_raw(os.path.join(ROOT, 'scripts', 'main-excludes.txt')) or ''
+    return [x.strip().rstrip('/') for x in t.splitlines() if x.strip() and not x.lstrip().startswith('#')]
+def _read_raw(p):
+    return open(p, encoding='utf-8').read() if os.path.isfile(p) else None
+LEFT_OUT = []
+def left_out(rel):
+    """True when rel is missing because this branch deliberately leaves it out (see scripts/main-excludes.txt)."""
+    rel = (rel or '').rstrip('/')
+    if os.path.exists(os.path.join(ROOT, rel)): return False
+    if any(rel == x or rel.startswith(x + '/') for x in _excludes()):
+        LEFT_OUT.append(rel); return True
+    return False
+
 def _read(rel):
     p = os.path.join(ROOT, rel)
     if not os.path.isfile(p): return None
@@ -63,6 +80,7 @@ def check(data):
         if l.get('status') not in STATUS: errs.append('%s: unknown status %r' % (lid, l.get('status')))
         if l.get('scope') not in SCOPES: errs.append('%s: unknown scope %r' % (lid, l.get('scope')))
         for e in l.get('evidence', []):
+            if left_out(e.get('ref')): continue
             t = _read(e.get('ref', ''))
             if t is None: errs.append('%s: evidence file missing: %s' % (lid, e.get('ref')))
             elif e.get('section') and e['section'] not in t: errs.append('%s: section %r not in %s' % (lid, e['section'], e['ref']))
@@ -70,6 +88,7 @@ def check(data):
         for c in l.get('encoded', []):
             kinds.add(c.get('kind'))
             if c.get('kind') not in KINDS: errs.append('%s: unknown encoded kind %r' % (lid, c.get('kind')))
+            if left_out(c.get('path')): continue
             t = _read(c.get('path', ''))
             if t is None: errs.append('%s: %s not found' % (lid, c.get('path')))
             elif c.get('marker') and c['marker'] not in t: errs.append('%s: marker %r not in %s' % (lid, c['marker'], c['path']))
@@ -99,7 +118,7 @@ def check(data):
                 errs.append('%s "%s": no lesson cites this round — add its lessons to lessons.json' % (rel, h))
     for a in data.get('assets', []):
         for p in a.get('paths', []):
-            if not os.path.exists(os.path.join(ROOT, p)): errs.append('asset %r: %s not found' % (a.get('name'), p))
+            if not os.path.exists(os.path.join(ROOT, p)) and not left_out(p): errs.append('asset %r: %s not found' % (a.get('name'), p))
     return errs
 
 def check_sources(src):
@@ -112,13 +131,14 @@ def check_sources(src):
         for k in ('name', 'level', 'url', 'licence', 'kind', 'usedBy', 'evidence'):
             if not s.get(k): errs.append('source %s: missing %s' % (sid, k))
         if not LEVEL_RE.match(s.get('level', '')): errs.append('source %s: bad level %r' % (sid, s.get('level')))
-        t = _read(s.get('evidence', ''))
+        if left_out(s.get('evidence')): t = ''
+        else: t = _read(s.get('evidence', ''))
         if t is None: errs.append('source %s: evidence file missing: %s' % (sid, s.get('evidence')))
-        elif s.get('url') not in (None, 'unknown'):
+        elif t and s.get('url') not in (None, 'unknown'):
             joined = re.sub(r"['\"]\s*\n\s*['\"]", '', t)        # a URL split over two string literals
             if s['url'] not in t and s['url'] not in joined:
                 errs.append('source %s: url not found in %s' % (sid, s['evidence']))
-        if s.get('importer') and not os.path.exists(os.path.join(ROOT, s['importer'])):
+        if s.get('importer') and not os.path.exists(os.path.join(ROOT, s['importer'])) and not left_out(s['importer']):
             errs.append('source %s: importer %s not found' % (sid, s['importer']))
     return errs
 
@@ -229,6 +249,7 @@ def main():
     print('knowledge: %d lessons (%s), %d assets, %d sources, %d problem(s)' % (
         len(data['lessons']), ', '.join('%s %d' % (s, c.get(s, 0)) for s in STATUS), len(data.get('assets', [])),
         len(src.get('sources', [])), len(errs)))
+    if LEFT_OUT: print('  (%d references point at paths this branch leaves out — scripts/main-excludes.txt; checked on multi-city)' % len(LEFT_OUT))
     if errs: sys.exit(1)
     if not only_check:
         for p, txt in pages.items():
