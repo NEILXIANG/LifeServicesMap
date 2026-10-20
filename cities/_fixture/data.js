@@ -115,7 +115,7 @@ const CITY={
       ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。SMSは250-682-7931、電話は：'}},
    {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'原住民寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'先住民寄宿学校（Residential School）の生存者とその家族、24時間：'}},
    {n:'1-855-242-3310',note:{en:'Hope for Wellness (Indigenous peoples), 24 hours:',fr:'Espoir pour le mieux-être (Autochtones), 24 h sur 24 :',es:'Hope for Wellness (pueblos indígenas), 24 horas:',zh:'Hope for Wellness（原住民心理支持），24 小时：',ko:'Hope for Wellness(원주민 대상), 24시간:',ja:'Hope for Wellness（先住民向け）、24時間：'}},
-   {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}},
+   {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 지역 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}},
   ],
   localCrisis:{n:'778-470-2725',src:'https://kafs.ca/crcl-program',
     note:{en:'Kamloops crisis team (not police), daily 11am–11pm, call, text or WhatsApp, for Kamloops residents over 13 years of age:',

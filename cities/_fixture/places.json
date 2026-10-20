@@ -36,6 +36,53 @@
   "id": "3aa4eac6"
  },
  {
+  "n": "Thompson Rivers University (TRU)",
+  "c": "college",
+  "g": "sa",
+  "lat": 50.6707684,
+  "lng": -120.3660271,
+  "a": "805 TRU Way",
+  "p": "250-828-5000",
+  "w": "https://www.tru.ca",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     960,
+     0
+    ]
+   ],
+   "q": "qAdminOffice"
+  },
+  "note": {
+   "zh": "本市的大学。综合咨询电话和柜台工作日 9:00–16:00；免费电话 1-800-663-9711",
+   "en": "The city's university. General inquiries by phone and at the counter weekdays 9–4; toll-free 1-800-663-9711",
+   "fr": "L'université de la ville. Renseignements généraux par téléphone et au comptoir en semaine de 9 h à 16 h ; sans frais 1-800-663-9711",
+   "es": "La universidad de la ciudad. Información general por teléfono y en ventanilla entre semana de 9 a 16 h; línea gratuita 1-800-663-9711",
+   "ko": "이 도시의 대학교. 일반 문의는 전화와 창구 모두 평일 9-16시, 수신자 부담 1-800-663-9711",
+   "ja": "市内の大学。一般の問い合わせは電話・窓口とも平日9〜16時、フリーダイヤル1-800-663-9711"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "culture",
+   "student"
+  ],
+  "id": "a41504d6",
+  "alias": [
+   "university",
+   "université",
+   "universidad",
+   "大学",
+   "大學",
+   "대학교",
+   "대학"
+  ]
+ },
+ {
   "n": "Lloyd George Elementary",
   "c": "elem",
   "g": "sk",
@@ -781,7 +828,7 @@
    "en": "⭐ The owner speaks Mandarin and Taiwanese; frozen dim sum and hot-pot supplies",
    "fr": "⭐ Le propriétaire parle mandarin et taïwanais; dim sum surgelés et produits pour la fondue chinoise",
    "es": "⭐ El dueño habla mandarín y taiwanés; dim sum congelado y productos para hot pot",
-   "ko": "⭐ 주인이 중국어와 대만어를 함, 냉동 딤섬과 훠궈 재료 판매",
+   "ko": "⭐ 주인이 표준 중국어(만다린)와 대만어를 합니다. 냉동 딤섬과 훠궈 재료를 팝니다",
    "ja": "⭐店主は中国語と台湾語が話せる、冷凍点心、火鍋の食材あり"
   },
   "src": "places",
@@ -1963,8 +2010,8 @@
    "en": "A friendship centre serving urban Indigenous people in Kamloops since 1972, whatever their status, with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
    "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes et du soutien ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
    "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas y apoyo culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
-   "ko": "1972년부터 신분(status)과 관계없이 캄루프스 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
-   "ja": "1972年から、ステータスの有無を問わずカムループスの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
+   "ko": "1972년부터 신분(status)과 관계없이 Kamloops 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
+   "ja": "1972年から、ステータスの有無を問わずKamloopsの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
   },
   "src": "official",
   "v": "2026-10",
