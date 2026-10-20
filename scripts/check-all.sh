@@ -64,6 +64,7 @@ if [[ $QUICK -eq 0 ]]; then
   run engine-popup "$PY" tests/engine/test_popup_lifecycle.py
   run engine-back "$PY" tests/engine/test_back_navigation.py
   run engine-update "$PY" tests/engine/test_update_offer.py
+  run engine-offline "$PY" tests/engine/test_offline_first_visit.py
   run regress "$PY" tests/kamloops/regress.py build/kamloops.html
   # every city's strict GUI run, one test file for all of them (2026-10-05)
   for c in $(python3 -c "import kamdata;print(' '.join(kamdata.cities()))"); do

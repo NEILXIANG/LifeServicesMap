@@ -31,6 +31,7 @@
 // query string (share links and ?src= tags were each caching a 1.3 MB copy);
 // the offline fallback finds it from any URL; static assets revalidate in the
 // background so a manifest change no longer waits for a manual bump here.
+// v1.5.0 (2026-10-19): the page is pre-cached at install, so the first visit already works offline.
 const CACHE = '{{SW_CACHE}}';
 const STATIC_ASSETS = [
   '{{BASE}}manifest.json',
@@ -42,7 +43,9 @@ const STATIC_ASSETS = [
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE).then((c) =>
-      Promise.allSettled(STATIC_ASSETS.map((a) => c.add(a)))
+      // the page itself too (2026-10-19): it was only stored when a later visit went through this worker, so a
+      // reader who opened the guide once — from a flyer, say — and then lost signal got nothing offline.
+      Promise.allSettled(STATIC_ASSETS.concat(['/']).map((a) => c.add(a)))
     )
   );
   self.skipWaiting();

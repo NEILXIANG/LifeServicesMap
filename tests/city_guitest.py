@@ -132,11 +132,11 @@ async def main():
                           'ESL', 'English class', 'school', 'park', 'church', 'ICBC', 'Service Canada', 'WorkBC', 'legal aid',
                           'dentist', 'police', 'post office', 'bank', 'apartment', 'SIN', 'MSP', 'health card']
                          + [v for v in (ex.get('campus'), ex.get('stop')) if v] + list(META.get('review', {}).get('guiQueries', [])),
-                   'zh': ['看病', '药房', '托儿', '图书馆', '英语', '洗衣', '食物银行', '学校', '公园', '报税'],
-                   'fr': ['médecin', 'pharmacie', 'garderie', 'bibliothèque'],
-                   'es': ['médico', 'farmacia', 'guardería', 'biblioteca'],
-                   'ko': ['병원', '약국', '어린이집', '도서관'],
-                   'ja': ['病院', '薬局', '保育', '図書館']}
+                   'zh': ['看病', '药房', '托儿', '图书馆', '英语', '学英语', '洗衣', '食物银行', '学校', '公园', '报税'],
+                   'fr': ['médecin', 'pharmacie', 'garderie', 'bibliothèque', 'apprendre l’anglais'],
+                   'es': ['médico', 'farmacia', 'guardería', 'biblioteca', 'aprender inglés'],
+                   'ko': ['병원', '약국', '어린이집', '도서관', '영어 배우기'],
+                   'ja': ['病院', '薬局', '保育', '図書館', '英語を勉強']}
         for l, qs in queries.items():
             await pg.evaluate("l=>setLang(l)", l)
             zero = []
@@ -163,11 +163,17 @@ async def main():
             popup_open = await pg.evaluate("()=>{const p=map._popup&&map.hasLayer(map._popup)&&document.querySelector('.leaflet-popup-content');return p?p.innerText:''}")
         diag = '' if popup_open else await pg.evaluate("()=>JSON.stringify({modals:[...document.querySelectorAll('.open')].map(e=>e.id||e.className).slice(0,6),help:document.getElementById('searchHelp').innerText.slice(0,80),q:searchInputEl.value,popup:!!map._popup,zoom:map.getZoom()})")
         check('E3 "Show it on the map" opens a UPCC popup that stays open', any(n in popup_open for n in names), popup_open[:200] or (diag + ' | before click: ' + pre))
-        for l, q in [('en', 'suicide'), ('zh', '自杀'), ('fr', 'suicide'), ('es', 'suicidio'), ('ko', '자살'), ('ja', '自殺'), ('en', 'domestic violence'), ('zh', '家暴')]:
+        # 2026-10-19 (live walkthrough): people type sentences, not keywords — "I'm not safe at home" found a pizza place
+        crisis_q = [('en', 'suicide'), ('zh', '自杀'), ('fr', 'suicide'), ('es', 'suicidio'), ('ko', '자살'), ('ja', '自殺'),
+                    ('en', 'domestic violence'), ('zh', '家暴'), ('en', "I'm not safe at home"), ('zh', '我在家不安全'),
+                    ('fr', 'je ne suis pas en sécurité'), ('es', 'no estoy segura en casa'), ('ko', '집이 안전하지 않아요'), ('ja', '家が安全じゃない')]
+        for l, q in crisis_q:
             await pg.evaluate("l=>setLang(l)", l)
             r = await search(q)
             html = await pg.evaluate("()=>document.getElementById('emptyState').innerHTML+document.getElementById('searchHelp').innerHTML+document.getElementById('searchNote').innerHTML")
             check('E4 %s crisis "%s": the crisis lines come first, dialable' % (l, q), 'tel:' in html and ('988' in html or '1-800-563-0808' in html or '18005630808' in html), html[:300])
+            hint = await pg.evaluate("()=>UI[L_].noResultHint")
+            check('E4b %s crisis "%s": no "check the spelling" under the lines' % (l, q), hint not in html, html[-200:])
         await pg.fill('#searchInput', ''); await pg.wait_for_timeout(400)
 
         # ---- F: categories, areas, quick picks

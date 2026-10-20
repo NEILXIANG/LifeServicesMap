@@ -84,7 +84,8 @@ function phoneHtml(str){
   // pass) only linkified the first and silently left the rest as plain,
   // unclickable text — every previous caller happened to pass a string with
   // exactly one number, which is why this went unnoticed until now.
-  return str.replace(/(\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
+  // 2026-10-19: a leading "1-" stayed outside the link and wrapped onto its own line ("1-" / "866-866-0800")
+  return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
 }
 // ---- structured opening hours -> localised text -------------------------
 // Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,

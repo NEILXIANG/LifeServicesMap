@@ -237,12 +237,12 @@
     "ja": "到着した週に申請しましょう — オンラインなら約15分です。"
    },
    {
-    "en": "Upload a document showing your name, date of birth and status: a PR card, Confirmation of Permanent Residence (COPR) or record of landing, or a work, study or visitor permit (a Canadian passport for citizens). A foreign passport on its own is not enough. JPG or PNG, at least 1000 × 1500 pixels.",
-    "fr": "Téléversez un document indiquant votre nom, votre date de naissance et votre statut : carte de RP, confirmation de résidence permanente (CRP) ou fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur (passeport canadien pour les citoyens). Un passeport étranger seul ne suffit pas. JPG ou PNG, au moins 1000 × 1500 pixels.",
-    "es": "Suba un documento con su nombre, fecha de nacimiento y estatus: tarjeta de RP, Confirmación de Residencia Permanente (COPR) o constancia de llegada (record of landing), o permiso de trabajo, estudio o visitante (pasaporte canadiense para ciudadanos). Un pasaporte extranjero por sí solo no basta. JPG o PNG, al menos 1000 × 1500 píxeles.",
-    "zh": "上传一份写有姓名、出生日期和身份的文件：PR 卡、永久居民确认书（COPR）或落地纸（record of landing），或工签、学签、访客许可（公民用加拿大护照）。只有外国护照不够。格式为 JPG 或 PNG，至少 1000 × 1500 像素。",
-    "ko": "이름, 생년월일, 체류 신분이 나온 서류를 올리세요: 영주권 카드, 영주권 확인서(COPR) 또는 랜딩 기록(record of landing), 또는 취업·학생·방문 허가서(시민은 캐나다 여권). 외국 여권만으로는 안 됩니다. JPG 또는 PNG, 최소 1000 × 1500 픽셀.",
-    "ja": "氏名、生年月日、在留資格が分かる書類をアップロード：PRカード、永住権確認書（COPR）またはランディング記録（record of landing）、または就労・学生・訪問者許可（市民はカナダのパスポート）。外国のパスポートだけでは不可。JPGかPNGで、1000 × 1500ピクセル以上。"
+    "en": "Upload a document showing your name, date of birth and status: a PR card, Confirmation of Permanent Residence (COPR) or record of landing, or a work or study permit (a Canadian passport for citizens; a visitor record only in limited cases — most visitors are not eligible). A foreign passport on its own is not enough. JPG or PNG, at least 1000 × 1500 pixels.",
+    "fr": "Téléversez un document indiquant votre nom, votre date de naissance et votre statut : carte de RP, confirmation de résidence permanente (CRP) ou fiche relative au droit d’établissement, ou permis de travail ou d’études (passeport canadien pour les citoyens ; une fiche de visiteur seulement dans certains cas — la plupart des visiteurs ne sont pas admissibles). Un passeport étranger seul ne suffit pas. JPG ou PNG, au moins 1000 × 1500 pixels.",
+    "es": "Suba un documento con su nombre, fecha de nacimiento y estatus: tarjeta de RP, Confirmación de Residencia Permanente (COPR) o constancia de llegada (record of landing), o permiso de trabajo o de estudio (pasaporte canadiense para ciudadanos; un registro de visitante solo en casos limitados: la mayoría de los visitantes no reúne los requisitos). Un pasaporte extranjero por sí solo no basta. JPG o PNG, al menos 1000 × 1500 píxeles.",
+    "zh": "上传一份写有姓名、出生日期和身份的文件：PR 卡、永久居民确认书（COPR）或落地纸（record of landing），或工签、学签（公民用加拿大护照；访客记录只在少数情况下可用——大多数访客不符合条件）。只有外国护照不够。格式为 JPG 或 PNG，至少 1000 × 1500 像素。",
+    "ko": "이름, 생년월일, 체류 신분이 나온 서류를 올리세요: 영주권 카드, 영주권 확인서(COPR) 또는 랜딩 기록(record of landing), 또는 취업·학생 허가서(시민은 캐나다 여권; 방문자 기록은 일부 경우에만 인정 — 대부분의 방문자는 대상이 아님). 외국 여권만으로는 안 됩니다. JPG 또는 PNG, 최소 1000 × 1500 픽셀.",
+    "ja": "氏名、生年月日、在留資格が分かる書類をアップロード：PRカード、永住権確認書（COPR）またはランディング記録（record of landing）、または就労・学生許可（市民はカナダのパスポート。訪問者記録は限られた場合のみ — ほとんどの訪問者は対象外）。外国のパスポートだけでは不可。JPGかPNGで、1000 × 1500ピクセル以上。"
    },
    {
     "en": "Cover the wait with private insurance — during it you pay the full cost of any care.",
@@ -289,12 +289,12 @@
   "src": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp",
   "srcName": "Government of BC — MSP",
   "bring": {
-   "en": "A document showing your name, date of birth and immigration status — a PR card, COPR or record of landing, or a work, study or visitor permit. A foreign passport on its own is not enough. You upload a photo of it (JPG or PNG).",
-   "fr": "Un document indiquant votre nom, votre date de naissance et votre statut d’immigration — carte de RP, CRP ou fiche relative au droit d’établissement, ou permis de travail, d’études ou de visiteur. Un passeport étranger seul ne suffit pas. Vous en téléversez une photo (JPG ou PNG).",
-   "es": "Un documento con su nombre, fecha de nacimiento y estatus migratorio: tarjeta de RP, COPR o constancia de llegada, o permiso de trabajo, estudio o visitante. Un pasaporte extranjero por sí solo no basta. Se sube una foto (JPG o PNG).",
-   "zh": "一份写有姓名、出生日期和移民身份的文件——PR 卡、COPR 或落地纸，或工签、学签、访客许可。只有外国护照不够。上传它的照片（JPG 或 PNG）。",
-   "ko": "이름, 생년월일, 이민 신분이 나온 서류 — 영주권 카드, COPR 또는 랜딩 기록, 또는 취업·학생·방문 허가서. 외국 여권만으로는 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
-   "ja": "氏名、生年月日、在留資格が分かる書類 — PRカード、COPRまたはランディング記録、または就労・学生・訪問者許可。外国のパスポートだけでは不可。写真（JPGかPNG）でアップロードします。"
+   "en": "A document showing your name, date of birth and immigration status — a PR card, COPR or record of landing, or a work or study permit (a visitor record only in limited cases). A foreign passport on its own is not enough. You upload a photo of it (JPG or PNG).",
+   "fr": "Un document indiquant votre nom, votre date de naissance et votre statut d’immigration — carte de RP, CRP ou fiche relative au droit d’établissement, ou permis de travail ou d’études (une fiche de visiteur seulement dans certains cas). Un passeport étranger seul ne suffit pas. Vous en téléversez une photo (JPG ou PNG).",
+   "es": "Un documento con su nombre, fecha de nacimiento y estatus migratorio: tarjeta de RP, COPR o constancia de llegada, o permiso de trabajo o de estudio (un registro de visitante solo en casos limitados). Un pasaporte extranjero por sí solo no basta. Se sube una foto (JPG o PNG).",
+   "zh": "一份写有姓名、出生日期和移民身份的文件——PR 卡、COPR 或落地纸，或工签、学签（访客记录只在少数情况下可用）。只有外国护照不够。上传它的照片（JPG 或 PNG）。",
+   "ko": "이름, 생년월일, 이민 신분이 나온 서류 — 영주권 카드, COPR 또는 랜딩 기록, 또는 취업·학생 허가서(방문자 기록은 일부 경우에만 인정). 외국 여권만으로는 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
+   "ja": "氏名、生年月日、在留資格が分かる書類 — PRカード、COPRまたはランディング記録、または就労・学生許可（訪問者記録は限られた場合のみ）。外国のパスポートだけでは不可。写真（JPGかPNG）でアップロードします。"
   },
   "deadline": {
    "en": "Apply now",
@@ -473,7 +473,7 @@
   "why": {
    "en": "You have the right to open one. A bank may not refuse you for having no job, no money to deposit, or a past bankruptcy.",
    "fr": "Vous avez le droit d’en ouvrir un. Une banque ne peut pas vous refuser parce que vous n’avez pas d’emploi ni d’argent à déposer, ou parce que vous avez déjà fait faillite.",
-   "es": "Tiene derecho a abrir una. Un banco no puede negársela por no tener empleo, dinero para depositar o una quiebra previa.",
+   "es": "Tiene derecho a abrir una. Un banco no puede negársela por no tener empleo ni dinero para depositar, ni por haber tenido una quiebra.",
    "zh": "开户是你的法定权利。银行不能因为你没工作、没钱存、或曾经破产就拒绝你。",
    "ko": "계좌 개설은 법적 권리입니다. 직장이 없다, 넣을 돈이 없다, 과거에 파산했다는 이유로 은행이 거절할 수 없습니다.",
    "ja": "口座開設は法律上の権利です。仕事がない、預ける資金がない、過去に破産した——これらを理由に断ることはできません。"
@@ -505,12 +505,12 @@
    }
   ],
   "bring": {
-   "en": "Two pieces of ID: one showing your name and address, one showing your name and date of birth — a foreign passport counts, as do Canadian government ID, a utility bill, or a bank statement. Or one piece plus someone in good standing with the bank who can vouch for you.",
-   "fr": "Deux pièces : une avec nom et adresse, une avec nom et date de naissance — un passeport étranger compte, tout comme une pièce d’identité canadienne, une facture de services publics ou un relevé bancaire. Ou une pièce plus une personne en règle avec la banque qui se porte garante.",
-   "es": "Dos documentos: uno con nombre y dirección, otro con nombre y fecha de nacimiento — sirve un pasaporte extranjero, una identificación canadiense, una factura de servicios o un estado de cuenta. O uno más alguien en regla con el banco que responda por usted.",
-   "zh": "两份证件：一份显示姓名和地址，一份显示姓名和出生日期——外国护照可以，加拿大政府证件、水电账单、银行对账单也可以。或者一份证件加一位该银行认可的人为你担保。",
-   "ko": "신분증 2종: 하나는 이름과 주소, 다른 하나는 이름과 생년월일이 나오는 것 — 외국 여권도 되고, 캐나다 정부 발급 신분증, 공과금 고지서, 은행 명세서도 가능합니다. 또는 신분증 1종 + 그 은행과 거래 이력이 좋은 사람이 본인임을 확인해 주는 방법도 있습니다.",
-   "ja": "身分証2点: 1点は氏名と住所、もう1点は氏名と生年月日が分かるもの — 外国のパスポート、カナダ政府発行の身分証、公共料金の請求書、銀行の明細書などが使えます。または1点＋銀行が認める保証人。"
+   "en": "Two pieces of ID: one showing your name and address, one showing your name and date of birth — a foreign passport counts, as do Canadian government ID, a utility bill, or a bank statement. Or one piece showing your name and date of birth, plus someone who can vouch for you: a customer in good standing with the bank, or someone of good standing in the community.",
+   "fr": "Deux pièces : une avec nom et adresse, une avec nom et date de naissance — un passeport étranger compte, tout comme une pièce d’identité canadienne, une facture de services publics ou un relevé bancaire. Ou une pièce avec nom et date de naissance, plus une personne qui confirme votre identité : un client en règle de la banque ou une personne bien établie dans la collectivité.",
+   "es": "Dos documentos: uno con nombre y dirección, otro con nombre y fecha de nacimiento — sirve un pasaporte extranjero, una identificación canadiense, una factura de servicios o un estado de cuenta. O uno con nombre y fecha de nacimiento, más alguien que confirme su identidad: un cliente al día con el banco o una persona de buena reputación en la comunidad.",
+   "zh": "两份证件：一份显示姓名和地址，一份显示姓名和出生日期——外国护照可以，加拿大政府证件、水电账单、银行对账单也可以。或者一份显示姓名和出生日期的证件，再加一位能证明你身份的人：该银行信誉良好的客户，或在社区中有信誉的人。",
+   "ko": "신분증 2종: 하나는 이름과 주소, 다른 하나는 이름과 생년월일이 나오는 것 — 외국 여권도 되고, 캐나다 정부 발급 신분증, 공과금 고지서, 은행 명세서도 가능합니다. 또는 이름과 생년월일이 나온 신분증 1종 + 본인임을 확인해 줄 사람(그 은행과 거래 이력이 좋은 고객, 또는 지역사회에서 신망 있는 사람)도 가능합니다.",
+   "ja": "身分証2点: 1点は氏名と住所、もう1点は氏名と生年月日が分かるもの — 外国のパスポート、カナダ政府発行の身分証、公共料金の請求書、銀行の明細書などが使えます。または氏名と生年月日が分かる1点＋あなたの身元を証明できる人（その銀行の信用ある顧客、または地域で信頼されている人）。"
   },
   "note": {
    "zh": "银行仍可以因少数原因拒绝——比如提供虚假信息、过去七年内有欺诈记录、骚扰员工——但不能因为你刚来或没钱就拒绝。这些权利适用于银行和联邦信用合作社；受省监管的信用合作社按省里的规定。",
@@ -887,12 +887,12 @@
    "ja": "高齢の家族の介護に助けを得る"
   },
   "why": {
-   "en": "This one is for people who have lived here for years as much as for anyone new. Much of the help is subsidised, and almost nobody knows it exists until they need it. Subsidised care is for citizens, permanent residents and some permit holders who have lived in BC for at least three months — a parent here on a visitor visa or super visa does not qualify.",
-   "fr": "Cette fiche s’adresse autant aux personnes installées depuis des années qu’aux nouveaux arrivants. Une grande partie de l’aide est subventionnée, et presque personne ne le sait avant d’en avoir besoin. Les soins subventionnés sont réservés aux citoyens, aux résidents permanents et à certains titulaires de permis qui vivent en C.-B. depuis au moins trois mois — un parent venu avec un visa de visiteur ou un super visa n’y a pas droit.",
-   "es": "Esta ficha es tanto para quienes llevan años aquí como para quien acaba de llegar. Buena parte de la ayuda está subvencionada, y casi nadie lo sabe hasta que la necesita. La atención subvencionada es para ciudadanos, residentes permanentes y algunos titulares de permisos que llevan al menos tres meses viviendo en BC; un padre o madre con visa de visitante o súper visa no reúne los requisitos.",
-   "zh": "这张卡既写给住了很多年的人，也写给新来的人。很多帮助有政府补贴，但大多数人要到用得上时才知道。有补贴的照护只给公民、永久居民和部分持许可的人，而且要在 BC 住满三个月——用访客签证或超级签证来的父母不符合条件。",
-   "ko": "이 카드는 새로 온 사람만큼이나 이곳에 오래 산 사람을 위한 것입니다. 많은 지원이 보조금으로 제공되지만, 필요해지기 전까지는 거의 아무도 모릅니다. 보조 돌봄은 시민, 영주권자, 일부 허가 소지자로서 BC에 최소 3개월 거주한 사람만 받을 수 있습니다 — 방문 비자나 슈퍼 비자로 온 부모는 해당되지 않습니다.",
-   "ja": "このカードは、新しく来た人だけでなく、長く住んでいる人のためのものでもあります。支援の多くには補助がありますが、必要になるまでほとんど誰も知りません。補助付きのケアは、市民、永住者、一部の許可保持者で、BCに3か月以上住んでいる人が対象です — 訪問者ビザやスーパービザで来ている親は対象外です。"
+   "en": "This one is for people who have lived here for years as much as for anyone new. Much of the help is subsidised, and almost nobody knows it exists until they need it. Subsidised care is for citizens, permanent residents and holders of a temporary resident permit who have lived in BC for at least three months — a parent here on a visitor visa or super visa does not qualify.",
+   "fr": "Cette fiche s’adresse autant aux personnes installées depuis des années qu’aux nouveaux arrivants. Une grande partie de l’aide est subventionnée, et presque personne ne le sait avant d’en avoir besoin. Les soins subventionnés sont réservés aux citoyens, aux résidents permanents et aux titulaires d’un permis de séjour temporaire qui vivent en C.-B. depuis au moins trois mois — un parent venu avec un visa de visiteur ou un super visa n’y a pas droit.",
+   "es": "Esta ficha es tanto para quienes llevan años aquí como para quien acaba de llegar. Buena parte de la ayuda está subvencionada, y casi nadie lo sabe hasta que la necesita. La atención subvencionada es para ciudadanos, residentes permanentes y titulares de un permiso de residencia temporal que llevan al menos tres meses viviendo en BC; un padre o madre con visa de visitante o súper visa no reúne los requisitos.",
+   "zh": "这张卡既写给住了很多年的人，也写给新来的人。很多帮助有政府补贴，但大多数人要到用得上时才知道。有补贴的照护只给公民、永久居民和持临时居民许可（TRP）的人，而且要在 BC 住满三个月——用访客签证或超级签证来的父母不符合条件。",
+   "ko": "이 카드는 새로 온 사람만큼이나 이곳에 오래 산 사람을 위한 것입니다. 많은 지원이 보조금으로 제공되지만, 필요해지기 전까지는 거의 아무도 모릅니다. 보조 돌봄은 시민, 영주권자, 임시 거주 허가(TRP) 소지자로서 BC에 최소 3개월 거주한 사람만 받을 수 있습니다 — 방문 비자나 슈퍼 비자로 온 부모는 해당되지 않습니다.",
+   "ja": "このカードは、新しく来た人だけでなく、長く住んでいる人のためのものでもあります。支援の多くには補助がありますが、必要になるまでほとんど誰も知りません。補助付きのケアは、市民、永住者、一時滞在許可（TRP）の保持者で、BCに3か月以上住んでいる人が対象です — 訪問者ビザやスーパービザで来ている親は対象外です。"
   },
   "steps": [
    {
@@ -923,7 +923,7 @@
     "en": "If you are the one doing the caring, say so at each of these calls. Caregiver respite and support groups exist, and you are entitled to them.",
     "fr": "Si c’est vous qui prenez soin, dites-le à chaque appel. Le répit et les groupes de soutien pour proches aidants existent, et vous y avez droit.",
     "es": "Si es usted quien cuida, dígalo en cada llamada. Existen el respiro y los grupos de apoyo para cuidadores, y tiene derecho a ellos.",
-    "zh": "如果照顾的人是你自己，每次打电话都说一声。照护者的喘息服务和互助小组是存在的，而且你有权使用。",
+    "zh": "如果你就是照护者，每次打电话都说一声。照护者的喘息服务和互助小组是存在的，而且你有权使用。",
     "ko": "돌보는 사람이 본인이라면 전화할 때마다 말하세요. 돌봄 제공자를 위한 휴식 서비스와 지원 모임이 있고, 이용할 권리가 있습니다.",
     "ja": "介護しているのがあなた自身なら、電話のたびにそう伝えてください。介護者のためのレスパイトや支援グループがあり、利用する権利があります。"
    }
@@ -1133,12 +1133,12 @@
    }
   ],
   "note": {
-   "en": "Caps: security deposit at most half a month’s rent; pet damage deposit at most another half. Landlords may not charge application fees, monthly pet fees, or a fee to return your deposit. They may keep part of it only if you agree in writing, or if the Residential Tenancy Branch orders it.",
-   "fr": "Plafonds : dépôt de garantie d’au plus un demi-mois de loyer ; dépôt pour dommages causés par un animal d’au plus un autre demi-mois. Le propriétaire ne peut pas facturer de frais de demande, de frais mensuels pour animal ni de frais pour rendre le dépôt. Il ne peut en garder une partie que si vous l’acceptez par écrit ou si la Residential Tenancy Branch l’ordonne.",
-   "es": "Topes: depósito de garantía de medio mes de alquiler como máximo; depósito por daños de mascota de otra media mensualidad como máximo. No se pueden cobrar tarifas de solicitud, cuotas mensuales por mascota ni una tarifa por devolver el depósito. Solo pueden quedarse con una parte si usted lo acepta por escrito o si el Residential Tenancy Branch lo ordena.",
-   "zh": "上限：押金最多半个月房租；宠物押金最多再加半个月。房东不能收申请费、每月宠物费，也不能收“退押金手续费”。只有你书面同意、或者住宅租赁管理处（RTB）裁定，房东才能扣下一部分。",
-   "ko": "상한: 보증금은 최대 월세의 절반, 반려동물 손해 보증금은 최대 절반 더. 집주인은 신청비, 월 반려동물 요금, 보증금 반환 수수료를 받을 수 없습니다. 일부를 가져갈 수 있는 경우는 세입자가 서면으로 동의했거나 주택임대청(RTB)이 명령한 때뿐입니다.",
-   "ja": "上限：敷金は家賃の半月分まで、ペット損害の敷金はさらに半月分まで。大家は申込手数料、毎月のペット料金、敷金返還の手数料を取れません。一部を差し引けるのは、あなたが書面で同意したか、住宅賃貸局（RTB）が命じた場合だけです。"
+   "en": "Filing with the Residential Tenancy Branch is your legal right. A landlord may not evict you for using it. Caps: security deposit at most half a month’s rent; pet damage deposit at most another half. Landlords may not charge application fees, monthly pet fees, or a fee to return your deposit. They may keep part of it only if you agree in writing, or if the Residential Tenancy Branch orders it.",
+   "fr": "Déposer une demande à la Residential Tenancy Branch est votre droit. Un propriétaire ne peut pas vous expulser pour cela. Plafonds : dépôt de garantie d’au plus un demi-mois de loyer ; dépôt pour dommages causés par un animal d’au plus un autre demi-mois. Le propriétaire ne peut pas facturer de frais de demande, de frais mensuels pour animal ni de frais pour rendre le dépôt. Il ne peut en garder une partie que si vous l’acceptez par écrit ou si la Residential Tenancy Branch l’ordonne.",
+   "es": "Presentar ante el Residential Tenancy Branch es su derecho. Un arrendador no puede desalojarlo por hacerlo. Topes: depósito de garantía de medio mes de alquiler como máximo; depósito por daños de mascota de otra media mensualidad como máximo. No se pueden cobrar tarifas de solicitud, cuotas mensuales por mascota ni una tarifa por devolver el depósito. Solo pueden quedarse con una parte si usted lo acepta por escrito o si el Residential Tenancy Branch lo ordena.",
+   "zh": "向 RTB 申请是你的法定权利。房东不能因为你这样做就赶你走。上限：押金最多半个月房租；宠物押金最多再加半个月。房东不能收申请费、每月宠物费，也不能收“退押金手续费”。只有你书面同意、或者住宅租赁管理处（RTB）裁定，房东才能扣下一部分。",
+   "ko": "주택임대청(RTB)에 신청하는 것은 법적 권리입니다. 집주인은 이를 이유로 퇴거시킬 수 없습니다. 상한: 보증금은 최대 월세의 절반, 반려동물 손해 보증금은 최대 절반 더. 집주인은 신청비, 월 반려동물 요금, 보증금 반환 수수료를 받을 수 없습니다. 일부를 가져갈 수 있는 경우는 세입자가 서면으로 동의했거나 주택임대청(RTB)이 명령한 때뿐입니다.",
+   "ja": "住宅賃貸局（RTB）への申立ては法的な権利です。それを理由に立ち退きを迫ることはできません。上限：敷金は家賃の半月分まで、ペット損害の敷金はさらに半月分まで。大家は申込手数料、毎月のペット料金、敷金返還の手数料を取れません。一部を差し引けるのは、あなたが書面で同意したか、住宅賃貸局（RTB）が命じた場合だけです。"
   },
   "help": {
    "en": "Residential Tenancy Branch · 1-800-665-8779",
@@ -1150,14 +1150,6 @@
   },
   "src": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy/deposits-fees",
   "srcName": "BC Residential Tenancy Branch",
-  "confid": {
-   "en": "Filing with the Residential Tenancy Branch is your legal right. A landlord may not evict you for using it.",
-   "fr": "Déposer une demande à la Residential Tenancy Branch est votre droit. Un propriétaire ne peut pas vous expulser pour cela.",
-   "es": "Presentar ante el Residential Tenancy Branch es su derecho. Un arrendador no puede desalojarlo por hacerlo.",
-   "zh": "向 RTB 申请是你的法定权利。房东不能因为你这样做就赶你走。",
-   "ko": "주택임대청(RTB)에 신청하는 것은 법적 권리입니다. 집주인은 이를 이유로 퇴거시킬 수 없습니다.",
-   "ja": "住宅賃貸局（RTB）への申立ては法的な権利です。それを理由に立ち退きを迫ることはできません。"
-  },
   "alias": [
    "arrendador",
    "deposit",
@@ -1271,7 +1263,7 @@
    "en": "Need a bed tonight? Emergency shelters in Kamloops include The Mustard Seed 250-372-9890 (walk-ins any time; its Harbour House is for women only), Merit Place 236-425-0341 (walk-ins any time; beds are given out at the 9:30 pm curfew; one pet allowed), Pathways Shelter and Access Hub 250-299-7936 (North Shore, low-barrier — call the intake line) and Emerald Centre 250-372-3031 (call before you go). The City of Kamloops keeps the current list. If one is full, try another — no single call is the end of the road. Women leaving violence, with or without children: Y Women’s Emergency Shelter, call 250-374-6162 or text 250-682-7931, 24 hours, free, no referral. In the colder months The Mustard Seed also opens a winter shelter at 1140 River St.",
    "fr": "Besoin d’un lit ce soir ? Parmi les refuges d’urgence de Kamloops : The Mustard Seed 250-372-9890 (accueil sans rendez-vous à toute heure ; sa Harbour House est réservée aux femmes), Merit Place 236-425-0341 (accueil à toute heure ; les lits sont attribués au couvre-feu de 21 h 30 ; un animal accepté), Pathways Shelter and Access Hub 250-299-7936 (rive nord, bas seuil — appelez la ligne d’accueil) et Emerald Centre 250-372-3031 (appelez avant d’y aller). La City of Kamloops tient la liste à jour. Si l’un est plein, essayez-en un autre — un refus n’est jamais la fin du chemin. Femmes qui fuient la violence, avec ou sans enfants : Y Women’s Emergency Shelter, appel au 250-374-6162 ou texto au 250-682-7931, 24 h sur 24, gratuit, sans référence. Pendant les mois froids, The Mustard Seed ouvre aussi un refuge d’hiver au 1140 River St.",
    "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan en el toque de queda de las 21:30; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, bajo umbral — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
-   "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一个电话打不通不是走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
+   "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一处不行不等于走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
    "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 저문턱 — 입소 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 한 곳에서 안 된다고 거기서 끝이 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
    "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、ローバリア — 入所の電話へ）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 一か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
   },
@@ -1434,7 +1426,7 @@
     "ja": "裁判になる場合はデューティ・カウンセル（当番弁護士）について尋ねましょう — 当日、裁判所で無料です。"
    }
   ],
-  "place": "d4b9d5c8",
+  "place": "9bc02891",
   "src": "https://legalaid.bc.ca/services",
   "srcName": "Legal Aid BC",
   "alias": [
@@ -1620,12 +1612,12 @@
    }
   ],
   "note": {
-   "en": "Rent can be raised only once every 12 months, with three full months’ written notice on the official form. For subsidised housing, apply through BC Housing’s Housing Registry (1-800-257-7756); each household member must be a citizen or permanent resident not under sponsorship, a government-assisted refugee, or a refugee claimant.",
-   "fr": "Le loyer ne peut augmenter qu’une fois tous les 12 mois, avec trois mois complets de préavis écrit sur le formulaire officiel. Pour un logement subventionné, faites la demande au Housing Registry de BC Housing (1-800-257-7756) ; chaque membre du ménage doit être citoyen ou résident permanent non parrainé, réfugié parrainé par le gouvernement ou demandeur d’asile.",
-   "es": "El alquiler solo puede subir una vez cada 12 meses, con tres meses completos de aviso por escrito en el formulario oficial. Para vivienda subvencionada, solicítela en el Housing Registry de BC Housing (1-800-257-7756); cada miembro del hogar debe ser ciudadano o residente permanente no patrocinado, refugiado asistido por el gobierno o solicitante de refugio.",
-   "zh": "房租 12 个月内只能涨一次，而且要用官方表格提前整整三个月书面通知。申请政府补贴住房，走 BC Housing 的 Housing Registry（1-800-257-7756）；家里每个成员都必须是不在担保期内的公民或永久居民、政府资助的难民，或难民申请人。",
-   "ko": "월세는 12개월에 한 번만 올릴 수 있고, 공식 양식으로 꼬박 3개월 전에 서면 통지해야 합니다. 보조 주택은 BC Housing의 Housing Registry(1-800-257-7756)로 신청하며, 가구원 모두가 스폰서 기간이 아닌 시민·영주권자, 정부 지원 난민, 또는 난민 신청자여야 합니다.",
-   "ja": "家賃の値上げは12か月に1回だけで、公式の書式で丸3か月前に書面の通知が必要です。補助付き住宅はBC HousingのHousing Registry（1-800-257-7756）で申請します。世帯全員が、スポンサー期間中でない市民か永住者、政府支援の難民、または難民申請者であることが条件です。"
+   "en": "Rent can be raised only once every 12 months, with three full months’ written notice on the official form. For subsidised housing, apply through BC Housing’s Housing Registry (1-800-257-7756); each household member must be a citizen or permanent resident not under sponsorship, a government-assisted refugee, or a refugee claimant (a private sponsorship that BC Housing accepts has broken down does not count against you, and Ukrainians who came under CUAET also qualify).",
+   "fr": "Le loyer ne peut augmenter qu’une fois tous les 12 mois, avec trois mois complets de préavis écrit sur le formulaire officiel. Pour un logement subventionné, faites la demande au Housing Registry de BC Housing (1-800-257-7756) ; chaque membre du ménage doit être citoyen ou résident permanent non parrainé, réfugié pris en charge par le gouvernement (RPG) ou demandeur d’asile (un parrainage privé dont BC Housing reconnaît la rupture ne compte pas, et les Ukrainiens arrivés au titre de l’AVUCU sont aussi admissibles).",
+   "es": "El alquiler solo puede subir una vez cada 12 meses, con tres meses completos de aviso por escrito en el formulario oficial. Para vivienda subvencionada, solicítela en el Housing Registry de BC Housing (1-800-257-7756); cada miembro del hogar debe ser ciudadano o residente permanente no patrocinado, refugiado asistido por el gobierno o solicitante de refugio (un patrocinio privado que BC Housing acepta como roto no cuenta en su contra, y los ucranianos llegados por CUAET también califican).",
+   "zh": "房租 12 个月内只能涨一次，而且要用官方表格提前整整三个月书面通知。申请政府补贴住房，走 BC Housing 的 Housing Registry（1-800-257-7756）；家里每个成员都必须是不在担保期内的公民或永久居民、政府资助的难民，或难民申请人（BC Housing 认定担保关系已破裂的不受限制；以 CUAET 来的乌克兰人也符合条件）。",
+   "ko": "월세는 12개월에 한 번만 올릴 수 있고, 공식 양식으로 꼬박 3개월 전에 서면 통지해야 합니다. 보조 주택은 BC Housing의 Housing Registry(1-800-257-7756)로 신청하며, 가구원 모두가 스폰서 기간이 아닌 시민·영주권자, 정부 지원 난민, 또는 난민 신청자여야 합니다(BC Housing이 스폰서 관계 파탄을 인정하면 예외이며, CUAET로 온 우크라이나인도 해당됩니다).",
+   "ja": "家賃の値上げは12か月に1回だけで、公式の書式で丸3か月前に書面の通知が必要です。補助付き住宅はBC HousingのHousing Registry（1-800-257-7756）で申請します。世帯全員が、スポンサー期間中でない市民か永住者、政府支援の難民、または難民申請者であることが条件です（スポンサー関係の破綻をBC Housingが認めた場合は例外で、CUAETで来たウクライナ人も対象です）。"
   },
   "help": {
    "en": "Residential Tenancy Branch · 1-800-665-8779",
@@ -1710,7 +1702,7 @@
    },
    {
     "zh": "核对最后一笔工资。如果是雇主解雇你，欠你的钱必须在 48 小时内付清（你自己辞职的是 6 天内）。工作超过 3 个月，你有权得到书面提前通知或相应的补偿：1 周；满 1 年 2 周；满 3 年 3 周，之后每多 1 年再加 1 周，最多 8 周——因正当理由（just cause）被解雇的除外。",
-    "en": "Check your final pay. If your employer ended your job, everything owed is due within 48 hours (within 6 days if you quit). After more than 3 months in the job you are owed written notice or pay instead: 1 week, 2 weeks after a year, 3 weeks after three years, then one more week for each further year, up to 8 weeks, up to 8 weeks — unless it was for just cause.",
+    "en": "Check your final pay. If your employer ended your job, everything owed is due within 48 hours (within 6 days if you quit). After more than 3 months in the job you are owed written notice or pay instead: 1 week, 2 weeks after a year, 3 weeks after three years, then one more week for each further year, up to 8 weeks — unless it was for just cause.",
     "fr": "Vérifiez votre dernière paie. Si l’employeur a mis fin à l’emploi, tout ce qui vous est dû doit être payé dans les 48 heures (6 jours si vous avez démissionné). Après plus de 3 mois, vous avez droit à un préavis écrit ou à une indemnité : 1 semaine, 2 semaines après un an, 3 semaines après trois ans, puis une semaine de plus par année supplémentaire, jusqu’à 8 semaines — sauf congédiement pour motif valable.",
     "es": "Revise su último pago. Si el empleador terminó el empleo, todo lo que le deben vence en 48 horas (6 días si usted renunció). Con más de 3 meses en el puesto, le corresponde aviso por escrito o pago en su lugar: 1 semana, 2 semanas tras un año, 3 semanas tras tres años y una semana más por cada año adicional, hasta 8 semanas, salvo despido con causa justa.",
     "ko": "마지막 급여를 확인하세요. 고용주가 해고했다면 밀린 돈은 48시간 안에(스스로 그만뒀다면 6일 안에) 모두 지급해야 합니다. 3개월 넘게 일했다면 서면 예고나 그만큼의 수당을 받을 권리가 있습니다: 1주, 1년 넘으면 2주, 3년 넘으면 3주, 이후 1년마다 1주씩 추가, 최대 8주 — 정당한 사유에 의한 해고는 제외.",
@@ -1734,12 +1726,12 @@
    }
   ],
   "note": {
-   "en": "If a family member sponsored you into Canada, the income assistance application asks about it — ask a settlement worker or Legal Aid (free) how it affects you before you apply.",
-   "fr": "Si un membre de votre famille vous a parrainé au Canada, la demande d’aide au revenu vous le demande — demandez à un intervenant en établissement ou à l’aide juridique (services gratuits) quelles en sont les conséquences pour vous avant de faire la demande.",
-   "es": "Si un familiar le patrocinó para venir a Canadá, la solicitud de asistencia social lo pregunta: consulte a un trabajador de asentamiento o a Legal Aid (gratis) cómo le afecta antes de solicitar.",
-   "zh": "如果你是家人担保来加拿大的，社会救助申请表会问到这一点——申请前先问定居服务专员或法律援助（免费），了解对你有什么影响。",
-   "ko": "가족의 초청(스폰서)으로 캐나다에 왔다면 소득 지원 신청서에서 그것을 묻습니다 — 신청 전에 정착 지원 담당자나 Legal Aid(무료)에 어떤 영향이 있는지 물어보세요.",
-   "ja": "家族のスポンサーでカナダに来た場合、生活扶助の申請でそのことを聞かれます — 申請前に定住支援ワーカーか法律扶助（無料）に、どう影響するか相談を。"
+   "en": "Feeling low after losing a job is common. The 24-hour mental health line is 310-6789 — no area code. If a family member sponsored you into Canada, the income assistance application asks about it — ask a settlement worker or Legal Aid (free) how it affects you before you apply.",
+   "fr": "Se sentir abattu après une perte d’emploi est courant. La ligne de santé mentale 24 h sur 24 est le 310-6789 — sans indicatif régional. Si un membre de votre famille vous a parrainé au Canada, la demande d’aide au revenu vous le demande — demandez à un intervenant en établissement ou à l’aide juridique (services gratuits) quelles en sont les conséquences pour vous avant de faire la demande.",
+   "es": "Sentirse decaído tras perder el empleo es común. La línea de salud mental de 24 horas es el 310-6789, sin código de área. Si un familiar le patrocinó para venir a Canadá, la solicitud de asistencia social lo pregunta: consulte a un trabajador de asentamiento o a Legal Aid (gratis) cómo le afecta antes de solicitar.",
+   "zh": "失业后情绪低落很常见。24 小时心理支持热线 310-6789，不用加区号。如果你是家人担保来加拿大的，社会救助申请表会问到这一点——申请前先问定居服务专员或法律援助（免费），了解对你有什么影响。",
+   "ko": "실직 후 기분이 가라앉는 것은 흔한 일입니다. 24시간 정신건강 전화는 310-6789 — 지역번호 없이. 가족의 초청(스폰서)으로 캐나다에 왔다면 소득 지원 신청서에서 그것을 묻습니다 — 신청 전에 정착 지원 담당자나 Legal Aid(무료)에 어떤 영향이 있는지 물어보세요.",
+   "ja": "失業後に気分が落ち込むのはよくあることです。24時間のこころの相談は310-6789（市外局番なし）。家族のスポンサーでカナダに来た場合、生活扶助の申請でそのことを聞かれます — 申請前に定住支援ワーカーか法律扶助（無料）に、どう影響するか相談を。"
   },
   "help": {
    "en": "Employment Standards Branch · 1-833-236-3700 · income assistance 1-866-866-0800",
@@ -1748,14 +1740,6 @@
    "zh": "劳工标准处 · 1-833-236-3700 · 社会救助 1-866-866-0800",
    "ko": "Employment Standards Branch · 1-833-236-3700 · 소득 지원 1-866-866-0800",
    "ja": "Employment Standards Branch · 1-833-236-3700 · 生活扶助 1-866-866-0800"
-  },
-  "confid": {
-   "en": "Feeling low after losing a job is common. The 24-hour mental health line is 310-6789 — no area code.",
-   "fr": "Se sentir abattu après une perte d’emploi est courant. La ligne de santé mentale 24 h sur 24 est le 310-6789 — sans indicatif régional.",
-   "es": "Sentirse decaído tras perder el empleo es común. La línea de salud mental de 24 horas es el 310-6789, sin código de área.",
-   "zh": "失业后情绪低落很常见。24 小时心理支持热线 310-6789，不用加区号。",
-   "ko": "실직 후 기분이 가라앉는 것은 흔한 일입니다. 24시간 정신건강 전화는 310-6789 — 지역번호 없이.",
-   "ja": "失業後に気分が落ち込むのはよくあることです。24時間のこころの相談は310-6789（市外局番なし）。"
   },
   "src": "https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html",
   "srcName": "Service Canada",

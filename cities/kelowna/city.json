@@ -47,7 +47,7 @@
     "wranglerEnv": "kelowna",
     "assetsDir": "deploy/kelowna",
     "basePath": "/",
-    "swCache": "kelowna-lifemap-v1.0.0",
+    "swCache": "kelowna-lifemap-v1.1.0",
     "pwaLabel": "Kelowna Life Guide",
     "pwaDescription": "What to do, where to go, what to bring — step by step — with a map of verified places across Kelowna. Free, no sign-up."
   }

@@ -75,6 +75,11 @@
      "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
      wraps at spaces as before */
   h1{word-break:keep-all;}
+  /* 2026-10-19 (walkthrough, all six languages): phone numbers broke mid-number ("250-682-" / "7931", "1-" / "866-…"),
+     and Korean broke inside words everywhere ("단계별/로", "됩니/다"). A number is dialled as a whole; Korean wraps at
+     spaces — keep-all does that, and overflow-wrap still breaks a word that is longer than the line. */
+  a[href^="tel:"],a[href^="sms:"]{white-space:nowrap;}
+  html[lang|="ko"] body{word-break:keep-all;overflow-wrap:anywhere;}
   @media(min-width:601px) and (pointer:coarse){.lang-sw{top:18px;}.header-links{top:76px;}}
   @media(max-width:360px){.lang-menu-btn{padding:6px 8px;}.lang-menu-btn .lm-ic{display:none;}}
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}

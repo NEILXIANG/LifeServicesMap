@@ -44,7 +44,7 @@
     "wranglerEnv": "",
     "assetsDir": "public",
     "basePath": "/",
-    "swCache": "kamloops-lifemap-v1.4.0",
+    "swCache": "kamloops-lifemap-v1.5.0",
     "pwaLabel": "Kamloops Life Map",
     "pwaDescription": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up."
   }
