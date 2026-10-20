@@ -54,10 +54,13 @@ for t in MARKS:
     if re.fullmatch(r'1?-?\d{3}-\d{3}-\d{4}', t): FORBIDDEN.append(re.escape(re.sub(r'\D', '', t)))
     m = re.fullmatch(r'\$(\d+)\.(\d\d)', t)
     if m: FORBIDDEN.append(r'%s,%s ?\$' % (m.group(1), m.group(2)))
-FORB = re.compile('|'.join(FORBIDDEN))
+# 2026-10-19: with only one real city (main carries Kamloops alone, D7) there is nothing to forbid — and an empty
+# alternation compiles to a pattern that matches everywhere, failing every page with the leak [''] (L-130)
+FORB = re.compile('|'.join(FORBIDDEN)) if FORBIDDEN else None
 GARBAGE = re.compile(r'\{[A-Z_]{2,}\}|\bundefined\b|\bNaN\b|\[object Object\]|\bTODO\b')
 
 def leaks(text):
+    if FORB is None: return []
     return sorted(set(m.group(0) for m in FORB.finditer(text or '')))
 def garbage(text):
     return sorted(set(m.group(0) for m in GARBAGE.finditer(text or '')))

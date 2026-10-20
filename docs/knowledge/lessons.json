@@ -3913,6 +3913,31 @@
      "marker": "scripts/main-excludes.txt"
     }
    ]
+  },
+  {
+   "id": "L-130",
+   "title": "由列表拼成的正则：列表为空时匹配一切",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "main 只有 Kamloops 一座城市时，city_guitest 的别城禁用词为空，re.compile('|'.join([])) 即 re.compile('')，在每一页都“找到”空字符串，18 项误报。",
+   "rule": "用列表拼正则（禁用词、关键词）时，列表为空要显式处理（不查或直接通过），不能让空模式参与匹配；单城市和第一座城市都会遇到。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 25 轮：KIS 来信，main 只含 Kamloops 并部署",
+     "what": "只有一座城市时别城检查 18 项误报"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/city_guitest.py",
+     "marker": "FORB = re.compile('|'.join(FORBIDDEN)) if FORBIDDEN else None"
+    }
+   ]
   }
  ],
  "assets": [
