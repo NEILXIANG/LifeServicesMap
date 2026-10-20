@@ -221,7 +221,7 @@ const PRESETS={
   newcomer:['gov','foodbank','bank','post','secondhand','apt','propmgmt','hardware','transit','schoolbus','hospital','asian','driving','religious','commctr','legal','library'],
   kids:['park','splash','pool','library','museum','cinema','rink','beach','elem','school','schoolbus','daycare','playcenter','tutor'],
   sports:['gym','pool','rink','park','trail','beach','dogpark'],
-  edu:['school','elem','schoolbus','library','tutor'],
+  edu:['college','school','elem','schoolbus','library','tutor'],
   health:['hospital','dental','pharmacy','vet'],
   outdoor:['park','trail','beach','dogpark','splash'],
   shopping:['grocery','asian','mall','secondhand','hardware','conv','gas'],

@@ -94,7 +94,7 @@ let openNow=false;
 function openNowOk(d){ return !openNow || (openState(d.h)||{}).open===true; }
 function themeLabel(k){const e=TI[k];return e&&e[L_]?e[L_]:String(k||'');}
 const GRP=[
-  {k:'edu',cats:['school','elem','schoolbus']},
+  {k:'edu',cats:['college','school','elem','schoolbus']},
   {k:'health',cats:['hospital','dental','vet','pharmacy']},
   {k:'housing',cats:['apt','propmgmt']},
   {k:'shop',cats:['grocery','asian','restaurant','cafe','secondhand','hardware','mall','conv','liquor']},
