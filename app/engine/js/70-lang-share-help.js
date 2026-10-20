@@ -182,6 +182,8 @@ function setLang(l){
   // text, and longer labels (fr/es) wrap and push it down; Leaflet kept the
   // pre-text size all session, so every fit centred ~40px low on a phone.
   requestAnimationFrame(()=>{try{map.invalidateSize(false);}catch(e){}});
+  // French spacing before : ; ? ! and inside « » (2026-10-20): what is on screen now, and whatever appears later
+  if(l==='fr'){frSpaces(document.body);watchFrSpaces();}
 }
 
 document.querySelectorAll('.lang-btn').forEach(b=>{b.onclick=()=>{setStoredLang(b.dataset.lang);setLang(b.dataset.lang);closeLangMenu();};});
@@ -281,7 +283,7 @@ function renderShareSheet(){
   const u=UI[L_],grid=document.getElementById('shareGrid');
   document.getElementById('shareTitle').innerHTML=iconify(u.shareTitle);
   document.getElementById('shareLead').textContent=u.shareLead;
-  document.getElementById('shareNote').textContent=u.shareNote;
+  document.getElementById('shareNote').textContent=navigator.share?u.shareNoteNative:u.shareNote;
   const nat=document.getElementById('shareNative');
   nat.textContent=u.shareNative;
   nat.hidden=!(navigator.share);
@@ -294,7 +296,9 @@ function renderShareSheet(){
   copyBtn.lastChild.textContent=u.shareCopy;
   copyBtn.onclick=copyShareLink;
   grid.appendChild(copyBtn);
-  SHARE_TARGETS.forEach(t=>{
+  // a text message needs a phone: on a computer (no touch) the button did nothing (2026-10-20)
+  const touch=!!(window.matchMedia&&window.matchMedia('(pointer:coarse)').matches);
+  SHARE_TARGETS.filter(t=>t.k!=='sms'||touch).forEach(t=>{
     const a=document.createElement('a');
     a.className='share-item';a.target='_blank';a.rel='noopener';
     a.href=t.url(shareHref(),shareText());
@@ -332,7 +336,7 @@ function renderHelpSheet(){
   document.getElementById('helpTitle').innerHTML=iconify(u.helpTitle);
   _clearArmed=false;
   body.innerHTML='<p class="help-lead">'+esc(u.helpLead)+'</p>'+hotlineHtml(false)+localCrisisHtml()
-    +'<p class="help-info"><a href="tel:'+esc(CITY.help.info)+'"><b>2-1-1</b></a> '+esc(u.helpInfo)+'</p>'
+    +'<p class="help-info"><a href="tel:'+esc(CITY.help.info)+'"><b>2-1-1</b></a> '+glueTimes(esc(u.helpInfo))+'</p>'
     +'<div class="help-actions"><button type="button" class="help-exit" id="helpExit"></button><p class="help-note" id="helpExitNote"></p>'
     +'<button type="button" class="help-clear" id="helpClear"></button><p class="help-note" id="helpClearNote"></p></div>';
   document.getElementById('helpExit').textContent=u.helpExit;

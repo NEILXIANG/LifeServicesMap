@@ -144,7 +144,8 @@ function apply(){let v=0;
   const u=UI[L_];
   const st=document.getElementById('statusText');
   if(searching){
-    st.textContent=_closest?u.searchClosestN(v):u.searchResultsN(v);
+    // 2026-10-20 (re-walk): above the 24-hour lines it said "No matching places found" — cold, and beside the point
+    st.textContent=(v===0&&isCrisisQuery(searchRaw||searchTerm))?u.crisisStatus:_closest?u.searchClosestN(v):u.searchResultsN(v);
     st.dataset.count=st.textContent;st.dataset.region='';
     // 2026-09-13: fit (or focus) only when the search/filters actually changed.
     // The open-now minute tick, a tab coming back and a language switch all
@@ -214,6 +215,8 @@ function apply(){let v=0;
     if(ann)ann.textContent=u.aResultsAnnounce(v,P.length);
   }
   updateResetState();
+  try{renderSeason();}catch(e){}   // the winter note steps aside while a search shows its places (2026-10-20)
+  try{renderResultList(v,searching);}catch(e){}
   writeURLState();
   renderEmptyState(v,searching,filtered);
   try{renderSearchHelp();}catch(e){}
@@ -243,4 +246,31 @@ function updatePanelTitle(){
 // this too.
 function updateResetState(){
   document.getElementById('resetBtn').hidden=(lastDims===0&&!searchTerm&&!selectedRoute);
+}
+
+// 2026-10-20 (launch review, phone and desktop): a search showed its places only as pins — some clustered, some under
+// the winter note, none with a name until tapped. Up to six results are now listed by name and area under the
+// answer box; a tap brings the map into view and opens that place's card. Not for crisis searches (the lines
+// come first), and only when the search found something to list.
+// four on a phone (the map is below the list there), six on a wider screen
+const resultListMax=()=>window.matchMedia&&window.matchMedia('(max-width:600px)').matches?4:6;
+function renderResultList(v,searching){
+  const el=document.getElementById('resultList');if(!el)return;
+  const q=searchRaw||searchTerm;
+  if(!searching||!v||v>30||isCrisisQuery(q)){el.hidden=true;el.innerHTML='';return;}
+  const u=UI[L_];
+  const shown=M.filter(m=>_isShown(m)).sort((a,b)=>(b.score||0)-(a.score||0));
+  const top=shown.slice(0,resultListMax());
+  // the area's short name: "Sahali/Aberdeen", not its whole description
+  const shortArea=g=>regLabel(g).split(/ \(|（/)[0];
+  el.innerHTML=top.map((m,i)=>'<button type="button" class="rl-item" data-i="'+i+'"><b>'+esc(m.data.n)+'</b>'
+      +(m.data.g?'<span class="rl-area">'+esc(shortArea(m.data.g))+'</span>':'')+'</button>').join('')
+    +(shown.length>top.length?'<span class="rl-more">'+esc(u.resultMore(shown.length-top.length))+'</span>':'');
+  el.hidden=false;
+  el.querySelectorAll('.rl-item').forEach(b=>b.onclick=()=>{
+    const m=top[+b.dataset.i];if(!m)return;
+    const mapEl=document.getElementById('map');
+    try{mapEl.scrollIntoView({block:'center',behavior:'smooth'});}catch(e){mapEl.scrollIntoView();}
+    focusMarker(m,16);
+  });
 }

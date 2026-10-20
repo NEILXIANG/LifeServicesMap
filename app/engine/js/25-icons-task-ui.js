@@ -303,7 +303,7 @@ function openTask(id,src){
     +'<p class="task-local">'+esc(u.taskLocalOnly)+'</p></div>';
   if(t.src)h+='<p class="task-src"><a href="'+esc(t.src)+'" target="_blank" rel="noopener">'
       +esc(u.taskSource)+': '+esc(t.srcName)+' ↗</a></p>';
-  h+='<p class="task-src task-checked">'+esc(u.taskVerified.replace('{TD}',CITY.tasksChecked||VERIFIED))
+  h+='<p class="task-src task-checked">'+esc(u.taskVerified.replace('{TD}',t.checked||CITY.tasksChecked||VERIFIED)   /* a card checked again later carries its own date (2026-10-20) */)
     +' · <a href="'+esc(transFixHref(t))+'">'+esc(u.taskTransFix)+'</a></p>';
   host.innerHTML=h;
   host.scrollIntoView({block:'start'});

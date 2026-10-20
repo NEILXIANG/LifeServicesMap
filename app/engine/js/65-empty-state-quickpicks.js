@@ -7,7 +7,7 @@ let _lastEmptyKind=null;
 function localCrisisHtml(){
   // 2026-10-19: a line that also takes texts carries "sms" — texting can be the only safe way to reach it
   const smsLink=(t,c)=>c.sms?t.split(esc(c.sms)).join('<a href="sms:'+esc(c.sms.replace(/[^\d]/g,''))+'"><b>'+esc(c.sms)+'</b></a>'):t;
-  const line=c=>'<p class="help-local">'+smsLink(esc(c.note[L_]||c.note.en),c)+(/：$/.test(c.note[L_]||'')?'':' ')+'<a href="tel:'+esc(c.n.replace(/[^\d]/g,''))+'"><b>'+esc(c.n)+'</b></a></p>';
+  const line=c=>'<p class="help-local">'+smsLink(glueTimes(esc(c.note[L_]||c.note.en)),c)+(/：$/.test(c.note[L_]||'')?'':' ')+'<a href="tel:'+esc(c.n.replace(/[^\d]/g,''))+'"><b>'+esc(c.n)+'</b></a></p>';
   return (CITY.localLines||[]).map(line).join('')+(CITY.localCrisis?line(CITY.localCrisis):'');
 }
 function hotlineHtml(compact){

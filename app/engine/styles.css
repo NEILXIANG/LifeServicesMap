@@ -70,7 +70,7 @@
      ran under the right-hand controls; on a touch tablet the 44px controls
      collided with each other */
   /* 2026-09-21: 420, not 370 — the header row gained the Help button */
-  @media(min-width:601px) and (max-width:1100px){h1{padding-right:420px;}.sub{padding-right:420px;}}
+  @media(min-width:601px) and (max-width:1100px){h1{padding-right:470px;}.sub{padding-right:470px;}}
   /* keep-all stops the Korean/Japanese title breaking inside a word ("가이/드",
      "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
      wraps at spaces as before */
@@ -81,6 +81,14 @@
   a[href^="tel:"],a[href^="sms:"],.nw{white-space:nowrap;}
   html[lang|="ko"] body{word-break:keep-all;overflow-wrap:anywhere;}
   @media(min-width:601px) and (pointer:coarse){.lang-sw{top:18px;}.header-links{top:76px;}}
+  /* 2026-10-20 (launch review, desktop): the header's controls were 11.5px — and Help, the most important control on
+     the page, was the smallest and looked like a plain link. Wider screens only; the phone header is laid out on its own. */
+  @media(min-width:601px){
+    .note-toggle,.feedback-link{font-size:13px;}
+    .lang-btn{font-size:12.5px;}
+    #helpBtn{background:#fff4f4;border:1px solid #e9b4b4;border-radius:999px;padding:6px 12px;font-weight:700;}
+    #helpBtn:hover{text-decoration:none;background:#ffeaea;}
+  }
   @media(max-width:360px){.lang-menu-btn{padding:6px 8px;}.lang-menu-btn .lm-ic{display:none;}}
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
   .note-toggle{position:relative;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
@@ -189,7 +197,34 @@
   .hotlines .hl-line b{white-space:nowrap;}   /* the line may wrap, the number never does */
   .hotlines .hl-line b{color:#a11;}
   .help-btn .hl-ic,.help-btn{color:#a11;}
-  .crisis-block{margin:0 0 8px;}
+  .crisis-block{margin:0 auto 8px;max-width:720px;text-align:left;}
+  /* 2026-10-20 (real-use check): inside the centred empty state the lines and the shelter notes inherited centring —
+     a wrapped line ("…(VictimLink)") jumped to the middle — and on a wide screen the block ran 1300px wide.
+     The lines read as a list (left), the opening sentence stays centred. */
+  .crisis-block .crisis-lead{text-align:center;}
+  /* the result list (2026-10-20): what the search found, by name and area, one tap to the place's card. A card with
+     the same gutter as the answer box above it; the name is never cut, the area sits under it. */
+  .result-list{margin:10px 20px 0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;}
+  .result-list[hidden]{display:none;}
+  .rl-item{display:block;width:100%;padding:9px 14px;border:none;border-top:1px solid var(--line);background:none;
+    font:inherit;text-align:left;color:var(--ink);cursor:pointer;}
+  .rl-item:first-child{border-top:none;}
+  .rl-item b{display:block;font-size:13.5px;font-weight:650;line-height:1.35;}
+  .rl-item .rl-area{display:block;font-size:12px;color:var(--sub-ink);line-height:1.35;margin-top:1px;}
+  .rl-item:hover{background:var(--paper);}
+  .rl-more{display:block;padding:8px 14px;border-top:1px solid var(--line);font-size:12px;color:var(--sub-ink);}
+  @media(pointer:coarse){.rl-item{min-height:48px;}}
+  @media(max-width:600px){.result-list{margin:8px 12px 0;}}
+  @media(max-width:600px){#map.pop-open .geo-btn{visibility:hidden;}}   /* see popupopen in 40-map-tiles-geo.js */
+  /* wider screens: three short columns, so the list stays two rows high and the map with the results stays on the
+     first screen (one tall column pushed it below the fold) */
+  @media(min-width:601px){
+    .result-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));background:none;border:none;border-radius:0;overflow:visible;gap:6px;}
+    .rl-item,.rl-item:first-child{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:7px 12px;}
+    .rl-item b{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+    .rl-more{grid-column:1/-1;border:none;padding:0 2px;}
+  }
+  @media(min-width:601px) and (max-width:1023px){.result-list{grid-template-columns:repeat(2,minmax(0,1fr));}}
   .crisis-lead{margin:0 0 4px;font-weight:700;color:#8a1c1c;line-height:1.5;}
   .crisis-more,.help-note{margin:6px 0 0;font-size:11.5px;color:var(--sub-ink);line-height:1.6;}
   .help-local,.help-info{margin:8px 0 0;font-size:12.5px;line-height:1.6;}

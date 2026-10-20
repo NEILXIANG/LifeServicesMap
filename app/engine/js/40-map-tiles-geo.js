@@ -93,6 +93,8 @@ layer.on('tileerror',()=>{
   if(offlineEl&&offlineEl.hidden)offlineShowExpanded();
 });
 map.on('popupopen',e=>{
+  // a phone has room for the card or the locate button, not both (it sat on the card's corner, 2026-10-20)
+  document.getElementById('map').classList.add('pop-open');
   try{document.getElementById('seasonNote').hidden=true;}catch(_){}
   // The popup is the only way to reach a place's detail, so every popup-open
   // is exactly a "this place was inspected" event. The marker's index and the
@@ -132,6 +134,7 @@ map.on('popupopen',e=>{
   }catch(err){}},350);
 });
 map.on('popupclose',()=>{
+  document.getElementById('map').classList.remove('pop-open');
   setTimeout(()=>{try{renderSeason();}catch(_){}},0);
   // The popupclose event fires for every Leaflet popup — include cluster
   // spiderfies by guarding on m?.data, then the (id,cat,reg) matches the

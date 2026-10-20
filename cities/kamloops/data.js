@@ -39,7 +39,7 @@ const CITY={
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the task cards were last read against their official sources
   // (shown at the foot of every card; validate.py keeps it honest)
-  tasksChecked:'2026-09-08',
+  tasksChecked:'2026-10-04',   // every card's facts against the official pages (CHANGELOG 2026-10-04); cards re-checked later carry their own "checked"
   // Map imagery (2026-09-13). Primary: MapTiler Streets (account-backed, key
   // restricted to this site's origin in MapTiler's dashboard, free tier
   // 100k tiles/month). Fallback: Esri's World Street Map raster tiles, no key,

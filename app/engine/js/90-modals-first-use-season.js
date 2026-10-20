@@ -111,7 +111,10 @@ function renderSeason(){
   const x=activeSeason(),fu=document.getElementById('firstUse');
   let closed=false;
   if(x){closed=!!_seasonClosedMem[x.id];try{closed=closed||localStorage.getItem(seasonKey(x))==='1';}catch(e){}}
-  const busy=(fu&&!fu.hidden)||!!selectedRoute||!!(typeof map!=='undefined'&&map._popup&&map._popup.isOpen&&map._popup.isOpen());
+  // 2026-10-20 (real-use check, phone): while a search is showing its places, the note sat on top of them — a first
+  // search ("library") showed three pins with a third of the map covered. It steps aside while searching too.
+  const searchingNow=typeof searchTerm!=='undefined'&&!!searchTerm;
+  const busy=searchingNow||(fu&&!fu.hidden)||!!selectedRoute||!!(typeof map!=='undefined'&&map._popup&&map._popup.isOpen&&map._popup.isOpen());
   if(!x||closed||busy){el.hidden=true;return;}
   const u=UI[L_];
   el.innerHTML='<span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)

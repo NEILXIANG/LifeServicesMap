@@ -174,6 +174,17 @@ async def main():
             check('E4 %s crisis "%s": the crisis lines come first, dialable' % (l, q), 'tel:' in html and ('988' in html or '1-800-563-0808' in html or '18005630808' in html), html[:300])
             hint = await pg.evaluate("()=>UI[L_].noResultHint")
             check('E4b %s crisis "%s": no "check the spelling" under the lines' % (l, q), hint not in html, html[-200:])
+        # the result list (2026-10-20): what a search found, by name, one tap to the card — never under a crisis search
+        await pg.evaluate("l=>setLang(l)", 'en')
+        r = await search('library')
+        names = await pg.evaluate("()=>[...document.querySelectorAll('#resultList .rl-item b')].map(b=>b.textContent)")
+        check('E5 a search lists its places by name (%d)' % len(names), len(names) >= 1, names)
+        if names:
+            await pg.locator('#resultList .rl-item').first.click(); await pg.wait_for_timeout(2500)
+            card = await pg.evaluate("()=>{const p=map._popup&&map.hasLayer(map._popup)&&document.querySelector('.leaflet-popup-content');return p?p.innerText:''}")
+            check('E5b tapping a listed place opens its card', names[0] in card, card[:120])
+        r = await search("I'm not safe at home")
+        check('E5c no result list under a crisis search', await pg.evaluate("()=>document.getElementById('resultList').hidden"))
         await pg.fill('#searchInput', ''); await pg.wait_for_timeout(400)
 
         # ---- F: categories, areas, quick picks
@@ -215,6 +226,13 @@ async def main():
                 if problems: bad.append((t, problems[:3]))
             await pg.evaluate("()=>closeModal(guideBackdropEl)")
             check('G1 %s: all %d task cards open cleanly with valid links' % (l, len(tids)), not bad, bad[:4])
+        # a card checked again later shows its own date (2026-10-20; the field must reach the reader, L-088)
+        await pg.evaluate("l=>setLang(l)", 'en')
+        own = await pg.evaluate("""()=>TASKS.filter(t=>t.checked).map(t=>{openTask(t.id,'test');
+          const f=document.querySelector('#guideModal .task-checked');return [t.id,t.checked,f?f.innerText:'']})""")
+        bad_d = [x for x in own if x[1] not in x[2]]
+        check('G2 cards with their own check date show it (%d cards)' % len(own), not bad_d, bad_d[:3])
+        await pg.evaluate("()=>closeModal(guideBackdropEl)")
 
         # ---- H: bus routes
         await pg.evaluate("l=>setLang(l)", 'en')

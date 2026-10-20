@@ -153,7 +153,7 @@
   "note": {
    "en": "Plastic SIN cards are no longer issued — you get a number, on a letter. Never carry it in your wallet.",
    "fr": "Les cartes NAS en plastique n’existent plus — vous recevez un numéro sur une lettre. Ne gardez jamais cette lettre dans votre portefeuille.",
-   "es": "Ya no se emiten tarjetas SIN de plástico — recibe un número en una carta. No la lleve en la cartera.",
+   "es": "Ya no se emiten tarjetas SIN de plástico — recibe un número en una carta. Nunca la lleve en la billetera.",
    "zh": "现在不再发塑料卡，只给一封带号码的信。不要随身带在钱包里。",
    "ko": "플라스틱 SIN 카드는 더 이상 발급되지 않으며, 번호가 적힌 안내문을 받습니다. 지갑에 넣고 다니지 마세요.",
    "ja": "プラスチックのSINカードは廃止され、番号が記載された書面が届きます。財布に入れて持ち歩かないでください。"
@@ -196,7 +196,8 @@
    "社保号",
    "근로번호",
    "사회보험번호"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "msp",
@@ -293,7 +294,7 @@
    "fr": "Un document indiquant votre nom, votre date de naissance et votre statut d’immigration — carte de RP, CRP ou fiche relative au droit d’établissement, ou permis de travail ou d’études (une fiche de visiteur seulement dans certains cas). Un passeport étranger seul ne suffit pas. Vous en téléversez une photo (JPG ou PNG).",
    "es": "Un documento con su nombre, fecha de nacimiento y estatus migratorio: tarjeta de RP, COPR o constancia de llegada, o permiso de trabajo o de estudio (un registro de visitante solo en casos limitados). Un pasaporte extranjero por sí solo no basta. Se sube una foto (JPG o PNG).",
    "zh": "一份写有姓名、出生日期和移民身份的文件——PR 卡、COPR 或落地纸，或工签、学签（访客记录只在少数情况下可用）。只有外国护照不够。上传它的照片（JPG 或 PNG）。",
-   "ko": "이름, 생년월일, 이민 신분이 나온 서류 — 영주권 카드, COPR 또는 랜딩 기록, 또는 취업·학생 허가서(방문자 기록은 일부 경우에만 인정). 외국 여권만으로는 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
+   "ko": "이름, 생년월일, 체류 신분이 나온 서류 — 영주권 카드, COPR 또는 랜딩 기록, 또는 취업·학생 허가서(방문자 기록은 일부 경우에만 인정). 외국 여권만으로는 안 됩니다. 사진(JPG 또는 PNG)으로 올립니다.",
    "ja": "氏名、生年月日、在留資格が分かる書類 — PRカード、COPRまたはランディング記録、または就労・学生許可（訪問者記録は限られた場合のみ）。外国のパスポートだけでは不可。写真（JPGかPNG）でアップロードします。"
   },
   "deadline": {
@@ -325,7 +326,8 @@
    "건강보험",
    "의료보험",
    "의료카드"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "licence",
@@ -447,7 +449,8 @@
    "driving license",
    "driver licence",
    "driver license"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "bank",
@@ -545,7 +548,8 @@
    "银行",
    "계좌",
    "은행"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "school",
@@ -668,7 +672,8 @@
    "zh": "如果孩子是新移民，可以向学校打听 SWIS（Settlement Workers in Schools，学校移民服务）——这是常驻在学校里的免费定居服务专员。",
    "ko": "자녀가 이민 온 지 얼마 안 됐다면 학교에 SWIS(교내 정착지원 프로그램)를 문의하세요 — 학교에 상주하는 무료 정착 지원 담당자입니다.",
    "ja": "お子さんが来たばかりなら、学校にSWIS（学校定住支援ワーカー）について聞いてみてください——学校に常駐する無料の定住支援ワーカーです。"
-  }
+  },
+  "checked": "2026-10-19"
  },
  {
   "id": "tax",
@@ -757,7 +762,8 @@
    "税金",
    "세금",
    "신고"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "connect",
@@ -792,7 +798,7 @@
    {
     "en": "Volunteer. It is the most reliable way to meet people when you know nobody — and it is where Canadian references and local work history start.",
     "fr": "Faites du bénévolat. C’est le moyen le plus fiable de rencontrer des gens quand on ne connaît personne — et c’est là que commencent les références canadiennes et une première expérience de travail locale.",
-    "es": "Haga voluntariado. Es la forma más fiable de conocer gente cuando no conoce a nadie — y ahí empiezan las referencias canadienses y la experiencia laboral local.",
+    "es": "Haga voluntariado. Es la forma más confiable de conocer gente cuando no conoce a nadie — y ahí empiezan las referencias canadienses y la experiencia laboral local.",
     "zh": "去做义工。谁都不认识的时候，这是最靠得住的认识人的路——加拿大的推荐人和本地工作经历，也往往从这里开始。",
     "ko": "자원봉사를 하세요. 아는 사람이 없을 때 사람을 만나는 가장 확실한 방법이며, 캐나다에서의 추천인과 경력도 여기서 시작됩니다.",
     "ja": "ボランティアを。知り合いがいないときに人と出会う最も確実な方法で、カナダでの推薦者や職歴もここから始まります。"
@@ -889,7 +895,7 @@
   "why": {
    "en": "This one is for people who have lived here for years as much as for anyone new. Much of the help is subsidised, and almost nobody knows it exists until they need it. Subsidised care is for citizens, permanent residents and holders of a temporary resident permit who have lived in BC for at least three months — a parent here on a visitor visa or super visa does not qualify.",
    "fr": "Cette fiche s’adresse autant aux personnes installées depuis des années qu’aux nouveaux arrivants. Une grande partie de l’aide est subventionnée, et presque personne ne le sait avant d’en avoir besoin. Les soins subventionnés sont réservés aux citoyens, aux résidents permanents et aux titulaires d’un permis de séjour temporaire qui vivent en C.-B. depuis au moins trois mois — un parent venu avec un visa de visiteur ou un super visa n’y a pas droit.",
-   "es": "Esta ficha es tanto para quienes llevan años aquí como para quien acaba de llegar. Buena parte de la ayuda está subvencionada, y casi nadie lo sabe hasta que la necesita. La atención subvencionada es para ciudadanos, residentes permanentes y titulares de un permiso de residencia temporal que llevan al menos tres meses viviendo en BC; un padre o madre con visa de visitante o súper visa no reúne los requisitos.",
+   "es": "Esta ficha es tanto para quienes llevan años aquí como para quien acaba de llegar. Buena parte de la ayuda está subvencionada, y casi nadie lo sabe hasta que la necesita. La atención subvencionada es para ciudadanos, residentes permanentes y titulares de un permiso de residencia temporal que lleven al menos tres meses viviendo en BC; un padre o madre con visa de visitante o súper visa no reúne los requisitos.",
    "zh": "这张卡既写给住了很多年的人，也写给新来的人。很多帮助有政府补贴，但大多数人要到用得上时才知道。有补贴的照护只给公民、永久居民和持临时居民许可（TRP）的人，而且要在 BC 住满三个月——用访客签证或超级签证来的父母不符合条件。",
    "ko": "이 카드는 새로 온 사람만큼이나 이곳에 오래 산 사람을 위한 것입니다. 많은 지원이 보조금으로 제공되지만, 필요해지기 전까지는 거의 아무도 모릅니다. 보조 돌봄은 시민, 영주권자, 임시 거주 허가(TRP) 소지자로서 BC에 최소 3개월 거주한 사람만 받을 수 있습니다 — 방문 비자나 슈퍼 비자로 온 부모는 해당되지 않습니다.",
    "ja": "このカードは、新しく来た人だけでなく、長く住んでいる人のためのものでもあります。支援の多くには補助がありますが、必要になるまでほとんど誰も知りません。補助付きのケアは、市民、永住者、一時滞在許可（TRP）の保持者で、BCに3か月以上住んでいる人が対象です — 訪問者ビザやスーパービザで来ている親は対象外です。"
@@ -914,10 +920,10 @@
    {
     "en": "For people 65 and over, Better at Home (through Interior Community Services) helps with groceries, light housekeeping, yard work, friendly visits and meals. Some of it is charged on a sliding scale by income.",
     "fr": "Pour les 65 ans et plus, Better at Home (par Interior Community Services) aide pour l’épicerie, le ménage léger, l’entretien du terrain, les visites amicales et les repas. Certains services sont facturés selon une échelle liée au revenu.",
-    "es": "Para mayores de 65 años, Better at Home (a través de Interior Community Services) ayuda con la compra, limpieza ligera, jardín, visitas amistosas y comidas. Algunos servicios se cobran según una escala de ingresos.",
+    "es": "Para mayores de 65 años, Better at Home (a través de Interior Community Services) ayuda con las compras, limpieza ligera, jardín, visitas amistosas y comidas. Algunos servicios se cobran según una escala de ingresos.",
     "zh": "65 岁以上的人可以通过 Interior Community Services 的 Better at Home 获得帮助：买菜、简单家务、院子活、上门探访和送餐。部分服务按收入分档收费。",
     "ko": "65세 이상이라면 Interior Community Services의 Better at Home이 장보기, 가벼운 집안일, 마당 일, 방문 말벗, 식사를 도와줍니다. 일부는 소득에 따라 차등 요금이 있습니다.",
-    "ja": "65歳以上なら、Interior Community ServicesのBetter at Homeが買い物、軽い家事、庭仕事、訪問、食事を手伝います。一部は収入に応じたスライド制の料金です。"
+    "ja": "65歳以上なら、Interior Community ServicesのBetter at Homeが買い物、軽い家事、庭仕事、話し相手としての訪問、食事を手伝います。一部は収入に応じたスライド制の料金です。"
    },
    {
     "en": "If you are the one doing the caring, say so at each of these calls. Caregiver respite and support groups exist, and you are entitled to them.",
@@ -931,7 +937,7 @@
   "cost": {
    "en": "Assessment free. Home support is charged at a daily rate based on income — free for people receiving GIS or income assistance. Adult day programs can charge up to $10 a day, which can be waived in hardship.",
    "fr": "Évaluation gratuite. L’aide à domicile est facturée à un tarif journalier selon le revenu — gratuite pour les bénéficiaires du SRG ou de l’aide au revenu. Les programmes de jour peuvent coûter jusqu’à 10 $ par jour, somme qui peut être annulée en cas de difficulté.",
-   "es": "Evaluación gratuita. La ayuda a domicilio se cobra por día según los ingresos; es gratuita para quien recibe el GIS o asistencia social. Los programas de día pueden costar hasta 10 $ al día, cantidad que puede eximirse en casos de dificultad.",
+   "es": "Evaluación gratuita. La ayuda a domicilio se cobra por día según los ingresos; es gratuita para quien recibe el GIS o asistencia social. Los programas de día pueden costar hasta $10 al día, cantidad que puede eximirse en casos de dificultad.",
    "zh": "评估免费。居家支援按收入计日费——领取 GIS 或社会救助的人免费。成人日间项目每天最多收 10 加元，经济困难可以免收。",
    "ko": "평가는 무료입니다. 재가 지원은 소득에 따른 일일 요금이며, GIS나 소득 지원을 받는 사람은 무료입니다. 성인 주간 프로그램은 하루 최대 10달러이며, 형편이 어려우면 면제될 수 있습니다.",
    "ja": "評価は無料。在宅支援は収入に応じた日額料金で、GISや生活扶助を受けている人は無料です。成人デイプログラムは1日最大10ドルで、困窮時は免除されることがあります。"
@@ -969,7 +975,8 @@
    "돌봄",
    "부모",
    "요양"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "sick",
@@ -1075,7 +1082,8 @@
    "아파요",
    "의사",
    "진료"
-  ]
+  ],
+  "checked": "2026-10-19"
  },
  {
   "id": "deposit",
@@ -1129,13 +1137,13 @@
     "es": "Si el arrendador no hace ninguna de las dos cosas, acuda al Residential Tenancy Branch: se le puede ordenar al arrendador que le pague a usted el doble.",
     "zh": "两样都没做，就向 RTB 申请——法定可以判房东双倍赔付。",
     "ko": "둘 다 하지 않으면 주택임대청(RTB)에 신청하세요 — 집주인에게 보증금의 두 배를 지급하라는 명령이 내려질 수 있습니다.",
-    "ja": "どちらも行わない場合は住宅賃貸局（RTB）に申立てを — 家主があなたに2倍の額を支払うよう命じられることがあります。"
+    "ja": "どちらも行わない場合は住宅賃貸局（RTB）に申立てを — 大家があなたに2倍の額を支払うよう命じられることがあります。"
    }
   ],
   "note": {
    "en": "Filing with the Residential Tenancy Branch is your legal right. A landlord may not evict you for using it. Caps: security deposit at most half a month’s rent; pet damage deposit at most another half. Landlords may not charge application fees, monthly pet fees, or a fee to return your deposit. They may keep part of it only if you agree in writing, or if the Residential Tenancy Branch orders it.",
    "fr": "Déposer une demande à la Residential Tenancy Branch est votre droit. Un propriétaire ne peut pas vous expulser pour cela. Plafonds : dépôt de garantie d’au plus un demi-mois de loyer ; dépôt pour dommages causés par un animal d’au plus un autre demi-mois. Le propriétaire ne peut pas facturer de frais de demande, de frais mensuels pour animal ni de frais pour rendre le dépôt. Il ne peut en garder une partie que si vous l’acceptez par écrit ou si la Residential Tenancy Branch l’ordonne.",
-   "es": "Presentar ante el Residential Tenancy Branch es su derecho. Un arrendador no puede desalojarlo por hacerlo. Topes: depósito de garantía de medio mes de alquiler como máximo; depósito por daños de mascota de otra media mensualidad como máximo. No se pueden cobrar tarifas de solicitud, cuotas mensuales por mascota ni una tarifa por devolver el depósito. Solo pueden quedarse con una parte si usted lo acepta por escrito o si el Residential Tenancy Branch lo ordena.",
+   "es": "Presentar una solicitud ante el Residential Tenancy Branch es su derecho. Un arrendador no puede desalojarlo por hacerlo. Topes: depósito de garantía de medio mes de alquiler como máximo; depósito por daños de mascota de otra media mensualidad como máximo. No se pueden cobrar tarifas de solicitud, cuotas mensuales por mascota ni una tarifa por devolver el depósito. Solo pueden quedarse con una parte si usted lo acepta por escrito o si el Residential Tenancy Branch lo ordena.",
    "zh": "向 RTB 申请是你的法定权利。房东不能因为你这样做就赶你走。上限：押金最多半个月房租；宠物押金最多再加半个月。房东不能收申请费、每月宠物费，也不能收“退押金手续费”。只有你书面同意、或者住宅租赁管理处（RTB）裁定，房东才能扣下一部分。",
    "ko": "주택임대청(RTB)에 신청하는 것은 법적 권리입니다. 집주인은 이를 이유로 퇴거시킬 수 없습니다. 상한: 보증금은 최대 월세의 절반, 반려동물 손해 보증금은 최대 절반 더. 집주인은 신청비, 월 반려동물 요금, 보증금 반환 수수료를 받을 수 없습니다. 일부를 가져갈 수 있는 경우는 세입자가 서면으로 동의했거나 주택임대청(RTB)이 명령한 때뿐입니다.",
    "ja": "住宅賃貸局（RTB）への申立ては法的な権利です。それを理由に立ち退きを迫ることはできません。上限：敷金は家賃の半月分まで、ペット損害の敷金はさらに半月分まで。大家は申込手数料、毎月のペット料金、敷金返還の手数料を取れません。一部を差し引けるのは、あなたが書面で同意したか、住宅賃貸局（RTB）が命じた場合だけです。"
@@ -1193,8 +1201,8 @@
    "fr": "Demander tôt ne coûte rien et évite qu’un mois difficile devienne une expulsion.",
    "es": "Pedir ayuda pronto no cuesta nada y evita que un mes difícil termine en desalojo.",
    "zh": "早开口不花一分钱，能避免一个难熬的月份演变成被赶出家门。",
-   "ko": "일찍 요청하면 비용이 들지 않고, 힘든 한 달이 퇴거로 이어지는 것을 막습니다.",
-   "ja": "早めに相談すれば費用はかからず、苦しい月が立ち退きに至るのを防げます。"
+   "ko": "일찍 도움을 청하는 데는 돈이 들지 않고, 힘든 한 달이 퇴거로 이어지는 것을 막습니다.",
+   "ja": "早めの相談は無料で、苦しい月が立ち退きに至るのを防げます。"
   },
   "steps": [
    {
@@ -1216,7 +1224,7 @@
    {
     "en": "If rent is the problem, act before you miss it — a landlord must follow a legal process, and there are people whose job is to help you through it.",
     "fr": "Si c’est le loyer, agissez avant de le manquer — un propriétaire doit suivre une procédure légale, et des gens sont là pour vous accompagner.",
-    "es": "Si el problema es el alquiler, actúe antes de fallar un pago — el arrendador debe seguir un proceso legal y hay quien puede ayudarle.",
+    "es": "Si el problema es el alquiler, actúe antes de atrasarse en un pago — el arrendador debe seguir un proceso legal y hay quien puede ayudarle.",
     "zh": "如果卡在房租上，在房租逾期之前就行动——房东必须走法定程序，而且有专门的人帮你走这个流程。",
     "ko": "문제가 월세라면 연체 전에 움직이세요 — 집주인은 법적 절차를 따라야 하며, 그 과정을 도와주는 사람들이 있습니다.",
     "ja": "家賃が問題なら滞納する前に動きましょう。大家は法的手続きを踏む必要があり、その過程を助ける人がいます。"
@@ -1264,8 +1272,8 @@
    "fr": "Besoin d’un lit ce soir ? Parmi les refuges d’urgence de Kamloops : The Mustard Seed 250-372-9890 (accueil sans rendez-vous à toute heure ; sa Harbour House est réservée aux femmes), Merit Place 236-425-0341 (accueil à toute heure ; les lits sont attribués au couvre-feu de 21 h 30 ; un animal accepté), Pathways Shelter and Access Hub 250-299-7936 (rive nord, bas seuil — appelez la ligne d’accueil) et Emerald Centre 250-372-3031 (appelez avant d’y aller). La City of Kamloops tient la liste à jour. Si l’un est plein, essayez-en un autre — un refus n’est jamais la fin du chemin. Femmes qui fuient la violence, avec ou sans enfants : Y Women’s Emergency Shelter, appel au 250-374-6162 ou texto au 250-682-7931, 24 h sur 24, gratuit, sans référence. Pendant les mois froids, The Mustard Seed ouvre aussi un refuge d’hiver au 1140 River St.",
    "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan en el toque de queda de las 21:30; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, bajo umbral — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
    "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一处不行不等于走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
-   "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 저문턱 — 입소 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 한 곳에서 안 된다고 거기서 끝이 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
-   "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、ローバリア — 入所の電話へ）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 一か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
+   "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 조건이 거의 없는 쉼터 — 접수 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 한 곳에서 안 된다고 거기서 끝이 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
+   "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、条件をほとんど問わない — 受付番号へ電話を）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 一か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
   },
   "also": {
    "en": "The three food programs run on different days, so if one doesn't fit today, another might: Kamloops Food Bank (families and singles attend on separate days), Mount Paul Community Food Centre (free community meals Mondays and Thursdays, an affordable produce market Tuesdays and Thursdays), and The Salvation Army (emergency food hampers Mondays and Wednesdays, 9–11:45 am, once every 60 days — call 250-554-1611 first).",
@@ -1274,7 +1282,8 @@
    "zh": "这三家食物机构开放的日子各不相同，今天这家不合适，也许另一家可以：Kamloops Food Bank（家庭与单身人士分不同日子领取）、Mount Paul Community Food Centre（周一、周四免费社区午餐，周二、周四平价果蔬市集）、The Salvation Army（紧急食物包，每周一、周三 9:00–11:45，每 60 天可领一次——先打 250-554-1611 确认）。",
    "ko": "세 곳의 식품 지원 프로그램은 요일이 서로 달라서, 오늘 한 곳이 맞지 않으면 다른 곳이 맞을 수 있습니다: Kamloops Food Bank(가족과 1인 가구가 다른 요일에 방문), Mount Paul Community Food Centre(월·목 무료 커뮤니티 식사, 화·목 저렴한 농산물 마켓), The Salvation Army(긴급 식료품 꾸러미, 매주 월·수요일 9:00–11:45, 60일에 한 번 — 먼저 250-554-1611로 전화).",
    "ja": "3つの食料支援は開催日がそれぞれ違うので、今日一つが合わなくても別の一つが合うかもしれません：Kamloops Food Bank（家族と単身者で利用日が異なる）、Mount Paul Community Food Centre（月・木の無料コミュニティ食事、火・木の手頃な青果マーケット）、The Salvation Army（緊急食料パック、毎週月・水曜 9:00〜11:45、60日に1回 — 先に250-554-1611へ電話を）。"
-  }
+  },
+  "checked": "2026-10-19"
  },
  {
   "id": "rights",
@@ -1325,7 +1334,7 @@
    {
     "en": "Do it within one year of the incident.",
     "fr": "Faites-le dans l’année suivant l’incident.",
-    "es": "Hágalo dentro de un año del incidente.",
+    "es": "Hágalo dentro del año siguiente al incidente.",
     "zh": "要在事发后一年之内提交。",
     "ko": "사건 발생일로부터 1년 이내에 제기하세요.",
     "ja": "出来事から1年以内に行ってください。"
@@ -1336,7 +1345,7 @@
    "fr": "Le délai d’un an court à partir de l’incident — ou, pour une discrimination qui se répète, du dernier incident — et non de votre arrivée. Une plainte tardive peut encore être acceptée, mais seulement si le Tribunal juge que c’est dans l’intérêt public et que personne n’en subirait un préjudice important — n’y comptez pas.",
    "es": "El plazo de un año cuenta desde el incidente —o, si la discriminación continúa, desde el último incidente—, no desde su llegada. Una queja tardía aún puede aceptarse, pero solo si el Tribunal considera que es de interés público y que nadie sufriría un perjuicio sustancial; no cuente con ello.",
    "zh": "一年的期限从事件发生之日算起——如果歧视一直在持续，从最后一次算起——不是从你到加拿大那天算。超期投诉也可能被受理，但前提是审裁处认为符合公共利益、且不会让任何一方受到实质性损害——别指望这一点。",
-   "ko": "1년 기한은 사건일부터 — 차별이 계속되는 경우에는 마지막 사건일부터 — 계산되며, 도착일부터가 아닙니다. 기한이 지난 진정도 받아들여질 수 있지만, 재판소가 공익에 부합하고 누구도 실질적 불이익을 받지 않는다고 판단할 때뿐입니다 — 기대하지 마세요.",
+   "ko": "1년 기한은 사건일부터 — 차별이 계속되는 경우에는 마지막 사건일부터 — 계산되며, 도착일부터가 아닙니다. 기한이 지난 진정도 받아들여질 수 있지만, 심판소가 공익에 부합하고 누구도 실질적 불이익을 받지 않는다고 판단할 때뿐입니다 — 기대하지 마세요.",
    "ja": "1年の期限は出来事の日から — 差別が続いている場合は最後の出来事の日から — 数え、到着日からではありません。期限後の申立ても受理されることはありますが、審判所が公益にかない、誰にも実質的な不利益がないと判断した場合だけです — 当てにしないでください。"
   },
   "src": "https://www.bchrt.bc.ca/complaint-process/complain/time-limit/",
@@ -1420,7 +1429,7 @@
    {
     "en": "If your matter is going to court, ask about duty counsel — a lawyer at the courthouse, free, on the day.",
     "fr": "Si votre affaire va au tribunal, renseignez-vous sur l’avocat de service — gratuit, sur place, le jour même.",
-    "es": "Si su caso va a los tribunales, pregunte por el abogado de guardia — gratis, en el juzgado, ese mismo día.",
+    "es": "Si su caso va a los tribunales, pregunte por el abogado de turno (duty counsel) — gratis, en el juzgado, ese mismo día.",
     "zh": "案子要上法庭的，问问 duty counsel——法院当天现场的免费值班律师。",
     "ko": "법원에 가야 한다면 당직 변호사(duty counsel)를 문의하세요 — 당일 법원에서 무료로 도와줍니다.",
     "ja": "裁判になる場合はデューティ・カウンセル（当番弁護士）について尋ねましょう — 当日、裁判所で無料です。"
@@ -1474,7 +1483,7 @@
   "t": {
    "en": "Get on the list for a family doctor",
    "fr": "S’inscrire pour avoir un médecin de famille",
-   "es": "Apuntarse para conseguir médico de familia",
+   "es": "Inscribirse para conseguir médico de familia",
    "zh": "登记排队找家庭医生",
    "ko": "가정의 대기 명단에 등록하기",
    "ja": "かかりつけ医の登録リストに入る"
@@ -1482,7 +1491,7 @@
   "why": {
    "en": "Family doctors and nurse practitioners are matched from one provincial list, the Health Connect Registry. Clinic waitlists have moved into it, so this one registration is the way in.",
    "fr": "Les médecins de famille et les infirmières praticiennes sont attribués à partir d’une seule liste provinciale, le Health Connect Registry. Les listes d’attente des cliniques y ont été transférées : cette inscription est la porte d’entrée.",
-   "es": "Los médicos de familia y enfermeras practicantes se asignan desde una sola lista provincial, el Health Connect Registry. Las listas de espera de las clínicas se trasladaron a ella, así que esta inscripción es la puerta de entrada.",
+   "es": "Los médicos de familia y enfermeras de práctica avanzada (nurse practitioners) se asignan desde una sola lista provincial, el Health Connect Registry. Las listas de espera de las clínicas se trasladaron a ella, así que esta inscripción es la puerta de entrada.",
    "zh": "家庭医生和执业护士都从全省统一的一份名单里分配，叫 Health Connect Registry。各诊所原来的轮候名单已经并了进去，所以登记这一份就行。",
    "ko": "가정의와 전문 간호사는 주 전체의 명단 하나, Health Connect Registry에서 배정됩니다. 각 클리닉의 대기 명단도 여기로 옮겨졌으니, 여기에 등록하는 것이 입구입니다.",
    "ja": "かかりつけ医やナースプラクティショナーは、州で一つの名簿「Health Connect Registry」から紹介されます。各クリニックの順番待ちもここに移ったので、この登録が入口です。"
@@ -1622,7 +1631,7 @@
   "note": {
    "en": "Rent can be raised only once every 12 months, with three full months’ written notice on the official form. For subsidised housing, apply through BC Housing’s Housing Registry (1-800-257-7756); each household member must be a citizen or permanent resident not under sponsorship, a government-assisted refugee, or a refugee claimant (a private sponsorship that BC Housing accepts as broken down does not count against you, and Ukrainians who came under CUAET also qualify).",
    "fr": "Le loyer ne peut augmenter qu’une fois tous les 12 mois, avec trois mois complets de préavis écrit sur le formulaire officiel. Pour un logement subventionné, faites la demande au Housing Registry de BC Housing (1-800-257-7756) ; chaque membre du ménage doit être citoyen ou résident permanent non parrainé, réfugié pris en charge par le gouvernement (RPG) ou demandeur d’asile (un parrainage privé dont BC Housing reconnaît la rupture ne compte pas, et les Ukrainiens arrivés au titre de l’AVUCU sont aussi admissibles).",
-   "es": "El alquiler solo puede subir una vez cada 12 meses, con tres meses completos de aviso por escrito en el formulario oficial. Para vivienda subvencionada, solicítela en el Housing Registry de BC Housing (1-800-257-7756); cada miembro del hogar debe ser ciudadano o residente permanente no patrocinado, refugiado asistido por el gobierno o solicitante de refugio (un patrocinio privado que BC Housing acepta como roto no cuenta en su contra, y los ucranianos llegados por CUAET también califican).",
+   "es": "El alquiler solo puede subir una vez cada 12 meses, con tres meses completos de aviso por escrito en el formulario oficial. Para vivienda subvencionada, solicítela en el Housing Registry de BC Housing (1-800-257-7756); cada miembro del hogar debe ser ciudadano o residente permanente no patrocinado, refugiado asistido por el gobierno o solicitante de refugio (un patrocinio privado cuya ruptura reconozca BC Housing no cuenta en su contra, y los ucranianos llegados por CUAET también califican).",
    "zh": "房租 12 个月内只能涨一次，而且要用官方表格提前整整三个月书面通知。申请政府补贴住房，走 BC Housing 的 Housing Registry（1-800-257-7756）；家里每个成员都必须是不在担保期内的公民或永久居民、政府资助的难民，或难民申请人（BC Housing 认定担保关系已破裂的不受限制；以 CUAET 来的乌克兰人也符合条件）。",
    "ko": "월세는 12개월에 한 번만 올릴 수 있고, 공식 양식으로 꼬박 3개월 전에 서면 통지해야 합니다. 보조 주택은 BC Housing의 Housing Registry(1-800-257-7756)로 신청하며, 가구원 모두가 스폰서 기간이 아닌 시민·영주권자, 정부 지원 난민, 또는 난민 신청자여야 합니다(BC Housing이 스폰서 관계 파탄을 인정하면 예외이며, CUAET로 온 우크라이나인도 해당됩니다).",
    "ja": "家賃の値上げは12か月に1回だけで、公式の書式で丸3か月前に書面の通知が必要です。補助付き住宅はBC HousingのHousing Registry（1-800-257-7756）で申請します。世帯全員が、スポンサー期間中でない市民か永住者、政府支援の難民、または難民申請者であることが条件です（スポンサー関係の破綻をBC Housingが認めた場合は例外で、CUAETで来たウクライナ人も対象です）。"
@@ -1667,7 +1676,8 @@
    "賃貸",
    "임대"
   ],
-  "place": "d4b9d5c8"
+  "place": "d4b9d5c8",
+  "checked": "2026-10-19"
  },
  {
   "id": "jobloss",
@@ -1736,7 +1746,7 @@
   "note": {
    "en": "Feeling low after losing a job is common. The 24-hour mental health line is 310-6789 — no area code. If a family member sponsored you into Canada, the income assistance application asks about it — ask a settlement worker or Legal Aid (free) how it affects you before you apply.",
    "fr": "Se sentir abattu après une perte d’emploi est courant. La ligne de santé mentale 24 h sur 24 est le 310-6789 — sans indicatif régional. Si un membre de votre famille vous a parrainé au Canada, la demande d’aide au revenu vous le demande — demandez à un intervenant en établissement ou à l’aide juridique (services gratuits) quelles en sont les conséquences pour vous avant de faire la demande.",
-   "es": "Sentirse decaído tras perder el empleo es común. La línea de salud mental de 24 horas es el 310-6789, sin código de área. Si un familiar le patrocinó para venir a Canadá, la solicitud de asistencia social lo pregunta: consulte a un trabajador de asentamiento o a Legal Aid (gratis) cómo le afecta antes de solicitar.",
+   "es": "Sentirse decaído tras perder el empleo es común. La línea de salud mental de 24 horas es el 310-6789, sin código de área. Si un familiar lo patrocinó para venir a Canadá, la solicitud de asistencia social lo pregunta: consulte a un trabajador de asentamiento o a Legal Aid (gratis) cómo le afecta antes de solicitar.",
    "zh": "失业后情绪低落很常见。24 小时心理支持热线 310-6789，不用加区号。如果你是家人担保来加拿大的，社会救助申请表会问到这一点——申请前先问定居服务专员或法律援助（免费），了解对你有什么影响。",
    "ko": "실직 후 기분이 가라앉는 것은 흔한 일입니다. 24시간 정신건강 전화는 310-6789 — 지역번호 없이. 가족의 초청(스폰서)으로 캐나다에 왔다면 소득 지원 신청서에서 그것을 묻습니다 — 신청 전에 정착 지원 담당자나 Legal Aid(무료)에 어떤 영향이 있는지 물어보세요.",
    "ja": "失業後に気分が落ち込むのはよくあることです。24時間のこころの相談は310-6789（市外局番なし）。家族のスポンサーでカナダに来た場合、生活扶助の申請でそのことを聞かれます — 申請前に定住支援ワーカーか法律扶助（無料）に、どう影響するか相談を。"
@@ -1776,6 +1786,7 @@
    "失業",
    "解雇",
    "雇用保険"
-  ]
+  ],
+  "checked": "2026-10-19"
  }
 ]

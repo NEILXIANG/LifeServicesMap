@@ -85,12 +85,38 @@ function phoneHtml(str){
   // unclickable text — every previous caller happened to pass a string with
   // exactly one number, which is why this went unnoticed until now.
   // 2026-10-19: a leading "1-" stayed outside the link and wrapped onto its own line ("1-" / "866-866-0800")
+  str=glueTimes(str);
   return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
 }
 // 2026-10-19 (re-walk, French footer: "1-800-" / "665-8779"): numbers written as text in the guide and the footer
 // broke across lines; only tel: links were kept whole. Wraps every full phone number found in text (never inside a tag).
+// a time range in running text ("9:00–21:00", "11:00-23:00") stays on one line
+function glueTimes(s){
+  return String(s).replace(/(\d{1,2}:\d{2})\s?([–-])\s?(\d{1,2}:\d{2})/g,'$1\u2060$2\u2060$3');
+}
 function keepPhonesWhole(html){
-  return String(html).replace(/(<[^>]*>)|((?:\b1-)?\b\d{3}-\d{3}-\d{4}\b)/g,(m,tag,num)=>tag?tag:'<span class="nw">'+num+'</span>');
+  return String(html).replace(/(<[^>]*>)|((?:\b1-)?\b\d{3}-\d{3}-\d{4}\b)|(\d{1,2}:\d{2}\s?[–-]\s?\d{1,2}:\d{2})/g,
+    (m,tag,num,tm)=>tag?tag:num?'<span class="nw">'+num+'</span>':glueTimes(tm));
+}
+// 2026-10-20 (launch review, French): the space before : ; ? ! and inside « » was an ordinary one, so a colon could
+// start a line (": 1-866-925-4419"). French text spread over several sources (interface, cards, places, guide), so it
+// is set right where it is shown: in French only, text nodes only (never tags, inputs or the map tiles), and again
+// for anything that appears later (cards, place cards, sheets).
+const _FR_RE=/ ([:;?!»])| ?(«) /g;
+function frSpaces(root){
+  if(typeof L_==='undefined'||L_!=='fr'||!root)return;
+  const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
+    const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|TEXTAREA|INPUT)$/.test(p.tagName)||p.closest('.leaflet-tile-pane,.leaflet-marker-pane'))return NodeFilter.FILTER_REJECT;
+    _FR_RE.lastIndex=0;return _FR_RE.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP;}});
+  const hits=[];while(w.nextNode())hits.push(w.currentNode);
+  hits.forEach(n=>{n.nodeValue=n.nodeValue.replace(_FR_RE,(m,p,q)=>p?'\u202f'+p:'«\u202f');});
+}
+let _frObs=null;
+function watchFrSpaces(){
+  if(_frObs||typeof MutationObserver==='undefined')return;
+  _frObs=new MutationObserver(ms=>{if(L_!=='fr')return;ms.forEach(m=>m.addedNodes.forEach(n=>{
+    if(n.nodeType===1)frSpaces(n);else if(n.nodeType===3&&n.parentElement)frSpaces(n.parentElement);}));});
+  _frObs.observe(document.body,{childList:true,subtree:true});
 }
 // ---- structured opening hours -> localised text -------------------------
 // Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,
@@ -116,11 +142,21 @@ function fmtHours(h,l){
   const bits=[];
   if(h.a)bits.push(u.h24);
   if(h.k&&u[h.k])bits.push(u[h.k]);
-  (h.r||[]).forEach(([d1,d2,o,c,ap])=>{
+  // 2026-10-20 (re-walk): a time range broke across lines ("9:00–" / "21:00", "8:30" / "AM–4:30 PM"): the clock
+  // keeps its space unbreakable and the separator is glued with word joiners. And two ranges on the same days
+  // ("Mon–Thu 9–12 · Mon–Thu 1–3:30") are shown once: "Mon–Thu 9–12, 1–3:30".
+  const nb=s=>String(s).replace(/ /g,'\u00a0'), WJ='\u2060';
+  const rng=(o,c,ap)=>nb(fmtClock(o,l))+WJ+u.tsep.trim()+WJ+(ap?u.approx+'\u00a0':'')+nb(fmtClock(c,l));
+  const rs=h.r||[];
+  rs.forEach(([d1,d2,o,c,ap],i)=>{
     const day=fmtDays(d1,d2,l);
     if(o===null)bits.push(day);
-    else if(c===null)bits.push(day+' '+fmtClock(o,l)+' '+u.fromT);
-    else bits.push(day+' '+fmtClock(o,l)+u.tsep+(ap?u.approx+' ':'')+fmtClock(c,l));
+    else if(c===null)bits.push(day+' '+nb(fmtClock(o,l))+' '+u.fromT);
+    else{
+      const prev=rs[i-1];
+      if(prev&&prev[0]===d1&&prev[1]===d2&&prev[2]!==null&&prev[3]!==null)bits[bits.length-1]+=u.listSep+rng(o,c,ap);
+      else bits.push(day+' '+rng(o,c,ap));
+    }
   });
   if(h.s&&h.s.length)bits.push(u.lSvc+u.colon+h.s.map(([d,t])=>u.d[d-1]+' '+fmtClock(t,l)).join(' / '));
   // Closed days are stated, not merely implied by their absence from the ranges.
@@ -169,11 +205,13 @@ function reportHref(p){
 // should phone ahead; 'own' is a first-hand check by the compiler. Rendered as a
 // small chip so credibility is visible per record rather than only in a blanket
 // disclaimer at the bottom of the page.
-UI.zh.shareTitle='🔗 分享这个视图';UI.zh.shareLead='分享出去的链接会带上你现在的语言、区域、分类和搜索词——对方打开看到的就是这一屏。';UI.zh.shareNative='📲 用系统分享…（微信、LINE、KakaoTalk、短信等）';UI.zh.shareCopy='复制链接';UI.zh.shareNote='说明：微信和 TikTok 没有提供“分享网页链接”的接口，所以这里没有它们的按钮。在手机上用上面的“系统分享”可以直接发到微信；在电脑上请复制链接后粘贴到微信。韩国的 KakaoTalk 同理。';UI.zh.shareEmail='邮件';UI.zh.shareSms='短信';
-UI.en.shareTitle='🔗 Share this view';UI.en.shareLead='The link carries your current language, area, category and search — whoever opens it lands on this same screen.';UI.en.shareNative='📲 Share via your device… (WeChat, LINE, KakaoTalk, Messages…)';UI.en.shareCopy='Copy link';UI.en.shareNote='Note: WeChat and TikTok offer no share-a-link endpoint, so there are no buttons for them. On a phone, "Share via your device" reaches WeChat directly; on a computer, copy the link and paste it into WeChat. The same applies to KakaoTalk.';UI.en.shareEmail='Email';UI.en.shareSms='Messages';
-UI.fr.shareTitle='🔗 Partager cette vue';UI.fr.shareLead='Le lien conserve votre langue, secteur, catégorie et recherche — la personne qui l’ouvre voit le même écran.';UI.fr.shareNative='📲 Partager via l’appareil… (WeChat, LINE, KakaoTalk, Messages…)';UI.fr.shareCopy='Copier le lien';UI.fr.shareNote='À noter : WeChat et TikTok n’offrent aucun point d’entrée pour partager un lien, d’où l’absence de boutons. Sur téléphone, « Partager via l’appareil » atteint WeChat directement; sur ordinateur, copiez le lien et collez-le dans WeChat. Idem pour KakaoTalk.';UI.fr.shareEmail='Courriel';UI.fr.shareSms='Messages';
-UI.es.shareTitle='🔗 Compartir esta vista';UI.es.shareLead='El enlace conserva su idioma, zona, categoría y búsqueda — quien lo abra verá esta misma pantalla.';UI.es.shareNative='📲 Compartir desde el dispositivo… (WeChat, LINE, KakaoTalk, Mensajes…)';UI.es.shareCopy='Copiar enlace';UI.es.shareNote='Nota: WeChat y TikTok no ofrecen un punto de entrada para compartir enlaces, por eso no hay botones para ellos. En el celular, «Compartir desde el dispositivo» llega a WeChat directamente; en la computadora, copie el enlace y péguelo en WeChat. Lo mismo vale para KakaoTalk.';UI.es.shareEmail='Correo';UI.es.shareSms='Mensajes';
-UI.ko.shareTitle='🔗 이 화면 공유';UI.ja.shareTitle='🔗 この画面を共有';UI.ko.shareLead='링크에는 현재 언어·지역·분류·검색어가 담겨 있어, 받는 사람도 같은 화면을 보게 됩니다.';UI.ja.shareLead='このリンクには現在の言語、エリア、カテゴリー、検索語が含まれており、開いた相手も同じ画面を見ることができます。';UI.ko.shareNative='📲 기기로 공유… (위챗, LINE, 카카오톡, 메시지 등)';UI.ja.shareNative='📲 端末で共有…（WeChat、LINE、KakaoTalk、メッセージなど）';UI.ko.shareCopy='링크 복사';UI.ja.shareCopy='リンクをコピー';UI.ko.shareNote='참고: 위챗과 TikTok은 링크 공유용 진입점을 제공하지 않아 별도 버튼이 없습니다. 휴대폰에서는 위의 “기기로 공유”로 위챗에 바로 보낼 수 있고, PC에서는 링크를 복사해 위챗에 붙여넣으세요. 카카오톡도 마찬가지입니다.';UI.ja.shareNote='ご注意: WeChatとTikTokはリンク共有用のエンドポイントを提供していないため、専用のボタンはありません。スマートフォンでは「端末で共有」からWeChatに直接送れますが、パソコンではリンクをコピーしてWeChatに貼り付けてください。KakaoTalkも同様です。';UI.ko.shareEmail='이메일';UI.ja.shareEmail='メール';UI.ko.shareSms='메시지';UI.ja.shareSms='メッセージ';
+// 2026-10-20 (launch review): the note named a "share-a-link endpoint" and a button a computer does not have; it now
+// says what to do, on the device the reader is using.
+UI.zh.shareTitle='🔗 分享这个视图';UI.zh.shareLead='分享出去的链接会带上你现在的语言、区域、分类和搜索词——对方打开看到的就是这一屏。';UI.zh.shareNative='📲 用系统分享…（微信、LINE、KakaoTalk、短信等）';UI.zh.shareCopy='复制链接';UI.zh.shareNote='这里没有微信、KakaoTalk 和 TikTok 的按钮：复制链接，粘贴到聊天里就行。';UI.zh.shareNoteNative='这里没有微信、KakaoTalk 和 TikTok 的按钮：用上面的“系统分享”就能发过去。';UI.zh.shareEmail='邮件';UI.zh.shareSms='短信';
+UI.en.shareTitle='🔗 Share this view';UI.en.shareLead='The link carries your current language, area, category and search — whoever opens it lands on this same screen.';UI.en.shareNative='📲 Share via your device… (WeChat, LINE, KakaoTalk, Messages…)';UI.en.shareCopy='Copy link';UI.en.shareNote='WeChat, KakaoTalk and TikTok have no button here: copy the link and paste it into the chat.';UI.en.shareNoteNative='WeChat, KakaoTalk and TikTok have no button here: use “Share via your device” above to send it there.';UI.en.shareEmail='Email';UI.en.shareSms='Messages';
+UI.fr.shareTitle='🔗 Partager cette vue';UI.fr.shareLead='Le lien conserve votre langue, secteur, catégorie et recherche — la personne qui l’ouvre voit le même écran.';UI.fr.shareNative='📲 Partager via l’appareil… (WeChat, LINE, KakaoTalk, Messages…)';UI.fr.shareCopy='Copier le lien';UI.fr.shareNote='WeChat, KakaoTalk et TikTok n’ont pas de bouton ici : copiez le lien et collez-le dans la conversation.';UI.fr.shareNoteNative='WeChat, KakaoTalk et TikTok n’ont pas de bouton ici : utilisez « Partager via l’appareil » ci-dessus.';UI.fr.shareEmail='Courriel';UI.fr.shareSms='Messages';
+UI.es.shareTitle='🔗 Compartir esta vista';UI.es.shareLead='El enlace conserva su idioma, zona, categoría y búsqueda — quien lo abra verá esta misma pantalla.';UI.es.shareNative='📲 Compartir desde el dispositivo… (WeChat, LINE, KakaoTalk, Mensajes…)';UI.es.shareCopy='Copiar enlace';UI.es.shareNote='WeChat, KakaoTalk y TikTok no tienen botón aquí: copie el enlace y péguelo en el chat.';UI.es.shareNoteNative='WeChat, KakaoTalk y TikTok no tienen botón aquí: use «Compartir desde el dispositivo», arriba.';UI.es.shareEmail='Correo';UI.es.shareSms='Mensajes';
+UI.ko.shareTitle='🔗 이 화면 공유';UI.ja.shareTitle='🔗 この画面を共有';UI.ko.shareLead='링크에는 현재 언어·지역·분류·검색어가 담겨 있어, 받는 사람도 같은 화면을 보게 됩니다.';UI.ja.shareLead='このリンクには現在の言語、エリア、カテゴリー、検索語が含まれており、開いた相手も同じ画面を見ることができます。';UI.ko.shareNative='📲 기기로 공유… (위챗, LINE, 카카오톡, 메시지 등)';UI.ja.shareNative='📲 端末で共有…（WeChat、LINE、KakaoTalk、メッセージなど）';UI.ko.shareCopy='링크 복사';UI.ja.shareCopy='リンクをコピー';UI.ko.shareNote='위챗, 카카오톡, TikTok은 여기 버튼이 없습니다. 링크를 복사해 대화창에 붙여넣으세요.';UI.ko.shareNoteNative='위챗, 카카오톡, TikTok은 여기 버튼이 없습니다. 위의 “기기로 공유”로 보내세요.';UI.ja.shareNote='WeChat、KakaoTalk、TikTokのボタンはありません。リンクをコピーして、トークに貼り付けてください。';UI.ja.shareNoteNative='WeChat、KakaoTalk、TikTokのボタンはありません。上の「端末で共有」から送れます。';UI.ko.shareEmail='이메일';UI.ja.shareEmail='メール';UI.ko.shareSms='메시지';UI.ja.shareSms='メッセージ';
 // A fourth, lowest tier (2026-09-07). Entries added to fill a coverage gap but
 // not yet phone-verified were carrying src="stub-pending-verify", which no tier
 // recognised — srcHTML() then rendered no chip at all, so the least-checked rows
