@@ -23,7 +23,7 @@ done < scripts/main-excludes.txt
 
 git checkout -q main
 git merge --no-ff --no-commit "$SRC" >/dev/null 2>&1 || true
-for p in "${EXCL[@]}"; do git rm -rq --ignore-unmatch -- "$p"; done
+for p in "${EXCL[@]}"; do git rm -rqf --ignore-unmatch -- "$p"; done
 LEFT="$(git diff --name-only --diff-filter=U)"
 [[ -z "$LEFT" ]] || fail "conflicts outside the excluded paths — resolve by hand:
 $LEFT"
