@@ -1,0 +1,2166 @@
+[
+ {
+  "n": "South Kamloops Secondary (SKSS)",
+  "c": "school",
+  "g": "sk",
+  "lat": 50.666343,
+  "lng": -120.320712,
+  "a": "821 Munro St",
+  "p": "250-374-1405",
+  "w": "https://www.sd73.bc.ca/skss",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     420,
+     990,
+     0
+    ]
+   ],
+   "q": "qOffice"
+  },
+  "note": {
+   "zh": "有法语沉浸项目和AP课程",
+   "en": "French immersion programme and AP courses",
+   "fr": "Programme d'immersion française et cours AP",
+   "es": "Programa de inmersión en francés y cursos AP",
+   "ko": "프랑스어 몰입 과정과 AP 과정",
+   "ja": "フランス語イマージョン課程とAP課程あり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "3aa4eac6"
+ },
+ {
+  "n": "Lloyd George Elementary",
+  "c": "elem",
+  "g": "sk",
+  "lat": 50.6698217,
+  "lng": -120.3205248,
+  "a": "830 Pine St",
+  "p": "250-374-3174",
+  "w": "https://www.sd73.bc.ca/lg",
+  "note": {
+   "zh": "<b>K–7 法语沉浸式（French Immersion）小学</b>，不是普通英语授课的学区小学；毕业后升入 South Kamloops Secondary。上课和办公时间各校不同，也会随学年变化——去之前先打电话或看学校网页确认。",
+   "en": "<b>A K–7 French Immersion school</b>, not a regular English-program neighbourhood school; it feeds into South Kamloops Secondary. Office hours and bell times differ by school and change from year to year — call the school or check its page before you go.",
+   "fr": "<b>École d’immersion française de la maternelle à la 7e année</b>, et non une école de quartier au programme anglais ordinaire ; elle mène à South Kamloops Secondary. Les heures de bureau et les horaires de classe varient d’une école à l’autre et changent d’une année à l’autre — téléphonez à l’école ou consultez sa page avant de vous déplacer.",
+   "es": "<b>Escuela de inmersión en francés de K a 7.º</b>, no una escuela de barrio con el programa normal en inglés; sus alumnos pasan a South Kamloops Secondary. El horario de oficina y el de clases varían según la escuela y cambian cada año: llame a la escuela o consulte su página antes de ir.",
+   "ko": "<b>K–7 프랑스어 몰입(French Immersion) 학교</b>로, 일반 영어 과정 동네 학교가 아닙니다. 졸업 후 South Kamloops Secondary로 진학합니다. 사무실 운영 시간과 수업 시간은 학교마다 다르고 해마다 바뀝니다 — 가기 전에 학교에 전화하거나 홈페이지를 확인하세요.",
+   "ja": "<b>K〜7年生のフランス語イマージョン校</b>で、通常の英語課程の地域校ではありません。卒業後はSouth Kamloops Secondaryに進みます。事務室の受付時間や授業時間は学校ごとに異なり、年度によっても変わります — 行く前に学校に電話するか、学校のページで確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "d5d9e41f",
+  "pick": 1
+ },
+ {
+  "n": "Royal Inland Hospital",
+  "c": "hospital",
+  "g": "sk",
+  "lat": 50.6703494,
+  "lng": -120.3335214,
+  "a": "311 Columbia St",
+  "p": "250-374-5111",
+  "w": "https://www.interiorhealth.ca/locations/royal-inland-hospital",
+  "h": {
+   "a": true
+  },
+  "note": {
+   "zh": "主要医院，急诊科",
+   "en": "The main hospital, with an emergency department",
+   "fr": "L'hôpital principal, avec un service d'urgence",
+   "es": "El hospital principal, con servicio de urgencias",
+   "ko": "응급실이 있는 주요 병원",
+   "ja": "主要病院、救急科あり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "医院",
+   "大医院",
+   "急诊",
+   "병원",
+   "応急",
+   "病院",
+   "hôpital",
+   "hospital",
+   "ER",
+   "emergency",
+   "emergency room",
+   "urgences",
+   "emergencias",
+   "응급실",
+   "救急"
+  ],
+  "id": "1e3e329a"
+ },
+ {
+  "n": "North Shore Urgent Care (UPCC)",
+  "c": "hospital",
+  "g": "ns",
+  "lat": 50.6964889,
+  "lng": -120.3589069,
+  "a": "700 Tranquille Rd #21-22",
+  "p": "250-314-2256",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     450,
+     1110,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐无家庭医生也可用",
+   "en": "⭐ Can be used without a family doctor",
+   "fr": "⭐ Accessible sans médecin de famille",
+   "es": "⭐ Se puede usar sin médico de cabecera",
+   "ko": "⭐ 주치의 없이도 이용 가능",
+   "ja": "⭐かかりつけ医がなくても利用可能"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "急诊",
+   "walk in",
+   "walkin",
+   "급한",
+   "急患",
+   "walk in clinic",
+   "walk-in clinic",
+   "walk-in",
+   "clinique sans rendez-vous",
+   "clínica sin cita",
+   "无需预约的诊所",
+   "免预约诊所",
+   "워크인 클리닉",
+   "ウォークインクリニック"
+  ],
+  "id": "b29c9af7",
+  "w": "https://www.interiorhealth.ca/locations/kamloops-north-shore-urgent-and-primary-care-centre-upcc"
+ },
+ {
+  "n": "Riverside Dental",
+  "c": "dental",
+  "g": "sk",
+  "lat": 50.6760255,
+  "lng": -120.3304891,
+  "a": "444 Victoria St #307",
+  "p": "250-372-1237",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     450,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐有当天急诊预约，请先打电话",
+   "en": "⭐ Offers same-day emergency appointments; call the office first",
+   "fr": "⭐ Offre des rendez-vous d'urgence le jour même ; appelez d'abord le cabinet",
+   "es": "⭐ Ofrece citas de urgencia el mismo día; llame primero a la clínica",
+   "ko": "⭐ 당일 응급 예약 가능, 먼저 전화하세요",
+   "ja": "⭐当日の緊急予約に対応、まず電話を"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "id": "172f9aae",
+  "w": "https://www.riversidedentalclinic.ca/"
+ },
+ {
+  "n": "Kamloops Veterinary Clinic",
+  "c": "vet",
+  "g": "sa",
+  "lat": 50.66119,
+  "lng": -120.3633117,
+  "a": "1370B Dalhousie Dr",
+  "p": "250-374-1485",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     480,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐口碑极佳，周六也营业",
+   "en": "⭐ Excellent reputation; open Saturdays too",
+   "fr": "⭐ Excellente réputation; ouvert aussi le samedi",
+   "es": "⭐ Excelente reputación; también abre los sábados",
+   "ko": "⭐ 평판이 매우 좋고 토요일에도 영업",
+   "ja": "⭐評判が非常に良く、土曜も営業"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "id": "08c3204e",
+  "w": "https://kamloopsveterinaryclinic.com/"
+ },
+ {
+  "n": "Shoppers Drug Mart (Summit)",
+  "c": "pharmacy",
+  "g": "sa",
+  "lat": 50.665217,
+  "lng": -120.3522333,
+  "a": "1210 Summit Dr",
+  "p": "250-374-0477",
+  "w": "https://www.shoppersdrugmart.ca/en/stores/277-shoppers-drug-mart-columbia-place/",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     480,
+     1320,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "含Canada Post邮局点",
+   "en": "Has a Canada Post outlet inside",
+   "fr": "Comptoir de Postes Canada à l'intérieur",
+   "es": "Tiene un mostrador de Canada Post dentro",
+   "ko": "내부에 Canada Post 창구 있음",
+   "ja": "店内にCanada Postの窓口あり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "021d4e94"
+ },
+ {
+  "n": "Kamloops RCMP",
+  "c": "police",
+  "g": "sk",
+  "lat": 50.6735493,
+  "lng": -120.3276099,
+  "a": "560 Battle St",
+  "p": "250-828-3000",
+  "w": "https://rcmp.ca/en/bc/kamloops",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "非紧急；紧急拨911",
+   "en": "Non-emergency line; call 911 in an emergency",
+   "fr": "Ligne non urgente; composez le 911 en cas d'urgence",
+   "es": "Línea no urgente; llame al 911 en una emergencia",
+   "ko": "비응급 전화, 긴급 상황에는 911",
+   "ja": "非緊急用、緊急時は911"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "id": "6cf9171d"
+ },
+ {
+  "n": "Canada Games Aquatic Centre",
+  "c": "pool",
+  "g": "sa",
+  "lat": 50.6684041,
+  "lng": -120.3659327,
+  "a": "910 McGill Rd",
+  "p": "250-828-3655",
+  "w": "https://www.kamloops.ca/recreation-culture/aquatics/pool-facilities",
+  "h": {
+   "k": "hSite"
+  },
+  "note": {
+   "zh": "⭐50m八道室内泳池、1m/3m跳板和5m跳台、滑梯、休闲池、带无障碍升降椅的按摩池、桑拿和蒸汽房。位于TCC内，同楼有健身房、200米室内跑道和体操馆。所有使用者都需要一个市政府康乐账户（City Recreation Account）",
+   "en": "⭐ 50 m eight-lane indoor pool, 1 m and 3 m diving boards and a 5 m tower, a waterslide, a leisure pool, a hot tub with an accessible lift, sauna and steam room. Inside the TCC, which also has a gym, a 200 m indoor track and a gymnastics facility. Every user needs a City Recreation Account",
+   "fr": "⭐ Bassin intérieur de 50 m à huit couloirs, tremplins de 1 et 3 m et tour de 5 m, glissade d'eau, bassin récréatif, bain à remous avec lève-personne, sauna et hammam. Dans le TCC, qui abrite aussi un gym, une piste intérieure de 200 m et une salle de gymnastique. Chaque usager doit avoir un compte City Recreation Account",
+   "es": "⭐ Piscina cubierta de 50 m con ocho carriles, trampolines de 1 y 3 m y torre de 5 m, tobogán, piscina recreativa, jacuzzi con elevador accesible, sauna y baño de vapor. Dentro del TCC, que también tiene gimnasio, pista cubierta de 200 m y sala de gimnasia. Todos los usuarios necesitan una City Recreation Account",
+   "ko": "⭐ 50m 8레인 실내 수영장, 1m·3m 다이빙 보드와 5m 다이빙 타워, 워터슬라이드, 레저풀, 장애인용 리프트가 있는 온수풀, 사우나와 증기실. 헬스장·200m 실내 트랙·체조장이 있는 TCC 안에 있음. 이용자는 모두 시 레크리에이션 계정(City Recreation Account)이 필요",
+   "ja": "⭐50m8コース室内プール、1m・3m飛び板と5m飛び込み台、ウォータースライド、レジャープール、昇降リフト付きジャグジー、サウナ、スチームルーム。ジム、200m屋内トラック、体操施設もあるTCC内。利用者は全員、市のレクリエーションアカウント（City Recreation Account）が必要"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ],
+  "tag": "tInTCC",
+  "e": "swim@kamloops.ca",
+  "id": "dc0b303d"
+ },
+ {
+  "n": "Riverside Park Water Park",
+  "c": "splash",
+  "g": "sk",
+  "lat": 50.6787601,
+  "lng": -120.337181,
+  "a": "100 Lorne St",
+  "p": "250-828-3311",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     600,
+     1260,
+     0
+    ]
+   ],
+   "se": "summer",
+   "q": "qSeasonSite"
+  },
+  "note": {
+   "zh": "⭐Riverside Park 的无障碍戏水公园，紧邻融合式playground；Riverside 停车收费。和 Westsyde Centennial Park 的戏水公园不是同一个",
+   "en": "⭐ Riverside Park's accessible water park, right beside the inclusive playground; parking at Riverside is paid. Not the same as the water park in Westsyde Centennial Park",
+   "fr": "⭐ Les jeux d'eau accessibles du parc Riverside, juste à côté du terrain de jeu inclusif ; stationnement payant à Riverside. À ne pas confondre avec les jeux d'eau du parc Westsyde Centennial",
+   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el aparcamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
+   "ko": "⭐ Riverside Park의 무장애 물놀이 시설로, 통합 놀이터 바로 옆. Riverside 주차는 유료. Westsyde Centennial Park의 물놀이 시설과는 다른 곳",
+   "ja": "⭐Riverside Parkのバリアフリー水遊び場、インクルーシブ・プレイグラウンドのすぐ隣。Riversideの駐車場は有料。Westsyde Centennial Parkの水遊び場とは別の場所"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "fun",
+   "free"
+  ],
+  "pq": "pCity",
+  "id": "dd819a8a",
+  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/water-parks",
+  "sameComplex": [
+   "050b5d80"
+  ],
+  "alias": [
+   "Centennial Water Park"
+  ]
+ },
+ {
+  "n": "Totem Fitness",
+  "c": "gym",
+  "g": "sk",
+  "lat": 50.6735919,
+  "lng": -120.3110535,
+  "a": "1216 Battle St",
+  "p": "778-802-4444",
+  "h": {
+   "a": true
+  },
+  "note": {
+   "zh": "⭐健身房，也是 BC Boxing 认证的拳击俱乐部；有咖啡吧和专业用品店",
+   "en": "⭐ A gym that is also a chartered BC Boxing club, with a café and pro shop",
+   "fr": "⭐ Un gym qui est aussi un club affilié à BC Boxing, avec café et boutique spécialisée",
+   "es": "⭐ Un gimnasio que también es club afiliado a BC Boxing, con cafetería y tienda especializada",
+   "ko": "⭐ BC Boxing 공인 복싱 클럽을 겸하는 체육관, 카페와 용품점 있음",
+   "ja": "⭐BC Boxing公認ボクシングクラブを兼ねたジム、カフェとプロショップあり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "fun",
+   "student",
+   "indoor"
+  ],
+  "tag": "t24h",
+  "id": "316d05b2",
+  "w": "https://totemfitness.ca/"
+ },
+ {
+  "n": "McArthur Island Sport & Event Centre",
+  "c": "rink",
+  "g": "ns",
+  "lat": 50.6939917,
+  "lng": -120.3723819,
+  "a": "1665 Island Pkwy",
+  "p": "250-828-3600",
+  "w": "https://www.kamloops.ca/recreation-culture/facilities/mcarthur-island-sport-event-centre",
+  "note": {
+   "zh": "三块冰场（迷你、奥运尺寸和 NHL 尺寸）。公众滑冰时间见市政府的 Skate Hours 页面。",
+   "en": "Three ice sheets (mini, Olympic and NHL size). Public skating times are on the City's Skate Hours page.",
+   "fr": "Trois patinoires (mini, olympique et LNH). Les heures de patinage public sont sur la page Skate Hours de la Ville.",
+   "es": "Tres pistas de hielo (mini, olímpica y de tamaño NHL). Los horarios de patinaje público están en la página Skate Hours de la Ciudad.",
+   "ko": "아이스링크 3면(미니, 올림픽, NHL 규격). 일반 스케이팅 시간은 시의 Skate Hours 페이지에 있습니다.",
+   "ja": "リンクが3面（ミニ、オリンピック、NHLサイズ）。一般スケートの時間は市のSkate Hoursページで。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ],
+  "id": "e252ea96"
+ },
+ {
+  "n": "Prince Charles Park",
+  "c": "park",
+  "g": "sk",
+  "lat": 50.6717901,
+  "lng": -120.3130123,
+  "a": "1145 Nicola St",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     300,
+     1380,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐夏季浅水池、playground和洗手间",
+   "en": "⭐ Summer wading pool, a playground and washrooms",
+   "fr": "⭐ Pataugeoire l'été, terrain de jeu et toilettes",
+   "es": "⭐ Piscina infantil en verano, zona de juegos y baños",
+   "ko": "⭐ 여름 물놀이장, 놀이터, 화장실",
+   "ja": "⭐夏の浅瀬プール、プレイグラウンド、トイレ"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "free"
+  ],
+  "id": "9ce4c55a",
+  "pick": 1,
+  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/prince-charles-park"
+ },
+ {
+  "n": "Riverside Park Beach",
+  "c": "beach",
+  "g": "sk",
+  "lat": 50.679283,
+  "lng": -120.3374043,
+  "a": "100 Lorne St",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     300,
+     1380,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "市中心河滩：只能在绳子围起的区域内游泳；夏天有救生员，但不一定随时在岗；注意水流湍急和水深骤变。夏天每晚在 Rotary Bandshell 有 Music in the Park 音乐会。位于 Riverside Park 内。",
+   "en": "Downtown river beach. Swim only inside the roped area; lifeguards are there in summer but not always on duty, and there are strong currents and drop-offs. Music in the Park plays nightly through the summer at the Rotary Bandshell. Inside Riverside Park.",
+   "fr": "Plage de rivière au centre-ville. Baignade seulement dans la zone délimitée par des cordes ; il y a des sauveteurs l’été, mais pas toujours en service, et de forts courants et des fonds qui tombent brusquement. Music in the Park chaque soir de l’été au Rotary Bandshell. Dans le parc Riverside.",
+   "es": "Playa de río en el centro. Nade solo dentro de la zona acordonada; en verano hay socorristas, pero no siempre están de servicio, y hay corrientes fuertes y desniveles bruscos. Music in the Park todas las noches del verano en el Rotary Bandshell. Dentro de Riverside Park.",
+   "ko": "시내 강변 해변. 수영은 줄로 표시한 구역 안에서만 하세요. 여름에는 안전요원이 있지만 항상 근무하는 것은 아니며, 물살이 세고 갑자기 깊어지는 곳이 있습니다. 여름 내내 매일 저녁 Rotary Bandshell에서 Music in the Park 공연이 열립니다. Riverside Park 안.",
+   "ja": "ダウンタウンの川辺のビーチ。泳げるのはロープで囲まれた区域内だけです。夏はライフガードがいますが常にいるとは限らず、流れが強く急に深くなる場所があります。夏の間は毎晩Rotary BandshellでMusic in the Parkが開かれます。Riverside Park内。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "fun",
+   "scenic",
+   "free"
+  ],
+  "id": "050b5d80",
+  "w": "https://www.kamloops.ca/recreation-culture/facilities/riverside-park-beach",
+  "sameComplex": [
+   "dd819a8a"
+  ]
+ },
+ {
+  "n": "Peterson Creek Nature Park",
+  "c": "trail",
+  "g": "sk",
+  "lat": 50.660279,
+  "lng": -120.3301595,
+  "a": "1440 Glenfair Dr",
+  "p": "250-828-3311",
+  "note": {
+   "zh": "⭐自然公园：山谷观景点和徒步步道，Xget'tem' Trail 可步行也可骑车。狗可在控制下不拴绳。",
+   "en": "⭐ A nature park with a valley viewpoint and hiking trails; the Xget'tem' Trail is shared by walkers and cyclists. Dogs may be off leash under control.",
+   "fr": "⭐ Parc naturel avec belvédère sur la vallée et sentiers de randonnée ; le Xget'tem' Trail est partagé par piétons et cyclistes. Chiens sans laisse permis s’ils restent sous contrôle.",
+   "es": "⭐ Parque natural con mirador al valle y senderos; el Xget'tem' Trail es compartido por peatones y ciclistas. Los perros pueden ir sin correa si están bajo control.",
+   "ko": "⭐ 계곡 전망대와 하이킹 코스가 있는 자연공원. Xget'tem' Trail은 보행자와 자전거가 함께 씁니다. 반려견은 통제 하에 목줄 없이 다닐 수 있습니다.",
+   "ja": "⭐渓谷の展望地とハイキングコースのある自然公園。Xget'tem' Trailは歩行者と自転車の共用です。犬は管理下ならリードなしで可。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "free"
+  ],
+  "pq": "pCity",
+  "id": "87f4ff34",
+  "pick": 1,
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     300,
+     1380,
+     0
+    ]
+   ]
+  },
+  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/peterson-creek-nature-park"
+ },
+ {
+  "n": "River Street Dog Park",
+  "c": "dogpark",
+  "g": "sk",
+  "lat": 50.6761818,
+  "lng": -120.3143317,
+  "a": "1110 River St",
+  "note": {
+   "zh": "⭐有围栏，狗可在控制下不拴绳；有长椅和拾便袋",
+   "en": "⭐ Fenced, off leash under control, with benches and bag dispensers",
+   "fr": "⭐ Clôturé, sans laisse sous contrôle, avec bancs et distributeurs de sacs",
+   "es": "⭐ Vallado, sin correa bajo control, con bancos y dispensadores de bolsas",
+   "ko": "⭐ 울타리가 있고 통제 하에 목줄 없이 가능, 벤치와 배변봉투함 있음",
+   "ja": "⭐フェンス付き、管理下ならリードなしで可、ベンチとフン袋のディスペンサーあり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free"
+  ],
+  "id": "8b5beceb",
+  "pick": 1,
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     300,
+     1380,
+     0
+    ]
+   ]
+  },
+  "w": "https://www.kamloops.ca/recreation-culture/parks-sports-fields/river-street-dog-park"
+ },
+ {
+  "n": "Kamloops Library",
+  "c": "library",
+  "g": "sk",
+  "lat": 50.6757247,
+  "lng": -120.3302129,
+  "a": "465 Victoria St #100",
+  "p": "250-372-5145",
+  "w": "https://www.tnrl.ca/using-the-library/locations/kamloops-library/",
+  "h": {
+   "r": [
+    [
+     1,
+     3,
+     600,
+     1080,
+     0
+    ],
+    [
+     4,
+     4,
+     600,
+     1200,
+     0
+    ],
+    [
+     5,
+     6,
+     600,
+     1020,
+     0
+    ],
+    [
+     7,
+     7,
+     720,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐免费 Wi-Fi、儿童活动，也提供考试监考和公共会议室。位于 TNRD Civic 大楼",
+   "en": "⭐ Free Wi-Fi and children's programmes; also exam invigilation and public meeting rooms. In the TNRD Civic building",
+   "fr": "⭐ Wi-Fi gratuit et programmes pour enfants ; aussi surveillance d'examens et salles de réunion publiques. Dans l'édifice civique du TNRD (TNRD Civic building)",
+   "es": "⭐ Wi-Fi gratis y programas infantiles; también supervisión de exámenes y salas de reuniones públicas. En el edificio TNRD Civic",
+   "ko": "⭐ 무료 Wi-Fi와 어린이 프로그램, 시험 감독과 공공 회의실도 있음. TNRD Civic 건물 안",
+   "ja": "⭐無料Wi-Fiと子ども向けプログラム、試験監督や公共会議室もあり。TNRD Civicビル内"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "图书馆",
+   "도서관",
+   "図書館",
+   "bibliothèque"
+  ],
+  "t": [
+   "family",
+   "culture",
+   "free",
+   "multi",
+   "student",
+   "indoor"
+  ],
+  "tag": "tMainBranch",
+  "id": "f08a5865"
+ },
+ {
+  "n": "Kamloops Museum & Archives",
+  "c": "museum",
+  "g": "sk",
+  "lat": 50.6746752,
+  "lng": -120.3363935,
+  "a": "207 Seymour St",
+  "p": "250-828-3576",
+  "w": "https://www.kamloops.ca/recreation-culture/culture-heritage/kamloops-museum-archives",
+  "h": {
+   "r": [
+    [
+     2,
+     6,
+     570,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐一楼有儿童博物馆（Children's Museum），可动手体验的常设展",
+   "en": "⭐ The Children's Museum, a permanent hands-on exhibit, is on the first floor",
+   "fr": "⭐ Le Children's Museum, une exposition permanente interactive, est au premier niveau (rez-de-chaussée)",
+   "es": "⭐ El Children's Museum, una exposición permanente interactiva, está en la primera planta (planta baja)",
+   "ko": "⭐ 1층에 직접 만져 보는 상설 전시인 어린이 박물관(Children's Museum)이 있음",
+   "ja": "⭐1階に体験型の常設展示「Children's Museum」あり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "history",
+   "culture",
+   "indoor"
+  ],
+  "id": "3e53014e"
+ },
+ {
+  "n": "Cineplex Aberdeen Mall",
+  "c": "cinema",
+  "g": "sa",
+  "lat": 50.6537303,
+  "lng": -120.3740574,
+  "a": "1320 Trans-Canada Hwy #700",
+  "p": "250-377-8401",
+  "w": "https://www.cineplex.com/theatre/cineplex-cinemas-aberdeen-mall",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     1020,
+     null,
+     1
+    ],
+    [
+     6,
+     7,
+     650,
+     null,
+     1
+    ]
+   ]
+  },
+  "note": {
+   "zh": "有 UltraAVX、3D 和杜比全景声影厅。",
+   "en": "UltraAVX, 3D and Dolby Atmos screens.",
+   "fr": "Salles UltraAVX, 3D et Dolby Atmos.",
+   "es": "Salas UltraAVX, 3D y Dolby Atmos.",
+   "ko": "UltraAVX, 3D, 돌비 애트모스 상영관.",
+   "ja": "UltraAVX、3D、ドルビーアトモスのスクリーンあり。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "fun",
+   "indoor"
+  ],
+  "id": "36785c07"
+ },
+ {
+  "n": "Real Canadian Superstore",
+  "c": "grocery",
+  "g": "sa",
+  "lat": 50.6688244,
+  "lng": -120.356093,
+  "a": "910 Columbia St W",
+  "w": "https://www.realcanadiansuperstore.ca/en/store-locator/details/1522",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     420,
+     1320,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐可积PC Optimum积分；店内有药房、加油站和证件照服务",
+   "en": "⭐ PC Optimum points; also a pharmacy, gas bar and passport photos",
+   "fr": "⭐ Points PC Optimum ; aussi une pharmacie, un poste d'essence et des photos de passeport",
+   "es": "⭐ Puntos PC Optimum; también farmacia, gasolinera y fotos de pasaporte",
+   "ko": "⭐ PC Optimum 포인트 적립, 약국·주유소·여권 사진 서비스도 있음",
+   "ja": "⭐PC Optimumポイントが貯まる、薬局、ガソリンスタンド、パスポート写真もあり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "超市",
+   "超級市場",
+   "마트",
+   "スーパー"
+  ],
+  "t": [
+   "life"
+  ],
+  "id": "90fb1610"
+ },
+ {
+  "n": "Cheng Kwong 長江超市",
+  "c": "asian",
+  "g": "ns",
+  "lat": 50.700789,
+  "lng": -120.3627522,
+  "a": "864B 8th St",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     600,
+     1080,
+     0
+    ],
+    [
+     6,
+     6,
+     660,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐老板会说国语和台语！冷冻点心+火锅料",
+   "en": "⭐ The owner speaks Mandarin and Taiwanese; frozen dim sum and hot-pot supplies",
+   "fr": "⭐ Le propriétaire parle mandarin et taïwanais; dim sum surgelés et produits pour la fondue chinoise",
+   "es": "⭐ El dueño habla mandarín y taiwanés; dim sum congelado y productos para hot pot",
+   "ko": "⭐ 주인이 중국어와 대만어를 함, 냉동 딤섬과 훠궈 재료 판매",
+   "ja": "⭐店主は中国語と台湾語が話せる、冷凍点心、火鍋の食材あり"
+  },
+  "src": "places",
+  "v": "2026-08",
+  "alias": [
+   "长江超市",
+   "中国超市",
+   "华人超市",
+   "亚洲超市",
+   "중국 마트",
+   "中華スーパー"
+  ],
+  "t": [
+   "life",
+   "multi"
+  ],
+  "id": "28fd0361",
+  "pick": 1
+ },
+ {
+  "n": "Victoria Oriental",
+  "c": "restaurant",
+  "g": "sk",
+  "lat": 50.6734578,
+  "lng": -120.3131638,
+  "a": "1138 Victoria St",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     660,
+     1320,
+     0
+    ]
+   ]
+  },
+  "src": "places",
+  "v": "2026-08",
+  "t": [
+   "life",
+   "fun"
+  ],
+  "tag": "tChinese",
+  "id": "bdaed97e",
+  "pick": 1
+ },
+ {
+  "n": "Value Furniture",
+  "c": "secondhand",
+  "g": "sk",
+  "lat": 50.6749074,
+  "lng": -120.3176238,
+  "a": "938 Victoria St",
+  "p": "778-538-3268",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     600,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐二手及近新家具，Kamloops 地区可送货。看货和取货需预约",
+   "en": "⭐ Used and like-new furniture, with delivery throughout the Kamloops area. Viewings and pick-ups are by appointment",
+   "fr": "⭐ Meubles usagés et comme neufs, avec livraison dans toute la région de Kamloops. Visites et ramassages sur rendez-vous",
+   "es": "⭐ Muebles usados y casi nuevos, con entrega en toda la zona de Kamloops. Visitas y recogidas con cita previa",
+   "ko": "⭐ 중고 및 새것 같은 가구, Kamloops 지역 전역 배송. 구경과 픽업은 예약제",
+   "ja": "⭐中古・新品同様の家具、Kamloops地域全域に配送。見学と引き取りは予約制"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "free"
+  ],
+  "tag": "tUsedFurniture",
+  "id": "d860b505",
+  "pick": 1,
+  "w": "https://valuefurnitures.ca/"
+ },
+ {
+  "n": "The Home Depot",
+  "c": "hardware",
+  "g": "sa",
+  "lat": 50.6669779,
+  "lng": -120.3736897,
+  "a": "1020 Hillside Dr",
+  "p": "250-371-4300",
+  "w": "https://stores.homedepot.ca/bc/kamloops/home-improvement-kamloops-bc-7144.html",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     420,
+     1260,
+     0
+    ],
+    [
+     7,
+     7,
+     480,
+     1200,
+     0
+    ]
+   ]
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "deffcefb"
+ },
+ {
+  "n": "Aberdeen Mall",
+  "c": "mall",
+  "g": "sa",
+  "lat": 50.6549008,
+  "lng": -120.3718556,
+  "a": "1320 Trans-Canada Hwy",
+  "p": "250-374-3400",
+  "w": "https://www.aberdeenmall.ca",
+  "h": {
+   "r": [
+    [
+     1,
+     4,
+     600,
+     1080,
+     0
+    ],
+    [
+     5,
+     5,
+     600,
+     1200,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1080,
+     0
+    ],
+    [
+     7,
+     7,
+     660,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "购物中心，含Cineplex影院+美食广场",
+   "en": "A shopping mall with a Cineplex cinema and a food court",
+   "fr": "Un centre commercial avec un cinéma Cineplex et une aire de restauration",
+   "es": "Un centro comercial con cine Cineplex y patio de comidas",
+   "ko": "Cineplex 영화관과 푸드코트가 있는 쇼핑몰",
+   "ja": "Cineplexの映画館とフードコートがあるショッピングモール"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life",
+   "fun",
+   "indoor"
+  ],
+  "id": "9db87af4"
+ },
+ {
+  "n": "Lansdowne Exchange",
+  "c": "transit",
+  "g": "sk",
+  "lat": 50.676802,
+  "lng": -120.3261203,
+  "a": "650 Lansdowne St",
+  "p": "250-376-1216",
+  "w": "https://www.bctransit.com/kamloops",
+  "note": {
+   "zh": "市内主要公交换乘站；经过的线路请以BC Transit官网当期时刻表为准",
+   "en": "The city's main transit exchange; check BC Transit's current schedule for the routes that stop here",
+   "fr": "Le principal pôle de correspondance de la ville ; consultez l'horaire courant de BC Transit pour les lignes qui s'y arrêtent",
+   "es": "El principal intercambiador de la ciudad; consulte el horario vigente de BC Transit para ver qué rutas paran aquí",
+   "ko": "시내 주요 환승 거점. 정차 노선은 BC Transit 최신 시간표에서 확인하세요",
+   "ja": "市内メインのバスターミナル。発着する路線はBC Transitの最新時刻表で確認"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "公交总站",
+   "汽车站",
+   "버스 터미널",
+   "バスターミナル"
+  ],
+  "t": [
+   "life",
+   "student"
+  ],
+  "tag": "tHub",
+  "id": "2c8f9d3b",
+  "pick": 1
+ },
+ {
+  "n": "RBC (Victoria St)",
+  "c": "bank",
+  "g": "sk",
+  "lat": 50.6761503,
+  "lng": -120.3370538,
+  "a": "186 Victoria St",
+  "p": "250-371-1500",
+  "w": "https://maps.rbcroyalbank.com/BC-KAMLOOPS-branch-2320",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐可预约；员工会说英语和印地语。周六不营业",
+   "en": "⭐ Book an appointment; staff speak English and Hindi. Closed Saturdays",
+   "fr": "⭐ Prenez rendez-vous ; le personnel parle anglais et hindi. Fermé le samedi",
+   "es": "⭐ Pida cita; el personal habla inglés e hindi. Cerrado los sábados",
+   "ko": "⭐ 예약 가능, 직원이 영어와 힌디어를 함. 토요일 휴무",
+   "ja": "⭐予約可、スタッフは英語とヒンディー語に対応。土曜休み"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "3644cc5b"
+ },
+ {
+  "n": "Canada Post (London Drugs)",
+  "c": "post",
+  "g": "sk",
+  "lat": 50.67706,
+  "lng": -120.32879,
+  "a": "450 Lansdowne St #216",
+  "p": "1-866-607-6301",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     1260,
+     0
+    ],
+    [
+     6,
+     6,
+     540,
+     1140,
+     0
+    ],
+    [
+     7,
+     7,
+     600,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "工作日开到晚上 9 点；周末营业时间较短。",
+   "en": "Open until 9 pm on weekdays; shorter hours at the weekend.",
+   "fr": "Ouvert jusqu’à 21 h en semaine ; horaires plus courts le week-end.",
+   "es": "Abierto hasta las 21 h entre semana; horario más corto el fin de semana.",
+   "ko": "평일 21시까지 영업, 주말은 영업시간이 짧습니다.",
+   "ja": "平日は21時まで。週末は短めの営業時間。"
+  },
+  "src": "places",
+  "v": "2026-09",
+  "t": [
+   "life"
+  ],
+  "pq": "pNational",
+  "id": "0379415c",
+  "sameComplex": [
+   "d72e1296"
+  ],
+  "pick": 1
+ },
+ {
+  "n": "7-Eleven (8th St)",
+  "c": "conv",
+  "g": "br",
+  "lat": 50.7035911,
+  "lng": -120.3631774,
+  "a": "964 8th Street & Richmond",
+  "p": "250-376-0711",
+  "w": "https://www.7-eleven.ca/locations/bc/kamloops/964-8th-street-27024",
+  "h": {
+   "a": true
+  },
+  "note": {
+   "zh": "24小时，有热食、咖啡吧和ATM",
+   "en": "Open 24 hours, with hot food, a coffee bar and an ATM",
+   "fr": "Ouvert 24 h, avec plats chauds, comptoir à café et guichet automatique",
+   "es": "Abierto 24 h, con comida caliente, barra de café y cajero automático",
+   "ko": "24시간 영업, 따뜻한 음식·커피 바·ATM 있음",
+   "ja": "24時間営業、ホットフード、コーヒーバー、ATMあり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "ae3bec89"
+ },
+ {
+  "n": "Kamloops Immigrant Services",
+  "c": "gov",
+  "g": "ns",
+  "lat": 50.6916097,
+  "lng": -120.3587007,
+  "a": "448 Tranquille Rd",
+  "p": "778-470-6101",
+  "w": "https://immigrantservices.ca",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供居民安顿、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
+   "en": "⭐⭐ Free LINC English classes for eligible clients (permanent residents, refugees, and temporary residents on a pathway to PR), free childminding for preschool children while you study (pre-register through a Settlement Counsellor), job-search help and a free citizenship practice test. Also settlement support, language assessment and employment counselling. Interpretation and translation (including Cantonese and Mandarin) is a paid service",
+   "fr": "⭐⭐ Cours d'anglais LINC gratuits pour les clients admissibles (résidents permanents, réfugiés et résidents temporaires en voie d'obtenir la résidence permanente), halte-garderie gratuite pour les enfants d'âge préscolaire pendant les cours (inscription préalable auprès d'un conseiller en établissement), aide à la recherche d'emploi et un test de pratique gratuit pour la citoyenneté. Également accompagnement à l'installation, évaluation linguistique et orientation professionnelle. L'interprétation et la traduction (y compris en cantonais et en mandarin) sont des services payants",
+   "es": "⭐⭐ Clases de inglés LINC gratuitas para clientes que cumplan los requisitos (residentes permanentes, refugiados y residentes temporales en camino a la residencia permanente), cuidado gratuito de niños en edad preescolar mientras estudia (con inscripción previa a través de un consejero de asentamiento), apoyo en la búsqueda de empleo y una prueba de práctica gratuita para la ciudadanía. También acompañamiento en el asentamiento, evaluación lingüística y orientación laboral. La interpretación y la traducción (incluidos cantonés y mandarín) son servicios de pago",
+   "ko": "⭐⭐ 자격이 되는 분(영주권자, 난민, 영주권 취득 경로에 있는 임시 거주자)을 위한 무료 LINC 영어 수업, 수업 중 미취학 아동 무료 돌봄(정착 상담사를 통해 사전 등록), 구직 지원, 무료 시민권 모의시험. 정착 지원·언어 평가·취업 상담도 제공합니다. 통역·번역(광둥어·중국어 포함)은 유료 서비스입니다",
+   "ja": "⭐⭐対象者（永住者、難民、永住への道筋にある一時滞在者）向けの無料LINC英語クラス、受講中の未就学児の無料託児（定住カウンセラーを通じて事前登録）、求職サポート、無料の市民権模擬試験。定住支援、語学評価、就労相談も行います。通訳・翻訳（広東語・北京語を含む）は有料サービスです"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "移民服务",
+   "定居",
+   "新移民",
+   "이민",
+   "移民",
+   "settlement",
+   "immigrant services",
+   "newcomer services",
+   "settlement services",
+   "esl",
+   "linc",
+   "english class",
+   "english classes",
+   "services aux immigrants",
+   "cours d'anglais",
+   "cours d’anglais",
+   "servicios para inmigrantes",
+   "clases de inglés",
+   "英语课",
+   "英语班",
+   "이민자 서비스",
+   "이민자",
+   "정착 지원",
+   "영어 수업",
+   "移民支援",
+   "移民サービス",
+   "定住支援",
+   "英語教室"
+  ],
+  "t": [
+   "life",
+   "free",
+   "multi"
+  ],
+  "id": "2c686174",
+  "pick": 2
+ },
+ {
+  "n": "Service Canada",
+  "c": "gov",
+  "g": "sk",
+  "lat": 50.675234,
+  "lng": -120.3288147,
+  "a": "520 Seymour St F1",
+  "p": "1-800-622-6232",
+  "w": "https://offices.service.canada.ca/en/Office/5986",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐办SIN社保号、护照",
+   "en": "⭐ Apply for a SIN and a passport here",
+   "fr": "⭐ C'est ici qu'on demande un NAS et un passeport",
+   "es": "⭐ Aquí se solicitan el SIN y el pasaporte",
+   "ko": "⭐ SIN(사회보험번호)과 여권 신청처",
+   "ja": "⭐SIN（社会保険番号）とパスポートの申請窓口"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "工卡",
+   "SIN",
+   "社保号",
+   "사회보험번호",
+   "社会保険番号",
+   "social insurance",
+   "social insurance number",
+   "社会保险号",
+   "NAS",
+   "número de seguro social",
+   "passport",
+   "护照"
+  ],
+  "t": [
+   "life"
+  ],
+  "tag": "tFederal",
+  "id": "50c8f348"
+ },
+ {
+  "n": "ICBC Driver Licensing",
+  "c": "gov",
+  "g": "sa",
+  "lat": 50.6734263,
+  "lng": -120.3769236,
+  "a": "937 Concordia Way",
+  "p": "1-800-950-1498",
+  "w": "https://www.icbc.com",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐换BC驾照，周六也营业；笔试和路考在网上预约。车辆保险不在这里办，要找 Autoplan 保险经纪",
+   "en": "⭐ Exchange your licence for a BC one; open Saturdays. Book knowledge and road tests online. Vehicle insurance is not sold here — buy it from an Autoplan broker",
+   "fr": "⭐ Échangez votre permis contre un permis de la C.-B. ; ouvert le samedi. Réservez les examens théoriques et pratiques en ligne. L'assurance auto ne se vend pas ici — adressez-vous à un courtier Autoplan",
+   "es": "⭐ Cambie su licencia por una de BC; abierto los sábados. Reserve en línea los exámenes teóricos y prácticos. El seguro del vehículo no se vende aquí: contrátelo con un corredor Autoplan",
+   "ko": "⭐ 운전면허를 BC 면허로 교환, 토요일 영업. 필기·도로 주행 시험은 온라인으로 예약하세요. 자동차 보험은 여기서 팔지 않으니 Autoplan 중개인에게 가입하세요",
+   "ja": "⭐BC州運転免許への切替、土曜も営業。筆記試験と路上試験はオンラインで予約。自動車保険はここでは扱わないので、Autoplanの代理店で加入してください"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "驾照",
+   "车管所",
+   "운전면허",
+   "運転免許",
+   "permis",
+   "licence",
+   "license",
+   "driver's licence",
+   "drivers license",
+   "licencia"
+  ],
+  "t": [
+   "life"
+  ],
+  "tag": "tLicensing",
+  "id": "867acd77"
+ },
+ {
+  "n": "Kamloops Seniors Community Centre",
+  "c": "commctr",
+  "g": "ns",
+  "lat": 50.6966709,
+  "lng": -120.3653018,
+  "a": "730 Cottonwood Ave #452",
+  "note": {
+   "zh": "Kamloops Seniors Community Centre，由 CSI Kamloops（The Centre for Seniors Information）运营的长者中心，每周七天都有身心健康活动。停车场在楼后；活动日历见 csikamloops.ca",
+   "en": "Kamloops Seniors Community Centre, a seniors' centre run by CSI Kamloops (The Centre for Seniors Information), with physical and mental wellness activities seven days a week. Parking is at the back of the building; events calendar at csikamloops.ca",
+   "fr": "Kamloops Seniors Community Centre, un centre pour aînés géré par CSI Kamloops (The Centre for Seniors Information), avec des activités de bien-être physique et mental sept jours sur sept. Stationnement à l'arrière du bâtiment ; calendrier des activités sur csikamloops.ca",
+   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Aparcamiento detrás del edificio; calendario de actividades en csikamloops.ca",
+   "ko": "Kamloops Seniors Community Centre — CSI Kamloops(The Centre for Seniors Information)가 운영하는 노인 센터로, 주 7일 몸과 마음의 건강 활동이 있습니다. 주차장은 건물 뒤편, 행사 일정은 csikamloops.ca에서 확인하세요",
+   "ja": "Kamloops Seniors Community Centre — CSI Kamloops（The Centre for Seniors Information）が運営するシニアセンターで、心身の健康のための活動が週7日あります。駐車場は建物の裏、イベント予定はcsikamloops.caで"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free",
+   "multi",
+   "indoor"
+  ],
+  "id": "2c52857d",
+  "w": "https://csikamloops.ca/seniorscentre.htm",
+  "alias": [
+   "North Shore Community Centre"
+  ],
+  "p": "778-470-6000"
+ },
+ {
+  "n": "The Laundry Guys (Summit)",
+  "c": "laundry",
+  "g": "sa",
+  "lat": 50.6667,
+  "lng": -120.35252,
+  "a": "1200 Summit Dr #3",
+  "p": "250-554-8575",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     1200,
+     0
+    ],
+    [
+     6,
+     7,
+     600,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐最后一批衣物须在关门前 60 分钟开始洗；另一家分店在 301 Tranquille Rd",
+   "en": "⭐ Last load 60 minutes before closing; a second location at 301 Tranquille Rd",
+   "fr": "⭐ Dernière brassée 60 minutes avant la fermeture ; une deuxième adresse au 301 Tranquille Rd",
+   "es": "⭐ Última carga 60 minutos antes del cierre; otra sucursal en 301 Tranquille Rd",
+   "ko": "⭐ 마지막 세탁은 마감 60분 전까지, 두 번째 지점은 301 Tranquille Rd",
+   "ja": "⭐最終の洗濯は閉店60分前まで、2号店は301 Tranquille Rd"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "ef414ca5",
+  "w": "https://thelaundryguys.ca/"
+ },
+ {
+  "n": "Clean Cutz Barbershop",
+  "c": "barber",
+  "g": "sk",
+  "lat": 50.6750718,
+  "lng": -120.3334146,
+  "a": "334 Seymour St",
+  "p": "236-457-8885",
+  "h": {
+   "r": [
+    [
+     1,
+     7,
+     570,
+     1110,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐市中心理发店，网上预约；最晚可在预约前 2 小时取消。",
+   "en": "⭐ Downtown barbershop; book online. Cancellations are accepted up to 2 hours before your appointment.",
+   "fr": "⭐ Barbier au centre-ville ; réservation en ligne. Annulation possible jusqu’à 2 heures avant le rendez-vous.",
+   "es": "⭐ Barbería en el centro; reserve en línea. Se aceptan cancelaciones hasta 2 horas antes de la cita.",
+   "ko": "⭐ 다운타운 이발소로, 온라인으로 예약합니다. 예약 2시간 전까지 취소할 수 있습니다.",
+   "ja": "⭐ダウンタウンの理髪店で、オンライン予約制です。キャンセルは予約の2時間前まで受け付けています。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "7e5b1086",
+  "w": "https://cleancutzbarbershop.com/"
+ },
+ {
+  "n": "Costco Gas Station",
+  "c": "gas",
+  "g": "sa",
+  "lat": 50.6541129,
+  "lng": -120.3869092,
+  "a": "1675 Versatile Dr",
+  "p": "250-374-5336",
+  "w": "https://www.costco.ca/w/-/bc/kamloops/161",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     360,
+     1290,
+     0
+    ],
+    [
+     6,
+     7,
+     360,
+     1230,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐需Costco会员",
+   "en": "⭐ Costco membership required",
+   "fr": "⭐ Adhésion Costco obligatoire",
+   "es": "⭐ Requiere membresía de Costco",
+   "ko": "⭐ Costco 멤버십 필요",
+   "ja": "⭐Costcoの会員資格が必要"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "935659ad"
+ },
+ {
+  "n": "Central Apartments",
+  "c": "apt",
+  "g": "ns",
+  "lat": 50.697292,
+  "lng": -120.356781,
+  "a": "209 Nelson Ave",
+  "p": "778-765-5816",
+  "w": "https://www.kelsongroup.com/residential/central-apartments-in-kamloops",
+  "note": {
+   "zh": "1BR／2BR户型（租金以官网/致电为准）水费全包，可养猫，近Northills Mall，有电梯",
+   "en": "1BR and 2BR units (rent via the website or by phone). Water included, cats allowed, near Northills Mall, elevator in the building",
+   "fr": "Logements de 1 et 2 chambres (location par le site web ou par téléphone). Eau incluse, chats admis, près de Northills Mall, ascenseur dans l'immeuble",
+   "es": "Pisos de 1 y 2 dormitorios (alquiler por la web o por teléfono). Agua incluida, se admiten gatos, cerca de Northills Mall, edificio con ascensor",
+   "ko": "방 1~2개 유닛(웹사이트 또는 전화로 임대). 수도 요금 포함, 고양이 가능, Northills Mall 근처, 건물에 엘리베이터 있음",
+   "ja": "1BR、2BRあり（賃料は公式サイトまたは電話で確認）、水道代込み、猫可、Northills Mall近く、エレベーターあり"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "id": "bfd3954a"
+ },
+ {
+  "n": "Kelson Group",
+  "c": "propmgmt",
+  "g": "sk",
+  "lat": 50.6741,
+  "lng": -120.3308,
+  "a": "#208-220 4th Ave",
+  "p": "250-372-1940",
+  "w": "https://www.kelsongroup.com/residential/cities/kamloops",
+  "note": {
+   "zh": "公寓管理公司，在本市有27栋公寓楼（本图大部分公寓楼由其管理）。官网按楼显示空房，满租的楼可登记提醒，也可直接询问",
+   "en": "An apartment management company with 27 buildings in the city (most of the apartments on this map). The website shows vacancies building by building, with a 'Notify Me' sign-up for full ones; you can also ask them directly",
+   "fr": "Une société de gestion d'appartements avec 27 immeubles en ville (la plupart des appartements de cette carte). Le site indique les logements libres immeuble par immeuble, avec une inscription « Notify Me » pour les immeubles complets ; vous pouvez aussi les contacter directement",
+   "es": "Una administradora de apartamentos con 27 edificios en la ciudad (la mayoría de los apartamentos de este mapa). La web muestra las viviendas libres edificio por edificio, con aviso «Notify Me» para los llenos; también puede preguntarles directamente",
+   "ko": "시내에 건물 27개를 둔 아파트 관리회사(이 지도의 아파트 대부분). 웹사이트에 건물별 공실이 나오고, 꽉 찬 건물은 'Notify Me'로 알림을 신청할 수 있습니다. 직접 문의해도 됩니다",
+   "ja": "市内に27棟を持つアパート管理会社（この地図の物件の大半）。ウェブサイトで建物ごとの空室がわかり、満室の建物は「Notify Me」で通知を登録できます。直接問い合わせることもできます"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "id": "4e467f97"
+ },
+ {
+  "n": "SD73 Transportation Services",
+  "c": "schoolbus",
+  "g": "sk",
+  "lat": 50.6698,
+  "lng": -120.3178,
+  "a": "1383 9th Ave",
+  "p": "250-372-5853",
+  "w": "https://www.sd73.bc.ca/register-for-busing",
+  "h": {
+   "k": "hSchoolTerm"
+  },
+  "note": {
+   "zh": "⚠️校车站点按学生住址逐户分配，非公开固定站点清单。资格与注册见官网register-for-busing页面，具体走读距离门槛请电话确认。此为学区教育局地址，不是校车调度点",
+   "en": "⚠️ School bus stops are assigned per household by address, not published as a fixed list. See the register-for-busing page on the district website for eligibility, and call to confirm the walk-distance threshold. This is the school board office, not the bus depot",
+   "fr": "⚠️ Les arrêts d'autobus scolaire sont attribués par adresse, foyer par foyer, et ne sont pas publiés sous forme de liste fixe. Consultez la page « register for busing » du site du district pour l'admissibilité, et appelez pour confirmer la distance de marche applicable. Il s'agit du bureau du conseil scolaire, et non du dépôt d'autobus",
+   "es": "⚠️ Las paradas del autobús escolar se asignan por domicilio, hogar por hogar, y no se publican como una lista fija. Consulte la página «register for busing» del distrito para la elegibilidad y llame para confirmar la distancia a pie aplicable. Esta es la oficina de la junta escolar, no la cochera de autobuses",
+   "ko": "⚠️ 통학버스 정류장은 가구별 주소에 따라 배정되며 고정 목록으로 공개되지 않습니다. 자격 요건은 교육구 웹사이트의 register for busing 페이지를 확인하고, 도보 거리 기준은 전화로 문의하세요. 이곳은 교육청 사무실이며 버스 차고지가 아닙니다",
+   "ja": "⚠️スクールバスの停留所は住所ごとに個別割当で、固定リストとしては公開されていない。利用資格は学区公式サイトのregister for busingページを確認し、徒歩距離の基準は電話で確認を。ここは教育委員会事務所であり、バス車庫ではない"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "id": "ac947bd3"
+ },
+ {
+  "n": "Sacred Heart Cathedral",
+  "c": "religious",
+  "g": "sk",
+  "lat": 50.672074,
+  "lng": -120.335076,
+  "a": "255 Nicola St",
+  "p": "250-372-2581",
+  "w": "https://www.rcdk.org/sacred-heart-cathedral",
+  "h": {
+   "r": [
+    [
+     2,
+     5,
+     480,
+     960,
+     0
+    ]
+   ],
+   "q": "qParishOffice"
+  },
+  "note": {
+   "zh": "天主教甘露教区座堂，市中心地标教堂",
+   "en": "The Catholic cathedral for the Kamloops diocese and a downtown landmark",
+   "fr": "La cathédrale catholique du diocèse de Kamloops et un point de repère du centre-ville",
+   "es": "La catedral católica de la diócesis de Kamloops y un punto de referencia del centro",
+   "ko": "Kamloops 교구의 가톨릭 대성당이자 다운타운의 랜드마크",
+   "ja": "Kamloops教区のカトリック大聖堂、ダウンタウンのランドマーク"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "history",
+   "culture",
+   "multi"
+  ],
+  "id": "ffdd8aff"
+ },
+ {
+  "n": "Kami Cabs",
+  "c": "taxi",
+  "g": "ns",
+  "lat": 50.68604,
+  "lng": -120.35023,
+  "a": "209 Leigh Rd",
+  "p": "250-374-9999",
+  "w": "https://kamicabs.ca/",
+  "h": {
+   "a": true
+  },
+  "note": {
+   "zh": "1973年起经营的本地出租车公司，24小时服务。车辆有机场接客许可，去机场请提前预约",
+   "en": "A local taxi company since 1973, with 24-hour service. Its cars are licensed to pick up at Kamloops Airport; book airport trips in advance",
+   "fr": "Une compagnie de taxi locale depuis 1973, service 24 h. Ses voitures sont autorisées à prendre des clients à l'aéroport de Kamloops ; réservez à l'avance pour l'aéroport",
+   "es": "Una empresa de taxis local desde 1973, con servicio 24 h. Sus coches tienen licencia para recoger en el aeropuerto de Kamloops; reserve con antelación los viajes al aeropuerto",
+   "ko": "1973년부터 운영한 지역 택시 회사로 24시간 서비스. 차량이 Kamloops 공항 승차 허가를 받았으며, 공항 이동은 미리 예약하세요",
+   "ja": "1973年創業の地元タクシー会社、24時間対応。Kamloops空港での乗車許可を持っており、空港への移動は事前予約を"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "tag": "tTaxi",
+  "precision": "low",
+  "id": "d9e32c2a"
+ },
+ {
+  "n": "Young Drivers of Canada",
+  "c": "driving",
+  "g": "sk",
+  "lat": 50.675766,
+  "lng": -120.330548,
+  "a": "201-444 Victoria St",
+  "p": "250-868-1268",
+  "w": "https://yd.com/locations/bc/kamloops",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     480,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "全国连锁驾校，课程规范，适合居民考本地驾照",
+   "en": "A national driving-school chain with a structured curriculum, suited to residents taking a BC licence",
+   "fr": "Une chaîne nationale d'auto-écoles au programme structuré, adaptée aux résidents qui passent un permis de la C.-B.",
+   "es": "Una cadena nacional de autoescuelas con un plan de estudios estructurado, adecuada para residentes que sacan la licencia de BC",
+   "ko": "체계적인 커리큘럼을 갖춘 전국 운전학원 체인, BC 면허를 준비하는 주민에게 적합",
+   "ja": "体系的なカリキュラムを持つ全国チェーンの自動車教習所、BC州免許を目指す住民に適する"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "tag": "tDrivingSchool",
+  "precision": "low",
+  "id": "caa84d26"
+ },
+ {
+  "n": "DriveHub Autosales",
+  "c": "usedcar",
+  "g": "br",
+  "lat": 50.708948,
+  "lng": -120.370805,
+  "a": "1140 Halston Ave",
+  "p": "778-220-6590",
+  "w": "https://drivehubauto.com/",
+  "h": {
+   "r": [
+    [
+     2,
+     5,
+     540,
+     1020,
+     0
+    ],
+    [
+     6,
+     6,
+     600,
+     1020,
+     0
+    ]
+   ]
+  },
+  "src": "official",
+  "v": "2026-10",
+  "tag": "tUsedCar",
+  "id": "f87b7fca"
+ },
+ {
+  "n": "Stay Tuned Auto Repair",
+  "c": "autorepair",
+  "g": "ns",
+  "lat": 50.70568,
+  "lng": -120.37353,
+  "a": "1121 12th St Unit 8",
+  "p": "250-554-2277",
+  "w": "https://www.facebook.com/staytunedautorepair/",
+  "note": {
+   "zh": "North Shore独立维修店",
+   "en": "An independent North Shore repair shop",
+   "fr": "Un garage indépendant du North Shore",
+   "es": "Un taller independiente en North Shore",
+   "ko": "North Shore의 독립 정비소",
+   "ja": "North Shoreの独立系修理工場"
+  },
+  "src": "official",
+  "v": "2026-09",
+  "id": "1ab92ece"
+ },
+ {
+  "n": "All Aboard Child Care",
+  "c": "daycare",
+  "g": "sa",
+  "lat": 50.637545,
+  "lng": -120.376287,
+  "a": "Unit 3 - 1325 Aberdeen Dr",
+  "p": "250-851-0205",
+  "w": "https://www.allaboardchildcare.ca/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     420,
+     1050,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "持证日托，含婴幼儿托育",
+   "en": "Licensed daycare, including infant and toddler care",
+   "fr": "Garderie agréée, y compris pour les poupons et les tout-petits",
+   "es": "Guardería con licencia, incluida atención para bebés y niños pequeños",
+   "ko": "인가 어린이집, 영아와 유아 보육 포함",
+   "ja": "認可保育施設、乳幼児保育も対応"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family"
+  ],
+  "tag": "tDaycare",
+  "id": "a77e0cd2"
+ },
+ {
+  "n": "The Success Formula Tutoring",
+  "c": "tutor",
+  "g": "ns",
+  "lat": 50.6984,
+  "lng": -120.3397,
+  "a": "689 Tranquille Rd",
+  "note": {
+   "zh": "本地补习机构。不同目录上的地址不一样。",
+   "en": "A local tutoring centre. Listings give different addresses.",
+   "fr": "Centre de tutorat local. Les annuaires donnent des adresses différentes.",
+   "es": "Centro de tutorías local. Los directorios dan direcciones distintas.",
+   "ko": "지역 과외 센터. 목록마다 주소가 다릅니다.",
+   "ja": "地元の個別指導塾。掲載によって住所が違います。"
+  },
+  "src": "places",
+  "v": "2026-09",
+  "t": [
+   "family",
+   "student"
+  ],
+  "id": "362f2221",
+  "precision": "low"
+ },
+ {
+  "n": "Apex Adventure Plex Kamloops",
+  "c": "playcenter",
+  "g": "sa",
+  "lat": 50.668372,
+  "lng": -120.35191,
+  "a": "380-945 Columbia St W",
+  "p": "778-696-2867",
+  "w": "https://apexadventureplex.com/kamloops/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     900,
+     1200,
+     0
+    ],
+    [
+     6,
+     7,
+     540,
+     1200,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "蹦床馆含忍者训练区，位于Sahali商场内",
+   "en": "Trampoline park with a ninja course, inside the Sahali mall",
+   "fr": "Parc de trampolines avec parcours ninja, dans le centre commercial de Sahali",
+   "es": "Parque de trampolines con circuito ninja, dentro del centro comercial de Sahali",
+   "ko": "닌자 코스가 있는 트램펄린 파크, Sahali 쇼핑몰 내부",
+   "ja": "忍者コース付きトランポリンパーク、Sahali Mall内"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "family",
+   "fun",
+   "indoor"
+  ],
+  "tag": "tTrampoline",
+  "id": "186001cd"
+ },
+ {
+  "n": "Scotiabank (Victoria St)",
+  "c": "bank",
+  "g": "sk",
+  "lat": 50.67585,
+  "lng": -120.33491,
+  "a": "276 Victoria St",
+  "p": "250-314-3950",
+  "w": "https://locator.scotiabank.com/branch/10140",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     570,
+     1020,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "有面向新来居民的 StartRight 项目（开户优惠）。",
+   "en": "Offers StartRight, Scotiabank’s banking package for newcomers.",
+   "fr": "Offre StartRight, le forfait bancaire de la Banque Scotia pour les nouveaux arrivants.",
+   "es": "Ofrece StartRight, el paquete bancario de Scotiabank para recién llegados.",
+   "ko": "신규 이민자를 위한 Scotiabank 금융 패키지 StartRight를 제공합니다.",
+   "ja": "新しく来た人向けのScotiabankの口座パッケージ StartRight があります。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "e7514fcc"
+ },
+ {
+  "n": "Okanagan Thompson Legal Clinic",
+  "c": "legal",
+  "g": "sk",
+  "lat": 50.67601,
+  "lng": -120.33419,
+  "a": "220-301 Victoria St",
+  "p": "236-425-9121",
+  "w": "https://www.bclegalclinic.com",
+  "note": {
+   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、EI、债务、租房纠纷等；具体是否收案请致电确认",
+   "en": "A free legal clinic covering family law, income assistance and disability benefits, EI, debt and tenancy disputes; call to confirm whether they can take your case",
+   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs; appelez pour savoir s'ils peuvent prendre votre dossier",
+   "es": "Una clínica jurídica gratuita que cubre derecho de familia, asistencia social y prestaciones por discapacidad, seguro de empleo, deudas y conflictos de alquiler; llame para saber si pueden aceptar su caso",
+   "ko": "가족법·생활보조와 장애 급여·고용보험·채무·임대 분쟁을 다루는 무료 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
+   "ja": "家族法、収入補助、障害給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料の法律クリニック、案件を受けられるか電話で確認を"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "free",
+   "multi"
+  ],
+  "precision": "low",
+  "id": "d4b9d5c8"
+ },
+ {
+  "n": "Westsyde Liquor Store (BCL)",
+  "c": "liquor",
+  "g": "ws",
+  "lat": 50.77143,
+  "lng": -120.3426,
+  "a": "19-3435 Westsyde Rd",
+  "p": "250-579-9033",
+  "h": {
+   "r": [
+    [
+     1,
+     4,
+     570,
+     1140,
+     0
+    ],
+    [
+     5,
+     5,
+     570,
+     1200,
+     0
+    ],
+    [
+     6,
+     6,
+     570,
+     1140,
+     0
+    ],
+    [
+     7,
+     7,
+     660,
+     1080,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "BC Liquor 在 Westsyde 的分店，与 Save-On-Foods 同在一个小商场，北边居民买酒不必进城。节假日前请先打电话确认。",
+   "en": "The BC Liquor branch in Westsyde, in the same plaza as Save-On-Foods, so residents up the road need not drive downtown. Call before a holiday.",
+   "fr": "La succursale BC Liquor de Westsyde, dans la même plaza que Save-On-Foods : pas besoin d’aller en ville. Appelez avant un jour férié.",
+   "es": "La sucursal de BC Liquor en Westsyde, en la misma plaza que Save-On-Foods, así que no hace falta ir al centro. Llame antes de un día festivo.",
+   "ko": "Westsyde의 BC Liquor 지점으로 Save-On-Foods와 같은 상가에 있어 시내까지 갈 필요가 없습니다. 공휴일 전에는 전화로 확인하세요.",
+   "ja": "WestsydeのBC Liquor店舗。Save-On-Foodsと同じプラザにあり、街まで出る必要がありません。祝日の前は電話で確認を。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "life"
+  ],
+  "id": "ws00007",
+  "w": "https://www.bcliquorstores.com/store/locator/147"
+ },
+ {
+  "n": "Kamloops Food Bank",
+  "c": "foodbank",
+  "g": "ns",
+  "lat": 50.68672,
+  "lng": -120.35232,
+  "a": "171 Wilson St",
+  "p": "250-376-2252",
+  "w": "https://kamloopsfoodbank.org/clients/",
+  "h": {
+   "r": [
+    [
+     1,
+     6,
+     480,
+     870,
+     1
+    ]
+   ]
+  },
+  "note": {
+   "zh": "⭐ 面向有需要的家庭发放食物，需出示家中每位成员的一件身份证件。周一至周四家庭/单亲与单身/夫妇分在不同日子领取，周五和周六两类都可以来；60岁以上长者有更早的时段，中午有休息时间。不易腐食品包每个自然月可领一次，面包、蔬果、奶制品和肉类每月两次。当期时段请以官网或电话为准。",
+   "en": "⭐ Food for households in need; bring a piece of ID for every person in your household. Families/single parents and singles/couples come on different days from Monday to Thursday, and either group can come on Friday and Saturday; there is an earlier slot for seniors 60+ and a break over midday. A non-perishable hamper once per calendar month; bread, produce, dairy and meat twice a month. Confirm current times on the website or by phone.",
+   "fr": "⭐ Nourriture pour les ménages dans le besoin ; apportez une pièce d'identité pour chaque personne du ménage. Du lundi au jeudi, familles et parents seuls d'un côté, personnes seules et couples de l'autre, viennent à des jours différents ; le vendredi et le samedi, les deux groupes peuvent venir. Plage plus tôt pour les 60 ans et plus et pause le midi. Un panier de denrées non périssables une fois par mois civil ; pain, fruits et légumes, produits laitiers et viande deux fois par mois. Confirmez les heures sur le site ou par téléphone.",
+   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias y padres solos por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
+   "ko": "⭐ 도움이 필요한 가구에 식품을 제공하며, 가구 구성원 모두의 신분증을 한 가지씩 가져오세요. 월~목요일에는 가족·한부모 가구와 1인·부부 가구가 서로 다른 요일에 방문하고, 금·토요일에는 두 그룹 모두 올 수 있습니다. 60세 이상 노인은 더 이른 시간대가 있고 점심 무렵 휴식 시간이 있습니다. 비부패성 식품 꾸러미는 달력상 한 달에 한 번, 빵·농산물·유제품·육류는 한 달에 두 번 받을 수 있습니다. 정확한 시간은 홈페이지나 전화로 확인하세요.",
+   "ja": "⭐生活に困っている世帯への食料支援です。世帯全員それぞれの身分証を1点ずつ持参してください。月〜木は家族・ひとり親世帯と単身・カップル世帯で利用日が分かれ、金・土はどちらも利用できます。60歳以上のシニアには早い時間帯があり、昼は休止時間があります。保存食のパックは暦月に1回、パン・青果・乳製品・肉は月2回。最新の時間帯は公式サイトまたは電話で確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "食物银行",
+   "免费食物",
+   "푸드뱅크",
+   "フードバンク",
+   "banque alimentaire"
+  ],
+  "t": [
+   "free",
+   "multi"
+  ],
+  "id": "8857cba0"
+ },
+ {
+  "n": "St. Andrew's on the Square",
+  "c": "heritage",
+  "g": "sk",
+  "lat": 50.67478,
+  "lng": -120.33726,
+  "a": "159 Seymour St",
+  "w": "https://www.kamloops.ca/recreation-culture/culture-heritage/heritage-buildings/st-andrews-square",
+  "note": {
+   "zh": "建于1887年，是全市现存最古老的公共建筑。市政府于1991年买下这座旧教堂，1997年开始修复；2024年5月遭火灾、烟熏和水浸损坏，经大规模修复后于2026年5月重新开放，现作为活动与文化场地使用，也可租用。开放时间随活动安排变动，前往前请查官网。",
+   "en": "Built in 1887 and the city's oldest remaining public building. The City bought the old church in 1991 and began restoring it in 1997; after fire, smoke and water damage in May 2024 it reopened in May 2026 following extensive restoration, and is used as an events and cultural venue that can be rented. Opening depends on what is booked, so check the website before going.",
+   "fr": "Construit en 1887, c'est le plus ancien bâtiment public encore debout de la ville. La Ville a acheté l'ancienne église en 1991 et en a commencé la restauration en 1997 ; endommagé par le feu, la fumée et l'eau en mai 2024, il a rouvert en mai 2026 après d'importants travaux et sert de lieu d'événements et de culture, qu'on peut louer. L'ouverture dépend des réservations : vérifiez le site avant de vous déplacer.",
+   "es": "Construido en 1887, es el edificio público más antiguo que se conserva en la ciudad. La Ciudad compró la antigua iglesia en 1991 y empezó a restaurarla en 1997; tras daños por fuego, humo y agua en mayo de 2024, reabrió en mayo de 2026 después de una restauración importante, y se usa como sede de eventos y actividades culturales que se puede alquilar. La apertura depende de lo que esté reservado: consulte el sitio web antes de ir.",
+   "ko": "1887년에 지어진, 이 도시에 남아 있는 가장 오래된 공공 건축물입니다. 시가 1991년 옛 교회를 매입해 1997년 복원을 시작했습니다. 2024년 5월 화재·연기·침수 피해를 입은 뒤 대규모 복원을 거쳐 2026년 5월 다시 문을 열었고, 대여도 가능한 행사·문화 공간으로 쓰입니다. 개방 여부는 예약 일정에 따라 달라지므로 방문 전 홈페이지를 확인하세요.",
+   "ja": "1887年建造、市内に現存する最古の公共建築です。市が1991年に旧教会を買い取り、1997年に修復を始めました。2024年5月に火災・煙・水による被害を受けた後、大規模な修復を経て2026年5月に再オープンし、貸し出しもできるイベント・文化施設として使われています。開館は予約状況によるため、訪問前に公式サイトを確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "t": [
+   "scenic",
+   "history",
+   "culture"
+  ],
+  "id": "a60de679"
+ },
+ {
+  "n": "Kamloops Aboriginal Friendship Society",
+  "c": "indigenous",
+  "g": "ns",
+  "lat": 50.685622,
+  "lng": -120.356446,
+  "a": "125 Palm St",
+  "p": "250-376-1296",
+  "w": "https://kafs.ca/",
+  "note": {
+   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论身份（status-free），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
+   "en": "A friendship centre serving urban Indigenous people in Kamloops since 1972, whatever their status, with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
+   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
+   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
+   "ko": "1972년부터 신분(status)과 관계없이 캄루프스 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
+   "ja": "1972年から、ステータスの有無を問わずカムループスの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "原住民",
+   "友谊中心",
+   "원주민",
+   "先住民",
+   "autochtone",
+   "indígena"
+  ],
+  "id": "aaff4edf"
+ },
+ {
+  "n": "Volunteer Kamloops",
+  "c": "commctr",
+  "g": "sk",
+  "lat": 50.67565,
+  "lng": -120.3358,
+  "a": "#7-231 Victoria St",
+  "p": "250-372-8313",
+  "w": "https://volunteerkamloops.org/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ],
+   "q": "qAppt"
+  },
+  "note": {
+   "en": "Matches people to volunteer openings across the city. Volunteering is the most reliable way to meet people here when you arrive knowing nobody — and Canadian references and work history start the same way. Visits are by appointment.",
+   "fr": "Met en relation avec des postes de bénévolat partout en ville. Le bénévolat est le moyen le plus fiable de rencontrer des gens quand on arrive sans connaître personne — et les références canadiennes commencent souvent là. Sur rendez-vous.",
+   "es": "Conecta a personas con oportunidades de voluntariado en toda la ciudad. El voluntariado es la forma más fiable de conocer gente al llegar sin conocer a nadie — y las referencias canadienses suelen empezar así. Con cita previa.",
+   "zh": "把人对接到全市的志愿岗位。刚来谁都不认识时，做义工是最靠得住的认识人的途径——加拿大的推荐人和本地工作经历，往往也是这么开始的。到访需预约。",
+   "ko": "시 전역의 자원봉사 자리를 연결해 줍니다. 아는 사람 없이 도착했을 때 사람을 만나는 가장 확실한 방법이며, 캐나다에서의 추천인과 경력도 대개 여기서 시작됩니다. 방문은 예약제입니다.",
+   "ja": "市内全域のボランティア募集とつないでくれます。知り合いがいない状態で来たとき、人と出会う最も確実な方法であり、カナダでの推薦者や職歴もここから始まることが多いです。訪問は予約制。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "志愿",
+   "志愿者",
+   "做义工",
+   "자원봉사",
+   "ボランティア",
+   "bénévolat",
+   "voluntario"
+  ],
+  "id": "507845f0",
+  "precision": "low"
+ },
+ {
+  "n": "The Mustard Seed Kamloops Wellness Centre",
+  "c": "support",
+  "g": "sk",
+  "lat": 50.67698,
+  "lng": -120.34365,
+  "a": "181 Victoria St W",
+  "p": "1-833-448-4673",
+  "w": "https://theseed.ca/services/kamloopswc",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     540,
+     720,
+     0
+    ],
+    [
+     1,
+     5,
+     780,
+     960,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "en": "Support for adults in poverty or without housing: advocacy, help getting ID, housing and employment support, health and foot care, a tax clinic, counselling and recovery support. Outreach runs seven days a week; the office is weekdays.",
+   "fr": "Soutien aux adultes en situation de pauvreté ou sans logement : défense des droits, aide pour obtenir des pièces d’identité, soutien au logement et à l’emploi, soins de santé et des pieds, clinique d’impôts, counseling. Sept jours sur sept pour l’intervention.",
+   "es": "Apoyo a adultos en pobreza o sin vivienda: defensa, ayuda para obtener identificación, apoyo de vivienda y empleo, atención de salud y de pies, clínica de impuestos, consejería. La atención en calle funciona los siete días.",
+   "zh": "面向处于贫困或无住处成年人的支持：权益倡导、协助补办身份证件、住房与就业支持、健康与足部护理、报税服务、心理咨询与戒瘾支持。外展服务每周七天，办公室为工作日。",
+   "ko": "빈곤 상태이거나 주거가 없는 성인을 위한 지원: 권익 옹호, 신분증 재발급 도움, 주거·취업 지원, 건강 및 발 관리, 세무 클리닉, 상담과 회복 지원. 아웃리치는 주 7일 운영됩니다.",
+   "ja": "貧困状態にある、または住まいのない成人への支援: 権利擁護、身分証の再取得支援、住居・就労支援、健康およびフットケア、税務クリニック、カウンセリングと回復支援。アウトリーチは週7日です。"
+  },
+  "src": "official",
+  "v": "2026-09",
+  "alias": [
+   "免费帮助",
+   "救助",
+   "无家可归",
+   "도움",
+   "支援",
+   "aide",
+   "ayuda"
+  ],
+  "id": "72d243e6"
+ },
+ {
+  "n": "Interior Community Services",
+  "c": "commctr",
+  "g": "ns",
+  "lat": 50.69877,
+  "lng": -120.36376,
+  "a": "765 Tranquille Rd",
+  "p": "250-376-3660",
+  "w": "https://interiorcommunityservices.bc.ca/",
+  "h": {
+   "r": [
+    [
+     1,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "本地规模较大的社会服务机构，如果你想做义工、并且希望<b>每周见到同一批人</b>，这里是个好起点：送餐上门路线、Better at Home 项目（接送长者、代买杂货）、以及 Mount Paul 食物中心。它同时运营 Kamloops Youth Shelter（13–18 岁青少年庇护所）——想问有没有床位，请联系或直接去庇护所，也可以发邮件到 adm@interiorcommunityservices.bc.ca。",
+   "en": "A large local social-services agency, and a good first stop if you want to volunteer somewhere that puts you with the same people week after week: Meals on Wheels delivery routes, the Better at Home programme (driving seniors, grocery help), and the Mount Paul food centre. It also runs the Kamloops Youth Shelter for ages 13-18 — to ask about space, call or go to the shelter, or email adm@interiorcommunityservices.bc.ca.",
+   "fr": "Un grand organisme local de services sociaux, et un bon premier arrêt si vous voulez faire du bénévolat là où vous retrouvez les mêmes personnes chaque semaine : livraison de la popote roulante, programme Mieux chez soi (conduire des aînés, aide à l'épicerie), et le centre alimentaire Mount Paul. Il gère aussi le Kamloops Youth Shelter pour les 13-18 ans — pour savoir s'il y a de la place, appelez ou présentez-vous au refuge, ou écrivez à adm@interiorcommunityservices.bc.ca.",
+   "es": "Una gran agencia local de servicios sociales, y un buen primer paso si quiere ser voluntario en un lugar donde verá a las mismas personas cada semana: rutas de reparto de comida a domicilio, el programa Better at Home (llevar a mayores, ayuda con las compras) y el centro alimentario Mount Paul. También gestiona el Kamloops Youth Shelter para jóvenes de 13 a 18 años: para saber si hay plaza, llame o acuda al albergue, o escriba a adm@interiorcommunityservices.bc.ca.",
+   "ko": "규모가 큰 지역 사회서비스 기관으로, 매주 같은 사람들을 만나는 방식의 자원봉사를 원한다면 좋은 출발점입니다: 도시락 배달 노선, Better at Home 프로그램(어르신 차량 지원, 장보기 도움), Mount Paul 푸드센터. 13-18세 청소년 쉼터인 Kamloops Youth Shelter도 운영합니다 — 자리가 있는지는 쉼터에 연락하거나 직접 가서 묻고, adm@interiorcommunityservices.bc.ca로 이메일을 보낼 수도 있습니다.",
+   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です: 配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "志愿",
+   "义工",
+   "送餐",
+   "자원봉사",
+   "도시락",
+   "ボランティア",
+   "配食",
+   "benevolat",
+   "voluntario"
+  ],
+  "t": [
+   "free"
+  ],
+  "id": "8cc8a65f"
+ },
+ {
+  "n": "WorkBC Centre (Kamloops South)",
+  "c": "gov",
+  "g": "sk",
+  "lat": 50.67706,
+  "lng": -120.32879,
+  "a": "450 Lansdowne St Suite 210",
+  "p": "250-377-3670",
+  "w": "https://workbccentre-kamloops-lansdowne.ca",
+  "h": {
+   "r": [
+    [
+     1,
+     2,
+     510,
+     1080,
+     0
+    ],
+    [
+     3,
+     3,
+     660,
+     990,
+     0
+    ],
+    [
+     4,
+     5,
+     510,
+     990,
+     0
+    ]
+   ]
+  },
+  "note": {
+   "zh": "省政府出资的免费就业服务：找工作、改简历、技能评估、培训机会和工作安置。去之前先申请一个 <b>BCeID</b>——官网说求职者需要 BCeID 才能接受服务。在 Lansdowne Village 二楼。",
+   "en": "Free, provincially funded employment services: job search, résumé help, skills assessment, access to training and job placement. Set up a BCeID before you go — the centre says job seekers need one to receive service. Upstairs in Lansdowne Village.",
+   "fr": "Services d'emploi gratuits financés par la province : recherche d'emploi, aide au CV, évaluation des compétences, accès à la formation et placement. Créez un BCeID avant d'y aller — le centre indique que les chercheurs d'emploi en ont besoin pour être servis. À l'étage de Lansdowne Village.",
+   "es": "Servicios de empleo gratuitos financiados por la provincia: búsqueda de trabajo, ayuda con el currículum, evaluación de habilidades, acceso a formación y colocación laboral. Cree una cuenta BCeID antes de ir: el centro indica que quien busca empleo la necesita para recibir el servicio. En la planta alta de Lansdowne Village.",
+   "ko": "주정부가 지원하는 무료 취업 서비스: 구직, 이력서 다듬기, 기술 평가, 훈련 연계, 취업 알선. 가기 전에 BCeID를 만들어 두세요 — 센터 안내에 따르면 구직자는 BCeID가 있어야 서비스를 받을 수 있습니다. Lansdowne Village 2층에 있습니다.",
+   "ja": "州の資金による無料の就労支援: 求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
+  },
+  "src": "official",
+  "v": "2026-10",
+  "alias": [
+   "找工作",
+   "就业",
+   "工作",
+   "취업",
+   "일자리",
+   "就職",
+   "仕事",
+   "emploi",
+   "empleo",
+   "trabajo",
+   "job"
+  ],
+  "t": [
+   "life"
+  ],
+  "tag": "tProvincial",
+  "sameComplex": [
+   "0379415c"
+  ],
+  "id": "d72e1296"
+ }
+]

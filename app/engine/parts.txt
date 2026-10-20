@@ -1,0 +1,24 @@
+# engine 各部分，按顺序拼接即为完整页面（build.py / kamdata.engine_text()）。
+head.html
+styles.css
+body.html
+js/00-ui-strings.js
+js/05-city-inject.js
+js/10-categories-search-vocab.js
+js/15-time-open-now.js
+js/20-versions-templates-tasks.js
+js/25-icons-task-ui.js
+js/30-analytics.js
+js/40-map-tiles-geo.js
+js/45-filters-favorites.js
+js/50-errors-hours-popup.js
+js/55-markers-sidebar.js
+js/60-search.js
+js/65-empty-state-quickpicks.js
+js/70-lang-share-help.js
+js/75-bus-regions-labels.js
+js/80-favorites-io-panels.js
+js/85-search-box-sheets.js
+js/90-modals-first-use-season.js
+js/95-guide-arrival-url-lang.js
+tail.html

@@ -1,0 +1,51 @@
+{
+  "_comment": "构建期城市配置（阶段 1，2026-10-03）。build.py 用它填 引擎（app/engine/）里的 {{CITY_*}} 占位符，并注入 CITY_META。运行期的城市数据在同目录的 data.js（2026-10-03 起）。",
+  "id": "kamloops",
+  "country": "ca",
+  "province": "bc",
+  "title": "Kamloops Life Guide",
+  "description": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up, six languages.",
+  "siteUrl": "https://kamloops-lifemap.neilxiang.workers.dev/",
+  "storagePrefix": "kamloops",
+  "searchStopwords": [
+    "kamloops",
+    "bc"
+  ],
+  "leakMarkers": [
+    "Thompson Rivers",
+    "Secwépemc",
+    "Secwepemc",
+    "Tk'emlúps",
+    "Tk̓emlúps",
+    "SD73",
+    "SD 73",
+    "Tranquille",
+    "Juniper Ridge",
+    "Barnhartvale",
+    "$2.25",
+    "301 Victoria",
+    "Columbia St",
+    "Google Places"
+  ],
+  "validate": {
+    "minPlaces": 240
+  },
+  "review": {
+    "guiQueries": [
+      "TRU",
+      "beach",
+      "North Shore",
+      "tax clinic"
+    ]
+  },
+  "deploy": {
+    "_comment": "阶段 4（2026-10-03）。worker：Cloudflare Worker 名（= 网址前缀，决定 *.workers.dev 地址）；wranglerEnv：wrangler.toml 里的环境名，空 = 顶层配置；assetsDir：部署目录；basePath：站点路径（方案 A/C 为 /，方案 B 为 /<city>/）；swCache：service worker 缓存名，STATIC_ASSETS 变了就手动升；pwaLabel/pwaDescription：sw.js 注释和 manifest 用。",
+    "worker": "kamloops-lifemap",
+    "wranglerEnv": "",
+    "assetsDir": "public",
+    "basePath": "/",
+    "swCache": "kamloops-lifemap-v1.4.0",
+    "pwaLabel": "Kamloops Life Map",
+    "pwaDescription": "What to do, where to go, what to bring — step by step — with a map of verified places across Kamloops. Free, no sign-up."
+  }
+}

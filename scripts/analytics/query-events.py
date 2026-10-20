@@ -84,6 +84,7 @@ try:
 except Exception:
     pass
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -311,7 +312,26 @@ def get_token():
     return None, None
 
 
+# 2026-10-03 (multi-city phase 4): every city's Worker writes to this same dataset;
+# blob5 holds the city key the page sends (CITY.key). --city <key> narrows every
+# query — presets, session, funnel, custom SQL, export — to one city.
+CITY_FILTER = None
+
+def take_city_arg(args):
+    """Strip --city <key> from args and set CITY_FILTER. Returns the remaining args."""
+    global CITY_FILTER
+    if "--city" in args:
+        i = args.index("--city")
+        key = args[i + 1]
+        if not re.fullmatch(r"[a-z0-9_-]+", key):
+            sys.exit("✗ --city 只能是小写字母、数字、- 或 _：%r" % key)
+        CITY_FILTER = key
+        args = args[:i] + args[i + 2:]
+    return args
+
 def run_sql(token, sql):
+    if CITY_FILTER:
+        sql = re.sub(r"\bWHERE\b", "WHERE blob5 = '%s' AND" % CITY_FILTER, sql, count=1)
     # NOTE: this endpoint is NOT JSON — Cloudflare expects the raw SQL text as
     # the request body. Sending {"query": "..."} returns 422 "sql parser error:
     # Expected an SQL statement, found: {".
@@ -434,7 +454,7 @@ def render(preset_name, result):
 
 
 def main():
-    args = sys.argv[1:]
+    args = take_city_arg(sys.argv[1:])
 
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
@@ -455,6 +475,7 @@ def main():
         print(f"  {'<SQL>':10s}  任意 SQL，用引号包起来")
         print(f"\n  {'--all':10s}  加在任意命令后：连维护者流量（?debug=1 + 部署冒烟）一起算")
         print(f"{'':12s}  默认只看真实用户（double2 != 1）")
+        print(f"\n  {'--city X':10s}  只看某个城市（blob5 = X，例如 kamloops）；不加则所有城市合计")
         sys.exit(0)
 
     token, src = get_token()
@@ -470,7 +491,7 @@ def main():
     if args[0] == "session":
         if len(args) < 2:
             print("用法：./query-events.py session <sid>", file=sys.stderr)
-            print("（sid 可在浏览器 F12 Console 跑 localStorage.getItem('kamloopsSid') 拿到）", file=sys.stderr)
+            print("（sid 可在浏览器 F12 Console 跑 localStorage.getItem(SP+'Sid')，Kamloops 即 'kamloopsSid' 拿到）", file=sys.stderr)
             sys.exit(1)
         sid = args[1].replace("'", "''")
         desc = f"会话 {args[1]} 的完整轨迹"

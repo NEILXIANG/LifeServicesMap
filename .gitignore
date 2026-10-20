@@ -19,7 +19,7 @@ Thumbs.db
 /tmp/
 
 # 本地调试导出
-data/exports/
+records/exports/
 
 # 日志
 *.log
@@ -42,10 +42,10 @@ data/exports/
 # 会话临时/中转文件
 /_scratch_link_check/
 /_to_delete/
-flyers/__pycache__/
+outreach/flyers/__pycache__/
 
 # 文档构建中间产物
-/docs/source/_build/
+/outreach/pdf/_build/
 
 # 提交信息草稿与运行日志（不入库）
 COMMIT_MSG*
@@ -55,11 +55,19 @@ err.log
 
 # 构建产物统一放 build/
 /build/
-flyers/*.html
-flyers/mapart-preview.svg
-/data/check-links-*.json
-/data/check-links-*.log
+outreach/flyers/*.html
+outreach/flyers/mapart-preview.svg
+/records/check-links-*.json
+/records/check-links-*.log
 __pycache__/
-/docs/public/2026-09-14/
-/docs/public/2026-09-16/
-/docs/outreach/attachments/
+
+# 2026-10-03（决策 D4）：运营资料移出仓库，放在同级目录 "../Guide to Life in Canada - ops/"。
+# 这里再排除一次，防止误放回来被提交（外联邮件含联系人姓名和邮箱）。
+/outreach-emails-docx/
+/docs/outreach/
+/docs/public/
+/Claude outputs/
+.venv/
+
+# 2026-10-03 阶段 4：Kamloops 以外城市的部署目录，build.py 生成
+/deploy/

@@ -1,0 +1,1655 @@
+{
+ "_comment": "Official and open-data sources the cities actually used, by level. Checked and rendered by scripts/knowledge.py into 数据来源目录.md (do not edit that page). Each url must appear in its evidence file; importer paths must exist. Compiled 2026-10-04 from the repo (importers, city data, research files, verification); only government and official agency sources.",
+ "sources": [
+  {
+   "id": "statcan-census-profile-2021",
+   "level": "federal",
+   "name": "Statistics Canada, 2021 Census Profile (98-316-X2021001)",
+   "url": "https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/page.cfm?Lang=E&DGUIDlist=2021A00055935010&GENDERlist=1&STATISTIClist=1,4&HEADERlist=0",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "城市画像：人口、增长、移民比例与来源地、临时居民、在家语言、年龄、原住民身份、行业、收入、外省迁入。DGUID：Kelowna CY 2021A00055935010、CMA 2021S0503915、West Kelowna CY 2021A00055935029、Kamloops CY 2021A00055933042、CMA 2021S0503925",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "www12 的 HTML 页在机器人验证后面，数字实际经 SDMX API 取得（见 statcan-census-sdmx-api）；Focus on Geography 页同样被拦，只能用搜索摘要（已标 'via search snippet'）。计数随机取整到 5；移民/族裔/行业等是 25% 抽样；普查日 2021-05-11 在疫情期间，2020 收入含疫情补贴，普查失业率不能和 LFS 比；临时居民（NPR）普查低估。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "statcan-census-sdmx-api",
+   "level": "federal",
+   "name": "Statistics Canada Census Profile SDMX REST API",
+   "url": "https://api.statcan.gc.ca/census-recensement/profile/sdmx/rest/data/STC_CP,DF_CSD/A5.<DGUID>.1..",
+   "licence": "unknown",
+   "kind": "api",
+   "fields": "按 DGUID 程序化取普查画像数字（市用 DF_CSD，都会区用 DF_CMACA），代替被机器人验证挡住的 www12 页面",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "URL 是模板，<DGUID> 换成地理编码；source_url 字段仍指向人可读的 www12 页面。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "statcan-data-tables",
+   "level": "federal",
+   "name": "Statistics Canada data tables (17-10-0148-01, 17-10-0149-01, 14-10-0459-01)",
+   "url": "https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1710014801",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "17-10-0148-01：CMA 年度人口估计（7 月 1 日，2021 边界）；17-10-0149-01：CMA 人口变化构成（含 NPR 净流入）；14-10-0459-01：劳动力调查 CMA 失业率（3 个月移动平均，季调）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "LFS 小 CMA 抽样误差大（Kelowna 一年内 4.4%–10.4%），要写区间或趋势；年均 CMA 表 14-10-0385-01 已停更；估计中位年龄与普查口径不同（估计调整了漏登），不能直接比较。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "ircc-open-data-pr-by-cma",
+   "level": "federal",
+   "name": "IRCC Open Data – Admissions of Permanent Residents by Province/Territory and CMA of Intended Destination",
+   "url": "https://www.ircc.canada.ca/opendata-donneesouvertes/data/EN_ODP-PR-CMA.xlsx",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "每年新永久居民（都会区，意向目的地），用于画像的人群规模",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "是“意向目的地”，不是实际居住地；按月更新（文件覆盖 2015-01 至 2026-07）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "ircc-open-data-pgwp-by-cma",
+   "level": "federal",
+   "name": "IRCC Open Data – IMP work permit holders under post-graduate employment by CMA of intended destination",
+   "url": "https://www.ircc.canada.ca/opendata-donneesouvertes/data/EN_ODP-TR-Work-PGWP_PT_CMA_sign.xlsx",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "毕业工签持有人（都会区），判断国际学生/毕业生人群（Kamloops 的 TRU 效应）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "cmhc-rental-market-survey",
+   "level": "federal",
+   "name": "CMHC Rental Market Survey – rental market report data tables (2025)",
+   "url": "https://assets.cmhc-schl.gc.ca/sites/cmhc/professional/housing-markets-data-and-research/housing-data-tables/rental-market/rental-market-report-data-tables/2025/rmr-kelowna-2025-en.xlsx",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "平均房租、空置率（私人公寓，Table 1.1.1–1.1.2）；Kamloops 用同目录下 rmr-kamloops-2025-en.xlsx",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "只含 3 户以上的专建出租公寓，不含出租公寓单元和地下室（Kelowna 租房供给很大一部分）；Kelowna 2025 年出租公寓表被抑制；Kelowna 只有两个调查区；每年 10 月调查、12 月发布。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "esdc-tfwp-lmia-statistics",
+   "level": "federal",
+   "name": "ESDC Temporary Foreign Worker Program LMIA statistics (Tables 22 and 26)",
+   "url": "https://open.canada.ca/data/dataset/e8745429-21e7-4a73-b3f5-90a779b78d1e/resource/f5fc60c7-bdf3-47e6-86c4-52ce3070e52e/download/tfwp2026_q1_table_22_e.xlsx",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "按经济区的正面 LMIA 岗位数；Table 26（同数据集另一资源）是季节性农业工人按工作地点",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "是批准数不是到达人数；只按经济区发布（Thompson-Okanagan 5930 把两座城市合在一起）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "eccc-climate-normals",
+   "level": "federal",
+   "name": "Environment and Climate Change Canada – Canadian Climate Normals 1991–2020",
+   "url": "https://climate.weather.gc.ca/climate_normals/results_1991_2020_e.html?climate_id=1123939&lstProvince=&searchType=stnProv&txtCentralLatMin=0&txtCentralLatSec=0&txtCentralLongMin=0&txtCentralLongSec=0&dispBack=0",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "气候常年值（1 月/7 月均温、降水、降雪、炎热天数），用于画像和季节提示",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "Kelowna 另引了 1981–2010 常年值（KELOWNA A，climate_id 1123970，results_1981_2010_e.html）——两个站、两个时期，比较时注意口径。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "cirnac-self-government",
+   "level": "federal",
+   "name": "Crown-Indigenous Relations and Northern Affairs Canada – Westbank First Nation Self-Government Agreement",
+   "url": "https://www.rcaanc-cirnac.gc.ca/eng/1100100031766/1543001371378",
+   "licence": "unknown",
+   "kind": "official-page",
+   "fields": "原住民自治政府的法律地位（城市指南原住民部分）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "原住民内容上线前要请当地 Nation 审阅（L-068）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "historic-places-register",
+   "level": "federal",
+   "name": "Canadian Register of Historic Places",
+   "url": "https://www.historicplaces.ca/en/rep-reg/place-lieu.aspx?id=23243",
+   "licence": "unknown",
+   "kind": "official-page",
+   "fields": "族裔社区历史地点（Kelowna Buddhist Temple）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "该条只经搜索摘要读取，未直接打开页面。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "service-canada-sin",
+   "level": "federal",
+   "name": "Service Canada – Apply for a Social Insurance Number",
+   "url": "https://www.canada.ca/en/employment-social-development/services/sin/apply.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 sin 的步骤与来源链接",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "service-canada-ei",
+   "level": "federal",
+   "name": "Service Canada – Apply for EI regular benefits",
+   "url": "https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 jobloss（失业）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "service-canada-office-locator",
+   "level": "federal",
+   "name": "Service Canada office locator (office detail pages)",
+   "url": "https://offices.service.canada.ca/en/Office/5987",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Service Canada 中心的地址、电话、时间（地点记录 + 办事卡 sin 的 place）；Kamloops 用 Office/5986",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "cra-newcomers-tax",
+   "level": "federal",
+   "name": "Canada Revenue Agency – Taxes made simple for newcomers (tax tip)",
+   "url": "https://www.canada.ca/en/revenue-agency/news/newsroom/tax-tips/tax-tips-2026/tax-tip-taxes-made-simple-newcomers-canada.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 tax",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "URL 带年份（tax-tips-2026），每年要换新一期。",
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "cra-free-tax-clinics",
+   "level": "federal",
+   "name": "CRA Community Volunteer Income Tax Program – free tax clinic search",
+   "url": "https://apps.cra-arc.gc.ca/ebci/oecv/external/prot/startClinicSearch.action?request_locale=en_CA",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "免费报税诊所（地点与季节）；说明页另见 canada.ca CVITP need-a-hand 页",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "诊所多为季节性，时间不能写死。",
+   "evidence": "cities/kelowna/import/research/R2-settlement.json"
+  },
+  {
+   "id": "fcac-bank-account",
+   "level": "federal",
+   "name": "Financial Consumer Agency of Canada – Opening a bank account",
+   "url": "https://www.canada.ca/en/financial-consumer-agency/services/banking/opening-bank-account.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 bank（开户权利、所需证件）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "ifhp-coverage",
+   "level": "federal",
+   "name": "IRCC – Interim Federal Health Program coverage summary",
+   "url": "https://www.canada.ca/en/immigration-refugees-citizenship/services/refugees/help-within-canada/health-care/interim-federal-health-program/coverage-summary.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "难民医疗覆盖（医疗地点的“谁能用”属性）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "canadian-dental-care-plan",
+   "level": "federal",
+   "name": "Canadian Dental Care Plan – Do you qualify",
+   "url": "https://www.canada.ca/en/services/benefits/dental/dental-care-plan/qualify.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "牙科地点备注：是否接受 CDCP、谁有资格",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "phac-mental-health-help",
+   "level": "federal",
+   "name": "Public Health Agency of Canada – Mental health: get help",
+   "url": "https://www.canada.ca/en/public-health/services/mental-health-services/mental-health-get-help.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "心理支持类地点和热线的出处",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "rcmp-detachment-pages",
+   "level": "federal",
+   "name": "RCMP detachment contact pages (BC)",
+   "url": "https://rcmp.ca/en/bc/kelowna/contact",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.police 非紧急电话、警局地点；West Kelowna 用 rcmp.ca/en/bc/west-kelowna/contact，Kamloops 用 rcmp.ca/en/bc/kamloops",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "West Kelowna 有自己的分局和电话，与 Kelowna 分开。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "canada-post-find-a-post-office",
+   "level": "federal",
+   "name": "Canada Post – Find a post office",
+   "url": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "邮局网点（地址、时间；outletId 详情页）",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "邮局多在药房/超市里，时间是邮政柜台的时间，可能与商店不同。",
+   "evidence": "cities/kelowna/import/research/R2-daily.json"
+  },
+  {
+   "id": "canada-post-retail-point-api",
+   "level": "federal",
+   "name": "Canada Post FPO_FLEX_FACILITY_RETAIL_POINT FeatureServer (ArcGIS)",
+   "url": "https://pub.geo.canadapost-postescanada.ca/server/rest/services/Hosted/FPO_FLEX_FACILITY_RETAIL_POINT/FeatureServer/0/query",
+   "licence": "unknown",
+   "kind": "api",
+   "fields": "复核时用来批量核对邮政网点",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "许可条款仓库里没有记载；只用于核对，没有导入。",
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "line-988",
+   "level": "federal",
+   "name": "9-8-8 suicide crisis line",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'suicide'），24 小时",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "仓库里没有该热线的官网 URL。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-hope-for-wellness",
+   "level": "federal",
+   "name": "Hope for Wellness (Indigenous peoples) 1-855-242-3310",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.localLines，24 小时",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": "仓库里没有官网 URL；Kelowna 的 localLines 没有这条（两城不一致，见 notes）。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-residential-school-crisis",
+   "level": "federal",
+   "name": "Residential school survivors and families crisis line 1-866-925-4419",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.localLines，24 小时",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": "仓库里没有官网 URL；Kelowna 的 localLines 没有这条。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "bc-address-geocoder",
+   "level": "province:bc",
+   "name": "BC Address Geocoder (DataBC)",
+   "url": "https://geocoder.api.gov.bc.ca/addresses.json",
+   "licence": "OGL-BC",
+   "kind": "api",
+   "fields": "地址 → lat/lng、score、matchPrecision；所有导入和调研合并的坐标来源",
+   "importer": "scripts/bc_geocode.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "只认 score ≥ 95 且门牌级（CIVIC_NUMBER/SITE/UNIT/OCCUPANT）；与数据集自带坐标相差 150 m 内才替换，否则 precision:'low'；安全相关地点不允许大致位置。每秒最多 1 次，结果缓存 provinces/bc/geocode-cache.json。python.org 版 macOS Python 缺根证书，要 certifi。OSM 只能把 Kelowna 急诊中心匹配到街道，改用本服务后 40 个点修正、最多偏 1.9 km；Kamloops 曾偏 6 km（Honda）。",
+   "evidence": "scripts/bc_geocode.py"
+  },
+  {
+   "id": "bc-childcare-map",
+   "level": "province:bc",
+   "name": "Child Care Map Data (Province of British Columbia, BC Data Catalogue dataset child-care-map-data)",
+   "url": "https://catalogue.data.gov.bc.ca/dataset/4cc207cc-ff03-44f8-8c5f-415af5224646/resource/9a9f14e1-03ea-4a11-936a-6e77b15eeb39/download/childcare_locations.csv",
+   "licence": "OGL-BC",
+   "kind": "open-data",
+   "fields": "（URL 在 bc_childcare.py 里分两段字符串拼接）NAME、CITY、LATITUDE/LONGITUDE、PHONE、WEBSITE（仅 http(s) 时用）、SERVICE_TYPE_CD（只取 Licensed Group）、FAC_PARTY_ID（键）、LANG_*_YN（员工语言）、SRVC_*（年龄段/学前）、IS_CCFRI_AUTH（减费）、IS_DUPLICATE。持牌集体托儿地点（Kelowna 133、Kamloops 80）",
+   "importer": "scripts/importers/bc_childcare.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "每日更新。只收 Licensed Group，家庭式托儿是私人住址不上图（Kamloops 排除 38 家）；丢弃 IS_DUPLICATE；同楼多张牌照合并为一个点、同运营方多处加街名；相邻机构共用一个坐标（350/352 Seymour St）→ 逐个重新地理编码；没有营业时间。语言/年龄/CCFRI 字段对新来家长最关键，Kamloops 导入时没用（L-078）。locality 拼写按数据集（KELOWNA / WEST KELOWNA / WESTBANK）。",
+   "evidence": "scripts/importers/bc_childcare.py"
+  },
+  {
+   "id": "bc-k12-schools",
+   "level": "province:bc",
+   "name": "BC Schools - K-12 with Francophone Indicators (BC Data Catalogue)",
+   "url": "https://catalogue.data.gov.bc.ca/api/3/action/package_show?id=bc-schools-k-12-with-francophone-indicators",
+   "licence": "OGL-BC",
+   "kind": "open-data",
+   "fields": "SCHOOL_NAME、STREET_ADDRESS、PHYSICAL_ADDRESS_CITY、LATITUDE/LONGITUDE、MINCODE（键）、DISTRICT_NUMBER、FACILITY_TYPE（只取 Standard School）、PUBLIC_OR_INDEPENDENT、SCHOOL_EDUCATION_LEVEL（小学→elem，中学→school）、HAS_EARLY/LATE_FRENCH_IMMERSION、HAS_PROG_FRANCOPHONE",
+   "importer": "scripts/importers/bc_schools.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "通过 CKAN package_show 找 format=csv 的资源再下载。省数据把 Rutland Senior Secondary、Okanagan Mission Secondary、Springvalley Middle 等标成 Elementary → 以校名为准并打印出来反馈 DataBC（L-012）；三所法语沉浸中学的名称缺 'École'（config.json names 覆盖）；没有办公时间；排除网课/继续教育/替代项目；城市名要列全（Kelowna、West Kelowna、Westbank）。Kamloops 用它补齐 15 所小学（一次性补丁 p21），记录标 official。",
+   "evidence": "scripts/importers/bc_schools.py"
+  },
+  {
+   "id": "bc-stats-population-estimates",
+   "level": "province:bc",
+   "name": "BC Stats – Municipal and Sub-Provincial Population Estimates 2011–2025",
+   "url": "https://www2.gov.bc.ca/assets/gov/data/statistics/people-population-community/population/pop_municipal_subprov_areas.xlsx",
+   "licence": "unknown",
+   "kind": "statistics",
+   "fields": "市级年度人口估计（含 West Kelowna 等周边市镇）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "drivebc",
+   "level": "province:bc",
+   "name": "DriveBC – road conditions",
+   "url": "https://www.drivebc.ca/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 冬季提示的“路况”链接",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "bc-winter-tire-routes",
+   "level": "province:bc",
+   "name": "BC Ministry of Transportation – Winter tire and chain-up routes",
+   "url": "https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 冬季提示（10-01 至 04-30）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "日期写在 seasons 里，规定变化要人工更新。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "bc-aqhi",
+   "level": "province:bc",
+   "name": "BC Air Quality Health Index (AQHI) table",
+   "url": "https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 山火季提示的“空气质量”链接",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "bc-wildfire-status",
+   "level": "province:bc",
+   "name": "BC Wildfire Service – Wildfire status",
+   "url": "https://www2.gov.bc.ca/gov/content/safety/wildfire-status",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 山火季提示的“当前山火”链接",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "bc-wildfire-history",
+   "level": "province:bc",
+   "name": "BC Wildfire Service – Major historical wildfires",
+   "url": "https://www2.gov.bc.ca/gov/content/safety/wildfire-status/about-bcws/wildfire-history/major-historical-wildfires",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“气候与灾害”：历史大火（另引了 McDougall Creek 燃料处理 PDF）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "bc-msp-apply",
+   "level": "province:bc",
+   "name": "Medical Services Plan (Health Insurance BC) – Apply for MSP",
+   "url": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 msp",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "tasks.json 的 srcName 写 'HealthLink BC / MSP'，但链接是 gov.bc.ca 的 MSP 页（见 notes）。等待期另见 coverage-wait-period 页。",
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "bc-msp-wait-period",
+   "level": "province:bc",
+   "name": "MSP – Coverage wait period",
+   "url": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/how-to-enrol/coverage-wait-period",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "医疗地点/办事卡：等待期内的选择",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "bc-rtb-starting-tenancy",
+   "level": "province:bc",
+   "name": "BC Residential Tenancy Branch – Starting a tenancy",
+   "url": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 housing",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "bc-rtb-deposits",
+   "level": "province:bc",
+   "name": "BC Residential Tenancy Branch – Deposits and fees",
+   "url": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy/deposits-fees",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 deposit（押金上限、退还）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "icbc-moving-from-another-country",
+   "level": "province:bc",
+   "name": "ICBC – Moving from another country",
+   "url": "https://icbc.com/driver-licensing/moving-bc/moving-from-another-country",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 licence（90 天、翻译、交出原驾照）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "icbc-dl-office-locator",
+   "level": "province:bc",
+   "name": "ICBC – Driver licensing office locator",
+   "url": "https://www.icbc.com/locators/driver-licensing-office",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "驾照办理点地点与时间（办事卡 licence 的 place）",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "icbc.com 与 www.icbc.com 两种写法都出现；Kelowna 驾照办公室 2024 年搬过（ICBC newsroom）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "icbc-glp-driving-schools",
+   "level": "province:bc",
+   "name": "ICBC – Approved Graduated Licensing Program (GLP) driving schools",
+   "url": "https://icbc.com/driver-licensing/driver-training/Choosing-your-driving-school/glp-schools",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "驾校类地点：是否在 ICBC 认可 GLP 名单、批准的车类",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R3-more.json"
+  },
+  {
+   "id": "healthlinkbc-811",
+   "level": "province:bc",
+   "name": "HealthLink BC (8-1-1)",
+   "url": "https://www.healthlinkbc.ca/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 sick；热线 811（t:'health'）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "healthlinkbc-health-connect-registry",
+   "level": "province:bc",
+   "name": "HealthLink BC – Health Connect Registry",
+   "url": "https://www.healthlinkbc.ca/find-care/health-connect-registry",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 doctor（登记找家庭医生）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "另一写法 https://www.healthlinkbc.ca/health-connect-registry 也被引用过，统一用 find-care 路径。",
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "healthlinkbc-service-directory",
+   "level": "province:bc",
+   "name": "HealthLink BC – Find health services directory (clinics, walk-in clinics, pharmacies)",
+   "url": "https://www.healthlinkbc.ca/find-care/find-health-services/program/walk-clinic-93",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "诊所/药房的服务柜台时间、是否接待走进式病人；/clinic/<名> 详情页",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "药房要记柜台时间而不是商店时间（L-024：两家 London Drugs 柜台早 3 小时关门）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-health.json"
+  },
+  {
+   "id": "healthlinkbc-pharmacy-services",
+   "level": "province:bc",
+   "name": "HealthLink BC – Pharmacy services in BC",
+   "url": "https://www.healthlinkbc.ca/find-care/pharmacy-services-bc",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "药剂师可做的服务（处方续开、小病处方）；另有 gov.bc.ca 药房服务页与 PharmaCare 说明 PDF",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "bc-pharmacy-services",
+   "level": "province:bc",
+   "name": "Province of BC – Pharmacy services",
+   "url": "https://www2.gov.bc.ca/gov/content/health/accessing-health-care/pharmacy-services",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "药房能做什么（复核依据）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "bc-free-contraceptives",
+   "level": "province:bc",
+   "name": "PharmaCare – Prescription contraceptives",
+   "url": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/pharmacare-for-bc-residents/what-we-cover/prescription-contraceptives",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "性健康/药房备注：免费避孕药",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "bc-healthy-kids-dental-eyeglasses",
+   "level": "province:bc",
+   "name": "Province of BC – Dental and eyeglasses for children",
+   "url": "https://www2.gov.bc.ca/gov/content/health/managing-your-health/family/child-teen-health/dental-eyeglasses",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "牙科/眼科地点的“是否有补贴”属性",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "phsa-interpreting",
+   "level": "province:bc",
+   "name": "PHSA Provincial Language Services – Interpreting",
+   "url": "https://www.phsa.ca/health-professionals/professional-resources/language-services/interpreting",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "医疗地点备注“可要求免费电话翻译”的依据",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "bc-cancer-centres",
+   "level": "province:bc",
+   "name": "BC Cancer (PHSA) – Centres and clinics",
+   "url": "https://www.bccancer.bc.ca/our-services/centres-clinics/bc-cancer-kelowna",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“医疗”与地点",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "legal-aid-bc-services",
+   "level": "province:bc",
+   "name": "Legal Aid BC – Services",
+   "url": "https://legalaid.bc.ca/services",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 legal；UI legalLocal 文字（省热线 1-866-577-2525）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "legal-aid-bc-locations",
+   "level": "province:bc",
+   "name": "Legal Aid BC – Legal aid locations",
+   "url": "https://legalaid.bc.ca/services/legal-aid-locations",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "法律援助地点与地方电话；Kamloops 地点链接为 legalaid.bc.ca/location-map/00141",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "bc211",
+   "level": "province:bc",
+   "name": "bc211",
+   "url": "https://bc.211.ca/about-us/",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.help.info '211'；办事卡 hardship；bc211 机构详情页（Kamloops 用来核 Mustard Seed 庇护所）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "不是 24 小时（工作日 9am–9pm），所以从 hotlines 移出，放在帮助页并写明时间。",
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "bchrt-time-limit",
+   "level": "province:bc",
+   "name": "BC Human Rights Tribunal – Time limit to file a complaint",
+   "url": "https://www.bchrt.bc.ca/complaint-process/complain/time-limit/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "办事卡 rights",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "service-bc",
+   "level": "province:bc",
+   "name": "Service BC",
+   "url": "https://www2.gov.bc.ca/gov/content/governments/organizational-structure/ministries-organizations/ministries/citizens-services/servicebc",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Service BC 中心地点、时间（办事卡 msp 的 place）",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "城市页 gov.bc.ca/servicebc/kelowna 会跳到带双斜杠的 www2.gov.bc.ca//servicebc/kelowna；复核用的是 servicebc.gov.bc.ca/locations/kelowna.html。Service BC 不办收入援助（复核改正过）。",
+   "evidence": "cities/kamloops/places.json"
+  },
+  {
+   "id": "bc-myselfserve",
+   "level": "province:bc",
+   "name": "My Self Serve (BC income and disability assistance)",
+   "url": "https://www.myselfserve.gov.bc.ca",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "收入援助入口（地点链接）",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/places.json"
+  },
+  {
+   "id": "workbc-centres",
+   "level": "province:bc",
+   "name": "WorkBC Centres",
+   "url": "https://www.workbc.ca/workbc-centres/workbc-centre-kelowna",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "WorkBC 中心地点（办事卡 jobloss 的 place）；West Kelowna 另有一页",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "Kamloops 的两个中心链到运营方自己的域名（workbccentre-kamloops-lansdowne.ca、-tranquille.ca），不是 workbc.ca。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "bc-family-justice-centres",
+   "level": "province:bc",
+   "name": "BC Family Justice Centres",
+   "url": "https://www2.gov.bc.ca/gov/content/life-events/divorce/family-justice/who-can-help/family-justice-centres",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "家庭司法中心地点、时间；城市页如 .../family-justice-centres/locations/kelowna",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "要链到本城那一页（Kamloops p11 曾把省级总页改成本城页）。",
+   "evidence": "cities/kelowna/import/hours.json"
+  },
+  {
+   "id": "bc-employment-standards",
+   "level": "province:bc",
+   "name": "BC Employment Standards Branch – Contact us",
+   "url": "https://www2.gov.bc.ca/gov/content/employment-business/employment-standards-advice/employment-standards/contact-us",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "劳工权利（工作类地点/备注）；同目录还有工伤与职业安全办公室页",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-settlement.json"
+  },
+  {
+   "id": "bc-ptb-licensee-lists",
+   "level": "province:bc",
+   "name": "Passenger Transportation Board – Taxi and ride-hail licensee lists",
+   "url": "https://www.ptboard.bc.ca/taxi-licensee-list",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "出租车/网约车公司是否持牌（ride-hail-licensee-list、ride-hail-rates 同站）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "出租车公司官网通常不写营业时间，不能写 24/7。",
+   "evidence": "cities/kelowna/import/research/R4-categories.json"
+  },
+  {
+   "id": "bc-lcrb",
+   "level": "province:bc",
+   "name": "Liquor and Cannabis Regulation Branch – FAQ / ID requirements",
+   "url": "https://www2.gov.bc.ca/gov/content/employment-business/business/liquor-regulation-licensing/liquor-licence-permits/liquor-resources-information/lcrb-faq",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "酒类商店备注：19 岁、两件证件（另引 idsign-purchase.pdf）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R4-categories.json"
+  },
+  {
+   "id": "bc-first-nations-a-z",
+   "level": "province:bc",
+   "name": "Province of BC – First Nations A-Z listing",
+   "url": "https://www2.gov.bc.ca/gov/content/environment/natural-resource-stewardship/consulting-with-first-nations/first-nations-negotiations/first-nations-a-z-listing/okanagan-indian-band",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“原住民土地”：本地 Nation 名单",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "上线前请当地 Nation 审阅（L-068）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "bc-gov-news",
+   "level": "province:bc",
+   "name": "BC Gov News releases",
+   "url": "https://news.gov.bc.ca/releases/2026TT0006-000010",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像：公交扩展、医院、桥等事件背景",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "新闻稿是时点信息，不能当现状。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "csf-schools",
+   "level": "province:bc",
+   "name": "Conseil scolaire francophone de la C.-B. (SD 93) – Our schools",
+   "url": "https://www.csf.bc.ca/en/our-schools/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "法语学校（学校地点、学区说明）；Kamloops 用 collinesdor.csf.bc.ca 的联系页",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "法语学校只保留省数据字段，电话从学校自己的页取。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "line-310-6789",
+   "level": "province:bc",
+   "name": "310-6789 mental health support line",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'mental'）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "七位数 310- 号码要做成可点拨号（Kamloops p11 修过）；仓库里没有官网 URL。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-1-800-suicide",
+   "level": "province:bc",
+   "name": "1-800-784-2433 suicide line",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'suicide'）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "仓库里没有官网 URL。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-victimlink",
+   "level": "province:bc",
+   "name": "VictimLink BC 1-800-563-0808",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'victim'），24 小时、免费",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "仓库里没有官网 URL。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-kuu-us",
+   "level": "province:bc",
+   "name": "KUU-US Crisis Line 1-800-588-8717",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'indigenous'），24 小时",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "仓库里没有官网 URL。",
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "line-911",
+   "level": "province:bc",
+   "name": "9-1-1 emergency",
+   "url": "unknown",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.hotlines（t:'emergency'）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "ih-locations",
+   "level": "region:interior-health",
+   "name": "Interior Health – Locations (hospitals, UPCCs, health centres)",
+   "url": "https://www.interiorhealth.ca/locations/kelowna-general-hospital",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "医院/UPCC/卫生中心的地址、电话、时间（CITY.upcc 指向的地点；办事卡 sick/doctor 的 place）；Kamloops 如 /locations/royal-inland-hospital",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "急诊与 UPCC 时间常变，每季度复核安全相关地点。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-health.json"
+  },
+  {
+   "id": "ih-crisis-line",
+   "level": "region:interior-health",
+   "name": "Interior Health – Crisis response (Interior Crisis Line 1-888-353-2273)",
+   "url": "https://www.interiorhealth.ca/services/crisis-response",
+   "licence": "none (reference only)",
+   "kind": "phone-line",
+   "fields": "CITY.localLines：Interior Crisis Line，24 小时",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-gov-settlement-legal.json"
+  },
+  {
+   "id": "ih-home-community-care",
+   "level": "region:interior-health",
+   "name": "Interior Health – Home and Community Care",
+   "url": "https://www.interiorhealth.ca/health-and-wellness/home-and-community-care",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Kelowna 办事卡 eldercare 的 src（Kamloops 用 Interior Community Services）",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "两城 eldercare 来源不同：Kamloops 指向非政府机构。 2026-10-04: the old /services/home-and-community-care address returns 404; intake line 1-800-707-8550.",
+   "evidence": "cities/kelowna/tasks.json"
+  },
+  {
+   "id": "ih-immunization-locations",
+   "level": "region:interior-health",
+   "name": "Interior Health – Immunization services locations",
+   "url": "https://www.interiorhealth.ca/services/immunization-services/locations",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "疫苗接种地点（儿童入学疫苗）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "ih-sexual-health-clinics",
+   "level": "region:interior-health",
+   "name": "Interior Health – Sexual and reproductive health clinics",
+   "url": "https://www.interiorhealth.ca/services/sexual-and-reproductive-health-clinics",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "性健康诊所地点与时间",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "ih-mhsu-access",
+   "level": "region:interior-health",
+   "name": "Interior Health – Access mental health and substance use services",
+   "url": "https://www.interiorhealth.ca/services/access-mental-health-and-substance-use-services",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "心理健康与成瘾服务入口（310-6478 IH MHSU 线）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "ih-new-to-the-region",
+   "level": "region:interior-health",
+   "name": "Interior Health – New to the region",
+   "url": "https://www.interiorhealth.ca/health-and-wellness/new-to-the-region",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "刚来的人怎么看病（城市指南/办事卡素材）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-health.json"
+  },
+  {
+   "id": "sd73-register",
+   "level": "region:sd73",
+   "name": "Kamloops-Thompson School District 73 – Register for school",
+   "url": "https://www.sd73.bc.ca/register-for-school",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Kamloops 办事卡 school",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/tasks.json"
+  },
+  {
+   "id": "sd73-catchment",
+   "level": "region:sd73",
+   "name": "SD73 – Find my catchment school",
+   "url": "https://www.sd73.bc.ca/find-my-catchment-school",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.schoolDistrict.url（学校备注里的学区划分链接）",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "sd73-school-pages",
+   "level": "region:sd73",
+   "name": "SD73 school pages",
+   "url": "https://www.sd73.bc.ca/dallas",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "每所学校的电话、网址（与省 K-12 数据配合）",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": "学校页不写办公时间；未核实的 8:30–15:30 已删（p24）。学区子域名格式各城不同（SD23 是 <code>.sd23.bc.ca）。",
+   "evidence": "docs/archive/scripts/fixes-2026-09-21/p21_patch.py"
+  },
+  {
+   "id": "sd23-school-enrollment",
+   "level": "region:sd23",
+   "name": "Central Okanagan Public Schools (SD23) – School enrollment",
+   "url": "https://www.sd23.bc.ca/school-enrollment",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Kelowna 办事卡 school",
+   "importer": "scripts/importers/tasks_from.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/tasks.json"
+  },
+  {
+   "id": "sd23-catchment",
+   "level": "region:sd23",
+   "name": "SD23 – Catchment",
+   "url": "https://www.sd23.bc.ca/catchment",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.schoolDistrict.url",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/data.js"
+  },
+  {
+   "id": "sd23-schools-list",
+   "level": "region:sd23",
+   "name": "SD23 – Schools list (each school's own website)",
+   "url": "https://www.sd23.bc.ca/schools",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "学校网址 → cities/kelowna/import/sd23-sites.json；再从各校主页抓电话 → school-phones-cache.json（页眉页脚恰好一个本地号码才用）",
+   "importer": "scripts/importers/bc_schools.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "抓取结果是快照（_fetched 2026-10-03），要带日期；公立学校 40/42 有电话。",
+   "evidence": "cities/kelowna/import/sd23-sites.json"
+  },
+  {
+   "id": "sd23-school-directory",
+   "level": "region:sd23",
+   "name": "SD23 – School directory",
+   "url": "https://www.sd23.bc.ca/school-directory-schools",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "官方校名（含 École）、年级、语言项目；复核依据",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "sd23-welcome-centre",
+   "level": "region:sd23",
+   "name": "SD23 Welcome Centre (SWIS)",
+   "url": "https://welcomecentre.sd23.bc.ca/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "新来家庭的入学与校园安置服务（SWIS）地点；办事卡 school 的 place",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "省数据里没有这个点，只能从学区网站发现（L-078）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "sd23-french-immersion",
+   "level": "region:sd23",
+   "name": "SD23 – French Immersion",
+   "url": "https://www.sd23.bc.ca/french-immersion",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "法语沉浸学校名单（校名 École 核对）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "sd23-ell",
+   "level": "region:sd23",
+   "name": "SD23 – English Language Learners",
+   "url": "https://www.sd23.bc.ca/english-language-learners",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“教育”：ELL 支持",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "sd23-transportation",
+   "level": "region:sd23",
+   "name": "SD23 – Transportation services",
+   "url": "https://www.sd23.bc.ca/transportation-services-programsservices",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "校车（资格、费用）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R4-categories.json"
+  },
+  {
+   "id": "coem-alerts",
+   "level": "region:central-okanagan",
+   "name": "Central Okanagan Emergency Management – Emergency alerts sign-up (Alertable)",
+   "url": "https://www.coemergency.ca/subscribe",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 山火季的“紧急警报”链接",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "2026-04-02 换成新的通知系统（Alertable）；警报系统在区域层面，不在市政府层面（Kamloops 是市政府的 Voyent Alert!）。",
+   "evidence": "cities/kelowna/data.js"
+  },
+  {
+   "id": "rdco-emergency-management",
+   "level": "region:central-okanagan",
+   "name": "Regional District of Central Okanagan – Emergency management",
+   "url": "https://www.rdco.com/living-here/emergency-management/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“气候与灾害”",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "rdco-park-regulations",
+   "level": "region:central-okanagan",
+   "name": "RDCO – Park use and regulations",
+   "url": "https://www.rdco.com/parks-and-trails/park-use-and-regulations/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "区域公园规则（复核依据）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "区域公园不在 City of Kelowna 的公园图层里。",
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "kelowna-parks-arcgis",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Parks layer (OpenData_Planning_and_other MapServer/14)",
+   "url": "https://geoportal.kelowna.ca/arcgis/rest/services/ArcGISOnline/OpenData_Planning_and_other/MapServer/14",
+   "licence": "OGL-City of Kelowna",
+   "kind": "open-data",
+   "fields": "LOCATIONDESC（名）、NOTE9（地址）、STATUS_CLASS（类别，按 classes 筛选，自然区/邻里公园 ≥5 公顷）、DOG_STATUS_DESC（遛狗规则）、NOTE1（公顷）、多边形几何 → 公园 58、湖滩 5、遛狗区 4",
+   "importer": "scripts/importers/arcgis_parks.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "公墓、雨水池被归成自然区 → excludeName；'Various – Dilworth Mountain' 这类地址不是门牌 → 用多边形中心；只含 City of Kelowna（West Kelowna、Lake Country、Peachland 各自发布，未导入）；不写营业时间与网页链接。",
+   "evidence": "cities/kelowna/import/config.json"
+  },
+  {
+   "id": "kelowna-business-licences",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Business Licences (open data)",
+   "url": "https://opendata.kelowna.ca/datasets/business-licences",
+   "licence": "unknown",
+   "kind": "open-data",
+   "fields": "营业执照名称、地址、业务描述：确认没有官网的小商户（9 家族裔食品店等）确实在该地址营业；也用来交叉核对商店/洗衣店地址",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "只证明“存在”：是公司注册名（如 'DHS FOODS LTD. DBA ...'），不能直接导入；没有电话和时间；单元号可能与官网不一致。数据集 2026-09-30 更新，2026-10-03 经 services3.arcgis.com/FLJGTfiaM25hLKwC/.../Business_Licences/FeatureServer/0 查询——完整查询地址没记下，也没有导入脚本，不可重跑。licenceData 只写了“公园和其他市政设施”，没明确覆盖这批记录（见 notes）。",
+   "evidence": "cities/kelowna/import/research/R2-daily.json"
+  },
+  {
+   "id": "kelowna-recreation-facilities",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Recreation facilities pages",
+   "url": "https://www.kelowna.ca/parks-recreation/recreation-facilities-fields/recreation-facilities",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "市立康乐中心、泳池、冰场的地址、时间；公园页（parks-beaches-listing/<名>）、水上乐园页",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "kelowna.ca 和 ylw.kelowna.ca 对脚本抓取返回 Cloudflare 403，要在浏览器里读；页面路径改过（recreation-facilities/ 与 recreation-facilities-fields/ 两种）。",
+   "evidence": "cities/kelowna/import/verification.json"
+  },
+  {
+   "id": "kelowna-recreation-financial-assistance",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Recreation financial assistance",
+   "url": "https://www.kelowna.ca/parks-recreation/recreation-sport/recreation-programs-registration/financial-assistance-recreation",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "康乐设施的“是否有补贴”属性",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/R2-daily.json"
+  },
+  {
+   "id": "kelowna-ocp-planning-context",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – 2040 Official Community Plan, Chapter 2 Planning Context",
+   "url": "https://www.kelowna.ca/our-community/planning-projects/2040-official-community-plan/ch-2-planning-context",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像：地理、增长、区域结构；另引了“移民如何塑造城市”社区故事",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "kelowna-hazard-pages",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Air quality / Flooding / Wildfires pages",
+   "url": "https://www.kelowna.ca/our-community/environment/air-quality",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“气候与灾害”（另有 /environment/flooding、fire-department/wildfires-fire-emergencies）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "kelowna-transit-service",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Transit service",
+   "url": "https://www.kelowna.ca/roads-transportation/public-transit/transit-service",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "画像“公共交通”：市政府与 BC Transit 的分工",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "kelowna-heritage-register",
+   "level": "municipal:kelowna",
+   "name": "City of Kelowna – Heritage Register",
+   "url": "https://www.kelowna.ca/our-community/arts-culture-heritage/heritage/heritage-register/chinese-store-kelowna-museum-470",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "族裔社区历史（华人商店）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "ylw-facts-statistics",
+   "level": "municipal:kelowna",
+   "name": "Kelowna International Airport (YLW, City of Kelowna) – Facts & statistics",
+   "url": "https://ylw.kelowna.ca/business/facts-statistics",
+   "licence": "none (reference only)",
+   "kind": "statistics",
+   "fields": "画像“门户设施”：旅客量；另有 destinations-airlines、passengers/transportation（机场到市区交通）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "ylw.kelowna.ca 对脚本返回 403，要在浏览器里读。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-people-economy.json"
+  },
+  {
+   "id": "west-kelowna-facilities",
+   "level": "municipal:west-kelowna",
+   "name": "City of West Kelowna – Parks, recreation and facilities",
+   "url": "https://www.westkelownacity.ca/parks-recreation-facilities/recreation-guide/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "West Kelowna 的泳池、冰场、游乐场地点与时间",
+   "importer": "scripts/importers/research_merge.py",
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "网站改版过：.../en/parks-recreation-and-culture/*.aspx 旧路径与 /parks-recreation-facilities/ 新路径并存；West Kelowna 的公园开放数据未导入。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "wfn-government",
+   "level": "first-nation:wfn",
+   "name": "Westbank First Nation (self-governing government)",
+   "url": "https://www.wfn.ca/our-community/community-profile/history.htm",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "原住民历史与领地、项目与服务、自治法律（城市指南、WFN 服务地点）",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": "上线前请 Nation 审阅；Kelowna 的原住民内容按 Syilx 重写，不能套用 Kamloops 的 Secwépemc 内容。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "tkemlups-government",
+   "level": "first-nation:tkemlups",
+   "name": "Tk'emlúps te Secwépemc",
+   "url": "https://tkemlups.ca/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "Kamloops 原住民政府地点链接",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/places.json"
+  },
+  {
+   "id": "kamloops-emergency-alerts",
+   "level": "municipal:kamloops",
+   "name": "City of Kamloops – Emergency alert notifications",
+   "url": "https://www.kamloops.ca/public-safety/emergency-preparedness/emergency-alerts-orders/emergency-alert-notifications",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.seasons 山火季的“紧急警报”链接（Voyent Alert!）",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kamloops/data.js"
+  },
+  {
+   "id": "kamloops-facility-pages",
+   "level": "municipal:kamloops",
+   "name": "City of Kamloops – Recreation and park facility pages",
+   "url": "https://www.kamloops.ca/recreation-culture/aquatics/pool-facilities",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "市立泳池、公园、遛狗区、遗产建筑的网址与电话",
+   "importer": null,
+   "usedBy": [
+    "kamloops"
+   ],
+   "gotchas": "Kamloops 的市政府开放数据（OGL-Kamloops）没有用——许可需要本人点击接受，一直未接受（见 notes）。",
+   "evidence": "cities/kamloops/places.json"
+  },
+  {
+   "id": "bc-transit-gtfs",
+   "level": "operator:bc-transit",
+   "name": "BC Transit static GTFS feed",
+   "url": "https://bct.tmix.se/Tmix.Cap.TdExport.WebApi/gtfs/?operatorIds=47",
+   "licence": "BC Transit Open Data Terms of Use",
+   "kind": "open-data",
+   "fields": "routes/trips/stop_times/stops/shapes/calendar/calendar_dates/feed_info → BR（线路、站点、走向、首末班）、换乘站地点、BUS_SOURCE；Kelowna 29 条线路 955 站，Kamloops 14 条 475 站",
+   "importer": "scripts/importers/gtfs_routes.py",
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "operatorIds=47 是 Kelowna；Kamloops 是 operatorIds=46（只在 p11_patch 的说明里，仓库没有完整 URL）。取某一天的加班车会弄错末班（Kamloops 13 路跨年夜 01:43，实际 20:46）→ 用“第一个普通的星期三”并剔除假日；校车专线不收（Kamloops 70–81、Kelowna 88）；换乘站各站台取平均点；feed 有有效期（Kelowna 2026-10-01 至 2026-12-19），出新版要重跑并改 BUS_SOURCE.edition；2026 年 10–12 月周日没有公交停靠 YLW 航站楼——只有原始数据里看得到。条款页 https://www.bctransit.com/open-data/terms-of-use/ 要求注明来源；另有实时警报 bct.tmix.se/gtfs-realtime/alerts.pb?operatorIds=47（未用）。",
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  },
+  {
+   "id": "bc-transit-city-sites",
+   "level": "operator:bc-transit",
+   "name": "BC Transit city pages (schedules, maps, fares)",
+   "url": "https://www.bctransit.com/kelowna/",
+   "licence": "none (reference only)",
+   "kind": "official-page",
+   "fields": "CITY.transit.url（Kamloops 是 https://www.bctransit.com/kamloops/home）；票价页、乘车指南 PDF、线路概览（复核用）",
+   "importer": null,
+   "usedBy": [
+    "kamloops",
+    "kelowna"
+   ],
+   "gotchas": "票价写在 busFareText 里会过时；乘车指南 PDF 按季更新（kel_rg_sept2026.pdf）。",
+   "evidence": "cities/kelowna/data.js"
+  },
+  {
+   "id": "bc-transit-open-data",
+   "level": "operator:bc-transit",
+   "name": "BC Transit – Open Data",
+   "url": "https://www.bctransit.com/open-data/",
+   "licence": "BC Transit Open Data Terms of Use",
+   "kind": "official-page",
+   "fields": "GTFS 下载入口与条款",
+   "importer": null,
+   "usedBy": [
+    "kelowna"
+   ],
+   "gotchas": null,
+   "evidence": "cities/kelowna/import/research/2026-10-03-profile-place-culture.json"
+  }
+ ]
+}

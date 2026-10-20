@@ -1,0 +1,48 @@
+{
+ "_comment": "Category tiers shared by the review and import scripts (not part of the page). 2026-10-04: these lists used to be written separately in review_checklist.py, verify_sheet.py and research_merge.py, and 'the reference city's categories' was the only coverage standard, so every new city had to re-justify skipping the same commercial categories. See docs/guides/新城市扩展方法论与标准.md §8.",
+ "safety": [
+  "hospital",
+  "pharmacy",
+  "support",
+  "gov",
+  "foodbank",
+  "legal",
+  "police",
+  "dental"
+ ],
+ "_safety": "Safety-critical: verified first, phone-checked before launch, never shown as an approximate position. Order = review order.",
+ "ownPin": [
+  "hospital",
+  "pharmacy",
+  "dental",
+  "support",
+  "foodbank",
+  "legal",
+  "police"
+ ],
+ "_ownPin": "research_merge.py never folds these into another record at the same address (a shelter is never a footnote). Same as safety minus gov — the original rule; the reason for leaving gov out was not recorded, confirm before changing.",
+ "commercialOptional": [
+  "restaurant",
+  "cafe",
+  "gas",
+  "conv",
+  "barber",
+  "hardware",
+  "usedcar",
+  "autorepair",
+  "tutor"
+ ],
+ "_commercialOptional": "Commercial places any map app lists, that change often and that no official source vouches for. A new city may leave them out without explaining (Kelowna did, with these reasons: import/config.json categoriesNotCollected).",
+ "noOfficialHours": [
+  "park",
+  "trail",
+  "beach",
+  "dogpark",
+  "splash",
+  "daycare",
+  "elem",
+  "school",
+  "transit"
+ ],
+ "_noOfficialHours": "Left out of the 'share with opening hours' comparison: open-air places (CITY.openAir) have none, the government datasets for child care and schools carry none, and a bus exchange has service times, not opening hours (added 2026-10-05)."
+}

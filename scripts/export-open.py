@@ -39,14 +39,13 @@ OPEN_KINDS = {'official', 'own'}
 
 
 def load_places(city):
-    if city != 'kamloops':
-        sys.exit('只有 kamloops 一座城市的数据；收到 --city %s' % city)
+    kamdata.use(city)            # 2026-10-03: any city under cities/
     return kamdata.load('P')
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--city', default='kamloops')
+    ap.add_argument('--city', default=kamdata.CITY)
     ap.add_argument('--csv', action='store_true', help='also write a CSV')
     ap.add_argument('--all', action='store_true',
                     help='export every record with its src, not just the open subset')
@@ -62,7 +61,8 @@ def main():
 
     picked = places if a.all else [p for p in places if p.get('src') in OPEN_KINDS]
 
-    stem = os.path.join(HERE, 'build', 'all-records' if a.all else 'open-subset')
+    stem = os.path.join(HERE, 'build', ('all-records' if a.all else 'open-subset')
+                        + ('' if a.city == 'kamloops' else '-' + a.city))
     os.makedirs(os.path.dirname(stem), exist_ok=True)   # build/ 被 gitignore，全新 clone 上没有
     with open(stem + '.json', 'w', encoding='utf-8') as f:
         json.dump({'city': a.city,
@@ -121,9 +121,10 @@ def main():
                 bucketed['90\u2013180d'].append((p, age, age_str))
             else:
                 bucketed['<90d'].append((p, age, age_str))
-        out_dir = os.path.join(HERE, 'data')
+        out_dir = os.path.join(HERE, 'records')
         os.makedirs(out_dir, exist_ok=True)
-        out_name = 'stale-POIs-%s.md' % today.strftime('%Y-%m')
+        out_name = 'stale-POIs-%s%s.md' % ('' if a.city == 'kamloops' else a.city + '-',
+                                           today.strftime('%Y-%m'))
         out_path = os.path.join(out_dir, out_name)
         with open(out_path, 'w', encoding='utf-8') as f:
             f.write('# Stale-POI report (%s)\n\n' % today.isoformat())

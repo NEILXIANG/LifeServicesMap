@@ -1,0 +1,14 @@
+{
+  "name": "lifeguide",
+  "private": true,
+  "description": "Life Guide — one engine, one data set per city. Node is only used for deployment (wrangler).",
+  "scripts": {
+    "build": "python3 build.py",
+    "validate": "python3 scripts/validate.py",
+    "deploy": "./deploy.sh",
+    "verify": "./deploy.sh --verify-only"
+  },
+  "devDependencies": {
+    "wrangler": "4.129.0"
+  }
+}

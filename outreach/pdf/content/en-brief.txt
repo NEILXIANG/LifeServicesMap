@@ -1,0 +1,47 @@
+@meta
+density: tight
+lang: en
+out: Kamloops-Life-Guide-Introduction-Brief-EN
+title: Kamloops Life Guide
+eyebrow: Introduction · At a glance
+lead: A free, six-language guide for anyone settling into Kamloops — the kind of steady, patient answer you would want from a friend who already knows how things work here. Built for newcomers, and for the staff, volunteers and neighbours who help them.
+meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared {PREPARED}
+foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a personal, non-commercial reference · not an official source
+
+@stats
+{TASKS} | step-by-step task cards
+{PLACES} | places on a map, each showing its source
+6 | languages: <<EN · FR · ES · 中文 · 한국어 · 日本語>>
+$0 | no sign-up, no ads, no personal data
+
+@cards
+Six languages, one source | Every card, note and label exists in all six languages as part of the page itself — not a browser translate widget bolted on top. Complete on every screen, not just the home page.
+Free, and stays that way | No account, no ads, no personal data about you. Whoever uses it takes on no cost, no contract, no data.
+Honest about what it is | A personal reference, not an official source — every fact links to where it was checked, and the date.
+Nothing to sign | Free to use and to print, no account, no contract, and nothing to host on your side.
+
+@h2 What it is
+@phone img_7ba06bdea1.png | A task card, on a phone.
+@p A single web page that works on any phone or computer. It answers the questions a newcomer asks in their first year — a health card, a SIN, a BC licence, a bank account, a school place, a tax return, a doctor without a family doctor, a withheld deposit, a month when money runs out — as short cards: the steps, what to bring, the office to go to (with hours and a map pin), the cost, the wait, the deadline, and the sentence to say at the counter. Behind the cards sits a map of {PLACES} places across every Kamloops neighbourhood — government offices, clinics, schools, libraries, groceries, transit, food banks, legal aid — each one carrying its own verification date and source.
+@clear
+
+@h2 How it can be used
+@marks
+**Front counters and phones.** Anyone helping newcomers — a City office, a settlement agency, a library, a church, a neighbour — can hand over a link, a printed card, or a QR flyer instead of explaining the same five steps again in a language they may not share.
+**Six languages, one source.** Every card, note and label exists in English, French, Spanish, Chinese, Korean and Japanese, built into the page rather than produced by a browser translate widget. The translations were drafted with AI assistance; if any wording reads wrong to a native speaker, one email fixes it within five working days.
+**Nothing to procure, host or sign.** It is free to use and to print, needs no account, stores no personal information, and runs on its own infrastructure. Whoever uses it takes on no data, no contract and no cost.
+**Honest about what it is.** It calls itself a personal reference, not an official source; every card links to the official page it was checked against and shows the date; corrections are made within five working days.
+
+@h2 How to try it in two minutes
+@qr img_77a170d641.png | Scan to open the guide.
+@steps
+Open [{URL}]({URL}) on a phone, or scan the code alongside — no app to install, nothing to sign in to. Choose a language at the top.
+Tap "How do I…?" and open Apply for MSP. Read it as a resident would, then tap Print this card.
+Back on the map, tap Open now, then Bus Routes and pick a route — every stop is named.
+
+@p **Ask.** If your organisation would like printed flyers for a counter, a version scoped to your own services, or a walkthrough for staff, write to [{EMAIL}](mailto:{EMAIL}). There is no charge — helping this reach one more household is the point.
+
+@note Short on time? This page is the whole pitch. For the full feature-by-feature walkthrough, see the companion User Guide — quickstart (two pages) or complete.
+
+@legal
+Kamloops Life Guide is a personal, non-commercial project by Neil Xiang. It is not published by, affiliated with, or endorsed by the City of Kamloops, the Province of British Columbia, the Government of Canada, or any organisation listed in it. Corrections and questions: {EMAIL}.

@@ -7,7 +7,7 @@ export-events.py — 把最近 N 天的埋点原始数据导出成一个 JSON �
     python3 scripts/analytics/export-events.py --days 7
     python3 scripts/analytics/export-events.py --all      # 连维护者流量（?debug=1、部署冒烟）一起导出
 
-输出：data/exports/events-<天数>d-<日期>.json（data/exports/ 已在 .gitignore 里，不会进仓库）
+输出：records/exports/events-<天数>d-<日期>.json（records/exports/ 已在 .gitignore 里，不会进仓库）
 
 token 的读取方式与 query-events.py 完全相同（环境变量 CF_API_TOKEN 或 ~/.cf_token），
 本脚本不打印、不保存 token。导出文件里只有埋点本身：匿名会话 id、事件类型、
@@ -32,7 +32,7 @@ PAGE = 5000   # rows per request; pages walk back by timestamp so nothing is dro
 
 
 def main():
-    args = sys.argv[1:]
+    args = qe.take_city_arg(sys.argv[1:])
     days = 5
     if "--days" in args:
         days = int(args[args.index("--days") + 1])
@@ -62,7 +62,7 @@ def main():
         time.sleep(0.3)
 
     rows.sort(key=lambda r: r["timestamp"])
-    out_dir = os.path.join(ROOT, "data", "exports")
+    out_dir = os.path.join(ROOT, "records", "exports")
     os.makedirs(out_dir, exist_ok=True)
     out = os.path.join(out_dir, "events-%dd-%s.json" % (days, datetime.now().strftime("%Y%m%d-%H%M")))
     with open(out, "w", encoding="utf-8") as f:

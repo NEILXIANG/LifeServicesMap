@@ -11,7 +11,9 @@
 #   跑线上探针（首页 + /api/event + 敏感文件全 404）
 #
 # 用法：
-#   ./deploy.sh                    # 重建 + 部署 + 验证（推荐）
+#   ./deploy.sh                    # 重建 + 部署 + 验证（推荐），默认城市 kamloops
+#   ./deploy.sh --city kelowna     # 部署另一座城市（设置在 cities/<city>/city.json 的 deploy 段）
+#   ./deploy.sh --city X --dry-run # 只打印这座城市会用到的设置，不构建、不部署
 #   ./deploy.sh --no-build         # 跳过构建，仅部署当前 public/index.html
 #   ./deploy.sh --verify-only      # 仅跑线上验证脚本（不动本地）
 #   ./deploy.sh --login            # 仅做 wrangler login（首次部署前必跑）
@@ -28,11 +30,9 @@ trap 'rm -f "$IDX_TMP"' EXIT
 
 # ---- 路径与常量 -----------------------------------------------------------
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
-INDEX_FILE="${PROJECT_ROOT}/public/index.html"
 BUILD_SCRIPT="${PROJECT_ROOT}/build.py"
 WRANGLER_TOML="${PROJECT_ROOT}/wrangler.toml"
 WORKER_FILE="${PROJECT_ROOT}/worker.js"
-DEPLOY_URL="https://kamloops-lifemap.neilxiang.workers.dev"
 
 # ---- 颜色（终端醒目）------------------------------------------------------
 RED='\033[0;31m'; GRN='\033[0;32m'; YEL='\033[1;33m'; CYAN='\033[0;36m'; NC='\033[0m'
@@ -44,11 +44,15 @@ fail()  { printf "${RED}✗ %s${NC}\n" "$*" >&2; exit 1; }
 
 # ---- 参数解析 --------------------------------------------------------------
 NO_BUILD=0
+CITY=kamloops
+DRY_RUN=0
 VERIFY_ONLY=0
 LOGIN_ONLY=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --no-build)     NO_BUILD=1; shift ;;
+    --city)         CITY="${2:-}"; shift 2 ;;
+    --dry-run)      DRY_RUN=1; shift ;;
     --verify-only)  VERIFY_ONLY=1; shift ;;
     --login)        LOGIN_ONLY=1; shift ;;
     -h|--help)
@@ -58,6 +62,44 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+# ---- 城市设置（2026-10-03 阶段 4）---------------------------------------------
+# 每座城市一个 Worker（决策 D1）。网址、Worker 名、wrangler 环境、部署目录都从
+# cities/<city>/city.json 读，脚本里不写死任何城市——将来换成一站多路径或自有域名，
+# 改配置即可。Kamloops 用 wrangler.toml 顶层配置，网址永久不变。
+CITY_JSON="${PROJECT_ROOT}/cities/${CITY}/city.json"
+[[ -f "$CITY_JSON" ]] || fail "没有这座城市：${CITY_JSON} 不存在"
+read_city() { python3 -c 'import json,sys;d=json.load(open(sys.argv[1]));v=d
+for k in sys.argv[2].split("."): v=v.get(k,"") if isinstance(v,dict) else ""
+print(v)' "$CITY_JSON" "$1"; }
+SITE_URL="$(read_city siteUrl)"
+DEPLOY_URL="${SITE_URL%/}"
+ASSETS_DIR="$(read_city deploy.assetsDir)"
+WRANGLER_ENV="$(read_city deploy.wranglerEnv)"
+WORKER_NAME="$(read_city deploy.worker)"
+[[ -n "$DEPLOY_URL" && -n "$ASSETS_DIR" && -n "$WORKER_NAME" ]] || fail "${CITY_JSON} 缺 siteUrl 或 deploy.assetsDir / deploy.worker"
+INDEX_FILE="${PROJECT_ROOT}/${ASSETS_DIR}/index.html"
+if [[ "$(read_city status)" == "draft" ]]; then
+  fail "${CITY} 还是草稿（city.json \"status\": \"draft\"）——审核完成、去掉 draft 后才能部署"
+fi
+ENV_ARGS=()
+if [[ -n "$WRANGLER_ENV" ]]; then
+  grep -q "^\[env\.${WRANGLER_ENV}\]" "${PROJECT_ROOT}/wrangler.toml" \
+    || fail "wrangler.toml 里没有 [env.${WRANGLER_ENV}]（${CITY} 的 Worker 配置）"
+  ENV_ARGS=(--env "$WRANGLER_ENV")
+fi
+
+if [[ -z "$WRANGLER_ENV" ]] && ! grep -q "^directory = \"./${ASSETS_DIR}\"" "${PROJECT_ROOT}/wrangler.toml"; then
+  fail "wrangler.toml 顶层 [assets] directory 不是 ./${ASSETS_DIR}（${CITY} 的 deploy.assetsDir）"
+fi
+if [[ $DRY_RUN -eq 1 ]]; then
+  echo "城市        ${CITY}"
+  echo "网址        ${DEPLOY_URL}"
+  echo "Worker      ${WORKER_NAME}"
+  echo "wrangler    ${WRANGLER_ENV:-（顶层配置）}"
+  echo "部署目录    ${ASSETS_DIR}/"
+  exit 0
+fi
+
 # ---- 跨平台毫秒时间戳 ------------------------------------------------------
 # macOS ships BSD date, which has no %3N (that is a GNU extension). Building
 # the timestamp with python3 keeps the probe payload valid JSON everywhere —
@@ -66,23 +108,20 @@ done
 now_ms() {
   python3 -c 'import time;print(int(time.time()*1000))'
 }
-# Wrangler lives in the managed Node workspace so it never pollutes the global
-# node_modules and never has to be re-downloaded. If it is missing (first run
-# after a fresh clone) we fall back to `npx -y wrangler`, which downloads it
-# into the npm cache transparently.
-WRANGLER_BIN="/Users/neilxiang/.workbuddy/binaries/node/workspace/node_modules/.bin/wrangler"
-if [[ -x "$WRANGLER_BIN" ]]; then
-  WRANGLER_CMD() { "$WRANGLER_BIN" "$@"; }
+# Wrangler 版本锁在 package.json 里（2026-10-03 起），`npm install` 装到本项目的
+# node_modules/。查找顺序：项目内 → PATH 上的 wrangler → npx 临时下载。
+# 不再写死任何本机路径，换电脑、换人都能直接跑。
+LOCAL_WRANGLER="${PROJECT_ROOT}/node_modules/.bin/wrangler"
+if [[ -x "$LOCAL_WRANGLER" ]]; then
+  WRANGLER_CMD() { "$LOCAL_WRANGLER" "$@"; }
+elif command -v wrangler >/dev/null 2>&1; then
+  warn "项目内没有 wrangler（先跑 npm install），改用 PATH 上的 $(command -v wrangler)"
+  WRANGLER_CMD() { wrangler "$@"; }
+elif command -v npx >/dev/null 2>&1; then
+  warn "项目内没有 wrangler（先跑 npm install），将通过 npx 下载（约 30s）"
+  WRANGLER_CMD() { npx -y wrangler "$@"; }
 else
-  warn "本地 wrangler 不在 ${WRANGLER_BIN}，将通过 npx 下载（约 30s）"
-  # npx 也按「先用固定路径、找不到就走 PATH」来解析：Node 升级或换机器后
-  # 版本号目录会变，写死路径会让兜底本身失效。
-  NPX_BIN="/Users/neilxiang/.workbuddy/binaries/node/versions/22.22.2-2/bin/npx"
-  [[ -x "$NPX_BIN" ]] || NPX_BIN="$(command -v npx || true)"
-  if [[ -z "$NPX_BIN" ]]; then
-    fail "既找不到 wrangler，也找不到 npx；请先装 Node，或把 wrangler 放回 ${WRANGLER_BIN}"
-  fi
-  WRANGLER_CMD() { "$NPX_BIN" -y wrangler "$@"; }
+  fail "找不到 wrangler 也找不到 npx；请先装 Node，然后在项目目录跑 npm install"
 fi
 
 # ---- verify-only / login-only 快捷路径 -------------------------------------
@@ -125,8 +164,8 @@ if [[ $VERIFY_ONLY -eq 1 ]]; then
   fi
   # 4. 敏感路径应全 404
   PATHS=(
-    "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
+    "data/business-hypothesis.md" "records/business-hypothesis.md" ".git/HEAD" ".git/config"
+    ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "cities/${CITY}/places.json" "scripts/validate.py"
     "package-lock.json" "README.md" "wrangler.toml" "worker.js"
   )
   FAIL=0
@@ -159,9 +198,9 @@ fi
 
 # ---- 步骤 1：构建 ---------------------------------------------------------
 if [[ $NO_BUILD -eq 0 ]]; then
-  say "[1/5] 运行 build.py 重建 public/index.html"
+  say "[1/5] 运行 build.py 重建 ${ASSETS_DIR}/（城市 ${CITY}）"
   if [[ ! -f "$BUILD_SCRIPT" ]]; then fail "找不到 ${BUILD_SCRIPT}"; fi
-  python3 "$BUILD_SCRIPT" --city kamloops --out "$INDEX_FILE"
+  python3 "$BUILD_SCRIPT" --city "$CITY"
   ok "构建完成"
 else
   say "[1/5] 跳过构建（--no-build），使用现有 ${INDEX_FILE}"
@@ -180,7 +219,8 @@ VALIDATE_PY="${PROJECT_ROOT}/scripts/validate.py"
 if [[ ! -f "$VALIDATE_PY" ]]; then
   fail "找不到 ${VALIDATE_PY} — 这道闸门不能跳过"
 fi
-if ! python3 "$VALIDATE_PY" "$INDEX_FILE"; then
+# --city (2026-10-04): without it validate.py read Kamloops' city.json (minPlaces, status…) for any city
+if ! python3 "$VALIDATE_PY" --city "$CITY" "$INDEX_FILE"; then
   fail "validate.py 未通过，已中止部署（要临时跳过：VALIDATE_SKIP=1 ./deploy.sh，仅限你清楚后果时）"
 fi
 ok "校验通过"
@@ -210,7 +250,7 @@ if curl -s -o "$LIVE_TMP" -w '' "${DEPLOY_URL}/" 2>/dev/null && [[ -s "$LIVE_TMP
   LOCAL_MD5=$({ md5 -q "$INDEX_FILE" 2>/dev/null || md5sum "$INDEX_FILE" | cut -d" " -f1; })
   rm -f "$LIVE_TMP"
   if [[ "$LIVE_MD5" != "$LOCAL_MD5" && -n "$LIVE_VER" && "$LIVE_VER" == "$LOCAL_VER" ]]; then
-    fail "页面内容变了，但版本号仍是 ${LOCAL_VER}（和线上相同）— 先改 src/engine.html 里的 DATA_VERSION"
+    fail "页面内容变了，但版本号仍是 ${LOCAL_VER}（和线上相同）— 先改 app/engine/js/20-versions-templates-tasks.js 里的 DATA_VERSION"
   fi
   ok "线上    ${LIVE_VER:-未知}  →  本次 ${LOCAL_VER}"
 else
@@ -239,7 +279,7 @@ say "[4/5] wrangler deploy（Worker + Assets + Analytics Engine binding 一起�
 # wall of red API stack trace, so catch it and print the fix instead.
 DEPLOY_LOG=$(mktemp)
 set +e
-WRANGLER_CMD deploy 2>&1 | tee "$DEPLOY_LOG"
+WRANGLER_CMD deploy "${ENV_ARGS[@]+"${ENV_ARGS[@]}"}" 2>&1 | tee "$DEPLOY_LOG"
 DEPLOY_RC=${PIPESTATUS[0]}
 set -e
 if [[ $DEPLOY_RC -ne 0 ]]; then
@@ -303,8 +343,8 @@ BAD_CODE=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: appl
 
 # 敏感路径全 404
 PATHS=(
-  "data/business-hypothesis.md" ".git/HEAD" ".git/config"
-  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "scripts/validate.py"
+  "data/business-hypothesis.md" "records/business-hypothesis.md" ".git/HEAD" ".git/config"
+  ".workbuddy/memory/2026-09-04.md" "src/engine.html" "app/engine/parts.txt" "cities/${CITY}/places.json" "scripts/validate.py"
   "package-lock.json" "README.md" "wrangler.toml" "worker.js"
 )
 LEAKED=0

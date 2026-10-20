@@ -1,0 +1,133 @@
+@meta
+lang: en
+out: Kamloops-Life-Guide-User-Guide-Complete-EN
+title: Kamloops Life Guide — features and how to use them
+eyebrow: User guide · Complete
+lead: Every screen, control and behaviour of the guide, written for residents, front-line staff and volunteers. Screenshots are from version {VERSION}.
+meta: Website: {URL}  ·  Version {VERSION}  ·  Places last checked {VERIFIED}  ·  Prepared {PREPARED}
+foot: Kamloops Life Guide · kamloops-lifemap.neilxiang.workers.dev · a personal, non-commercial reference · not an official source
+
+@stats
+{TASKS} | task cards, in three groups
+{PLACES} | places on the map, each showing its source and when it was checked
+6 | languages, complete throughout
+$0 | free, no ads, no sign-up
+
+@h2 1. Opening the guide
+@qr img_77a170d641.png | Scan to open.
+@kv
+Address | [{URL}]({URL}) — any browser on any phone, tablet or computer. QR codes on the printed flyers open the same page.
+Language | Six buttons at the top right on a computer or tablet. On a phone, to keep the header uncluttered, they collapse into one button — a globe icon and the current language — that opens a list of full names. The page follows a link's language first, then the language you chose last time on that device, then the phone's own language, then English. Everything changes at once: cards, map labels, place notes, buttons.
+Install | Browser menu → Add to Home Screen (iPhone: Share → Add to Home Screen). The guide then opens full-screen and keeps working with no signal: the whole guide, all places, search and filters are stored on the device after the first visit. Only the map background and live directions need a connection.
+First visit | A small card on the map explains the three things the page does and says plainly: free, no sign-up, no personal data. Tap ✕ once; it does not come back on that device.
+Cost | Nothing, for anyone, ever. No ads.
+
+@figure img_001d82a7d7.png | Desktop: language (top right), search, the four filter buttons, Quick Picks, and the map. The blue "How do I…?" opens the guide.
+
+@h2 2. The guide: {TASKS} task cards
+@h3 2.1 Finding a card
+@p Tap **How do I…?** (header, or first chip in Quick Picks). The list is grouped into Just arrived — do these first, Once you are settled, and When you need help; each card shows the resident's question, not the program's name. The search box above the list matches your own words in your language and in English — "health card", "MSP", "医保", "운전면허", "école" all work — and understands common aliases. Press Escape or ✕ to clear it.
+
+@h3 2.2 Reading a card
+@phone img_629bf48ddf.png | A task card on desktop. "Open on the map" closes the guide and opens that office's pin.
+@p A card always has the same rows, in the same order, so a second card reads faster than the first:
+@marks
+**Why** — one sentence on what happens if you skip it.
+**What to do** — numbered steps, in the order they must happen.
+**What to bring** — documents, exactly as the office names them.
+**Where to go** — the office: name, address, phone (tap to call), hours, and Open on the map.
+**Cost · How long · Deadline** — with the deadline computed from your arrival date when you have entered one.
+**What to say when you get there** — an English sentence you can read out, with its meaning in your language.
+**Worth knowing** — the trap people fall into.
+**If you get stuck** — the settlement agency line (free, interpreters) and 2-1-1.
+**Official page** — the source it was checked against, and the date.
+@clear
+
+@h3 2.3 The tools at the foot of a card
+@table
+Button | What it does
+Mark this done | Ticks the card — each step inside a card can be ticked on its own too, and ticking every step ticks the whole card automatically. The list shows "3 of {TASKS} done", and once you have started, the landing page shows a small "This week" strip with whatever is next and its countdown. Stored only on this device; tap again to untick.
+Share | Opens the phone's share sheet (or copies a link) pointing at this exact card, in this language — for example ?lang=zh&task=msp . The person who opens it lands on the card, not the home page.
+Print this card | Prints just the card on one page (or "Save as PDF" from the print dialog): steps, documents, office, hours, the sentence to say. Buttons and the map are left out.
+Add to calendar | Shown on cards with a deadline once an arrival date is set. Downloads a calendar event with a reminder seven days before, carrying a link back to the card.
+← All tasks / Back | Returns to the list. The phone's Back button does the same; one more Back closes the guide.
+
+@h3 2.4 Arrival date and deadlines
+@p At the top of the list, **Arrival date** takes the day you landed in BC. Two cards then show a real date and a countdown: the BC licence (90 days) and the first tax return (April 30 of the following year). Deadlines that run from something other than your arrival — a human-rights complaint runs from the incident — are deliberately not calculated; those cards say where to ask. The date is stored only in this browser and can be cleared with one tap.
+
+@h2 3. The map
+@h3 3.1 Search
+@p The search box narrows the map within the filters already on. It matches names, categories, areas and the notes, in your language and English, and understands several words at once ("pharmacy north shore"). With two or more results the map fits them; with exactly one it opens that place. If nothing matches, the empty state suggests the nearest thing — including handing you to the right task card when the question is a "how do I" rather than a "where is".
+
+@h3 3.2 Quick Picks
+@p One row of chips for the common starting points. Their order changes with the moment: after 17:00 and on Sundays Open now comes first; on weekends Kids & Family moves up; from November to March Indoor / Winter appears; someone arriving from a flyer sees Just moved first. Share your location once and a 15-min walk chip appears right after the guide, built from wherever you are standing. **More ›** opens the Category sheet, whose top block holds seven one-tap sets: Kids' Places, Education, Health, Sports & Fitness, Outdoors, Shopping, Transport.
+
+@h3 3.3 The four filters
+@table
+Button | What it does
+Area | {AREAS} areas of the city, each named with a compass cue ("North Shore — across the river from Downtown"). Choose one or several; the map outlines the chosen area and zooms to it. Hovering a button on desktop previews its outline.
+Category | {CATS} categories in collapsible groups; a box before each group selects all of it. Every count next to a category is the number you would actually get given the other filters, the search and "open now". The list doubles as the map legend — colours and icons match the pins. Themes at the top (Free & Low-cost, Kids & Family, Indoor / Winter, Multicultural, Student Life…) stack with categories using "and".
+Bus Routes | {ROUTES} BC Transit routes. Pick one: it is drawn on the map, every stop is named, other pins step back to grey dots, and a chip at the top of the map shows the route with a ✕. Type a stop or a destination to find the routes that serve it. Fares and the live-schedule link are in the panel.
+Favourites | Places you starred. They live only in this browser; **Copy Code** turns them into a short text you can keep or paste into another device with **Import Code**. A starred place hidden by the current filter still opens from this list.
+@p Active filters appear as chips under the row, each with its own ✕; **Clear all** and **Reset** remove everything and offer Undo for five seconds. The count line always states how many places are on the map and in which areas.
+
+@figure img_ea9c484dab.png | The Category sheet: one-tap sets, themes, then the grouped category list with live counts.
+
+@h3 3.4 A place card
+@phone img_54fd848e47.png | A place card on a phone.
+@p Tap any pin (or a number bubble to zoom into it). The card shows the name and category, an editor's ⭐ pick where applicable, address, phone (tap to call), website, opening hours with ● Open now · until 4:30 PM or Closed · opens Mon 9:00 computed for Kamloops time, a note in your language (what to expect, who it is for, what to bring), theme tags, and two buttons: **Directions** (opens the phone's map app with the street address) and the **☆** star. Once you have shared your location, the card also adds how far it is ("110 m from you · about 1 min on foot") and, where one is close by, the nearest bus stop and its routes. When a place is one of the offices a task card sends you to, the card also offers **How to →** straight into that task.
+@p Two honesty markers: "hours unknown" is shown when hours cannot be established (never a guessed "open"), and "approximate location" when the exact building could not be confirmed — Directions then uses the address, which is reliable.
+@clear
+
+@h3 3.5 Bus routes
+@figure img_7d7ec04d6d.png | Route 1 selected: the line, named stops, and the route chip with ✕. Other places fade to grey dots until the route is closed.
+
+@h3 3.6 Near me, share, feedback
+@marks
+**Near me** (bottom right of the map) asks the phone for its location once, shows it as a pulsing dot and nothing is stored. The first tap explains this before asking.
+**Share** (header) copies or shares a link that reproduces the current screen — language, areas, categories, themes, open-now, search, route — so a colleague opens exactly the same view. The panel offers WhatsApp, Facebook, X, Telegram, LINE, email and Messages, plus "Share via your device".
+**WeChat and KakaoTalk** publish no share-a-link endpoint, so they have no buttons. On a phone, "Share via your device" reaches them through the system sheet; on a computer, copy the link and paste it in.
+**Feedback** (header) opens an email to the maintainer. Inside WeChat and similar apps, which cannot open email, the address is copied instead and a message says so.
+**See what's recorded** (footer) opens the full statement: sources, verification dates, the privacy position and the licence.
+
+@h3 3.7 How far to trust what it says
+@p This is the question front-line staff get asked most. Every place carries a **source tag** (the organisation's own site, government open data, or "listed" for the few places that rest on third-party map data; a place someone has phoned or visited says so) and **its own verification date**, both visible on the card; a ⭐ marks an editor's pick, not a paid placement — nothing here is paid for. The whole dataset was last reviewed on {VERIFIED}, and the version number {VERSION} is printed on this document and in the page footer. If any entry is wrong, write to [{EMAIL}](mailto:{EMAIL}) and it is corrected **within five working days**, in all six languages at once.
+
+@h2 4. Phone, tablet and computer
+@p On a phone the guide, the filters and the share dialog rise from the bottom as sheets: swipe down, tap outside, tap ✕ or press Back to close; the phone's Back button always closes the top layer first and never leaves the page by surprise. On a tablet held upright the same sheets appear; held sideways, and on a computer, they become side panels and dialogs so the map stays visible while filtering. Everything works with a keyboard alone (Tab, Enter, Escape) and with a screen reader; touch targets are 44 px; reduced-motion settings are respected.
+
+@h2 5. Offline, privacy and safety
+@marks
+**Offline.** After one visit the page, all {PLACES} places and the {TASKS} cards are stored on the device. Without a connection the map background does not load — a notice says so — but search, filters, cards and the phone numbers all work.
+**Privacy.** No account, no sign-up, no personal information, no location stored. Favourites, ticked cards, arrival date and language live only in the browser; "Copy code" exports favourites as text you control. To learn which features actually help, the page sends anonymous usage data: which places were opened, which features were used, the words typed into the search box (digits stripped and truncated before sending), the domain of the site that referred you, whether the screen is a phone, tablet or computer, and whether it has been installed to the home screen. It carries a random identifier that is replaced every 90 days, sets no cookie, stores no IP address on the server, and cannot be tied back to a person.
+**Emergency lines.** 911, 310-6789 (mental health), 1-800-784-2433 and 9-8-8 (suicide crisis), 811 (HealthLink BC, interpreters), VictimLinkBC 1-800-563-0808 and the KUU-US Indigenous crisis line 1-800-588-8717 are behind the **📞 Help now** button at the top of every screen, come first when someone searches a crisis word in any of the six languages, and sit inside the "When you need help" cards. 211 (services) is listed with its hours — it is not a 24-hour line.
+**Not advice.** The page tells you where to go and whom to ask; it is not legal, medical, immigration or tax advice, and it says so.
+
+@h2 6. For staff: printing and sharing
+@marks
+**Flyers.** Letter and A4 flyers with a QR code, designed to print well in black and white, are available on request. Each carries a source tag so the maintainer can see which noticeboard brought people in.
+**A card for the counter.** Open the card in the resident's language → **Print this card**. One page, no clutter.
+**A link for a specific need.** Filter the map (for example North Shore + Pharmacy + Open now) → **Share**. Or send one card: {URL}/?lang=ko&task=sin .
+**Corrections.** Email [{EMAIL}](mailto:{EMAIL}) with the place or card and what changed. Fixed within five working days, in all six languages at once.
+
+@h2 7. Quick reference
+@table
+I want to… | Do this
+Change the language | Top right buttons. Remembered on this device.
+Find out how to get a health card | How do I…? → "Apply for MSP" (or type "health card" in either search box).
+See what is open right now | Quick Picks → Open now.
+Find a pharmacy near the North Shore | Search "pharmacy north shore", or Area → North Shore + Category → Pharmacy.
+Know which bus goes to TRU | Bus Routes → type "TRU".
+Get directions | Tap the pin → Directions.
+Save a place | Tap the pin → ☆. Find it again under Favourites.
+Send a colleague exactly this view | Share (header) → copy link.
+Send it on WeChat | Phone: Share → Share via your device → WeChat. Computer: Share → copy link, then paste it into WeChat.
+Print a card for someone | Open the card → Print this card.
+Start over | Reset (next to the count) → Undo if you change your mind.
+Report an error | Feedback (header) → email.
+
+@closing
+One last thing: whoever you are reading this as, the point of all of it is the same — that a hard, confusing week goes a little easier for the person on the other end.
+
+@legal
+Kamloops Life Guide is a personal, non-commercial project by Neil Xiang. It is not published by, affiliated with, or endorsed by the City of Kamloops, the Province of British Columbia, the Government of Canada, or any organisation listed in it. Corrections and questions: {EMAIL}.

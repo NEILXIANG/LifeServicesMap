@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Invariant checker for kamloops.html.
+Invariant checker for a built city page (build/<city>.html; --city <id>, default kamloops).
 
 Run after every batch of edits. Exits non-zero if any invariant is violated.
 Written because the previous round's six regressions were all of the form
@@ -11,23 +11,39 @@ from collections import Counter
 
 # Relative to this file, so it runs from any working directory and on any machine.
 def _project_root(p):
-    """向上找到项目根（放着 src/data-kamloops.js 的那一层），
+    """向上找到项目根（放着 app/engine/parts.txt 的那一层），
     这样脚本放在 scripts/ 或 tests/ 里也能正确定位，不必待在根目录。"""
     import os as _os
     for _ in range(6):
-        if _os.path.exists(_os.path.join(p, 'src', 'data-kamloops.js')):
+        if _os.path.exists(_os.path.join(p, 'app', 'engine', 'parts.txt')):
             return p
         p = _os.path.dirname(p)
-    raise SystemExit('找不到项目根目录（需要 src/data-kamloops.js）')
+    raise SystemExit('找不到项目根目录（需要 app/engine/parts.txt）')
 
 HERE = _project_root(os.path.dirname(os.path.abspath(__file__)))
 
+# 2026-10-03 (multi-city phase 3): --city <id> (or LIFEGUIDE_CITY) picks the city;
+# a positional path still names the built file directly.
+sys.path.insert(0, HERE)
+import kamdata as _kd
+_args = sys.argv[1:]
+if '--city' in _args:
+    _i = _args.index('--city')
+    _kd.use(_args[_i + 1])
+    del _args[_i:_i + 2]
+CITY_ID = _kd.CITY
+CITY_META = _kd.city_meta()
+# 2026-10-03: a city still being compiled is "status": "draft" in city.json. Rules
+# that judge launch readiness (rather than correctness) only warn for a draft;
+# deploy.sh refuses to deploy a draft at all, so nothing half-done reaches readers.
+DRAFT = CITY_META.get('status') == 'draft'
+
 def find_built(here, argv_path=None):
-    """The built file. Named kamloops.html here; readers often rename their copy,
+    """The built file: build/<city>.html; readers often rename their copy,
     so fall back to the only .html sitting next to this script."""
     if argv_path:
         return argv_path
-    default = os.path.join(here, 'build', 'kamloops.html')
+    default = os.path.join(here, 'build', '%s.html' % CITY_ID)
     if os.path.exists(default):
         return default
     found = [f for f in glob.glob(os.path.join(here, '*.html'))
@@ -38,16 +54,16 @@ def find_built(here, argv_path=None):
         sys.exit('no built HTML found next to this script — run build.py first')
     sys.exit('several .html files here; name one: %s <file>' % os.path.basename(__file__))
 
-PATH = find_built(HERE, sys.argv[1] if len(sys.argv) > 1 else None)
+PATH = find_built(HERE, _args[0] if _args else None)
 
-# 2026-09-21：不带参数时校验的是 build/kamloops.html。如果数据源比它新，
+# 2026-09-21：不带参数时校验的是 build/<city>.html。如果数据源比它新，
 # 说明改了数据还没重建——这时"all invariants hold"校验的是上一版，是个假通过。
 # （维护中真的发生过：加了 4 个地点、连续三次显示通过，重建后才报出主题顺序错误。）
-if len(sys.argv) <= 1:
+if not _args:
     _built_t = os.path.getmtime(PATH)
-    for _src in ('src/data-kamloops.js', 'src/engine.html'):
-        _sp = os.path.join(HERE, _src)
-        if os.path.exists(_sp) and os.path.getmtime(_sp) > _built_t + 1:
+    for _src, _t in (('cities/%s/' % CITY_ID, _kd.data_mtime()),
+                     ('app/engine/', _kd.engine_mtime())):
+        if _t > _built_t + 1:
             sys.exit('✗ %s 比构建产物 %s 新——先跑 python3 build.py 再校验，'
                      '否则校验的是旧版本' % (_src, os.path.relpath(PATH, HERE)))
 FAIL = []
@@ -101,14 +117,66 @@ if r.returncode != 0:
 P = extract('P'); CI = extract('CI'); RI = extract('RI'); GN = extract('GN'); UI = extract('UI')
 BR = extract('BR'); CO = extract('CO'); CD = extract('CD'); IC = extract('IC')
 
-if len(P) < 240: fail('P shrank to %d places' % len(P))
+# the city's own settings (CITY in data.js), evaluated once with node
+def _city_obj():
+    m = re.search(r"const CITY=\{.*?\n\};", script, re.S)
+    if not m:
+        return {}
+    r = subprocess.run(['node', '-e', m.group(0) + ';process.stdout.write(JSON.stringify(CITY))'],
+                       capture_output=True, text=True)
+    return json.loads(r.stdout) if r.returncode == 0 else {}
+CITYOBJ = _city_obj()
+
+# 2026-10-04: province-wide settings live once in provinces/<prov>/province.json; every city in that
+# province must match it, so a fix made in one city cannot leave the others behind (holidays, hotlines,
+# 2-1-1 and the winter notice were identical copies in two data.js files with nothing keeping them equal).
+_prov_id = CITY_META.get('province')
+_prov_file = os.path.join(_kd.ROOT, 'provinces', _prov_id or '-', 'province.json')
+if CITYOBJ and _prov_id and os.path.exists(_prov_file):
+    _prov = json.load(open(_prov_file, encoding='utf-8'))
+    def _strip(o):
+        if isinstance(o, dict): return {k: _strip(v) for k, v in o.items() if not k.startswith('_')}
+        if isinstance(o, list): return [_strip(v) for v in o]
+        return o
+    _rel = os.path.relpath(_prov_file, _kd.ROOT)
+    if CITYOBJ.get('holidays') != _prov['holidays']:
+        fail('CITY.holidays differs from %s — regenerate with python3 scripts/holidays.py --apply' % _rel)
+    if CITYOBJ.get('hotlines') != _prov['hotlines']:
+        fail('CITY.hotlines differs from %s — a province-wide line changed in one city only?' % _rel)
+    if (CITYOBJ.get('help') or {}).get('info') != _prov['helpInfo']:
+        fail('CITY.help.info differs from %s helpInfo' % _rel)
+    _seasons = {x.get('id'): x for x in CITYOBJ.get('seasons') or []}
+    for _sid, _ref in _strip(_prov.get('seasons', {})).items():
+        _mine = _seasons.get(_sid)
+        if not _mine:
+            fail('CITY.seasons has no "%s" notice (%s has one for every city in the province)' % (_sid, _rel)); continue
+        for _k, _v in _ref.items():
+            if _k == 'links':
+                _have = [l.get('u') for l in _mine.get('links', [])]
+                _lost = [l['u'] for l in _v if l['u'] not in _have]
+                if _lost: fail('CITY.seasons "%s" is missing the provincial link(s) %s (%s)' % (_sid, _lost, _rel))
+            elif _mine.get(_k) != _v:
+                fail('CITY.seasons "%s".%s differs from %s' % (_sid, _k, _rel))
+
+# scripts/new-city.py marks every value only a person can fill in with "TODO:".
+# A city that still has one is a skeleton, not something to build for readers.
+_todo = [l.strip()[:90] for l in _kd.data_text().splitlines() if 'TODO:' in l]
+if _todo:
+    fail('%d unfinished TODO(s) in cities/%s/ — e.g. %s' % (len(_todo), CITY_ID, _todo[:3]))
+_bounds = CITYOBJ.get('bounds') or [[-90, -180], [90, 180]]
+if not CITYOBJ.get('bounds'): fail('CITY.bounds missing — cannot check coordinates')
+
+# a sudden drop in the place count is almost always a broken edit, not a decision;
+# the floor is per city (city.json "validate": {"minPlaces": N})
+_min_places = CITY_META.get('validate', {}).get('minPlaces', 1)
+if len(P) < _min_places: fail('P shrank to %d places (floor %d, city.json)' % (len(P), _min_places))
 for i, p in enumerate(P):
     for k in ('n', 'c', 'g', 'lat', 'lng', 'a'):
         if k not in p: fail('P[%d] %r missing required field %r' % (i, p.get('n'), k))
     if p['c'] not in CI: fail('P[%d] %r has unknown category %r' % (i, p['n'], p['c']))
     if p['g'] not in RI: fail('P[%d] %r has unknown region %r' % (i, p['n'], p['g']))
-    if not (50.5 < p['lat'] < 50.9 and -120.7 < p['lng'] < -120.0):
-        fail('P[%d] %r coordinates out of Kamloops bounds' % (i, p['n']))
+    if not (_bounds[0][0] < p['lat'] < _bounds[1][0] and _bounds[0][1] < p['lng'] < _bounds[1][1]):
+        fail('P[%d] %r coordinates outside CITY.bounds' % (i, p['n']))
 
 names = [p['n'] for p in P]
 dupes = [n for n, c in Counter(names).items() if c > 1]
@@ -460,7 +528,7 @@ for i, p in enumerate(P):
         else: _theme_n[k] += 1
 _empty = [k for k in TORDER if not _theme_n[k]]
 if _empty:
-    fail('theme(s) with no places at all — a chip that can only ever show (0): %s'
+    (warn if DRAFT else fail)('theme(s) with no places at all — a chip that can only ever show (0): %s'
          % ', '.join(_empty))
 _thin_t = [k for k in TORDER if 0 < _theme_n[k] <= 5]
 if _thin_t:
@@ -522,6 +590,16 @@ for k in CI:
 # every UI key referenced in code must exist in every language
 used = set(re.findall(r'\bu\.([A-Za-z0-9_]+)', script)) | set(re.findall(r'UI\[[^\]]+\]\.([A-Za-z0-9_]+)', script))
 known = base | post['zh']
+# 2026-10-05: the province pack (provinces/<province>/guide/<lang>.html, injected as PROVINCE.guide) defines
+# guideProv at load time; it must exist in all six languages, and the engine itself must not carry it
+_pm = re.search(r'const PROVINCE=(\{.*?\});\n', html)
+_prov_guide = json.loads(_pm.group(1).replace('<\\/', '</'))['guide'] if _pm else {}
+if _prov_guide:
+    known = known | {'guideProv'}
+    _miss = [l for l in ('zh', 'en', 'fr', 'es', 'ko', 'ja') if not (_prov_guide.get(l) or '').strip()]
+    if _miss: fail('province guide chapter missing in %s (provinces/<province>/guide/<lang>.html)' % _miss)
+if re.search(r'UI\.[a-z]{2}\.guideProv\s*=', _kd.engine_text()):
+    fail('the engine defines guideProv — the province chapter belongs in provinces/<province>/guide/')
 # `u` is also used as a local Set/Array in a couple of places
 SHADOW = {'add','delete','has','size','clear','forEach','map','filter','push','join','d'}
 for k in sorted(used - known - SHADOW):
@@ -632,15 +710,41 @@ if _missing:
 # The copy used to say "14 main routes included", which reads as "we picked 14 of
 # more". The operator's own feed has exactly 14 regular routes; 8/11/12/15 do not
 # exist. If BR ever changes size, the sentence has to change with it.
+# 2026-10-03: the engine carries a generic note; a city with routes overrides it in
+# its data.js (which comes later in the page, so the LAST assignment is the one shown)
+# and must state its own route count, keep BUS_SOURCE, and name an example stop.
 _br_n = len(BR)
-for lang in LANGS:
-    m = re.search(r"UI\.%s\.busCoverage='([^']*)'" % lang, html)
-    if not m:
-        fail('%s has no busCoverage line' % lang); continue
-    if str(_br_n) not in m.group(1):
-        fail('%s busCoverage does not state the route count (%d)' % (lang, _br_n))
-if not re.search(r"const BUS_SOURCE=\{", script):
-    fail('BUS_SOURCE provenance block is missing')
+if _br_n:
+    for lang in LANGS:
+        ms = re.findall(r"UI\.%s\.busCoverage='([^']*)'" % lang, html)
+        if len(ms) < 2:
+            fail('%s: the city has %d routes but no busCoverage note of its own in data.js' % (lang, _br_n)); continue
+        if str(_br_n) not in ms[-1]:
+            fail('%s busCoverage does not state the route count (%d)' % (lang, _br_n))
+    if not re.search(r"const BUS_SOURCE=\{", script):
+        fail('BUS_SOURCE provenance block is missing (the city has bus routes)')
+    if not (CITYOBJ.get('examples') or {}).get('stop'):
+        fail('CITY.examples.stop missing — the bus-stop search hint names one')
+    # 2026-10-04: fares are a city fact — the engine's line only says "see the operator's site"
+    for lang in LANGS:
+        if not re.search(r"UI\.%s\.busFareText='" % lang, html):
+            fail('%s: the city has bus routes but no busFareText of its own in data.js (the engine default only points to the operator)' % lang)
+
+# ------------------------------------------------- 9b. city facts the engine used to hold
+# (2026-10-04) Kelowna's draft showed Kamloops' police line, legal aid line and clinic, bus fares,
+# "gathered from Google Places" and — worst — tied the health answer to a Kamloops UPCC id, so in
+# Kelowna it never appeared. All of these now come from the city; these rules keep them there.
+if not CITYOBJ.get('police'):
+    (warn if DRAFT else fail)('CITY.police missing — the footer and Key Numbers name the local police non-emergency line')
+_upcc = CITYOBJ.get('upcc') or []
+_pid = {p.get('id'): p for p in P}
+for _u in _upcc:
+    if _u not in _pid:
+        fail('CITY.upcc lists %r, which is not a place in this city' % _u)
+    elif _pid[_u].get('c') != 'hospital':
+        fail('CITY.upcc %r (%s) is not in the hospital category' % (_u, _pid[_u].get('n')))
+if not _upcc:
+    warn('CITY.upcc is empty — the health answer under the search box will show 8-1-1, pharmacists and 911 only')
 
 # ---------------------------------------------------------------- 10. duplicate affordances
 if 'search-cancel-button' not in css and 'type="search"' in body:
@@ -785,23 +889,85 @@ else:
     copy_strings = []
     for lang in LANGS:
         copy_strings += [v for v in UI[lang].values() if isinstance(v, str)]
-    copy_strings += re.findall(r"UI\.(?:zh|en|fr|es|ko)\.[A-Za-z0-9_]+=`(.*?)\n`;", script, re.S)
-    copy_strings += re.findall(r"UI\.(?:zh|en|fr|es|ko)\.[A-Za-z0-9_]+='((?:[^'\\]|\\.)*)';", script)
+    # 2026-10-03: built from LANGS (Japanese had been left out of this check)
+    _lalt = '|'.join(LANGS)
+    copy_strings += re.findall(r"UI\.(?:%s)\.[A-Za-z0-9_]+=`(.*?)\n`;" % _lalt, script, re.S)
+    copy_strings += re.findall(r"UI\.(?:%s)\.[A-Za-z0-9_]+='((?:[^'\\]|\\.)*)';" % _lalt, script)
     blob = '\n'.join(copy_strings)
     checks = [(cityname, '{CITY}')] if cityname else []
-    checks += [('BC Transit', '{TRANSIT}'), ('SD73', '{SD}')]
+    checks += [(lit, ph) for lit, ph in ((CITYOBJ.get('transit', {}).get('name'), '{TRANSIT}'),
+                                          (CITYOBJ.get('schoolDistrict', {}).get('name'), '{SD}')) if lit]
     for lit, ph in checks:
         n = blob.count(lit)
         if n:
             where = [c[:70] for c in copy_strings if lit in c][:2]
             fail('%d literal %r in translated copy — should be %s (e.g. %s)' % (n, lit, ph, where))
 
+# ------------------------------------------------- 15b. records match schemas/*.schema.json
+# 2026-10-03 (multi-city phase 2): the shape of each place record, checked against
+# schemas/place.schema.json with a small stdlib interpreter (type / required / enum /
+# pattern / additionalProperties / items) so validate.py still needs nothing but Python.
+def _schema_errs(v, sch, where):
+    T = {'object': dict, 'array': list, 'string': str, 'integer': int}
+    out = []
+    t = sch.get('type')
+    if t == 'number':
+        ok = isinstance(v, (int, float)) and not isinstance(v, bool)
+    elif t:
+        ok = isinstance(v, T[t]) and not isinstance(v, bool)
+    else:
+        ok = True
+    if not ok:
+        return ['%s: expected %s, got %s' % (where, t, type(v).__name__)]
+    if 'enum' in sch and v not in sch['enum']:
+        out.append('%s: %r not one of %s' % (where, v, sch['enum']))
+    if 'pattern' in sch and not re.search(sch['pattern'], v):
+        out.append('%s: %r does not match %s' % (where, v, sch['pattern']))
+    if 'minLength' in sch and len(v) < sch['minLength']:
+        out.append('%s: empty' % where)
+    if isinstance(v, dict):
+        for k in sch.get('required', []):
+            if k not in v:
+                out.append('%s: missing "%s"' % (where, k))
+        props = sch.get('properties', {})
+        for k, sub in v.items():
+            if k in props:
+                out += _schema_errs(sub, props[k], '%s.%s' % (where, k))
+            elif sch.get('additionalProperties') is False:
+                out.append('%s: unknown field "%s" (add it to the schema if it is real)' % (where, k))
+    if isinstance(v, list) and 'items' in sch:
+        for i, x in enumerate(v):
+            out += _schema_errs(x, sch['items'], '%s[%d]' % (where, i))
+    return out
+
+sys.path.insert(0, HERE); import kamdata as _kd
+_place_schema = json.load(open(os.path.join(HERE, 'schemas', 'place.schema.json'), encoding='utf-8'))
+_serr = []
+for _p in _kd.load('P'):
+    _serr += _schema_errs(_p, _place_schema, 'place %s' % _p.get('id', '?'))
+for _e in _serr[:20]:
+    fail('schema: ' + _e)
+if len(_serr) > 20:
+    fail('schema: …and %d more' % (len(_serr) - 20))
+
+# ------------------------------------------------- 15c. open data carries its attribution
+# 2026-10-03: a city that uses government open data must say so, with the licence, in its
+# own data.js (UI.<lang>.licenceData). Licences such as the Open Government Licence – BC and
+# the BC Transit open data terms require attribution; the engine no longer carries any.
+if any(p.get('src') == 'opendata' for p in P) or len(BR):
+    for lang in LANGS:
+        # the engine's default is empty; only a non-empty text from the city counts (2026-10-04)
+        _ld = [x for x in re.findall(r"UI\.%s\.licenceData='([^']*)'" % lang, html) if x.strip()]
+        if not _ld:
+            fail('%s: the city uses open data but has no licenceData attribution in data.js' % lang)
+
 # ------------------------------------------------- 16. the split stays buildable
 import os as _os
-if _os.path.exists('src/engine.html'):
-    eng = open('src/engine.html', encoding='utf-8').read()
+if _os.path.exists(_os.path.join(HERE, 'app', 'engine', 'parts.txt')):
+    sys.path.insert(0, HERE); import kamdata as _kd
+    eng = _kd.engine_text()
     if '/*__CITY_DATA__*/' not in eng:
-        fail('src/engine.html has lost its data marker — build.py cannot fill it')
+        fail('the engine (app/engine/) has lost its data marker — build.py cannot fill it')
     for v in ('const P=', 'const BR=', 'const CITY=', 'const RI=', 'const TASKS='):
         if v in eng:
             fail('city data %r leaked back into the engine' % v)
@@ -814,6 +980,25 @@ if _os.path.exists('src/engine.html'):
     _local_numbers = set(re.findall(r'\b(?:250|778|236)-\d{3}-\d{4}\b', _eng_code))
     if _local_numbers:
         warn('local phone number(s) in engine code (should live in data or UI strings): %s' % sorted(_local_numbers)[:5])
+    # 2026-10-04: the UI strings were exempt from the scan above, and that is exactly where Kamloops'
+    # police line, legal aid line and clinic sat for a month. Now the whole engine is scanned: a
+    # non-toll-free number must be a province-wide service listed here, with the reason.
+    ENGINE_NUMBERS_OK = {'604-878-7400': 'Access Pro Bono BC, province-wide'}
+    _all_nums = set(re.sub(r'\D', '', n) for n in re.findall(r'(?<![\d-])\(?\d{3}\)?[-. ]\d{3}[-. ]\d{4}\b', eng))
+    _ok = set(re.sub(r'\D', '', n) for n in ENGINE_NUMBERS_OK)
+    _bad = sorted(n for n in _all_nums if n not in _ok and not re.match(r'8(00|33|44|55|66|77|88)', n))
+    if _bad:
+        fail('local phone number(s) in the engine (city facts belong in cities/<id>/data.js): %s' % _bad[:5])
+    # and no place id of any city: a hard-coded id silently does nothing in every other city
+    _ids = set()
+    for _c in _kd.cities():
+        try:
+            _cur = _kd.CITY; _kd.use(_c); _ids |= {p['id'] for p in _kd.load('P')}
+        finally:
+            _kd.use(_cur)
+    _hard = sorted(i for i in _ids if re.search(r"['\"]%s['\"]" % re.escape(i), eng))
+    if _hard:
+        fail('place id(s) hard-coded in the engine (use a CITY setting instead): %s' % _hard[:5])
     if 'guideCity' in eng.replace('GUIDE_ORDER', ''):
         if re.search(r"UI\.\w+\.guideCity=`", eng):
             fail('guideCity (city-tier guide) leaked back into the engine')
@@ -823,10 +1008,11 @@ if _os.path.exists('src/engine.html'):
 # the per-record stamps are kept by hand. The page tells readers the whole set
 # was checked on VERIFIED; if a release ships weeks after that date without
 # anyone touching it, that sentence is stale on the day it is deployed.
-_vm = re.search(r"const VERIFIED='(\d{4})-(\d{2})-(\d{2})'", html)
+# 2026-10-04: the date lives in the city's settings (CITY.verified), not the engine
+_vm = re.match(r'(\d{4})-(\d{2})-(\d{2})$', str(CITYOBJ.get('verified') or ''))
 _dm = re.search(r"const DATA_VERSION='(\d{4})\.(\d{2})\.(\d{2})[a-z]?'", html)
 if not _vm or not _dm:
-    fail('VERIFIED or DATA_VERSION missing or malformed')
+    fail('CITY.verified (YYYY-MM-DD) or DATA_VERSION missing or malformed')
 else:
     import datetime as _dt2
     _vd = _dt2.date(int(_vm.group(1)), int(_vm.group(2)), int(_vm.group(3)))
@@ -836,6 +1022,12 @@ else:
              % (_vd, (_dd - _vd).days, _dd))
     if _vd > _dd:
         fail('VERIFIED (%s) is later than DATA_VERSION (%s)' % (_vd, _dd))
+    # (2026-10-04, lesson L-104) every version has a CHANGELOG entry: the file once stopped at 2026.09.08a while 70
+    # commits and three deployed versions went by, and nobody could say what the live page contained.
+    _ver = re.search(r"const DATA_VERSION='([^']+)'", html).group(1)
+    _cl = os.path.join(_kd.ROOT, 'CHANGELOG.md')
+    if os.path.exists(_cl) and _ver not in open(_cl, encoding='utf-8').read():
+        fail('DATA_VERSION %s has no entry in CHANGELOG.md — write what changed before building for readers' % _ver)
     # (2026-09-13) the task cards carry their own check date (CITY.tasksChecked),
     # shown at the foot of every card. Same rule: it must exist and not go stale.
     _tm = re.search(r"tasksChecked:'(\d{4})-(\d{2})-(\d{2})'", html)
@@ -857,8 +1049,8 @@ else:
         _hd = re.findall(r"'(\d{4}-\d{2}-\d{2})'", _hm.group(1))
         if not _hd or _hd != sorted(_hd):
             fail('CITY.holidays is empty or out of order')
-        elif (_dt2.date.fromisoformat(_hd[-1]) - _dt2.date.today()).days < 120:
-            warn('CITY.holidays ends %s — add the next year before then (p3_patch.py generates it)' % _hd[-1])
+        elif (_dt2.date.fromisoformat(_hd[-1]) - _kd.today()).days < 120:
+            warn('CITY.holidays ends %s — add the next years before then (python3 scripts/holidays.py)' % _hd[-1])
 # (2026-09-13) the map imagery host must be one whose terms allow a public app, and
 # the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
 _tile = re.search(r"tiles:\{url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", html)
@@ -881,7 +1073,7 @@ else:
 # past six months is a warning, past twelve is a failure — "stale" becomes
 # something the build says out loud rather than something someone remembers.
 import datetime as _dt
-_today = _dt.date.today()
+_today = _kd.today()   # city-local date, not the machine's (kamdata.today)
 def _months_old(v):
     m = re.match(r'^(\d{4})-(\d{2})', str(v or ''))
     if not m: return None
@@ -1010,6 +1202,12 @@ for _pat, _why in ((r'\\[pP]\{', 'Unicode property escape \\p{…} (ES2018)'),
     if _m:
         fail('%s in the app script: %r — above the ES2017 floor; on an older browser '
              'the whole page fails to parse' % (_why, _app[max(0, _m.start() - 30):_m.end() + 30]))
+
+# (2026-10-04) a search word of one Latin letter is a broken alias list, not a search word: an importer once
+# sliced a space-separated string into ["O","k","a",…] for 113 places, and every one-letter query matched them.
+_bad_alias = [p['n'] for p in P if any(re.fullmatch(r'[A-Za-z0-9]', str(a).strip()) for a in (p.get('alias') or []))]
+if _bad_alias:
+    fail('%d place(s) have one-letter search words (alias) — a string was split into characters? e.g. %s' % (len(_bad_alias), _bad_alias[:3]))
 
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'

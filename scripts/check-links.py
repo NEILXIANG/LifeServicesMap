@@ -6,7 +6,7 @@ Check that every website in the data still resolves.
     python3 check-links.py              # check them all
     python3 check-links.py --deep-only  # only the links with a path, which rot fastest
     python3 check-links.py --json out.json
-    python3 check-links.py --pages data/link-pages.json
+    python3 check-links.py --pages records/link-pages.json
                                         # every link in the page (places, task cards,
                                         # guide text, seasonal notes): status, final URL,
                                         # title and heading, so a human can check that
@@ -73,8 +73,7 @@ SSL_CTX = _ssl_ctx()
 
 
 def load_places(city):
-    if city != 'kamloops':
-        sys.exit('只有 kamloops 一座城市的数据；收到 --city %s' % city)
+    kamdata.use(city)            # 2026-10-03: any city under cities/
     return kamdata.load('P')
 
 
@@ -142,8 +141,8 @@ def all_links():
         add(p.get('w'), 'place', p['id'], 'place "%s" (%s) at %s' % (p['n'], p['c'], p.get('a')))
     for t in T:
         add(t.get('src'), 'task', t['id'], 'task card "%s"' % t['t']['en'])
-    for f in ('src/engine.html', 'src/data-kamloops.js'):
-        txt = open(os.path.join(HERE, f), encoding='utf-8').read()
+    for f in ('app/engine/', 'cities/%s/' % kamdata.CITY):
+        txt = kamdata.engine_text() if f == 'app/engine/' else kamdata.data_text()
         for u in re.findall(r'href=\\?"(https?://[^"\\]+)', txt) + re.findall(r"(?:u|src|w):'(https?://[^']+)'", txt):
             if "'+" in u or any(h in u for h in ('maptiler', 'arcgisonline', 'openstreetmap.org/copyright', 'esri.com', 'cdnjs.', 'google.com/maps')):
                 continue
@@ -203,7 +202,7 @@ def pages_mode(path, workers):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument('--city', default='kamloops')
+    ap.add_argument('--city', default=kamdata.CITY)
     ap.add_argument('--deep-only', action='store_true',
                     help='only URLs with a path — the ones that rot fastest')
     ap.add_argument('--json', default=None, help='also write the full result here')
@@ -215,6 +214,7 @@ def main():
     ap.add_argument('--pages', default=None,
                     help='fetch every link in the page and record title/heading/final URL here')
     a = ap.parse_args()
+    kamdata.use(a.city)
     if a.pages:
         return pages_mode(a.pages, a.workers)
 

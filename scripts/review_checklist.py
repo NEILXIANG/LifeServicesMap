@@ -1,0 +1,132 @@
+#!/usr/bin/env python3
+"""Generate a city's review checklist and launch-readiness report from its data.
+
+    python3 scripts/review_checklist.py --city kelowna [--out <file>]   # default: docs/reports/<City>审核清单.md
+
+What it does (methodology §8 上线标准):
+1. Launch-readiness: checks the city against the launch standard — safety-critical coverage, categories,
+   six languages, hours share, approximate positions, themes, areas, task cards, transit, draft status.
+2. A review list ordered by consequence: safety-critical places first (care, shelters and crisis,
+   settlement, government offices, food, legal), each with phone, source and the researcher's
+   uncertainty notes from import/provenance.json; then every other record that carries an
+   uncertainty note; then records held back from the map (research files' _held_for_review).
+A person phones down the list and promotes each confirmed record to src:'own' with this month's v.
+"""
+import argparse, collections, datetime, glob, json, os, re, sys
+_r = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(_r))
+import kamdata
+
+TIERS = kamdata.category_tiers()
+SAFETY = TIERS['safety']
+L6 = kamdata.LANGS
+
+def main():
+    ap = argparse.ArgumentParser(); ap.add_argument('--city', required=True); ap.add_argument('--out')
+    ap.add_argument('--ref', help='reference city for category coverage and hours share (default: city.json review.reference, else kamloops)')
+    a = ap.parse_args()
+    kamdata.use(a.city)
+    meta = kamdata.city_meta()
+    P = kamdata.load('P'); T = kamdata.load('TASKS'); BR = kamdata.load('BR'); LM = kamdata.load('LANDMARKS')
+    review = meta.get('review', {})
+    ref = a.ref or review.get('reference') or 'kamloops'
+    target = review.get('targetPlaces')
+    refname = kamdata.city_meta(ref)['title'].replace(' Life Guide', '')
+    prov = kamdata.load_import('provenance.json', {})
+    # desk checks (2026-10-04): an independent second reader against the official page — not a phone check
+    ver = kamdata.load_import('verification.json', {})
+    held = []
+    for f in sorted(glob.glob(os.path.join(kamdata.city_dir(), 'import', 'research', '*.json'))):
+        d = json.load(open(f, encoding='utf-8'))
+        held += [(x.get('n'), x.get('verify_notes', '')) for x in d.get('_held_for_review', [])]
+    today = kamdata.today().isoformat()
+    name = meta['title'].replace(' Life Guide', '')
+    n = len(P)
+    six = sum(all(l in p.get('note', {}) for l in L6) for p in P)
+    # open-air places have no hours; child care and schools are left out on both sides of the
+    # comparison because the government datasets they come from carry no hours (Kamloops: 3/84, 6/33)
+    no_hours = set(TIERS['noOfficialHours'])
+    # 2026-10-05: like with like — only records backed by an official or government source, and not the
+    # commercial categories a city may leave out. Kamloops' raw share counted hours copied from third-party
+    # listings (src "places"), which a city built from official sources only can never match.
+    def _hours_base(PL): return [p for p in PL if p['c'] not in no_hours and p.get('src') != 'places'
+                                 and p['c'] not in TIERS['commercialOptional']]
+    hours_base = _hours_base(P)
+    # structured hours (r / s / a); a keyed message ("call to confirm", "seasonal") means the official hours are
+    # irregular — known, shown honestly, but not counted as hours
+    with_h = sum(1 for p in hours_base if p.get('h') and set(p['h']) - {'k'})
+    keyed = sum(1 for p in hours_base if p.get('h') and not (set(p['h']) - {'k'}))
+    hj = kamdata.load_import('hours.json', {}) or {}
+    none_pub = sum(1 for p in hours_base if 'h' not in p and (hj.get(p['id']) or {}).get('none'))
+    kamdata.use(ref); KP = kamdata.load('P'); kamdata.use(a.city)
+    # methodology §8: a category the reference city has must be collected here too if it exists here;
+    # one that does not exist (or is deliberately left out) is explained in import/config.json
+    # commercial categories (schemas/category-tiers.json) may be left out without a reason
+    absent = kamdata.load_import('config.json', {}).get('categoriesNotCollected', {})
+    absent = {k: v for k, v in absent.items() if not k.startswith('_')}
+    missing = sorted({p['c'] for p in KP} - {p['c'] for p in P} - set(absent) - set(TIERS['commercialOptional']))
+    kb = _hours_base(KP); kref = 100.0 * sum(1 for p in kb if p.get('h') and set(p['h']) - {'k'}) / max(1, len(kb))
+    approx = [p for p in P if p.get('precision') == 'low']
+    approx_safety = [p for p in approx if p['c'] in SAFETY]
+    src = collections.Counter(p.get('src') for p in P)
+    areas = collections.Counter(p['g'] for p in P)
+    cats = collections.Counter(p['c'] for p in P)
+    own = src.get('own', 0)
+    safety = [p for p in P if p['c'] in SAFETY]
+    def row(ok, item, detail):
+        return '| %s | %s | %s |' % ('✅' if ok is True else '❌' if ok is False else '⚠️', item, detail)
+    rows = [
+        row(bool(target) and n >= target, '地点数量（目标在 city.json review.targetPlaces，依据见 PROFILE.md）',
+            '%d / 目标 %s' % (n, target or '未设')),
+        row(six == n, '六种语言', '%d / %d' % (six, n)),
+        # the launch rule: every place has hours, or its official page was checked and publishes none (the page then
+        # says "call first"); the share with hours against the reference city is shown for information
+        row(with_h + keyed + none_pub >= len(hours_base), '营业时间：每个地点都有，或已核实官方未公布（官方来源的记录，不含露天、托儿、学校、公交站、可不收的商业类）',
+            '有时间 %d、不规律（请致电/看官网）%d、核实未公布 %d、未查 %d / 共 %d；有时间的比例 %.0f%%（%s 同口径 %.0f%%）' % (
+                with_h, keyed, none_pub, len(hours_base) - with_h - keyed - none_pub, len(hours_base),
+                100.0 * with_h / max(1, len(hours_base)), refname, kref)),
+        row(len(approx) <= 0.1 * n and not approx_safety, '"大致位置" ≤ 10%，且不含安全相关地点', '%d 个；其中安全相关 %d 个' % (len(approx), len(approx_safety))),
+        row(all(p['id'] in ver for p in P if p.get('src') != 'opendata'), '非政府数据的地点都经过独立复核（对照官网）',
+            '%d / %d；其中安全相关 %d / %d' % (sum(p['id'] in ver for p in P if p.get('src') != 'opendata'), sum(p.get('src') != 'opendata' for p in P),
+                                          sum(p['id'] in ver for p in safety), len(safety))),
+        row(own >= len(safety), '安全相关地点电话核实（src: own）', '已核实 %d / 安全相关 %d' % (own, len(safety))),
+        row(not missing, '%s 有的分类这里也有（商业类可不收；其余不存在的写进 config.json 的 categoriesNotCollected）' % refname,
+            ('缺 %d 类：%s' % (len(missing), '、'.join(missing))) if missing else '齐全' + ('（%d 类已说明不收）' % len(absent) if absent else '')),
+        row(len(T) > 0, '办事卡', '%d 张' % len(T)),
+        row(None if not BR else True, '公交（运营方 GTFS）', '%d 条线路' % len(BR)),
+        row(len(LM) > 0, '地标', '%d 个' % len(LM)),
+        row(meta.get('status') != 'draft', '草稿状态已去掉', meta.get('status', 'live')),
+    ]
+    out = ['# %s 审核清单与上线差距（%s 自动生成）' % (name, today), '',
+           '> 由 `python3 scripts/review_checklist.py --city %s` 生成，每次数据变化后重跑。按"说错的后果"排序：先核实安全相关的地点。' % a.city,
+           '> 核实方法：打电话或到场确认地址、电话、营业时间和"谁能用"；确认后把该记录的 `src` 改为 `own`、`v` 改为当月。', '',
+           '## 一、上线差距', '', '| 状态 | 项目 | 现状 |', '|---|---|---|'] + rows + ['',
+           '来源：' + '、'.join('%s %d' % (k, v) for k, v in src.most_common()) + '。',
+           '区域：' + '、'.join('%s %d' % (k, v) for k, v in sorted(areas.items())) + '。', '',
+           '## 二、先核实：安全相关的地点（%d 个）' % len(safety), '',
+           '| 类别 | 名称 | 电话 | 地址 | 来源网址 | 复核（对照官网） | 打电话时要问 |', '|---|---|---|---|---|---|---|']
+    order = {c: i for i, c in enumerate(SAFETY)}
+    for p in sorted(safety, key=lambda p: (order[p['c']], p['n'])):
+        pv = prov.get(p['id'], {})
+        vr = ver.get(p['id'], {})
+        chk = ('%s %s%s' % (vr['checked'], {'confirmed': '一致', 'corrected': '已改正'}.get(vr.get('result'), vr.get('result', '')),
+               ('（' + '、'.join(vr['fixed']) + '）') if vr.get('fixed') else '')) if vr else '未复核'
+        ask = (vr.get('remarks') or pv.get('verify_notes') or '').replace('|', '/').replace('\n', ' ')[:300]
+        out.append('| %s | %s | %s | %s | %s | %s | %s |' % (p['c'], p['n'].replace('|', '/'), p.get('p', '—'), p['a'].replace('|', '/'),
+                   (p.get('w') or pv.get('source_url') or ''), chk, ask))
+    others = [p for p in P if p['c'] not in SAFETY and (prov.get(p['id'], {}).get('verify_notes'))]
+    out += ['', '## 三、其他带"待核实说明"的地点（%d 个）' % len(others), '', '| 类别 | 名称 | 待核实说明 |', '|---|---|---|']
+    for p in sorted(others, key=lambda p: (p['c'], p['n'])):
+        out.append('| %s | %s | %s |' % (p['c'], p['n'].replace('|', '/'), prov[p['id']]['verify_notes'].replace('|', '/').replace('\n', ' ')[:300]))
+    out += ['', '## 四、暂不上地图、需要先确认的（%d 个）' % len(held), '']
+    out += ['- **%s**：%s' % (h, (v or '').replace('\n', ' ')[:300]) for h, v in held] or ['（无）']
+    out += ['', '## 五、各类别数量', '', '、'.join('%s %d' % (k, v) for k, v in cats.most_common()), '']
+    # 2026-10-04: one current file per city, overwritten on every run (the date is inside). A dated file per run
+    # left three Kelowna checklists in docs/reports/, two of them stale; git keeps every earlier version.
+    path = a.out or os.path.join(kamdata.ROOT, 'docs', 'reports', '%s审核清单.md' % name)
+    open(path, 'w', encoding='utf-8').write('\n'.join(out) + '\n')
+    print('wrote %s' % os.path.relpath(path, kamdata.ROOT))
+    for r in rows: print('  ' + r)
+
+if __name__ == '__main__':
+    main()
