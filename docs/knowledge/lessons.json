@@ -3938,6 +3938,36 @@
      "marker": "FORB = re.compile('|'.join(FORBIDDEN)) if FORBIDDEN else None"
     }
    ]
+  },
+  {
+   "id": "L-131",
+   "title": "对外材料的构建也要进检查",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "引擎拆分（10-03）把核实日期从页面常量移到城市数据，builddocs.py 仍用正则在页面里找，直到 10-19 部署后第一次重建 PDF 才崩溃——两周里没有任何检查跑过它。",
+   "rule": "凡是从构建产物或城市数据取事实的脚本（对外 PDF、传单、导出），都要有一个不联网、不写文件的模式进 check-all；改引擎或数据结构时它会立刻失败，而不是等到要发材料的那天。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 25 轮：KIS 来信，main 只含 Kamloops 并部署",
+     "what": "部署后重建 PDF，builddocs 找不到 VERIFIED"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "check",
+     "path": "scripts/check-all.sh",
+     "marker": "run outreach-values python3 outreach/pdf/builddocs.py --values"
+    },
+    {
+     "kind": "tool",
+     "path": "outreach/pdf/builddocs.py",
+     "marker": "kamdata.city_obj().get('verified')"
+    }
+   ]
   }
  ],
  "assets": [
