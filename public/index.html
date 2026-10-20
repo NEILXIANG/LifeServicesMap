@@ -206,6 +206,19 @@
   .season-note .sn-links a{color:var(--accent-text);font-weight:600;text-decoration:none;}
   .season-note .sn-x{position:absolute;top:0;right:0;background:none;border:none;font-size:14px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
   @media(min-width:700px){.season-note{left:auto;right:16px;top:16px;width:min(380px,calc(100% - 32px));}}
+  /* phones: one line (the short text) until tapped; the full notice and its links open below it (2026-10-20) */
+  .season-note .sn-toggle{display:none;background:none;border:none;}
+  @media(max-width:699px){
+    .season-note{padding:4px 44px 4px 10px;}
+    .season-note .sn-toggle{display:flex;align-items:center;gap:5px;width:100%;min-height:36px;padding:0;
+      font:inherit;font-size:13px;font-weight:600;color:var(--ink);text-align:left;cursor:pointer;}
+    .season-note .sn-short{flex:1;min-width:0;}
+    .season-note .sn-more{color:var(--accent-text);font-weight:700;transition:transform .15s;}
+    .season-note.sn-open .sn-more{transform:rotate(90deg);}
+    .season-note .sn-full{display:none;padding:2px 0 6px;}
+    .season-note.sn-open .sn-full{display:block;}
+    .season-note .sn-full .sn-ic{display:none;}
+  }
   .firstuse .fu-h{font-size:12.5px;font-weight:700;margin:0 28px 2px 0;}
   .firstuse .fu-safe{font-size:11.5px;color:var(--sub-ink);margin:0 28px 7px 0;}
   /* the flyer card's rows are full-width buttons; the 44px ✕ target in the corner
@@ -2759,6 +2772,7 @@ const CITY={
           zh:'冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。',
           ko:'겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.',
           ja:'冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。'},
+    short:{en:'Winter tires required on most BC highways, Oct 1–Apr 30',fr:'Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.',es:'Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.',zh:'10月1日–4月30日：BC 大部分公路要求冬胎',ko:'10/1–4/30 BC주 고속도로 겨울 타이어 필수',ja:'10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要'},
     links:[{u:'https://www.drivebc.ca/',t:{en:'Road conditions (DriveBC)',fr:'État des routes (DriveBC)',es:'Estado de las carreteras (DriveBC)',zh:'路况（DriveBC）',ko:'도로 상황(DriveBC)',ja:'道路状況（DriveBC）'}},
            {u:'https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes',t:{en:'Which routes',fr:'Quelles routes',es:'Qué rutas',zh:'哪些路段',ko:'해당 도로',ja:'対象の道路'}}]},
    {id:'wildfire',from:'07-01',to:'09-30',icon:'🔥',
@@ -2768,6 +2782,7 @@ const CITY={
           zh:'山火季：户外活动前先看空气质量，并登记市政府的紧急警报。',
           ko:'산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.',
           ja:'山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。'},
+    short:{en:'Wildfire season: check the air before going out',fr:'Saison des feux : vérifiez l’air avant de sortir',es:'Temporada de incendios: revise el aire antes de salir',zh:'山火季：出门前先看空气质量',ko:'산불 시즌: 외출 전 대기 질 확인',ja:'山火事シーズン：外出前に大気を確認'},
     links:[{u:'https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html',t:{en:'Air quality',fr:'Qualité de l’air',es:'Calidad del aire',zh:'空气质量',ko:'대기 질',ja:'大気の状態'}},
            {u:'https://www.kamloops.ca/public-safety/emergency-preparedness/emergency-alerts-orders/emergency-alert-notifications',t:{en:'Emergency alerts',fr:'Alertes d’urgence',es:'Alertas de emergencia',zh:'紧急警报',ko:'긴급 경보',ja:'緊急警報'}},
            {u:'https://www2.gov.bc.ca/gov/content/safety/wildfire-status',t:{en:'Wildfires now',fr:'Feux en cours',es:'Incendios activos',zh:'当前山火',ko:'현재 산불',ja:'現在の山火事'}}]}
@@ -8050,11 +8065,19 @@ function renderSeason(){
   const busy=searchingNow||(fu&&!fu.hidden)||!!selectedRoute||!!(typeof map!=='undefined'&&map._popup&&map._popup.isOpen&&map._popup.isOpen());
   if(!x||closed||busy){el.hidden=true;return;}
   const u=UI[L_];
-  el.innerHTML='<span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)
-    +'<span class="sn-links">'+x.links.map(k=>'<a href="'+esc(k.u)+'" target="_blank" rel="noopener" data-season-link="'+esc(x.id)+'">'+esc(k.t[L_]||k.t.en)+' ›</a>').join('')+'</span>'
+  // 2026-10-20 (every-control check, Spanish phone): the full notice is four lines on a phone and covered the map's
+  // top clusters ("80", the North Shore) so they could not be tapped. A phone shows the one-line short text; a tap
+  // opens the full text and its links. Wider screens show the full notice, in its corner, as before.
+  const short=x.short&&(x.short[L_]||x.short.en);
+  el.classList.remove('sn-open');
+  el.innerHTML=(short?'<button type="button" class="sn-toggle" aria-expanded="false"><span class="sn-ic">'+emojiIcon(x.icon)+'</span><span class="sn-short">'+esc(short)+'</span><span class="sn-more" aria-hidden="true">›</span></button>':'')
+    +'<div class="sn-full"><span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)
+    +'<span class="sn-links">'+x.links.map(k=>'<a href="'+esc(k.u)+'" target="_blank" rel="noopener" data-season-link="'+esc(x.id)+'">'+esc(k.t[L_]||k.t.en)+' ›</a>').join('')+'</span></div>'
     +'<button type="button" class="sn-x" id="seasonClose" aria-label="'+esc(u.aClose)+'">✕</button>';
   el.hidden=false;
   if(!_seasonShown[x.id]){_seasonShown[x.id]=1;trackEvent('season_shown',{id:x.id});}
+  const tg=el.querySelector('.sn-toggle');
+  if(tg)tg.onclick=()=>{const open=el.classList.toggle('sn-open');tg.setAttribute('aria-expanded',open?'true':'false');};
   document.getElementById('seasonClose').onclick=()=>{
     _seasonClosedMem[x.id]=true;try{localStorage.setItem(seasonKey(x),'1');}catch(e){}
     el.hidden=true;trackEvent('season_close',{id:x.id});
