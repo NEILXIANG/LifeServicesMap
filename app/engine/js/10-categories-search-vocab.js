@@ -23,7 +23,7 @@ function catLabel(c){const e=CI[c];return e&&e[L_]?e[L_]:String(c||'');}
 const SYN={
  college:['university','universities','college','colleges','post-secondary','postsecondary','大学','大學','대학','대학교','université','universités','universidad','universidades'],
  school:['high school','high schools','secondary school','secondary','highschool','中学','中學','高中','初中','중학교','고등학교','高校','中学校','lycée','collège','école secondaire','escuela secundaria','preparatoria'],
- elem:['elementary school','elementary schools','primary school','grade school','kindergarten','kindergartens','小学','小學','초등학교','小学校','école primaire','escuela primaria','primaria'],
+ elem:['elementary school','elementary schools','primary school','grade school','kindergarten','kindergartens','킨더가튼','キンダーガーテン','小学','小學','초등학교','小学校','école primaire','escuela primaria','primaria'],
  hospital:['hospital','hospitals','doctor','doctors','family doctor','physician','medical','medical clinic','urgent care','emergency room','医院','醫院','医生','醫生','看病','急诊','急診','병원','의원','의사','응급실','病院','医者','診療所','hôpital','médecin','urgences','médico','urgencias','가정의','가정의학과','주치의','워크인','워크인 클리닉','ウォークイン','ウォークインクリニック','救急外来','救急病院','急症','看急诊','sala de emergencias'],
  dental:['dentist','dentists','dental clinic','teeth','tooth','牙医','牙醫','牙科','看牙','치과','치과의사','歯医者','歯科','dentiste','dentista'],
  vet:['vet','vets','veterinarian','veterinary','animal hospital','pet clinic','兽医','獸醫','宠物医院','寵物醫院','동물병원','수의사','動物病院','獣医','vétérinaire','veterinario'],
