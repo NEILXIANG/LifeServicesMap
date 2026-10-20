@@ -120,7 +120,14 @@ function renderTaskList(){
   }
   const ad=host.querySelector('#arriveDate');
   if(ad){
-    ad.onchange=()=>{const v=ad.value;if(!setArrival(v))return;trackEvent('arrival_set',{set:!!v});renderTaskList();};
+    // 2026-10-20 (every-control check): a card's "enter your arrival date" link brought the reader to this field and
+    // left them on the list; once a date is set they go back to the card they came from, now showing the exact date.
+    ad.onchange=()=>{const v=ad.value;if(!setArrival(v))return;trackEvent('arrival_set',{set:!!v});
+      const back=_dlReturnTo;_dlReturnTo=null;
+      if(back&&v){openTask(back,'arrival');
+        // and straight to the line the reader went to get: the card's exact date
+        setTimeout(()=>{const r=document.querySelector('#guideTasks .task-dl');if(r)try{r.scrollIntoView({block:'center',behavior:'smooth'});}catch(e){r.scrollIntoView();}},120);}
+      else renderTaskList();};
     // a value the field ends up with that was never accepted (a future date,
     // a half-typed year) is shown as what is actually stored once the reader
     // leaves the field — touching the value mid-edit would fight the browser
@@ -210,6 +217,7 @@ function transFixHref(t){
               '','---',u.taskTransFix,''].join('\n');
   return 'mailto:'+contactEmail()+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
 }
+let _dlReturnTo=null;   // the card that sent the reader to the arrival-date field
 function openTask(id,src){
   const t=TASKS.find(x=>x.id===id);
   const host=document.getElementById('guideTasks');
@@ -260,7 +268,7 @@ function openTask(id,src){
   if(t.deadline){
     const dd=deadlineDate(t);
     if(dd){const n=daysLeft(dd);
-      h+=row(u.taskDeadline,'<b>'+esc(n<0?u.dlPast:u.dlBy(fmtDate(dd,L_),n))+'</b>');}
+      h+=row(u.taskDeadline,'<b>'+esc(n<0?u.dlPast:u.dlBy(fmtDate(dd,L_),n))+'</b>','task-dl');}
     // rights can never resolve to a computed date (see deadlineDate) — offering
     // "enter your arrival date" there would promise an exact date that never comes.
     else h+=row(u.taskDeadline,esc(taskText(t.deadline))+(t.id==='rights'?'':' <button type="button" class="task-tool task-dl-set" id="taskDlSet">'+esc(u.dlSetArrival)+'</button>'));
@@ -340,7 +348,8 @@ function openTask(id,src){
       // "Stuck" used to end with a thank-you and nothing else — a signal for the
       // maintainer, no exit for the person. Now it hands over the two doors that
       // exist for exactly this: a settlement worker, and 2-1-1 in your language.
-      fb.innerHTML='<span class="task-thanks">'+esc(u.taskThanks)+'</span>'
+      // "this is used to fix this card" fits "stuck", not "this worked" (2026-10-20)
+      fb.innerHTML='<span class="task-thanks">'+esc(b.dataset.r==='worked'?u.taskThanksOk:u.taskThanks)+'</span>'
         +(b.dataset.r==='stuck'?'<div class="task-stuck-exit">'+esc(u.taskStuckExit)
           +' <a href="tel:'+esc(CITY.help.settle.replace(/[^\d]/g,''))+'">'+esc(CITY.help.settle)+'</a> · <a href="tel:'+esc(CITY.help.info)+'">2-1-1</a></div>':'');
     };
@@ -356,7 +365,7 @@ function openTask(id,src){
   if(cal)cal.onclick=()=>{trackEvent('task_calendar',{id:id});if(downloadIcs(t)===false)return;
     const dd=deadlineDate(t);if(dd)showToast(u.calAdded.replace('{D}',fmtDate(dd,L_)));};
   const dls=host.querySelector('#taskDlSet');
-  if(dls)dls.onclick=()=>{renderTaskList();popSheetState('guideTask');const ad=document.getElementById('arriveDate');if(ad){ad.focus();try{ad.showPicker&&ad.showPicker();}catch(e){}}};
+  if(dls)dls.onclick=()=>{_dlReturnTo=id;renderTaskList();popSheetState('guideTask');const ad=document.getElementById('arriveDate');if(ad){ad.focus();try{ad.showPicker&&ad.showPicker();}catch(e){}}};
   const mb=host.querySelector('.task-map');
   if(mb)mb.onclick=()=>{
     const m=M.find(x=>x.data.id===mb.dataset.pid);

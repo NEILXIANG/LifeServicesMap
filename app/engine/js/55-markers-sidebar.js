@@ -314,6 +314,7 @@ function renderThemes(){
   updateThemeQuickpicks();
 }
 const expandedGroups=new Set(DEFAULT_OPEN_GROUPS);
+let _catsInCity=null;
 function renderCats(){
   const root=document.getElementById('catGrid');root.innerHTML='';
   if(searchTerm&&aC.size){const n=document.createElement('p');n.className='cat-paused-note';n.textContent=UI[L_].catsPausedNote;root.appendChild(n);}
@@ -324,7 +325,11 @@ function renderCats(){
     // *here*". Every category now stays listed at every area selection, muted with
     // a (0) count when the current areas have none, so the panel's shape never
     // shifts under a reader just because they picked an area.
-    const cats=grp.cats;
+    // 2026-10-20 (every-control check): "Cafés (0)" could be ticked and emptied the map — the city has no café on
+    // the map at all. A category with nothing anywhere is left out; one with nothing in the chosen areas still shows.
+    if(!_catsInCity){_catsInCity=new Set(P.map(p=>p.c));}
+    const cats=grp.cats.filter(k=>_catsInCity.has(k));
+    if(!cats.length)return;
     const card=document.createElement('div');card.className='cat-group'+(expandedGroups.has(grp.k)?' open':'');
     const selCount=cats.filter(k=>aC.has(k)).length;
     const state=selCount===cats.length?'all':selCount===0?'none':'partial';
