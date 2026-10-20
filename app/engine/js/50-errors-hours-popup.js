@@ -113,14 +113,15 @@ function keepPhonesWhole(html){
 // start a line (": 1-866-925-4419"). French text spread over several sources (interface, cards, places, guide), so it
 // is set right where it is shown: in French only, text nodes only (never tags, inputs or the map tiles), and again
 // for anything that appears later (cards, place cards, sheets).
-const _FR_RE=/ ([:;?!»])|(«) /g;   // never the space before « (it ate it: "Ouvrir« …»", 2026-10-20)
+const _FR_RE=/ ([:;?!»])|(«) |\b(\d+(?: [hj])?(?: sur \d+| \d\d)?)\b(?=\s|[–\-,.;)]|$)/g;   // never the space before « (it ate it: "Ouvrir« …»", 2026-10-20)
+// and times stay on one line: "16 h 30", "24 h sur 24", "7 j sur 7" (2026-10-20, French review P2)
 function frSpaces(root){
   if(typeof L_==='undefined'||L_!=='fr'||!root)return;
   const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{
     const p=n.parentElement;if(!p||/^(SCRIPT|STYLE|TEXTAREA|INPUT)$/.test(p.tagName)||p.closest('.leaflet-tile-pane,.leaflet-marker-pane'))return NodeFilter.FILTER_REJECT;
     _FR_RE.lastIndex=0;return _FR_RE.test(n.nodeValue)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_SKIP;}});
   const hits=[];while(w.nextNode())hits.push(w.currentNode);
-  hits.forEach(n=>{n.nodeValue=n.nodeValue.replace(_FR_RE,(m,p,q)=>p?'\u202f'+p:'«\u202f');});
+  hits.forEach(n=>{n.nodeValue=n.nodeValue.replace(_FR_RE,(m,p,q,t)=>p?'\u202f'+p:q?'«\u202f':/ [hj]\b/.test(t)?t.replace(/ /g,'\u00a0'):t);});
 }
 let _frObs=null;
 function watchFrSpaces(){

@@ -249,6 +249,11 @@ async def main():
           if(!a||a.getAttribute('href')!==want||!a.innerText.includes(name))out.push([l,t.id,a&&a.getAttribute('href')])})});return out}""", LANGS)
         n_l = await pg.evaluate("()=>TASKS.filter(t=>t.srcL).length")
         check('G4 task source links follow the language (%d cards with their own)' % n_l, not bad_s, bad_s[:4])
+        # French times never break across lines ("24 h sur 24", "16 h 30"; 2026-10-20, French review)
+        split = await pg.evaluate("""async()=>{setLang('fr');await new Promise(r=>setTimeout(r,50));let t=document.body.innerText;
+          for(const x of TASKS){openTask(x.id,'test');await new Promise(r=>setTimeout(r,0));t+='\\n'+document.getElementById('guideModal').innerText}
+          return [...new Set(t.match(/\\b\\d+ [hj]\\b(?: \\d\\d| sur \\d+)?|\\b\\d+\\u00a0[hj] (?:\\d\\d|sur)\\b/g)||[])]}""")
+        check('G5 fr: times stay on one line', not split, split[:6])
         await pg.evaluate("()=>closeModal(guideBackdropEl)")
         await pg.evaluate("()=>closeModal(guideBackdropEl)")
 
