@@ -40,7 +40,7 @@ const CITY={
   contact_r:'moc.liamtoh@gnaixlien',
   // the day the task cards were last read against their official sources
   // (shown at the foot of every card; validate.py keeps it honest)
-  tasksChecked:'2026-09-08',
+  tasksChecked:'2026-10-04',   // every card's facts against the official pages (CHANGELOG 2026-10-04); cards re-checked later carry their own "checked"
   // Map imagery (2026-09-13). Primary: MapTiler Streets (account-backed, key
   // restricted to this site's origin in MapTiler's dashboard, free tier
   // 100k tiles/month). Fallback: Esri's World Street Map raster tiles, no key,
@@ -81,6 +81,7 @@ const CITY={
           zh:'冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。',
           ko:'겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.',
           ja:'冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。'},
+    short:{en:'Winter tires required on most BC highways, Oct 1–Apr 30',fr:'Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.',es:'Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.',zh:'10月1日–4月30日：BC 大部分公路要求冬胎',ko:'10/1–4/30 BC주 고속도로 겨울 타이어 필수',ja:'10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要'},
     links:[{u:'https://www.drivebc.ca/',t:{en:'Road conditions (DriveBC)',fr:'État des routes (DriveBC)',es:'Estado de las carreteras (DriveBC)',zh:'路况（DriveBC）',ko:'도로 상황(DriveBC)',ja:'道路状況（DriveBC）'}},
            {u:'https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes',t:{en:'Which routes',fr:'Quelles routes',es:'Qué rutas',zh:'哪些路段',ko:'해당 도로',ja:'対象の道路'}}]},
    {id:'wildfire',from:'07-01',to:'09-30',icon:'🔥',
@@ -90,6 +91,7 @@ const CITY={
           zh:'山火季：户外活动前先看空气质量，并登记市政府的紧急警报。',
           ko:'산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.',
           ja:'山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。'},
+    short:{en:'Wildfire season: check the air before going out',fr:'Saison des feux : vérifiez l’air avant de sortir',es:'Temporada de incendios: revise el aire antes de salir',zh:'山火季：出门前先看空气质量',ko:'산불 시즌: 외출 전 대기 질 확인',ja:'山火事シーズン：外出前に大気を確認'},
     links:[{u:'https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html',t:{en:'Air quality',fr:'Qualité de l’air',es:'Calidad del aire',zh:'空气质量',ko:'대기 질',ja:'大気の状態'}},
            {u:'https://www.kamloops.ca/public-safety/emergency-preparedness/emergency-alerts-orders/emergency-alert-notifications',t:{en:'Emergency alerts',fr:'Alertes d’urgence',es:'Alertas de emergencia',zh:'紧急警报',ko:'긴급 경보',ja:'緊急警報'}},
            {u:'https://www2.gov.bc.ca/gov/content/safety/wildfire-status',t:{en:'Wildfires now',fr:'Feux en cours',es:'Incendios activos',zh:'当前山火',ko:'현재 산불',ja:'現在の山火事'}}]}
@@ -105,13 +107,13 @@ const CITY={
   // 2026-09-21: every local line the Help sheet and a crisis search show.
   // ymcabc.ca womens-emergency-shelter; interiorhealth.ca (Interior Crisis Line).
   localLines:[
-   {n:'250-374-6162',note:{en:'Y Women’s Emergency Shelter — women, with or without children, leaving violence. 24 hours, free, no referral; the address is kept private. Text 250-682-7931, or call:',
+   {n:'250-374-6162',sms:'250-682-7931',note:{en:'Y Women’s Emergency Shelter — women, with or without children, leaving violence. 24 hours, free, no referral; the address is kept private. Text 250-682-7931, or call:',
       fr:'Y Women’s Emergency Shelter — femmes, avec ou sans enfants, qui fuient la violence. 24 h sur 24, gratuit, sans référence ; l’adresse reste confidentielle. Texto : 250-682-7931 — ou appelez le :',
-      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Envíe un texto al 250-682-7931, o llame al:',
+      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Envíe un texto al 250-682-7931, o llame al',
       zh:'Y Women’s Emergency Shelter——逃离暴力的女性（带不带孩子都行）。24 小时，免费，不需要转介；地址保密。可发短信到 250-682-7931，或打电话：',
       ko:'Y Women’s Emergency Shelter — 폭력을 피해 나온 여성(자녀 동반 무관). 24시간, 무료, 의뢰 불필요, 주소는 비공개. 250-682-7931로 문자, 또는 전화:',
       ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。SMSは250-682-7931、電話は：'}},
-   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'寄宿学校のサバイバーと家族、24時間：'}},
+   {n:'1-866-925-4419',note:{en:'Residential school survivors and families, 24 hours:',fr:'Survivants des pensionnats et leurs familles, 24 h sur 24 :',es:'Sobrevivientes de las escuelas residenciales y sus familias, 24 horas:',zh:'寄宿学校幸存者及家属，24 小时：',ko:'기숙학교 생존자와 가족, 24시간:',ja:'先住民寄宿学校（Residential School）の生存者とその家族、24時間：'}},
    {n:'1-855-242-3310',note:{en:'Hope for Wellness (Indigenous peoples), 24 hours:',fr:'Espoir pour le mieux-être (Autochtones), 24 h sur 24 :',es:'Hope for Wellness (pueblos indígenas), 24 horas:',zh:'Hope for Wellness（原住民心理支持），24 小时：',ko:'Hope for Wellness(원주민 대상), 24시간:',ja:'Hope for Wellness（先住民向け）、24時間：'}},
    {n:'1-888-353-2273',note:{en:'Interior Crisis Line, 24 hours:',fr:'Interior Crisis Line, 24 h sur 24 :',es:'Interior Crisis Line, 24 horas:',zh:'Interior 危机热线，24 小时：',ko:'Interior 위기 전화, 24시간:',ja:'Interior危機ライン、24時間：'}},
   ],
@@ -200,11 +202,13 @@ UI.ja.busCoverage='{CITY}: 1 route ({TRANSIT}).';
 // which open data a city uses, and under which licence, is a fact about the city).
 UI.zh.licenceData='<p><b>开放数据：</b>本页面的部分地点（持牌托儿机构、K–12 学校的位置）来自 BC 省政府公开数据，依 <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> 使用。公交线路和站点的数据来源是 {TRANSIT}（<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">开放数据使用条款</a>）。</p>';
 UI.en.licenceData='<p><b>Open data:</b> some places on this page — licensed child care centres and K–12 school locations — contain information licensed under the <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>. Bus routes and stops: {TRANSIT} is the source of this data (<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">open data terms of use</a>).</p>';
-UI.fr.licenceData='<p><b>Données ouvertes :</b> certains lieux de cette page — garderies autorisées et emplacements des écoles de la maternelle à la 12e année — contiennent de l’information visée par l’<a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>. Lignes et arrêts d’autobus : {TRANSIT} est la source de ces données (<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">conditions d’utilisation</a>).</p>';
+UI.fr.licenceData='<p><b>Données ouvertes :</b> certains lieux de cette page — garderies agréées et emplacements des écoles de la maternelle à la 12e année — contiennent de l’information visée par l’<a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>. Lignes et arrêts d’autobus : {TRANSIT} est la source de ces données (<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">conditions d’utilisation</a>).</p>';
 UI.es.licenceData='<p><b>Datos abiertos:</b> algunos lugares de esta página — guarderías con licencia y ubicaciones de escuelas de K a 12 — contienen información bajo la <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>. Rutas y paradas de autobús: {TRANSIT} es la fuente de estos datos (<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">términos de uso</a>).</p>';
 UI.ko.licenceData='<p><b>공개 데이터:</b> 이 페이지의 일부 장소(허가받은 어린이집, K–12 학교 위치)에는 <a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a>에 따라 제공되는 정보가 포함되어 있습니다. 버스 노선과 정류장 데이터의 출처는 {TRANSIT}입니다(<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">공개 데이터 이용 약관</a>).</p>';
 UI.ja.licenceData='<p><b>オープンデータ：</b>このページの一部の場所（認可保育施設、K–12学校の位置）には、<a href="https://www2.gov.bc.ca/gov/content/data/policy-standards/data-policies/open-data/open-government-licence-bc" target="_blank" rel="noopener">Open Government Licence – British Columbia</a> に基づく情報が含まれています。バスの路線と停留所のデータの出典は {TRANSIT} です（<a href="https://www.bctransit.com/open-data/terms-of-use/" target="_blank" rel="noopener">オープンデータ利用規約</a>）。</p>';
 // 2026-10-04: city texts that used to sit in the engine (moved verbatim, so the page reads exactly as before)
+// 2026-10-19 (walkthrough, City reader): it opened with "gathered from Google Places" — 19 of 387 places; most come from
+// the organisations' own sites and government open data. And zh/ko/ja still said bus stops were too many to list.
 UI.zh.busFareText='{CITY} fare text ({TRANSIT}).';
 UI.en.busFareText='{CITY} fare text ({TRANSIT}).';
 UI.fr.busFareText='{CITY} fare text ({TRANSIT}).';

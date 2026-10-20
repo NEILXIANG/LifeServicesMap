@@ -73,7 +73,7 @@
    "a": true
   },
   "note": {
-   "zh": "主要医院，急诊科",
+   "zh": "本市主医院，设有急诊科",
    "en": "The main hospital, with an emergency department",
    "fr": "L'hôpital principal, avec un service d'urgence",
    "es": "El hospital principal, con servicio de urgencias",
@@ -124,9 +124,9 @@
    "zh": "⭐无家庭医生也可用",
    "en": "⭐ Can be used without a family doctor",
    "fr": "⭐ Accessible sans médecin de famille",
-   "es": "⭐ Se puede usar sin médico de cabecera",
-   "ko": "⭐ 주치의 없이도 이용 가능",
-   "ja": "⭐かかりつけ医がなくても利用可能"
+   "es": "⭐ Se puede usar sin médico de familia",
+   "ko": "⭐ 가정의가 없어도 이용 가능",
+   "ja": "⭐かかりつけ医がいなくても利用可能"
   },
   "src": "official",
   "v": "2026-10",
@@ -169,12 +169,12 @@
    ]
   },
   "note": {
-   "zh": "⭐有当天急诊预约，请先打电话",
+   "zh": "⭐提供当天牙科急诊预约，请先给诊所打电话",
    "en": "⭐ Offers same-day emergency appointments; call the office first",
    "fr": "⭐ Offre des rendez-vous d'urgence le jour même ; appelez d'abord le cabinet",
    "es": "⭐ Ofrece citas de urgencia el mismo día; llame primero a la clínica",
-   "ko": "⭐ 당일 응급 예약 가능, 먼저 전화하세요",
-   "ja": "⭐当日の緊急予約に対応、まず電話を"
+   "ko": "⭐ 당일 치과 응급 예약 가능, 먼저 치과에 전화하세요",
+   "ja": "⭐歯科の当日急患予約に対応。まず医院に電話を"
   },
   "src": "official",
   "v": "2026-10",
@@ -333,10 +333,10 @@
    "q": "qSeasonSite"
   },
   "note": {
-   "zh": "⭐Riverside Park 的无障碍戏水公园，紧邻融合式playground；Riverside 停车收费。和 Westsyde Centennial Park 的戏水公园不是同一个",
+   "zh": "⭐Riverside Park 的无障碍戏水公园，紧邻融合式儿童游乐场；Riverside 停车收费。和 Westsyde Centennial Park 的戏水公园不是同一个",
    "en": "⭐ Riverside Park's accessible water park, right beside the inclusive playground; parking at Riverside is paid. Not the same as the water park in Westsyde Centennial Park",
    "fr": "⭐ Les jeux d'eau accessibles du parc Riverside, juste à côté du terrain de jeu inclusif ; stationnement payant à Riverside. À ne pas confondre avec les jeux d'eau du parc Westsyde Centennial",
-   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el aparcamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
+   "es": "⭐ El parque acuático accesible de Riverside Park, justo al lado de la zona de juegos inclusiva; el estacionamiento en Riverside es de pago. No es el mismo que el parque acuático de Westsyde Centennial Park",
    "ko": "⭐ Riverside Park의 무장애 물놀이 시설로, 통합 놀이터 바로 옆. Riverside 주차는 유료. Westsyde Centennial Park의 물놀이 시설과는 다른 곳",
    "ja": "⭐Riverside Parkのバリアフリー水遊び場、インクルーシブ・プレイグラウンドのすぐ隣。Riversideの駐車場は有料。Westsyde Centennial Parkの水遊び場とは別の場所"
   },
@@ -432,12 +432,12 @@
    ]
   },
   "note": {
-   "zh": "⭐夏季浅水池、playground和洗手间",
+   "zh": "⭐夏季浅水池、儿童游乐场和洗手间",
    "en": "⭐ Summer wading pool, a playground and washrooms",
    "fr": "⭐ Pataugeoire l'été, terrain de jeu et toilettes",
    "es": "⭐ Piscina infantil en verano, zona de juegos y baños",
    "ko": "⭐ 여름 물놀이장, 놀이터, 화장실",
-   "ja": "⭐夏の浅瀬プール、プレイグラウンド、トイレ"
+   "ja": "⭐夏の子ども用の浅いプール、プレイグラウンド、トイレ"
   },
   "src": "official",
   "v": "2026-10",
@@ -1034,7 +1034,7 @@
   "lat": 50.67706,
   "lng": -120.32879,
   "a": "450 Lansdowne St #216",
-  "p": "1-866-607-6301",
+  "p": "250-852-6200",
   "h": {
    "r": [
     [
@@ -1068,8 +1068,8 @@
    "ko": "평일 21시까지 영업, 주말은 영업시간이 짧습니다.",
    "ja": "平日は21時まで。週末は短めの営業時間。"
   },
-  "src": "places",
-  "v": "2026-09",
+  "src": "official",
+  "v": "2026-10",
   "t": [
    "life"
   ],
@@ -1078,7 +1078,8 @@
   "sameComplex": [
    "d72e1296"
   ],
-  "pick": 1
+  "pick": 1,
+  "w": "https://www.canadapost-postescanada.ca/cpc/en/tools/find-a-post-office.page"
  },
  {
   "n": "7-Eleven (8th St)",
@@ -1128,7 +1129,7 @@
    ]
   },
   "note": {
-   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供居民安顿、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
+   "zh": "⭐⭐免费 LINC 英语课（适用于永久居民、难民，以及正在走向永居的临时居民）、上课期间学龄前儿童免费托管（需通过安顿顾问提前登记）、求职辅导、免费公民模拟考；另提供定居安顿支持、语言评估与就业辅导。口译和笔译（含粤语、普通话）是<b>收费服务</b>",
    "en": "⭐⭐ Free LINC English classes for eligible clients (permanent residents, refugees, and temporary residents on a pathway to PR), free childminding for preschool children while you study (pre-register through a Settlement Counsellor), job-search help and a free citizenship practice test. Also settlement support, language assessment and employment counselling. Interpretation and translation (including Cantonese and Mandarin) is a paid service",
    "fr": "⭐⭐ Cours d'anglais LINC gratuits pour les clients admissibles (résidents permanents, réfugiés et résidents temporaires en voie d'obtenir la résidence permanente), halte-garderie gratuite pour les enfants d'âge préscolaire pendant les cours (inscription préalable auprès d'un conseiller en établissement), aide à la recherche d'emploi et un test de pratique gratuit pour la citoyenneté. Également accompagnement à l'installation, évaluation linguistique et orientation professionnelle. L'interprétation et la traduction (y compris en cantonais et en mandarin) sont des services payants",
    "es": "⭐⭐ Clases de inglés LINC gratuitas para clientes que cumplan los requisitos (residentes permanentes, refugiados y residentes temporales en camino a la residencia permanente), cuidado gratuito de niños en edad preescolar mientras estudia (con inscripción previa a través de un consejero de asentamiento), apoyo en la búsqueda de empleo y una prueba de práctica gratuita para la ciudadanía. También acompañamiento en el asentamiento, evaluación lingüística y orientación laboral. La interpretación y la traducción (incluidos cantonés y mandarín) son servicios de pago",
@@ -1165,7 +1166,24 @@
    "移民支援",
    "移民サービス",
    "定住支援",
-   "英語教室"
+   "英語教室",
+   "英会話",
+   "영어 교실",
+   "英文课",
+   "学英语",
+   "学英文",
+   "英语学习",
+   "learn english",
+   "learning english",
+   "apprendre l’anglais",
+   "apprendre l'anglais",
+   "aprender inglés",
+   "aprender ingles",
+   "영어 배우기",
+   "영어 공부",
+   "英語を勉強",
+   "英語を学ぶ",
+   "英語学習"
   ],
   "t": [
    "life",
@@ -1284,7 +1302,7 @@
    "zh": "Kamloops Seniors Community Centre，由 CSI Kamloops（The Centre for Seniors Information）运营的长者中心，每周七天都有身心健康活动。停车场在楼后；活动日历见 csikamloops.ca",
    "en": "Kamloops Seniors Community Centre, a seniors' centre run by CSI Kamloops (The Centre for Seniors Information), with physical and mental wellness activities seven days a week. Parking is at the back of the building; events calendar at csikamloops.ca",
    "fr": "Kamloops Seniors Community Centre, un centre pour aînés géré par CSI Kamloops (The Centre for Seniors Information), avec des activités de bien-être physique et mental sept jours sur sept. Stationnement à l'arrière du bâtiment ; calendrier des activités sur csikamloops.ca",
-   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Aparcamiento detrás del edificio; calendario de actividades en csikamloops.ca",
+   "es": "Kamloops Seniors Community Centre, un centro para personas mayores gestionado por CSI Kamloops (The Centre for Seniors Information), con actividades de bienestar físico y mental los siete días de la semana. Estacionamiento detrás del edificio; calendario de actividades en csikamloops.ca",
    "ko": "Kamloops Seniors Community Centre — CSI Kamloops(The Centre for Seniors Information)가 운영하는 노인 센터로, 주 7일 몸과 마음의 건강 활동이 있습니다. 주차장은 건물 뒤편, 행사 일정은 csikamloops.ca에서 확인하세요",
    "ja": "Kamloops Seniors Community Centre — CSI Kamloops（The Centre for Seniors Information）が運営するシニアセンターで、心身の健康のための活動が週7日あります。駐車場は建物の裏、イベント予定はcsikamloops.caで"
   },
@@ -1434,8 +1452,8 @@
    "zh": "1BR／2BR户型（租金以官网/致电为准）水费全包，可养猫，近Northills Mall，有电梯",
    "en": "1BR and 2BR units (rent via the website or by phone). Water included, cats allowed, near Northills Mall, elevator in the building",
    "fr": "Logements de 1 et 2 chambres (location par le site web ou par téléphone). Eau incluse, chats admis, près de Northills Mall, ascenseur dans l'immeuble",
-   "es": "Pisos de 1 y 2 dormitorios (alquiler por la web o por teléfono). Agua incluida, se admiten gatos, cerca de Northills Mall, edificio con ascensor",
-   "ko": "방 1~2개 유닛(웹사이트 또는 전화로 임대). 수도 요금 포함, 고양이 가능, Northills Mall 근처, 건물에 엘리베이터 있음",
+   "es": "Apartamentos de 1 y 2 dormitorios (alquiler por la web o por teléfono). Agua incluida, se admiten gatos, cerca de Northills Mall, edificio con ascensor",
+   "ko": "방 1~2개 유닛(임대료는 웹사이트나 전화로 확인). 수도 요금 포함, 고양이 가능, Northills Mall 근처, 건물에 엘리베이터 있음",
    "ja": "1BR、2BRあり（賃料は公式サイトまたは電話で確認）、水道代込み、猫可、Northills Mall近く、エレベーターあり"
   },
   "src": "official",
@@ -1481,7 +1499,7 @@
    "fr": "⚠️ Les arrêts d'autobus scolaire sont attribués par adresse, foyer par foyer, et ne sont pas publiés sous forme de liste fixe. Consultez la page « register for busing » du site du district pour l'admissibilité, et appelez pour confirmer la distance de marche applicable. Il s'agit du bureau du conseil scolaire, et non du dépôt d'autobus",
    "es": "⚠️ Las paradas del autobús escolar se asignan por domicilio, hogar por hogar, y no se publican como una lista fija. Consulte la página «register for busing» del distrito para la elegibilidad y llame para confirmar la distancia a pie aplicable. Esta es la oficina de la junta escolar, no la cochera de autobuses",
    "ko": "⚠️ 통학버스 정류장은 가구별 주소에 따라 배정되며 고정 목록으로 공개되지 않습니다. 자격 요건은 교육구 웹사이트의 register for busing 페이지를 확인하고, 도보 거리 기준은 전화로 문의하세요. 이곳은 교육청 사무실이며 버스 차고지가 아닙니다",
-   "ja": "⚠️スクールバスの停留所は住所ごとに個別割当で、固定リストとしては公開されていない。利用資格は学区公式サイトのregister for busingページを確認し、徒歩距離の基準は電話で確認を。ここは教育委員会事務所であり、バス車庫ではない"
+   "ja": "⚠️スクールバスの停留所は住所ごとに個別割当で、固定リストとしては公開されていません。利用資格は学区公式サイトのregister for busingページを確認し、徒歩距離の基準は電話で確認を。ここは教育委員会事務所であり、バス車庫ではない"
   },
   "src": "official",
   "v": "2026-10",
@@ -1791,12 +1809,12 @@
   "p": "236-425-9121",
   "w": "https://www.bclegalclinic.com",
   "note": {
-   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、EI、债务、租房纠纷等；具体是否收案请致电确认",
+   "zh": "免费法律诊所，覆盖家庭法、社会救助/伤残津贴、就业保险（EI）、债务、租房纠纷等；具体是否收案请致电确认",
    "en": "A free legal clinic covering family law, income assistance and disability benefits, EI, debt and tenancy disputes; call to confirm whether they can take your case",
-   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs; appelez pour savoir s'ils peuvent prendre votre dossier",
+   "fr": "Une clinique juridique gratuite couvrant le droit de la famille, l'aide au revenu et les prestations d'invalidité, l'assurance-emploi, les dettes et les litiges locatifs ; appelez pour savoir s'ils peuvent prendre votre dossier",
    "es": "Una clínica jurídica gratuita que cubre derecho de familia, asistencia social y prestaciones por discapacidad, seguro de empleo, deudas y conflictos de alquiler; llame para saber si pueden aceptar su caso",
-   "ko": "가족법·생활보조와 장애 급여·고용보험·채무·임대 분쟁을 다루는 무료 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
-   "ja": "家族法、収入補助、障害給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料の法律クリニック、案件を受けられるか電話で確認を"
+   "ko": "가족법·소득 지원과 장애 지원·고용보험·채무·임대 분쟁을 다루는 무료 법률 클리닉, 사건을 맡을 수 있는지 전화로 확인하세요",
+   "ja": "家族法、生活保護（Income Assistance）、障害者給付、雇用保険（EI）、債務、賃貸トラブルなどを扱う無料の法律クリニック、案件を受けられるか電話で確認を"
   },
   "src": "official",
   "v": "2026-10",
@@ -1887,7 +1905,7 @@
    "zh": "⭐ 面向有需要的家庭发放食物，需出示家中每位成员的一件身份证件。周一至周四家庭/单亲与单身/夫妇分在不同日子领取，周五和周六两类都可以来；60岁以上长者有更早的时段，中午有休息时间。不易腐食品包每个自然月可领一次，面包、蔬果、奶制品和肉类每月两次。当期时段请以官网或电话为准。",
    "en": "⭐ Food for households in need; bring a piece of ID for every person in your household. Families/single parents and singles/couples come on different days from Monday to Thursday, and either group can come on Friday and Saturday; there is an earlier slot for seniors 60+ and a break over midday. A non-perishable hamper once per calendar month; bread, produce, dairy and meat twice a month. Confirm current times on the website or by phone.",
    "fr": "⭐ Nourriture pour les ménages dans le besoin ; apportez une pièce d'identité pour chaque personne du ménage. Du lundi au jeudi, familles et parents seuls d'un côté, personnes seules et couples de l'autre, viennent à des jours différents ; le vendredi et le samedi, les deux groupes peuvent venir. Plage plus tôt pour les 60 ans et plus et pause le midi. Un panier de denrées non périssables une fois par mois civil ; pain, fruits et légumes, produits laitiers et viande deux fois par mois. Confirmez les heures sur le site ou par téléphone.",
-   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias y padres solos por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
+   "es": "⭐ Alimentos para hogares que lo necesitan; traiga una identificación por cada persona del hogar. De lunes a jueves, familias (incluidas las monoparentales) por un lado, y personas solas y parejas por otro, van en días distintos; el viernes y el sábado pueden ir ambos grupos. Hay un horario más temprano para mayores de 60 años y una pausa al mediodía. Una despensa de no perecederos una vez por mes natural; pan, frutas y verduras, lácteos y carne dos veces al mes. Confirme los horarios en el sitio web o por teléfono.",
    "ko": "⭐ 도움이 필요한 가구에 식품을 제공하며, 가구 구성원 모두의 신분증을 한 가지씩 가져오세요. 월~목요일에는 가족·한부모 가구와 1인·부부 가구가 서로 다른 요일에 방문하고, 금·토요일에는 두 그룹 모두 올 수 있습니다. 60세 이상 노인은 더 이른 시간대가 있고 점심 무렵 휴식 시간이 있습니다. 비부패성 식품 꾸러미는 달력상 한 달에 한 번, 빵·농산물·유제품·육류는 한 달에 두 번 받을 수 있습니다. 정확한 시간은 홈페이지나 전화로 확인하세요.",
    "ja": "⭐生活に困っている世帯への食料支援です。世帯全員それぞれの身分証を1点ずつ持参してください。月〜木は家族・ひとり親世帯と単身・カップル世帯で利用日が分かれ、金・土はどちらも利用できます。60歳以上のシニアには早い時間帯があり、昼は休止時間があります。保存食のパックは暦月に1回、パン・青果・乳製品・肉は月2回。最新の時間帯は公式サイトまたは電話で確認してください。"
   },
@@ -1941,10 +1959,10 @@
   "p": "250-376-1296",
   "w": "https://kafs.ca/",
   "note": {
-   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论身份（status-free），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
+   "zh": "自 1972 年起服务于 Kamloops 城市原住民的友谊中心，不论是否具有原住民身份（status），提供扎根于文化的项目与支持。友谊中心是城市里的社区机构，去前先打电话问问当期有什么项目。",
    "en": "A friendship centre serving urban Indigenous people in Kamloops since 1972, whatever their status, with culturally grounded programs and support. Friendship centres are urban and community-run; call first to ask what is running.",
-   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
-   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
+   "fr": "Un centre d’amitié au service des Autochtones vivant en milieu urbain à Kamloops depuis 1972, quel que soit leur statut, avec des programmes et du soutien ancrés dans la culture. Les centres d’amitié sont urbains et gérés par la communauté ; téléphonez d’abord pour savoir ce qui est offert.",
+   "es": "Un centro de amistad que sirve a personas indígenas en zona urbana de Kamloops desde 1972, sea cual sea su estatus, con programas y apoyo culturalmente arraigados. Los centros de amistad son urbanos y comunitarios; llame antes para saber qué hay disponible.",
    "ko": "1972년부터 신분(status)과 관계없이 캄루프스 도시 지역의 원주민을 지원해 온 프렌드십 센터로, 문화에 뿌리를 둔 프로그램과 지원을 제공합니다. 프렌드십 센터는 지역 공동체가 운영하는 도시형 기관이니, 방문 전 전화로 현재 프로그램을 확인하세요.",
    "ja": "1972年から、ステータスの有無を問わずカムループスの都市部に住む先住民を支援するフレンドシップセンター。文化に根ざしたプログラムと支援を提供しています。フレンドシップセンターは地域が運営する都市型の施設なので、訪問前に電話で今の活動を確認してください。"
   },
@@ -1983,8 +2001,8 @@
   },
   "note": {
    "en": "Matches people to volunteer openings across the city. Volunteering is the most reliable way to meet people here when you arrive knowing nobody — and Canadian references and work history start the same way. Visits are by appointment.",
-   "fr": "Met en relation avec des postes de bénévolat partout en ville. Le bénévolat est le moyen le plus fiable de rencontrer des gens quand on arrive sans connaître personne — et les références canadiennes commencent souvent là. Sur rendez-vous.",
-   "es": "Conecta a personas con oportunidades de voluntariado en toda la ciudad. El voluntariado es la forma más fiable de conocer gente al llegar sin conocer a nadie — y las referencias canadienses suelen empezar así. Con cita previa.",
+   "fr": "Met en relation avec des postes de bénévolat partout en ville. Le bénévolat est le moyen le plus fiable de rencontrer des gens quand on arrive sans connaître personne — et c’est souvent ainsi que commencent les références et l’expérience de travail canadiennes. Sur rendez-vous.",
+   "es": "Conecta a personas con oportunidades de voluntariado en toda la ciudad. El voluntariado es la forma más fiable de conocer gente al llegar sin conocer a nadie — y las referencias y la experiencia laboral canadienses suelen empezar así. Con cita previa.",
    "zh": "把人对接到全市的志愿岗位。刚来谁都不认识时，做义工是最靠得住的认识人的途径——加拿大的推荐人和本地工作经历，往往也是这么开始的。到访需预约。",
    "ko": "시 전역의 자원봉사 자리를 연결해 줍니다. 아는 사람 없이 도착했을 때 사람을 만나는 가장 확실한 방법이며, 캐나다에서의 추천인과 경력도 대개 여기서 시작됩니다. 방문은 예약제입니다.",
    "ja": "市内全域のボランティア募集とつないでくれます。知り合いがいない状態で来たとき、人と出会う最も確実な方法であり、カナダでの推薦者や職歴もここから始まることが多いです。訪問は予約制。"
@@ -2032,14 +2050,14 @@
   },
   "note": {
    "en": "Support for adults in poverty or without housing: advocacy, help getting ID, housing and employment support, health and foot care, a tax clinic, counselling and recovery support. Outreach runs seven days a week; the office is weekdays.",
-   "fr": "Soutien aux adultes en situation de pauvreté ou sans logement : défense des droits, aide pour obtenir des pièces d’identité, soutien au logement et à l’emploi, soins de santé et des pieds, clinique d’impôts, counseling. Sept jours sur sept pour l’intervention.",
-   "es": "Apoyo a adultos en pobreza o sin vivienda: defensa, ayuda para obtener identificación, apoyo de vivienda y empleo, atención de salud y de pies, clínica de impuestos, consejería. La atención en calle funciona los siete días.",
+   "fr": "Soutien aux adultes en situation de pauvreté ou sans logement : défense des droits, aide pour obtenir des pièces d’identité, soutien au logement et à l’emploi, soins de santé et des pieds, clinique d’impôts, counseling et soutien au rétablissement. L’intervention de rue a lieu sept jours sur sept ; le bureau est ouvert en semaine seulement.",
+   "es": "Apoyo a adultos en pobreza o sin vivienda: defensa, ayuda para obtener identificación, apoyo de vivienda y empleo, atención de salud y de pies, clínica de impuestos, consejería y apoyo en la recuperación. La atención en calle funciona los siete días; la oficina, entre semana.",
    "zh": "面向处于贫困或无住处成年人的支持：权益倡导、协助补办身份证件、住房与就业支持、健康与足部护理、报税服务、心理咨询与戒瘾支持。外展服务每周七天，办公室为工作日。",
-   "ko": "빈곤 상태이거나 주거가 없는 성인을 위한 지원: 권익 옹호, 신분증 재발급 도움, 주거·취업 지원, 건강 및 발 관리, 세무 클리닉, 상담과 회복 지원. 아웃리치는 주 7일 운영됩니다.",
-   "ja": "貧困状態にある、または住まいのない成人への支援: 権利擁護、身分証の再取得支援、住居・就労支援、健康およびフットケア、税務クリニック、カウンセリングと回復支援。アウトリーチは週7日です。"
+   "ko": "빈곤 상태이거나 주거가 없는 성인을 위한 지원: 권익 옹호, 신분증 발급 도움, 주거·취업 지원, 건강 및 발 관리, 세무 클리닉, 상담과 회복 지원. 아웃리치는 주 7일 운영되며, 사무실은 평일에만 엽니다.",
+   "ja": "貧困状態にある、または住まいのない成人への支援: 権利擁護、身分証の再取得支援、住居・就労支援、健康およびフットケア、税務クリニック、カウンセリングと回復支援。アウトリーチは週7日、事務所は平日のみです。"
   },
   "src": "official",
-  "v": "2026-09",
+  "v": "2026-10",
   "alias": [
    "免费帮助",
    "救助",
@@ -2077,7 +2095,7 @@
    "fr": "Un grand organisme local de services sociaux, et un bon premier arrêt si vous voulez faire du bénévolat là où vous retrouvez les mêmes personnes chaque semaine : livraison de la popote roulante, programme Mieux chez soi (conduire des aînés, aide à l'épicerie), et le centre alimentaire Mount Paul. Il gère aussi le Kamloops Youth Shelter pour les 13-18 ans — pour savoir s'il y a de la place, appelez ou présentez-vous au refuge, ou écrivez à adm@interiorcommunityservices.bc.ca.",
    "es": "Una gran agencia local de servicios sociales, y un buen primer paso si quiere ser voluntario en un lugar donde verá a las mismas personas cada semana: rutas de reparto de comida a domicilio, el programa Better at Home (llevar a mayores, ayuda con las compras) y el centro alimentario Mount Paul. También gestiona el Kamloops Youth Shelter para jóvenes de 13 a 18 años: para saber si hay plaza, llame o acuda al albergue, o escriba a adm@interiorcommunityservices.bc.ca.",
    "ko": "규모가 큰 지역 사회서비스 기관으로, 매주 같은 사람들을 만나는 방식의 자원봉사를 원한다면 좋은 출발점입니다: 도시락 배달 노선, Better at Home 프로그램(어르신 차량 지원, 장보기 도움), Mount Paul 푸드센터. 13-18세 청소년 쉼터인 Kamloops Youth Shelter도 운영합니다 — 자리가 있는지는 쉼터에 연락하거나 직접 가서 묻고, adm@interiorcommunityservices.bc.ca로 이메일을 보낼 수도 있습니다.",
-   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です: 配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
+   "ja": "地域の大きな社会サービス団体で、毎週同じ人たちと顔を合わせる形のボランティアを探しているなら良い出発点です：配食の配達ルート、Better at Homeプログラム（高齢者の送迎、買い物の手伝い）、Mount Paulフードセンター。13〜18歳の青少年シェルターKamloops Youth Shelterも運営しています — 空きの確認はシェルターに連絡するか直接行くか、adm@interiorcommunityservices.bc.ca にメールしてください。"
   },
   "src": "official",
   "v": "2026-10",
@@ -2137,7 +2155,7 @@
    "fr": "Services d'emploi gratuits financés par la province : recherche d'emploi, aide au CV, évaluation des compétences, accès à la formation et placement. Créez un BCeID avant d'y aller — le centre indique que les chercheurs d'emploi en ont besoin pour être servis. À l'étage de Lansdowne Village.",
    "es": "Servicios de empleo gratuitos financiados por la provincia: búsqueda de trabajo, ayuda con el currículum, evaluación de habilidades, acceso a formación y colocación laboral. Cree una cuenta BCeID antes de ir: el centro indica que quien busca empleo la necesita para recibir el servicio. En la planta alta de Lansdowne Village.",
    "ko": "주정부가 지원하는 무료 취업 서비스: 구직, 이력서 다듬기, 기술 평가, 훈련 연계, 취업 알선. 가기 전에 BCeID를 만들어 두세요 — 센터 안내에 따르면 구직자는 BCeID가 있어야 서비스를 받을 수 있습니다. Lansdowne Village 2층에 있습니다.",
-   "ja": "州の資金による無料の就労支援: 求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
+   "ja": "州の資金による無料の就労支援：求職、履歴書の添削、スキル評価、訓練の利用、職業紹介。行く前にBCeIDを作っておきましょう — センターによると、求職者はBCeIDがないとサービスを受けられません。Lansdowne Villageの2階です。"
   },
   "src": "official",
   "v": "2026-10",
@@ -2162,5 +2180,56 @@
    "0379415c"
   ],
   "id": "d72e1296"
+ },
+ {
+  "n": "Legal Aid BC (Kamloops)",
+  "c": "legal",
+  "g": "sk",
+  "lat": 50.6704457,
+  "lng": -120.3308755,
+  "a": "455 Columbia St, 2nd Floor",
+  "p": "250-314-1900",
+  "w": "https://legalaid.bc.ca/location-map/00141",
+  "h": {
+   "r": [
+    [
+     1,
+     4,
+     540,
+     720,
+     0
+    ],
+    [
+     1,
+     4,
+     780,
+     930,
+     0
+    ]
+   ]
+  },
+  "src": "official",
+  "t": [
+   "free"
+  ],
+  "alias": [
+   "legal aid",
+   "法律援助",
+   "律师",
+   "법률 구조",
+   "法律扶助",
+   "aide juridique",
+   "asistencia legal"
+  ],
+  "note": {
+   "zh": "Legal Aid BC 在法院大楼二楼的申请受理点，由一家本地律师事务所受托运营：在这里申请法律援助，看收入是否符合条件、能否获派律师。周一至周四 9:00–12:00、13:00–15:30 开放，<b>周五不开</b>——周五可打 Legal Aid BC 的全省受理电话。进法院要过安检。",
+   "en": "Legal Aid BC’s intake location on the courthouse’s 2nd floor, run under contract by a local law office: apply here to find out whether your income qualifies you for a legal aid lawyer. Open Monday to Thursday 9–12 and 1–3:30, closed Fridays — on Fridays, use Legal Aid BC’s province-wide intake line. Expect courthouse security screening.",
+   "fr": "Point d’accueil de Legal Aid BC au 2e étage du palais de justice, géré par contrat par un cabinet d’avocats local : faites-y votre demande pour savoir si votre revenu vous donne droit à un avocat de l’aide juridique. Ouvert du lundi au jeudi de 9 h à 12 h et de 13 h à 15 h 30, fermé le vendredi — le vendredi, utilisez la ligne d’accueil provinciale de Legal Aid BC. Prévoyez le contrôle de sécurité du palais de justice.",
+   "es": "Punto de admisión de Legal Aid BC en el 2.º piso del palacio de justicia, gestionado por contrato por un bufete local: solicite aquí para saber si sus ingresos le dan derecho a un abogado de asistencia legal. Abierto de lunes a jueves de 9 a 12 y de 13 a 15:30, cerrado los viernes; los viernes use la línea de admisión provincial de Legal Aid BC. Espere control de seguridad en el palacio de justicia.",
+   "ko": "법원 건물 2층에 있는 Legal Aid BC 접수처로, 지역 법률사무소가 위탁 운영합니다. 여기서 신청하면 소득 기준으로 법률구조 변호사를 받을 수 있는지 알 수 있습니다. 월~목 9-12시, 13-15:30, 금요일 휴무 — 금요일에는 Legal Aid BC의 주 전체 접수 전화를 이용하세요. 법원 보안 검색이 있습니다.",
+   "ja": "裁判所2階にあるLegal Aid BCの受付窓口で、地元の法律事務所が委託で運営しています。ここで申請すると、収入の条件で法律扶助の弁護士を付けてもらえるかがわかります。月〜木9〜12時、13〜15時30分、金曜休み — 金曜はLegal Aid BCの州全体の受付電話を利用してください。裁判所の保安検査があります。"
+  },
+  "id": "9bc02891",
+  "v": "2026-10"
  }
 ]
