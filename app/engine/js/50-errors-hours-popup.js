@@ -103,10 +103,10 @@ function phoneHtml(str){
 // broke across lines; only tel: links were kept whole. Wraps every full phone number found in text (never inside a tag).
 // a time range in running text ("9:00–21:00", "11:00-23:00") stays on one line
 function glueTimes(s){
-  return String(s).replace(/(\d{1,2}:\d{2})\s?([–-])\s?(\d{1,2}:\d{2})/g,'$1\u2060$2\u2060$3');
+  return String(s).replace(/(\d{1,2}:\d{2})\s?([–\-〜])\s?(\d{1,2}:\d{2})/g,'$1\u2060$2\u2060$3');   // 〜: Japanese ranges (2026-10-20)
 }
 function keepPhonesWhole(html){
-  return String(html).replace(/(<[^>]*>)|((?:\b1-)?\b\d{3}-\d{3}-\d{4}\b)|(\d{1,2}:\d{2}\s?[–-]\s?\d{1,2}:\d{2})/g,
+  return String(html).replace(/(<[^>]*>)|((?:\b1-)?\b\d{3}-\d{3}-\d{4}\b)|(\d{1,2}:\d{2}\s?[–\-〜]\s?\d{1,2}:\d{2})/g,
     (m,tag,num,tm)=>tag?tag:num?'<span class="nw">'+num+'</span>':glueTimes(tm));
 }
 // 2026-10-20 (launch review, French): the space before : ; ? ! and inside « » was an ordinary one, so a colon could

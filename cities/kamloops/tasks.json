@@ -26,7 +26,7 @@
    "es": "Gratis y uno a uno — sobre todo para residentes permanentes y refugiados; algunos servicios también están abiertos a residentes temporales. El atajo para todo lo demás de esta lista.",
    "zh": "免费、一对一——主要面向永久居民和难民；部分服务也对临时居民开放。这份清单上其他所有事，走这条路最快。",
    "ko": "무료 일대일 상담 — 주로 영주권자와 난민 대상이며, 일부 서비스는 임시 거주자도 이용할 수 있습니다. 이 목록의 나머지 모든 일에 대한 지름길입니다.",
-   "ja": "無料の個別相談 — 主に永住者と難民が対象で、一部のサービスは一時滞在者も利用できます。このリストの他のすべてへの近道です。"
+   "ja": "無料の個別相談 — 主に永住者と難民が対象で、一部のサービスは一時滞在者も利用できます。このリストにある他の手続きも、ここから始めるのが一番の近道です。"
   },
   "steps": [
    {
@@ -139,7 +139,7 @@
     "es": "En persona: normalmente recibe su número durante la visita.",
     "zh": "现场办理：通常当场就能拿到号码。",
     "ko": "방문 신청 시: 보통 그 자리에서 번호를 받습니다.",
-    "ja": "窓口の場合: 通常その場で番号が発行されます。"
+    "ja": "窓口の場合：通常その場で番号が発行されます。"
    }
   ],
   "cost": {
@@ -290,7 +290,7 @@
    "es": "Health Insurance BC · 1-800-663-7100 · lun–vie 8:00–16:30",
    "zh": "Health Insurance BC · 1-800-663-7100 · 周一至周五 8:00–16:30",
    "ko": "Health Insurance BC · 1-800-663-7100 · 월–금 8:00–16:30",
-   "ja": "Health Insurance BC · 1-800-663-7100 · 月–金 8:00–16:30"
+   "ja": "Health Insurance BC · 1-800-663-7100 · 月〜金 8:00〜16:30"
   },
   "place": "867acd77",
   "src": "https://www2.gov.bc.ca/gov/content/health/health-drug-coverage/msp/bc-residents/eligibility-and-enrolment/apply-for-msp",
@@ -494,7 +494,7 @@
     "es": "Entre en cualquier sucursal bancaria y diga que quiere abrir una cuenta de cheques personal.",
     "zh": "走进任何一家银行的分行，说你想开个人支票账户。",
     "ko": "아무 은행 지점에 들어가 개인 입출금 계좌(chequing)를 열고 싶다고 말하세요.",
-    "ja": "どの銀行の支店でもいいので入って、個人のチェッキング口座を開きたいと伝えましょう。"
+    "ja": "どの銀行の支店でもいいので入って、個人の普通口座（chequing account）を開きたいと伝えましょう。"
    },
    {
     "en": "Show two original pieces of ID — photocopies are not accepted.",
@@ -519,7 +519,7 @@
    "es": "Dos documentos: uno con nombre y dirección, otro con nombre y fecha de nacimiento — sirve un pasaporte extranjero, una identificación canadiense, una factura de servicios o un estado de cuenta. O uno con nombre y fecha de nacimiento, más alguien que confirme su identidad: un cliente al día con el banco o una persona de buena reputación en la comunidad.",
    "zh": "两份证件：一份显示姓名和地址，一份显示姓名和出生日期——外国护照可以，加拿大政府证件、水电账单、银行对账单也可以。或者一份显示姓名和出生日期的证件，再加一位能证明你身份的人：该银行信誉良好的客户，或在社区中有信誉的人。",
    "ko": "신분증 2종: 하나는 이름과 주소, 다른 하나는 이름과 생년월일이 나오는 것 — 외국 여권도 되고, 캐나다 정부 발급 신분증, 공과금 고지서, 은행 명세서도 가능합니다. 또는 이름과 생년월일이 나온 신분증 1종 + 본인임을 확인해 줄 사람(그 은행과 거래 이력이 좋은 고객, 또는 지역사회에서 신망 있는 사람)도 가능합니다.",
-   "ja": "身分証2点: 1点は氏名と住所、もう1点は氏名と生年月日が分かるもの — 外国のパスポート、カナダ政府発行の身分証、公共料金の請求書、銀行の明細書などが使えます。または氏名と生年月日が分かる1点＋あなたの身元を証明できる人（その銀行の信用ある顧客、または地域で信頼されている人）。"
+   "ja": "身分証2点：1点は氏名と住所、もう1点は氏名と生年月日が分かるもの — 外国のパスポート、カナダ政府発行の身分証、公共料金の請求書、銀行の明細書などが使えます。または氏名と生年月日が分かる1点＋あなたの身元を証明できる人（その銀行の信用ある顧客、または地域で信頼されている人）。"
   },
   "note": {
    "zh": "银行仍可以因少数原因拒绝——比如提供虚假信息、过去七年内有欺诈记录、骚扰员工——但不能因为你刚来或没钱就拒绝。这些权利适用于银行和联邦信用合作社；受省监管的信用合作社按省里的规定。",
@@ -810,7 +810,7 @@
    "es": "Los trámites lo instalan; las personas hacen que un lugar sea un hogar. Esto nadie se lo da: hay que hacerlo a propósito.",
    "zh": "手续办完只是安顿下来；真正让一个地方变成家的是人。这部分没有人会主动递给你，得自己有意识地去做。",
    "ko": "서류는 정착을 도와주지만, 그곳을 집으로 만드는 것은 사람입니다. 이것만은 아무도 대신 해주지 않으니 의식적으로 해야 합니다.",
-   "ja": "手続きは生活を整えるだけ。その土地を「わが家」にするのは人です。これだけは誰も差し出してくれないので、意識してやる必要があります。"
+   "ja": "手続きは生活を整えるだけ。その土地を「わが家」にするのは人です。これだけは誰かが用意してくれるものではないので、自分から動く必要があります。"
   },
   "steps": [
    {
@@ -819,7 +819,7 @@
     "es": "Haga voluntariado. Es la forma más confiable de conocer gente cuando no conoce a nadie — y ahí empiezan las referencias canadienses y la experiencia laboral local.",
     "zh": "去做义工。谁都不认识的时候，这是最靠得住的认识人的路——加拿大的推荐人和本地工作经历，也往往从这里开始。",
     "ko": "자원봉사를 하세요. 아는 사람이 없을 때 사람을 만나는 가장 확실한 방법이며, 캐나다에서의 추천인과 경력도 여기서 시작됩니다.",
-    "ja": "ボランティアを。知り合いがいないときに人と出会う最も確実な方法で、カナダでの推薦者や職歴もここから始まります。"
+    "ja": "ボランティアを。知り合いがいないときに人と出会う最も確実な方法で、カナダでのリファレンス（照会先）や職歴もここから始まります。"
    },
    {
     "en": "Use the library. Free programs, free wifi, free meeting rooms, and staff who will point you to what is happening — no membership fee, no purchase.",
@@ -966,7 +966,7 @@
    "es": "¿No sabe a qué oficina acudir? Llame al 2-1-1, o a un trabajador de asentamiento si el idioma es parte de la dificultad.",
    "zh": "在几个机构之间转不出来？打 2-1-1；如果语言也是障碍，找定居服务专员。",
    "ko": "기관 사이에서 헤매고 있다면 2-1-1, 언어가 어려움의 일부라면 정착 지원 담당자에게.",
-   "ja": "窓口の間で行き詰まったら2-1-1へ。言葉も壁になっているなら定住支援ワーカーへ。"
+   "ja": "どの窓口に行けばいいか分からなくなったら2-1-1へ。言葉も壁になっているなら定住支援ワーカーへ。"
   },
   "alias": [
    "aînés",
@@ -1040,7 +1040,7 @@
     "fr": "À voir aujourd’hui : dans cette ville il n’y a en pratique qu’une seule porte sans rendez-vous — le North Shore UPCC (700 Tranquille Rd), ouvert de 7 h 30 à 18 h 30 tous les jours, y compris les jours fériés. Allez-y tôt pour éviter une longue attente. N’entrez pas ailleurs en espérant être vu : le South Shore UPCLC est sur rendez-vous seulement (appelez le 250-314-2256 dès 10 h — le même numéro sert aux deux cliniques) et les « cliniques » des pharmacies sont virtuelles.",
     "es": "Necesita atención hoy: en esta ciudad hay en la práctica una sola puerta sin cita — el North Shore UPCC (700 Tranquille Rd), abierto de 7:30 a 18:30 todos los días, incluidos los festivos. Vaya temprano para evitar una larga espera. No entre a otras clínicas esperando que le atiendan: el South Shore UPCLC es solo con cita (llame al 250-314-2256 desde las 10:00; es el mismo número para las dos clínicas) y las «clínicas» de las farmacias son virtuales.",
     "ko": "오늘 꼭 진료가 필요하면: 이 도시에서 예약 없이 바로 들어갈 수 있는 곳은 사실상 한 곳 — North Shore UPCC(700 Tranquille Rd)뿐이며, 공휴일을 포함해 매일 오전 7시 30분–오후 6시 30분에 엽니다. 오래 기다리지 않으려면 일찍 가세요. 다른 클리닉에 가서 헛걸음하지 마세요: South Shore UPCLC는 예약 전용(오전 10시부터 250-314-2256, 두 클리닉이 같은 번호를 씁니다), 약국의 “클리닉”은 화상 진료입니다.",
-    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（700 Tranquille Rd）だけで、祝日も含め毎日7:30–18:30に開いています。長く待たないよう、早めに行ってください。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256。両方のクリニック共通の番号です）、薬局の「クリニック」はオンライン診療です。"
+    "ja": "今日中に診てもらいたいとき：この街で予約なしに入れる窓口は実質ひとつ — North Shore UPCC（700 Tranquille Rd）だけで、祝日も含め毎日7:30〜18:30に開いています。長く待たないよう、早めに行ってください。他のクリニックに行っても診てもらえません：South Shore UPCLC は予約制（午前10時から 250-314-2256。両方のクリニック共通の番号です）、薬局の「クリニック」はオンライン診療です。"
    },
    {
     "en": "Chest pain, trouble breathing, heavy bleeding, or you think it is serious: 911, or the hospital emergency department.",
@@ -1114,7 +1114,7 @@
    "es": "Mi arrendador retiene mi depósito o cobra tarifas dudosas",
    "zh": "房东扣我押金，或收了我觉得不该收的费用",
    "ko": "집주인이 보증금을 돌려주지 않거나 이상한 비용을 청구해요",
-   "ja": "大家が敷金を返してくれない、不審な費用を請求された"
+   "ja": "大家が敷金を返してくれない、または納得できない費用を請求された"
   },
   "t": {
    "en": "Get your deposit back",
@@ -1172,7 +1172,7 @@
    "es": "Residential Tenancy Branch (RTB, oficina de arrendamientos de BC) · 1-800-665-8779",
    "zh": "BC 省住宅租赁管理处 RTB · 1-800-665-8779",
    "ko": "BC주 주택임대청(RTB) · 1-800-665-8779",
-   "ja": "BC州住宅賃貸局(RTB) · 1-800-665-8779"
+   "ja": "BC州住宅賃貸局（RTB） · 1-800-665-8779"
   },
   "src": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy/deposits-fees",
   "srcName": "BC Residential Tenancy Branch",
@@ -1237,7 +1237,7 @@
     "es": "Vaya al banco de alimentos. No hace falta estar en la miseria. Lleve identificación de cada persona del hogar y algo que muestre su dirección; si le falta algo, llame antes y pregunte qué aceptan.",
     "zh": "去食物银行。不需要“穷到极点”才能去。带上家里每个人的证件和一份能证明住址的东西；缺了什么，先打电话问他们接受什么。",
     "ko": "푸드뱅크에 가세요. 극빈 상태여야 하는 것은 아닙니다. 가구원 모두의 신분증과 주소를 보여 주는 서류를 가져가세요. 빠진 것이 있으면 먼저 전화해 무엇이 되는지 물어보세요.",
-    "ja": "フードバンクへ。困窮の極みである必要はありません。世帯全員の身分証と住所が分かる書類を持参してください。足りないものがあれば、先に電話して何が使えるか聞きましょう。"
+    "ja": "フードバンクへ。よほど困っていなくても利用できます。世帯全員の身分証と住所が分かる書類を持参してください。足りないものがあれば、先に電話して何が使えるか聞きましょう。"
    },
    {
     "en": "If rent is the problem, act before you miss it — a landlord must follow a legal process, and there are people whose job is to help you through it.",
@@ -1291,7 +1291,7 @@
    "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan a las 21:30, hora de cierre del albergue; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, de acceso fácil, con pocos requisitos — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un mensaje de texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
    "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一处不行不等于走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
    "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 조건이 거의 없는 쉼터 — 접수 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 한 곳에서 안 된다고 거기서 끝이 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
-   "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、条件をほとんど問わない — 受付番号へ電話を）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 一か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
+   "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、条件をほとんど問わない — 受付番号へ電話を）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 1か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
   },
   "also": {
    "en": "The three food programs run on different days, so if one doesn't fit today, another might: Kamloops Food Bank (families and singles attend on separate days), Mount Paul Community Food Centre (free community meals Mondays and Thursdays, an affordable produce market Tuesdays and Thursdays), and The Salvation Army (emergency food hampers Mondays and Wednesdays, 9–11:45 am, once every 60 days — call 250-554-1611 first).",
@@ -1395,7 +1395,7 @@
    "es": "El programa Women's Empowerment de Kamloops Immigrant Services ofrece asesoría individual gratuita y ayuda para acceder a servicios legales a mujeres, niñas y personas de diversidad de género inmigrantes y refugiadas — no tiene que enfrentarlo en soledad.",
    "zh": "Kamloops Immigrant Services 的 Women's Empowerment 项目为移民和难民中的女性、女孩和性别多元人士提供免费的一对一心理辅导，并帮忙联系法律服务——你不用一个人面对这件事。",
    "ko": "Kamloops Immigrant Services의 Women's Empowerment 프로그램은 이민자·난민 여성, 소녀, 성 다양성을 지닌 사람들에게 무료 일대일 상담과 법률 서비스 연계를 제공합니다 — 혼자 감당하지 않아도 됩니다.",
-   "ja": "Kamloops Immigrant ServicesのWomen's Empowermentプログラムは、移民・難民の女性、少女、性の多様な人を対象に、無料の個別カウンセリングと法律サービスにつなぐ手助けを提供しています——一人で抱え込む必要はありません。"
+   "ja": "Kamloops Immigrant ServicesのWomen's Empowermentプログラムは、移民・難民の女性、少女、ジェンダーの多様な人を対象に、無料の個別カウンセリングと法律サービスにつなぐ手助けを提供しています——一人で抱え込む必要はありません。"
   }
  },
  {
@@ -1496,7 +1496,7 @@
    "es": "No tengo médico de familia",
    "zh": "我没有家庭医生",
    "ko": "가정의가 없어요",
-   "ja": "かかりつけ医がいません"
+   "ja": "かかりつけ医がいない"
   },
   "t": {
    "en": "Get on the list for a family doctor",
@@ -1537,7 +1537,7 @@
     "es": "Mientras espera: el 8-1-1 a cualquier hora; un farmacéutico puede renovar recetas, recetar anticonceptivos y tratar 21 dolencias menores; un centro de atención urgente y primaria para el mismo día.",
     "zh": "轮候期间：8-1-1 随时可打；药剂师可以续开处方、开避孕药，处理 21 种轻症；当天要看就去紧急与基层医疗中心（UPCC）。",
     "ko": "기다리는 동안: 8-1-1은 언제든 가능, 약사는 처방 연장·피임약 처방과 21가지 경증 치료를 할 수 있고, 당일 진료는 긴급·1차 진료 센터(UPCC)로.",
-    "ja": "待っている間：8-1-1はいつでも。薬剤師は処方の更新、避妊薬の処方、21の軽い症状の対応ができます。当日の受診は緊急・プライマリケアセンター（UPCC）へ。"
+    "ja": "待っている間：8-1-1はいつでも。薬剤師は処方の更新、避妊薬の処方、21の軽い症状の対応ができます。当日の受診は緊急・プライマリーケアセンター（UPCC）へ。"
    }
   ],
   "note": {
@@ -1660,7 +1660,7 @@
    "es": "Residential Tenancy Branch · 1-800-665-8779",
    "zh": "BC 省住宅租赁管理处（Residential Tenancy Branch，RTB）· 1-800-665-8779",
    "ko": "BC주 주택임대청(RTB) · 1-800-665-8779",
-   "ja": "BC州住宅賃貸局(RTB) · 1-800-665-8779"
+   "ja": "BC州住宅賃貸局（RTB） · 1-800-665-8779"
   },
   "src": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy",
   "srcName": "BC Residential Tenancy Branch",
@@ -1709,7 +1709,7 @@
    "es": "Perdí mi trabajo",
    "zh": "我失业了",
    "ko": "일자리를 잃었어요",
-   "ja": "仕事を失いました"
+   "ja": "仕事を失った"
   },
   "t": {
    "en": "After a job loss: money, your rights, the next job",
@@ -1725,7 +1725,7 @@
    "es": "Solicite el seguro de empleo enseguida: pedirlo más de cuatro semanas después de su último día puede costarle prestaciones. Para eso existen estos programas; usarlos no dice nada de usted.",
    "zh": "马上申请就业保险（EI）——最后一天工作后超过四周才申请，可能会少拿钱。这些项目本来就是为这种时候设的，用它不说明你有什么问题。",
    "ko": "고용보험(EI)은 바로 신청하세요 — 마지막 근무일로부터 4주가 지나서 신청하면 받을 금액을 잃을 수 있습니다. 이런 제도는 바로 이럴 때 쓰라고 있는 것이고, 이용하는 것은 전혀 부끄러운 일이 아닙니다.",
-   "ja": "雇用保険（EI）はすぐに申請を — 最終勤務日から4週間を過ぎて申請すると、受け取れる額が減ることがあります。こうした制度はこういう時のためにあり、使うことはあなたの評価とは関係ありません。"
+   "ja": "雇用保険（EI）はすぐに申請を — 最終勤務日から4週間を過ぎて申請すると、受け取れる額が減ることがあります。こうした制度はこういう時のためにあり、使うのは恥ずかしいことではありません。"
   },
   "steps": [
    {
