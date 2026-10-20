@@ -232,6 +232,24 @@ async def main():
           const f=document.querySelector('#guideModal .task-checked');return [t.id,t.checked,f?f.innerText:'']})""")
         bad_d = [x for x in own if x[1] not in x[2]]
         check('G2 cards with their own check date show it (%d cards)' % len(own), not bad_d, bad_d[:3])
+        # a number the city marks as text-only stays a text link wherever a card names it, and "call or text 2-1-1"
+        # stays a call (2026-10-20: one rule turned the shelter's text line into a call, its first fix turned 2-1-1 into a text)
+        for l in LANGS:
+            await pg.evaluate("l=>setLang(l)", l)
+            links = await pg.evaluate("""()=>{const out=[];TASKS.forEach(t=>{openTask(t.id,'test');
+              document.querySelectorAll('#guideTasks a[href^="tel:"],#guideTasks a[href^="sms:"]').forEach(a=>out.push([t.id,a.getAttribute('href')]))});return out}""")
+            sms_nums = await pg.evaluate("()=>(CITY.localLines||[]).filter(c=>c.sms).map(c=>c.sms.replace(/[^\\d]/g,''))")
+            info = await pg.evaluate("()=>String((CITY.help||{}).info||'').replace(/[^\\d]/g,'')")
+            wrong = [x for x in links if (x[1][4:] in sms_nums and not x[1].startswith('sms:')) or (info and x[1].endswith(':' + info) and not x[1].startswith('tel:'))]
+            check('G3 %s: text-only numbers are text links, %s is a call, in every card' % (l, info or '2-1-1'), not wrong, wrong[:4])
+        # a card with its official page in the reader's language links there, under that language's agency name;
+        # every other language keeps the default page (2026-10-20: French readers were sent to English pages)
+        bad_s = await pg.evaluate("""ls=>{const out=[];ls.forEach(l=>{setLang(l);TASKS.filter(t=>t.src).forEach(t=>{openTask(t.id,'test');
+          const a=document.querySelector('#guideModal .task-src a');const want=(t.srcL&&t.srcL[l])||t.src,name=(t.srcNameL&&t.srcNameL[l])||t.srcName;
+          if(!a||a.getAttribute('href')!==want||!a.innerText.includes(name))out.push([l,t.id,a&&a.getAttribute('href')])})});return out}""", LANGS)
+        n_l = await pg.evaluate("()=>TASKS.filter(t=>t.srcL).length")
+        check('G4 task source links follow the language (%d cards with their own)' % n_l, not bad_s, bad_s[:4])
+        await pg.evaluate("()=>closeModal(guideBackdropEl)")
         await pg.evaluate("()=>closeModal(guideBackdropEl)")
 
         # ---- H: bus routes

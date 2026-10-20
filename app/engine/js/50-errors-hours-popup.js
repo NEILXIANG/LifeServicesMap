@@ -89,9 +89,14 @@ function phoneHtml(str){
   // 2026-10-20 (final acceptance): a shelter's "or text …" number in the hardship card dialled a call. A number right after
   // the word for "text" (six languages) becomes a text-message link — for someone leaving violence, texting can be
   // the only safe way to reach the line.
-  const TXT=/(?:\btexto al|\btexto au|\btexto|\btext|短信|문자|\bSMS)\s*:?\s*$/i;
+  // Only the words between the previous number and this one count, and "call or text" stays a call (calling is the
+  // way in; the text option is the same line): "Call or text 2-1-1" dials, "call 250-… or text 250-…" texts the second.
+  const TXT=/(?:\btexto al|\btexto au|\btexto|\btext|短信|문자|\bSMS)/i;
+  const CALL=/(?:\bcall|\bdial|\bphone|\bllame|\bmarque|\bappel|\bcompos|打|拨|전화|電話)/i;   // Chinese "打或发短信" is a call too
+  let prevEnd=0;
   return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, (m,_g,off,all)=>{
-    const sms=TXT.test(all.slice(Math.max(0,off-24),off));
+    const between=all.slice(Math.max(prevEnd,off-40),off);prevEnd=off+m.length;
+    const sms=TXT.test(between)&&!CALL.test(between);
     return '<a href="'+(sms?'sms:':'tel:')+m.replace(/[^\d]/g,'')+'">'+m+'</a>';});
 }
 // 2026-10-19 (re-walk, French footer: "1-800-" / "665-8779"): numbers written as text in the guide and the footer
@@ -108,7 +113,7 @@ function keepPhonesWhole(html){
 // start a line (": 1-866-925-4419"). French text spread over several sources (interface, cards, places, guide), so it
 // is set right where it is shown: in French only, text nodes only (never tags, inputs or the map tiles), and again
 // for anything that appears later (cards, place cards, sheets).
-const _FR_RE=/ ([:;?!»])| ?(«) /g;
+const _FR_RE=/ ([:;?!»])|(«) /g;   // never the space before « (it ate it: "Ouvrir« …»", 2026-10-20)
 function frSpaces(root){
   if(typeof L_==='undefined'||L_!=='fr'||!root)return;
   const w=document.createTreeWalker(root,NodeFilter.SHOW_TEXT,{acceptNode:n=>{

@@ -161,6 +161,12 @@
   "place": "50c8f348",
   "src": "https://www.canada.ca/en/employment-social-development/services/sin/apply.html",
   "srcName": "Service Canada",
+  "srcL": {
+   "fr": "https://www.canada.ca/fr/emploi-developpement-social/services/numero-assurance-sociale/demande.html"
+  },
+  "srcNameL": {
+   "fr": "Service Canada"
+  },
   "bring": {
    "en": "One primary document — your work or study permit (it must say you may work), PR card, or a COPR less than a year old — plus one secondary ID, such as your passport or a driver’s licence.",
    "fr": "Un document principal — votre permis de travail ou d’études (il doit indiquer que vous pouvez travailler), votre carte de RP ou une CRP de moins d’un an — et une pièce secondaire, comme votre passeport ou un permis de conduire.",
@@ -370,7 +376,7 @@
    {
     "en": "Licences from some countries can be exchanged directly, with no tests; others require a knowledge and road test. The knowledge test is offered in 12 languages.",
     "fr": "Certains pays permettent un échange direct; d’autres exigent un examen théorique et pratique. L’examen théorique existe en 12 langues.",
-    "es": "Algunos países permiten el canje directo; otros exigen examen teórico y práctico. El teórico está en 12 idiomas.",
+    "es": "Las licencias de algunos países se canjean directamente, sin exámenes; otras exigen examen teórico y práctico. El teórico está en 12 idiomas.",
     "zh": "部分国家可直接互换；其他国家需要考笔试和路考。笔试提供 12 种语言。",
     "ko": "일부 국가는 그대로 교환되고, 그 외에는 필기·도로주행 시험이 필요합니다. 필기시험은 12개 언어로 제공됩니다.",
     "ja": "国によっては無試験で交換でき、それ以外は学科試験と実技試験が必要です。学科試験は12言語で受けられます。"
@@ -526,6 +532,12 @@
   "place": "e7514fcc",
   "src": "https://www.canada.ca/en/financial-consumer-agency/services/banking/opening-bank-account.html",
   "srcName": "Financial Consumer Agency of Canada",
+  "srcL": {
+   "fr": "https://www.canada.ca/fr/agence-consommation-matiere-financiere/services/activites-bancaires/ouvrir-compte-banque.html"
+  },
+  "srcNameL": {
+   "fr": "Agence de la consommation en matière financière du Canada"
+  },
   "say": "Hi, I've just moved here and I'd like to open a personal chequing account. What ID do you need from me?",
   "sayGloss": {
    "zh": "（意思：您好，我刚搬来这里，想开一个个人支票账户。你们需要我提供什么证件？）",
@@ -733,13 +745,19 @@
   "note": {
    "en": "Just arrived? Apply now: the Canada Child Benefit with form RC66 (plus schedule RC66SCH), and the Canada Groceries and Essentials Benefit with form RC151. Both ask for your income from outside Canada. Temporary residents qualify for the Canada Child Benefit from their 19th month in Canada.",
    "fr": "Vous venez d’arriver ? Faites la demande maintenant : l’Allocation canadienne pour enfants avec le formulaire RC66 (et l’annexe RC66SCH), et la prestation canadienne pour l’épicerie et les produits essentiels avec le formulaire RC151. Les deux demandent vos revenus hors du Canada. Les résidents temporaires ont droit à l’Allocation canadienne pour enfants à partir de leur 19e mois au Canada.",
-   "es": "¿Acaba de llegar? Solicítelas ya: el Beneficio por Hijos de Canadá (Canada Child Benefit, CCB) con el formulario RC66 (más el anexo RC66SCH) y el beneficio para alimentos y artículos esenciales (Canada Groceries and Essentials Benefit) con el formulario RC151. Ambas piden sus ingresos fuera de Canadá. Los residentes temporales tienen derecho al CCB a partir de su mes 19 en Canadá.",
+   "es": "¿Acaba de llegar? Solicítelos ya: el Beneficio por Hijos de Canadá (Canada Child Benefit, CCB) con el formulario RC66 (más el anexo RC66SCH) y el beneficio para alimentos y artículos esenciales (Canada Groceries and Essentials Benefit) con el formulario RC151. Ambos formularios piden sus ingresos fuera de Canadá. Los residentes temporales tienen derecho al CCB a partir de su mes 19 en Canadá.",
    "zh": "刚到？现在就申请：牛奶金（Canada Child Benefit）用 RC66 表（附 RC66SCH），食品与生活必需品补助（Canada Groceries and Essentials Benefit）用 RC151 表。两份表都要填你在加拿大境外的收入。临时居民从在加拿大的第 19 个月起才能领牛奶金。",
    "ko": "막 도착했나요? 지금 신청하세요: 캐나다 아동수당(Canada Child Benefit)은 RC66 양식(RC66SCH 첨부), 식료품·생활필수품 수당(Canada Groceries and Essentials Benefit)은 RC151 양식입니다. 두 양식 모두 캐나다 밖에서 번 소득을 적어야 합니다. 임시 거주자는 캐나다 체류 19개월째부터 아동수당을 받을 수 있습니다.",
    "ja": "来たばかりですか？今すぐ申請を：カナダ児童手当（Canada Child Benefit）はRC66（RC66SCH添付）、食料品・生活必需品手当（Canada Groceries and Essentials Benefit）はRC151で申請します。どちらもカナダ国外での収入を記入します。一時滞在者はカナダ滞在19か月目から児童手当の対象になります。"
   },
   "src": "https://www.canada.ca/en/revenue-agency/news/newsroom/tax-tips/tax-tips-2026/tax-tip-taxes-made-simple-newcomers-canada.html",
   "srcName": "Canada Revenue Agency",
+  "srcL": {
+   "fr": "https://www.canada.ca/fr/agence-revenu/nouvelles/salle-presse/conseils-fiscaux/conseils-fiscaux-2026/conseil-fiscal-impots-simplifies-nouveaux-arrivants-canada.html"
+  },
+  "srcNameL": {
+   "fr": "Agence du revenu du Canada"
+  },
   "deadline": {
    "en": "April 30",
    "fr": "30 avril",
@@ -1208,7 +1226,7 @@
    {
     "en": "Call or text 2-1-1. It is free and confidential, offers interpretation in 240+ languages, and its whole job is to know which local service fits your situation.",
     "fr": "Appelez ou textez le 2-1-1. Gratuit et confidentiel, avec interprétation en plus de 240 langues; son rôle est de savoir quel service local correspond à votre situation.",
-    "es": "Llame o envíe un texto al 2-1-1. Es gratis y confidencial, ofrece interpretación en más de 240 idiomas, y su función es saber qué servicio local le corresponde.",
+    "es": "Llame o envíe un mensaje de texto al 2-1-1. Es gratis y confidencial, ofrece interpretación en más de 240 idiomas, y su función es saber qué servicio local le corresponde.",
     "zh": "打或发短信到 2-1-1。免费、保密、可提供 240 多种语言的翻译，它的全部工作就是知道你这种情况该找本地哪个机构。",
     "ko": "2-1-1로 전화하거나 문자하세요. 무료·비밀보장, 240개 이상 언어 통역을 제공하며, 상황에 맞는 지역 서비스를 찾아주는 것이 이 기관의 일입니다.",
     "ja": "2-1-1に電話またはSMSを。無料・秘密厳守、240以上の言語で通訳対応があり、あなたの状況に合う地域のサービスを知っているのが役目です。"
@@ -1233,7 +1251,7 @@
   "help": {
    "en": "bc211 · dial or text 2-1-1 · free, confidential, interpretation in 240+ languages · 9am–9pm weekdays",
    "fr": "bc211 · composez ou textez 2-1-1 · gratuit, confidentiel, interprétation en plus de 240 langues · 9 h–21 h en semaine",
-   "es": "bc211 · marque o envíe un texto al 2-1-1 · gratis, confidencial, interpretación en más de 240 idiomas · 9–21 h entre semana",
+   "es": "bc211 · marque o envíe un mensaje de texto al 2-1-1 · gratis, confidencial, interpretación en más de 240 idiomas · 9–21 h entre semana",
    "zh": "bc211 · 拨打或发短信 2-1-1 · 免费、保密、240 多种语言翻译 · 工作日 9:00–21:00",
    "ko": "bc211 · 2-1-1 전화 또는 문자 · 무료·비밀보장·240개 이상 언어 통역 · 평일 9시–21시",
    "ja": "bc211 · 2-1-1に電話またはSMS · 無料・秘密厳守・240以上の言語で通訳 · 平日9時〜21時"
@@ -1270,7 +1288,7 @@
   "note": {
    "en": "Need a bed tonight? Emergency shelters in Kamloops include The Mustard Seed 250-372-9890 (walk-ins any time; its Harbour House is for women only), Merit Place 236-425-0341 (walk-ins any time; beds are given out at the 9:30 pm curfew; one pet allowed), Pathways Shelter and Access Hub 250-299-7936 (North Shore, low-barrier — call the intake line) and Emerald Centre 250-372-3031 (call before you go). The City of Kamloops keeps the current list. If one is full, try another — no single call is the end of the road. Women leaving violence, with or without children: Y Women’s Emergency Shelter, call 250-374-6162 or text 250-682-7931, 24 hours, free, no referral. In the colder months The Mustard Seed also opens a winter shelter at 1140 River St.",
    "fr": "Besoin d’un lit ce soir ? Parmi les refuges d’urgence de Kamloops : The Mustard Seed 250-372-9890 (accueil sans rendez-vous à toute heure ; sa Harbour House est réservée aux femmes), Merit Place 236-425-0341 (accueil à toute heure ; les lits sont attribués au couvre-feu de 21 h 30 ; un animal accepté), Pathways Shelter and Access Hub 250-299-7936 (rive nord, bas seuil — appelez la ligne d’accueil) et Emerald Centre 250-372-3031 (appelez avant d’y aller). La City of Kamloops tient la liste à jour. Si l’un est plein, essayez-en un autre — un refus n’est jamais la fin du chemin. Femmes qui fuient la violence, avec ou sans enfants : Y Women’s Emergency Shelter, appel au 250-374-6162 ou texto au 250-682-7931, 24 h sur 24, gratuit, sans référence. Pendant les mois froids, The Mustard Seed ouvre aussi un refuge d’hiver au 1140 River St.",
-   "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan en el toque de queda de las 21:30; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, bajo umbral — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
+   "es": "¿Necesita una cama esta noche? Entre los albergues de emergencia de Kamloops están The Mustard Seed 250-372-9890 (sin cita a cualquier hora; su Harbour House es solo para mujeres), Merit Place 236-425-0341 (sin cita a cualquier hora; las camas se asignan a las 21:30, hora de cierre del albergue; se admite una mascota), Pathways Shelter and Access Hub 250-299-7936 (ribera norte, de acceso fácil, con pocos requisitos — llame a la línea de ingreso) y Emerald Centre 250-372-3031 (llame antes de ir). La City of Kamloops mantiene la lista actualizada. Si uno está lleno, pruebe otro: ninguna llamada es el final del camino. Mujeres que huyen de la violencia, con o sin hijos: Y Women’s Emergency Shelter, llame al 250-374-6162 o envíe un mensaje de texto al 250-682-7931, 24 horas, gratis, sin derivación. En los meses fríos, The Mustard Seed abre además un albergue de invierno en 1140 River St.",
    "zh": "今晚需要床位？Kamloops 的紧急庇护所包括：The Mustard Seed 250-372-9890（随时可直接去；其中的 Harbour House 只收女性），Merit Place 236-425-0341（随时可直接去；床位在晚上 9:30 门禁时分配；可带一只宠物），Pathways Shelter and Access Hub 250-299-7936（北岸，低门槛——打入住电话），Emerald Centre 250-372-3031（去之前先打电话）。最新名单由 City of Kamloops（市政府）维护。一家满了就试另一家——一处不行不等于走投无路。逃离暴力的女性（带不带孩子都可以）：Y Women’s Emergency Shelter，打 250-374-6162 或发短信 250-682-7931，24 小时，免费，不需要转介。天冷的几个月，The Mustard Seed 还会在 1140 River St 开冬季庇护所。",
    "ko": "오늘 밤 잘 곳이 필요하세요? Kamloops의 긴급 쉼터로는 The Mustard Seed 250-372-9890(언제든 방문 가능, 그중 Harbour House는 여성 전용), Merit Place 236-425-0341(언제든 방문 가능, 침상은 밤 9시 30분 통금 때 배정, 반려동물 한 마리 허용), Pathways Shelter and Access Hub 250-299-7936(노스쇼어, 조건이 거의 없는 쉼터 — 접수 전화로 연락), Emerald Centre 250-372-3031(가기 전에 전화)이 있습니다. 최신 목록은 City of Kamloops(시청)가 관리합니다. 한 곳이 꽉 찼으면 다른 곳을 시도하세요 — 한 곳에서 안 된다고 거기서 끝이 아닙니다. 폭력을 피해 나온 여성(자녀 동반 여부 무관): Y Women’s Emergency Shelter, 전화 250-374-6162 또는 문자 250-682-7931, 24시간, 무료, 의뢰 불필요. 추운 몇 달 동안 The Mustard Seed는 1140 River St에 겨울 쉼터도 엽니다.",
    "ja": "今夜寝る場所が必要ですか？Kamloopsの緊急シェルターには次のようなところがあります：The Mustard Seed 250-372-9890（いつでも直接行ける、併設のHarbour Houseは女性専用）、Merit Place 236-425-0341（いつでも直接行ける、ベッドは21時30分の門限時に割り当て、ペットは1匹まで可）、Pathways Shelter and Access Hub 250-299-7936（ノースショア、条件をほとんど問わない — 受付番号へ電話を）、Emerald Centre 250-372-3031（行く前に電話を）。最新の一覧はCity of Kamloops（市）が管理しています。1か所が満員でも別の所を試してください — 一か所に断られても、それで終わりではありません。暴力から逃れる女性（子連れでも一人でも）：Y Women’s Emergency Shelter、電話 250-374-6162、SMS 250-682-7931、24時間・無料・紹介不要。寒い時期には、The Mustard Seedが1140 River Stで冬季シェルターも開きます。"
@@ -1761,6 +1779,12 @@
   },
   "src": "https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html",
   "srcName": "Service Canada",
+  "srcL": {
+   "fr": "https://www.canada.ca/fr/services/prestations/ae/assurance-emploi-reguliere/demande.html"
+  },
+  "srcNameL": {
+   "fr": "Service Canada"
+  },
   "say": "Hi, I just lost my job. Could you help me apply for Employment Insurance and look for new work?",
   "sayGloss": {
    "zh": "（意思：您好，我刚失业了。能帮我申请就业保险（EI），再帮我找新工作吗？）",

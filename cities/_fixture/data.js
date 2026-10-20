@@ -109,7 +109,7 @@ const CITY={
   localLines:[
    {n:'250-374-6162',sms:'250-682-7931',note:{en:'Y Women’s Emergency Shelter — women, with or without children, leaving violence. 24 hours, free, no referral; the address is kept private. Text 250-682-7931, or call:',
       fr:'Y Women’s Emergency Shelter — femmes, avec ou sans enfants, qui fuient la violence. 24 h sur 24, gratuit, sans référence ; l’adresse reste confidentielle. Texto : 250-682-7931 — ou appelez le :',
-      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Envíe un texto al 250-682-7931, o llame al',
+      es:'Y Women’s Emergency Shelter — mujeres, con o sin hijos, que huyen de la violencia. 24 horas, gratis, sin derivación; la dirección es confidencial. Envíe un mensaje de texto al 250-682-7931, o llame al',
       zh:'Y Women’s Emergency Shelter——逃离暴力的女性（带不带孩子都行）。24 小时，免费，不需要转介；地址保密。可发短信到 250-682-7931，或打电话：',
       ko:'Y Women’s Emergency Shelter — 폭력을 피해 나온 여성(자녀 동반 무관). 24시간, 무료, 의뢰 불필요, 주소는 비공개. 250-682-7931로 문자, 또는 전화:',
       ja:'Y Women’s Emergency Shelter — 暴力から逃れる女性（子連れでも一人でも）。24時間・無料・紹介不要、住所は非公開。SMSは250-682-7931、電話は：'}},

@@ -141,6 +141,8 @@ def all_links():
         add(p.get('w'), 'place', p['id'], 'place "%s" (%s) at %s' % (p['n'], p['c'], p.get('a')))
     for t in T:
         add(t.get('src'), 'task', t['id'], 'task card "%s"' % t['t']['en'])
+        for lg, u in (t.get('srcL') or {}).items():
+            add(u, 'task', t['id'], 'task card "%s" (%s)' % (t['t']['en'], lg))
     for f in ('app/engine/', 'cities/%s/' % kamdata.CITY):
         txt = kamdata.engine_text() if f == 'app/engine/' else kamdata.data_text()
         for u in re.findall(r'href=\\?"(https?://[^"\\]+)', txt) + re.findall(r"(?:u|src|w):'(https?://[^']+)'", txt):

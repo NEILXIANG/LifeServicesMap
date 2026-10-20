@@ -309,8 +309,10 @@ function openTask(id,src){
     +'<button type="button" class="task-fb-b" data-r="worked">'+esc(u.taskWorked)+'</button>'
     +'<button type="button" class="task-fb-b" data-r="stuck">'+esc(u.taskStuck)+'</button></div>'
     +'<p class="task-local">'+esc(u.taskLocalOnly)+'</p></div>';
-  if(t.src)h+='<p class="task-src"><a href="'+esc(t.src)+'" target="_blank" rel="noopener">'
-      +esc(u.taskSource)+u.colon+esc(t.srcName)+' ↗</a></p>';
+  // srcL / srcNameL: the same official page in the reader's language, where the agency has one (2026-10-20)
+  const srcU=(t.srcL&&t.srcL[L_])||t.src, srcN=(t.srcNameL&&t.srcNameL[L_])||t.srcName;
+  if(srcU)h+='<p class="task-src"><a href="'+esc(srcU)+'" target="_blank" rel="noopener">'
+      +esc(u.taskSource)+u.colon+esc(srcN)+' ↗</a></p>';
   h+='<p class="task-src task-checked">'+esc(u.taskVerified.replace('{TD}',t.checked||CITY.tasksChecked||VERIFIED)   /* a card checked again later carries its own date (2026-10-20) */)
     +' · <a href="'+esc(transFixHref(t))+'">'+esc(u.taskTransFix)+'</a></p>';
   host.innerHTML=h;
