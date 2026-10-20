@@ -117,11 +117,19 @@ function renderSeason(){
   const busy=searchingNow||(fu&&!fu.hidden)||!!selectedRoute||!!(typeof map!=='undefined'&&map._popup&&map._popup.isOpen&&map._popup.isOpen());
   if(!x||closed||busy){el.hidden=true;return;}
   const u=UI[L_];
-  el.innerHTML='<span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)
-    +'<span class="sn-links">'+x.links.map(k=>'<a href="'+esc(k.u)+'" target="_blank" rel="noopener" data-season-link="'+esc(x.id)+'">'+esc(k.t[L_]||k.t.en)+' ›</a>').join('')+'</span>'
+  // 2026-10-20 (every-control check, Spanish phone): the full notice is four lines on a phone and covered the map's
+  // top clusters ("80", the North Shore) so they could not be tapped. A phone shows the one-line short text; a tap
+  // opens the full text and its links. Wider screens show the full notice, in its corner, as before.
+  const short=x.short&&(x.short[L_]||x.short.en);
+  el.classList.remove('sn-open');
+  el.innerHTML=(short?'<button type="button" class="sn-toggle" aria-expanded="false"><span class="sn-ic">'+emojiIcon(x.icon)+'</span><span class="sn-short">'+esc(short)+'</span><span class="sn-more" aria-hidden="true">›</span></button>':'')
+    +'<div class="sn-full"><span class="sn-ic">'+emojiIcon(x.icon)+'</span>'+esc(x.text[L_]||x.text.en)
+    +'<span class="sn-links">'+x.links.map(k=>'<a href="'+esc(k.u)+'" target="_blank" rel="noopener" data-season-link="'+esc(x.id)+'">'+esc(k.t[L_]||k.t.en)+' ›</a>').join('')+'</span></div>'
     +'<button type="button" class="sn-x" id="seasonClose" aria-label="'+esc(u.aClose)+'">✕</button>';
   el.hidden=false;
   if(!_seasonShown[x.id]){_seasonShown[x.id]=1;trackEvent('season_shown',{id:x.id});}
+  const tg=el.querySelector('.sn-toggle');
+  if(tg)tg.onclick=()=>{const open=el.classList.toggle('sn-open');tg.setAttribute('aria-expanded',open?'true':'false');};
   document.getElementById('seasonClose').onclick=()=>{
     _seasonClosedMem[x.id]=true;try{localStorage.setItem(seasonKey(x),'1');}catch(e){}
     el.hidden=true;trackEvent('season_close',{id:x.id});

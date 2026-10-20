@@ -1,144 +1,160 @@
 {
- "_comment": "BC-wide settings. Build input since 2026-10-05: build.py injects `timezone` and guide/<lang>.html (the guide's province chapter) as PROVINCE. holidays, hotlines, helpInfo and seasons are still read from each city's data.js; validate.py fails when a BC city differs from them. A city in another province needs its own provinces/<code>/ (province.json + guide/<lang>.html).",
- "province": "bc",
- "timezone": "America/Vancouver",
- "holidays": [
-  "2026-09-07",
-  "2026-09-30",
-  "2026-10-12",
-  "2026-11-11",
-  "2026-12-25",
-  "2027-01-01",
-  "2027-02-15",
-  "2027-03-26",
-  "2027-05-24",
-  "2027-07-01",
-  "2027-08-02",
-  "2027-09-06",
-  "2027-09-30",
-  "2027-10-11",
-  "2027-11-11",
-  "2027-12-25",
-  "2028-01-01",
-  "2028-02-21",
-  "2028-04-14",
-  "2028-05-22",
-  "2028-07-01",
-  "2028-08-07",
-  "2028-09-04",
-  "2028-09-30",
-  "2028-10-09",
-  "2028-11-11",
-  "2028-12-25"
- ],
- "hotlines": [
-  {
-   "n": "911",
-   "t": "emergency"
-  },
-  {
-   "n": "310-6789",
-   "t": "mental"
-  },
-  {
-   "n": "1-800-784-2433",
-   "t": "suicide"
-  },
-  {
-   "n": "9-8-8",
-   "t": "suicide"
-  },
-  {
-   "n": "811",
-   "t": "health"
-  },
-  {
-   "n": "1-800-563-0808",
-   "t": "victim"
-  },
-  {
-   "n": "1-800-588-8717",
-   "t": "indigenous"
-  }
- ],
- "helpInfo": "211",
- "seasons": {
-  "winter": {
-   "id": "winter",
-   "from": "10-01",
-   "to": "04-30",
-   "icon": "❄️",
-   "text": {
-    "en": "Winter driving: winter tires or chains are required on most BC highways from October 1 to April 30. Check the roads before you go.",
-    "fr": "Conduite d’hiver : pneus d’hiver ou chaînes obligatoires sur la plupart des routes de la C.-B. du 1er octobre au 30 avril. Vérifiez les routes avant de partir.",
-    "es": "Conducción en invierno: neumáticos de invierno o cadenas obligatorios en la mayoría de las carreteras de BC del 1 de octubre al 30 de abril. Revise las carreteras antes de salir.",
-    "zh": "冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。",
-    "ko": "겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.",
-    "ja": "冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。"
-   },
-   "links": [
+  "_comment": "BC-wide settings. Build input since 2026-10-05: build.py injects `timezone` and guide/<lang>.html (the guide's province chapter) as PROVINCE. holidays, hotlines, helpInfo and seasons are still read from each city's data.js; validate.py fails when a BC city differs from them. A city in another province needs its own provinces/<code>/ (province.json + guide/<lang>.html).",
+  "province": "bc",
+  "timezone": "America/Vancouver",
+  "holidays": [
+    "2026-09-07",
+    "2026-09-30",
+    "2026-10-12",
+    "2026-11-11",
+    "2026-12-25",
+    "2027-01-01",
+    "2027-02-15",
+    "2027-03-26",
+    "2027-05-24",
+    "2027-07-01",
+    "2027-08-02",
+    "2027-09-06",
+    "2027-09-30",
+    "2027-10-11",
+    "2027-11-11",
+    "2027-12-25",
+    "2028-01-01",
+    "2028-02-21",
+    "2028-04-14",
+    "2028-05-22",
+    "2028-07-01",
+    "2028-08-07",
+    "2028-09-04",
+    "2028-09-30",
+    "2028-10-09",
+    "2028-11-11",
+    "2028-12-25"
+  ],
+  "hotlines": [
     {
-     "u": "https://www.drivebc.ca/",
-     "t": {
-      "en": "Road conditions (DriveBC)",
-      "fr": "État des routes (DriveBC)",
-      "es": "Estado de las carreteras (DriveBC)",
-      "zh": "路况（DriveBC）",
-      "ko": "도로 상황(DriveBC)",
-      "ja": "道路状況（DriveBC）"
-     }
+      "n": "911",
+      "t": "emergency"
     },
     {
-     "u": "https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes",
-     "t": {
-      "en": "Which routes",
-      "fr": "Quelles routes",
-      "es": "Qué rutas",
-      "zh": "哪些路段",
-      "ko": "해당 도로",
-      "ja": "対象の道路"
-     }
-    }
-   ]
-  },
-  "wildfire": {
-   "_comment": "text and provincial links are shared; the city adds its own emergency-alert sign-up link (a 'links' entry whose u is not listed here)",
-   "id": "wildfire",
-   "from": "07-01",
-   "to": "09-30",
-   "icon": "🔥",
-   "text": {
-    "en": "Wildfire season: check the air quality before outdoor plans, and sign up for the City’s emergency alerts.",
-    "fr": "Saison des feux de forêt : vérifiez la qualité de l’air avant de sortir, et inscrivez-vous aux alertes d’urgence de la Ville.",
-    "es": "Temporada de incendios forestales: revise la calidad del aire antes de planes al aire libre y regístrese en las alertas de emergencia de la Ciudad.",
-    "zh": "山火季：户外活动前先看空气质量，并登记市政府的紧急警报。",
-    "ko": "산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.",
-    "ja": "山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。"
-   },
-   "links": [
-    {
-     "u": "https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html",
-     "t": {
-      "en": "Air quality",
-      "fr": "Qualité de l’air",
-      "es": "Calidad del aire",
-      "zh": "空气质量",
-      "ko": "대기 질",
-      "ja": "大気の状態"
-     }
+      "n": "310-6789",
+      "t": "mental"
     },
     {
-     "u": "https://www2.gov.bc.ca/gov/content/safety/wildfire-status",
-     "t": {
-      "en": "Wildfires now",
-      "fr": "Feux en cours",
-      "es": "Incendios activos",
-      "zh": "当前山火",
-      "ko": "현재 산불",
-      "ja": "現在の山火事"
-     }
+      "n": "1-800-784-2433",
+      "t": "suicide"
+    },
+    {
+      "n": "9-8-8",
+      "t": "suicide"
+    },
+    {
+      "n": "811",
+      "t": "health"
+    },
+    {
+      "n": "1-800-563-0808",
+      "t": "victim"
+    },
+    {
+      "n": "1-800-588-8717",
+      "t": "indigenous"
     }
-   ]
+  ],
+  "helpInfo": "211",
+  "seasons": {
+    "winter": {
+      "id": "winter",
+      "from": "10-01",
+      "to": "04-30",
+      "icon": "❄️",
+      "text": {
+        "en": "Winter driving: winter tires or chains are required on most BC highways from October 1 to April 30. Check the roads before you go.",
+        "fr": "Conduite d’hiver : pneus d’hiver ou chaînes obligatoires sur la plupart des routes de la C.-B. du 1er octobre au 30 avril. Vérifiez les routes avant de partir.",
+        "es": "Conducción en invierno: neumáticos de invierno o cadenas obligatorios en la mayoría de las carreteras de BC del 1 de octubre al 30 de abril. Revise las carreteras antes de salir.",
+        "zh": "冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。",
+        "ko": "겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.",
+        "ja": "冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。"
+      },
+      "short": {
+        "en": "Winter tires required on most BC highways, Oct 1–Apr 30",
+        "fr": "Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.",
+        "es": "Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.",
+        "zh": "10月1日–4月30日：BC 大部分公路要求冬胎",
+        "ko": "10/1–4/30 BC주 고속도로 겨울 타이어 필수",
+        "ja": "10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要"
+      },
+      "links": [
+        {
+          "u": "https://www.drivebc.ca/",
+          "t": {
+            "en": "Road conditions (DriveBC)",
+            "fr": "État des routes (DriveBC)",
+            "es": "Estado de las carreteras (DriveBC)",
+            "zh": "路况（DriveBC）",
+            "ko": "도로 상황(DriveBC)",
+            "ja": "道路状況（DriveBC）"
+          }
+        },
+        {
+          "u": "https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes",
+          "t": {
+            "en": "Which routes",
+            "fr": "Quelles routes",
+            "es": "Qué rutas",
+            "zh": "哪些路段",
+            "ko": "해당 도로",
+            "ja": "対象の道路"
+          }
+        }
+      ]
+    },
+    "wildfire": {
+      "_comment": "text and provincial links are shared; the city adds its own emergency-alert sign-up link (a 'links' entry whose u is not listed here)",
+      "id": "wildfire",
+      "from": "07-01",
+      "to": "09-30",
+      "icon": "🔥",
+      "text": {
+        "en": "Wildfire season: check the air quality before outdoor plans, and sign up for the City’s emergency alerts.",
+        "fr": "Saison des feux de forêt : vérifiez la qualité de l’air avant de sortir, et inscrivez-vous aux alertes d’urgence de la Ville.",
+        "es": "Temporada de incendios forestales: revise la calidad del aire antes de planes al aire libre y regístrese en las alertas de emergencia de la Ciudad.",
+        "zh": "山火季：户外活动前先看空气质量，并登记市政府的紧急警报。",
+        "ko": "산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.",
+        "ja": "山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。"
+      },
+      "short": {
+        "en": "Wildfire season: check the air before going out",
+        "fr": "Saison des feux : vérifiez l’air avant de sortir",
+        "es": "Temporada de incendios: revise el aire antes de salir",
+        "zh": "山火季：出门前先看空气质量",
+        "ko": "산불 시즌: 외출 전 대기 질 확인",
+        "ja": "山火事シーズン：外出前に大気を確認"
+      },
+      "links": [
+        {
+          "u": "https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html",
+          "t": {
+            "en": "Air quality",
+            "fr": "Qualité de l’air",
+            "es": "Calidad del aire",
+            "zh": "空气质量",
+            "ko": "대기 질",
+            "ja": "大気の状態"
+          }
+        },
+        {
+          "u": "https://www2.gov.bc.ca/gov/content/safety/wildfire-status",
+          "t": {
+            "en": "Wildfires now",
+            "fr": "Feux en cours",
+            "es": "Incendios activos",
+            "zh": "当前山火",
+            "ko": "현재 산불",
+            "ja": "現在の山火事"
+          }
+        }
+      ]
+    }
   }
- }
 }

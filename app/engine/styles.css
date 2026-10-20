@@ -171,6 +171,19 @@
   .season-note .sn-links a{color:var(--accent-text);font-weight:600;text-decoration:none;}
   .season-note .sn-x{position:absolute;top:0;right:0;background:none;border:none;font-size:14px;line-height:1;padding:6px;cursor:pointer;color:var(--sub-ink);min-width:44px;min-height:44px;}
   @media(min-width:700px){.season-note{left:auto;right:16px;top:16px;width:min(380px,calc(100% - 32px));}}
+  /* phones: one line (the short text) until tapped; the full notice and its links open below it (2026-10-20) */
+  .season-note .sn-toggle{display:none;background:none;border:none;}
+  @media(max-width:699px){
+    .season-note{padding:4px 44px 4px 10px;}
+    .season-note .sn-toggle{display:flex;align-items:center;gap:5px;width:100%;min-height:36px;padding:0;
+      font:inherit;font-size:13px;font-weight:600;color:var(--ink);text-align:left;cursor:pointer;}
+    .season-note .sn-short{flex:1;min-width:0;}
+    .season-note .sn-more{color:var(--accent-text);font-weight:700;transition:transform .15s;}
+    .season-note.sn-open .sn-more{transform:rotate(90deg);}
+    .season-note .sn-full{display:none;padding:2px 0 6px;}
+    .season-note.sn-open .sn-full{display:block;}
+    .season-note .sn-full .sn-ic{display:none;}
+  }
   .firstuse .fu-h{font-size:12.5px;font-weight:700;margin:0 28px 2px 0;}
   .firstuse .fu-safe{font-size:11.5px;color:var(--sub-ink);margin:0 28px 7px 0;}
   /* the flyer card's rows are full-width buttons; the 44px ✕ target in the corner

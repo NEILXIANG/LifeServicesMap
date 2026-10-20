@@ -80,6 +80,7 @@ const CITY={
           zh:'冬季出行：10 月 1 日至 4 月 30 日，BC 大部分公路要求冬胎或防滑链。出门前先看路况。',
           ko:'겨울 운전: 10월 1일부터 4월 30일까지 BC주 대부분의 고속도로에서 겨울 타이어나 체인이 필수입니다. 출발 전에 도로 상황을 확인하세요.',
           ja:'冬の運転：10月1日から4月30日まで、BC州のほとんどの幹線道路で冬用タイヤかチェーンが必要です。出かける前に道路状況を確認を。'},
+    short:{en:'Winter tires required on most BC highways, Oct 1–Apr 30',fr:'Pneus d’hiver obligatoires sur la plupart des routes de la C.-B., 1er oct.–30 avr.',es:'Neumáticos de invierno obligatorios en carreteras de BC, 1 oct.–30 abr.',zh:'10月1日–4月30日：BC 大部分公路要求冬胎',ko:'10/1–4/30 BC주 고속도로 겨울 타이어 필수',ja:'10月1日〜4月30日：BC州の幹線道路は冬用タイヤが必要'},
     links:[{u:'https://www.drivebc.ca/',t:{en:'Road conditions (DriveBC)',fr:'État des routes (DriveBC)',es:'Estado de las carreteras (DriveBC)',zh:'路况（DriveBC）',ko:'도로 상황(DriveBC)',ja:'道路状況（DriveBC）'}},
            {u:'https://www2.gov.bc.ca/gov/content/transportation/driving-and-cycling/traveller-information/seasonal/winter-driving/winter-tire-and-chain-up-routes',t:{en:'Which routes',fr:'Quelles routes',es:'Qué rutas',zh:'哪些路段',ko:'해당 도로',ja:'対象の道路'}}]},
    {id:'wildfire',from:'07-01',to:'09-30',icon:'🔥',
@@ -89,6 +90,7 @@ const CITY={
           zh:'山火季：户外活动前先看空气质量，并登记市政府的紧急警报。',
           ko:'산불 시즌: 야외 활동 전에 대기 질을 확인하고, 시의 긴급 경보에 등록하세요.',
           ja:'山火事シーズン：屋外の予定の前に大気の状態を確認し、市の緊急警報に登録しましょう。'},
+    short:{en:'Wildfire season: check the air before going out',fr:'Saison des feux : vérifiez l’air avant de sortir',es:'Temporada de incendios: revise el aire antes de salir',zh:'山火季：出门前先看空气质量',ko:'산불 시즌: 외출 전 대기 질 확인',ja:'山火事シーズン：外出前に大気を確認'},
     links:[{u:'https://www.env.gov.bc.ca/epd/bcairquality/data/aqhi-table.html',t:{en:'Air quality',fr:'Qualité de l’air',es:'Calidad del aire',zh:'空气质量',ko:'대기 질',ja:'大気の状態'}},
            {u:'https://www.kamloops.ca/public-safety/emergency-preparedness/emergency-alerts-orders/emergency-alert-notifications',t:{en:'Emergency alerts',fr:'Alertes d’urgence',es:'Alertas de emergencia',zh:'紧急警报',ko:'긴급 경보',ja:'緊急警報'}},
            {u:'https://www2.gov.bc.ca/gov/content/safety/wildfire-status',t:{en:'Wildfires now',fr:'Feux en cours',es:'Incendios activos',zh:'当前山火',ko:'현재 산불',ja:'現在の山火事'}}]}
