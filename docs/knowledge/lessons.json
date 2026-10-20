@@ -4128,6 +4128,31 @@
      "marker": "入口的名字要对应读者找的东西"
     }
    ]
+  },
+  {
+   "id": "L-138",
+   "title": "修一类显示问题，要找全它出现的所有写法",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "电话号码断行先只修了 tel: 链接（white-space:nowrap），复查时法文页脚的 1-800-665-8779 仍然断成两行：指南和页脚里还有以加粗文字写的号码。",
+   "rule": "修一类显示问题时，先列出同一内容的所有写法（链接、加粗文字、备注里的纯文字），一起处理；能在渲染时统一处理的就统一处理（keepPhonesWhole）。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "文字形式的电话号码仍断行"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "engine",
+     "path": "app/engine/js/50-errors-hours-popup.js",
+     "marker": "function keepPhonesWhole(html)"
+    }
+   ]
   }
  ],
  "assets": [

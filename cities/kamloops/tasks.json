@@ -728,7 +728,7 @@
   "note": {
    "en": "Just arrived? Apply now: the Canada Child Benefit with form RC66 (plus schedule RC66SCH), and the Canada Groceries and Essentials Benefit with form RC151. Both ask for your income from outside Canada. Temporary residents qualify for the Canada Child Benefit from their 19th month in Canada.",
    "fr": "Vous venez d’arriver ? Faites la demande maintenant : l’Allocation canadienne pour enfants avec le formulaire RC66 (et l’annexe RC66SCH), et la prestation canadienne pour l’épicerie et les produits essentiels avec le formulaire RC151. Les deux demandent vos revenus hors du Canada. Les résidents temporaires ont droit à l’Allocation canadienne pour enfants à partir de leur 19e mois au Canada.",
-   "es": "¿Acaba de llegar? Solicítelas ya: el Beneficio por Hijos de Canadá (Canada Child Benefit, CCB) con el formulario RC66 (más el anexo RC66SCH) y la Canada Groceries and Essentials Benefit con el formulario RC151. Ambas piden sus ingresos fuera de Canadá. Los residentes temporales tienen derecho al CCB a partir de su mes 19 en Canadá.",
+   "es": "¿Acaba de llegar? Solicítelas ya: el Beneficio por Hijos de Canadá (Canada Child Benefit, CCB) con el formulario RC66 (más el anexo RC66SCH) y el beneficio para alimentos y artículos esenciales (Canada Groceries and Essentials Benefit) con el formulario RC151. Ambas piden sus ingresos fuera de Canadá. Los residentes temporales tienen derecho al CCB a partir de su mes 19 en Canadá.",
    "zh": "刚到？现在就申请：牛奶金（Canada Child Benefit）用 RC66 表（附 RC66SCH），食品与生活必需品补助（Canada Groceries and Essentials Benefit）用 RC151 表。两份表都要填你在加拿大境外的收入。临时居民从在加拿大的第 19 个月起才能领牛奶金。",
    "ko": "막 도착했나요? 지금 신청하세요: 캐나다 아동수당(Canada Child Benefit)은 RC66 양식(RC66SCH 첨부), 식료품·생활필수품 수당(Canada Groceries and Essentials Benefit)은 RC151 양식입니다. 두 양식 모두 캐나다 밖에서 번 소득을 적어야 합니다. 임시 거주자는 캐나다 체류 19개월째부터 아동수당을 받을 수 있습니다.",
    "ja": "来たばかりですか？今すぐ申請を：カナダ児童手当（Canada Child Benefit）はRC66（RC66SCH添付）、食料品・生活必需品手当（Canada Groceries and Essentials Benefit）はRC151で申請します。どちらもカナダ国外での収入を記入します。一時滞在者はカナダ滞在19か月目から児童手当の対象になります。"
@@ -1448,6 +1448,14 @@
    "es": "Para problemas de alquiler, deudas, seguro de empleo (EI) o prestaciones por discapacidad, la Okanagan Thompson Legal Clinic, gratuita (en el mapa), puede ayudarle.",
    "ko": "임대차, 채무, 고용보험(EI), 장애 수당 문제는 무료로 운영되는 Okanagan Thompson Legal Clinic(지도에 있음)이 도와줄 수 있습니다.",
    "ja": "賃貸、借金、雇用保険（EI）、障害給付の問題は、無料のOkanagan Thompson Legal Clinic（地図に掲載）が相談に乗ってくれます。"
+  },
+  "help": {
+   "en": "Legal Aid BC, province-wide line · 1-866-577-2525",
+   "fr": "Legal Aid BC, ligne provinciale · 1-866-577-2525",
+   "es": "Legal Aid BC, línea provincial · 1-866-577-2525",
+   "zh": "Legal Aid BC 全省热线 · 1-866-577-2525",
+   "ko": "Legal Aid BC 주 전역 전화 · 1-866-577-2525",
+   "ja": "Legal Aid BC 州全域の窓口 · 1-866-577-2525"
   }
  },
  {
@@ -1612,7 +1620,7 @@
    }
   ],
   "note": {
-   "en": "Rent can be raised only once every 12 months, with three full months’ written notice on the official form. For subsidised housing, apply through BC Housing’s Housing Registry (1-800-257-7756); each household member must be a citizen or permanent resident not under sponsorship, a government-assisted refugee, or a refugee claimant (a private sponsorship that BC Housing accepts has broken down does not count against you, and Ukrainians who came under CUAET also qualify).",
+   "en": "Rent can be raised only once every 12 months, with three full months’ written notice on the official form. For subsidised housing, apply through BC Housing’s Housing Registry (1-800-257-7756); each household member must be a citizen or permanent resident not under sponsorship, a government-assisted refugee, or a refugee claimant (a private sponsorship that BC Housing accepts as broken down does not count against you, and Ukrainians who came under CUAET also qualify).",
    "fr": "Le loyer ne peut augmenter qu’une fois tous les 12 mois, avec trois mois complets de préavis écrit sur le formulaire officiel. Pour un logement subventionné, faites la demande au Housing Registry de BC Housing (1-800-257-7756) ; chaque membre du ménage doit être citoyen ou résident permanent non parrainé, réfugié pris en charge par le gouvernement (RPG) ou demandeur d’asile (un parrainage privé dont BC Housing reconnaît la rupture ne compte pas, et les Ukrainiens arrivés au titre de l’AVUCU sont aussi admissibles).",
    "es": "El alquiler solo puede subir una vez cada 12 meses, con tres meses completos de aviso por escrito en el formulario oficial. Para vivienda subvencionada, solicítela en el Housing Registry de BC Housing (1-800-257-7756); cada miembro del hogar debe ser ciudadano o residente permanente no patrocinado, refugiado asistido por el gobierno o solicitante de refugio (un patrocinio privado que BC Housing acepta como roto no cuenta en su contra, y los ucranianos llegados por CUAET también califican).",
    "zh": "房租 12 个月内只能涨一次，而且要用官方表格提前整整三个月书面通知。申请政府补贴住房，走 BC Housing 的 Housing Registry（1-800-257-7756）；家里每个成员都必须是不在担保期内的公民或永久居民、政府资助的难民，或难民申请人（BC Housing 认定担保关系已破裂的不受限制；以 CUAET 来的乌克兰人也符合条件）。",
@@ -1629,13 +1637,13 @@
   },
   "src": "https://www2.gov.bc.ca/gov/content/housing-tenancy/residential-tenancies/starting-a-tenancy",
   "srcName": "BC Residential Tenancy Branch",
-  "say": "Hi, could I see the place in person before I pay anything? And will we sign the standard tenancy agreement?",
+  "say": "Hi, I rent my home and I have a problem with my landlord. Could someone help me understand my rights?",
   "sayGloss": {
-   "zh": "（意思：您好，付钱之前我能先实地看房吗？我们会签标准租约吗？）",
-   "fr": "(Sens : Bonjour, puis-je visiter le logement avant de payer quoi que ce soit ? Et signerons-nous le bail standard ?)",
-   "es": "(Significado: Hola, ¿puedo ver el lugar en persona antes de pagar nada? ¿Y firmaremos el contrato estándar?)",
-   "ko": "(뜻: 안녕하세요, 돈을 내기 전에 직접 집을 볼 수 있을까요? 그리고 표준 임대 계약서에 서명하나요?)",
-   "ja": "（意味：こんにちは、お金を払う前に物件を直接見られますか？それと、標準の賃貸契約に署名しますか？）"
+   "zh": "（意思：您好，我在租房，和房东之间有问题。能请人帮我弄清楚我的权利吗？）",
+   "fr": "(Sens : Bonjour, je suis locataire et j’ai un problème avec mon propriétaire. Quelqu’un pourrait-il m’aider à comprendre mes droits ?)",
+   "es": "(Significado: Hola, alquilo mi vivienda y tengo un problema con el propietario. ¿Alguien podría ayudarme a entender mis derechos?)",
+   "ko": "(뜻: 안녕하세요, 세 들어 사는데 집주인과 문제가 있어요. 제 권리가 무엇인지 알려 주실 분이 있을까요?)",
+   "ja": "（意味：こんにちは、賃貸に住んでいて、大家との間で問題があります。自分の権利について教えていただけますか？）"
   },
   "alias": [
    "rent",
@@ -1743,13 +1751,13 @@
   },
   "src": "https://www.canada.ca/en/services/benefits/ei/ei-regular-benefit/apply.html",
   "srcName": "Service Canada",
-  "say": "Hi, could you please send my Record of Employment, and tell me when my final pay will be deposited?",
+  "say": "Hi, I just lost my job. Could you help me apply for Employment Insurance and look for new work?",
   "sayGloss": {
-   "zh": "（意思：您好，能帮我开离职证明（Record of Employment）吗？最后一笔工资什么时候到账？）",
-   "fr": "(Sens : Bonjour, pourriez-vous envoyer mon relevé d’emploi et me dire quand ma dernière paie sera versée ?)",
-   "es": "(Significado: Hola, ¿podría enviar mi Record of Employment y decirme cuándo me depositarán el último pago?)",
-   "ko": "(뜻: 안녕하세요, 고용 기록(ROE)을 보내 주시고, 마지막 급여가 언제 입금되는지 알려 주시겠어요?)",
-   "ja": "（意味：こんにちは、離職票（Record of Employment）を送っていただけますか？最後の給与はいつ振り込まれますか？）"
+   "zh": "（意思：您好，我刚失业了。能帮我申请就业保险（EI），再帮我找新工作吗？）",
+   "fr": "(Sens : Bonjour, je viens de perdre mon emploi. Pourriez-vous m’aider à demander l’assurance-emploi et à chercher un nouveau travail ?)",
+   "es": "(Significado: Hola, acabo de perder mi trabajo. ¿Podría ayudarme a solicitar el Seguro de Empleo (EI) y a buscar un nuevo trabajo?)",
+   "ko": "(뜻: 안녕하세요, 얼마 전에 일자리를 잃었어요. 고용보험(EI) 신청과 새 일자리 찾는 것을 도와주실 수 있을까요?)",
+   "ja": "（意味：こんにちは、仕事を失ったばかりです。雇用保険（EI）の申請と、新しい仕事探しを手伝っていただけますか？）"
   },
   "alias": [
    "EI",

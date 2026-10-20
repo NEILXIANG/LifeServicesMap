@@ -87,6 +87,11 @@ function phoneHtml(str){
   // 2026-10-19: a leading "1-" stayed outside the link and wrapped onto its own line ("1-" / "866-866-0800")
   return str.replace(/((?:\b1[-\s])?\d{3}[-\s]?\d{3}[-\s]?\d{4}|\b310-\d{4}\b|\b\d-\d-\d\b)/g, m=>'<a href="tel:'+m.replace(/[^\d]/g,'')+'">'+m+'</a>');
 }
+// 2026-10-19 (re-walk, French footer: "1-800-" / "665-8779"): numbers written as text in the guide and the footer
+// broke across lines; only tel: links were kept whole. Wraps every full phone number found in text (never inside a tag).
+function keepPhonesWhole(html){
+  return String(html).replace(/(<[^>]*>)|((?:\b1-)?\b\d{3}-\d{3}-\d{4}\b)/g,(m,tag,num)=>tag?tag:'<span class="nw">'+num+'</span>');
+}
 // ---- structured opening hours -> localised text -------------------------
 // Hours are stored as data ({r:[[dayFrom,dayTo,openMin,closeMin,approx]], a:24h,
 // s:service times, k:keyed message, q:qualifier, se:season) rather than as a
