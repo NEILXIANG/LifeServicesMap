@@ -234,7 +234,7 @@ function openTask(id,src){
        +'<div><h4>'+esc(taskText(t.t))+'</h4><p>'+esc(taskText(t.why))+'</p></div></div>';
   const sd=new Set(Array.isArray(stepDone[t.id])?stepDone[t.id]:[]);
   h+=row(u.taskSteps,'<ol class="task-steps">'
-      +t.steps.map((x,i)=>'<li class="task-step'+(sd.has(i)?' on':'')+'"><label><input type="checkbox" data-step="'+i+'"'+(sd.has(i)?' checked':'')+'><span>'+esc(taskText(x))+'</span></label></li>').join('')+'</ol>');
+      +t.steps.map((x,i)=>'<li class="task-step'+(sd.has(i)?' on':'')+'"><label><input type="checkbox" data-step="'+i+'"'+(sd.has(i)?' checked':'')+'><span>'+phoneHtml(esc(taskText(x)))+'</span></label></li>').join('')+'</ol>');
   h+=row(u.taskBring,t.bring?esc(taskText(t.bring)):'');
   // "Where do I go" is the question the rest of this app can already answer, so
   // it hands off to the map rather than repeating an address that could drift.
@@ -273,7 +273,9 @@ function openTask(id,src){
   // legal card, 911 on a health card, CRA is the authority on the tax card.
   // Put where the risk is, so the front page does not have to frighten everyone.
   const cav={legal:'cavLegal',rights:'cavLegal',deposit:'cavLegal',sick:'cavHealth',msp:'cavHealth',eldercare:'cavHealth',tax:'cavTax'}[t.id];
-  if(cav&&u[cav])h+='<div class="task-caveat">'+esc(u[cav])+'</div>';
+  // 2026-10-19 (walkthrough): "ask the legal clinic named above" on cards that name no clinic (rights, deposit)
+  const cavKey=cav==='cavLegal'&&!pl?'cavLegalNoPlace':cav;
+  if(cavKey&&u[cavKey])h+='<div class="task-caveat">'+esc(u[cavKey])+'</div>';
   // 2026-09-15 institution-outreach review: note can hold a phone-number-bearing
   // block (see hardship's shelter list) the same way help already does — route
   // both through the same linkifier rather than inventing a second one.

@@ -105,7 +105,7 @@ province-wide part of the guide live in the **engine** and are shared by every c
 | `seasons` | `[{id, from:'MM-DD', to, icon, text:{…6}, links:[{u, t:{…6}}]}]` | One-line seasonal reminder on the map (winter tires, wildfire), dismissible per season and year |
 | `help` | `{settle:'778-470-6101', info:'211'}` | Settlement agency line and 2-1-1 in the Help sheet and the cards |
 | `hotlines` | `[{n:'911', t:'emergency'}, …]` | Province-wide 24-hour lines; `t` picks the label `UI.<lang>.hot_<t>` |
-| `localLines` | `[{n, note:{…6}}]` | Local 24-hour lines (shelters, crisis lines) — Help sheet and crisis searches. A shelter is a phone number here, never an address |
+| `localLines` | `[{n, sms?, note:{…6}}]` | Local 24-hour lines (shelters, crisis lines) — Help sheet and crisis searches. A shelter is a phone number here, never an address. `sms`: a number that also takes texts, written exactly as it appears in the note — it becomes a tap-to-text link (2026-10-19) |
 | `localCrisis` | `{n, src, note:{…6}}` or `null` | Local non-police crisis team (not 24 hours) |
 
 ## City texts (per-language, in `data.js`)

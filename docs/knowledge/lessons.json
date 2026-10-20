@@ -3968,6 +3968,166 @@
      "marker": "kamdata.city_obj().get('verified')"
     }
    ]
+  },
+  {
+   "id": "L-132",
+   "title": "危机识别要测整句，不只测关键词",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "\"I'm not safe at home\" 搜出一家披萨店：危机正则只认关键词（unsafe、safe home），测试也只测关键词。读者在危险时打的是句子。",
+   "rule": "危机词表按真实句子扩充（不安全、害怕回家、威胁、跟踪……六语）；测试必须包含每种语言至少一个整句；危机结果下面不出现\"请检查拼写\"。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "英文整句危机搜索出来一家披萨店"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/city_guitest.py",
+     "marker": "no \"check the spelling\" under the lines"
+    },
+    {
+     "kind": "engine",
+     "path": "app/engine/js/30-analytics.js",
+     "marker": "safe at home"
+    }
+   ]
+  },
+  {
+   "id": "L-133",
+   "title": "离线要测\"第一次访问\"",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "页面只在\"经过 service worker 的访问\"时存入离线缓存，而第一次访问永远不经过它：扫传单进来一次、后来没信号的人打不开。以前的离线测试都在第二次访问之后，正好错过。",
+   "rule": "service worker 安装时就预存页面本身；离线测试从全新浏览器开始，只访问一次就断网。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "只访问一次后断网打不开"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_offline_first_visit.py",
+     "marker": "after one visit the page itself is in the offline cache"
+    },
+    {
+     "kind": "engine",
+     "path": "app/pwa/sw.js",
+     "marker": "STATIC_ASSETS.concat(['/'])"
+    }
+   ]
+  },
+  {
+   "id": "L-134",
+   "title": "带具体日期的句子会过期",
+   "area": "方法与流程",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "指南写\"市政选举在 2026 年 10 月 17 日\"，上线当天已经过了两天；市政府的人一眼就会看到。",
+   "rule": "一次性事件写成长期有效的形式（\"每四年一次，上次……下次……\"）或注明\"截至某月\"；每轮维护时搜一遍当年和去年的具体日期，人工复看。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "选举日期已过"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-19-线上走查报告.md",
+     "marker": "带日期的句子会过期"
+    }
+   ]
+  },
+  {
+   "id": "L-135",
+   "title": "全局替换后要逐句复核",
+   "area": "多语言",
+   "scope": "all",
+   "phase": "翻译",
+   "lesson": "九月把 newcomer 全局替换成 resident（六语），经验库当时就记过\"造出错句\"，但错句一直留到 10 月：\"针对居民的诈骗\"\"居民欢迎账户\"\"住民家庭\"等约 30 处。",
+   "rule": "全局替换后列出全部替换处，逐句确认含义；只替换指同一事物的地方（指居民身份的\"居民\"不能改，指刚来的人的不能留）。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "newcomer→resident 留下约 30 处错句"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-19-线上走查报告.md",
+     "marker": "全局替换要逐句复核"
+    }
+   ]
+  },
+  {
+   "id": "L-136",
+   "title": "走查脚本先证明自己截到了不同画面",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "第一轮走查：16 张办事卡没打开（openTask 不会打开弹窗）、弹窗滚动无效（滚的不是真正滚动的元素）、桌面版点语言切换选中了中文。审阅看到大量完全相同的截图才发现，浪费了一轮审阅。",
+   "rule": "截图后先查重复画面（字节相同即是脚本问题）；按真人的点法打开（点按钮，不调函数）；滚动前找出真正可滚动的元素。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "走查脚本三处错误"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-19-线上走查报告.md",
+     "marker": "走查脚本要证明自己真的截到了不同画面"
+    }
+   ]
+  },
+  {
+   "id": "L-137",
+   "title": "入口名字要对应读者要找的东西",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "城市内容",
+   "lesson": "免责声明、来源和纠错承诺只能从页脚\"看看记了什么\"进去——名字说的是统计，想确认\"这是不是官方的\"的人（市政府、安置机构）找不到。",
+   "rule": "唯一入口的名字要写出它装了什么（\"关于本指南 · 声明 · 隐私\"）；审阅时专门以机构读者的身份找一次免责声明。",
+   "status": "doc",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-03-Kelowna扩城迭代日志.md",
+     "section": "## 第 26 轮：线上版本真人式走查（手机、电脑、六种语言）",
+     "what": "免责声明入口找不到"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "doc",
+     "path": "docs/reports/2026-10-19-线上走查报告.md",
+     "marker": "入口的名字要对应读者找的东西"
+    }
+   ]
   }
  ],
  "assets": [

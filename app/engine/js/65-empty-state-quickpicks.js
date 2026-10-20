@@ -5,7 +5,9 @@ let _lastEmptyKind=null;
 // standing when everything else is closed: the open-now empty state, the top of
 // the guide's "when you need help" bucket, and the first-use card.
 function localCrisisHtml(){
-  const line=c=>'<p class="help-local">'+esc(c.note[L_]||c.note.en)+' <a href="tel:'+esc(c.n.replace(/[^\d]/g,''))+'"><b>'+esc(c.n)+'</b></a></p>';
+  // 2026-10-19: a line that also takes texts carries "sms" — texting can be the only safe way to reach it
+  const smsLink=(t,c)=>c.sms?t.split(esc(c.sms)).join('<a href="sms:'+esc(c.sms.replace(/[^\d]/g,''))+'"><b>'+esc(c.sms)+'</b></a>'):t;
+  const line=c=>'<p class="help-local">'+smsLink(esc(c.note[L_]||c.note.en),c)+' <a href="tel:'+esc(c.n.replace(/[^\d]/g,''))+'"><b>'+esc(c.n)+'</b></a></p>';
   return (CITY.localLines||[]).map(line).join('')+(CITY.localCrisis?line(CITY.localCrisis):'');
 }
 function hotlineHtml(compact){
@@ -75,6 +77,11 @@ function renderEmptyState(v,searching,filtered){
     const w=_didYouMean(searchRaw||searchTerm);
     msg=u.dymMsg.replace('{Q}',esc(searchRaw||searchTerm)).replace('{W}',esc(w));label=u.dymBtn.replace('{W}',w);
     act=()=>{searchInputEl.value=w;clearTimeout(searchTimer);runSearch();};
+  }else if(searching&&crisis){
+    // 2026-10-19 (walkthrough): under the 24-hour lines it said "no matching places — check the spelling" with a
+    // Clear button. Someone who typed that is not misspelling anything. The button opens Help now instead (the
+    // full list, 2-1-1, and "leave this page now").
+    msg='';label=u.helpTitle;act=()=>document.getElementById('helpBtn').click();
   }else if(searching){
     msg=u.noResultHint;label=u.clearSearchBtn;act=()=>{searchInputEl.value='';clearTimeout(searchTimer);runSearch();};
   }else if(onlyOpen){
@@ -86,7 +93,7 @@ function renderEmptyState(v,searching,filtered){
   }
   // The hotline block belongs to "nothing in the city is open" — not to a
   // closed library. The chip row already carries it while open-now is on.
-  el.innerHTML=(crisis?crisisHtml():'')+'<p>'+msg+'</p>'+(selectedRoute?'<p class="empty-route">'+esc(u.emptyRouteNote)+'</p>':'')+(onlyOpen&&!searching?hotlineHtml(false):'');
+  el.innerHTML=(crisis?crisisHtml():'')+(msg?'<p>'+msg+'</p>':'')+(selectedRoute?'<p class="empty-route">'+esc(u.emptyRouteNote)+'</p>':'')+(onlyOpen&&!searching?hotlineHtml(false):'');
   const btn=document.createElement('button');btn.className='empty-btn';btn.textContent=label;
   // 2026-09-08 audit: this button is the app's clearest "I hit a dead end and
   // tried to get out of it" signal, and it recorded nothing — so the one moment
