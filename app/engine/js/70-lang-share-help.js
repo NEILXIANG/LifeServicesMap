@@ -85,8 +85,8 @@ function setLang(l){
   // The guide is stored in tiers so another city reuses everything but guideCity,
   // and another province swaps only guideProv. GUIDE_ORDER keeps the reading order
   // sensible while the tiers stay separable.
-  document.getElementById('guideBody').innerHTML=
-    GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l)+(tpl(u.licenceData,l)||'');
+  document.getElementById('guideBody').innerHTML=keepPhonesWhole(
+    GUIDE_ORDER.map(k=>tpl(u[k],l)||'').join('')+tpl(u.licenceNote,l)+(tpl(u.licenceData,l)||''));
   buildGuideToc();
   // Keep the task layer in the reader's language too — and keep them on the
   // task they were reading rather than bouncing them back to the list.
@@ -118,7 +118,7 @@ function setLang(l){
   const ftoolbarEl=document.getElementById('ftoolbar');
   if(ftoolbarEl)ftoolbarEl.setAttribute('aria-label',u.aNavFilters);
   // qpRow already uses aria-labelledby="quickLabel" so AT reads u.quickLabel.
-  document.getElementById('footer').innerHTML=tpl(u.footer,l)
+  document.getElementById('footer').innerHTML=keepPhonesWhole(tpl(u.footer,l))
     +'<br><span class="licence-line">'+tpl(u.licenceShort,l)+' · <span class="ver-line" title="'+esc(u.verTip)+'">v'+esc(DATA_VERSION)+'</span></span>';
   // See .footer-note-btn in the stylesheet: with the header's Data Notes button
   // hidden, this is the only remaining way for a reader to reach the privacy

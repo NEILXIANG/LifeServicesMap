@@ -281,7 +281,7 @@ function openTask(id,src){
   // both through the same linkifier rather than inventing a second one.
   h+=row(u.taskNote,t.note?phoneHtml(esc(taskText(t.note))):'');
   h+=row(u.taskHelp,t.help?phoneHtml(esc(taskText(t.help))):'');
-  h+=row(u.taskAlso,t.also?esc(taskText(t.also)):'');
+  h+=row(u.taskAlso,t.also?phoneHtml(esc(taskText(t.also))):'');   // numbers here are dialable too (2026-10-19)
   // Finish the card with the two things that close a loop: the reader's own
   // "I have done this", and the only signal that can tell the maintainer a card
   // is wrong — that somebody followed it and it did not work.
