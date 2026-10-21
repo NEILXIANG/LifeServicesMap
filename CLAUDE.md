@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 Life Guide：面向新居民的多语言（六种）生活指南与地图。每座城市一个自包含 HTML，离线可用，部署在 Cloudflare Workers。
-一套引擎 + 多个城市：Kamloops 已上线（线上版本 2026.10.20b，2026-10-20 部署；`main` 只含 Kamloops，用 `scripts/sync-main.sh` 从 `multi-city` 同步），Kelowna 是草稿。文档入口：`docs/README.md`。
+一套引擎 + 多个城市：Kamloops 已上线（线上版本 2026.10.20c，2026-10-20 部署；`main` 只含 Kamloops，用 `scripts/sync-main.sh` 从 `multi-city` 同步），Kelowna 是草稿。文档入口：`docs/README.md`。
 
 ## 命令
 
