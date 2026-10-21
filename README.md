@@ -6,7 +6,7 @@ no account, and everything except the map background works offline.
 
 | City | Status | Address |
 |---|---|---|
-| Kamloops, BC | live since September 2026 (`2026.10.20a`, deployed 2026-10-20) | <https://kamloops-lifemap.neilxiang.workers.dev/> |
+| Kamloops, BC | live since September 2026 (`2026.10.20b`, deployed 2026-10-20) | <https://kamloops-lifemap.neilxiang.workers.dev/> |
 | Kelowna, BC | draft — not deployable until its review checklist is clear | — |
 
 **Documentation starts at [`docs/README.md`](docs/README.md)**; everything about adding cities (lessons, tools,
