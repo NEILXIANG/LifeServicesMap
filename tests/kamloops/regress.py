@@ -926,7 +926,8 @@ async def main():
         ko=await pgl.evaluate("()=>UI.ko.colon")
         check("56 ko sets a Korean colon, not the Chinese full-width one", ko.strip()==':', repr(ko))
         ja_colon=await pgl.evaluate("()=>UI.ja.colon")
-        check("56 ja sets a half-width colon, not the Chinese full-width one", ja_colon.strip()==':', repr(ja_colon))
+        # 2026-10-20 (launch review, Japanese reader): Japanese text takes the full-width colon "：", like the rest of UI.ja
+        check("56 ja sets the full-width colon used in Japanese text", ja_colon=='：', repr(ja_colon))
         for lang in ('en','fr','es','ko'):
             await pgl.evaluate("l=>setLang(l)", lang); await pgl.wait_for_timeout(150)
             await pgl.evaluate("()=>renderRoute(Object.keys(BR)[0],false)"); await pgl.wait_for_timeout(300)
@@ -1873,7 +1874,9 @@ async def main():
         await pgs.close()
         # the card footer date comes from the data layer and nothing leaks
         foot=await pg73.evaluate("()=>{openGuide('header','msp');const f=document.querySelector('.task-checked');const t=f?f.textContent:'';closeModal(guideBackdropEl);return t;}")
-        check("73 the card footer carries the data layer's check date", '{TD}' not in foot and CITY_TASKS_CHECKED in foot, foot)
+        # a card checked again on its own carries its own date (TASKS[].checked, 2026-10-20); otherwise the city's
+        own=await pg73.evaluate("()=>(TASKS.find(t=>t.id==='msp')||{}).checked||''")
+        check("73 the card footer carries the data layer's check date", '{TD}' not in foot and (own or CITY_TASKS_CHECKED) in foot, foot)
         check("73 no page errors across round 73", len(e73)==0, e73[:3])
         await pg73.close()
 

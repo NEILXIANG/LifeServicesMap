@@ -2,7 +2,7 @@
 """2026-09-22 — search dead ends (suggestions 1, 4, 5 from the analytics review):
 closest matches when nothing matches every word, the task card leading the
 empty state, and the health answer box. Also the hasLayer(undefined) guard."""
-import asyncio, os, sys
+import asyncio, os, re, sys
 from playwright.async_api import async_playwright
 _r = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # tests/ (files live in tests/kamloops/)
 URL = 'file://' + os.path.join(os.path.dirname(_r), 'build', 'kamloops.html')
@@ -87,7 +87,8 @@ async def main():
             r = await search(q, lang)
             exp = await pg.evaluate("l=>{const u=UI[l],p=P.find(x=>x.id==='b29c9af7'),s=openState(p.h);return {t:u.hcTitle,h:fmtHours(p.h,l),st:s?(s.open?u.hcOpenNow:u.hcClosedNow):''}}", lang)
             links = await pg.evaluate("()=>[...document.querySelectorAll('#searchHelp a[href^=\"tel:\"]')].map(a=>a.getAttribute('href'))")
-            ok = r['help'] == 'health' and exp['t'] in r['helpTxt'] and exp['h'] in r['helpTxt'] and exp['st'] in r['helpTxt'] and 'tel:811' in links and 'tel:911' in links
+            sp = lambda s: re.sub('[\u00a0\u202f\u2060]', ' ', s).replace('  ', ' ')   # French no-break spaces / word joiners are set on screen
+            ok = r['help'] == 'health' and sp(exp['t']) in sp(r['helpTxt']) and sp(exp['h']) in sp(r['helpTxt']) and sp(exp['st']) in sp(r['helpTxt']) and 'tel:811' in links and 'tel:911' in links
             check('%s "%s": health box with UPCC hours, live status, 8-1-1 and 911 links' % (lang, q), ok, (r['help'], links, r['helpTxt'][:160]))
         for lang, q in (('en', 'dentist'), ('en', 'dental clinic'), ('en', 'vet clinic'), ('en', 'legal clinic'), ('en', 'walking trail'),
                         ('ko', '아파트'), ('zh', '牙医'), ('en', 'pharmacy'), ('ja', '動物病院')):

@@ -113,7 +113,8 @@ async def main():
             r = await pg.evaluate("""l=>{setLang(l);const out=[];for(const t of TASKS){try{openGuide('test');openTask(t.id,'list');
                 const h=document.getElementById('guideTasks').innerHTML;if(/undefined|NaN|\\{[A-Z]+\\}/.test(h))out.push(t.id+':leak');
                 const n=document.querySelectorAll('#guideTasks .task-step, #guideTasks [data-step]').length;
-                if(t.src&&!h.includes(t.src.replace(/&/g,'&amp;')))out.push(t.id+':src');}catch(e){out.push(t.id+':'+e)}}
+                const src=(t.srcL&&t.srcL[l])||t.src;   /* the reader's own language where the agency has one (2026-10-20) */
+                if(src&&!h.includes(src.replace(/&/g,'&amp;')))out.push(t.id+':src');}catch(e){out.push(t.id+':'+e)}}
                 closeModal(guideBackdropEl);return out}""", l)
             if r: bad.append((l, r[:6]))
         check('all task cards open cleanly in six languages and show their official source', not bad, bad)

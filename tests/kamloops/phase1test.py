@@ -61,8 +61,9 @@ async def main():
         # language switch relabels
         await pg.click('#helpBtn'); await pg.wait_for_timeout(300)
         await pg.evaluate("()=>setLang('zh')"); await pg.wait_for_timeout(300)
-        t = await pg.evaluate("()=>[document.getElementById('helpTitle').textContent,document.getElementById('helpBtn').getAttribute('aria-label')]")
-        check('help sheet follows a language change', '需要帮助' in t[0] and '求助' in t[1], t)
+        t = await pg.evaluate("()=>[document.getElementById('helpTitle').textContent,document.getElementById('helpBtn').getAttribute('aria-label'),UI.zh.helpTitle,UI.en.helpTitle]")
+        # the title is read from the data, not a fixed phrase: zh's became "📞 求助" (2026-10-20, launch review)
+        check('help sheet follows a language change', t[0].strip() and t[0].strip() in t[2] and t[0].strip() not in t[3] and '求助' in t[1], t)   # the emoji renders as an icon
         # clear device: two taps
         await pg.evaluate("()=>{localStorage.setItem('kamloopsFavorites','[\"x\"]');localStorage.setItem('other','keep');}")
         await pg.click('#helpClear'); await pg.wait_for_timeout(200)
