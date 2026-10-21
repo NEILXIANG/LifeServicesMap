@@ -4278,6 +4278,31 @@
      "marker": "university/college filed as a school"
     }
    ]
+  },
+  {
+   "id": "L-144",
+   "title": "样式修改要检查浏览器最终用的值",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "2026.10.20b 给电脑版页头写了更大的字号，更新日志也写了\"放大\"，但这条规则写在基础规则之前，优先级相同，被后面的规则覆盖，线上仍是 11.5px。检查只看了样式里有没有这条规则，部署后逐条线上复核才发现。",
+   "rule": "改样式后，用浏览器读出最终生效的值（getComputedStyle）来验证，并在多个宽度、六种语言下实测；写进更新日志的视觉修改，要有一条按最终效果检查的测试。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之四、部署后线上复核与 2026.10.20c（2026-10-20）",
+     "what": "页头放大没有生效"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/city_guitest.py",
+     "marker": "J2 desktop header links render at 12.5px"
+    }
+   ]
   }
  ],
  "assets": [

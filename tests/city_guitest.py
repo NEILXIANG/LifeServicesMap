@@ -295,6 +295,19 @@ async def main():
                 await pg.evaluate("()=>closeModal(guideBackdropEl)")
                 if o > 1 or og > 1: over.append((w, l, o, og))
         check('J1 no horizontal scroll at 320–1280 px in any language (page and guide)', not over, over[:6])
+        # the desktop header: the size that actually renders (10.20b wrote a larger size that a later rule overrode,
+        # L-144), and the header links never run over the title or subtitle (en 1101–1180 did, live 10.20b)
+        hb = []
+        for w in [601, 720, 900, 1100, 1101, 1150, 1200, 1250, 1300, 1440]:
+            await pg.set_viewport_size({'width': w, 'height': 800})
+            for l in LANGS:
+                await pg.evaluate("l=>setLang(l)", l); await pg.wait_for_timeout(80)
+                r = await pg.evaluate("""()=>{const hl=document.querySelector('.header-links'),R=hl.getBoundingClientRect();const hit=[];
+                  for(const n of ['h1','.sub']){const e=document.querySelector(n);const rg=document.createRange();rg.selectNodeContents(e);
+                    for(const r of rg.getClientRects())if(r.width>0&&r.left<R.right&&R.left<r.right&&r.top<R.bottom&&R.top<r.bottom)hit.push(n)}
+                  return [getComputedStyle(document.querySelector('.feedback-link')).fontSize,[...new Set(hit)]]}""")
+                if r[0] != '12.5px' or r[1]: hb.append((w, l, r))
+        check('J2 desktop header links render at 12.5px and never cover the title or subtitle', not hb, hb[:6])
         await pg.set_viewport_size({'width': 1280, 'height': 900})
 
         # ---- K: accessibility basics

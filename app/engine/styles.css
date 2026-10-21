@@ -71,6 +71,9 @@
      collided with each other */
   /* 2026-09-21: 420, not 370 — the header row gained the Help button */
   @media(min-width:601px) and (max-width:1100px){h1{padding-right:470px;}.sub{padding-right:470px;}}
+  /* 2026-10-20c: above 1100px the subtitle grows to 760px and still ran under the header links (en 1101–1180, ja 1101,
+     measured on the live 10.20b); it keeps the reserve until the two clear each other (~1260px). */
+  @media(min-width:1101px) and (max-width:1300px){.sub{max-width:calc(100% - 480px);}}   /* a width cap, not padding: padding sat inside the 760px cap and squeezed it to three lines */
   /* keep-all stops the Korean/Japanese title breaking inside a word ("가이/드",
      "ガイ/ド") when the 601-660px header leaves it only ~190px; Latin text still
      wraps at spaces as before */
@@ -84,7 +87,6 @@
   /* 2026-10-20 (launch review, desktop): the header's controls were 11.5px — and Help, the most important control on
      the page, was the smallest and looked like a plain link. Wider screens only; the phone header is laid out on its own. */
   @media(min-width:601px){
-    .note-toggle,.feedback-link{font-size:12.5px;}
     .lang-btn{font-size:12.5px;}
     #helpBtn{background:#fff4f4;border:1px solid #e9b4b4;border-radius:999px;padding:6px 12px;font-weight:700;}
     #helpBtn:hover{text-decoration:none;background:#ffeaea;}
@@ -93,6 +95,9 @@
   .feedback-link{font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;padding:7px 3px;}
   .note-toggle{position:relative;font-family:inherit;font-size:11.5px;font-weight:600;color:var(--accent-text);text-decoration:none;background:none;border:none;padding:7px 3px;margin:0;cursor:pointer;}
   .feedback-link:hover,.note-toggle:hover{text-decoration:underline;}
+  /* 2026-10-20c: the larger desktop size has to come after the base rules above — written before them (10.20b) it lost to
+     them at equal specificity and the header stayed 11.5px while the changelog said it was larger (L-144). */
+  @media(min-width:601px){.note-toggle,.feedback-link{font-size:12.5px;}}   /* 14px overflows the header's reserved space in fr/es/ja/en at several widths (measured 601–1920) */
   /* 2026-09-10 — the guide is the product; the map is one of its tools. Until
      now this button was styled exactly like Share and Feedback, which told a
      first-time reader it was a utility. It is now the one filled control in
