@@ -52,9 +52,10 @@ const CITY={
          attribution:'&copy; <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">MapTiler</a>',
          tileSize:512, zoomOffset:-1, maxZoom:18, crossOrigin:true,   // same maxZoom as the fallback: a layer swap must never force a zoom change (it re-clusters and closes an open card)
          // fallbacks, tried in order (2026-10-22): Stadia Alidade Bright looks closest to MapTiler (same OpenStreetMap
-         // data, blue rivers, light ground); keyless Esri stays last so the map is never blank. Stadia authenticates
-         // by domain (kamloops-lifemap.neilxiang.workers.dev, set in its dashboard), so no key here.
-         fallback:[{url:'https://tiles.stadiamaps.com/tiles/alidade_bright/{z}/{x}/{y}{r}.png',
+         // data, blue rivers, light ground); keyless Esri stays last so the map is never blank. Stadia's domain
+         // authentication would not save a *.workers.dev domain (2026-10-22), so it uses an API key — public in the
+         // page, like MapTiler's; misuse can only spend the free quota, which pauses the service and hands on to Esri.
+         fallback:[{url:'https://tiles.stadiamaps.com/tiles/alidade_bright/{z}/{x}/{y}{r}.png?api_key=b3b8215b-d0ae-48da-9f8b-013eabe981f4',
                     attribution:'&copy; <a href="https://stadiamaps.com/" target="_blank" rel="noopener">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a>',
                     maxZoom:18, crossOrigin:true},
                    {url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
