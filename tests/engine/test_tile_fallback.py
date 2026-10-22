@@ -26,11 +26,12 @@ NO_TILES = ['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonl
 
 async def main():
     subprocess.run([sys.executable, os.path.join(ROOT, 'build.py'), '--city', '_fixture'], check=True, capture_output=True)
-    url = 'file://' + os.path.join(ROOT, 'build', '_fixture.html') + '?lang=en'
+    page = os.path.join(ROOT, 'build', '_fixture.html')
+    url = 'file://' + page + '?lang=en&tiles=chain'   # a local copy starts on the last provider; tiles=chain walks them all
     async with async_playwright() as pw:
         b = await pw.chromium.launch(args=NO_TILES)
 
-        async def run(behave, *, vp=(1280, 900), offline=False, slow_primary=0, before_swap=None):
+        async def run(behave, *, vp=(1280, 900), offline=False, slow_primary=0, before_swap=None, at=None, local=False):
             """behave: per provider, primary first: 'ok' / 'deny' (403 or 401 with an image body) / 'abort' (network
             failure), or a dict {'img': how, 'fetch': how, 'img_delay': s, 'fetch_delay': s} to answer the map's tiles
             (<img>) and the probe (fetch) differently and late. Returns what the reader ends up with."""
@@ -53,13 +54,15 @@ async def main():
                         if how == 'abort': return await route.abort()
                         return await route.fulfill(status=200 if how == 'ok' else (403 if i == 0 else 401), body=PNG,
                                                    headers={'content-type': 'image/png', 'access-control-allow-origin': '*'})
+                if at and u.split('?')[0] == at:   # the page itself, served as if from a live (non-local) address
+                    return await route.fulfill(status=200, body=open(page, 'rb').read(), headers={'content-type': 'text/html; charset=utf-8'})
                 await route.abort()   # anything else from the network (analytics…): never leaves the test
             # learn the provider chain from the page itself, so the test follows whatever the city configures.
             # A predicate, not a glob: 'http*://**' matched nothing from a file:// page (2026-10-22) and every
             # provider was silently "answered" by the browser's own host block instead of by this test.
             await pg.route(lambda u: u.startswith('http'), handle)
             if offline: await ctx.set_offline(True)
-            await pg.goto(url)
+            await pg.goto(at + '?lang=en' if at else (url.replace('&tiles=chain', '') if local else url))
             chain[:] = await pg.evaluate("""()=>{const t=CITY.tiles||{};return [t.url].concat([].concat(t.fallback||[]).map(f=>f&&f.url))
               .filter(Boolean).map(u=>u.split('{')[0])}""")
             # the page started fetching before the chain was known: reload so every request is routed by provider
@@ -129,6 +132,25 @@ async def main():
         #     fallback answers slowly — the primary's late errors must not count against it
         s = await run([{'img': 'abort', 'img_delay': 2.0, 'fetch': 'deny'}, {'img': 'ok', 'img_delay': 2.5, 'fetch': 'ok'}, 'ok'])
         check('10c late errors from the provider left behind do not count against the next one', on(s, 1) and s['tileOk'] > 0, (s['url'], s['ev'], s['seen']))
+        # 11. where the map starts (2026-10-22, Neil): a copy opened on this machine starts on the last provider and
+        #     never asks the others (their quota is for readers); the live address starts on the primary
+        s = await run(['ok', 'ok', 'ok'], local=True)
+        check('11a a local copy starts on the last provider and never asks the others', on(s, len(chain) - 1) and set(s['seen']) <= {len(chain) - 1} and not s['ev'], (s['url'], s['seen'], s['ev']))
+        # the switch survives the page's own address rewrite (a reload keeps it) and never travels in a share link
+        ctx = await b.new_context(); pg = await ctx.new_page()
+        await pg.route(lambda u: u.startswith('http'), lambda r: r.abort())
+        await pg.goto(url); await pg.wait_for_timeout(1200)
+        await pg.evaluate("()=>writeURLState()")
+        kept = await pg.evaluate("()=>new URLSearchParams(location.search).get('tiles')")
+        await pg.reload(); await pg.wait_for_timeout(1200)
+        after = await pg.evaluate("()=>({chain:_TILE_CHAIN,share:shareHref()})")
+        await ctx.close()
+        check('11d ?tiles=chain survives the address rewrite and a reload', kept == 'chain' and after['chain'], (kept, after))
+        check('11e …and is never part of a shared link', 'tiles=' not in after['share'], after['share'])
+        s = await run(['ok', 'ok', 'ok'], at='https://guide.example.org/')
+        check('11b the page at a live address starts on the primary', on(s, 0) and s['seen'].get(0, 0) > 0 and not s['ev'], (s['url'], s['seen'], s['ev']))
+        s = await run(['deny', 'ok', 'ok'], at='https://guide.example.org/')
+        check('11c …and at a live address a refusing primary still hands over to the first fallback', on(s, 1) and s['tileOk'] > 0, (s['url'], s['seen'], s['ev']))
         # 9. credits on phone and desktop: the provider and OpenStreetMap, links in a new tab
         for vp in ((390, 844), (1280, 900)):
             for beh, i in ((['ok', 'ok', 'ok'], 0), (['deny', 'ok', 'ok'], 1), (['deny', 'deny', 'ok'], 2)):

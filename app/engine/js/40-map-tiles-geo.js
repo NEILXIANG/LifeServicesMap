@@ -21,7 +21,14 @@ function makeTileLayer(t){
   if(t.crossOrigin)o.crossOrigin=true;
   return L.tileLayer(t.url,o);
 }
-let tiles=makeTileLayer(_T);
+// 2026-10-22 (Neil): a copy opened on this machine — a file, localhost — starts on the last fallback, so local
+// work (and anyone's saved copy) never spends the paid or quota'd providers' allowance; the live site keeps the
+// full order. ?tiles=chain walks the whole chain locally, which is how the switching itself is tested.
+const _FB0=[].concat((CITY.tiles&&CITY.tiles.fallback)||[]).filter(t=>t&&t.url);
+const _LOCAL_COPY=location.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+const _TILE_CHAIN=new URLSearchParams(location.search).get('tiles')==='chain';
+const _START_LAST=_LOCAL_COPY&&!_TILE_CHAIN&&_FB0.length>0;
+let tiles=makeTileLayer(_START_LAST?_FB0[_FB0.length-1]:_T);
 // If the primary provider refuses us (quota spent, key revoked, outage), the
 // fallback provider takes over after the first few failures — a blank map is
 // the one thing this page must never show when the network itself is fine.
@@ -29,8 +36,8 @@ let tiles=makeTileLayer(_T);
 // suspended and the single fallback was a keyless service no longer maintained).
 // Each provider the map moves to is probed again, so one that refuses with an
 // image (a 401 picture loads fine and raises no tileerror) hands on to the next.
-const _FB=[].concat((CITY.tiles&&CITY.tiles.fallback)||[]).filter(t=>t&&t.url);
-let _fbIdx=-1;
+const _FB=_FB0;
+let _fbIdx=_START_LAST?_FB.length-1:-1;   // a local copy already sits on the last provider: nothing to hand over to
 function swapToFallbackTiles(){
   if(_fbIdx+1>=_FB.length)return;
   _fbIdx++;
@@ -200,7 +207,7 @@ function probeTiles(t){
     }).catch(()=>{});
   }catch(e){}
 }
-probeTiles(_T);
+if(!_START_LAST)probeTiles(_T);
 
 // P0-A — "Near me". A Leaflet control, not a header button: the header is under
 // active pressure from P0-B to give the map more first-screen height, and this

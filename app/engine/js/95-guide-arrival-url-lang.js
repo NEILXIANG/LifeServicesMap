@@ -217,6 +217,8 @@ function writeURLState(){
     // ?debug=1 is the maintainer's own flag; dropping it on the first rewrite
     // meant a reload silently turned the debug panel and env:'dev' tagging off
     if(_IS_DEBUG)q.set('debug','1');
+    // ?tiles=chain (a local copy walks every map provider) must survive the rewrite too, or a reload drops it
+    if(_TILE_CHAIN)q.set('tiles','chain');
     // replaceState, not pushState: filtering is not navigation and should not
     // fill the back button with dozens of intermediate states
     history.replaceState(history.state||null,'',location.pathname+'?'+q.toString()+location.hash);

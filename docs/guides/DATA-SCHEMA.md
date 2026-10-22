@@ -83,7 +83,7 @@ province-wide part of the guide live in the **engine** and are shared by every c
 
 ## `CITY`
 
-`tiles`：`{url, attribution, maxZoom, tileSize?, zoomOffset?, crossOrigin?, fallback}`。`fallback` 可以是一个对象，也可以是按顺序尝试的列表（2026-10-22 起 Kamloops 为 Stadia → Esri）；每个服务商的主机都必须写进 `worker.js` 的 `TILE_HOSTS`（validate 检查），各家 `maxZoom` 保持一致（换源时缩放级别不能变）。
+`tiles`：`{url, attribution, maxZoom, tileSize?, zoomOffset?, crossOrigin?, fallback}`。`fallback` 可以是一个对象，也可以是按顺序尝试的列表（2026-10-22 起 Kamloops 为 Stadia → Esri）；每个服务商的主机都必须写进 `worker.js` 的 `TILE_HOSTS`（validate 检查），各家 `maxZoom` 保持一致（换源时缩放级别不能变）。本机打开（文件、localhost）直接用列表最后一家；`?tiles=chain` 让本机也走完整顺序。
 
 | Key | Example (Kamloops) | Meaning |
 |---|---|---|

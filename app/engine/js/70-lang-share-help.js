@@ -252,9 +252,11 @@ function shareText(){
 // there is one and it is not a cry for help.
 function shareHref(){
   try{
+    const x=new URL(location.href);
+    x.searchParams.delete('tiles');   // a tester's map switch is not part of what is shared (2026-10-22)
     const raw=searchInputEl.value.trim();
-    if(!searchTerm||!raw||isCrisisQuery(raw))return location.href;
-    const x=new URL(location.href);x.searchParams.set('q',raw);return x.toString();
+    if(searchTerm&&raw&&!isCrisisQuery(raw))x.searchParams.set('q',raw);
+    return x.toString();
   }catch(e){return location.href;}
 }
 function copyShareLink(){

@@ -4311,7 +4311,7 @@
    "scope": "all",
    "phase": "引擎",
    "lesson": "上线验收在本机打开页面上万次，每次都请求 MapTiler 图块；密钥没有限制来源，一个月的免费额度被测试用光，账户被暂停，线上地图改由备用的 Esri 显示。这条规矩以前只写在 regress.py 的注释里，其他测试和新的验收脚本都没有遵守。",
-   "rule": "所有启动浏览器的测试和工具都用 --host-resolver-rules 拦截地图服务商；付费或有额度的密钥在服务商后台限定只允许线上域名；写进注释的规矩要变成检查，否则新文件不会遵守。",
+   "rule": "所有启动浏览器的测试和工具都用 --host-resolver-rules 拦截地图服务商；付费或有额度的密钥在服务商后台限定只允许线上域名；写进注释的规矩要变成检查，否则新文件不会遵守。本机打开的网页（文件、localhost）直接用备用列表最后一家，不碰有额度的服务商；需要走完整顺序时用 ?tiles=chain。",
    "status": "auto",
    "evidence": [
     {
@@ -4326,6 +4326,11 @@
      "kind": "validate",
      "path": "scripts/validate.py",
      "marker": "browser started without blocking the tile providers"
+    },
+    {
+     "kind": "test",
+     "path": "tests/engine/test_tile_fallback.py",
+     "marker": "11a a local copy starts on the last provider and never asks the others"
     }
    ]
   },
