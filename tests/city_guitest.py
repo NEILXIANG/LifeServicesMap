@@ -71,7 +71,7 @@ async def main():
     url = 'file://' + HTML
     errors = []
     async with async_playwright() as pw:
-        b = await pw.chromium.launch()
+        b = await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND'])   # no map tiles from a test run: it spends the live site's tile quota (L-145)
         ctx = await b.new_context(viewport={'width': 1280, 'height': 900}, geolocation={'latitude': CITYOBJ['centre'][0], 'longitude': CITYOBJ['centre'][1]},
                                   permissions=['geolocation'], locale='en-CA', timezone_id='America/Vancouver')
         pg = await ctx.new_page()

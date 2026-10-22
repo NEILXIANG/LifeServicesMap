@@ -25,15 +25,22 @@ let tiles=makeTileLayer(_T);
 // If the primary provider refuses us (quota spent, key revoked, outage), the
 // fallback provider takes over after the first few failures — a blank map is
 // the one thing this page must never show when the network itself is fine.
-let _tileFallbackDone=false;
+// 2026-10-22: `fallback` may be a list, tried in order (MapTiler's account was
+// suspended and the single fallback was a keyless service no longer maintained).
+// Each provider the map moves to is probed again, so one that refuses with an
+// image (a 401 picture loads fine and raises no tileerror) hands on to the next.
+const _FB=[].concat((CITY.tiles&&CITY.tiles.fallback)||[]).filter(t=>t&&t.url);
+let _fbIdx=-1;
 function swapToFallbackTiles(){
-  if(_tileFallbackDone||!(CITY.tiles&&CITY.tiles.fallback&&CITY.tiles.fallback.url))return;
-  _tileFallbackDone=true;
+  if(_fbIdx+1>=_FB.length)return;
+  _fbIdx++;
   try{map.removeLayer(tiles);}catch(e){}
-  tiles=makeTileLayer(CITY.tiles.fallback);
+  tiles=makeTileLayer(_FB[_fbIdx]);
+  tileFails=0;_tileOk=0;   // the new provider starts with a clean slate
   wireTileEvents(tiles);
   tiles.addTo(map);
-  trackEvent('tile_fallback',{});
+  trackEvent('tile_fallback',{to:_fbIdx+1});
+  probeTiles(_FB[_fbIdx]);
 }
 let tileFails=0,offlineDismissed=false,offlineCompactTimer=null;
 const offlineEl=document.getElementById('offlineNote');
@@ -83,10 +90,14 @@ document.getElementById('offlineClose').addEventListener('click',()=>{
 let _tileOk=0;
 function wireTileEvents(layer){
 layer.on('tileerror',()=>{
-  // the primary provider failing while nothing has loaded yet: try the fallback
+  // a layer already swapped out must not count against the provider that
+  // replaced it. Leaflet 1.9.4 cancels a removed layer's tiles without an error
+  // event, so this is a second line of defence (mutation test 10c, 2026-10-22).
+  if(layer!==tiles)return;
+  // the current provider failing while nothing has loaded yet: try the next one
   // before telling the reader they are offline
   tileFails++;
-  if(!_tileFallbackDone&&_tileOk===0&&tileFails>=2&&navigator.onLine!==false){swapToFallbackTiles();return;}
+  if(_tileOk===0&&tileFails>=2&&navigator.onLine!==false&&_fbIdx+1<_FB.length){swapToFallbackTiles();return;}
   if(tileFails<6||offlineDismissed)return;
   // Don't pop back over a popup that made it yield a moment ago.
   if(offlineEl&&offlineEl.dataset.yielded)return;
@@ -159,6 +170,7 @@ map.on('popupclose',()=>{
     if(!offlineDismissed)offlineShowExpanded();}
 });
 layer.on('tileload',()=>{
+  if(layer!==tiles)return;
   _tileOk++;
   // Tiles are back: hide it, and let it speak again if the network drops later.
   if(offlineEl&&!offlineEl.hidden)offlineEl.hidden=true;
@@ -174,18 +186,21 @@ tiles.addTo(map);
 // is fetched and its status read: anything but 2xx (MapTiler answers 403 to a
 // missing origin — e.g. a file:// copy — or a spent quota) hands the map to
 // the fallback provider at once. A network failure is left to tileerror.
-(function probePrimaryTiles(){
-  if(!(CITY.tiles&&CITY.tiles.fallback&&CITY.tiles.fallback.url)||typeof fetch!=='function')return;
+function probeTiles(t){
+  if(_fbIdx+1>=_FB.length||typeof fetch!=='function')return;   // nothing left to hand over to
+  const layer=tiles;
   try{
-    const c=map.getCenter(),zUrl=Math.max(1,Math.min(map.getZoom(),12)+(_T.zoomOffset||0));
+    const c=map.getCenter(),zUrl=Math.max(1,Math.min(map.getZoom(),12)+(t.zoomOffset||0));
     const n=Math.pow(2,zUrl),lat=c.lat*Math.PI/180;
     const x=Math.floor((c.lng+180)/360*n),y=Math.floor((1-Math.log(Math.tan(lat)+1/Math.cos(lat))/Math.PI)/2*n);
-    const url=_T.url.replace('{z}',zUrl).replace('{x}',x).replace('{y}',y).replace('{s}',(_T.subdomains||'abc').charAt(0)).replace('{r}','');
+    const url=t.url.replace('{z}',zUrl).replace('{x}',x).replace('{y}',y).replace('{s}',(t.subdomains||'abc').charAt(0)).replace('{r}','');
     fetch(url,{mode:'cors',cache:'no-store',credentials:'omit'}).then(r=>{
-      if(!r.ok){trackEvent('tile_probe',{status:r.status});swapToFallbackTiles();}
+      // only the answer about the provider still on the map may move it on
+      if(!r.ok&&layer===tiles){trackEvent('tile_probe',{status:r.status,i:_fbIdx+1});swapToFallbackTiles();}
     }).catch(()=>{});
   }catch(e){}
-})();
+}
+probeTiles(_T);
 
 // P0-A — "Near me". A Leaflet control, not a header button: the header is under
 // active pressure from P0-B to give the map more first-screen height, and this

@@ -30,7 +30,7 @@ async def main():
     threading.Thread(target=srv.serve_forever, daemon=True).start()
     url = 'http://127.0.0.1:%d/?lang=en' % srv.server_address[1]
     async with async_playwright() as pw:
-        b = await pw.chromium.launch()
+        b = await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND'])   # no map tiles from a test run: it spends the live site's tile quota (L-145)
         for changed in (False, True):
             pg = await b.new_page()
             await pg.route('**/*', lambda r: r.abort() if not r.request.url.startswith('http://127.0.0.1') else r.continue_())

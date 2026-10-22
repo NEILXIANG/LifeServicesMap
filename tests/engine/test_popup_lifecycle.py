@@ -23,7 +23,7 @@ async def main():
     subprocess.run([sys.executable, os.path.join(ROOT, 'build.py'), '--city', '_fixture'], check=True, capture_output=True)
     url = 'file://' + os.path.join(ROOT, 'build', '_fixture.html') + '?lang=en'
     async with async_playwright() as pw:
-        b = await pw.chromium.launch()
+        b = await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND'])   # no map tiles from a test run: it spends the live site's tile quota (L-145)
         pg = await b.new_page(viewport={'width': 390, 'height': 844})
         await pg.route('**/*', lambda r: r.abort() if r.request.url.startswith('http') else r.continue_())
         errs = []; pg.on('pageerror', lambda e: errs.append(str(e)))

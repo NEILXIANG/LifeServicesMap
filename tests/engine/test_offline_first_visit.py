@@ -36,7 +36,7 @@ async def main():
     url = 'http://localhost:%d/' % srv.server_address[1]
     try:
         async with async_playwright() as pw:
-            b = await pw.chromium.launch(); ctx = await b.new_context(); pg = await ctx.new_page()
+            b = await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND']); ctx = await b.new_context(); pg = await ctx.new_page()
             await pg.goto(url + '?lang=en')
             await pg.wait_for_function("navigator.serviceWorker&&navigator.serviceWorker.controller!==null", timeout=15000)
             await pg.wait_for_timeout(1500)            # install's pre-cache settles

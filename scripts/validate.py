@@ -1053,18 +1053,25 @@ else:
             warn('CITY.holidays ends %s — add the next years before then (python3 scripts/holidays.py)' % _hd[-1])
 # (2026-09-13) the map imagery host must be one whose terms allow a public app, and
 # the Worker's CSP must allow exactly that host — a mismatch is a blank map in production
-_tile = re.search(r"tiles:\{url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", html)
-if not _tile:
+# 2026-10-22: the primary and every fallback (CITY.tiles.fallback may be a list) — a fallback the CSP blocks is a
+# blank map exactly when it is needed. The hosts must appear in worker.js TILE_HOSTS (img-src and connect-src).
+_tm = re.search(r"tiles:\{url:'.*?\}\]?\}", html, re.S)
+_tile_hosts = re.findall(r"url:'https://(?:\{s\}\.)?([a-z0-9.\-]+)/", _tm.group(0)) if _tm else []
+if not _tile_hosts:
     fail('tile layer URL not found')
-else:
-    _host = _tile.group(1)
+_wpath = os.path.join(HERE, "worker.js")
+_w = open(_wpath, encoding='utf-8').read() if os.path.exists(_wpath) else ''
+_wtiles = (re.search(r"const TILE_HOSTS =(.*?);", _w, re.S) or [None, ''])[1] if _w else ''
+for _host in _tile_hosts:
     if 'tile.openstreetmap.org' in _host:
         fail("map tiles come from OpenStreetMap's volunteer servers — their policy forbids a distributed app and they blocked this site on 2026-09-13")
-    _wpath = os.path.join(HERE, "worker.js")
-    if os.path.exists(_wpath):
-        _w = open(_wpath, encoding='utf-8').read()
-        if _host.split('.',1)[-1] not in _w:
-            fail('worker.js CSP img-src does not allow the tile host %s' % _host)
+    if _w and ('https://' + _host) not in _wtiles and ('https://*.' + _host.split('.', 1)[-1]) not in _wtiles:
+        fail('worker.js TILE_HOSTS (CSP img-src/connect-src) does not allow the tile host %s' % _host)
+_zooms = re.findall(r"maxZoom:(\d+)", _tm.group(0)) if _tm else []
+if len(set(_zooms)) > 1:
+    fail('tile providers have different maxZoom %s — a provider swap would change the zoom and close an open card' % _zooms)
+if _tm and len(_tile_hosts) < 2:
+    warn('the map has no fallback tile provider — if the primary refuses, the map is blank')
 
 # ------------------------------------------------- 17. data has a shelf life
 # (2026-09-10) Hours and phone numbers are the first fields to go stale, and a
@@ -1230,6 +1237,17 @@ if _kg_bad:
 _uni = [p['n'] for p in P if p['c'] in ('school', 'elem') and re.search(r'\b(University|College|Polytechnic)\b', p['n'])]
 if _uni:
     fail('university/college filed as a school (use category "college"): %s' % _uni[:4])
+
+# (2026-10-22, L-145) every browser a test or tool starts must be unable to reach a tile provider: the 2026-10-20
+# acceptance runs loaded the live MapTiler key thousands of times and spent the month's quota (account suspended);
+# only regress.py carried the rule, in a comment no other file followed.
+_tile_leak = []
+for _f in glob.glob(os.path.join(_kd.ROOT, 'tests', '**', '*.py'), recursive=True) + glob.glob(os.path.join(_kd.ROOT, 'outreach', '**', '*.py'), recursive=True):
+    _s = open(_f, encoding='utf-8').read()
+    if 'chromium.launch(' in _s and not ('host-resolver-rules' in _s and 'MAP *.maptiler.com ~NOTFOUND' in _s):
+        _tile_leak.append(os.path.relpath(_f, _kd.ROOT))
+if _tile_leak:
+    fail('browser started without blocking the tile providers (spends the live map quota): %s' % _tile_leak[:4])
 
 # ---------------------------------------------------------------- report
 print('places=%d categories=%d regions=%d routes=%d  size=%dKB'

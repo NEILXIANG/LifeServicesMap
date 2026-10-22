@@ -377,7 +377,7 @@ def build(name, vals, html_only=False, outdir=None):
     from playwright.sync_api import sync_playwright
     pdfp = os.path.join(outdir, meta['out'] + '.pdf')
     with sync_playwright() as pw:
-        b = pw.chromium.launch()
+        b = pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND'])   # no map tiles from a test run: it spends the live site's tile quota (L-145)
         pg = b.new_page()
         pg.set_content(doc, wait_until='load')
         pg.emulate_media(media='print')

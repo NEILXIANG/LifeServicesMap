@@ -19,7 +19,7 @@ def chk(n,c,d=None):
     (OK if c else BAD).append(n); print("  %s %s%s"%('PASS' if c else 'FAIL',n,('  — %r'%(d,)) if d is not None else ''))
 async def main():
     async with async_playwright() as pw:
-        b=await pw.chromium.launch(); pg=await b.new_page(viewport={'width':1280,'height':950})
+        b=await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND']); pg=await b.new_page(viewport={'width':1280,'height':950})
         errs=[];pg.on('pageerror',lambda e:errs.append(str(e)))
         await pg.goto(URL); await pg.wait_for_timeout(1400)
 

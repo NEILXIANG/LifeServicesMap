@@ -51,9 +51,15 @@ const CITY={
   tiles:{url:'https://api.maptiler.com/maps/streets-v2/{z}/{x}/{y}.png?key=igWSJpj1pJRjvxUV2t1H',
          attribution:'&copy; <a href="https://www.maptiler.com/copyright/" target="_blank" rel="noopener">MapTiler</a>',
          tileSize:512, zoomOffset:-1, maxZoom:18, crossOrigin:true,   // same maxZoom as the fallback: a layer swap must never force a zoom change (it re-clusters and closes an open card)
-         fallback:{url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
-                   attribution:'Tiles &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a> &mdash; Esri, HERE, Garmin, USGS, NRCan',
-                   maxZoom:18}},
+         // fallbacks, tried in order (2026-10-22): Stadia Alidade Bright looks closest to MapTiler (same OpenStreetMap
+         // data, blue rivers, light ground); keyless Esri stays last so the map is never blank. Stadia authenticates
+         // by domain (kamloops-lifemap.neilxiang.workers.dev, set in its dashboard), so no key here.
+         fallback:[{url:'https://tiles.stadiamaps.com/tiles/alidade_bright/{z}/{x}/{y}{r}.png',
+                    attribution:'&copy; <a href="https://stadiamaps.com/" target="_blank" rel="noopener">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank" rel="noopener">OpenMapTiles</a>',
+                    maxZoom:18, crossOrigin:true},
+                   {url:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+                    attribution:'Tiles &copy; <a href="https://www.esri.com/" target="_blank" rel="noopener">Esri</a> &mdash; Esri, HERE, Garmin, USGS, NRCan',
+                    maxZoom:18}]},
   // Bus-stop labels are forced on for interchanges; the pattern is language- and
   // city-specific, so it lives here rather than hard-coded in the renderer.
   keyStop:/exch|station|terminal/i,

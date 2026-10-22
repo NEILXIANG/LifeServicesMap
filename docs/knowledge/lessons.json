@@ -2764,7 +2764,7 @@
     {
      "kind": "engine",
      "path": "app/engine/js/40-map-tiles-geo.js",
-     "marker": "(function probePrimaryTiles(){"
+     "marker": "function probeTiles(t){"
     }
    ]
   },
@@ -4301,6 +4301,86 @@
      "kind": "test",
      "path": "tests/city_guitest.py",
      "marker": "J2 desktop header links render at 12.5px"
+    }
+   ]
+  },
+  {
+   "id": "L-145",
+   "title": "测试不能消耗线上地图额度",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "上线验收在本机打开页面上万次，每次都请求 MapTiler 图块；密钥没有限制来源，一个月的免费额度被测试用光，账户被暂停，线上地图改由备用的 Esri 显示。这条规矩以前只写在 regress.py 的注释里，其他测试和新的验收脚本都没有遵守。",
+   "rule": "所有启动浏览器的测试和工具都用 --host-resolver-rules 拦截地图服务商；付费或有额度的密钥在服务商后台限定只允许线上域名；写进注释的规矩要变成检查，否则新文件不会遵守。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之五、地图额度被测试用光（2026-10-22）",
+     "what": "MapTiler 额度被测试用光"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "browser started without blocking the tile providers"
+    }
+   ]
+  },
+  {
+   "id": "L-146",
+   "title": "底图要能依次换多家，每换一家都重新探测",
+   "area": "引擎与城市分离",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "MapTiler 账户暂停后，唯一的备用是已不再维护、风格差别很大的 Esri 旧接口。服务商拒绝时返回的是一张错误图片，加载成功、不报错，所以每换到一家新的服务商都必须重新读一次状态码，否则会停在错误图片上。",
+   "rule": "CITY.tiles.fallback 用列表按顺序尝试；第一备用选和主底图同数据、相近风格的服务；每换一家都重新探测；各家 maxZoom 相同、主机都在 Worker 的 TILE_HOSTS 里。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之六、底图依次换源与严格测试（2026-10-22，main `2026.10.22a`）",
+     "what": "MapTiler 暂停后只能退到 Esri"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_tile_fallback.py",
+     "marker": "3 primary and first fallback refuse: second fallback shows"
+    },
+    {
+     "kind": "validate",
+     "path": "scripts/validate.py",
+     "marker": "tile providers have different maxZoom"
+    }
+   ]
+  },
+  {
+   "id": "L-147",
+   "title": "测试的模拟要证明自己生效了，保护要用\"去掉它\"来证明被测到",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "底图切换测试第一版用 glob 拦截请求，在本机文件打开的页面上一个请求都没拦到，测试照样\"通过\"；改正后，逐一去掉三道保护再跑，第一次三处都没被发现，说明测试没走到它们。",
+   "rule": "模拟外部服务的测试，要检查模拟确实接到了请求（次数大于 0）；每道保护写一个没有它就会失败的场景，并实际去掉它跑一次确认；去掉后仍然通过的，要查明是测试漏了还是那种情况本来就不会发生，并写进注释。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/reports/2026-10-19-线上走查报告.md",
+     "section": "## 二之六、底图依次换源与严格测试（2026-10-22，main `2026.10.22a`）",
+     "what": "glob 拦截未生效；三道保护起初都没被测到"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "tests/engine/test_tile_fallback.py",
+     "marker": "0 the simulated providers really answer the page (routing took effect)"
     }
    ]
   }

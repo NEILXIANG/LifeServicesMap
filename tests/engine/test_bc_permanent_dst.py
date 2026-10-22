@@ -47,7 +47,7 @@ async def main():
                    check=True, capture_output=True)
     url = 'file://' + os.path.join(ROOT, 'build', '_fixture.html') + '?lang=en'
     async with async_playwright() as pw:
-        b = await pw.chromium.launch()
+        b = await pw.chromium.launch(args=['--host-resolver-rules=MAP *.maptiler.com ~NOTFOUND, MAP *.arcgisonline.com ~NOTFOUND, MAP *.cartocdn.com ~NOTFOUND, MAP *.stadiamaps.com ~NOTFOUND, MAP *.openstreetmap.org ~NOTFOUND'])   # no map tiles from a test run: it spends the live site's tile quota (L-145)
         for label, when, zone, wd, mins, iso in CASES:
             ctx = await b.new_context(timezone_id='America/Vancouver')
             pg = await ctx.new_page(); errs = []
