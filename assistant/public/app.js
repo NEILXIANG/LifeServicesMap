@@ -22,7 +22,7 @@ const T = {
     crisisTitle: '紧急求助', crisisLead: '这个问题可能涉及安全或危机。助手不会用 AI 回答，请直接使用下面的求助电话。有生命危险请立即拨 911。',
     crisisLocal: '本地专线', sms: '短信',
     errTitle: '暂时无法回答', errLead: '请稍后再试，或直接查看生活指南。', retry: '重试',
-    reasons: { too_fast: '提问太快了，请等一分钟再试。', visitor_limit: '你今天的提问次数已用完，请明天再试，或拨打 2-1-1。', daily_limit: '今天的提问次数已用完。', ai_not_configured: 'AI 服务尚未配置。', ai_key: 'AI 服务的密钥无效或余额不足。', rate_limited: 'AI 服务繁忙。', too_long: '问题太长了（最多 1000 字）。', empty: '请输入问题。', forbidden: '没有访问权限，请重新登录。' },
+    reasons: { too_fast: '提问太快了，请等一分钟再试。', visitor_limit: '这是测试版，为了控制预算，每人每天最多可以问 10 个问题。你今天的次数已用完，请明天再试；需要帮助可以拨打 2-1-1，或查看生活指南。', daily_limit: '这是测试版，为了控制预算，全站每天的提问次数有限，今天已经用完了。请明天再试；需要帮助可以拨打 2-1-1，或查看生活指南。', ai_not_configured: 'AI 服务尚未配置。', ai_key: 'AI 服务的密钥无效或余额不足。', rate_limited: 'AI 服务繁忙。', too_long: '问题太长了（最多 1000 字）。', empty: '请输入问题。', forbidden: '没有访问权限，请重新登录。' },
   },
   en: {
     intro: 'Answers come from verified content in the Kamloops Life Guide, written by AI, and may contain errors. Check important details with the official source. This is an independent tool — not a service of Kamloops Immigrant Services or the government.',
@@ -44,7 +44,7 @@ const T = {
     crisisTitle: 'Urgent help', crisisLead: 'This question may involve safety or a crisis. The assistant does not answer it with AI — please use the lines below. If a life is in danger, call 911 now.',
     crisisLocal: 'Local lines', sms: 'text',
     errTitle: 'Can’t answer right now', errLead: 'Please try again later, or use the Life Guide directly.', retry: 'Try again',
-    reasons: { too_fast: 'Too many questions in a short time. Please wait a minute.', visitor_limit: 'You have reached today’s question limit. Please try again tomorrow, or call 2-1-1.', daily_limit: 'Today’s question limit has been reached.', ai_not_configured: 'The AI service is not configured yet.', ai_key: 'The AI service key is invalid or out of credit.', rate_limited: 'The AI service is busy.', too_long: 'The question is too long (1,000 characters at most).', empty: 'Please type a question.', forbidden: 'No access — please sign in again.' },
+    reasons: { too_fast: 'Too many questions in a short time. Please wait a minute.', visitor_limit: 'This is a test version. To keep within budget, each person can ask up to 10 questions a day, and you have reached today’s limit. Please try again tomorrow — for help now, call 2-1-1 or use the Life Guide.', daily_limit: 'This is a test version. To keep within budget, the number of questions for the whole site is limited each day, and today’s have been used up. Please try again tomorrow — for help now, call 2-1-1 or use the Life Guide.', ai_not_configured: 'The AI service is not configured yet.', ai_key: 'The AI service key is invalid or out of credit.', rate_limited: 'The AI service is busy.', too_long: 'The question is too long (1,000 characters at most).', empty: 'Please type a question.', forbidden: 'No access — please sign in again.' },
   },
   fr: {
     intro: 'Les réponses, rédigées par l’IA, s’appuient sur le contenu vérifié du Guide de vie à Kamloops et peuvent contenir des erreurs. Vérifiez les informations importantes auprès de la source officielle. Outil indépendant — ce n’est pas un service de Kamloops Immigrant Services ni du gouvernement.',
@@ -66,7 +66,7 @@ const T = {
     crisisTitle: 'Aide urgente', crisisLead: 'Cette question peut concerner la sécurité ou une crise. L’assistant n’y répond pas avec l’IA — utilisez les lignes ci-dessous. Si une vie est en danger, appelez le 911 maintenant.',
     crisisLocal: 'Lignes locales', sms: 'texto',
     errTitle: 'Impossible de répondre pour le moment', errLead: 'Réessayez plus tard, ou consultez directement le guide.', retry: 'Réessayer',
-    reasons: { too_fast: 'Trop de questions en peu de temps. Attendez une minute.', visitor_limit: 'Vous avez atteint la limite de questions pour aujourd’hui. Réessayez demain, ou appelez le 2-1-1.', daily_limit: 'La limite de questions du jour est atteinte.', ai_not_configured: 'Le service d’IA n’est pas encore configuré.', ai_key: 'La clé du service d’IA est invalide ou sans crédit.', rate_limited: 'Le service d’IA est occupé.', too_long: 'La question est trop longue (1 000 caractères au plus).', empty: 'Tapez une question.', forbidden: 'Accès refusé — reconnectez-vous.' },
+    reasons: { too_fast: 'Trop de questions en peu de temps. Attendez une minute.', visitor_limit: 'Ceci est une version d’essai. Pour respecter le budget, chaque personne peut poser jusqu’à 10 questions par jour, et vous avez atteint la limite d’aujourd’hui. Réessayez demain — pour de l’aide dès maintenant, appelez le 2-1-1 ou consultez le guide.', daily_limit: 'Ceci est une version d’essai. Pour respecter le budget, le nombre de questions pour tout le site est limité chaque jour, et celles d’aujourd’hui sont épuisées. Réessayez demain — pour de l’aide dès maintenant, appelez le 2-1-1 ou consultez le guide.', ai_not_configured: 'Le service d’IA n’est pas encore configuré.', ai_key: 'La clé du service d’IA est invalide ou sans crédit.', rate_limited: 'Le service d’IA est occupé.', too_long: 'La question est trop longue (1 000 caractères au plus).', empty: 'Tapez une question.', forbidden: 'Accès refusé — reconnectez-vous.' },
   },
   es: {
     intro: 'Las respuestas, redactadas por IA, se basan en el contenido verificado de la Guía de vida en Kamloops y pueden contener errores. Confirme la información importante con la fuente oficial. Es una herramienta independiente, no un servicio de Kamloops Immigrant Services ni del gobierno.',
@@ -88,7 +88,7 @@ const T = {
     crisisTitle: 'Ayuda urgente', crisisLead: 'Esta pregunta puede tener que ver con la seguridad o una crisis. El asistente no la responde con IA; use las líneas de abajo. Si hay una vida en peligro, llame al 911 ahora.',
     crisisLocal: 'Líneas locales', sms: 'texto',
     errTitle: 'No se puede responder en este momento', errLead: 'Inténtelo más tarde o consulte directamente la guía.', retry: 'Reintentar',
-    reasons: { too_fast: 'Demasiadas preguntas en poco tiempo. Espere un minuto.', visitor_limit: 'Alcanzó el límite de preguntas de hoy. Inténtelo mañana o llame al 2-1-1.', daily_limit: 'Se alcanzó el límite de preguntas de hoy.', ai_not_configured: 'El servicio de IA aún no está configurado.', ai_key: 'La clave del servicio de IA no es válida o no tiene saldo.', rate_limited: 'El servicio de IA está ocupado.', too_long: 'La pregunta es demasiado larga (máximo 1000 caracteres).', empty: 'Escriba una pregunta.', forbidden: 'Sin acceso; vuelva a iniciar sesión.' },
+    reasons: { too_fast: 'Demasiadas preguntas en poco tiempo. Espere un minuto.', visitor_limit: 'Esta es una versión de prueba. Para no salirnos del presupuesto, cada persona puede hacer hasta 10 preguntas al día, y usted ya alcanzó el límite de hoy. Inténtelo mañana; si necesita ayuda ahora, llame al 2-1-1 o consulte la guía.', daily_limit: 'Esta es una versión de prueba. Para no salirnos del presupuesto, el número de preguntas de todo el sitio es limitado cada día y las de hoy ya se agotaron. Inténtelo mañana; si necesita ayuda ahora, llame al 2-1-1 o consulte la guía.', ai_not_configured: 'El servicio de IA aún no está configurado.', ai_key: 'La clave del servicio de IA no es válida o no tiene saldo.', rate_limited: 'El servicio de IA está ocupado.', too_long: 'La pregunta es demasiado larga (máximo 1000 caracteres).', empty: 'Escriba una pregunta.', forbidden: 'Sin acceso; vuelva a iniciar sesión.' },
   },
   ko: {
     intro: 'Kamloops 생활 가이드에서 확인된 내용을 바탕으로 AI가 답하며, 틀릴 수 있습니다. 중요한 정보는 공식 출처에서 확인하세요. 이 도구는 독립적으로 만든 것으로, Kamloops Immigrant Services나 정부의 서비스가 아닙니다.',
@@ -110,7 +110,7 @@ const T = {
     crisisTitle: '긴급 도움', crisisLead: '안전이나 위기와 관련된 질문일 수 있습니다. 도우미는 AI로 답하지 않습니다 — 아래 전화번호를 바로 이용하세요. 생명이 위험하면 지금 911에 전화하세요.',
     crisisLocal: '지역 전화', sms: '문자',
     errTitle: '지금은 답할 수 없습니다', errLead: '잠시 후 다시 시도하거나 생활 가이드를 직접 보세요.', retry: '다시 시도',
-    reasons: { too_fast: '짧은 시간에 질문이 너무 많습니다. 1분 후에 다시 시도하세요.', visitor_limit: '오늘 질문 횟수를 모두 사용했습니다. 내일 다시 시도하거나 2-1-1에 전화하세요.', daily_limit: '오늘 질문 횟수를 모두 사용했습니다.', ai_not_configured: 'AI 서비스가 아직 설정되지 않았습니다.', ai_key: 'AI 서비스 키가 잘못되었거나 잔액이 없습니다.', rate_limited: 'AI 서비스가 바쁩니다.', too_long: '질문이 너무 깁니다(최대 1,000자).', empty: '질문을 입력하세요.', forbidden: '접근 권한이 없습니다. 다시 로그인하세요.' },
+    reasons: { too_fast: '짧은 시간에 질문이 너무 많습니다. 1분 후에 다시 시도하세요.', visitor_limit: '시험 버전이라 예산 관리를 위해 한 사람당 하루 최대 10개까지 질문할 수 있으며, 오늘 횟수를 모두 사용했습니다. 내일 다시 시도해 주세요. 지금 도움이 필요하면 2-1-1에 전화하거나 생활 가이드를 보세요.', daily_limit: '시험 버전이라 예산 관리를 위해 사이트 전체의 하루 질문 수가 정해져 있으며, 오늘 분량을 모두 사용했습니다. 내일 다시 시도해 주세요. 지금 도움이 필요하면 2-1-1에 전화하거나 생활 가이드를 보세요.', ai_not_configured: 'AI 서비스가 아직 설정되지 않았습니다.', ai_key: 'AI 서비스 키가 잘못되었거나 잔액이 없습니다.', rate_limited: 'AI 서비스가 바쁩니다.', too_long: '질문이 너무 깁니다(최대 1,000자).', empty: '질문을 입력하세요.', forbidden: '접근 권한이 없습니다. 다시 로그인하세요.' },
   },
   ja: {
     intro: 'Kamloops 生活ガイドの確認済みの内容をもとに AI が回答します。誤りがある場合があるので、重要な情報は公式の情報源で確認してください。これは独立したツールで、Kamloops Immigrant Services や政府のサービスではありません。',
@@ -132,7 +132,7 @@ const T = {
     crisisTitle: '緊急の支援', crisisLead: '安全や危機に関わる質問の可能性があります。このアシスタントは AI では回答しません — 下の電話番号を直接使ってください。命に危険がある場合は、今すぐ 911 に電話してください。',
     crisisLocal: '地域の窓口', sms: 'SMS',
     errTitle: '今は回答できません', errLead: 'しばらくしてからもう一度試すか、生活ガイドを直接ご覧ください。', retry: 'もう一度試す',
-    reasons: { too_fast: '短時間に質問が多すぎます。1分ほど待ってください。', visitor_limit: '今日の質問回数の上限に達しました。明日もう一度試すか、2-1-1 に電話してください。', daily_limit: '今日の質問回数の上限に達しました。', ai_not_configured: 'AI サービスがまだ設定されていません。', ai_key: 'AI サービスのキーが無効か、残高がありません。', rate_limited: 'AI サービスが混み合っています。', too_long: '質問が長すぎます（1,000文字まで）。', empty: '質問を入力してください。', forbidden: 'アクセス権がありません。もう一度ログインしてください。' },
+    reasons: { too_fast: '短時間に質問が多すぎます。1分ほど待ってください。', visitor_limit: 'これはテスト版のため、予算を抑えるために1人1日10問までとしています。今日の上限に達しました。明日もう一度お試しください。今すぐ助けが必要なときは 2-1-1 に電話するか、生活ガイドをご覧ください。', daily_limit: 'これはテスト版のため、予算を抑えるためにサイト全体の1日の質問数を限っており、今日の分は終わりました。明日もう一度お試しください。今すぐ助けが必要なときは 2-1-1 に電話するか、生活ガイドをご覧ください。', ai_not_configured: 'AI サービスがまだ設定されていません。', ai_key: 'AI サービスのキーが無効か、残高がありません。', rate_limited: 'AI サービスが混み合っています。', too_long: '質問が長すぎます（1,000文字まで）。', empty: '質問を入力してください。', forbidden: 'アクセス権がありません。もう一度ログインしてください。' },
   },
 };
 
@@ -229,10 +229,14 @@ function fallbackBlock(fb) {
       el('li', {}, el('a', { href: fb.guide, target: '_blank', rel: 'noopener' }, t('guideLink')))));
 }
 
+const LIMIT_REASONS = ['visitor_limit', 'daily_limit'];
+
 function errorCard(res) {
   const why = (t('reasons')[res.reason]) || '';
   return el('div', { class: 'card error', role: 'alert' },
-    el('h2', {}, t('errTitle')), el('p', {}, [why, t('errLead')].filter(Boolean).join(' ')),
+    el('h2', {}, t('errTitle')),
+    // 超过次数：说明本身已写明原因和"明天再试"，不再接通用的"请稍后再试"
+    el('p', {}, LIMIT_REASONS.includes(res.reason) ? why : [why, t('errLead')].filter(Boolean).join(' ')),
     lastQ && !['daily_limit', 'visitor_limit', 'too_long'].includes(res.reason) ? el('button', { type: 'button', class: 'primary', onclick: () => ask(lastQ) }, t('retry')) : null,
     fallbackBlock(res.fallback));
 }

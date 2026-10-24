@@ -2,7 +2,7 @@
 //
 // 三层，任何一层到了就不调用 AI：
 //   1. 短时防刷：同一访客每分钟最多 BURST 次（Cloudflare Rate Limiting 绑定 BURST；没绑定就跳过）；
-//   2. 每位访客每天最多 IP_DAILY_LIMIT 次（线上设为 5）；
+//   2. 每位访客每天最多 IP_DAILY_LIMIT 次（线上设为 10）；
 //   3. 全站每天最多 DAILY_LIMIT 次。
 // 访客只用"IP + 当天日期"的散列计数，不保存 IP 本身；计数第二天自动过期。
 // 计数存在 KV（USAGE）里；没绑定 KV 时按实例计数（本机开发、测试）。最后一道是 Anthropic Console 的预充值余额。

@@ -50,3 +50,13 @@ test('默认英文：页面初始文字、按钮状态、脚本默认值都是�
   assert.match(pub('app.js'), /let L = 'en';/);
   for (const m of html.matchAll(/data-t="(\w+)">([^<]*)</g)) assert.equal(m[2], T.en[m[1]], m[1] + ' 初始文字不是英文');
 });
+
+test('超过每日次数：六种语言都说明"测试版、控制预算、每人每天 10 题"（Neil 2026-10-24）', () => {
+  for (const l of Object.keys(T)) {
+    const m = T[l].reasons.visitor_limit;
+    assert.match(m, /10/, l);
+    assert.match(m, /测试版|test version|version d’essai|versión de prueba|시험 버전|テスト版/, l);
+    assert.match(m, /2-1-1/, l);
+    assert.match(T[l].reasons.daily_limit, /测试版|test version|version d’essai|versión de prueba|시험 버전|テスト版/, l);
+  }
+});
