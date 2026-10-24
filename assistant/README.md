@@ -29,7 +29,7 @@ KIS 工作人员用任何语言提问，助手**只根据 Kamloops 生活指南�
 | `src/claude.js` | 调用 Claude API（官方 SDK） |
 | `src/access.js` | 登录校验：Cloudflare Access；没配好时线上一律拒绝 |
 | `src/worker.js` | Worker：页面、`/api/ask`、`/api/translate`、`/api/feedback`、`/api/health` |
-| `public/` | 界面（中文 / English）和隐私说明 |
+| `public/` | 界面和隐私说明（六种语言：中、英、法、西、韩、日） |
 | `tests/` | 把关测试，用假模型，不花钱 |
 | `eval/` | 用真实 Claude 跑的测试题（花钱） |
 

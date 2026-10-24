@@ -14,8 +14,7 @@ button,textarea{font:inherit;color:inherit}
 .top{padding-top:18px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center}
 .brand{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 h1{font-size:clamp(19px,3vw,24px);font-weight:600;margin:0}
-.badge{font-size:12px;font-weight:600;color:var(--accent-text);border:1px solid var(--accent);border-radius:999px;padding:1px 8px}
-.langs{display:flex;gap:4px}
+.langs{display:flex;flex-wrap:wrap;gap:4px;justify-content:flex-end}
 .langs button{min-height:44px;min-width:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:0 10px;cursor:pointer}
 .langs button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent-text);font-weight:600}
 .sub{grid-column:1/-1;margin:2px 0 12px;color:var(--sub-ink);font-size:14px}
@@ -58,4 +57,5 @@ textarea{width:100%;min-height:88px;resize:vertical;border:1px solid var(--line)
 .fbnote{width:100%;margin-top:8px;display:flex;gap:6px}
 .fbnote input{flex:1;min-height:44px;border:1px solid var(--line);border-radius:10px;padding:0 10px;background:var(--card);font:inherit;color:inherit}
 .foot{padding-bottom:28px;font-size:14px;color:var(--sub-ink);display:flex;gap:8px}
+@media (max-width:640px){.top{grid-template-columns:1fr}.langs{justify-content:flex-start}}
 @media (max-width:480px){.fb{margin-left:0;width:100%}}
