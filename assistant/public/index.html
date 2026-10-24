@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kamloops Newcomer Assistant</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Kamloops Newcomer Assistant</h1>
+    <span class="badge" data-t="badge">KIS 内部</span>
+  </div>
+  <div class="langs" role="group" aria-label="Language">
+    <button type="button" data-lang="zh" aria-pressed="true">中文</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+  <p class="sub" data-t="intro">AI 根据 Kamloops 生活指南中已核实的内容回答，可能出错。重要信息请以官方来源为准。</p>
+</header>
+
+<main>
+  <form id="ask" class="card ask" autocomplete="off">
+    <p class="privacy" id="privacy"><span aria-hidden="true">⚠</span> <span data-t="privacy">请勿输入姓名、证件号码、病历等个人信息。</span></p>
+    <label for="q" class="vh" data-t="qLabel">问题</label>
+    <textarea id="q" name="q" rows="3" maxlength="1000" aria-describedby="privacy" data-ph="placeholder" placeholder="用任何语言提问……"></textarea>
+    <div class="row">
+      <button type="submit" class="primary" id="go" data-t="ask">提问</button>
+      <span class="count" id="count" aria-live="off">0 / 1000</span>
+    </div>
+    <div class="quick" aria-label="常见问题" data-al="quickLabel">
+      <span data-t="quickLabel">常见：</span>
+      <button type="button" class="chip" data-q="quick1" data-t="quick1t">新到第一周</button>
+      <button type="button" class="chip" data-q="quick2" data-t="quick2t">孩子入学</button>
+      <button type="button" class="chip" data-q="quick3" data-t="quick3t">找家庭医生</button>
+      <button type="button" class="chip" data-q="quick4" data-t="quick4t">食物银行</button>
+    </div>
+  </form>
+
+  <section id="out" aria-live="polite" aria-atomic="false"></section>
+  <p class="vh" id="announce" aria-live="assertive"></p>
+</main>
+
+<footer class="foot">
+  <a href="privacy.html" data-t="privacyLink">隐私说明</a>
+  <span aria-hidden="true">·</span>
+  <a id="guideLink" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener" data-t="guideLink">Kamloops 生活指南</a>
+</footer>
+
+<script src="app.js" type="module"></script>
+</body>
+</html>

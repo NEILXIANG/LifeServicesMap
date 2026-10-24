@@ -1,0 +1,30 @@
+# wrangler.toml — AI Newcomer Assistant（KIS 工作人员试用）
+#
+# 和生活指南完全分开：独立的 Worker、独立的网址 kamloops-assistant.neilxiang.workers.dev。
+# 指南的 Worker（kamloops-lifemap）和网址不受影响。
+#
+# 部署前（每次都要 Neil 同意）：
+#   1. python3 build.py                                 # 从指南数据生成 build/knowledge.json
+#   2. npx wrangler secret put ANTHROPIC_API_KEY       # 密钥只放在 Worker 保密设置里
+#   3. Cloudflare Access 打开后：wrangler secret put ACCESS_TEAM / ACCESS_AUD
+#      没有这两项时，线上一律返回 403（宁可用不了，也不开着）。见 README.md。
+
+name = "kamloops-assistant"
+main = "src/worker.js"
+compatibility_date = "2024-09-23"
+workers_dev = true
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+# 先跑 Worker：所有页面都先过 Access 校验并加安全头
+run_worker_first = true
+
+[vars]
+MODEL = "claude-opus-5-5"
+DAILY_LIMIT = "200"
+
+# 匿名反馈（有用 / 有错）。数据集第一次写入时自动创建；免费额度内。
+[[analytics_engine_datasets]]
+binding = "ANALYTICS"
+dataset = "kamloops_assistant_events"

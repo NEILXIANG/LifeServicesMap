@@ -71,3 +71,11 @@ __pycache__/
 
 # 2026-10-03 阶段 4：Kamloops 以外城市的部署目录，build.py 生成
 /deploy/
+
+# AI 助手：构建产物与本机密钥（不入仓）
+/assistant/build/
+/assistant/.dev.vars
+/assistant/node_modules/
+/assistant/eval/results/
+# wrangler 本机运行的临时文件（任何目录；里面可能有本机设置）
+.wrangler/

@@ -4388,6 +4388,56 @@
      "marker": "0 the simulated providers really answer the page (routing took effect)"
     }
    ]
+  },
+  {
+   "id": "L-148",
+   "title": "危机识别要认第三人称：替别人问的人不会说\"我\"",
+   "area": "安全、法律与隐私",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "指南的危机词按新移民自己会打的话写（\"打我\"\"hits me\"\"je veux mourir\"）。AI 助手的用户是工作人员，替客户提问时说\"她丈夫打她\"\"he wants to kill himself\"，指南的规则不命中，这类问题差一点就被当成普通问题发给 AI。新移民替姐妹、朋友搜索时也会这样说，指南本身有同样的缺口。",
+   "rule": "危机词表同时收第一人称和第三人称的说法（她/他/孩子、her/him/them、la/le、그녀를、彼女を）；每加一条，同时测\"该命中\"和\"普通问题不误判\"（如\"打疫苗\"\"beat the traffic\"）。助手已补（assistant/src/crisis.js）；指南的引擎词表待补——改 main 需 Neil 同意。",
+   "status": "todo",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 1 轮（2026-10-23）：第一阶段本机可用（含 AI）",
+     "what": "\"她丈夫打她\"不命中指南的危机规则"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "assistant/tests/assistant.test.mjs",
+     "marker": "工作人员第三人称的危机说法"
+    }
+   ]
+  },
+  {
+   "id": "L-149",
+   "title": "给 AI 打分要针对\"下结论\"，改评分规则时重评旧回答、不重新花钱",
+   "area": "测试与门禁",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "助手的真实测试题里，\"禁止出现'符合条件'\"把正确的回答（\"是否符合条件因身份而异\"）判成失败；而每重跑一次都要付 AI 费用。",
+   "rule": "禁止的说法写成\"对某人下结论\"的句式（\"他符合条件\"\"会被遣返\"），不要禁止单个词；写完先对几句该拦和不该拦的句子试一下；回答全部保存，改评分规则时用 eval/run.mjs --regrade 重评，不调用 AI；完整题库跑之前先估算费用。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 1 轮（2026-10-23）：第一阶段本机可用（含 AI）",
+     "what": "评分规则误判正确回答"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "assistant/eval/run.mjs",
+     "marker": "--regrade <结果文件>"
+    }
+   ]
   }
  ],
  "assets": [
