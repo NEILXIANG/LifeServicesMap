@@ -242,3 +242,14 @@ test('公开版：用面向新移民的规则，提问放在 <question> 里，�
   assert.doesNotMatch(sys, /help settlement staff/);
   assert.match(calls[0].messages[0].content[1].text, /^<question>\nHow do I get a SIN\?/);
 });
+
+test('地点来源带"在指南地图上找"的链接（指南网址 + 地点名搜索）', async () => {
+  const place = know.docs.find(d => d.kind === 'place' && d.c === 'foodbank');
+  const { a } = fake(ans([{ text: '去 ' + place.n, source_ids: [place.id] }]));
+  const out = await a.ask('食物银行在哪里', { uiLang: 'zh' });
+  const s = out.sources.find(x => x.source_id === place.id);
+  assert.ok(s, '应引用这个地点');
+  assert.ok(s.map.startsWith(know.city.siteUrl));
+  assert.match(s.map, /lang=zh/);
+  assert.match(s.map, new RegExp('q=' + encodeURIComponent(place.n).replace(/[()]/g, '\\$&')));
+});

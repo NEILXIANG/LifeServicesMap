@@ -15,7 +15,7 @@
 - 热线：CITY.hotlines / localLines / localCrisis / help（城市 data.js），热线名称取引擎 UI 的 hot_* 文字；
 - 危机识别规则 _CRISIS_RE：原样从引擎 30-analytics.js 抄出，助手和指南用同一条规则。
 """
-import argparse, json, os, re, subprocess, sys
+import argparse, json, os, re, subprocess, sys, urllib.parse
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
@@ -73,8 +73,12 @@ def task_record(t, city, checked_default):
     return rec
 
 
-def place_record(p, ci):
+def place_record(p, ci, city):
+    url = city['siteUrl'].rstrip('/') + '/'
+    q = urllib.parse.quote(p['n'])
     return {'id': 'place:' + p['id'], 'kind': 'place', 'n': p['n'], 'c': p['c'],
+            # 在指南地图上找：打开指南并搜索这个地点的名字（指南本来就支持 ?q=）
+            'map': {l: url + '?city=%s%s&q=%s' % (city['key'], '' if l == 'en' else '&lang=' + l, q) for l in LANGS},
             'cat': ci.get(p['c'], {}), 'a': p.get('a'), 'p': p.get('p'), 'w': p.get('w'),
             'note': p.get('note') or {}, 'srcTier': p.get('src'), 'checked': p.get('v') or '',
             'alias': p.get('alias') or []}
@@ -103,7 +107,7 @@ def main():
         'localCrisis': city.get('localCrisis'),
         'infoLabel': labels.get('info', {}),
         'docs': [task_record(t, city, city.get('tasksChecked')) for t in tasks]
-              + [place_record(p, ci) for p in places],
+              + [place_record(p, ci, city) for p in places],
     }
     out = os.path.join(HERE, 'build')
     os.makedirs(out, exist_ok=True)

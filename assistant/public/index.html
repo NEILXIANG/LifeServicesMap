@@ -11,6 +11,8 @@
 <header class="top">
   <div class="brand">
     <h1>Kamloops Newcomer Assistant</h1>
+    <!-- 回到生活指南：两个工具是一套的（只在助手这边加，指南不改） -->
+    <a class="toguide guide-href" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener"><span aria-hidden="true">↗ </span><span data-t="guideLink">Kamloops Life Guide</span></a>
   </div>
   <div class="langs" role="group" aria-label="Language">
     <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
@@ -24,31 +26,42 @@
 </header>
 
 <main>
+  <p class="offline" id="offline" role="status" hidden><span data-t="offline">You are offline. Asking needs an internet connection — the Life Guide works offline.</span></p>
+
   <form id="ask" class="card ask" autocomplete="off">
     <p class="privacy" id="privacy"><span aria-hidden="true">⚠</span> <span data-t="privacy">Do not enter your name, ID numbers, health details or other personal information. Your question is sent to an AI service to write the answer.</span></p>
     <label for="q" class="vh" data-t="qLabel">Question</label>
-    <textarea id="q" name="q" rows="3" maxlength="1000" aria-describedby="privacy" data-ph="placeholder" placeholder="Ask in any language…"></textarea>
+    <textarea id="q" name="q" rows="3" maxlength="1000" aria-describedby="privacy" data-ph="placeholder" placeholder="Ask in any language — e.g. How do I get a SIN?"></textarea>
+    <div id="pii" class="pii" role="alert" hidden></div>
     <div class="row">
       <button type="submit" class="primary" id="go" data-t="ask">Ask</button>
-      <span class="count" id="count" aria-live="off">0 / 1000</span>
+      <span class="count" id="count" hidden></span>
     </div>
-    <div class="quick" aria-label="Common:" data-al="quickLabel">
-      <span data-t="quickLabel">Common:</span>
-      <button type="button" class="chip" data-q="quick1" data-t="quick1t">First week</button>
-      <button type="button" class="chip" data-q="quick2" data-t="quick2t">School enrolment</button>
-      <button type="button" class="chip" data-q="quick3" data-t="quick3t">Family doctor</button>
-      <button type="button" class="chip" data-q="quick4" data-t="quick4t">Food bank</button>
-    </div>
+    <p class="quota" id="quota" hidden></p>
+    <details class="quick" id="quick" open>
+      <summary data-t="quickLabel">Common questions</summary>
+      <div class="chips">
+        <button type="button" class="chip" data-q="quick1" data-t="quick1t">First week</button>
+        <button type="button" class="chip" data-q="quick2" data-t="quick2t">School enrolment</button>
+        <button type="button" class="chip" data-q="quick3" data-t="quick3t">Family doctor</button>
+        <button type="button" class="chip" data-q="quick4" data-t="quick4t">Food bank</button>
+      </div>
+    </details>
   </form>
 
-  <section id="out" aria-live="polite" aria-atomic="false"></section>
-  <p class="vh" id="announce" aria-live="assertive"></p>
+  <!-- 焦点会移到新回答的标题上，读屏软件从那里接着读；这里不设 aria-live，避免整段重复朗读 -->
+  <section id="out"></section>
+  <details class="earlier card" id="earlier" hidden>
+    <summary data-t="earlier">Earlier answers</summary>
+    <div id="earlierList"></div>
+  </details>
+  <p class="vh" id="announce" aria-live="polite"></p>
 </main>
 
 <footer class="foot">
   <a href="privacy.html" data-t="privacyLink">Privacy</a>
   <span aria-hidden="true">·</span>
-  <a id="guideLink" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener" data-t="guideLink">Kamloops Life Guide</a>
+  <a class="guide-href" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener" data-t="guideLink">Kamloops Life Guide</a>
 </footer>
 
 <script src="app.js" type="module"></script>

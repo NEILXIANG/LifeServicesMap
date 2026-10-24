@@ -25,6 +25,15 @@ async function put(env, k, n) {
   else mem.set(k, n);
 }
 
+// 今天还剩几题（不计数），给界面显示"测试版：今天还可以问 n 题"
+export async function peekQuota(request, env, now = new Date()) {
+  const day = now.toISOString().slice(0, 10);
+  const who = await visitorKey(request, day);
+  const limit = Number(env.IP_DAILY_LIMIT || 20);
+  const used = await get(env, 'ip:' + day + ':' + who);
+  return { left: Math.max(0, limit - used), limit };
+}
+
 // 返回 null 表示放行（并已计数）；否则返回拒绝的原因
 export async function checkLimits(request, env, now = new Date()) {
   const day = now.toISOString().slice(0, 10);

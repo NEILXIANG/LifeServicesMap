@@ -60,3 +60,34 @@ test('超过每日次数：六种语言都说明"测试版、控制预算、每�
     assert.match(T[l].reasons.daily_limit, /测试版|test version|version d’essai|versión de prueba|시험 버전|テスト版/, l);
   }
 });
+
+// 2026-10-24 界面与交互优化（17 项）的不变量
+const app = pub('app.js');
+const PII_RE = new Function(app.match(/const PII_RE = (\[[\s\S]*?\n\]);/)[0] + 'return PII_RE;')();
+const looksPersonal = q => PII_RE.some(re => re.test(q));
+
+test('发送前的个人信息检查：电话、邮箱、SIN、证件号要提醒', () => {
+  for (const q of ['My phone is 250-555-1234', 'email me at li@example.com', 'SIN 123 456 789', 'passport E12345678', 'PHN 9876543210'])
+    assert.ok(looksPersonal(q), q);
+});
+
+test('普通问题不误报个人信息', () => {
+  for (const q of ['How do I get a SIN?', '孩子 9 岁怎么上学', 'Is 811 free?', 'Where is the food bank on 171 Wilson St?', 'What does 9-8-8 do?', '2026 年的税怎么报'])
+    assert.ok(!looksPersonal(q), q);
+});
+
+test('每种语言都有新增的文字，次数说明里有 {n} 和 {m}，示例有 3 个', () => {
+  const keys = ['loading', 'loading2', 'loading3', 'quotaLeft', 'limitTitle', 'youAsked', 'piiTitle', 'piiLead', 'piiEdit', 'piiSend',
+    'share', 'mapLink', 'askAnother', 'call911', 'backToAsk', 'offtopic', 'fbPhOff', 'offline', 'earlier'];
+  for (const l of Object.keys(T)) {
+    for (const k of keys) assert.ok(T[l][k] && T[l][k].trim(), `${l}.${k}`);
+    assert.match(T[l].quotaLeft, /\{n\}/); assert.match(T[l].quotaLeft, /\{m\}/);
+    assert.equal(T[l].examples.length, 3, l);
+    assert.equal(T[l].placeholder, T[l].examples[0], l + ' 初始示例和第一个示例一致');
+  }
+});
+
+test('el() 彻底展开嵌套数组；回答卡片不用会把 null 显示成文字的原生 append', () => {
+  assert.match(app, /kids\.flat\(Infinity\)/);
+  assert.equal((app.match(/\.append\(/g) || []).length, 1, '只有 el() 里那一处 append');
+});

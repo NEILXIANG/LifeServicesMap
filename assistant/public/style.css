@@ -25,12 +25,26 @@ textarea{width:100%;min-height:88px;resize:vertical;border:1px solid var(--line)
 .primary{min-height:44px;padding:0 22px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:600;cursor:pointer}
 .primary[disabled]{opacity:.55;cursor:default}
 .count{font-size:13px;color:var(--sub-ink)}
-.quick{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;color:var(--sub-ink)}
+.quick{margin-top:12px;font-size:14px;color:var(--sub-ink)}
+.quick summary{cursor:pointer;min-height:44px;display:flex;align-items:center;width:max-content;max-width:100%}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
 .chip{min-height:44px;border:1px solid var(--line);background:transparent;border-radius:999px;padding:0 14px;cursor:pointer;color:var(--ink)}
 .answer h2{font-size:17px;margin:0 0 10px;font-weight:600}
+.asked{font-size:15px!important;font-weight:500!important;color:var(--sub-ink);border-bottom:1px solid var(--line);padding-bottom:8px}
+.asked-label{font-weight:600}
+h2:focus{outline:none}
+h2:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.status-head{font-weight:600;margin:0 0 8px}
+.summary{font-weight:600;font-size:17px;margin:0 0 10px}
 .answer ol{margin:0 0 12px;padding-left:1.4em}
 .answer li{margin:0 0 8px}
-.cite{font-size:12px;font-weight:600;color:var(--accent-text);text-decoration:none;margin-left:4px;white-space:nowrap}
+.cite{font:inherit;font-size:12px;font-weight:600;color:var(--accent-text);background:none;border:0;padding:0 2px;margin-left:2px;min-height:24px;min-width:24px;cursor:pointer;white-space:nowrap}
+.cite[aria-expanded="true"]{text-decoration:underline}
+.cite-pop{display:block;margin:6px 0 2px;padding:8px 10px;border-radius:8px;background:var(--paper);border:1px solid var(--line);font-size:14px}
+.cite-pop[hidden]{display:none}
+.sources li.flash{animation:flash 1.6s ease-out}
+@keyframes flash{0%{background:var(--warn-bg)}100%{background:transparent}}
+@media (prefers-reduced-motion: reduce){.sources li.flash{animation:none;outline:2px solid var(--accent)}}
 .referral{border-left:3px solid var(--accent);padding:4px 0 4px 10px;margin:0 0 12px}
 .stale{background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:8px 12px;font-size:14px;margin:0 0 12px}
 .sources{border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
@@ -42,7 +56,7 @@ textarea{width:100%;min-height:88px;resize:vertical;border:1px solid var(--line)
 .note{font-size:13px;color:var(--sub-ink);margin:12px 0 8px}
 .actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .actions button,.actions select{min-height:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:0 12px;cursor:pointer}
-.fb{margin-left:auto;display:flex;gap:6px;align-items:center;font-size:14px;color:var(--sub-ink)}
+.fb{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:14px;color:var(--sub-ink)}
 .fb button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent-text);font-weight:600}
 .client{margin-top:12px;border:1px dashed var(--line);border-radius:10px;padding:12px}
 .client .note{margin-top:0}
@@ -53,9 +67,45 @@ textarea{width:100%;min-height:88px;resize:vertical;border:1px solid var(--line)
 .tel-inline{white-space:nowrap;unicode-bidi:isolate;direction:ltr}
 .tel{display:inline-flex;align-items:center;min-height:44px;font-weight:700;font-size:17px;color:var(--crisis);margin-right:6px}
 .error h2{font-size:17px;margin:0 0 6px}
-.loading{color:var(--sub-ink)}
+.loading{color:var(--sub-ink);display:flex;align-items:center;gap:10px}
+.spinner{width:18px;height:18px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--accent);animation:spin .9s linear infinite;flex:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.spinner{animation:none}}
+form[aria-busy="true"] textarea{opacity:.75}
 .fbnote{width:100%;margin-top:8px;display:flex;gap:6px}
 .fbnote input{flex:1;min-height:44px;border:1px solid var(--line);border-radius:10px;padding:0 10px;background:var(--card);font:inherit;color:inherit}
 .foot{padding-bottom:28px;font-size:14px;color:var(--sub-ink);display:flex;gap:8px}
 @media (max-width:640px){.top{grid-template-columns:1fr}.langs{justify-content:flex-start}}
-@media (max-width:480px){.fb{margin-left:0;width:100%}}
+@media (max-width:480px){.fb{width:100%}}
+
+/* 2026-10-24 界面与交互优化 */
+.toguide{font-size:13px;color:var(--accent-text);text-decoration:none;white-space:nowrap}
+.toguide:hover{text-decoration:underline}
+.offline{max-width:760px;margin:0 auto 12px;background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.offline[hidden]{display:none}
+.pii{margin-top:10px;background:var(--warn-bg);color:var(--warn-ink);border-radius:10px;padding:10px 12px;font-size:14px}
+.pii[hidden]{display:none}
+.pii p{margin:0 0 8px}
+.pii-actions{display:flex;flex-wrap:wrap;gap:8px}
+.pii-actions button:not(.primary){min-height:44px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:0 14px;cursor:pointer}
+.quota{margin:10px 0 0;font-size:13px;color:var(--sub-ink)}
+.quota[hidden]{display:none}
+.quota.low{color:var(--warn-ink);font-weight:600}
+.count[hidden]{display:none}
+.links{display:block;margin-top:2px}
+.call911{display:flex;align-items:center;justify-content:center;min-height:52px;margin:10px 0 12px;border-radius:12px;background:var(--crisis);color:#fff;font-weight:700;font-size:20px;text-decoration:none}
+@media (prefers-color-scheme: dark){.call911{color:#1c1c1e}}
+.secondary{min-height:44px;border:1px solid var(--accent);color:var(--accent-text);background:var(--card);border-radius:10px;padding:0 14px;cursor:pointer;font-weight:600}
+.actions + .actions{margin-top:8px}
+.earlier{padding:12px 16px}
+.earlier summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600}
+.earlier[hidden]{display:none}
+.past{border-top:1px solid var(--line);padding:6px 0}
+.past > summary{cursor:pointer;min-height:44px;display:flex;align-items:center;color:var(--sub-ink)}
+.past .card{border:0;padding:8px 0 0;margin:0}
+.fallback ul{padding-left:1.2em}
+/* 可展开的标题前显示 ▸ / ▾，让人知道能点（summary 用了 flex，浏览器自带的三角会消失） */
+.quick summary::before,.earlier > summary::before,.past > summary::before{content:"▸";display:inline-block;width:1.1em;flex:none;color:var(--sub-ink)}
+.quick[open] > summary::before,.earlier[open] > summary::before,.past[open] > summary::before{content:"▾"}
+summary::-webkit-details-marker{display:none}
+summary{list-style:none}

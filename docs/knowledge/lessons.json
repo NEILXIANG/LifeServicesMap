@@ -4429,6 +4429,12 @@
      "ref": "docs/assistant/开发记录.md",
      "section": "## 第 1 轮（2026-10-23）：第一阶段本机可用（含 AI）",
      "what": "评分规则误判正确回答"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 5 轮（2026-10-24）：界面与交互优化 17 项",
+     "what": "\"不能申请 MSP\"误命中\"他能不能申请 MSP\""
     }
    ],
    "encoded": [
@@ -4461,6 +4467,31 @@
      "kind": "test",
      "path": "assistant/tests/isolation.test.mjs",
      "marker": "部署目标只能是 kamloops-assistant"
+    }
+   ]
+  },
+  {
+   "id": "L-151",
+   "title": "拼界面的辅助函数要彻底展开、跳过空值；不要和浏览器自带的 append 混用",
+   "area": "搜索与交互",
+   "scope": "all",
+   "phase": "引擎",
+   "lesson": "助手界面重写时出了两个只有看页面才发现的错：引用号显示成\"[object HTMLButtonElement]\"（嵌套数组只展开了一层），反馈区多出文字\"null\"（浏览器自带的 append 会把 null 变成文字，而自己写的 el() 会跳过）。",
+   "rule": "生成页面元素的辅助函数一律 flat(Infinity) 并跳过 null/false；组装时只用这个辅助函数，不直接调用原生 append/replaceChildren 传可能为空的值；界面测试检查页面文字里没有 undefined、null、[object。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 5 轮（2026-10-24）：界面与交互优化 17 项",
+     "what": "[object HTMLButtonElement] 与 null 字样"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "assistant/tests/ui.test.mjs",
+     "marker": "el() 彻底展开嵌套数组"
     }
    ]
   }

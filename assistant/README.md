@@ -3,6 +3,8 @@
 KIS 工作人员用任何语言提问，助手**只根据 Kamloops 生活指南里已核实的内容**回答，每一步附来源和核实日期。
 产品与设计说明见 `docs/assistant/AI-Newcomer-Assistant-产品与设计说明.md`；开发记录见 `docs/assistant/开发记录.md`。
 
+2026-10-24 起**公开**（像生活指南一样任何人都能用，`PUBLIC = "1"`）；界面六种语言，默认英文。
+
 和生活指南完全分开：独立的 Worker（`kamloops-assistant`）和网址（`kamloops-assistant.neilxiang.workers.dev`）。
 指南的代码、网址、隐私承诺都不变；助手只**读**指南的数据（构建时生成，不另存副本）。
 
@@ -28,7 +30,8 @@ KIS 工作人员用任何语言提问，助手**只根据 Kamloops 生活指南�
 | `src/assistant.js` | 一次提问的完整流程（和网络无关，测试直接调用） |
 | `src/claude.js` | 调用 Claude API（官方 SDK） |
 | `src/access.js` | 登录校验：Cloudflare Access；没配好时线上一律拒绝 |
-| `src/worker.js` | Worker：页面、`/api/ask`、`/api/translate`、`/api/feedback`、`/api/health` |
+| `src/worker.js` | Worker：页面、`/api/ask`、`/api/quota`（今天还剩几题）、`/api/translate`（只在工作人员版）、`/api/feedback`、`/api/health` |
+| `src/limits.js` | 公开版的费用保护：每人每天 10 题、每分钟 5 题、全站每天 200 题（只存 IP+日期的散列） |
 | `public/` | 界面和隐私说明（六种语言：中、英、法、西、韩、日） |
 | `tests/` | 把关测试，用假模型，不花钱 |
 | `eval/` | 用真实 Claude 跑的测试题（花钱） |

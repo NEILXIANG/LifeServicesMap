@@ -56,6 +56,7 @@ export function sourceCard(d, lang) {
   if (d.kind === 'place') {
     return { source_id: d.id, type: 'place', title: d.n, url: d.w || null, phone: d.p || null, address: d.a || null,
       category: (d.cat && (d.cat[L] || d.cat.en)) || d.c, checked: d.checked || null,
+      map: d.map ? d.map[L] || d.map.en : null,
       // 来源分级：official / opendata 是官方，own 是本人核实，places 是第三方商业资料
       tier: d.srcTier || null, official: d.srcTier === 'official' || d.srcTier === 'opendata' };
   }

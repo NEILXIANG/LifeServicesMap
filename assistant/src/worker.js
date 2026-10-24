@@ -3,8 +3,9 @@
 //   GET  /…               界面（public/），先过 Access 校验，再加安全头
 //   POST /api/ask         { q, uiLang } → 回答（见 assistant.js）
 //   POST /api/translate   { answer, target } → 客户语言版本（只在工作人员版）
-//   POST /api/feedback    { verdict, status, lang, note } → 匿名反馈（写 Analytics Engine，若已绑定）
-//   GET  /api/health      AI 是否可用（不含任何密钥）
+//   POST /api/feedback    { verdict: useful | wrong | offtopic, status, lang, note } → 匿名反馈（写 Analytics Engine，若已绑定）
+//   GET  /api/health      AI 是否可用、公开还是工作人员版、指南网址（不含任何密钥）
+//   GET  /api/quota       今天还剩几题（公开版；不计数）
 //
 // 隐私（说明 §9）：不保存、不记录提问和回答原文；反馈只记"有用/有错"和一句去掉数字与邮箱的说明。
 
@@ -13,7 +14,7 @@ import { isCrisis } from './crisis.js';
 import { createAssistant, MAX_QUESTION } from './assistant.js';
 import { makeCallModel } from './claude.js';
 import { verifyAccess } from './access.js';
-import { checkLimits } from './limits.js';
+import { checkLimits, peekQuota } from './limits.js';
 
 const SECURITY_HEADERS = {
   'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; " +
@@ -72,8 +73,11 @@ export default {
 
     if (!url.pathname.startsWith('/api/')) return withHeaders(await env.ASSETS.fetch(request));
 
+    if (url.pathname === '/api/quota' && request.method === 'GET') {
+      return json(isPublic(env) ? await peekQuota(request, env) : { left: null, limit: null });
+    }
     if (url.pathname === '/api/health' && request.method === 'GET') {
-      return json({ ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', audience: audience(env), built: know.builtFrom });
+      return json({ ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', audience: audience(env), guide: know.city.siteUrl, built: know.builtFrom });
     }
     if (request.method !== 'POST' || !sameSite(request, url)) return json({ status: 'error', reason: 'bad_request' }, 400);
     const b = await body(request);
@@ -86,9 +90,11 @@ export default {
       const q = String(b.q || '').trim();
       if (q && q.length <= MAX_QUESTION && !isCrisis(q)) {
         const why = await checkLimits(request, env);
-        if (why) return json({ status: 'error', reason: why });
+        if (why) return json({ status: 'error', reason: why, quota: isPublic(env) ? await peekQuota(request, env) : null });
       }
-      return json(await a.ask(b.q, { uiLang: b.uiLang }));
+      const res = await a.ask(b.q, { uiLang: b.uiLang });
+      if (isPublic(env)) res.quota = await peekQuota(request, env);
+      return json(res);
     }
     if (url.pathname === '/api/translate' && !isPublic(env)) {
       if (!b.answer || !b.target || String(b.target).length > 40) return json({ status: 'error', reason: 'bad_request' }, 400);

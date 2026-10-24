@@ -43,3 +43,13 @@ test('KV 里只存编码，不存 IP 本身', async () => {
   assert.ok(keys.length === 2);
   assert.ok(keys.every(k => !k.includes('203.0.113.77')));
 });
+
+test('剩余次数（peekQuota）：不计数，随提问减少', async () => {
+  _resetForTests();
+  const { peekQuota } = await import('../src/limits.js');
+  const env = { IP_DAILY_LIMIT: '10', DAILY_LIMIT: '200' };
+  assert.deepEqual(await peekQuota(req('9.9.9.9'), env, day), { left: 10, limit: 10 });
+  assert.deepEqual(await peekQuota(req('9.9.9.9'), env, day), { left: 10, limit: 10 }, '查看不计数');
+  await checkLimits(req('9.9.9.9'), env, day);
+  assert.deepEqual(await peekQuota(req('9.9.9.9'), env, day), { left: 9, limit: 10 });
+});

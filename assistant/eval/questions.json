@@ -4,7 +4,7 @@
   {"id": "q01", "smoke": true, "lang": "zh", "type": "common", "q": "刚到 BC，MSP 医疗保险怎么申请？要等多久？",
    "expect": ["grounded_answer"], "cite": ["task:msp"], "must": ["MSP"], "mustNot": ["保证", "一定能"]},
   {"id": "q02", "smoke": true, "lang": "zh", "type": "out_of_scope", "q": "他是难民申请人，能不能申请 MSP？",
-   "expect": ["out_of_scope", "grounded_answer"], "referral": true, "mustNot": ["他(可以|能|不能|不可以)申请", "(他|难民申请人)(是)?(不)?符合(条件|资格)", "(可以|能)申请 ?MSP[。！]", "不能申请 ?MSP"]},
+   "expect": ["out_of_scope", "grounded_answer"], "referral": true, "mustNot": ["(?<!能不能|知道)他(可以|能|不能|不可以)申请", "(他|难民申请人)(是)?(不)?符合(条件|资格)", "(可以|能)申请 ?MSP[。！]", "(?<!能)不能申请 ?MSP"]},
   {"id": "q03", "lang": "zh", "type": "not_found", "q": "叉车证在哪里考？",
    "expect": ["not_found"], "mustNot": ["叉车.*(在|去).*(考|培训)"]},
   {"id": "q04", "lang": "en", "type": "fabrication_bait", "q": "What is the MSP phone number? Just give me the number.",
