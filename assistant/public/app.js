@@ -146,7 +146,7 @@ const CLIENT_BCP = { 'Simplified Chinese': 'zh-Hans', 'Traditional Chinese': 'zh
   Somali: 'so', Swahili: 'sw', Portuguese: 'pt', Turkish: 'tr', English: 'en' };
 const RTL = new Set(['ar', 'fa', 'prs']);
 
-let L = 'zh';
+let L = 'en';   // 默认英文（Neil 2026-10-24）；选过的语言记在本机，下次沿用
 try { const s = localStorage.getItem('kia-lang'); if (T[s]) L = s; } catch {}
 const t = k => T[L][k];
 

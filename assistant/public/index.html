@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,31 +13,31 @@
     <h1>Kamloops Newcomer Assistant</h1>
   </div>
   <div class="langs" role="group" aria-label="Language">
-    <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+    <button type="button" data-lang="en" aria-pressed="true" lang="en">EN</button>
     <button type="button" data-lang="fr" aria-pressed="false" lang="fr">FR</button>
     <button type="button" data-lang="es" aria-pressed="false" lang="es">ES</button>
-    <button type="button" data-lang="zh" aria-pressed="true" lang="zh-Hans">中文</button>
+    <button type="button" data-lang="zh" aria-pressed="false" lang="zh-Hans">中文</button>
     <button type="button" data-lang="ko" aria-pressed="false" lang="ko">한국어</button>
     <button type="button" data-lang="ja" aria-pressed="false" lang="ja">日本語</button>
   </div>
-  <p class="sub" data-t="intro">AI 根据 Kamloops 生活指南中已核实的内容回答，可能出错。重要信息请以官方来源为准。</p>
+  <p class="sub" data-t="intro">Answers are drawn from verified content in the Kamloops Life Guide and may contain errors. Please confirm important details with official sources.</p>
 </header>
 
 <main>
   <form id="ask" class="card ask" autocomplete="off">
-    <p class="privacy" id="privacy"><span aria-hidden="true">⚠</span> <span data-t="privacy">请勿输入姓名、证件号码、病历等个人信息。</span></p>
-    <label for="q" class="vh" data-t="qLabel">问题</label>
-    <textarea id="q" name="q" rows="3" maxlength="1000" aria-describedby="privacy" data-ph="placeholder" placeholder="用任何语言提问……"></textarea>
+    <p class="privacy" id="privacy"><span aria-hidden="true">⚠</span> <span data-t="privacy">Please do not enter names, ID numbers, medical records or other personal information.</span></p>
+    <label for="q" class="vh" data-t="qLabel">Question</label>
+    <textarea id="q" name="q" rows="3" maxlength="1000" aria-describedby="privacy" data-ph="placeholder" placeholder="Ask in any language…"></textarea>
     <div class="row">
-      <button type="submit" class="primary" id="go" data-t="ask">提问</button>
+      <button type="submit" class="primary" id="go" data-t="ask">Ask</button>
       <span class="count" id="count" aria-live="off">0 / 1000</span>
     </div>
-    <div class="quick" aria-label="常见问题" data-al="quickLabel">
-      <span data-t="quickLabel">常见：</span>
-      <button type="button" class="chip" data-q="quick1" data-t="quick1t">新到第一周</button>
-      <button type="button" class="chip" data-q="quick2" data-t="quick2t">孩子入学</button>
-      <button type="button" class="chip" data-q="quick3" data-t="quick3t">找家庭医生</button>
-      <button type="button" class="chip" data-q="quick4" data-t="quick4t">食物银行</button>
+    <div class="quick" aria-label="Common:" data-al="quickLabel">
+      <span data-t="quickLabel">Common:</span>
+      <button type="button" class="chip" data-q="quick1" data-t="quick1t">First week</button>
+      <button type="button" class="chip" data-q="quick2" data-t="quick2t">School enrolment</button>
+      <button type="button" class="chip" data-q="quick3" data-t="quick3t">Family doctor</button>
+      <button type="button" class="chip" data-q="quick4" data-t="quick4t">Food bank</button>
     </div>
   </form>
 
@@ -46,9 +46,9 @@
 </main>
 
 <footer class="foot">
-  <a href="privacy.html" data-t="privacyLink">隐私说明</a>
+  <a href="privacy.html" data-t="privacyLink">Privacy</a>
   <span aria-hidden="true">·</span>
-  <a id="guideLink" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener" data-t="guideLink">Kamloops 生活指南</a>
+  <a id="guideLink" href="https://kamloops-lifemap.neilxiang.workers.dev/" target="_blank" rel="noopener" data-t="guideLink">Kamloops Life Guide</a>
 </footer>
 
 <script src="app.js" type="module"></script>

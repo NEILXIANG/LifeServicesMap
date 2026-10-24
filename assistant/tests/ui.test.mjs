@@ -42,3 +42,11 @@ test('语言顺序：英、法、西、中、韩、日（Neil 2026-10-24）', ()
   assert.deepEqual([...pub('privacy.html').matchAll(/<article class="card" id="(\w+)"/g)].map(m => m[1]), order);
   assert.deepEqual([...pub('privacy.html').matchAll(/<a href="#(\w+)"/g)].map(m => m[1]), order);
 });
+
+test('默认英文：页面初始文字、按钮状态、脚本默认值都是英文（Neil 2026-10-24）', () => {
+  const html = pub('index.html');
+  assert.match(html, /<html lang="en">/);
+  assert.match(html, /data-lang="en" aria-pressed="true"/);
+  assert.match(pub('app.js'), /let L = 'en';/);
+  for (const m of html.matchAll(/data-t="(\w+)">([^<]*)</g)) assert.equal(m[2], T.en[m[1]], m[1] + ' 初始文字不是英文');
+});
