@@ -35,3 +35,10 @@ test('界面里的 data-t 都有对应的文字', () => {
 test('不再显示"KIS 内部"标签（Neil 2026-10-24）', () => {
   assert.ok(!/KIS 内部|KIS internal|class="badge"/.test(pub('index.html') + pub('app.js')));
 });
+
+test('语言顺序：英、法、西、中、韩、日（Neil 2026-10-24）', () => {
+  const order = ['en', 'fr', 'es', 'zh', 'ko', 'ja'];
+  assert.deepEqual([...pub('index.html').matchAll(/data-lang="(\w+)"/g)].map(m => m[1]), order);
+  assert.deepEqual([...pub('privacy.html').matchAll(/<article class="card" id="(\w+)"/g)].map(m => m[1]), order);
+  assert.deepEqual([...pub('privacy.html').matchAll(/<a href="#(\w+)"/g)].map(m => m[1]), order);
+});
