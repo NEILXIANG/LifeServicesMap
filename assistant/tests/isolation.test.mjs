@@ -38,3 +38,8 @@ test('和 main 比，生活指南的文件一个都没有改', t => {
   const bad = changed.filter(f => !ALLOWED.some(re => re.test(f)));
   assert.deepEqual(bad, [], '这些指南文件被改了：' + bad.join(', '));
 });
+
+test('线上上限：每个 IP 每天 5 题，全站每天 200 题（Neil 2026-10-24）', () => {
+  assert.match(toml, /^IP_DAILY_LIMIT = "5"/m);
+  assert.match(toml, /^DAILY_LIMIT = "200"/m);
+});

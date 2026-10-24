@@ -28,7 +28,7 @@ MODEL = "claude-opus-5-5"
 PUBLIC = "1"
 # 费用保护（src/limits.js）：全站每天 / 每位访客每天
 DAILY_LIMIT = "200"
-IP_DAILY_LIMIT = "20"
+IP_DAILY_LIMIT = "5"   # 每个 IP 每天最多 5 题（Neil 2026-10-24）
 
 # 计数存储：助手专用（2026-10-24 新建），只存"访客编码 + 日期"的次数，两天后过期
 [[kv_namespaces]]
