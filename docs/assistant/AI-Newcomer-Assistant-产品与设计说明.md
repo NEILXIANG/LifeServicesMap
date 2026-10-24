@@ -495,6 +495,18 @@ Scenario: 提示词注入
 6. 回答简洁：先给步骤，再给来源；不超过 8 个要点。
 7. 默认用提问的语言回答。
 
+## 附录 B：与现有生活指南的关系
+
+| | 生活指南 | AI Newcomer Assistant |
+|---|---|---|
+| 用户 | 公众（新移民及其家人） | KIS 工作人员（第一阶段） |
+| 访问 | 公开 | 登录限制 |
+| 网址 | `kamloops-lifemap.neilxiang.workers.dev`（永久不变） | 独立的免费二级地址 |
+| 内容 | 已核实的地点和办事卡 | 只读取指南的已核实内容 |
+| 个人信息 | 不收集 | 不收集、不保存 |
+| 离线 | 支持 | 不支持（需联网调用 AI） |
+| 费用 | 几乎为零 | Claude API 按用量付费（预计每月几美元） |
+
 ## 附录 C：开工决策记录模板
 
 ```markdown
@@ -519,18 +531,6 @@ Scenario: 提示词注入
 3. 加拿大政府数字服务标准「与用户一起设计」：<https://www.canada.ca/en/government/system/digital-government/government-canada-digital-standards/design-with-users.html>
 4. W3C WCAG 2.2：<https://www.w3.org/TR/WCAG22/>
 5. KIS 官网：<https://immigrantservices.ca/>
-
-## 附录 B：与现有生活指南的关系
-
-| | 生活指南 | AI Newcomer Assistant |
-|---|---|---|
-| 用户 | 公众（新移民及其家人） | KIS 工作人员（第一阶段） |
-| 访问 | 公开 | 登录限制 |
-| 网址 | `kamloops-lifemap.neilxiang.workers.dev`（永久不变） | 独立的免费二级地址 |
-| 内容 | 已核实的地点和办事卡 | 只读取指南的已核实内容 |
-| 个人信息 | 不收集 | 不收集、不保存 |
-| 离线 | 支持 | 不支持（需联网调用 AI） |
-| 费用 | 几乎为零 | Claude API 按用量付费（预计每月几美元） |
 
 ---
 
