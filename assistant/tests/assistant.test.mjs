@@ -231,3 +231,14 @@ test('提问语言识别', () => {
   assert.equal(guessLang('¿Dónde está el banco de alimentos?'), 'es');
   assert.equal(guessLang('Where is the library'), 'en');
 });
+
+test('公开版：用面向新移民的规则，提问放在 <question> 里，不是工作人员版', async () => {
+  const calls = [];
+  const a = createAssistant(know, { isCrisis, today: '2026-10-23', audience: 'public', callModel: async req => { calls.push(req); return ans([]); } });
+  await a.ask('How do I get a SIN?', { uiLang: 'en' });
+  const sys = calls[0].system[0].text;
+  assert.match(sys, /newcomers to Kamloops/);
+  assert.match(sys, /not say or imply that you are Kamloops Immigrant Services/);
+  assert.doesNotMatch(sys, /help settlement staff/);
+  assert.match(calls[0].messages[0].content[1].text, /^<question>\nHow do I get a SIN\?/);
+});

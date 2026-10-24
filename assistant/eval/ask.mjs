@@ -16,7 +16,9 @@ export function loadKey() {
 export async function load(opts = {}) {
   const know = JSON.parse(fs.readFileSync(path.join(here, '..', 'build', 'knowledge.json'), 'utf8'));
   const { isCrisis } = await import('../src/crisis.js');
-  return createAssistant(know, { isCrisis, callModel: opts.callModel || makeCallModel(loadKey()), model: process.env.MODEL || 'claude-opus-5-5' });
+  return createAssistant(know, { isCrisis, callModel: opts.callModel || makeCallModel(loadKey()), model: process.env.MODEL || 'claude-opus-5-5',
+    // 2026-10-24 起线上是公开版；AUDIENCE=staff 可测工作人员版
+    audience: process.env.AUDIENCE || 'public' });
 }
 if (import.meta.url === `file://${process.argv[1]}`) {
   const a = await load();

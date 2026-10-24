@@ -1,6 +1,6 @@
 // eval/run.mjs — 用真实的 Claude 跑测试题（花钱！说明 §12.1）。
 //
-//   node eval/run.mjs              # 默认只跑 smoke 的 5 道（Neil 2026-10-23）
+//   node eval/run.mjs              # 默认只跑 smoke 的 3 道（Neil 2026-10-24）
 //   node eval/run.mjs q10 q18      # 只跑指定的题
 //   node eval/run.mjs --all        # 全部 30 道——先问 Neil
 //   node eval/run.mjs --dry        # 只列出要跑哪些题和预计费用，不调用
@@ -21,7 +21,7 @@ const know = JSON.parse(fs.readFileSync(path.join(here, '..', 'build', 'knowledg
 
 // Claude Opus 5.5 价格（美元 / 百万 token）：输入 4、输出 20、写缓存 5（1.25 倍）、读缓存 0.20
 const PRICE = { in: 4, out: 20, cacheWrite: 5, cacheRead: 0.2 };
-const EST_PER_Q = 0.08;
+const EST_PER_Q = 0.04;   // 实测：带缓存每题约 3.5–5 美分
 
 const args = process.argv.slice(2);
 const ids = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--regrade');
@@ -92,6 +92,6 @@ console.log(`AI 调用 ${usage.calls} 次；输入 ${usage.in}、写缓存 ${usa
 const dir = path.join(here, 'results');
 fs.mkdirSync(dir, { recursive: true });
 const file = path.join(dir, new Date().toISOString().replace(/[:.]/g, '-') + '.json');
-fs.writeFileSync(file, JSON.stringify({ model: process.env.MODEL || 'claude-opus-5-5', usage, cost, passed, total: results.length, results }, null, 1));
+fs.writeFileSync(file, JSON.stringify({ model: process.env.MODEL || 'claude-opus-5-5', audience: process.env.AUDIENCE || 'public', usage, cost, passed, total: results.length, results }, null, 1));
 console.log('结果：' + path.relative(process.cwd(), file));
 process.exit(passed === results.length ? 0 : 1);

@@ -1,4 +1,4 @@
-# wrangler.toml — AI Newcomer Assistant（KIS 工作人员试用）
+# wrangler.toml — AI Newcomer Assistant（2026-10-24 起公开，像生活指南一样任何人都能用）
 #
 # 和生活指南完全分开：独立的 Worker、独立的网址 kamloops-assistant.neilxiang.workers.dev。
 # 指南的 Worker（kamloops-lifemap）和网址不受影响。
@@ -6,8 +6,10 @@
 # 部署前（每次都要 Neil 同意）：
 #   1. python3 build.py                                 # 从指南数据生成 build/knowledge.json
 #   2. npx wrangler secret put ANTHROPIC_API_KEY       # 密钥只放在 Worker 保密设置里
-#   3. Cloudflare Access 打开后：wrangler secret put ACCESS_TEAM / ACCESS_AUD
-#      没有这两项时，线上一律返回 403（宁可用不了，也不开着）。见 README.md。
+#   3. 公开（PUBLIC = "1"）时不需要 Access；改回工作人员版（PUBLIC = "0"）时，
+#      必须先在 Worker 的 Access 标签页开启 Access，否则线上一律 403。见 README.md。
+#
+# 只能部署到 kamloops-assistant（tests/isolation.test.mjs 检查）；指南的 Worker、数据、统计都不碰。
 
 name = "kamloops-assistant"
 main = "src/worker.js"
@@ -22,7 +24,22 @@ run_worker_first = true
 
 [vars]
 MODEL = "claude-opus-5-5"
+# 公开：任何人都能用（Neil 2026-10-24）；回答直接面向新移民，没有"客户语言版本"
+PUBLIC = "1"
+# 费用保护（src/limits.js）：全站每天 / 每位访客每天
 DAILY_LIMIT = "200"
+IP_DAILY_LIMIT = "20"
+
+# 计数存储：助手专用（2026-10-24 新建），只存"访客编码 + 日期"的次数，两天后过期
+[[kv_namespaces]]
+binding = "USAGE"
+id = "615e1e360de4462785ca386617b433bd"
+
+# 短时防刷：同一访客每分钟最多 5 次
+[[ratelimits]]
+name = "BURST"
+namespace_id = "4271"
+simple = { limit = 5, period = 60 }
 
 # 匿名反馈（有用 / 有错）。数据集第一次写入时自动创建；免费额度内。
 [[analytics_engine_datasets]]

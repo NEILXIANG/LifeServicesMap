@@ -4438,6 +4438,31 @@
      "marker": "--regrade <结果文件>"
     }
    ]
+  },
+  {
+   "id": "L-150",
+   "title": "同一账户上加第二个产品：用测试锁定部署目标，不许动主产品的文件和数据",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "上线",
+   "lesson": "AI 助手和生活指南在同一个 Cloudflare 账户、同一个仓库。Neil 要求\"不能污染 kamloops-lifemap\"\"只能是 kamloops-assistant\"——光靠记得住不够：配置文件抄错一个名字，部署就会覆盖线上指南。",
+   "rule": "第二个产品（或新城市）有自己的目录和 wrangler.toml；测试检查 Worker 名字、不绑定路由、不共用统计数据集和存储，并和 main 比对主产品的文件一个都没变；写完把名字改成主产品、改一个主产品文件，各跑一次确认检查会失败。",
+   "status": "auto",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 4 轮（2026-10-24）：改为公开，像生活指南一样任何人都能用",
+     "what": "公开助手时要求不碰 kamloops-lifemap"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "test",
+     "path": "assistant/tests/isolation.test.mjs",
+     "marker": "部署目标只能是 kamloops-assistant"
+    }
+   ]
   }
  ],
  "assets": [

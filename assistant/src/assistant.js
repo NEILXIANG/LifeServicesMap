@@ -6,11 +6,14 @@
 
 import { buildIndex, retrieve, LANGS } from './retrieve.js';
 import { ground, sameFacts, sourceCard } from './ground.js';
-import { SYSTEM, TRANSLATE_SYSTEM, ANSWER_SCHEMA, TRANSLATION_SCHEMA, guessLang, taskBlock, placeBlock, lineBlocks, lineDocs } from './prompt.js';
+import { SYSTEM_STAFF, SYSTEM_PUBLIC, TRANSLATE_SYSTEM, ANSWER_SCHEMA, TRANSLATION_SCHEMA, guessLang, taskBlock, placeBlock, lineBlocks, lineDocs } from './prompt.js';
 
 export const MAX_QUESTION = 1000;
 
-export function createAssistant(know, { isCrisis, callModel, model = 'claude-opus-5-5', today }) {
+export function createAssistant(know, { isCrisis, callModel, model = 'claude-opus-5-5', today, audience = 'staff' }) {
+  // 公开版：读者是新移民本人；工作人员版：读者是 KIS 工作人员（见 prompt.js）
+  const SYSTEM = audience === 'public' ? SYSTEM_PUBLIC : SYSTEM_STAFF;
+  const QTAG = audience === 'public' ? 'question' : 'staff_question';
   const index = buildIndex(know.docs);
   const todayYM = (today || know.builtFrom.today || '').slice(0, 7);
   const allTasks = know.docs.filter(d => d.kind === 'task');
@@ -59,7 +62,7 @@ export function createAssistant(know, { isCrisis, callModel, model = 'claude-opu
           { type: 'text', text: '<guide_content part="task_cards">\n' + cards + '\n</guide_content>', cache_control: { type: 'ephemeral' } }],
         messages: [{ role: 'user', content: [
           { type: 'text', text: '<guide_content part="places_and_lines">\n' + perQuestion + '\n</guide_content>' },
-          { type: 'text', text: '<staff_question>\n' + q + '\n</staff_question>' },
+          { type: 'text', text: '<' + QTAG + '>\n' + q + '\n</' + QTAG + '>' },
         ] }],
         output_config: { effort: 'medium', format: { type: 'json_schema', schema: ANSWER_SCHEMA } },
       });

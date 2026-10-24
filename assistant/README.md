@@ -49,7 +49,7 @@ umask 077; printf 'ANTHROPIC_API_KEY=%s\n' "$(cat ~/.anthropic_key)" > .dev.vars
 
 ```sh
 node eval/run.mjs --dry          # 先看要跑哪些、预计多少钱
-node eval/run.mjs                # 默认只跑 smoke 的 5 道（约 $0.25）
+node eval/run.mjs                # 默认只跑 smoke 的 3 道（约 $0.10；Neil：测试用 AI 只跑 3 题）
 node eval/run.mjs q10 q18        # 只跑指定的题
 node eval/run.mjs --regrade eval/results/<文件>.json   # 改了评分规则：用保存的回答重评，不调用
 ```

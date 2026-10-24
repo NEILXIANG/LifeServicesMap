@@ -2,7 +2,7 @@
 //
 //   GET  /…               界面（public/），先过 Access 校验，再加安全头
 //   POST /api/ask         { q, uiLang } → 回答（见 assistant.js）
-//   POST /api/translate   { answer, target } → 客户语言版本
+//   POST /api/translate   { answer, target } → 客户语言版本（只在工作人员版）
 //   POST /api/feedback    { verdict, status, lang, note } → 匿名反馈（写 Analytics Engine，若已绑定）
 //   GET  /api/health      AI 是否可用（不含任何密钥）
 //
@@ -10,9 +10,10 @@
 
 import know from '../build/knowledge.json';
 import { isCrisis } from './crisis.js';
-import { createAssistant } from './assistant.js';
+import { createAssistant, MAX_QUESTION } from './assistant.js';
 import { makeCallModel } from './claude.js';
 import { verifyAccess } from './access.js';
+import { checkLimits } from './limits.js';
 
 const SECURITY_HEADERS = {
   'Content-Security-Policy': "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; " +
@@ -39,29 +40,17 @@ function sameSite(request, url) {
   return request.headers.get('Sec-Fetch-Site') === 'same-origin';
 }
 
-// 每日调用上限（说明 F10）。绑定了 KV（USAGE）就跨实例计数；没绑定就按实例计数，Console 的月度上限兜底。
-const memCount = new Map();
-async function underDailyLimit(env) {
-  const limit = Number(env.DAILY_LIMIT || 200);
-  const day = new Date().toISOString().slice(0, 10);
-  if (env.USAGE) {
-    const n = Number(await env.USAGE.get('ask:' + day) || 0);
-    if (n >= limit) return false;
-    await env.USAGE.put('ask:' + day, String(n + 1), { expirationTtl: 3 * 86400 });
-    return true;
-  }
-  const n = memCount.get(day) || 0;
-  if (n >= limit) return false;
-  memCount.set(day, n + 1);
-  return true;
-}
+// 公开（PUBLIC=1，2026-10-24 Neil 决定）：像生活指南一样任何人都能打开，回答直接面向新移民；
+// 否则只给登录的 KIS 工作人员（Cloudflare Access），回答面向工作人员，并有"客户语言版本"。
+const isPublic = env => env.PUBLIC === '1';
+const audience = env => (isPublic(env) ? 'public' : 'staff');
 
 let _assistant = null, _key = null;
 function assistant(env) {
   if (!_assistant || _key !== env.ANTHROPIC_API_KEY) {
     _key = env.ANTHROPIC_API_KEY;
     const callModel = _key ? makeCallModel(_key) : async () => { const e = new Error('no key'); e.reason = 'ai_not_configured'; throw e; };
-    _assistant = createAssistant(know, { isCrisis, callModel, model: env.MODEL || 'claude-opus-5-5' });
+    _assistant = createAssistant(know, { isCrisis, callModel, model: env.MODEL || 'claude-opus-5-5', audience: audience(env) });
   }
   return _assistant;
 }
@@ -76,13 +65,15 @@ const clean = s => String(s || '').slice(0, 200).replace(/\S+@\S+/g, '[email]').
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const gate = await verifyAccess(request, env, ctx);
-    if (!gate.ok) return json({ status: 'forbidden', reason: gate.why }, 403);
+    if (!isPublic(env)) {
+      const gate = await verifyAccess(request, env, ctx);
+      if (!gate.ok) return json({ status: 'forbidden', reason: gate.why }, 403);
+    }
 
     if (!url.pathname.startsWith('/api/')) return withHeaders(await env.ASSETS.fetch(request));
 
     if (url.pathname === '/api/health' && request.method === 'GET') {
-      return json({ ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', built: know.builtFrom });
+      return json({ ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', audience: audience(env), built: know.builtFrom });
     }
     if (request.method !== 'POST' || !sameSite(request, url)) return json({ status: 'error', reason: 'bad_request' }, 400);
     const b = await body(request);
@@ -91,14 +82,18 @@ export default {
     if (url.pathname === '/api/ask') {
       const a = assistant(env);
       // 危机提问不计入上限，也不调用 AI
-      if (!isCrisis(b.q) && !(await underDailyLimit(env))) {
-        return json({ status: 'error', reason: 'daily_limit' });
+      // 空问题、过长的问题不调用 AI，也不计次数；危机提问同样不计次数
+      const q = String(b.q || '').trim();
+      if (q && q.length <= MAX_QUESTION && !isCrisis(q)) {
+        const why = await checkLimits(request, env);
+        if (why) return json({ status: 'error', reason: why });
       }
       return json(await a.ask(b.q, { uiLang: b.uiLang }));
     }
-    if (url.pathname === '/api/translate') {
+    if (url.pathname === '/api/translate' && !isPublic(env)) {
       if (!b.answer || !b.target || String(b.target).length > 40) return json({ status: 'error', reason: 'bad_request' }, 400);
-      if (!(await underDailyLimit(env))) return json({ status: 'error', reason: 'daily_limit' });
+      const why = await checkLimits(request, env);
+      if (why) return json({ status: 'error', reason: why });
       return json(await assistant(env).translate(b.answer, String(b.target)));
     }
     if (url.pathname === '/api/feedback') {
