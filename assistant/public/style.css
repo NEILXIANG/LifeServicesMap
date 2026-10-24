@@ -109,3 +109,4 @@ form[aria-busy="true"] textarea{opacity:.75}
 .quick[open] > summary::before,.earlier[open] > summary::before,.past[open] > summary::before{content:"▾"}
 summary::-webkit-details-marker{display:none}
 summary{list-style:none}
+.url-inline{overflow-wrap:anywhere}

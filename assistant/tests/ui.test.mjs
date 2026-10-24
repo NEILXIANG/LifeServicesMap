@@ -91,3 +91,12 @@ test('el() 彻底展开嵌套数组；回答卡片不用会把 null 显示成文
   assert.match(app, /kids\.flat\(Infinity\)/);
   assert.equal((app.match(/\.append\(/g) || []).length, 1, '只有 el() 里那一处 append');
 });
+
+test('回答里的网址可以点，句末标点不算进网址', () => {
+  const re = new Function(app.match(/const URL_IN_TEXT = (\/.*\/g);/)[0] + 'return URL_IN_TEXT;')();
+  const split = s => s.split(re).filter((_, i) => i % 2);
+  assert.deepEqual(split('Website https://kamloopsfoodbank.org/clients/. Call first.'), ['https://kamloopsfoodbank.org/clients/']);
+  assert.deepEqual(split('详见 https://www.canada.ca/sin。'), ['https://www.canada.ca/sin']);
+  assert.deepEqual(split('(see https://a.ca/x)'), ['https://a.ca/x']);
+  assert.deepEqual(split('no link here'), []);
+});

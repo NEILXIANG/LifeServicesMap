@@ -177,7 +177,10 @@ const el = (tag, attrs = {}, ...kids) => {
 const telHref = p => 'tel:' + String(p).replace(/[^\d+]/g, '');
 // 回答文字里的电话：可点击拨号，且不在中间折行（这些号码已由服务器核对过出自指南）
 const PHONE_RE = /((?:\+?1[\s.-]?)?(?:\(\d{3}\)|\d{3})[\s.-]\d{3}[\s.-]\d{4}|\b\d-\d-\d\b|\b(?:911|811|211)\b)/g;
-const rich = text => String(text).split(PHONE_RE).map((part, i) => i % 2 ? el('a', { class: 'tel-inline', href: telHref(part) }, part) : part);
+// 网址也可以点（同样已由服务器核对过出自指南）；句末的标点不算进网址
+const URL_IN_TEXT = /(https?:\/\/[^\s<>"'）)\]，。]+?)(?=[.,;:!?)）\]，。]*(?:\s|$))/g;
+const linkUrls = text => String(text).split(URL_IN_TEXT).map((part, i) => i % 2 ? el('a', { href: part, target: '_blank', rel: 'noopener', class: 'url-inline' }, part) : part);
+const rich = text => String(text).split(PHONE_RE).map((part, i) => i % 2 ? el('a', { class: 'tel-inline', href: telHref(part) }, part) : linkUrls(part));
 
 // 发送前的个人信息检查（只在浏览器里，不发出去）：电话、邮箱、9 位号码（SIN 等）、证件号、7 位以上的长数字
 const PII_RE = [
