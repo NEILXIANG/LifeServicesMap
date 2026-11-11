@@ -83,6 +83,15 @@ cd assistant && python3 build.py && node --test tests/*.test.mjs
 
 **3. 费用保护**：Worker 每日上限 `DAILY_LIMIT`（默认 200 次）；Anthropic Console 预充值 + 月度上限。
 
+## 日常查看（不花钱）
+
+```sh
+python3 assistant/kit/watch.py            # 健康检查（页面、危机、AI 密钥是否有效）+ 近 30 天反馈和 AI 故障
+python3 assistant/kit/watch.py health     # 只做健康检查；有问题时退出码为 1，适合每天定时跑
+```
+
+AI 密钥会到期（Console 默认 30 天）：建新密钥时选长期限，到期日记在开发记录里（经验 L-152）。
+
 ## 指南更新后
 
 重新 `python3 build.py` 并部署，助手就读到新内容。危机规则也从指南的引擎里重新抄，测试会检查两边是否一致。

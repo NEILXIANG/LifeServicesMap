@@ -4,7 +4,7 @@
 //   POST /api/ask         { q, uiLang } → 回答（见 assistant.js）
 //   POST /api/translate   { answer, target } → 客户语言版本（只在工作人员版）
 //   POST /api/feedback    { verdict: useful | wrong | offtopic, status, lang, note } → 匿名反馈（写 Analytics Engine，若已绑定）
-//   GET  /api/health      AI 是否可用、公开还是工作人员版、指南网址（不含任何密钥）
+//   GET  /api/health      AI 是否可用、公开还是工作人员版、指南网址（不含任何密钥）；?deep=1 再确认密钥仍然有效（免费接口）
 //   GET  /api/quota       今天还剩几题（公开版；不计数）
 //
 // 隐私（说明 §9）：不保存、不记录提问和回答原文；反馈只记"有用/有错"和一句去掉数字与邮箱的说明。
@@ -61,6 +61,16 @@ async function body(request) {
   try { return await request.json(); } catch { return null; }
 }
 
+const INTERNAL_AI_ERRORS = ['ai_key', 'ai_not_configured', 'ai_refused', 'ai_unavailable', 'rate_limited'];
+
+async function keyOk(env) {
+  if (!env.ANTHROPIC_API_KEY) return false;
+  try {
+    const r = await fetch('https://api.anthropic.com/v1/models?limit=1', { headers: { 'x-api-key': env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' } });
+    return r.ok;
+  } catch { return null; }
+}
+
 const clean = s => String(s || '').slice(0, 200).replace(/\S+@\S+/g, '[email]').replace(/\d[\d\s-]{4,}\d/g, '[number]');
 
 export default {
@@ -77,7 +87,15 @@ export default {
       return json(isPublic(env) ? await peekQuota(request, env) : { left: null, limit: null });
     }
     if (url.pathname === '/api/health' && request.method === 'GET') {
-      return json({ ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', audience: audience(env), guide: know.city.siteUrl, built: know.builtFrom });
+      const out = { ai: !!env.ANTHROPIC_API_KEY, model: env.MODEL || 'claude-opus-5-5', audience: audience(env), guide: know.city.siteUrl, built: know.builtFrom };
+      // ?deep=1：用 Anthropic 不收费的"列出模型"接口确认密钥仍然有效（2026-11-11 密钥过期，AI 停了一段时间才发现）。
+      // 共用一个防刷名额，不能被人拿来反复敲 Anthropic。
+      if (url.searchParams.get('deep') === '1') {
+        const ok = !env.BURST || (await env.BURST.limit({ key: 'health-deep' })).success;
+        if (!ok) return json({ ...out, key_ok: null, reason: 'too_fast' }, 429);
+        out.key_ok = await keyOk(env);
+      }
+      return json(out);
     }
     if (request.method !== 'POST' || !sameSite(request, url)) return json({ status: 'error', reason: 'bad_request' }, 400);
     const b = await body(request);
@@ -93,6 +111,12 @@ export default {
         if (why) return json({ status: 'error', reason: why, quota: isPublic(env) ? await peekQuota(request, env) : null });
       }
       const res = await a.ask(b.q, { uiLang: b.uiLang });
+      if (res.status === 'error' && INTERNAL_AI_ERRORS.includes(res.reason)) {
+        // 记一条匿名的故障事件（只有原因，没有提问内容），便于发现密钥过期之类的问题
+        if (env.ANALYTICS) env.ANALYTICS.writeDataPoint({ blobs: ['ai_error', res.reason], doubles: [1], indexes: ['assistant'] });
+        // 公众只看到"暂时无法回答"，不暴露"密钥无效"之类的内部原因
+        if (isPublic(env)) res.reason = 'ai_unavailable';
+      }
       if (isPublic(env)) res.quota = await peekQuota(request, env);
       return json(res);
     }

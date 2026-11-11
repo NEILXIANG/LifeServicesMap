@@ -100,3 +100,14 @@ test('回答里的网址可以点，句末标点不算进网址', () => {
   assert.deepEqual(split('(see https://a.ca/x)'), ['https://a.ca/x']);
   assert.deepEqual(split('no link here'), []);
 });
+
+test('常见问题按钮：每个按钮在六种语言里都有标题和问题（2026-11-11 加了学英语、MSP 生效前生病）', () => {
+  const html = pub('index.html');
+  const qs = [...html.matchAll(/data-q="(\w+)" data-t="(\w+)"/g)];
+  assert.ok(qs.length >= 6);
+  for (const l of Object.keys(T)) for (const [, q, tt] of qs) { assert.ok(T[l][q], `${l}.${q}`); assert.ok(T[l][tt], `${l}.${tt}`); }
+  for (const l of Object.keys(T)) {
+    const isCrisisLike = /hits|hurt|violen|自杀|打我/.test(T[l].quick5 + T[l].quick6);
+    assert.ok(!isCrisisLike, l + ' 常见问题不应触发危机识别');
+  }
+});

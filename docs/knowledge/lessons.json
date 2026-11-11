@@ -4404,6 +4404,12 @@
      "ref": "docs/assistant/开发记录.md",
      "section": "## 第 1 轮（2026-10-23）：第一阶段本机可用（含 AI）",
      "what": "\"她丈夫打她\"不命中指南的危机规则"
+    },
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 8 轮（2026-11-11）：AI 密钥失效与按建议的优化",
+     "what": "进行时说法（keeps hitting her、beating his wife）也漏了"
     }
    ],
    "encoded": [
@@ -4492,6 +4498,31 @@
      "kind": "test",
      "path": "assistant/tests/ui.test.mjs",
      "marker": "el() 彻底展开嵌套数组"
+    }
+   ]
+  },
+  {
+   "id": "L-152",
+   "title": "线上服务用的密钥会到期：选长期限、记下到期日、每天用免费接口核对",
+   "area": "部署与运维",
+   "scope": "all",
+   "phase": "维护",
+   "lesson": "AI 助手的 Anthropic 密钥在 10 月 23 日创建，11 月 11 日录视频时才发现已失效（401）——Console 新建密钥默认 30 天到期。期间普通问题全部显示\"暂时无法回答\"，没有任何提醒。第三方服务的密钥（地图瓦片、AI）都有同样的风险。",
+   "rule": "给线上服务建密钥时选最长期限或永不过期，并把到期日写进开发记录；健康检查用服务商不收费的接口核对密钥（/api/health?deep=1、assistant/kit/watch.py health），失败时退出码非零，便于定时提醒；公众看到的错误不暴露\"密钥无效\"之类的内部原因，内部另记匿名故障事件。",
+   "status": "tool",
+   "evidence": [
+    {
+     "city": "Kamloops",
+     "ref": "docs/assistant/开发记录.md",
+     "section": "## 第 8 轮（2026-11-11）：AI 密钥失效与按建议的优化",
+     "what": "密钥默认 30 天到期，AI 悄悄停了"
+    }
+   ],
+   "encoded": [
+    {
+     "kind": "tool",
+     "path": "assistant/kit/watch.py",
+     "marker": "def health()"
     }
    ]
   }

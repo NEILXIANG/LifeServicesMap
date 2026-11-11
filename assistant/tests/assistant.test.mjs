@@ -253,3 +253,13 @@ test('地点来源带"在指南地图上找"的链接（指南网址 + 地点名
   assert.match(s.map, /lang=zh/);
   assert.match(s.map, new RegExp('q=' + encodeURIComponent(place.n).replace(/[()]/g, '\\$&')));
 });
+
+// 2026-11-11：进行时和"打太太/打孩子"的说法原先漏了（"keeps hitting her"会被发给 AI）
+for (const q of ['her husband keeps hitting her', 'he is beating his wife', 'he keeps hurting her', 'her partner is choking her',
+  'he kicked his son', 'her husband slapped her', 'he punches her', 'my dad is beating my mom']) {
+  test('家暴的进行时和家人说法：' + q, () => assert.ok(isCrisis(q)));
+}
+for (const q of ['hitting the gym in Kamloops', 'hurt my back at work, can I see a doctor', 'I hurt my hand, where is urgent care?',
+  'he hurt his knee playing soccer', 'punch card for the pool', "Our MSP hasn't kicked in yet. My son has a fever."]) {
+  test('普通问题不误判为危机：' + q, () => assert.ok(!isCrisis(q)));
+}

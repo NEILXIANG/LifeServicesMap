@@ -11,7 +11,9 @@ const STAFF_RE = new RegExp([
   '(打|揍|殴打|虐待|威胁|跟踪|伤害|强奸|侵犯)(她|他|孩子|小孩|女儿|儿子|太太|妻子|老婆)',
   '(她|他)(想|要)(死|自杀|结束生命)', '(她|他)不安全', '(她|他)(在家|回家)(很)?(害怕|不安全)',
   // English third person
-  '\\b(hits|hit|beats|beat|hurts|hurt|chokes|choked|abuses|abused|threatens|threatened|rapes|raped|stalks|stalking) (her|him|them|the (kids?|children|child|baby))\\b',
+  // 2026-11-11：补上进行时和"打太太/打孩子"的说法——"keeps hitting her""beating his wife""choking her"原先都漏了
+  '\\b(hits|hit|hitting|beats|beat|beating|hurts|hurt|hurting|chokes|choked|choking|strangl\\w*|abuses|abused|abusing|threatens|threatened|threatening|rapes|raped|raping|stalks|stalking|kicks|kicked|kicking|slaps|slapped|slapping|punch(?:es|ed|ing)?) ' +
+    '(her|him|them|the (kids?|children|child|baby)|(his|her|their|my) (wife|husband|partner|girlfriend|boyfriend|kids?|children|child|son|daughter|baby|mom|mother))\\b',
   '\\b(she|he|they|client)( (is|are|was))? (wants?|wanted|trying|tried|going|plans?) to (die|kill (herself|himself|themselves)|end (her|his|their) life)\\b',
   '\\bkill (herself|himself|themselves)\\b', '\\b(she|he|they) (is|are|feels?) (not safe|unsafe|in danger)\\b',
   // français / español
