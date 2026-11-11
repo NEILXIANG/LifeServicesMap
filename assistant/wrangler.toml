@@ -26,20 +26,20 @@ run_worker_first = true
 MODEL = "claude-opus-5-5"
 # 公开：任何人都能用（Neil 2026-10-24）；回答直接面向新移民，没有"客户语言版本"
 PUBLIC = "1"
-# 费用保护（src/limits.js）：全站每天 / 每位访客每天
-DAILY_LIMIT = "200"
-IP_DAILY_LIMIT = "10"   # 每位用户（IP）每天最多 10 题；超过时提示"测试版、控制预算"（Neil 2026-10-24）
+# 费用保护（src/limits.js）：全站每天总闸 / 每位访客每天（0 = 不限）；另有每分钟防刷（下面的 BURST）
+DAILY_LIMIT = "500"   # 全站每天总闸：被刷时止损（每题约 4 美分，最坏约 $20/天）
+IP_DAILY_LIMIT = "0"   # 每人每天不限（Neil 2026-11-11："使用的人不多，全部开放"；原为 10）
 
 # 计数存储：助手专用（2026-10-24 新建），只存"访客编码 + 日期"的次数，两天后过期
 [[kv_namespaces]]
 binding = "USAGE"
 id = "615e1e360de4462785ca386617b433bd"
 
-# 短时防刷：同一访客每分钟最多 5 次
+# 短时防刷：同一访客每分钟最多 15 次（Neil 2026-11-11；原为 5）
 [[ratelimits]]
 name = "BURST"
 namespace_id = "4271"
-simple = { limit = 5, period = 60 }
+simple = { limit = 15, period = 60 }
 
 # 匿名反馈（有用 / 有错）。数据集第一次写入时自动创建；免费额度内。
 [[analytics_engine_datasets]]

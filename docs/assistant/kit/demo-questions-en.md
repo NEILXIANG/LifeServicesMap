@@ -6,7 +6,6 @@ Show the assistant **after** the Life Guide discussion, as one example of what t
 
 ## Before the meeting
 
-- The day before, ask Neil to raise the daily question limit for the meeting. The test version allows 10 questions per person per day, and everyone on the same office Wi-Fi counts as one person.
 - Open the site once on the phone or laptop you will use, so it is already loaded.
 - Pick the interface language with the buttons at the top. English is the default.
 
@@ -63,5 +62,5 @@ Show the assistant **after** the Life Guide discussion, as one example of what t
 ## If something goes wrong
 
 - **The answer is slow (5–15 seconds):** that is normal. The page shows its progress.
-- **"Today's questions are used up":** the daily test limit has been reached. Use the Life Guide directly; Neil can raise the limit.
+- **"Please wait a minute":** more than 15 questions were asked within a minute from the same connection. Wait a moment and ask again.
 - **An answer looks wrong:** say so openly. Every answer shows its sources and check dates so errors can be traced. Press **Wrong** and add a sentence; that feedback is how it improves.

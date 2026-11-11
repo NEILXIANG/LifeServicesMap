@@ -21,7 +21,7 @@
 <li><strong>Not collected:</strong> names, contact details, ID numbers, immigration status, health information. Please do not type these into a question.</li>
 <li><strong>Not stored:</strong> questions and answers are not written to any storage, and server logs do not record questions. The browser only remembers your interface language.</li>
 <li><strong>Sent to the AI service:</strong> only the question text and the relevant guide content, so that the AI can write the answer. The AI service is Anthropic’s Claude API; by default Anthropic does not train models on API data. Questions that look like a crisis are never sent to the AI — the page shows help lines instead.</li>
-<li><strong>Question limits:</strong> to keep the service free, each visitor can ask a limited number of questions per day. To count them we keep a one-way code made from your internet address and the date — not the address itself — and delete it after two days.</li>
+<li><strong>Abuse protection:</strong> there is no daily limit per person. To stop automated abuse, more than 15 questions a minute from the same connection are paused for a moment; for that we use a one-way code made from your internet address and the date — not the address itself — and do not store it. The site also has an overall daily limit.</li>
 <li><strong>Anonymous feedback:</strong> “useful / wrong” and the one-sentence note on “wrong” (numbers and email addresses are removed).</li>
 </ul>
 <p>Answers are compiled by AI from the guide and may contain errors; official sources take precedence. The assistant does not decide anyone’s immigration, legal or medical situation. In an emergency, call 9-1-1.</p>
@@ -34,7 +34,7 @@
 <li><strong>Rien n’est recueilli :</strong> noms, coordonnées, numéros de pièce d’identité, statut d’immigration, renseignements de santé. N’entrez pas ces renseignements dans une question.</li>
 <li><strong>Rien n’est conservé :</strong> les questions et les réponses ne sont enregistrées nulle part, et les journaux du serveur ne contiennent pas les questions. Le navigateur ne retient que la langue de l’interface.</li>
 <li><strong>Envoyé au service d’IA :</strong> uniquement le texte de la question et le contenu pertinent du guide, pour que l’IA rédige la réponse. Le service d’IA est l’API Claude d’Anthropic ; par défaut, Anthropic n’entraîne pas ses modèles sur les données de l’API. Les questions qui semblent concerner une crise ne sont jamais envoyées à l’IA — la page affiche plutôt des lignes d’aide.</li>
-<li><strong>Limite de questions :</strong> pour que le service reste gratuit, chaque visiteur peut poser un nombre limité de questions par jour. Pour les compter, nous gardons un code à sens unique tiré de votre adresse internet et de la date — pas l’adresse elle-même — et le supprimons après deux jours.</li>
+<li><strong>Protection contre les abus :</strong> il n’y a pas de limite quotidienne par personne. Pour bloquer les abus automatisés, au-delà de 15 questions par minute depuis la même connexion, les questions sont mises en pause un instant ; nous utilisons pour cela un code à sens unique tiré de votre adresse internet et de la date — pas l’adresse elle-même — et nous ne le conservons pas. Le site a aussi une limite totale par jour.</li>
 <li><strong>Avis anonymes :</strong> « utile / erronée » et la phrase jointe à « erronée » (les chiffres et les adresses courriel sont retirés).</li>
 </ul>
 <p>Les réponses sont rédigées par l’IA à partir du guide et peuvent contenir des erreurs ; les sources officielles font foi. L’assistant ne se prononce sur la situation d’immigration, juridique ou médicale de personne. En cas d’urgence, composez le 9-1-1.</p>
@@ -47,7 +47,7 @@
 <li><strong>No se recopila:</strong> nombres, datos de contacto, números de identificación, estatus migratorio ni información de salud. No escriba estos datos en una pregunta.</li>
 <li><strong>No se guarda:</strong> las preguntas y respuestas no se almacenan en ningún lugar y los registros del servidor no contienen las preguntas. El navegador solo recuerda el idioma de la interfaz.</li>
 <li><strong>Lo que se envía al servicio de IA:</strong> solo el texto de la pregunta y el contenido relevante de la guía, para que la IA redacte la respuesta. El servicio de IA es la API Claude de Anthropic; de forma predeterminada, Anthropic no entrena modelos con datos de la API. Las preguntas que parecen una crisis nunca se envían a la IA: la página muestra líneas de ayuda.</li>
-<li><strong>Límite de preguntas:</strong> para que el servicio siga siendo gratuito, cada visitante puede hacer un número limitado de preguntas al día. Para contarlas guardamos un código de un solo sentido hecho con su dirección de internet y la fecha —no la dirección— y lo borramos a los dos días.</li>
+<li><strong>Protección contra abusos:</strong> no hay un límite diario por persona. Para frenar el abuso automatizado, si llegan más de 15 preguntas por minuto desde la misma conexión se pausan un momento; para ello usamos un código de un solo sentido hecho con su dirección de internet y la fecha —no la dirección— y no lo guardamos. El sitio también tiene un límite total por día.</li>
 <li><strong>Valoraciones anónimas:</strong> «útil / incorrecta» y la frase que acompaña a «incorrecta» (se eliminan números y correos electrónicos).</li>
 </ul>
 <p>Las respuestas las redacta la IA a partir de la guía y pueden contener errores; prevalecen las fuentes oficiales. El asistente no decide sobre la situación migratoria, legal o médica de nadie. En una emergencia, llame al 9-1-1.</p>
@@ -60,7 +60,7 @@
 <li><strong>不收集：</strong> 姓名、联系方式、证件号码、移民身份、健康信息。请不要在提问里输入这些内容。</li>
 <li><strong>不保存：</strong> 提问和回答的原文不写入任何存储，服务器日志也不记录提问内容。浏览器只记住你选的界面语言。</li>
 <li><strong>发给 AI 服务的内容：</strong> 只有提问的文字，以及从生活指南里找到的相关内容，用来让 AI 写出回答。AI 服务是 Anthropic 的 Claude API；Anthropic 默认不用 API 数据训练模型。疑似危机的提问不会发给 AI，页面会直接显示求助电话。</li>
-<li><strong>提问次数限制：</strong> 为了让服务保持免费，每位访客每天能问的次数有限。计数时我们只保存用你的网络地址和日期生成的单向编码（不保存地址本身），两天后自动删除。</li>
+<li><strong>防滥用：</strong> 每人每天不限次数。为了防止机器人刷用，同一个网络连接一分钟内提问超过 15 次时会暂停片刻；为此我们只用你的网络地址和日期生成的单向编码（不使用地址本身），而且不保存。全站每天另有一个总上限。</li>
 <li><strong>匿名反馈：</strong> &quot;有用 / 有错&quot;，以及&quot;有错&quot;时附的一句说明（程序会去掉其中的数字和邮箱）。</li>
 </ul>
 <p>回答由 AI 根据指南整理，可能出错；重要信息请以官方来源为准。助手不对任何人的移民、法律或医疗情况下结论。紧急情况请拨 9-1-1。</p>
@@ -73,7 +73,7 @@
 <li><strong>수집하지 않음:</strong> 이름, 연락처, 신분증 번호, 이민 신분, 건강 정보. 질문에 이런 내용을 입력하지 마세요.</li>
 <li><strong>저장하지 않음:</strong> 질문과 답변 원문은 어디에도 저장되지 않으며, 서버 기록에도 질문 내용이 남지 않습니다. 브라우저는 선택한 화면 언어만 기억합니다.</li>
 <li><strong>AI 서비스로 보내는 내용:</strong> 답변을 쓰기 위한 질문 문장과 생활 가이드에서 찾은 관련 내용뿐입니다. AI 서비스는 Anthropic의 Claude API이며, Anthropic은 기본적으로 API 데이터로 모델을 학습시키지 않습니다. 위기로 보이는 질문은 AI로 보내지 않고, 대신 도움 전화번호를 보여 줍니다.</li>
-<li><strong>질문 횟수 제한:</strong> 서비스를 무료로 유지하기 위해 방문자마다 하루에 할 수 있는 질문 수가 정해져 있습니다. 횟수를 세기 위해 인터넷 주소와 날짜로 만든 단방향 코드만 보관하며(주소 자체는 보관하지 않음), 이틀 뒤 자동으로 지웁니다.</li>
+<li><strong>남용 방지:</strong> 1인당 하루 질문 수 제한은 없습니다. 자동화된 남용을 막기 위해 같은 연결에서 1분에 15개를 넘게 질문하면 잠시 멈춥니다. 이를 위해 인터넷 주소와 날짜로 만든 단방향 코드만 사용하며(주소 자체는 사용하지 않음) 보관하지 않습니다. 사이트 전체에는 하루 총 한도가 있습니다.</li>
 <li><strong>익명 의견:</strong> &#x27;도움 됨 / 틀림&#x27;과 &#x27;틀림&#x27;에 붙인 한 문장(숫자와 이메일 주소는 지웁니다).</li>
 </ul>
 <p>답변은 AI가 가이드를 바탕으로 정리한 것이라 틀릴 수 있으며, 공식 출처가 우선입니다. 도우미는 누구의 이민·법률·의료 상황에 대해서도 결론을 내리지 않습니다. 응급 상황에서는 9-1-1에 전화하세요.</p>
@@ -86,7 +86,7 @@
 <li><strong>収集しないもの：</strong> 氏名、連絡先、身分証の番号、在留資格、健康情報。質問にこれらを入力しないでください。</li>
 <li><strong>保存しないもの：</strong> 質問と回答の本文はどこにも保存せず、サーバーの記録にも質問は残りません。ブラウザが覚えるのは画面の言語だけです。</li>
 <li><strong>AI サービスに送る内容：</strong> 回答を作るための質問の文と、生活ガイドから見つけた関連する内容だけです。AI サービスは Anthropic の Claude API で、Anthropic は初期設定では API のデータでモデルを学習しません。危機に関わると思われる質問は AI に送らず、代わりに相談電話を表示します。</li>
-<li><strong>質問回数の制限：</strong> 無料で続けるため、1人が1日にできる質問の数を限っています。数えるために、インターネットのアドレスと日付から作った一方向のコードだけを保存し（アドレスそのものは保存しません）、2日後に自動で削除します。</li>
+<li><strong>不正利用の防止：</strong> 1人あたりの1日の質問数に上限はありません。自動化された不正利用を防ぐため、同じ接続から1分間に15問を超えると少しの間止まります。そのために、インターネットのアドレスと日付から作った一方向のコードだけを使い（アドレスそのものは使いません）、保存はしません。サイト全体には1日の合計上限があります。</li>
 <li><strong>匿名の評価：</strong> 「役に立った / 誤りがある」と、「誤りがある」に添えた一文（数字とメールアドレスは削除します）。</li>
 </ul>
 <p>回答は AI がガイドをもとにまとめたもので、誤りがある場合があります。公式の情報源が優先です。このアシスタントは、誰の在留・法律・医療の状況についても結論を出しません。緊急時は 9-1-1 に電話してください。</p>

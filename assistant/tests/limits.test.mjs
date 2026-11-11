@@ -53,3 +53,27 @@ test('剩余次数（peekQuota）：不计数，随提问减少', async () => {
   await checkLimits(req('9.9.9.9'), env, day);
   assert.deepEqual(await peekQuota(req('9.9.9.9'), env, day), { left: 9, limit: 10 });
 });
+
+test('每人不限（IP_DAILY_LIMIT = 0）：同一访客问多少都放行，剩余次数返回 null（界面不显示），不存访客编码', async () => {
+  _resetForTests();
+  const { peekQuota } = await import('../src/limits.js');
+  const keys = [];
+  const store = new Map();
+  const env = { IP_DAILY_LIMIT: '0', DAILY_LIMIT: '500', USAGE: { get: async k => store.get(k) || null, put: async (k, v) => { keys.push(k); store.set(k, v); } } };
+  for (let i = 0; i < 30; i++) assert.equal(await checkLimits(req('1.2.3.4'), env, day), null);
+  assert.deepEqual(await peekQuota(req('1.2.3.4'), env, day), { left: null, limit: null });
+  assert.ok(keys.every(k => k.startsWith('all:')), '只记全站总数，不记访客');
+});
+
+test('每人不限时，全站总闸照样有效', async () => {
+  _resetForTests();
+  const env = { IP_DAILY_LIMIT: '0', DAILY_LIMIT: '3' };
+  for (let i = 0; i < 3; i++) assert.equal(await checkLimits(req('9.9.9.' + i), env, day), null);
+  assert.equal(await checkLimits(req('9.9.9.9'), env, day), 'daily_limit');
+});
+
+test('防刷照样有效（每人不限时）', async () => {
+  _resetForTests();
+  const env = { IP_DAILY_LIMIT: '0', BURST: { limit: async () => ({ success: false }) } };
+  assert.equal(await checkLimits(req('1.2.3.4'), env, day), 'too_fast');
+});

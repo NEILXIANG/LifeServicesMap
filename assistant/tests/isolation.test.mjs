@@ -39,7 +39,8 @@ test('和 main 比，生活指南的文件一个都没有改', t => {
   assert.deepEqual(bad, [], '这些指南文件被改了：' + bad.join(', '));
 });
 
-test('线上上限：每位用户（IP）每天 10 题，全站每天 200 题（Neil 2026-10-24）', () => {
-  assert.match(toml, /^IP_DAILY_LIMIT = "10"/m);
-  assert.match(toml, /^DAILY_LIMIT = "200"/m);
+test('线上上限：每人每天不限、每分钟 15 题，全站每天 500 题总闸（Neil 2026-11-11）', () => {
+  assert.match(toml, /^IP_DAILY_LIMIT = "0"/m);
+  assert.match(toml, /^DAILY_LIMIT = "500"/m);
+  assert.match(toml, /^simple = \{ limit = 15, period = 60 \}/m);
 });

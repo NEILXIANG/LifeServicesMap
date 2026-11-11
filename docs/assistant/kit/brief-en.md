@@ -29,7 +29,7 @@ It is an **independent pilot**. It is not a service of Kamloops Immigrant Servic
 | **Not collected** | Names, contact details, ID numbers, immigration status, health information. The page asks people not to type them, and warns before sending if a question looks like it contains a phone number, email or ID number. |
 | **Not stored** | Questions and answers are not saved anywhere, and server logs do not record questions. |
 | **Sent to the AI service** | Only the question text and the relevant guide content. The service is Anthropic's Claude API; Anthropic is a US company, so questions are processed outside Canada. By default Anthropic does not train its models on API data. Crisis questions are never sent. |
-| **Usage limits** | To count questions per day, the service keeps a one-way code made from the visitor's internet address and the date — not the address itself — and deletes it after two days. |
+| **Abuse protection** | No daily limit per person. To slow down automated abuse, the service uses a one-way code made from the visitor's internet address and the date — not the address itself — and does not store it. Only a site-wide daily count is kept. |
 | **Feedback** | Anonymous "useful / wrong / didn't answer my question", with an optional sentence (numbers and email addresses are removed). |
 
 Organisations that would offer it to clients may want their own privacy review (a privacy impact assessment is common practice in BC).
@@ -37,7 +37,7 @@ Organisations that would offer it to clients may want their own privacy review (
 ## Cost and limits
 
 - About **4 US cents per answer**. Currently paid by Neil from an Anthropic API account with a prepaid balance, so spending cannot run past what has been loaded.
-- **Test-version limits:** 10 questions per person per day, 5 per minute, and 200 for the whole site per day. Crisis questions are not counted.
+- **Limits:** no daily limit per person. To stop automated abuse, more than 15 questions a minute from the same connection are paused, and the whole site has a daily cap of 500 questions (at about 4 cents each, at most about US$20 a day). Crisis questions are not counted.
 - No cost to organisations or users.
 
 ## How it has been tested
