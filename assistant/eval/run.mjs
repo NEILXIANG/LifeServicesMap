@@ -20,14 +20,21 @@ const bank = JSON.parse(fs.readFileSync(path.join(here, 'questions.json'), 'utf8
 const know = JSON.parse(fs.readFileSync(path.join(here, '..', 'build', 'knowledge.json'), 'utf8'));
 
 // Claude Opus 5.5 价格（美元 / 百万 token）：输入 4、输出 20、写缓存 5（1.25 倍）、读缓存 0.20
-const PRICE = { in: 4, out: 20, cacheWrite: 5, cacheRead: 0.2 };
-const EST_PER_Q = 0.04;   // 实测：带缓存每题约 3.5–5 美分
+// 各模型价格（美元 / 百万 token；写缓存 = 输入 × 1.25）。Sonnet 5.5 的读缓存价按官方 $0.20。
+const PRICES = {
+  'claude-opus-5-5': { in: 4, out: 20, cacheWrite: 5, cacheRead: 0.2 },
+  'claude-sonnet-5-5': { in: 2, out: 10, cacheWrite: 2.5, cacheRead: 0.2 },
+  'claude-haiku-5-5': { in: 0.1, out: 0.5, cacheWrite: 0.125, cacheRead: 0.01 },
+};
+const MODEL_NAME = process.env.MODEL || 'claude-opus-5-5';
+const PRICE = PRICES[MODEL_NAME] || PRICES['claude-opus-5-5'];
+const EST_PER_Q = MODEL_NAME.includes('haiku') ? 0.003 : MODEL_NAME.includes('sonnet') ? 0.02 : 0.04;   // 实测 Opus 带缓存每题约 3.5–5 美分
 
 const args = process.argv.slice(2);
 const ids = args.filter((a, i) => !a.startsWith('--') && args[i - 1] !== '--regrade');
 const pick = args.includes('--all') ? bank : ids.length ? bank.filter(q => ids.includes(q.id)) : bank.filter(q => q.smoke);
 const paid = pick.filter(q => q.type !== 'crisis').length;
-console.log(`要跑 ${pick.length} 道（其中 ${paid} 道调用 AI，预计约 $${(paid * EST_PER_Q).toFixed(2)}）：${pick.map(q => q.id).join(' ')}`);
+console.log(`模型 ${MODEL_NAME}；要跑 ${pick.length} 道（其中 ${paid} 道调用 AI，预计约 $${(paid * EST_PER_Q).toFixed(2)}）：${pick.map(q => q.id).join(' ')}`);
 if (args.includes('--dry')) process.exit(0);
 if (paid && !args.includes('--regrade') && !loadKey()) { console.error('没有密钥（~/.anthropic_key 或 ANTHROPIC_API_KEY）'); process.exit(2); }
 
