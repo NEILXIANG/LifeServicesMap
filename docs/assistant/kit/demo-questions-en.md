@@ -1,6 +1,6 @@
 # Kamloops Newcomer Assistant — Demo Script
 
-**Site:** https://kamloops-assistant.neilxiang.workers.dev · **Length:** about 6 minutes · **Version:** test (October 2026)
+**Site:** https://kamloops-assistant.neilxiang.workers.dev · **Length:** about 6 minutes · **Version:** test (November 2026)
 
 Show the assistant **after** the Life Guide discussion, as one example of what the guide's verified content makes possible. It is not a request for KIS to adopt anything.
 

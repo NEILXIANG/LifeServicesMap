@@ -1,6 +1,6 @@
 # Kamloops Newcomer Assistant 演示脚本
 
-**网址：** https://kamloops-assistant.neilxiang.workers.dev · **时长：** 约 6 分钟 · **版本：** 测试版（2026 年 10 月）
+**网址：** https://kamloops-assistant.neilxiang.workers.dev · **时长：** 约 6 分钟 · **版本：** 测试版（2026 年 11 月）
 
 在生活指南谈完**之后**再拿出来，作为"指南里已核实的内容还能这样用"的一个例子，不是请 KIS 现在就采用。
 

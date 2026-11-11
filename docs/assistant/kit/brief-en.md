@@ -1,6 +1,6 @@
 # Kamloops Newcomer Assistant — A Brief for Organisations
 
-**Test version, October 2026** · https://kamloops-assistant.neilxiang.workers.dev · Prepared by Neil Xiang
+**Test version, November 2026** · https://kamloops-assistant.neilxiang.workers.dev · Prepared by Neil Xiang
 
 ## What it is
 
@@ -42,7 +42,7 @@ Organisations that would offer it to clients may want their own privacy review (
 
 ## How it has been tested
 
-- 74 automated checks run before every release. They use a simulated AI and deliberately try invented phone numbers, fake sources, crisis wording in six languages (first and third person), hidden instructions and translation errors, to prove each safeguard catches them.
+- 92 automated checks run before every release. They use a simulated AI and deliberately try invented phone numbers, fake sources, crisis wording in six languages (first and third person, including everyday phrasing such as “her husband keeps hitting her”), hidden instructions and translation errors, to prove each safeguard catches them.
 - A bank of 30 test questions covers common processes, eligibility, crisis, questions the guide cannot answer, invented-number traps, personal details and other languages. A core set (an everyday process, an eligibility question and a hidden-instruction attempt) is re-run with the real AI after each change; the crisis questions are checked every time without the AI.
 - Checked by hand in a browser on phone and desktop, in all six interface languages, including dark mode.
 
@@ -61,4 +61,4 @@ The interface is in English, French, Spanish, Chinese, Korean and Japanese. Ques
 2. Tell us whether it would be more useful for staff, for clients, or not at all.
 3. Tell us what you would need — privacy, wording, oversight — before you would feel comfortable pointing people to it.
 
-**Contact:** Neil Xiang — [email]
+**Contact:** Neil Xiang — neilxiang@hotmail.com
