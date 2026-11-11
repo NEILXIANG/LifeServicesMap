@@ -21,7 +21,7 @@ W, H, FPS = 1280, 800, 30
 
 QUESTIONS = [
     ('ai', "I just moved to Kamloops last week. What should I do first?",
-     'Everyday questions, answered only from the verified Kamloops Life Guide', 'It starts by pointing newcomers to a KIS settlement worker'),
+     'Everyday questions, answered only from the verified Kamloops Life Guide', 'Practical first steps — including a free appointment with a KIS settlement worker'),
     ('ai', "Is there anywhere I can learn English for free? I've got a 3-year-old too.",
      'Any wording works — no keywords needed', 'Free LINC English classes and free childminding at KIS — with sources'),
     ('ai', "My daughter's 9 and doesn't speak much English yet. How do we get her into school here?",

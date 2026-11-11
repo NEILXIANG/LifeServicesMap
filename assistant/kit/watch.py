@@ -24,8 +24,12 @@ DATASET = 'kamloops_assistant_events'
 API = f'https://api.cloudflare.com/client/v4/accounts/{ACCOUNT_ID}/analytics_engine/sql'
 
 
+# Cloudflare 会拦下 Python 默认的 User-Agent（"Python-urllib"，返回 403），所以带上自己的标识
+UA = 'kamloops-assistant-watch/1.0'
+
+
 def http(url, data=None, headers=None, method=None):
-    req = urllib.request.Request(url, data=data, headers=headers or {}, method=method)
+    req = urllib.request.Request(url, data=data, headers={'User-Agent': UA, **(headers or {})}, method=method)
     with urllib.request.urlopen(req, timeout=30) as r:
         return r.status, r.read().decode()
 
