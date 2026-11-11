@@ -15,7 +15,7 @@ html,body{margin:0;width:%dpx;height:%dpx;background:#0a3d7a;color:#fff;font-fam
 h1{font-size:46px;margin:0 0 10px;font-weight:700;letter-spacing:.2px}
 .sub{font-size:24px;color:#cfe3ff;margin:0 0 38px}
 h2{font-size:22px;text-transform:uppercase;letter-spacing:2px;color:#9cc4ff;margin:0 0 14px;font-weight:700}
-ul{margin:0 0 34px;padding:0;list-style:none}
+ul{margin:0;padding:0;list-style:none}
 li{font-size:24px;line-height:1.45;margin:0 0 14px;padding-left:30px;position:relative}
 li::before{content:"";position:absolute;left:0;top:13px;width:12px;height:12px;border-radius:50%%;background:#ffb340}
 .foot{font-size:19px;color:#cfe3ff;border-top:1px solid rgba(255,255,255,.25);padding-top:18px}
@@ -29,11 +29,10 @@ li::before{content:"";position:absolute;left:0;top:13px;width:12px;height:12px;b
 <li data-i="3">Every answer comes only from the verified Kamloops Life Guide, with its sources and the month it was checked.</li>
 <li data-i="4">It points people to real help — KIS settlement workers, 8-1-1, 2-1-1 — and never sends a safety question to AI.</li>
 </ul>
-<div class="foot" data-i="5">Independent pilot · free · not a service of KIS or the government</div>
 </div></body></html>""" % (W, H)
 
 # 每一组字的淡入开始时间（秒）；淡入用 0.6 秒；全部出现后停 3.2 秒，最后 0.5 秒淡出到黑
-STARTS = [0.2, 1.0, 1.5, 2.5, 3.5, 4.5]
+STARTS = [0.2, 1.0, 1.5, 2.5, 3.5]   # 2026-11-11 Neil：删掉底部"Independent pilot · free · not a service of KIS or the government"
 FADE, HOLD, OUT = 0.6, 3.2, 0.5
 
 
